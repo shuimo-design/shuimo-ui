@@ -24,11 +24,12 @@ export default {
 .jh-button {
   cursor: pointer;
   margin: 6px 0 0 10px;
+  padding: 0 15px;
   height: 28px;
   border: unset;
   outline: unset;
   line-height: 28px;
-  width: 70px;
+  min-width: 70px;
   background: url("../assets/button/button-border-blue.png") no-repeat;
   background-size: 100% 100%;
   color: #192F6F;

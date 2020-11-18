@@ -1,7 +1,7 @@
 <template>
   <w-input value="hi"/>
   <w-button text="hi" @click="print"/>
-  <w-button text="hi" :disabled="true" @click="print"/>
+  <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="print"/>
 </template>
 
 <script>
