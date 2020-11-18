@@ -1,14 +1,14 @@
 <template>
-  <input-demo/>
+  <demo/>
 </template>
 
 <script>
-import InputDemo from "./components/InputDemo.vue";
+import Demo from "./components/Demo.vue";
 
 export default {
   name: 'App',
   components: {
-    InputDemo
+    Demo
   }
 }
 </script>

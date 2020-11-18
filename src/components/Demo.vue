@@ -1,5 +1,7 @@
 <template>
   <w-input value="hi"/>
+  <w-button text="hi" @click="print"/>
+  <w-button text="hi" :disabled="true" @click="print"/>
 </template>
 
 <script>
@@ -10,7 +12,12 @@
  **/
 
 export default {
-  name: "Input"
+  name: "Demo",
+  methods:{
+    print(){
+      console.log('hi');
+    }
+  }
 };
 </script>
 
