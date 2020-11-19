@@ -1,5 +1,5 @@
 <template>
-  <button class="jh-button" :disabled="disabled">
+  <button class="w-button" :disabled="disabled">
     {{ text }}
   </button>
 </template>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-.jh-button {
+.w-button {
   cursor: pointer;
   margin: 6px 0 0 10px;
   padding: 0 15px;
@@ -36,7 +36,7 @@ export default {
   text-align: center;
 }
 
-.jh-button:disabled {
+.w-button:disabled {
   cursor: not-allowed;
 }
 </style>
