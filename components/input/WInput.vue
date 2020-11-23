@@ -1,6 +1,6 @@
 <template>
-  <label class="label-244">
-    <input type="text" class="input-244" v-model="value"/>
+  <label class="w-input-label">
+    <input type="text" class="w-input" v-model="value"/>
   </label>
 </template>
 
@@ -22,9 +22,10 @@ export default {
 
 <style scoped>
 
-.label-244 {
+.w-input-label {
   display: inline-block;
-  background-image: url("../assets/input/input244.png") !important;
+  border: 3px double transparent;
+  border-image: url("../assets/input/input244.png") 3;
   width: 244px;
   height: 31px;
 }
@@ -34,7 +35,7 @@ export default {
 }
 
 
-.input-244 {
+.w-input {
   background-color: unset !important;
   background-repeat: no-repeat !important;
   padding: 0 10px;

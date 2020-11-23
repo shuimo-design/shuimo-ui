@@ -30,8 +30,8 @@ export default {
   outline: unset;
   line-height: 28px;
   min-width: 70px;
-  background: url("../assets/button/button-border-blue.png") no-repeat;
-  background-size: 100% 100%;
+  border: 3px double transparent;
+  border-image: url("../assets/button/button-border-blue.png") 10;
   color: #192F6F;
   text-align: center;
 }
