@@ -1,9 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
-import { WInput, WButton } from "../components";
+import WUI from "../components";
+import './style.scss'
+import '../components/style.scss'
+
 
 createApp(App)
-    .component('WInput', WInput)
-    .component('WButton', WButton)
+    .use(WUI)
     .mount('#app')

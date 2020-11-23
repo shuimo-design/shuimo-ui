@@ -1,0 +1,76 @@
+.mask {
+  position: fixed;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.mask-bg {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.w-dialog {
+  position: absolute;
+  padding-top: 70px;
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 236px;
+  width: 368px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("/components/assets/dialog/bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+
+// close button
+
+@keyframes Wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.dialog-close-btn {
+  display: inline-block;
+  background: url("/components/assets/dialog/close.png") no-repeat;
+  background-size: 100% 100%;
+  width: 46px;
+  height: 75px;
+  transform-origin: 50% 0;
+  animation: Wave 8s linear both infinite;
+  position: absolute;
+  cursor: pointer;
+  left: 404px;
+  top: 41px;
+}
