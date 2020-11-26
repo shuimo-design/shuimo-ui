@@ -6,8 +6,11 @@
 
 
     <w-button text="点击显示弹窗" @click="show"/>
-    <w-dialog :visible="dialogVisible" @close="close" :mask="maskOption">
-      <span>hello</span>
+    <w-dialog :visible="dialogVisible" @close="close"
+              :mask="maskOption">
+      <div class="height-600">
+        <span>height:600</span>
+      </div>
     </w-dialog>
   </div>
 </template>
@@ -52,6 +55,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.height-600 {
+  height: 400px;
 }
 
 </style>

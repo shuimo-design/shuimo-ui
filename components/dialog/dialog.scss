@@ -16,11 +16,6 @@
 
 .w-dialog {
   position: absolute;
-  padding-top: 70px;
-  padding-left: 35px;
-  padding-right: 35px;
-  height: 236px;
-  width: 368px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -71,6 +66,4 @@
   animation: Wave 8s linear both infinite;
   position: absolute;
   cursor: pointer;
-  left: 404px;
-  top: 41px;
 }
