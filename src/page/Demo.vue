@@ -1,17 +1,8 @@
 <template>
   <div class="demo">
-    <w-input value="hi"/>
-    <w-button text="hi" @click="print"/>
-    <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="print"/>
-
-
-    <w-button text="点击显示弹窗" @click="show"/>
-    <w-dialog :visible="dialogVisible" @close="close"
-              :mask="maskOption">
-      <div class="height-600">
-        <span>height:600</span>
-      </div>
-    </w-dialog>
+    <input-demo/>
+    <button-demo/>
+    <dialog-demo/>
   </div>
 </template>
 
@@ -21,28 +12,14 @@
  * @author higuaifan
  * @date 2020/11/17 22:33
  **/
+import ButtonDemo from "./demos/ButtonDemo.vue";
+import InputDemo from "./demos/InputDemo.vue";
+import DialogDemo from "./demos/DialogDemo.vue";
 
 export default {
   name: "Demo",
-  data() {
-    return {
-      dialogVisible: false,
-      maskOption: {
-        show: true,
-        clickClose: false
-      }
-    }
-  },
-  methods: {
-    print() {
-      console.log('hi');
-    },
-    show() {
-      this.dialogVisible = true;
-    },
-    close() {
-      this.dialogVisible = false;
-    }
+  components: {
+    ButtonDemo, InputDemo, DialogDemo
   }
 };
 </script>
