@@ -1,5 +1,12 @@
 <template>
   <div>
+    <w-button text="点击显示普通弹窗" @click="show"/>
+    <w-dialog :visible="dialogVisible" @close="close"
+              :mask="maskOption">
+      <div>
+        <span>普通弹窗</span>
+      </div>
+    </w-dialog>
     <w-button text="点击显示弹窗" @click="show"/>
     <w-dialog :visible="dialogVisible" @close="close"
               :mask="maskOption">
