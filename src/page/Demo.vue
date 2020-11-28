@@ -38,8 +38,4 @@ export default {
   align-items: center;
 }
 
-.height-600 {
-  height: 400px;
-}
-
 </style>

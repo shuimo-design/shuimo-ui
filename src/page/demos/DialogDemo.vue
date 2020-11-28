@@ -1,7 +1,7 @@
 <template>
   <div>
-    <w-button text="点击显示普通弹窗" @click="show"/>
-    <w-dialog :visible="dialogVisible" @close="close"
+    <w-button text="点击显示普通弹窗" @click="showNormal"/>
+    <w-dialog :visible="dialogNormalVisible" @close="closeNormal"
               :mask="maskOption">
       <div>
         <span>普通弹窗</span>
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      dialogNormalVisible: false,
       maskOption: {
         show: true,
         clickClose: false
@@ -42,13 +43,21 @@ export default {
     show() {
       this.dialogVisible = true;
     },
+    showNormal() {
+      this.dialogNormalVisible = true;
+    },
     close() {
       this.dialogVisible = false;
+    },
+    closeNormal() {
+      this.dialogNormalVisible = false;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
+.height-600 {
+  height: 400px;
+}
 </style>
