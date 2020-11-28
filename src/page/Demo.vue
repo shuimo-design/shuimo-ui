@@ -27,8 +27,12 @@ export default {
 <style scoped>
 
 .demo {
-  width: 100vw;
-  height: 100vh;
+  width: 60vw;
+  height: 60vh;
+  padding: 20vh 20vw;
+}
+
+.demo > div {
   display: flex;
   justify-content: center;
   align-items: center;

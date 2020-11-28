@@ -1,5 +1,7 @@
 <template>
-  <w-input value="hi"/>
+  <div>
+    <w-input value="hi"/>
+  </div>
 </template>
 
 <script>
