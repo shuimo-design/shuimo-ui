@@ -7,7 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行
  */
 
-import {defineComponent} from 'vue';
+import {defineComponent, Teleport} from 'vue';
 
 export default defineComponent({
   name: 'WDialog',
@@ -85,14 +85,14 @@ export default defineComponent({
       resetSize();
     });
     return (
-      <div>
+      <Teleport to="body">
         <div class={classes.maskClass} onClick={mask.clickClose ? maskClick : null}>
           <div class="w-dialog" style={this.baseStyle}>
             <div class="dialog-close-btn" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
             {this.$slots.default()}
           </div>
         </div>
-      </div>
+      </Teleport>
     )
   }
 });
