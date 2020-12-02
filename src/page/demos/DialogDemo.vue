@@ -1,15 +1,14 @@
 <template>
   <div>
     <w-button text="点击显示普通弹窗" @click="showNormal"/>
-    <w-dialog :visible="dialogNormalVisible" @close="closeNormal"
-              :mask="maskOption">
+    <w-dialog :visible="dialogNormalVisible" @close="closeNormal">
       <div>
         <span>普通弹窗</span>
       </div>
     </w-dialog>
     <w-button text="点击显示弹窗" @click="show"/>
     <w-dialog :visible="dialogVisible" @close="close"
-              :mask="maskOption">
+              :mask="maskNoShowOption">
       <div class="height-600">
         <span>height:600</span>
       </div>
@@ -33,8 +32,8 @@ export default {
     return {
       dialogVisible: false,
       dialogNormalVisible: false,
-      maskOption: {
-        show: true,
+      maskNoShowOption: {
+        show: false,
         clickClose: false
       }
     }
