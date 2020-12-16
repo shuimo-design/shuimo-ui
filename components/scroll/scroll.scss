@@ -1,0 +1,32 @@
+.scroll {
+
+  &.panda1 {
+    &::-webkit-scrollbar-thumb {
+      background: url("./dependencies/panda-1.png") no-repeat;
+      width: 61px;
+      height: 90px;
+    }
+  }
+
+  &.panda2 {
+    &::-webkit-scrollbar-thumb {
+      background: url("./dependencies/panda-2.png") no-repeat;
+      width: 61px;
+      height: 90px;
+    }
+  }
+}
+
+.scroll::-webkit-scrollbar {
+  background: url("./dependencies/bamboo.png") repeat-y center;
+  width: 61px;
+}
+
+.base-scroll::-webkit-scrollbar-thumb {
+  background: url("./dependencies/scroll.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.base-scroll::-webkit-scrollbar {
+  width: 30px;
+}
