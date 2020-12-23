@@ -3,6 +3,7 @@
     <input-demo/>
     <button-demo/>
     <dialog-demo/>
+    <tooltip-demo/>
   </div>
 </template>
 
@@ -15,11 +16,12 @@
 import ButtonDemo from "./demos/ButtonDemo.vue";
 import InputDemo from "./demos/InputDemo.vue";
 import DialogDemo from "./demos/DialogDemo.vue";
+import TooltipDemo from "./demos/TooltipDemo.vue";
 
 export default {
   name: "Demo",
   components: {
-    ButtonDemo, InputDemo, DialogDemo
+    ButtonDemo, InputDemo, DialogDemo, TooltipDemo
   }
 };
 </script>
