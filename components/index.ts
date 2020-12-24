@@ -4,12 +4,14 @@ import {default as WInput} from './input';
 import {default as WButton} from './button';
 import {default as WDialog} from './dialog';
 import {default as WTooltip} from './tooltip';
+import {default as WScrollNumber} from './scrollNumber';
 
 const components = [
     WInput,
     WButton,
     WDialog,
-    WTooltip
+    WTooltip,
+    WScrollNumber
 ]
 const install = function (app: App) {
     components.forEach(component => {
@@ -18,7 +20,7 @@ const install = function (app: App) {
     return app;
 };
 
-export {WInput, WButton, WDialog, WTooltip};
+export {WInput, WButton, WDialog, WTooltip, WScrollNumber};
 
 export default {
     install

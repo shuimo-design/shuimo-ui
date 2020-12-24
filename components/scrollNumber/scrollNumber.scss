@@ -1,0 +1,32 @@
+.w-scroll-number {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 0;
+    width: 15%;
+
+    .box-item {
+        flex: 1;
+        height: 30px;
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        overflow: hidden;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        span {
+            color: #000;
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 2s;
+            letter-spacing: 10px;
+        }
+    }
+}
