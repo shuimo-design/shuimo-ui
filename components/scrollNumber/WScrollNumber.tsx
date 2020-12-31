@@ -13,7 +13,11 @@ export default defineComponent({
   props: {
     number: {
       type: Number,
-      default: 0,
+      default: 0
+    },
+    left: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -21,7 +25,8 @@ export default defineComponent({
       maxLen: 9, //最大长度
       computeNumber: [], //数字补零后分割为数组，遍历
       timeTicket: null,
-      Index: 0
+      timers: [],
+      indexArr: []
     };
   },
   watch: {
@@ -49,31 +54,49 @@ export default defineComponent({
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
     // 设置每一位数字的偏移
-    setNumberTransform () {
-      for(let index = 0; index < this.computeNumber.length; index++) {
-        const elem = this.$refs[`numberDom${index}`];
-        elem.style.transform = `translate(-50%,-${Number(this.Index < this.computeNumber[index] ? this.Index : this.computeNumber[index]) * 10}%)`;
+    setNumberTransform() {
+      for (let index = 0; index < this.computeNumber.length; index++) {
+        const timer = setInterval(() => {
+          const elem = this.$refs[`numberDom${index}`];
+          if (elem) {
+            elem.style.transform = `translate(-50%,-${this.indexArr[index] * 10}%)`;
+            if (this.indexArr[index] === 9) {
+              this.indexArr[index] = 0;
+            } else {
+              this.indexArr[index] = 9;
+            }
+          }
+        }, 200);
+        this.timers.push(timer);
       }
-      this.Index++;
     },
-    // 定时增长数字
-    increaseNumber () {
-      this.refresh();
-      this.timeTicket = setTimeout(this.increaseNumber, 100);
+    setTimeOutClear() {
+      for(let index = this.timers.length - 1; index >= 0; index--) {
+        setTimeout(() => {
+          clearInterval(this.timers[index]);
+          const elem = this.$refs[`numberDom${index}`];
+          if (elem) {
+            elem.style.transform = `translate(-50%,-${this.computeNumber[index] * 10}%)`;
+          }
+        }, (!this.left ? (this.timers.length - index) : (index + 1)) * 1000);
+      }
     },
     // 定时刷新数据
     refresh () {
-      this.computeNumber = this.prefixZero(this.number, this.maxLen);
-      this.$nextTick(() => this.setNumberTransform());
+      const _this = this;
+      _this.computeNumber = _this.prefixZero(_this.number, _this.maxLen);
+      _this.indexArr = new Array(_this.computeNumber.length).fill(9);
+      this.setNumberTransform();
+      // 清除定时器，将数字重置为正确显示
+      this.setTimeOutClear()
     }
   },
   mounted () {
-    this.increaseNumber();
+    this.refresh();
   },
   unmounted () {
     window.clearTimeout(this.timeTicket);
     this.timeTicket = null;
-    this.Index = 0;
   },
   render() {
     const {computeNumber} = this;
