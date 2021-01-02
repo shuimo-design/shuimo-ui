@@ -1,5 +1,6 @@
 <template>
-  <w-scroll-number :number="987654321"/>
+  <w-scroll-number :number="987654"/>
+  <w-scroll-number :number="9876" left/>
 </template>
 
 <script>
