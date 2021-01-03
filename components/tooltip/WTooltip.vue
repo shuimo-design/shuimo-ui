@@ -49,23 +49,23 @@
       show: function (val) {
         if (val) {
           const popover = this.$refs.popover;
-          const triger = this.$refs.trigger.children[0];
+          const trigger = this.$refs.trigger.children[0];
           switch (this.placement) {
             case 'top':
-              this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2;
-              this.position.top = triger.offsetTop - popover.offsetHeight - 5;
+              this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+              this.position.top = trigger.offsetTop - popover.offsetHeight - 5;
               break;
             case 'left':
-              this.position.left = triger.offsetLeft - popover.offsetWidth - 5;
-              this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2;
+              this.position.left = trigger.offsetLeft - popover.offsetWidth - 5;
+              this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
               break;
             case 'right':
-              this.position.left = triger.offsetLeft + triger.offsetWidth + 5;
-              this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2;
+              this.position.left = trigger.offsetLeft + trigger.offsetWidth + 5;
+              this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
               break;
             case 'bottom':
-              this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2;
-              this.position.top = triger.offsetTop + triger.offsetHeight + 5;
+              this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+              this.position.top = trigger.offsetTop + trigger.offsetHeight + 5;
               break
           }
           popover.style.top = this.position.top + 'px';
