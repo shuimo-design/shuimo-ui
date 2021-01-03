@@ -5,6 +5,7 @@
     <dialog-demo/>
     <tooltip-demo/>
     <scroll-number-demo/>
+    <select-demo/>
   </div>
 </template>
 
@@ -19,27 +20,20 @@ import InputDemo from "./demos/InputDemo.vue";
 import DialogDemo from "./demos/DialogDemo.vue";
 import TooltipDemo from "./demos/TooltipDemo.vue";
 import ScrollNumberDemo from "./demos/ScrollNumberDemo.vue";
+import SelectDemo from "./demos/SelectDemo.vue";
 
 export default {
   name: "Demo",
   components: {
-    ButtonDemo, InputDemo, DialogDemo, TooltipDemo, ScrollNumberDemo
+    ButtonDemo, InputDemo, DialogDemo, TooltipDemo, ScrollNumberDemo, SelectDemo
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 .demo {
-  width: 60vw;
-  height: 60vh;
-  padding: 20vh 20vw;
-}
-
-.demo > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 20px;
 }
 
 </style>
