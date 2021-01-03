@@ -56,7 +56,6 @@
               this.position.top = triger.offsetTop - popover.offsetHeight - 5;
               break;
             case 'left':
-              console.log('width:', popover.offsetWidth);
               this.position.left = triger.offsetLeft - popover.offsetWidth - 5;
               this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2;
               break;
