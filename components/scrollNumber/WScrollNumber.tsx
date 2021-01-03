@@ -2,23 +2,27 @@
  * @description 数组滚动组件
  * @author: 南歌子
  * @date 2020/12/23 20:49
- * @version V1.0.0
+ * @version V1.1.0
  *
+ * V1.1.0 @author 菩萨蛮 添加同时滚动的类型选择、速度、时间提供修改入口
  */
 
-import {defineComponent, Teleport} from 'vue';
+import {defineComponent, provide} from 'vue';
+import SingleScrollNumber from "./SingleScrollNumber";
 
 export default defineComponent({
   name: 'WScrollNumber',
   props: {
-    number: {
-      type: Number,
-      default: 0
-    },
-    left: {
-      type: Boolean,
-      default: false
-    }
+    number: {type: Number, default: 0},
+    left: {type: Boolean, default: false},
+    type: {type: String, default: 'random'},
+    speed: {type: Number, default: 200},
+    duration: {type: Number, default: 1000},
+  },
+  components: {SingleScrollNumber},
+  setup(props) {
+    provide('speed', props.speed);
+    provide('duration', props.duration);
   },
   data() {
     return {
@@ -30,7 +34,7 @@ export default defineComponent({
     };
   },
   watch: {
-    number () {
+    number() {
       this.refresh();
     },
   },
@@ -41,8 +45,7 @@ export default defineComponent({
      * @param {number} n 总长度
      * @return:
      */
-
-    prefixZero (num, n) {
+    prefixZero(num, n) {
       return (Array(n).join('') + num).slice(-n).split('');
     },
     /**
@@ -50,7 +53,7 @@ export default defineComponent({
      * @param {type}
      * @return:
      */
-    getRandomNumber (min, max) {
+    getRandomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
     // 设置每一位数字的偏移
@@ -66,23 +69,23 @@ export default defineComponent({
               this.indexArr[index] = 9;
             }
           }
-        }, 200);
+        }, this.speed);
         this.timers.push(timer);
       }
     },
     setTimeOutClear() {
-      for(let index = this.timers.length - 1; index >= 0; index--) {
+      for (let index = this.timers.length - 1; index >= 0; index--) {
         setTimeout(() => {
           clearInterval(this.timers[index]);
           const elem = this.$refs[`numberDom${index}`];
           if (elem) {
             elem.style.transform = `translate(-50%,-${this.computeNumber[index] * 10}%)`;
           }
-        }, (!this.left ? (this.timers.length - index) : (index + 1)) * 1000);
+        }, (!this.left ? (this.timers.length - index) : (index + 1)) * this.duration);
       }
     },
     // 定时刷新数据
-    refresh () {
+    refresh() {
       const _this = this;
       _this.computeNumber = _this.prefixZero(_this.number, _this.maxLen);
       _this.indexArr = new Array(_this.computeNumber.length).fill(9);
@@ -91,23 +94,37 @@ export default defineComponent({
       this.setTimeOutClear()
     }
   },
-  mounted () {
+  mounted() {
     this.refresh();
   },
-  unmounted () {
+  unmounted() {
     window.clearTimeout(this.timeTicket);
     this.timeTicket = null;
   },
   render() {
-    const {computeNumber} = this;
-    return (
+    if (this.type === 'together') {
+      return (
         <div class="w-scroll-number">
           {
-            computeNumber.map((item, index) => <span class="box-item" key={index}>
-              <span ref={`numberDom${index}`}>0123456789</span>
-            </span>)
+            String(this.number)
+              .split("")
+              .map((item, i) => <SingleScrollNumber number={Number(item)}/>)
           }
         </div>
+      )
+    }
+
+
+    const {computeNumber} = this;
+    return (
+      <div class="w-scroll-number">
+        {
+          computeNumber.map((item, index) =>
+            <span class="box-item" key={index}>
+              <span ref={`numberDom${index}`}>0123456789</span>
+            </span>)
+        }
+      </div>
     )
   }
 })
