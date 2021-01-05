@@ -16,7 +16,8 @@
     justify-content: center;
 
     .year,
-    .month {
+    .month,
+    .between {
       font-size: 20px;
       text-align: left;
       color: #333333;
@@ -50,6 +51,16 @@
 
     .calendar-month-next:before {
       content: url("/components/assets/date-picker/calendar_month_next.png");
+    }
+
+    .calendar-year-prev:active,
+    .calendar-month-prev:active {
+      left: -2px;
+    }
+
+    .calendar-year-next:active,
+    .calendar-month-next:active {
+      right: -2px;
     }
   }
 

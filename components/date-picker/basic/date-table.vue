@@ -58,11 +58,14 @@
         default: 7,
         type: Number
       },
-      disabledDate: {},
-      cellClassName: {},
       minDate: {},
       maxDate: {},
-      date: {}
+      date: {},
+      value: {},
+      defaultValue: {
+        type: String,
+        default: ''
+      }
     },
     data() {
       return {
@@ -98,8 +101,6 @@
         let count = 1;
 
         const startDate = this.startDate;
-        const disabledDate = this.disabledDate;
-        const cellClassName = this.cellClassName;
         const selectedDate = [];
         const now = getDateTimestamp(new Date());
 
@@ -144,13 +145,10 @@
             }
 
             let cellDate = new Date(time);
-            cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
             cell.selected = arrayFind(selectedDate, date => date.getTime() === cellDate.getTime());
-            cell.customClass = typeof cellClassName === 'function' && cellClassName(cellDate);
             row[j] = cell;
           }
         }
-        console.log(rows);
         return rows;
       }
     },
@@ -225,10 +223,6 @@
 
         if (cell.selected) {
           classes.push('selected');
-        }
-
-        if (cell.customClass) {
-          classes.push(cell.customClass);
         }
 
         return classes.join(' ');

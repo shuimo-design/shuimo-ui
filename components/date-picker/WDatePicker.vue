@@ -11,7 +11,8 @@
           <button class="calendar-year-prev"></button>
           <button class="calendar-month-prev"></button>
           <span class="year">2021</span>
-          <span class="month">，01</span>
+          <span class="between">，</span>
+          <span class="month">01</span>
           <button class="calendar-month-next"></button>
           <button class="calendar-year-next"></button>
         </div>
@@ -111,10 +112,10 @@
       position: relative;
       bottom: -3px;
       float: right;
+      cursor: pointer;
 
       &:before {
         content: url("/components/assets/date-picker/calendar.png");
-        cursor: pointer;
       }
     }
   }
