@@ -6,6 +6,7 @@
     <tooltip-demo/>
     <scroll-number-demo/>
     <select-demo/>
+    <date-picker-demo/>
   </div>
 </template>
 
@@ -21,11 +22,12 @@ import DialogDemo from "./demos/DialogDemo.vue";
 import TooltipDemo from "./demos/TooltipDemo.vue";
 import ScrollNumberDemo from "./demos/ScrollNumberDemo.vue";
 import SelectDemo from "./demos/SelectDemo.vue";
+import DatePickerDemo from "./demos/DatePickerDemo.vue";
 
 export default {
   name: "Demo",
   components: {
-    ButtonDemo, InputDemo, DialogDemo, TooltipDemo, ScrollNumberDemo, SelectDemo
+    ButtonDemo, InputDemo, DialogDemo, TooltipDemo, ScrollNumberDemo, SelectDemo, DatePickerDemo
   }
 };
 </script>

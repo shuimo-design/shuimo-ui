@@ -1,0 +1,97 @@
+.calendar-dropdown {
+  position: absolute;
+  background: url("/components/assets/date-picker/calendar_border.png") no-repeat;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 208px;
+  margin: 3px 4px;
+  padding: 2px 0 5px;
+
+  .calendar-dropdown-header {
+    height: 21px;
+    margin-top: 6px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .year,
+    .month {
+      font-size: 20px;
+      text-align: left;
+      color: #333333;
+      line-height: 21px;
+      height: 21px;
+      letter-spacing: -1px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+      position: relative;
+      bottom: -2px;
+      cursor: pointer;
+    }
+
+    .calendar-year-prev:before {
+      content: url("/components/assets/date-picker/calendar_year_prev.png");
+    }
+
+    .calendar-month-prev:before {
+      content: url("/components/assets/date-picker/calendar_month_prev.png");
+    }
+
+    .calendar-year-next:before {
+      content: url("/components/assets/date-picker/calendar_year_next.png");
+    }
+
+    .calendar-month-next:before {
+      content: url("/components/assets/date-picker/calendar_month_next.png");
+    }
+  }
+
+  .calendar-dropdown-week {
+    height: 21px;
+    width: 240px;
+
+    span {
+      margin: 0 10px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 17px;
+      letter-spacing: -1px;
+    }
+  }
+
+  .date-table {
+    margin-top: 5px;
+    th {
+      padding: 0 10px;
+    }
+
+    td>div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 26px;
+      width: 26px;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .current,
+    .today {
+      background: url("/components/assets/date-picker/circle.png") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .prev-month,
+    .next-month {
+      color: #a3a3a3;
+    }
+  }
+}
+
