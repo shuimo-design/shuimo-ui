@@ -245,8 +245,8 @@
     }
 
     .today {
-      font-weight: 600;
-      color: red;
+      font-weight: 700;
+      color: #3474c5;
     }
 
     .prev-month,
@@ -254,9 +254,13 @@
       color: #a3a3a3;
     }
 
-    td:hover {
-      color: red;
+    td {
+      transition: all 0.4s;
       cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 </style>

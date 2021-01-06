@@ -13,17 +13,13 @@
 </template>
 
 <script>
-  import {
-    arrayFind,
-    arrayFindIndex,
-    coerceTruthyValueToArray
-  } from "../../_utils/date-util";
+  import {arrayFind, arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/date-util";
 
   const clearDate = (date) => {
     return new Date(date.getFullYear(), date.getMonth());
   };
 
-  const getMonthTimestamp = function(time) {
+  const getMonthTimestamp = function (time) {
     if (typeof time === 'number' || typeof time === 'string') {
       return clearDate(new Date(time)).getTime();
     } else if (time instanceof Date) {
@@ -42,7 +38,7 @@
     },
     data() {
       return {
-        tableRows: [ [], [], [] ]
+        tableRows: [[], [], []]
       };
     },
     computed: {
@@ -56,7 +52,7 @@
           for (let j = 0; j < 4; j++) {
             let cell = row[j];
             if (!cell) {
-              cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+              cell = {row: i, column: j, type: 'normal', inRange: false, start: false, end: false};
             }
 
             cell.type = 'normal';
@@ -124,6 +120,7 @@
 <style scoped lang="scss">
   .month-table {
     margin-top: 10px;
+
     td {
       padding: 8px 0;
 
@@ -142,15 +139,18 @@
           color: #606266;
           margin: 0 auto;
           border-radius: 18px;
+          transition: all 0.4s;
+          cursor: pointer;
 
           &:hover {
-            color: red;
+            transform: scale(1.2);
           }
+
         }
 
         .today {
-          font-weight: 600;
-          color: red;
+          font-weight: 700;
+          color: #3474c5;
         }
       }
     }
