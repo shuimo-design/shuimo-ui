@@ -6,7 +6,8 @@
     </div>
     <Teleport to="body">
       <div v-show="calendarDropdown" :style="dropdownStyle"
-           class="calendar-dropdown">
+           class="calendar-dropdown"
+           @onresize="leaveDropdown">
         <div class="calendar-dropdown-header">
           <button class="calendar-year-prev" @click="prevYear"></button>
           <button class="calendar-month-prev"
@@ -129,9 +130,14 @@ export default {
     this.select = this.$refs['select'];
     this.setDefault();
   },
+  unmounted() {
+    window.removeEventListener('mousedown', this.mousedownEvent);
+    window.removeEventListener('resize', this.resizeWindow);
+  },
   methods: {
     showCalendar() {
       this.setStyle();
+      this.setEvents();
       this.calendarDropdown = !this.calendarDropdown;
     },
     /**
@@ -144,6 +150,43 @@ export default {
       this.selectStyle.offsetTop = select.offsetTop;
       this.selectStyle.height = getStyle(selectStyle, 'height');
       this.selectStyle.width = getStyle(selectStyle, 'width');
+    },
+    /**
+     * 离开下拉框方法
+     */
+    leaveDropdown() {
+      this.calendarDropdown = false;
+      window.removeEventListener('mousedown', this.mousedownEvent);
+      window.removeEventListener('resize', this.resizeWindow);
+    },
+    /**
+     * 隐藏下拉框关联鼠标事件
+     * @param e event
+     */
+    mousedownEvent(e) {
+      // todo switch to utils func
+      if (e.path && e.path.length > 0) {
+        const isSelectDropdown = e.path.some(q => q.classList &&
+          Array(...q.classList).includes('calendar-dropdown'));
+        if (!isSelectDropdown) {
+          this.leaveDropdown();
+        }
+      } else {
+        this.leaveDropdown();
+      }
+    },
+    /**
+     * 改变窗口大小方法
+     */
+    resizeWindow() {
+      this.setStyle();
+    },
+    /**
+     * 事件绑定
+     */
+    setEvents() {
+      window.addEventListener('mousedown', this.mousedownEvent);
+      window.addEventListener('resize', this.resizeWindow)
     },
     setDefault() {
       this.defaultValue = this.value;
