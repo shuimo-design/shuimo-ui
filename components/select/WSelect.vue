@@ -7,7 +7,7 @@
       <div v-show="selectDropdown"
            class="select-dropdown select-dropdown-size" :style="dropdownStyle"
            @onresize="leaveDropdown">
-        <div class="select-dropdown-div select-dropdown-size">
+        <div class="block-scroll select-dropdown-div select-dropdown-size">
           <div :class="['dropdown-option',option.selected?'selected':'']"
                v-for="option in optionsCopy"
                @click="emitValue(option)">
