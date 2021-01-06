@@ -2,6 +2,7 @@
   <table
       cellspacing="0"
       cellpadding="0"
+      @click="handleClick"
       class="date-table">
     <tbody>
     <tr>
@@ -14,7 +15,6 @@
       <th>陆</th>
     </tr>
     <tr v-for="(row, key) in rows"
-        :class="{ current: isWeekActive(row[1]) }"
         :key="key">
       <td v-for="(cell, key) in row"
           :key="key">
@@ -31,17 +31,15 @@
 
 <script>
   import {
-    getFirstDayOfMonth,
-    getDayCountOfMonth,
-    getStartDateOfMonth,
-    clearTime as _clearTime,
-    nextDate,
     arrayFind,
-    isDate,
-    prevDate
+    clearTime as _clearTime,
+    getDayCountOfMonth,
+    getFirstDayOfMonth,
+    getStartDateOfMonth,
+    nextDate,
   } from "../../_utils/date-util";
 
-  const getDateTimestamp = function(time) {
+  const getDateTimestamp = function (time) {
     if (typeof time === 'number' || typeof time === 'string') {
       return _clearTime(new Date(time)).getTime();
     } else if (time instanceof Date) {
@@ -69,7 +67,7 @@
     },
     data() {
       return {
-        tableRows: [ [], [], [], [], [], [] ]
+        tableRows: [[], [], [], [], [], []]
       }
     },
     computed: {
@@ -110,7 +108,7 @@
           for (let j = 0; j < 7; j++) {
             let cell = row[j];
             if (!cell) {
-              cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+              cell = {row: i, column: j, type: 'normal', inRange: false, start: false, end: false};
             }
 
             cell.type = 'normal';
@@ -153,30 +151,6 @@
       }
     },
     methods: {
-      isWeekActive(cell) {
-        const newDate = new Date(this.year, this.month, 1);
-        const year = newDate.getFullYear();
-        const month = newDate.getMonth();
-
-        if (cell.type === 'prev-month') {
-          newDate.setMonth(month === 0 ? 11 : month - 1);
-          newDate.setFullYear(month === 0 ? year - 1 : year);
-        }
-
-        if (cell.type === 'next-month') {
-          newDate.setMonth(month === 11 ? 0 : month + 1);
-          newDate.setFullYear(month === 11 ? year + 1 : year);
-        }
-
-        newDate.setDate(parseInt(cell.text, 10));
-
-        if (isDate(this.value)) {
-          const dayOffset = (this.value.getDay() - this.firstDayOfWeek + 7) % 7 - 1;
-          const weekDate = prevDate(this.value, dayOffset);
-          return weekDate.getTime() === newDate.getTime();
-        }
-        return false;
-      },
       cellMatchesDate(cell, date) {
         const value = new Date(date);
         return this.year === value.getFullYear() &&
@@ -185,7 +159,6 @@
       },
       getCellClasses(cell) {
         const selectionMode = 'day';
-        const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
 
         let classes = [];
         if ((cell.type === 'normal' || cell.type === 'today') && !cell.disabled) {
@@ -195,10 +168,6 @@
           }
         } else {
           classes.push(cell.type);
-        }
-
-        if (cell.type === 'normal' && defaultValue.some(date => this.cellMatchesDate(cell, date))) {
-          classes.push('default');
         }
 
         if (selectionMode === 'day' && (cell.type === 'normal' || cell.type === 'today') && this.cellMatchesDate(cell, this.value)) {
@@ -226,11 +195,68 @@
         }
 
         return classes.join(' ');
+      },
+      getDateOfCell(row, column) {
+        const offsetFromStart = row * 7 + column - this.offsetDay;
+        return nextDate(this.startDate, offsetFromStart);
+      },
+      handleClick(event) {
+        let target = event.target;
+        if (target.tagName === 'SPAN') {
+          target = target.parentNode.parentNode;
+        }
+        if (target.tagName === 'DIV') {
+          target = target.parentNode;
+        }
+
+        if (target.tagName !== 'TD') return;
+        const row = target.parentNode.rowIndex - 1;
+        const column = target.cellIndex;
+        const cell = this.rows[row][column];
+        if (cell.disabled || cell.type === 'week') return;
+
+        const newDate = this.getDateOfCell(row, column);
+        this.$emit('pick', newDate);
       }
     }
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .date-table {
+    margin-top: 5px;
 
+    th {
+      padding: 0 10px;
+    }
+
+    td > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 26px;
+      width: 26px;
+      margin: auto;
+    }
+
+    .current {
+      background: url("/components/assets/date-picker/circle.png") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .today {
+      font-weight: 600;
+      color: red;
+    }
+
+    .prev-month,
+    .next-month {
+      color: #a3a3a3;
+    }
+
+    td:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
 </style>

@@ -76,33 +76,5 @@
       letter-spacing: -1px;
     }
   }
-
-  .date-table {
-    margin-top: 5px;
-    th {
-      padding: 0 10px;
-    }
-
-    td>div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 26px;
-      width: 26px;
-      margin: auto;
-      cursor: pointer;
-    }
-
-    .current,
-    .today {
-      background: url("/components/assets/date-picker/circle.png") no-repeat;
-      background-size: 100% 100%;
-    }
-
-    .prev-month,
-    .next-month {
-      color: #a3a3a3;
-    }
-  }
 }
 
