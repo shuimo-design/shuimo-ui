@@ -154,7 +154,7 @@
     border: unset;
     outline: unset;
     border: 3px double transparent;
-    border-image: url("../assets/tooltip/bg.png") 10;
+    border-image: url("/lib/assets/tooltip/bg.png") 10;
     background-color: whitesmoke;
 
     &.visible {

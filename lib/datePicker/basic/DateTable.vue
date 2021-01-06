@@ -240,7 +240,7 @@
     }
 
     .current {
-      background: url("/components/assets/date-picker/circle.png") no-repeat;
+      background: url("/lib/assets/date-picker/circle.png") no-repeat;
       background-size: 100% 100%;
     }
 

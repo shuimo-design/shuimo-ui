@@ -7,7 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行
  */
 
-import {defineComponent, Teleport} from 'vue';
+import {h, defineComponent, Teleport} from 'vue';
 
 export default defineComponent({
   name: 'WDialog',

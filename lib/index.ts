@@ -6,7 +6,10 @@ import {default as WDialog} from './dialog';
 import {default as WTooltip} from './tooltip';
 import {default as WScrollNumber} from './scrollNumber';
 import {default as WSelect} from './select';
-import {default as WDatePicker} from './date-picker'
+import {default as WDatePicker} from './datePicker';
+
+import '../lib/style.scss'
+
 
 const components = [
   WInput,

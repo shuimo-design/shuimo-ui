@@ -187,7 +187,7 @@ export default {
   height: 31px;
   border: 3px double transparent;
   padding: 0 5px;
-  border-image: url("../assets/input/input244.png") 3;
+  border-image: url("/lib/assets/input/input244.png") 3;
   cursor: pointer;
 
   span {

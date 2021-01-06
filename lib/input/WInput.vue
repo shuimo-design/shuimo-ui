@@ -25,13 +25,13 @@ export default {
 .w-input-label {
   display: inline-block;
   border: 3px double transparent;
-  border-image: url("../assets/input/input244.png") 3;
+  border-image: url("/lib/assets/input/input244.png") 3;
   width: 244px;
   height: 31px;
 }
 
 .textarea {
-  background-image: url("../assets/input/textarea.png") !important;
+  background-image: url("/lib/assets/input/textarea.png") !important;
 }
 
 

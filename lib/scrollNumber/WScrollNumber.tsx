@@ -7,7 +7,7 @@
  * V1.1.0 @author 菩萨蛮 添加同时滚动的类型选择、速度、时间提供修改入口
  */
 
-import {defineComponent, provide} from 'vue';
+import {h, defineComponent, provide} from 'vue';
 import SingleScrollNumber from "./SingleScrollNumber";
 
 export default defineComponent({

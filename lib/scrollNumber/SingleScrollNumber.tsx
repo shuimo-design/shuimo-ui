@@ -6,7 +6,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行
  */
-import {defineComponent} from 'vue';
+import {h, defineComponent} from 'vue';
 
 export default defineComponent({
   name: 'SingleScrollNumber',

@@ -31,7 +31,7 @@ export default {
   line-height: 28px;
   min-width: 70px;
   border: 3px double transparent;
-  border-image: url("../assets/button/button-border-blue.png") 10;
+  border-image: url("/lib/assets/button/button-border-blue.png") 10;
   color: #192F6F;
   text-align: center;
 }

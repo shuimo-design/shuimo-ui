@@ -1,6 +1,6 @@
 .calendar-dropdown {
   position: absolute;
-  background: url("/components/assets/date-picker/calendar_border.png") no-repeat;
+  background: url("/lib/assets/date-picker/calendar_border.png") no-repeat;
   background-size: 100% 100%;
   width: 243px;
   height: 208px;
@@ -38,19 +38,19 @@
     }
 
     .calendar-year-prev:before {
-      content: url("/components/assets/date-picker/calendar_year_prev.png");
+      content: url("/lib/assets/date-picker/calendar_year_prev.png");
     }
 
     .calendar-month-prev:before {
-      content: url("/components/assets/date-picker/calendar_month_prev.png");
+      content: url("/lib/assets/date-picker/calendar_month_prev.png");
     }
 
     .calendar-year-next:before {
-      content: url("/components/assets/date-picker/calendar_year_next.png");
+      content: url("/lib/assets/date-picker/calendar_year_next.png");
     }
 
     .calendar-month-next:before {
-      content: url("/components/assets/date-picker/calendar_month_next.png");
+      content: url("/lib/assets/date-picker/calendar_month_next.png");
     }
 
     .calendar-year-prev:active,
