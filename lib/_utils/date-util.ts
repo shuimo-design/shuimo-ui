@@ -11,7 +11,7 @@
  * 获取本月第一天
  * @param date
  */
-export const getFirstDayOfMonth = date => {
+export const getFirstDayOfMonth = (date: Date) => {
   const temp = new Date(date.getTime());
   temp.setDate(1);
   return temp.getDay();
@@ -22,7 +22,7 @@ export const getFirstDayOfMonth = date => {
  * @param year
  * @param month
  */
-export const getDayCountOfMonth = (year, month) => {
+export const getDayCountOfMonth = (year: number, month: number) => {
   if (month === 3 || month === 5 || month === 8 || month === 10) {
     return 30;
   }
@@ -43,7 +43,7 @@ export const getDayCountOfMonth = (year, month) => {
  * @param date
  * @param amount
  */
-export const prevDate = (date, amount = 1) => {
+export const prevDate = (date: Date, amount = 1) => {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate() - amount);
 };
 
@@ -52,7 +52,7 @@ export const prevDate = (date, amount = 1) => {
  * @param year
  * @param month
  */
-export const getStartDateOfMonth = (year, month) => {
+export const getStartDateOfMonth = (year: number, month: number) => {
   const result = new Date(year, month, 1);
   const day = result.getDay();
 
@@ -67,7 +67,7 @@ export const getStartDateOfMonth = (year, month) => {
  * 初始化日期
  * @param date
  */
-export const clearTime = date => {
+export const clearTime = (date: Date) => {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 };
 
@@ -76,11 +76,11 @@ export const clearTime = date => {
  * @param date
  * @param amount
  */
-export const nextDate = (date, amount = 1) => {
+export const nextDate = (date: Date, amount = 1) => {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate() + amount);
 };
 
-export const arrayFindIndex = (arr, pred) => {
+export const arrayFindIndex = (arr: string | any[], pred: any) => {
   for (let i = 0; i !== arr.length; ++i) {
     if (pred(arr[i])) {
       return i;
@@ -89,7 +89,7 @@ export const arrayFindIndex = (arr, pred) => {
   return -1;
 };
 
-export const arrayFind = (arr, pred) => {
+export const arrayFind = (arr: any[], pred: any) => {
   const idx = arrayFindIndex(arr, pred);
   return idx !== -1 ? arr[idx] : undefined;
 };
@@ -98,7 +98,7 @@ export const arrayFind = (arr, pred) => {
  * 格式化数组
  * @param val
  */
-export const coerceTruthyValueToArray = val => {
+export const coerceTruthyValueToArray = (val: any[]) => {
   if (Array.isArray(val)) {
     return val;
   } else if (val) {
@@ -112,7 +112,7 @@ export const coerceTruthyValueToArray = val => {
  * 判断是否为日期
  * @param date
  */
-export const isDate = date => {
+export const isDate = (date: any) => {
   if (date === null || date === undefined) return false;
   if (isNaN(new Date(date).getTime())) return false;
   if (Array.isArray(date)) return false;
@@ -126,7 +126,7 @@ export const isDate = date => {
  * @param m
  * @param d
  */
-export const modifyDate = (date, y, m, d) => {
+export const modifyDate = (date: Date, y: number, m: number, d: number) => {
   return new Date(y, m, d, date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
 };
 
@@ -136,7 +136,7 @@ export const modifyDate = (date, y, m, d) => {
  * @param m
  * @param d
  */
-export const setDate = (y, m, d) => {
+export const setDate = (y: number, m: number | string, d: number | string) => {
   if (m < 10) {
     m = `0${m}`;
   }
@@ -152,7 +152,7 @@ export const setDate = (y, m, d) => {
  * @param year
  * @param month
  */
-export const changeYearMonthAndClampDate = (date, year, month) => {
+export const changeYearMonthAndClampDate = (date: Date, year: number, month: number) => {
   const monthDate = Math.min(date.getDate(), getDayCountOfMonth(year, month));
   return modifyDate(date, year, month, monthDate);
 };
@@ -161,7 +161,7 @@ export const changeYearMonthAndClampDate = (date, year, month) => {
  * 前一个月
  * @param date
  */
-export const prevMonth = date => {
+export const prevMonth = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return month === 0
@@ -173,7 +173,7 @@ export const prevMonth = date => {
  * 后一个月
  * @param date
  */
-export const nextMonth = date => {
+export const nextMonth = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return month === 11
@@ -186,7 +186,7 @@ export const nextMonth = date => {
  * @param date
  * @param amount
  */
-export const prevYear = (date, amount = 1) => {
+export const prevYear = (date: Date, amount = 1) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return changeYearMonthAndClampDate(date, year - amount, month);
@@ -197,8 +197,21 @@ export const prevYear = (date, amount = 1) => {
  * @param date
  * @param amount
  */
-export const nextYear = (date, amount = 1) => {
+export const nextYear = (date: Date, amount = 1) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return changeYearMonthAndClampDate(date, year + amount, month);
+};
+
+/**
+ * 根据类型格式化日期
+ * @param val
+ * @param type
+ */
+export const valueFormatByType = (val: string | Date, type: string) => {
+  const date = new Date(val);
+  const year = date.getFullYear();
+  const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+  return type === 'date' ? `${year}-${m}-${d}` : `${year}-${m}`;
 };

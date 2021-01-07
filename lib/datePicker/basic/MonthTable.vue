@@ -34,7 +34,8 @@
     props: {
       minDate: {},
       maxDate: {},
-      date: {}
+      date: {},
+      value: {}
     },
     data() {
       return {
@@ -83,7 +84,8 @@
         const year = this.date.getFullYear();
         const today = new Date();
         const month = cell.text;
-        style.current = arrayFindIndex(coerceTruthyValueToArray([this.date]), date => date.getFullYear() === year && date.getMonth() === month) >= 0;
+        const dateVal = new Date(this.value);
+        style.current = arrayFindIndex(coerceTruthyValueToArray([dateVal]), date => date.getFullYear() === year && date.getMonth() === month) >= 0;
         style.today = today.getFullYear() === year && today.getMonth() === month;
 
         if (cell.inRange) {
@@ -119,23 +121,23 @@
 
 <style scoped lang="scss">
   .month-table {
-    margin-top: 10px;
+    margin-top: 14px;
 
     td {
-      padding: 8px 0;
+      padding: 8px 8px;
 
       div {
         height: 40px;
-        padding: 8px 0;
+        padding: 0;
         box-sizing: border-box;
         text-align: center;
         cursor: pointer;
 
         .cell {
-          width: 55px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           display: block;
-          line-height: 36px;
+          line-height: 40px;
           color: #606266;
           margin: 0 auto;
           border-radius: 18px;
@@ -151,6 +153,11 @@
         .today {
           font-weight: 700;
           color: #3474c5;
+        }
+
+        .current {
+          background: url("/lib/assets/date-picker/circle.png") no-repeat;
+          background-size: 100% 100%;
         }
       }
     }

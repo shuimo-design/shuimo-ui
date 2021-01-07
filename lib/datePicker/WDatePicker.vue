@@ -63,7 +63,8 @@ import {
   nextYear,
   prevMonth,
   nextMonth,
-  changeYearMonthAndClampDate
+  changeYearMonthAndClampDate,
+  valueFormatByType
 } from "../_utils/date-util";
 
 const DEFAULT_SELECT_BORDER = 3;
@@ -84,6 +85,10 @@ export default {
     placeholder: {
       type: String,
       default: '请选择日期'
+    },
+    type: {
+      type: String,
+      default: 'date'
     }
   },
   data() {
@@ -189,8 +194,11 @@ export default {
       window.addEventListener('resize', this.resizeWindow)
     },
     setDefault() {
-      this.defaultValue = this.value;
-      this.date = new Date(this.value);
+      this.defaultValue = this.value ? valueFormatByType(this.value, this.type) : '';
+      this.date = this.value ? new Date(this.value) : new Date();
+      if (this.type === 'month') {
+        this.currentView = 'month';
+      }
     },
     handleDatePick(date) {
       let newDate = modifyDate(date, date.getFullYear(), date.getMonth(), date.getDate());
@@ -229,6 +237,12 @@ export default {
     },
     handleMonthPick(month) {
       this.date = changeYearMonthAndClampDate(this.date, this.year, month);
+      if (this.type === 'month') {
+        this.defaultValue = valueFormatByType(this.date, 'month');
+        this.$emit('update:value', this.defaultValue);
+        this.calendarDropdown = false;
+        return;
+      }
       this.currentView = 'date';
     },
     handleYearPick(year) {

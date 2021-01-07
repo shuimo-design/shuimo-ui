@@ -6,13 +6,13 @@
       class="date-table">
     <tbody>
     <tr>
-      <th>日</th>
       <th>壹</th>
       <th>贰</th>
       <th>叁</th>
       <th>肆</th>
       <th>伍</th>
       <th>陆</th>
+      <th>日</th>
     </tr>
     <tr v-for="(row, key) in rows"
         :key="key">
@@ -53,7 +53,7 @@
     name: "date-table",
     props: {
       firstDayOfWeek: {
-        default: 7,
+        default: 1,
         type: Number
       },
       minDate: {},
