@@ -5,39 +5,42 @@
       <button></button>
     </div>
     <Teleport to="body">
-      <div v-show="calendarDropdown" :style="dropdownStyle"
-           class="calendar-dropdown">
-        <div class="calendar-dropdown-header">
-          <button class="calendar-year-prev" @click="prevYear"></button>
-          <button class="calendar-month-prev"
-                  v-show="currentView === 'date'"
-                  @click="prevMonth"></button>
-          <span class="year"
-                @click="showYearPicker">{{ year }}</span>
-          <span class="between" v-show="currentView === 'date'">，</span>
-          <span class="month"
-                @click="showMonthPicker"
-                v-show="currentView === 'date'">{{ month }}</span>
-          <button class="calendar-month-next"
-                  v-show="currentView === 'date'"
-                  @click="nextMonth"></button>
-          <button class="calendar-year-next" @click="nextYear"></button>
+      <transition name="w-opacity">
+        <div v-show="calendarDropdown" :style="dropdownStyle"
+             class="calendar-dropdown"
+             @onresize="leaveDropdown">
+          <div class="calendar-dropdown-header">
+            <button class="calendar-year-prev" @click="prevYear"></button>
+            <button class="calendar-month-prev"
+                    v-show="currentView === 'date'"
+                    @click="prevMonth"></button>
+            <span class="year"
+                  @click="showYearPicker">{{ year }}</span>
+            <span class="between" v-show="currentView === 'date'">，</span>
+            <span class="month"
+                  @click="showMonthPicker"
+                  v-show="currentView === 'date'">{{ month }}</span>
+            <button class="calendar-month-next"
+                    v-show="currentView === 'date'"
+                    @click="nextMonth"></button>
+            <button class="calendar-year-next" @click="nextYear"></button>
+          </div>
+          <div class="content">
+            <date-table :date="date"
+                        v-show="currentView === 'date'"
+                        @pick="handleDatePick"
+                        :value="defaultValue"/>
+            <year-table v-show="currentView === 'year'"
+                        @pick="handleYearPick"
+                        :value="defaultValue"
+                        :date="date"/>
+            <month-table v-show="currentView === 'month'"
+                         :date="date"
+                         :value="defaultValue"
+                         @pick="handleMonthPick"/>
+          </div>
         </div>
-        <div class="content">
-          <date-table :date="date"
-                      v-show="currentView === 'date'"
-                      @pick="handleDatePick"
-                      :value="defaultValue"/>
-          <year-table v-show="currentView === 'year'"
-                      @pick="handleYearPick"
-                      :value="defaultValue"
-                      :date="date"/>
-          <month-table v-show="currentView === 'month'"
-                       :date="date"
-                       :value="defaultValue"
-                       @pick="handleMonthPick"/>
-        </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>
@@ -62,8 +65,9 @@ import {
   nextYear,
   prevMonth,
   nextMonth,
-  changeYearMonthAndClampDate
-} from "../_utils/date-util";
+  changeYearMonthAndClampDate,
+  valueFormatByType
+} from "../_utils/dateUtil";
 
 const DEFAULT_SELECT_BORDER = 3;
 const DEFAULT_MARGIN = 5;
@@ -83,6 +87,10 @@ export default {
     placeholder: {
       type: String,
       default: '请选择日期'
+    },
+    type: {
+      type: String,
+      default: 'date'
     }
   },
   data() {
@@ -129,9 +137,14 @@ export default {
     this.select = this.$refs['select'];
     this.setDefault();
   },
+  unmounted() {
+    window.removeEventListener('mousedown', this.mousedownEvent);
+    window.removeEventListener('resize', this.resizeWindow);
+  },
   methods: {
     showCalendar() {
       this.setStyle();
+      this.setEvents();
       this.calendarDropdown = !this.calendarDropdown;
     },
     /**
@@ -145,9 +158,49 @@ export default {
       this.selectStyle.height = getStyle(selectStyle, 'height');
       this.selectStyle.width = getStyle(selectStyle, 'width');
     },
+    /**
+     * 离开下拉框方法
+     */
+    leaveDropdown() {
+      this.calendarDropdown = false;
+      window.removeEventListener('mousedown', this.mousedownEvent);
+      window.removeEventListener('resize', this.resizeWindow);
+    },
+    /**
+     * 隐藏下拉框关联鼠标事件
+     * @param e event
+     */
+    mousedownEvent(e) {
+      // todo switch to utils func
+      if (e.path && e.path.length > 0) {
+        const isSelectDropdown = e.path.some(q => q.classList &&
+          Array(...q.classList).includes('calendar-dropdown'));
+        if (!isSelectDropdown) {
+          this.leaveDropdown();
+        }
+      } else {
+        this.leaveDropdown();
+      }
+    },
+    /**
+     * 改变窗口大小方法
+     */
+    resizeWindow() {
+      this.setStyle();
+    },
+    /**
+     * 事件绑定
+     */
+    setEvents() {
+      window.addEventListener('mousedown', this.mousedownEvent);
+      window.addEventListener('resize', this.resizeWindow)
+    },
     setDefault() {
-      this.defaultValue = this.value;
-      this.date = new Date(this.value);
+      this.defaultValue = this.value ? valueFormatByType(this.value, this.type) : '';
+      this.date = this.value ? new Date(this.value) : new Date();
+      if (this.type === 'month') {
+        this.currentView = 'month';
+      }
     },
     handleDatePick(date) {
       let newDate = modifyDate(date, date.getFullYear(), date.getMonth(), date.getDate());
@@ -186,6 +239,12 @@ export default {
     },
     handleMonthPick(month) {
       this.date = changeYearMonthAndClampDate(this.date, this.year, month);
+      if (this.type === 'month') {
+        this.defaultValue = valueFormatByType(this.date, 'month');
+        this.$emit('update:value', this.defaultValue);
+        this.calendarDropdown = false;
+        return;
+      }
       this.currentView = 'date';
     },
     handleYearPick(year) {

@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import {arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/date-util";
+  import {arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/dateUtil";
 
   export default {
     name: "year-table",
@@ -92,16 +92,17 @@
         line-height: 30px;
         color: #606266;
         margin: 0 auto;
+        transition: all 0.4s;
+        cursor: pointer;
 
         &:hover {
-          color: red;
+          transform: scale(1.2);
         }
       }
-
-      .today {
-        font-weight: 600;
-        color: red;
-      }
+    }
+    .today .cell {
+      font-weight: 700;
+      color: #3474c5;
     }
   }
 </style>

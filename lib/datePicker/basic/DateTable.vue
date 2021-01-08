@@ -6,13 +6,13 @@
       class="date-table">
     <tbody>
     <tr>
-      <th>日</th>
       <th>壹</th>
       <th>贰</th>
       <th>叁</th>
       <th>肆</th>
       <th>伍</th>
       <th>陆</th>
+      <th>日</th>
     </tr>
     <tr v-for="(row, key) in rows"
         :key="key">
@@ -37,7 +37,7 @@
     getFirstDayOfMonth,
     getStartDateOfMonth,
     nextDate,
-  } from "../../_utils/date-util";
+  } from "../../_utils/dateUtil";
 
   const getDateTimestamp = function (time) {
     if (typeof time === 'number' || typeof time === 'string') {
@@ -53,7 +53,7 @@
     name: "date-table",
     props: {
       firstDayOfWeek: {
-        default: 7,
+        default: 1,
         type: Number
       },
       minDate: {},
@@ -245,8 +245,8 @@
     }
 
     .today {
-      font-weight: 600;
-      color: red;
+      font-weight: 700;
+      color: #3474c5;
     }
 
     .prev-month,
@@ -254,9 +254,13 @@
       color: #a3a3a3;
     }
 
-    td:hover {
-      color: red;
+    td {
+      transition: all 0.4s;
       cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 </style>

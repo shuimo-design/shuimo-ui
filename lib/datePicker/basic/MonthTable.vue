@@ -13,17 +13,13 @@
 </template>
 
 <script>
-  import {
-    arrayFind,
-    arrayFindIndex,
-    coerceTruthyValueToArray
-  } from "../../_utils/date-util";
+  import {arrayFind, arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/dateUtil";
 
   const clearDate = (date) => {
     return new Date(date.getFullYear(), date.getMonth());
   };
 
-  const getMonthTimestamp = function(time) {
+  const getMonthTimestamp = function (time) {
     if (typeof time === 'number' || typeof time === 'string') {
       return clearDate(new Date(time)).getTime();
     } else if (time instanceof Date) {
@@ -38,11 +34,12 @@
     props: {
       minDate: {},
       maxDate: {},
-      date: {}
+      date: {},
+      value: {}
     },
     data() {
       return {
-        tableRows: [ [], [], [] ]
+        tableRows: [[], [], []]
       };
     },
     computed: {
@@ -56,7 +53,7 @@
           for (let j = 0; j < 4; j++) {
             let cell = row[j];
             if (!cell) {
-              cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+              cell = {row: i, column: j, type: 'normal', inRange: false, start: false, end: false};
             }
 
             cell.type = 'normal';
@@ -87,7 +84,8 @@
         const year = this.date.getFullYear();
         const today = new Date();
         const month = cell.text;
-        style.current = arrayFindIndex(coerceTruthyValueToArray([this.date]), date => date.getFullYear() === year && date.getMonth() === month) >= 0;
+        const dateVal = new Date(this.value);
+        style.current = arrayFindIndex(coerceTruthyValueToArray([dateVal]), date => date.getFullYear() === year && date.getMonth() === month) >= 0;
         style.today = today.getFullYear() === year && today.getMonth() === month;
 
         if (cell.inRange) {
@@ -123,34 +121,43 @@
 
 <style scoped lang="scss">
   .month-table {
-    margin-top: 10px;
+    margin-top: 14px;
+
     td {
-      padding: 8px 0;
+      padding: 8px 8px;
 
       div {
         height: 40px;
-        padding: 8px 0;
+        padding: 0;
         box-sizing: border-box;
         text-align: center;
         cursor: pointer;
 
         .cell {
-          width: 55px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           display: block;
-          line-height: 36px;
+          line-height: 40px;
           color: #606266;
           margin: 0 auto;
           border-radius: 18px;
+          transition: all 0.4s;
+          cursor: pointer;
 
           &:hover {
-            color: red;
+            transform: scale(1.2);
           }
+
         }
 
         .today {
-          font-weight: 600;
-          color: red;
+          font-weight: 700;
+          color: #3474c5;
+        }
+
+        .current {
+          background: url("/lib/assets/date-picker/circle.png") no-repeat;
+          background-size: 100% 100%;
         }
       }
     }

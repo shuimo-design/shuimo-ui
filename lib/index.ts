@@ -7,6 +7,7 @@ import {default as WTooltip} from './tooltip';
 import {default as WScrollNumber} from './scrollNumber';
 import {default as WSelect} from './select';
 import {default as WDatePicker} from './datePicker';
+import {default as WPopover} from './popover'
 
 import '../lib/style.scss'
 
@@ -18,7 +19,8 @@ const components = [
   WTooltip,
   WScrollNumber,
   WSelect,
-  WDatePicker
+  WDatePicker,
+  WPopover
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -27,7 +29,7 @@ const install = function (app: App) {
   return app;
 };
 
-export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker};
+export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover};
 
 export default {
   install
