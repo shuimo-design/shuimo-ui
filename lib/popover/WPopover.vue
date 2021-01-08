@@ -22,7 +22,7 @@
   import {addClass, removeClass} from "../_utils/dom";
   import {off, on} from "../_utils/dom";
 
-  const DEFAULT_SELECT_BORDER = 25;
+  const DEFAULT_MARGIN_LEFT = 10;
   const getStyle = (selectStyle, type) => {
     const num = Number(selectStyle[type].replace('px', ''));
     return isNaN(num) ? 0 : num;
@@ -52,7 +52,7 @@
       popoverStyle() {
         const r = this.referenceStyle;
         return {
-          left: `${-r.offsetLeft}px`,
+          left: `${DEFAULT_MARGIN_LEFT - r.offsetLeft / 2 }px`,
           top: `${r.offsetTop + r.height}px`
         }
       }
@@ -137,6 +137,7 @@
       },
       doShow() {
         this.popoverVisible = true;
+        this.setStyle();
       },
       doClose() {
         this.popoverVisible = false;
@@ -146,6 +147,7 @@
         addClass(popper, 'focusing');
         if (this.trigger === 'click' || this.trigger === 'focus') {
           this.popoverVisible = true;
+          this.setStyle();
         }
       },
       handleBlur() {
@@ -172,9 +174,11 @@
         if (this.openDelay) {
           this._timer = setTimeout(() => {
             this.popoverVisible = true;
+            this.setStyle();
           }, this.openDelay);
         } else {
           this.popoverVisible = true;
+          this.setStyle();
         }
       },
       handleMouseLeave() {
