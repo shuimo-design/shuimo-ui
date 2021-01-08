@@ -67,7 +67,7 @@ import {
   nextMonth,
   changeYearMonthAndClampDate,
   valueFormatByType
-} from "../_utils/date-util";
+} from "../_utils/dateUtil";
 
 const DEFAULT_SELECT_BORDER = 3;
 const DEFAULT_MARGIN = 5;

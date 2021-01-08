@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import {arrayFind, arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/date-util";
+  import {arrayFind, arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/dateUtil";
 
   const clearDate = (date) => {
     return new Date(date.getFullYear(), date.getMonth());

@@ -37,7 +37,7 @@
     getFirstDayOfMonth,
     getStartDateOfMonth,
     nextDate,
-  } from "../../_utils/date-util";
+  } from "../../_utils/dateUtil";
 
   const getDateTimestamp = function (time) {
     if (typeof time === 'number' || typeof time === 'string') {
