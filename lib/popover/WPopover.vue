@@ -1,26 +1,28 @@
 <template>
   <div>
-    <span ref="trigger">
+    <span ref="reference">
       <slot name="reference"></slot>
     </span>
     <Teleport to="body">
-      <div v-bind:class="{'visible': popoverVisible === true}"
-           ref="popover"
-           class="popover popover-size w-popover" :style="PopoverStyle">
-        <div class="content">
-          <slot></slot>
+      <transition name="w-linear">
+        <div v-show="popoverVisible"
+             ref="popover"
+             :style="popoverStyle"
+             class="popover popover-size w-popover">
+          <div class="content">
+            <slot></slot>
+          </div>
         </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>
 
 <script>
-  import EventListener from "../_utils/EventListener";
+  import {addClass, removeClass} from "../_utils/dom";
+  import {off, on} from "../_utils/dom";
 
-  const DEFAULT_SELECT_BORDER = 5;
-  const DEFAULT_MARGIN = 20;
-
+  const DEFAULT_SELECT_BORDER = 25;
   const getStyle = (selectStyle, type) => {
     const num = Number(selectStyle[type].replace('px', ''));
     return isNaN(num) ? 0 : num;
@@ -31,15 +33,46 @@
     props: {
       trigger: {
         type: String,
-        default: 'hover'
+        default: 'click'
+      },
+      openDelay: {
+        type: Number,
+        default: 0
+      },
+      closeDelay: {
+        type: Number,
+        default: 200
+      },
+      visible: {
+        type: Boolean,
+        default: true
+      }
+    },
+    computed: {
+      popoverStyle() {
+        const r = this.referenceStyle;
+        return {
+          left: `${-r.offsetLeft}px`,
+          top: `${r.offsetTop + r.height}px`
+        }
+      }
+    },
+    watch: {
+      popoverVisible(newVal, old) {
+        if (!old) {
+          this.$emit('update:visible', true);
+        }
+      },
+      visible() {
+        this.popoverVisible = this.visible;
       }
     },
     data() {
       return {
-        popoverVisible: true,
-        popoverVisibleFlag: false,
-        Trigger: null,
-        triggerStyle: {
+        popoverVisible: false,
+        reference: null,
+        _timer: null,
+        referenceStyle: {
           offsetTop: null,
           offsetLeft: null,
           height: null,
@@ -47,97 +80,128 @@
         }
       }
     },
-    computed: {
-      PopoverStyle() {
-        const t = this.triggerStyle;
-        return {
-          left: `${t.offsetLeft - DEFAULT_SELECT_BORDER}px`,
-          top: `${t.offsetTop + t.height + DEFAULT_MARGIN}px`,
+    mounted() {
+      let reference = this.reference = this.$refs.reference.children[0]
+        ? this.$refs.reference.children[0]
+        : this.$refs.reference;
+      const popper = this.$refs.popover;
+      // 可访问性
+      if (reference) {
+        if (this.trigger !== 'click') {
+          on(reference, 'focusin', this.handleFocus);
+          on(popper, 'focusin', this.handleFocus);
+          on(reference, 'focusout', this.handleBlur);
+          on(popper, 'focusout', this.handleBlur);
+        }
+        on(reference, 'keydown', this.handleKeydown);
+        on(reference, 'click', this.handleClick);
+      }
+      if (this.trigger === 'click') {
+        on(reference, 'click', this.doToggle);
+        on(document, 'click', this.handleDocumentClick);
+      } else if (this.trigger === 'hover') {
+        on(reference, 'mouseenter', this.handleMouseEnter);
+        on(popper, 'mouseenter', this.handleMouseEnter);
+        on(reference, 'mouseleave', this.handleMouseLeave);
+        on(popper, 'mouseleave', this.handleMouseLeave);
+      } else if (this.trigger === 'focus') {
+        if (reference.querySelector('input, textarea')) {
+          on(reference, 'focusin', this.doShow);
+          on(reference, 'focusout', this.doClose);
+        } else {
+          on(reference, 'mousedown', this.doShow);
+          on(reference, 'mouseup', this.doClose);
         }
       }
     },
-    watch: {
-      popoverVisible() {
-        this.setStyle();
-      }
-    },
-    mounted() {
-      this.Trigger = this.$refs['trigger'];
-      this.setStyle();
-      if (!this.$refs.popover) {
-        return console.error('Could not fid popover ref in your component that uses popoverMixin');
-      }
-      // 获取监听对象
-      const triger = this.$refs.trigger;
-      const popover = this.$refs.popover;
-      // 根据trigger监听特定事件
-      if (this.trigger === 'hover') {
-        this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', () => {
-          this.popoverVisible = true;
-          this.popoverVisibleFlag = true;
-        });
-        this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', () => {
-          this.popoverVisibleFlag = false;
-          setTimeout(() => {
-            if (!this.popoverVisibleFlag) {
-              this.popoverVisible = false;
-            }
-          }, 1000)
-        });
-        this._mouseenterEvent1 = EventListener.listen(popover, 'mouseenter', () => {
-          this.popoverVisible = true;
-          this.popoverVisibleFlag = true;
-        });
-        this._mouseleaveEvent1 = EventListener.listen(popover, 'mouseleave', () => {
-          this.popoverVisibleFlag = false;
-          setTimeout(() => {
-            if (!this.popoverVisibleFlag) {
-              this.popoverVisible = false;
-            }
-          }, 1000);
-        });
-      } else if (this.trigger === 'focus') {
-        this._focusEvent = EventListener.listen(triger, 'focus', () => {
-          this.popoverVisible = true;
-        });
-        this._blurEvent = EventListener.listen(triger, 'blur', () => {
-          this.popoverVisible = false;
-        });
-      } else {
-        this._clickEvent = EventListener.listen(triger, 'click', this.toggle);
-      }
-      this.popoverVisible = !this.popoverVisible;
-    },
     // 在组件销毁前移除监听，释放内存
     beforeUnmount () {
-      if (this._blurEvent) {
-        this._blurEvent.remove();
-        this._focusEvent.remove();
-      }
-      if (this._mouseenterEvent) {
-        this._mouseenterEvent.remove();
-        this._mouseleaveEvent.remove();
-        this._mouseenterEvent1.remove();
-        this._mouseenterEvent2.remove();
-      }
-      if (this._clickEvent) {
-        this._clickEvent.remove();
-      }
+      this.cleanup();
+      const reference = this.reference;
+
+      off(reference, 'click', this.doToggle);
+      off(reference, 'mouseup', this.doClose);
+      off(reference, 'mousedown', this.doShow);
+      off(reference, 'focusin', this.doShow);
+      off(reference, 'focusout', this.doClose);
+      off(reference, 'mousedown', this.doShow);
+      off(reference, 'mouseup', this.doClose);
+      off(reference, 'mouseleave', this.handleMouseLeave);
+      off(reference, 'mouseenter', this.handleMouseEnter);
+      off(document, 'click', this.handleDocumentClick);
     },
     methods: {
+      doToggle() {
+        this.popoverVisible = !this.popoverVisible;
+        this.setStyle();
+      },
+      doShow() {
+        this.popoverVisible = true;
+      },
+      doClose() {
+        this.popoverVisible = false;
+      },
+      handleFocus() {
+        const popper = this.$refs.popover;
+        addClass(popper, 'focusing');
+        if (this.trigger === 'click' || this.trigger === 'focus') {
+          this.popoverVisible = true;
+        }
+      },
+      handleBlur() {
+        const popper = this.$refs.popover;
+        removeClass(popper, 'focusing');
+        if (this.trigger === 'click' || this.trigger === 'focus') this.popoverVisible = false;
+      },
+      handleKeydown(ev) {
+        if (ev.keyCode === 27 && this.trigger !== 'manual') { // esc
+          this.doClose();
+        }
+      },
+      handleDocumentClick(e) {
+        let reference = this.reference || this.$refs.reference.children[0];
+        const popper = this.$refs.popover;
+        if (!reference ||
+          reference.contains(e.target) ||
+          !popper ||
+          popper.contains(e.target)) return;
+        this.doClose();
+      },
+      handleMouseEnter() {
+        clearTimeout(this._timer);
+        if (this.openDelay) {
+          this._timer = setTimeout(() => {
+            this.popoverVisible = true;
+          }, this.openDelay);
+        } else {
+          this.popoverVisible = true;
+        }
+      },
+      handleMouseLeave() {
+        clearTimeout(this._timer);
+        if (this.closeDelay) {
+          this._timer = setTimeout(() => {
+            this.popoverVisible = false;
+          }, this.closeDelay);
+        } else {
+          this.popoverVisible = false;
+        }
+      },
+      cleanup() {
+        if (this.openDelay || this.closeDelay) {
+          clearTimeout(this._timer);
+        }
+      },
       /**
-       * 设置popover样式
+       * 设置下拉框样式
        */
       setStyle() {
-        const { Trigger } = this;
-        const triggerStyle = window.getComputedStyle(Trigger);
-        this.triggerStyle.offsetLeft = Trigger.offsetLeft;
-        this.triggerStyle.offsetTop = Trigger.offsetTop;
-        this.triggerStyle.height = getStyle(triggerStyle, 'height');
-        this.triggerStyle.width = getStyle(triggerStyle, 'width');
-      },
-      toggle () {
-        this.popoverVisible = !this.popoverVisible;
+        const { reference } = this;
+        const referenceStyle = window.getComputedStyle(reference);
+        this.referenceStyle.offsetLeft = reference.offsetLeft;
+        this.referenceStyle.offsetTop = reference.offsetTop;
+        this.referenceStyle.height = getStyle(referenceStyle, 'height');
+        this.referenceStyle.width = getStyle(referenceStyle, 'width');
       }
     }
   }
@@ -148,15 +212,14 @@
     position: absolute;
     background: url("/lib/assets/popover/popover_bg.png") no-repeat;
     background-size: 100% 100%;
-    visibility: hidden;
     margin: 3px 4px;
     padding: 2px 0 5px;
     min-width: 150px;
     max-width: 234px;
     min-height: 150px;
 
-    &.visible {
-      visibility: visible;
+    &.focusing {
+      display: block;
     }
 
     .content {

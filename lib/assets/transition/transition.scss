@@ -1,0 +1,9 @@
+.w-liner-enter-active, .w-linear-leave-active {
+  //transition: opacity .2s linear;
+  transition: all .2s;
+  transform: scale(1);
+}
+.w-linear-enter, .w-linear-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
