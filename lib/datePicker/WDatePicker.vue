@@ -5,40 +5,42 @@
       <button></button>
     </div>
     <Teleport to="body">
-      <div v-show="calendarDropdown" :style="dropdownStyle"
-           class="calendar-dropdown"
-           @onresize="leaveDropdown">
-        <div class="calendar-dropdown-header">
-          <button class="calendar-year-prev" @click="prevYear"></button>
-          <button class="calendar-month-prev"
-                  v-show="currentView === 'date'"
-                  @click="prevMonth"></button>
-          <span class="year"
-                @click="showYearPicker">{{ year }}</span>
-          <span class="between" v-show="currentView === 'date'">，</span>
-          <span class="month"
-                @click="showMonthPicker"
-                v-show="currentView === 'date'">{{ month }}</span>
-          <button class="calendar-month-next"
-                  v-show="currentView === 'date'"
-                  @click="nextMonth"></button>
-          <button class="calendar-year-next" @click="nextYear"></button>
+      <transition name="w-opacity">
+        <div v-show="calendarDropdown" :style="dropdownStyle"
+             class="calendar-dropdown"
+             @onresize="leaveDropdown">
+          <div class="calendar-dropdown-header">
+            <button class="calendar-year-prev" @click="prevYear"></button>
+            <button class="calendar-month-prev"
+                    v-show="currentView === 'date'"
+                    @click="prevMonth"></button>
+            <span class="year"
+                  @click="showYearPicker">{{ year }}</span>
+            <span class="between" v-show="currentView === 'date'">，</span>
+            <span class="month"
+                  @click="showMonthPicker"
+                  v-show="currentView === 'date'">{{ month }}</span>
+            <button class="calendar-month-next"
+                    v-show="currentView === 'date'"
+                    @click="nextMonth"></button>
+            <button class="calendar-year-next" @click="nextYear"></button>
+          </div>
+          <div class="content">
+            <date-table :date="date"
+                        v-show="currentView === 'date'"
+                        @pick="handleDatePick"
+                        :value="defaultValue"/>
+            <year-table v-show="currentView === 'year'"
+                        @pick="handleYearPick"
+                        :value="defaultValue"
+                        :date="date"/>
+            <month-table v-show="currentView === 'month'"
+                         :date="date"
+                         :value="defaultValue"
+                         @pick="handleMonthPick"/>
+          </div>
         </div>
-        <div class="content">
-          <date-table :date="date"
-                      v-show="currentView === 'date'"
-                      @pick="handleDatePick"
-                      :value="defaultValue"/>
-          <year-table v-show="currentView === 'year'"
-                      @pick="handleYearPick"
-                      :value="defaultValue"
-                      :date="date"/>
-          <month-table v-show="currentView === 'month'"
-                       :date="date"
-                       :value="defaultValue"
-                       @pick="handleMonthPick"/>
-        </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>

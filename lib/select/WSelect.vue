@@ -4,17 +4,19 @@
       <span>{{ defaultValue }}</span>
     </div>
     <Teleport to="body">
-      <div v-show="selectDropdown"
-           class="select-dropdown select-dropdown-size" :style="dropdownStyle"
-           @onresize="leaveDropdown">
-        <div class="block-scroll select-dropdown-div select-dropdown-size">
-          <div :class="['dropdown-option',option.selected?'selected':'']"
-               v-for="option in optionsCopy"
-               @click="emitValue(option)">
-            <span>{{ option[keyParam] }}</span>
+      <transition name="w-opacity">
+        <div v-show="selectDropdown"
+             class="select-dropdown select-dropdown-size" :style="dropdownStyle"
+             @onresize="leaveDropdown">
+          <div class="block-scroll select-dropdown-div select-dropdown-size">
+            <div :class="['dropdown-option',option.selected?'selected':'']"
+                 v-for="option in optionsCopy"
+                 @click="emitValue(option)">
+              <span>{{ option[keyParam] }}</span>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
     </Teleport>
   </div>
 </template>
