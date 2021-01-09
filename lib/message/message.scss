@@ -1,0 +1,22 @@
+#message–div {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  // 先写死好了
+  left: calc(50vw - 217px);
+  width: 435px;
+  justify-content: center;
+}
+
+
+.w-message-div {
+  left: calc(50vw - 217px);
+  display: inline-block;
+  background: url("/lib/assets/message/message-box.png") no-repeat;
+  background-size: 100%;
+  height: 92px;
+  line-height: 92px;
+  width: 435px;
+  text-align: center;
+
+}

@@ -8,6 +8,7 @@
     <select-demo/>
     <date-picker-demo/>
     <popover-demo/>
+    <message-demo/>
   </div>
 </template>
 
@@ -25,11 +26,20 @@ import ScrollNumberDemo from "./demos/ScrollNumberDemo.vue";
 import SelectDemo from "./demos/SelectDemo.vue";
 import DatePickerDemo from "./demos/DatePickerDemo.vue";
 import PopoverDemo from "./demos/PopoverDemo.vue";
+import MessageDemo from "./demos/MessageDemo.vue";
 
 export default {
   name: "Demo",
   components: {
-    ButtonDemo, InputDemo, DialogDemo, TooltipDemo, ScrollNumberDemo, SelectDemo, DatePickerDemo, PopoverDemo
+    ButtonDemo,
+    InputDemo,
+    DialogDemo,
+    TooltipDemo,
+    ScrollNumberDemo,
+    SelectDemo,
+    DatePickerDemo,
+    PopoverDemo,
+    MessageDemo
   }
 };
 </script>

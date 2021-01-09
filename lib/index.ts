@@ -7,7 +7,8 @@ import {default as WTooltip} from './tooltip';
 import {default as WScrollNumber} from './scrollNumber';
 import {default as WSelect} from './select';
 import {default as WDatePicker} from './datePicker';
-import {default as WPopover} from './popover'
+import {default as WPopover} from './popover';
+import {WMessage} from './message';
 
 import '../lib/style.scss'
 
@@ -29,7 +30,7 @@ const install = function (app: App) {
   return app;
 };
 
-export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover};
+export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover, WMessage};
 
 export default {
   install
