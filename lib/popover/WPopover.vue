@@ -160,6 +160,10 @@
           this.doClose();
         }
       },
+      handleClick() {
+        const reference = this.reference;
+        removeClass(reference, 'focusing');
+      },
       handleDocumentClick(e) {
         let reference = this.reference || this.$refs.reference.children[0];
         const popper = this.$refs.popover;
