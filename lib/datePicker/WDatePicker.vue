@@ -2,7 +2,7 @@
   <div>
     <div class="w-date-picker-div w-date-picker" ref="select" @click="showCalendar">
       <span>{{ defaultValue ? defaultValue : placeholder }}</span>
-      <button></button>
+      <div class="calendar-icon"></div>
     </div>
     <Teleport to="body">
       <transition name="w-opacity">
@@ -271,10 +271,8 @@ export default {
     line-height: 31px;
   }
 
-  button {
+  .calendar-icon {
     background: transparent;
-    border: none;
-    outline: none;
     position: relative;
     bottom: -3px;
     float: right;
