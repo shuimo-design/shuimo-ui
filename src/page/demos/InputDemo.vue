@@ -1,6 +1,7 @@
 <template>
   <div>
     <w-input value="hi"/>
+    <w-input value="hi,textarea" type="textarea"/>
   </div>
 </template>
 

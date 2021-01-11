@@ -9,6 +9,7 @@ import {default as WSelect} from './select';
 import {default as WDatePicker} from './datePicker';
 import {default as WPopover} from './popover';
 import {WMessage} from './message';
+import {WForm, WFormItem} from "./form";
 
 import '../lib/style.scss'
 
@@ -21,7 +22,9 @@ const components = [
   WScrollNumber,
   WSelect,
   WDatePicker,
-  WPopover
+  WPopover,
+  WForm,
+  WFormItem
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -30,7 +33,7 @@ const install = function (app: App) {
   return app;
 };
 
-export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover, WMessage};
+export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover, WMessage, WForm, WFormItem};
 
 export default {
   install

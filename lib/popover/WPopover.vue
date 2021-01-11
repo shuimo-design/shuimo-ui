@@ -201,9 +201,11 @@
        */
       setStyle() {
         const { reference } = this;
+        const parent = reference.offsetParent;
         const referenceStyle = window.getComputedStyle(reference);
-        this.referenceStyle.offsetLeft = reference.offsetLeft;
-        this.referenceStyle.offsetTop = reference.offsetTop;
+        // todo 需要优化offset的获取
+        this.referenceStyle.offsetLeft = parent.offsetLeft + reference.offsetLeft;
+        this.referenceStyle.offsetTop = parent.offsetTop + reference.offsetTop;
         this.referenceStyle.height = getStyle(referenceStyle, 'height');
         this.referenceStyle.width = getStyle(referenceStyle, 'width');
       }

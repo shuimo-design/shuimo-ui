@@ -2,7 +2,7 @@
   <div>
     <div class="w-date-picker-div w-date-picker" ref="select" @click="showCalendar">
       <span>{{ defaultValue ? defaultValue : placeholder }}</span>
-      <button></button>
+      <div class="calendar-icon"></div>
     </div>
     <Teleport to="body">
       <transition name="w-opacity">
@@ -152,9 +152,11 @@ export default {
      */
     setStyle() {
       const { select } = this;
+      // todo 需要优化offset的获取
+      const parent = select.offsetParent;
       const selectStyle = window.getComputedStyle(select);
-      this.selectStyle.offsetLeft = select.offsetLeft;
-      this.selectStyle.offsetTop = select.offsetTop;
+      this.selectStyle.offsetLeft = parent.offsetLeft + select.offsetLeft;
+      this.selectStyle.offsetTop = parent.offsetTop + select.offsetTop;
       this.selectStyle.height = getStyle(selectStyle, 'height');
       this.selectStyle.width = getStyle(selectStyle, 'width');
     },
@@ -269,10 +271,8 @@ export default {
     line-height: 31px;
   }
 
-  button {
+  .calendar-icon {
     background: transparent;
-    border: none;
-    outline: none;
     position: relative;
     bottom: -3px;
     float: right;

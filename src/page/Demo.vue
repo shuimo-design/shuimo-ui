@@ -1,5 +1,6 @@
 <template>
   <div class="demo">
+    <form-demo/>
     <input-demo/>
     <button-demo/>
     <dialog-demo/>
@@ -27,6 +28,7 @@ import SelectDemo from "./demos/SelectDemo.vue";
 import DatePickerDemo from "./demos/DatePickerDemo.vue";
 import PopoverDemo from "./demos/PopoverDemo.vue";
 import MessageDemo from "./demos/MessageDemo.vue";
+import FormDemo from "./demos/FormDemo.vue";
 
 export default {
   name: "Demo",
@@ -39,7 +41,8 @@ export default {
     SelectDemo,
     DatePickerDemo,
     PopoverDemo,
-    MessageDemo
+    MessageDemo,
+    FormDemo
   }
 };
 </script>

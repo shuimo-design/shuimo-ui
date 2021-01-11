@@ -1,7 +1,8 @@
 <template>
-  <label class="w-input-label">
-    <input type="text" class="w-input" v-model="value"/>
-  </label>
+  <div :class="['w-input', {'w-textarea':type === 'textarea'}]">
+    <input type="text" class="w-input-inner" v-model="value" v-if="type!=='textarea'"/>
+    <textarea v-else class="w-textarea-inner" :rows="10" v-model="value"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -20,28 +21,43 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
-.w-input-label {
-  display: inline-block;
+.w-input {
   border: 3px double transparent;
   border-image: url("/lib/assets/input/input244.png") 3;
   width: 244px;
   height: 31px;
 }
 
-.textarea {
-  background-image: url("/lib/assets/input/textarea.png") !important;
+.w-textarea {
+  width: 100%;
+  height: auto;
+  border: 3px double transparent;
+  border-image: url("/lib/assets/input/textarea.png") 3;
 }
 
 
-.w-input {
+.w-input-inner {
   background-color: unset !important;
   background-repeat: no-repeat !important;
   padding: 0 10px;
-  width: 224px;
-  height: 31px;
+  width: calc(100% - 20px);
+  height: 100%;
   border: none !important;
   outline: none !important;
+}
+
+.w-textarea-inner {
+  padding: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 20px);
+  border: none !important;
+  outline: none !important;
+  resize: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 </style>
