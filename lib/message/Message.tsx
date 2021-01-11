@@ -12,7 +12,17 @@ import {h, createApp} from 'vue';
 
 export interface MessageConfig {
   content?: string,
-  time?: number
+  time?: number,
+  type?: string
+}
+export interface ThenableArgument {
+  (val: any): void;
+}
+
+export interface MessageType {
+  (): void;
+  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<void>;
+  promise: Promise<void>;
 }
 
 const setMessageDiv = () => {
@@ -26,16 +36,16 @@ const setMessageDiv = () => {
   document.body.appendChild(div);
   return div;
 }
-
-
-export default function message(config: MessageConfig) {
+const Message = (config: MessageConfig) => {
 
   const parent = setMessageDiv();
   const div = document.createElement('div');
+  div.id = 'w-messages';
   parent.append(div);
 
   const currentConfig = {
     time: 3000,
+    type: 'success',
     ...config
   };
   let confirmDialogProps = {};
@@ -58,7 +68,10 @@ export default function message(config: MessageConfig) {
       render() {
         return (
           this.visible ? <div class="w-message-div">
-            <span>{currentConfig.content}</span>
+            <img src={
+              `/lib/assets/message/${currentConfig.type}.png`
+            }></img>
+            <span class="w-message-content">{currentConfig.content}</span>
           </div> : null
         );
       }
@@ -67,3 +80,18 @@ export default function message(config: MessageConfig) {
 
   render(currentConfig);
 }
+
+['success', 'info', 'warning'].forEach(type => {
+  // @ts-ignore
+  Message[type] = options => {
+    if (typeof options === 'string') {
+      options = {
+        content: options
+      };
+    }
+    options.type = type;
+    return Message(options);
+  };
+});
+
+export default Message;

@@ -24,7 +24,10 @@ export default {
   methods: {
     callMessage() {
       this.flag++;
-      this.$message({ content: `这是第${this.flag}条message` });
+      this.$message.success(`这是第${this.flag}条message`);
+      this.$message.warning('warning的message');
+      this.$message.info('info的message');
+      this.$message({content: 'normal'})
     }
   }
 };

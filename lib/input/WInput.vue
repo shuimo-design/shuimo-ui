@@ -31,8 +31,10 @@ export default {
 }
 
 .w-textarea {
-  width: 244px;
+  width: 100%;
   height: auto;
+  border: 3px double transparent;
+  border-image: url("/lib/assets/input/textarea.png") 3;
 }
 
 
@@ -45,6 +47,7 @@ export default {
   border: none !important;
   outline: none !important;
 }
+
 .w-textarea-inner {
   padding: 5px;
   width: calc(100% - 10px);
@@ -54,7 +57,7 @@ export default {
   resize: none;
 
   &::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
   }
 }
 </style>
