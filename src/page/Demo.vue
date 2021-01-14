@@ -3,6 +3,7 @@
     <form-demo/>
     <input-demo/>
     <button-demo/>
+    <pagination-demo/>
     <dialog-demo/>
     <tooltip-demo/>
     <scroll-number-demo/>
@@ -29,6 +30,7 @@ import DatePickerDemo from "./demos/DatePickerDemo.vue";
 import PopoverDemo from "./demos/PopoverDemo.vue";
 import MessageDemo from "./demos/MessageDemo.vue";
 import FormDemo from "./demos/FormDemo.vue";
+import PaginationDemo from "./demos/PaginationDemo.vue";
 
 export default {
   name: "Demo",
@@ -42,7 +44,8 @@ export default {
     DatePickerDemo,
     PopoverDemo,
     MessageDemo,
-    FormDemo
+    FormDemo,
+    PaginationDemo
   }
 };
 </script>
