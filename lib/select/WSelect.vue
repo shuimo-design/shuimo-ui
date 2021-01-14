@@ -122,10 +122,9 @@ export default {
     setStyle() {
       const { select } = this;
       // todo 需要优化offset的获取
-      const parent = select.offsetParent;
       const selectStyle = window.getComputedStyle(select);
-      this.selectStyle.offsetLeft = parent.offsetLeft + select.offsetLeft;
-      this.selectStyle.offsetTop = parent.offsetTop + select.offsetTop;
+      this.selectStyle.offsetLeft = select.getBoundingClientRect().left + window.pageXOffset;
+      this.selectStyle.offsetTop = select.getBoundingClientRect().top + window.pageYOffset;
       this.selectStyle.height = getStyle(selectStyle, 'height');
       this.selectStyle.width = getStyle(selectStyle, 'width');
     },
