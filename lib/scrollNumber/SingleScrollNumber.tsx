@@ -22,11 +22,6 @@ export default defineComponent({
       computeNumber: []
     }
   },
-  watch: {
-    number() {
-      this.refresh();
-    }
-  },
   mounted() {
     this.refresh();
   },

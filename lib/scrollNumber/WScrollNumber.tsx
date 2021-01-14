@@ -28,7 +28,6 @@ export default defineComponent({
     return {
       maxLen: 9, //最大长度
       computeNumber: [], //数字补零后分割为数组，遍历
-      timeTicket: null,
       timers: [],
       indexArr: []
     };
@@ -47,14 +46,6 @@ export default defineComponent({
      */
     prefixZero(num, n) {
       return (Array(n).join('') + num).slice(-n).split('');
-    },
-    /**
-     * @description: 获取随机数
-     * @param {type}
-     * @return:
-     */
-    getRandomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
     },
     // 设置每一位数字的偏移
     setNumberTransform() {
@@ -89,17 +80,15 @@ export default defineComponent({
       const _this = this;
       _this.computeNumber = _this.prefixZero(_this.number, _this.maxLen);
       _this.indexArr = new Array(_this.computeNumber.length).fill(9);
-      this.setNumberTransform();
-      // 清除定时器，将数字重置为正确显示
-      this.setTimeOutClear()
+      if (this.type !== 'together') {
+        this.setNumberTransform();
+        // 清除定时器，将数字重置为正确显示
+        this.setTimeOutClear()
+      }
     }
   },
   mounted() {
     this.refresh();
-  },
-  unmounted() {
-    window.clearTimeout(this.timeTicket);
-    this.timeTicket = null;
   },
   render() {
     if (this.type === 'together') {
