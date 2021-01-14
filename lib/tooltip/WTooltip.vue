@@ -42,6 +42,7 @@
           left: 0
         },
         show: true,
+        timer: null,
         showFlag: false // 用于判断延迟关闭
       }
     },
@@ -88,11 +89,14 @@
       // 根据trigger监听特定事件
       if (this.trigger === 'hover') {
         this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', () => {
-          this.show = true;
-          this.showFlag = true;
+          this.timer = setInterval(() => {
+            this.show = true;
+            this.showFlag = true;
+          },500)
         });
         this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', () => {
           this.showFlag = false;
+          clearInterval(this.timer);
           setTimeout(() => {
             if (!this.showFlag) {
               this.show = false;
@@ -100,8 +104,10 @@
           }, 1000)
         });
         this._mouseenterEvent1 = EventListener.listen(popover, 'mouseenter', () => {
-          this.show = true;
-          this.showFlag = true;
+          this.timer = setInterval(() => {
+            this.show = true;
+            this.showFlag = true;
+          },200)
         });
         this._mouseleaveEvent1 = EventListener.listen(popover, 'mouseleave', () => {
           this.showFlag = false;
@@ -133,7 +139,7 @@
         this._mouseenterEvent.remove();
         this._mouseleaveEvent.remove();
         this._mouseenterEvent1.remove();
-        this._mouseenterEvent2.remove();
+        this._mouseenterEvent1.remove();
       }
       if (this._clickEvent) {
         this._clickEvent.remove();
