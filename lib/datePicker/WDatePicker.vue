@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="w-date-picker-div w-date-picker" ref="select" @click="showCalendar">
+  <div class="w-date-picker">
+    <div class="w-date-picker-div" ref="select" @click="showCalendar">
       <span>{{ defaultValue ? defaultValue : placeholder }}</span>
       <div class="calendar-icon"></div>
     </div>
@@ -207,6 +207,7 @@ export default {
       let newDate = modifyDate(date, date.getFullYear(), date.getMonth(), date.getDate());
       this.defaultValue = setDate(newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate());
       this.$emit('update:value', this.defaultValue);
+      this.$emit('change', this.defaultValue);
       this.calendarDropdown = false;
       this.date = newDate;
     },
@@ -243,6 +244,7 @@ export default {
       if (this.type === 'month') {
         this.defaultValue = valueFormatByType(this.date, 'month');
         this.$emit('update:value', this.defaultValue);
+        this.$emit('change', this.defaultValue);
         this.calendarDropdown = false;
         return;
       }
@@ -257,10 +259,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.w-date-picker {
+  width: 230px;
+  height: 37px;
+}
 .w-date-picker-div {
   display: inline-block;
-  width: 214px;
-  height: 31px;
+  width: calc(100% - 16px);
+  height: calc(100% - 6px);
   border: 3px double transparent;
   padding: 0 5px;
   border-image: url("/lib/assets/input/input244.png") 3;
