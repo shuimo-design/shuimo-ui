@@ -263,7 +263,9 @@ export default {
   width: 230px;
   height: 37px;
 }
+
 .w-date-picker-div {
+  background-color: #fff;
   display: inline-block;
   width: calc(100% - 16px);
   height: calc(100% - 6px);
