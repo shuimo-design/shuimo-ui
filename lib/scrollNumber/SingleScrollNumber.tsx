@@ -6,20 +6,34 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行
  */
-import {h, defineComponent} from 'vue';
+import {h, defineComponent, CSSProperties, inject} from 'vue';
+
+interface singleScrollNumberData {
+  timer: number,
+  computeNumber: Array<number>,
+  style: CSSProperties
+}
 
 export default defineComponent({
   name: 'SingleScrollNumber',
   props: {
-    number: {
-      type: Number, default: 0
+    number: {type: Number, default: 0}
+  },
+  setup() {
+    const speed: number | undefined = inject('speed');
+    const duration: number | undefined = inject('duration');
+    return {
+      speed,
+      duration
     }
   },
-  inject: ['speed', 'duration'],
-  data() {
+  data(): singleScrollNumberData {
     return {
-      timer: null,
-      computeNumber: []
+      timer: -1,
+      computeNumber: [],
+      style: {
+        transform: undefined
+      }
     }
   },
   watch: {
@@ -30,34 +44,27 @@ export default defineComponent({
   mounted() {
     this.refresh();
   },
-  unmounted() {
-
-  },
   render() {
     return (
       <span class="box-item">
-        <span ref={`numberDom`}>0123456789</span>
+        <span style={this.style}>0123456789</span>
       </span>)
   },
   methods: {
     setNumberTransform() {
       let number = 0;
+      const {style, speed} = this;
       this.timer = setInterval(() => {
-        const elem = this.$refs['numberDom'];
-        if (elem) {
-          elem.style.transform = `translate(-50%,-${number * 10}%)`;
-        }
+        style.transform = `translate(-50%,-${number * 10}%)`;
         number = number === 9 ? 0 : 9;
-      }, this.speed);
+      }, speed);
     },
     setTimeoutClear() {
+      const {style, duration, timer} = this;
       setTimeout(() => {
-        clearInterval(this.timer);
-        const elem = this.$refs['numberDom'];
-        if (elem) {
-          elem.style.transform = `translate(-50%,-${this.number * 10}%)`;
-        }
-      }, this.duration);
+        clearInterval(timer);
+        style.transform = `translate(-50%,-${this.number * 10}%)`;
+      }, duration);
     },
     refresh() {
       this.setNumberTransform();
