@@ -81,7 +81,7 @@ const Message = (config: MessageConfig) => {
   render(currentConfig);
 }
 
-['success', 'info', 'warning'].forEach(type => {
+['success', 'info', 'warning', 'error'].forEach(type => {
   // @ts-ignore
   Message[type] = options => {
     if (typeof options === 'string') {
