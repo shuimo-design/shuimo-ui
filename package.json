@@ -5,7 +5,12 @@
   "files": ["dist"],
   "main": "./dist/wash-painting-ui.umd.js",
   "module": "./dist/wash-painting-ui.es.js",
-  "exports": "./dist/wash-painting-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wash-painting-ui.es.js",
+      "require": "./dist/wash-painting-ui.umd.js"
+    }
+  },
   "author": "菩萨蛮 <zousitanghulu@foxmail.com>",
   "license": "MIT",
   "private": false,

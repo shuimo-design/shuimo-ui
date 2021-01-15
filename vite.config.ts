@@ -6,6 +6,9 @@ export default defineConfig({
     lib: {
       name:'wash-painting-ui',
       entry: 'lib/index.ts'
+    },
+    rollupOptions: {
+      external: ['vue']
     }
   },
   plugins: [vue()],
