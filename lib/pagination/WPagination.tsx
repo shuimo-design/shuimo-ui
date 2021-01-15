@@ -74,7 +74,7 @@ export default defineComponent({
       // @ts-ignore
       const {current} = this;
       this.disPrev = false;
-      let newPage = this.pagers.includes(current + 1) ? current + 1 : current;
+      let newPage =  this.pagers.includes(current + 1) ? current + 1 : current;
       if (this.pagers.indexOf(newPage) === this.pagers.length - 1) {
         this.disNext = true;
       }
@@ -97,6 +97,9 @@ export default defineComponent({
     pageSelected(event: any) {
       const target = event.target;
       if (target.tagName === 'UL') {
+        return;
+      }
+      if (this.pagers.length <= 1) {
         return;
       }
       let newPage = Number(event.target.textContent);
