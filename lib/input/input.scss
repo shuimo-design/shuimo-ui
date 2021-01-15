@@ -1,0 +1,36 @@
+.w-input {
+  border: 3px double transparent;
+  border-image: url("/lib/assets/input/input244.png") 3;
+  width: 244px;
+  height: 31px;
+}
+
+.w-textarea {
+  width: 100%;
+  height: auto;
+  border: 3px double transparent;
+  border-image: url("/lib/assets/input/textarea.png") 3;
+}
+
+.w-input-inner {
+  background-color: unset !important;
+  background-repeat: no-repeat !important;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+  height: 100%;
+  border: none !important;
+  outline: none !important;
+}
+
+.w-textarea-inner {
+  padding: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 20px);
+  border: none !important;
+  outline: none !important;
+  resize: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
