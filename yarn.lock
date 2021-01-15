@@ -1129,10 +1129,10 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-vite@^2.0.0-beta.5:
-  version "2.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.0.0-beta.5.tgz#f56708bf32fb02a48cd7062d7010fdd42a396ec8"
-  integrity sha512-pKl1GPmHP+Sjp5tAahhZFwS92aIXhMBAvsPCtFqqlSVhldgKLGF13u2gWuJZbdiSh/sjY3c9RJg4RFyXoFw+0w==
+vite@^2.0.0-beta.29:
+  version "2.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.0.0-beta.29.tgz#42e05c485e6ad6deaa7e5ea6e4187c87c6d1bad5"
+  integrity sha512-UFXXwiF2Y+7de4557mM26vqohc9+GO1G16mmLAXLIgWGjsaz492l7b0h4SPnms9CEDA4tt1tF/vIDQwLHnG7pQ==
   dependencies:
     esbuild "^0.8.26"
     postcss "^8.2.1"
