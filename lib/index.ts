@@ -10,6 +10,8 @@ import {default as WDatePicker} from './datePicker';
 import {default as WPopover} from './popover';
 import {WMessage} from './message';
 import {WForm, WFormItem} from "./form";
+import {default as WInputNumber} from './inputNumber'
+import {default as WPagination} from './pagination'
 
 import '../lib/style.scss'
 
@@ -24,7 +26,9 @@ const components = [
   WDatePicker,
   WPopover,
   WForm,
-  WFormItem
+  WFormItem,
+  WInputNumber,
+  WPagination
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -33,7 +37,21 @@ const install = function (app: App) {
   return app;
 };
 
-export {WInput, WButton, WDialog, WTooltip, WScrollNumber, WSelect, WDatePicker, WPopover, WMessage, WForm, WFormItem};
+export {
+  WInput,
+  WButton,
+  WDialog,
+  WTooltip,
+  WScrollNumber,
+  WSelect,
+  WDatePicker,
+  WPopover,
+  WMessage,
+  WForm,
+  WFormItem,
+  WInputNumber,
+  WPagination
+};
 
 export default {
   install

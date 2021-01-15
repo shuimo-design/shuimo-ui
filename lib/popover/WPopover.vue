@@ -160,6 +160,10 @@
           this.doClose();
         }
       },
+      handleClick() {
+        const reference = this.reference;
+        removeClass(reference, 'focusing');
+      },
       handleDocumentClick(e) {
         let reference = this.reference || this.$refs.reference.children[0];
         const popper = this.$refs.popover;
@@ -201,11 +205,10 @@
        */
       setStyle() {
         const { reference } = this;
-        const parent = reference.offsetParent;
         const referenceStyle = window.getComputedStyle(reference);
         // todo 需要优化offset的获取
-        this.referenceStyle.offsetLeft = parent.offsetLeft + reference.offsetLeft;
-        this.referenceStyle.offsetTop = parent.offsetTop + reference.offsetTop;
+        this.referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
+        this.referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
         this.referenceStyle.height = getStyle(referenceStyle, 'height');
         this.referenceStyle.width = getStyle(referenceStyle, 'width');
       }
@@ -223,6 +226,7 @@
     min-width: 150px;
     max-width: 234px;
     min-height: 150px;
+    z-index: 9999;
 
     &.focusing {
       display: block;

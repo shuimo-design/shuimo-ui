@@ -7,8 +7,16 @@
  * V1.1.0 @author 菩萨蛮 添加同时滚动的类型选择、速度、时间提供修改入口
  */
 
-import {h, defineComponent, provide} from 'vue';
+import {h, defineComponent, provide, CSSProperties} from 'vue';
 import SingleScrollNumber from "./SingleScrollNumber";
+
+const MAX_LENGTH = 9;
+interface WScrollNumberData {
+  timers: Array<number>,
+  computeNumber: Array<string>,
+  indexArr: Array<number>,
+  styleArr: Array<CSSProperties>
+}
 
 export default defineComponent({
   name: 'WScrollNumber',
@@ -24,14 +32,13 @@ export default defineComponent({
     provide('speed', props.speed);
     provide('duration', props.duration);
   },
-  data() {
+  data(): WScrollNumberData {
     return {
-      maxLen: 9, //最大长度
-      computeNumber: [], //数字补零后分割为数组，遍历
-      timeTicket: null,
       timers: [],
-      indexArr: []
-    };
+      computeNumber: [],
+      indexArr: [],
+      styleArr: []
+    }
   },
   watch: {
     number() {
@@ -45,30 +52,15 @@ export default defineComponent({
      * @param {number} n 总长度
      * @return:
      */
-    prefixZero(num, n) {
+    prefixZero(num: number, n: number) {
       return (Array(n).join('') + num).slice(-n).split('');
-    },
-    /**
-     * @description: 获取随机数
-     * @param {type}
-     * @return:
-     */
-    getRandomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
     },
     // 设置每一位数字的偏移
     setNumberTransform() {
       for (let index = 0; index < this.computeNumber.length; index++) {
         const timer = setInterval(() => {
-          const elem = this.$refs[`numberDom${index}`];
-          if (elem) {
-            elem.style.transform = `translate(-50%,-${this.indexArr[index] * 10}%)`;
-            if (this.indexArr[index] === 9) {
-              this.indexArr[index] = 0;
-            } else {
-              this.indexArr[index] = 9;
-            }
-          }
+          this.styleArr[index].transform = `translate(-50%,-${this.indexArr[index] * 10}%)`;
+          this.indexArr[index] = this.indexArr[index] === 9 ? 0 : 9;
         }, this.speed);
         this.timers.push(timer);
       }
@@ -77,29 +69,26 @@ export default defineComponent({
       for (let index = this.timers.length - 1; index >= 0; index--) {
         setTimeout(() => {
           clearInterval(this.timers[index]);
-          const elem = this.$refs[`numberDom${index}`];
-          if (elem) {
-            elem.style.transform = `translate(-50%,-${this.computeNumber[index] * 10}%)`;
-          }
+          this.styleArr[index].transform = `translate(-50%,-${this.computeNumber[index] * 10}%)`;
+          console.log(this.styleArr);
         }, (!this.left ? (this.timers.length - index) : (index + 1)) * this.duration);
       }
     },
     // 定时刷新数据
     refresh() {
-      const _this = this;
-      _this.computeNumber = _this.prefixZero(_this.number, _this.maxLen);
-      _this.indexArr = new Array(_this.computeNumber.length).fill(9);
-      this.setNumberTransform();
-      // 清除定时器，将数字重置为正确显示
-      this.setTimeOutClear()
+      this.computeNumber = this.prefixZero(this.number, MAX_LENGTH);
+      this.styleArr = new Array(this.computeNumber.length).fill({});
+      console.log(this.computeNumber);
+      this.indexArr = new Array(this.computeNumber.length).fill(9);
+      if (this.type !== 'together') {
+        this.setNumberTransform();
+        // 清除定时器，将数字重置为正确显示
+        this.setTimeOutClear()
+      }
     }
   },
   mounted() {
     this.refresh();
-  },
-  unmounted() {
-    window.clearTimeout(this.timeTicket);
-    this.timeTicket = null;
   },
   render() {
     if (this.type === 'together') {
@@ -121,7 +110,7 @@ export default defineComponent({
         {
           computeNumber.map((item, index) =>
             <span class="box-item" key={index}>
-              <span ref={`numberDom${index}`}>0123456789</span>
+              <span style={this.styleArr[index]}>0123456789</span>
             </span>)
         }
       </div>

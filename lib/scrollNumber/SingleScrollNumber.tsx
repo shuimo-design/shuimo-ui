@@ -36,11 +36,6 @@ export default defineComponent({
       }
     }
   },
-  watch: {
-    number() {
-      this.refresh();
-    }
-  },
   mounted() {
     this.refresh();
   },
