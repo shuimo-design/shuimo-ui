@@ -59,7 +59,10 @@ export default defineComponent({
     setNumberTransform() {
       for (let index = 0; index < this.computeNumber.length; index++) {
         const timer = setInterval(() => {
-          this.styleArr[index].transform = `translate(-50%,-${this.indexArr[index] * 10}%)`;
+          const trans = {
+            transform: `translate(-50%,-${this.indexArr[index] * 10}%)`
+          };
+          this.styleArr[index] = trans;
           this.indexArr[index] = this.indexArr[index] === 9 ? 0 : 9;
         }, this.speed);
         this.timers.push(timer);
@@ -69,22 +72,26 @@ export default defineComponent({
       for (let index = this.timers.length - 1; index >= 0; index--) {
         setTimeout(() => {
           clearInterval(this.timers[index]);
-          this.styleArr[index].transform = `translate(-50%,-${this.computeNumber[index] * 10}%)`;
-          console.log(this.styleArr);
+          const trans = {
+            transform: `translate(-50%,-${this.computeNumber[index] * 10}%)`
+          };
+          this.styleArr[index] = trans;
         }, (!this.left ? (this.timers.length - index) : (index + 1)) * this.duration);
       }
     },
     // 定时刷新数据
     refresh() {
       this.computeNumber = this.prefixZero(this.number, MAX_LENGTH);
-      this.styleArr = new Array(this.computeNumber.length).fill({});
-      console.log(this.computeNumber);
+      this.styleArr = new Array(this.computeNumber.length);
       this.indexArr = new Array(this.computeNumber.length).fill(9);
       if (this.type !== 'together') {
         this.setNumberTransform();
         // 清除定时器，将数字重置为正确显示
         this.setTimeOutClear()
       }
+    },
+    getScrollStyle(index: number) {
+      return this.styleArr[index];
     }
   },
   mounted() {
@@ -105,12 +112,13 @@ export default defineComponent({
 
 
     const {computeNumber} = this;
+    const {getScrollStyle} = this;
     return (
       <div class="w-scroll-number">
         {
           computeNumber.map((item, index) =>
             <span class="box-item" key={index}>
-              <span style={this.styleArr[index]}>0123456789</span>
+              <span style={getScrollStyle(index)}>0123456789</span>
             </span>)
         }
       </div>
