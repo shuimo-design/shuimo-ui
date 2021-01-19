@@ -102,7 +102,7 @@
     }
     .today .cell {
       font-weight: 700;
-      color: #3474c5;
+      color: #1a336d;
     }
   }
 </style>
