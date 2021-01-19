@@ -68,9 +68,7 @@ const Message = (config: MessageConfig) => {
       render() {
         return (
           this.visible ? <div class="w-message-div">
-            <img src={
-              `/lib/assets/message/${currentConfig.type}.png`
-            }></img>
+            <div class={[currentConfig.type, 'icon']}/>
             <span class="w-message-content">{currentConfig.content}</span>
           </div> : null
         );
