@@ -11,6 +11,7 @@
     <date-picker-demo/>
     <popover-demo/>
     <message-demo/>
+    <upload-demo/>
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import PopoverDemo from "./demos/PopoverDemo.vue";
 import MessageDemo from "./demos/MessageDemo.vue";
 import FormDemo from "./demos/FormDemo.vue";
 import PaginationDemo from "./demos/PaginationDemo.vue";
+import UploadDemo from "./demos/UploadDemo.vue";
 
 export default {
   name: "Demo",
@@ -45,7 +47,8 @@ export default {
     PopoverDemo,
     MessageDemo,
     FormDemo,
-    PaginationDemo
+    PaginationDemo,
+    UploadDemo
   }
 };
 </script>
