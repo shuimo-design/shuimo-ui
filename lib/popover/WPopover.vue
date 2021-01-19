@@ -19,10 +19,11 @@
 </template>
 
 <script>
-import {addClass, removeClass} from "../_utils/dom";
-import {off, on} from "../_utils/dom";
+import { addClass, removeClass } from "../_utils/dom";
+import { off, on } from "../_utils/dom";
 
-const DEFAULT_MARGIN_LEFT = 10;
+const DEFAULT_MARGIN_LEFT = 5;
+const DEFAULT_WIDTH = 234;
 const getStyle = (selectStyle, type) => {
   const num = Number(selectStyle[type].replace('px', ''));
   return isNaN(num) ? 0 : num;
@@ -52,7 +53,7 @@ export default {
     popoverStyle() {
       const r = this.referenceStyle;
       return {
-        left: `${DEFAULT_MARGIN_LEFT - r.offsetLeft / 2}px`,
+        left: `${r.offsetLeft + r.width / 2 - DEFAULT_WIDTH / 2 - DEFAULT_MARGIN_LEFT}px`,
         top: `${r.offsetTop + r.height}px`
       }
     }
@@ -204,9 +205,8 @@ export default {
      * 设置下拉框样式
      */
     setStyle() {
-      const {reference} = this;
+      const { reference } = this;
       const referenceStyle = window.getComputedStyle(reference);
-      // todo 需要优化offset的获取
       this.referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
       this.referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
       this.referenceStyle.height = getStyle(referenceStyle, 'height');
