@@ -12,6 +12,7 @@ import {WMessage} from './message';
 import {WForm, WFormItem} from "./form";
 import {default as WInputNumber} from './inputNumber'
 import {default as WPagination} from './pagination'
+import {default as WUpload} from  './upload'
 
 import '../lib/style.scss'
 
@@ -28,7 +29,8 @@ const components = [
   WForm,
   WFormItem,
   WInputNumber,
-  WPagination
+  WPagination,
+  WUpload
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -50,7 +52,8 @@ export {
   WForm,
   WFormItem,
   WInputNumber,
-  WPagination
+  WPagination,
+  WUpload
 };
 
 export default {
