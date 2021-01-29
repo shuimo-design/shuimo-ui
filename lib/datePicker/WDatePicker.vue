@@ -80,7 +80,7 @@ export default {
   name: 'WDatePicker',
   components: { DateTable, MonthTable, YearTable },
   props: {
-    value: {
+    modelValue: {
       type: null,
       default: ''
     },
@@ -129,7 +129,7 @@ export default {
     }
   },
   watch: {
-    value() {
+    modelValue() {
       this.setDefault();
     }
   },
@@ -197,8 +197,8 @@ export default {
       window.addEventListener('resize', this.resizeWindow)
     },
     setDefault() {
-      this.defaultValue = this.value ? valueFormatByType(this.value, this.type) : '';
-      this.date = this.value ? new Date(this.value) : new Date();
+      this.defaultValue = this.modelValue ? valueFormatByType(this.modelValue, this.type) : '';
+      this.date = this.modelValue ? new Date(this.modelValue) : new Date();
       if (this.type === 'month') {
         this.currentView = 'month';
       }
@@ -206,7 +206,7 @@ export default {
     handleDatePick(date) {
       let newDate = modifyDate(date, date.getFullYear(), date.getMonth(), date.getDate());
       this.defaultValue = setDate(newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate());
-      this.$emit('update:value', this.defaultValue);
+      this.$emit('update:modelValue', this.defaultValue);
       this.$emit('change', this.defaultValue);
       this.calendarDropdown = false;
       this.date = newDate;
@@ -243,7 +243,7 @@ export default {
       this.date = changeYearMonthAndClampDate(this.date, this.year, month);
       if (this.type === 'month') {
         this.defaultValue = valueFormatByType(this.date, 'month');
-        this.$emit('update:value', this.defaultValue);
+        this.$emit('update:modelValue', this.defaultValue);
         this.$emit('change', this.defaultValue);
         this.calendarDropdown = false;
         return;

@@ -1,9 +1,9 @@
 <template>
   <div>
     <span>选择的title:{{ selected.title }}</span>
-    <w-select v-model:value="defaultValue" :options="options" @select="select"/>
-    <w-select v-model:value="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
-    <w-select v-model:value="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
+    <w-select v-model="defaultValue" :options="options" @select="select"/>
+    <w-select v-model="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
+    <w-select v-model="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
   </div>
 </template>
 
