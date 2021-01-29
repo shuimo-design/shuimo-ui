@@ -6,7 +6,7 @@
         <w-input value="hello, form"/>
       </w-form-item>
       <w-form-item label="日期选择：" prop="hello">
-        <w-date-picker v-model:value="month" type="month"/>
+        <w-date-picker v-model="month" type="month"/>
       </w-form-item>
       <w-form-item label="textarea输入：" prop="hello">
         <w-input value="hello, form" type="textarea"/>
@@ -18,7 +18,7 @@
         <w-input value="hello, form"/>
       </w-form-item>
       <w-form-item label="日期选择：" prop="hello">
-        <w-date-picker v-model:value="month" type="month"/>
+        <w-date-picker v-model="month" type="month"/>
       </w-form-item>
       <w-form-item label="选项：" prop="hello">
         <w-select v-model:value="selectVal" :options="options" :keyParam="'title'" @select="select"/>
