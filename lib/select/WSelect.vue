@@ -45,7 +45,7 @@ const getStyle = (selectStyle, type) => {
 export default {
   name: 'WSelect',
   props: {
-    value: {
+    modelValue: {
       type: null,
       default: ''
     },
@@ -88,7 +88,7 @@ export default {
     this.setDefault();
   },
   watch: {
-    value() {
+    modelValue() {
       this.setDefault();
     }
   },
@@ -101,11 +101,11 @@ export default {
      * 设置默认值
      */
     setDefault() {
-      this.defaultValue = this.value;
+      this.defaultValue = this.modelValue;
       // todo change copy func
       this.optionsCopy = JSON.parse(JSON.stringify(this.options));
       this.optionsCopy.forEach(e => {
-        e.selected = e[this.keyParam] === this.value;
+        e.selected = e[this.keyParam] === this.modelValue;
       });
     },
     /**

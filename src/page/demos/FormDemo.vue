@@ -21,7 +21,7 @@
         <w-date-picker v-model="month" type="month"/>
       </w-form-item>
       <w-form-item label="选项：" prop="hello">
-        <w-select v-model:value="selectVal" :options="options" :keyParam="'title'" @select="select"/>
+        <w-select v-model="selectVal" :options="options" :keyParam="'title'" @select="select"/>
       </w-form-item>
     </w-form>
   </div>
