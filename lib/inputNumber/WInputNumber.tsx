@@ -3,7 +3,7 @@ import { h, defineComponent } from "vue";
 export default defineComponent({
   name: 'WInputNumber',
   props: {
-    value: {type: Number, default: 0},
+    modelValue: {type: Number, default: 0},
     max: {type: Number, default: Infinity},
     min: {type: Number, default: -Infinity}
   },
@@ -13,7 +13,12 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.currentVal = this.value;
+    this.currentVal = this.modelValue;
+  },
+  watch: {
+    modelValue() {
+      this.currentVal = this.modelValue;
+    }
   },
   methods: {
     inputHandle(e: any) {
@@ -27,7 +32,7 @@ export default defineComponent({
       if (inputNumber  < this.min) {
         this.currentVal = this.min;
       }
-      this.$emit('update:value', Number(this.currentVal));
+      this.$emit('update:modelValue', Number(this.currentVal));
     }
   },
   render() {
