@@ -1,9 +1,10 @@
 <template>
   <div>
-    <w-input value="hi"/>
-    <w-input value="hi,textarea" type="textarea"/>
-    <span>输入的数字为：{{number}}</span>
-    <w-input-number v-model:value="number" :max="100"/>
+    <span>{{ data }}</span>
+    <w-input v-model="data"/>
+    <w-input v-model="data" type="textarea"/>
+    <span>输入的数字为：{{ number }}</span>
+    <w-input-number v-model="number" :max="100"/>
   </div>
 </template>
 
@@ -21,6 +22,7 @@ export default {
   name: 'InputDemo',
   data() {
     return {
+      data: '3333',
       number: 0
     }
   }

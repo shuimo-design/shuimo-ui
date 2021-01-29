@@ -1,7 +1,13 @@
 <template>
   <div :class="['w-input', {'w-textarea':type === 'textarea'}]">
-    <input type="text" class="w-input-inner" v-model="value" v-if="type!=='textarea'"/>
-    <textarea v-else class="w-textarea-inner" :rows="10" v-model="value"/>
+    <input type="text" class="w-input-inner"
+           :value="modelValue"
+           v-if="type!=='textarea'"
+           @input="$emit('update:modelValue', $event.target.value)"/>
+    <textarea v-else class="w-textarea-inner"
+              :rows="10"
+              :value="modelValue"
+              @input="$emit('update:modelValue', $event.target.value)"/>
   </div>
 </template>
 
@@ -16,7 +22,7 @@ export default {
   name: "WInput",
   props: {
     type: {type: String, default: 'text'},
-    value: {type: null, default: ''}
+    modelValue: {type: null, default: ''}
   }
 };
 </script>
