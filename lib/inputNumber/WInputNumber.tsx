@@ -19,7 +19,6 @@ export default defineComponent({
     inputHandle(e: any) {
       const inputNumber = Number(e.target.value);
       if (e.target.value !== '') {
-        console.log(e.target.value);
         this.currentVal = Number(e.target.value);
       }
       if (inputNumber  > this.max) {
