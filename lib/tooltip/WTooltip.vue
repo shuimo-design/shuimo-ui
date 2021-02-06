@@ -81,7 +81,7 @@
     },
     mounted () {
       if (!this.$refs.popover) {
-        return console.error('Could not fid popover ref in your component that uses popoverMixin');
+        return console.error('组件找不到popover引用，请提供popover！');
       }
       // 获取监听对象
       const triger = this.$refs.trigger.children[0];
