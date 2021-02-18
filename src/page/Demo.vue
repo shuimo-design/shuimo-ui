@@ -32,20 +32,6 @@ import UploadDemo from "./demos/UploadDemo.vue";
 
 export default {
   name: "Demo",
-  components: {
-    ButtonDemo,
-    InputDemo,
-    SelectDemo,
-    DatePickerDemo,
-    DialogDemo,
-    ScrollNumberDemo,
-    TooltipDemo,
-    PopoverDemo,
-    MessageDemo,
-    FormDemo,
-    PaginationDemo,
-    UploadDemo
-  },
   data() {
     return {
       demoList: [
