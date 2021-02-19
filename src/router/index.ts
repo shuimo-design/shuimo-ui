@@ -74,6 +74,11 @@ const routes = [
         path: '/upload',
         name: 'Upload',
         component: defineAsyncComponent(() => import('../page/demos/UploadDemo.vue'))
+      },
+      {
+        path: '/print',
+        name: 'Print',
+        component: defineAsyncComponent(() => import('../page/demos/PrinterDemo.vue'))
       }
     ]
   }
