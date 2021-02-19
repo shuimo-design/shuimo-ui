@@ -7,13 +7,13 @@
  * 公司的业务千篇一律，复杂的代码好几百行
  */
 
-import {h, defineComponent, Teleport} from 'vue';
+import { h, defineComponent, Teleport } from 'vue';
 
 export default defineComponent({
   name: 'WDialog',
   props: {
-    mask: {type: Object, default: {show: true, clickClose: false}},
-    visible: {type: Boolean, default: false}
+    mask: { type: Object, default: { show: true, clickClose: false } },
+    visible: { type: Boolean, default: false }
   },
   data() {
     return {
@@ -23,7 +23,7 @@ export default defineComponent({
   computed: {
     baseStyle() {
       const baseH = 236, baseW = 368, basePaddingTop = 70, basePaddingSide = 35;
-      const {pes} = this;
+      const { pes } = this;
       return {
         'padding-top': `${basePaddingTop * pes}px`,
         'padding-left': `${basePaddingSide * pes}px`,
@@ -34,7 +34,7 @@ export default defineComponent({
     },
     closeBtnBaseStyle() {
       const top = 41, left = 427;
-      const {pes} = this;
+      const { pes } = this;
       return {
         'top': `${top * pes}px`,
         'left': `${left * pes - 23}px`,
@@ -59,8 +59,16 @@ export default defineComponent({
     resetSize() {
       const slotDom = this.$slots.default();
       if (slotDom) {
-        const dom = slotDom[0].el;
+        const slotDomDefault = slotDom[0];
+        let dom = slotDomDefault.el;
         const baseH = 236, baseW = 368;
+        if (!dom) {
+          const className = slotDomDefault.props.class;
+          const doms = document.getElementsByClassName(className)
+          if (doms && doms.length === 1) {
+            dom = doms[0]
+          }
+        }
         if (dom) {
           const h = Number(getComputedStyle(dom, null).height.replace('px', ''));
           const w = Number(getComputedStyle(dom, null).width.replace('px', ''));
@@ -74,13 +82,12 @@ export default defineComponent({
   },
   render() {
     const classes = this.getClasses();
-    const {visible, mask} = this;
-    const {maskClick, closeDialog} = this;
+    const { visible, mask } = this;
+    const { maskClick, closeDialog } = this;
     if (!visible) {
       return null;
     }
-
-    const {resetSize} = this;
+    const { resetSize } = this;
     this.$nextTick(() => {
       resetSize();
     });
