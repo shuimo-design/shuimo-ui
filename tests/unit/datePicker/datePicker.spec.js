@@ -66,10 +66,13 @@ describe('日期选择组件', () => {
     expect(calendar.find('.month').text()).toBe(`${month}`);
     expect(calendar.find('.date-table').isVisible()).toBe(true);
 
-    await calendar.find('.date-table .today').trigger('click');
+    await calendar.find('.date-table td .today').trigger('click');
     expect(wrapper.vm.defaultValue).toBeDefined();
-    expect(wrapper.vm.calendarDropdown).toBe(false);
-    wrapper.trigger('blur');
+    setTimeout(async() => {
+      expect(calendar.isVisible()).toBe(false);
+      done()
+    }, 100);
+    await calendar.trigger('onresize');
     wrapper.unmount();
   })
 
