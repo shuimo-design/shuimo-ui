@@ -1,14 +1,15 @@
 <template>
   <div style="position:relative">
-    <span ref="trigger">
+    <div ref="reference" class="reference">
       <slot></slot>
-    </span>
+    </div>
     <div
         class="w-tooltip"
-        v-bind:class="{'visible': show === true}"
+        :class="{ 'visible': tooltipVisible === true }"
+        :style="popoverStyle"
         ref="popover"
         role="tooltip">
-      <div class="w-tooltip-arrow"/>
+      <div :class="['w-tooltip-arrow', { 'fixed-arrow': popoverStyle.fixed }]"/>
       <div class="w-tooltip-inner">
         <slot name="content"></slot>
       </div>
@@ -16,190 +17,237 @@
   </div>
 </template>
 <script>
-  import EventListener from "../_utils/EventListener";
+import { addClass, removeClass } from "../_utils/dom";
+import { off, on } from "../_utils/dom";
 
-  export default {
-    name: 'WTooltip',
-    props: {
-      trigger: {
-        type: String,
-        default: 'hover'
-      },
-      // 目前只有top
-      placement: {
-        type: String,
-        default: 'top'
-      },
-      width: {
-        type: Number,
-        default: 200
-      }
+const DEFAULT_MARGIN_BOTTOM = 8;
+const DEFAULT_MARGIN_TOP = 5;
+const getStyle = (selectStyle, type) => {
+  const num = Number(selectStyle[type].replace('px', ''));
+  return isNaN(num) ? 0 : num;
+};
+
+export default {
+  name: 'WTooltip',
+  props: {
+    trigger: {
+      type: String,
+      default: 'hover'
     },
-    data () {
+    // 目前只有top
+    placement: {
+      type: String,
+      default: 'top'
+    },
+    openDelay: {
+      type: Number,
+      default: 0
+    },
+    closeDelay: {
+      type: Number,
+      default: 200
+    },
+  },
+  computed: {
+    popoverStyle() {
+      const r = this.referenceStyle;
       return {
-        position: {
-          top: 0,
-          left: 0
-        },
-        show: true,
-        timer: null,
-        showFlag: false // 用于判断延迟关闭
-      }
-    },
-    watch: {
-      show: function (val) {
-        if (val) {
-          const popover = this.$refs.popover;
-          const trigger = this.$refs.trigger.children[0];
-          switch (this.placement) {
-            case 'top':
-              this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-              this.position.top = trigger.offsetTop - popover.offsetHeight - 5;
-              break;
-            case 'left':
-              this.position.left = trigger.offsetLeft - popover.offsetWidth - 5;
-              this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-              break;
-            case 'right':
-              this.position.left = trigger.offsetLeft + trigger.offsetWidth + 5;
-              this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-              break;
-            case 'bottom':
-              this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-              this.position.top = trigger.offsetTop + trigger.offsetHeight + 5;
-              break
-          }
-          popover.style.top = this.position.top + 'px';
-          popover.style.left = this.position.left + 'px';
-        }
-      }
-    },
-    methods: {
-      toggle () {
-        this.show = !this.show;
-      }
-    },
-    mounted () {
-      if (!this.$refs.popover) {
-        return console.error('组件找不到popover引用，请提供popover！');
-      }
-      // 获取监听对象
-      const triger = this.$refs.trigger.children[0];
-      const popover = this.$refs.popover;
-      // 根据trigger监听特定事件
-      if (this.trigger === 'hover') {
-        this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', () => {
-          this.timer = setInterval(() => {
-            this.show = true;
-            this.showFlag = true;
-          },500)
-        });
-        this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', () => {
-          this.showFlag = false;
-          clearInterval(this.timer);
-          setTimeout(() => {
-            if (!this.showFlag) {
-              this.show = false;
-            }
-          }, 1000)
-        });
-        this._mouseenterEvent1 = EventListener.listen(popover, 'mouseenter', () => {
-          this.timer = setInterval(() => {
-            this.show = true;
-            this.showFlag = true;
-          },200)
-        });
-        this._mouseleaveEvent1 = EventListener.listen(popover, 'mouseleave', () => {
-          this.showFlag = false;
-          setTimeout(() => {
-            if (!this.showFlag) {
-              this.show = false;
-            }
-          }, 1000);
-        });
-      } else if (this.trigger === 'focus') {
-        this._focusEvent = EventListener.listen(triger, 'focus', () => {
-          this.show = true;
-        });
-        this._blurEvent = EventListener.listen(triger, 'blur', () => {
-          this.show = false;
-        });
-      } else {
-        this._clickEvent = EventListener.listen(triger, 'click', this.toggle);
-      }
-      this.show = !this.show;
-    },
-    // 在组件销毁前移除监听，释放内存
-    beforeUnmount () {
-      if (this._blurEvent) {
-        this._blurEvent.remove();
-        this._focusEvent.remove();
-      }
-      if (this._mouseenterEvent) {
-        this._mouseenterEvent.remove();
-        this._mouseleaveEvent.remove();
-        this._mouseenterEvent1.remove();
-        this._mouseenterEvent1.remove();
-      }
-      if (this._clickEvent) {
-        this._clickEvent.remove();
+        left: `${r.offsetLeft + r.width / 2}px`,
+        top: (r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM) > 0
+            ? `${r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM}px`
+            : `${r.offsetTop + r.height + DEFAULT_MARGIN_TOP}px`,
+        fixed: r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM < 0
       }
     }
-  }
+  },
+  data() {
+    return {
+      tooltipVisible: false,
+      reference: null,
+      _timer: null,
+      referenceStyle: {
+        offsetTop: null,
+        offsetLeft: null,
+        height: null,
+        width: null
+      }
+    }
+  },
+  mounted() {
+    let reference = this.reference = this.$refs.reference.children[0]
+        ? this.$refs.reference.children[0]
+        : this.$refs.reference;
+    const popper = this.$refs.popover;
+    // 可访问性
+    if (reference) {
+      on(reference, 'focusin', this.handleFocus);
+      on(popper, 'focusin', this.handleFocus);
+      on(reference, 'focusout', this.handleBlur);
+      on(popper, 'focusout', this.handleBlur);
+    }
+    if (this.trigger === 'hover') {
+      on(reference, 'mouseenter', this.handleMouseEnter);
+      on(popper, 'mouseenter', this.handleMouseEnter);
+      on(reference, 'mouseleave', this.handleMouseLeave);
+      on(popper, 'mouseleave', this.handleMouseLeave);
+    } else if (this.trigger === 'focus') {
+      on(reference, 'mousedown', this.doShow);
+      on(reference, 'mouseup', this.doClose);
+    }
+  },
+  methods: {
+    handleFocus() {
+      const popper = this.$refs.popover;
+      addClass(popper, 'focusing');
+      if (this.trigger === 'click' || this.trigger === 'focus') {
+        this.tooltipVisible = true;
+        this.setStyle();
+      }
+    },
+    handleBlur() {
+      const popper = this.$refs.popover;
+      removeClass(popper, 'focusing');
+      if (this.trigger === 'click' || this.trigger === 'focus') this.tooltipVisible = false;
+    },
+    doClose() {
+      this.tooltipVisible = false;
+    },
+    handleMouseEnter() {
+      clearTimeout(this._timer);
+      if (this.openDelay) {
+        this._timer = setTimeout(() => {
+          this.tooltipVisible = true;
+          this.setStyle();
+        }, this.openDelay);
+      } else {
+        this.tooltipVisible = true;
+        this.setStyle();
+      }
+    },
+    handleMouseLeave() {
+      clearTimeout(this._timer);
+      if (this.closeDelay) {
+        this._timer = setTimeout(() => {
+          this.tooltipVisible = false;
+        }, this.closeDelay);
+      } else {
+        this.tooltipVisible = false;
+      }
+    },
+    doShow() {
+      this.tooltipVisible = true;
+      this.setStyle();
+    },
+    cleanup() {
+      if (this.openDelay || this.closeDelay) {
+        clearTimeout(this._timer);
+      }
+    },
+    setStyle() {
+      const { reference } = this;
+      const referenceStyle = window.getComputedStyle(reference);
+      this.referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
+      this.referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
+      this.referenceStyle.height = getStyle(referenceStyle, 'height');
+      this.referenceStyle.width = getStyle(referenceStyle, 'width');
+    }
+  },
+  beforeUnmount() {
+    this.cleanup();
+    const reference = this.reference;
+
+    off(reference, 'focusin', this.doShow);
+    off(reference, 'focusout', this.doClose);
+    off(reference, 'mousedown', this.doShow);
+    off(reference, 'mouseup', this.doClose);
+    off(reference, 'mouseleave', this.handleMouseLeave);
+    off(reference, 'mouseenter', this.handleMouseEnter);
+  },
+}
 </script>
 <style lang="scss">
-  .w-tooltip {
-    padding: 3px 4px;
+@keyframes fade-in {
+  /*设置内容由显示变为隐藏*/
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.reference {
+  display: inline-block;
+  width: auto;
+}
+
+.w-tooltip {
+  padding: 3px 4px;
+  position: fixed;
+  visibility: hidden;
+  color: #192F6F;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: unset;
+  outline: unset;
+  border: 3px double transparent;
+  border-image: url("/lib/assets/tooltip/bg.png") 10;
+  background-color: whitesmoke;
+  transform: translateX(-50%);
+
+  &.visible {
+    visibility: visible;
+    animation: fade-in .5s ease;
+  }
+
+  &.focusing {
+    visibility: visible;
+    animation: fade-in .5s ease;
+  }
+
+  &-inner {
+    text-decoration: none;
+    word-wrap: break-word;
+    min-width: 30px;
+    min-height: 10px;
+  }
+
+  &-arrow {
     position: absolute;
-    visibility: hidden;
-    color: #192F6F;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: unset;
-    outline: unset;
-    border: 3px double transparent;
-    border-image: url("/lib/assets/tooltip/bg.png") 10;
-    background-color: whitesmoke;
+    display: block;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+    bottom: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #d0d0d0;
 
-    &.visible {
-      visibility: visible;
-    }
-
-    &-inner {
-      text-decoration: none;
-      word-wrap: break-word;
-      min-width: 30px;
-      min-height: 10px;
-    }
-
-    &-arrow {
+    &::before {
       position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       display: block;
-      overflow: hidden;
-      background: transparent;
-      pointer-events: none;
-      bottom: -8px;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid #d0d0d0;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 5px;
-        height: 5px;
-        margin: auto;
-        content: '';
-        pointer-events: auto;
-      }
+      width: 5px;
+      height: 5px;
+      margin: auto;
+      content: '';
+      pointer-events: auto;
     }
   }
+
+  .fixed-arrow {
+    bottom: unset;
+    top: -13px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #d0d0d0;
+    border-top: 5px solid transparent;
+  }
+}
 </style>

@@ -1,7 +1,19 @@
 <template>
   <div>
     <w-tooltip>
-      <p>hi,Tooltip</p>
+      <div style="height: 20px">hi,Tooltip</div>
+      <template #content>
+        <span>hello</span>
+      </template>
+    </w-tooltip>
+    <w-tooltip>
+      <w-button text="hi,Tooltip"/>
+      <template #content>
+        <span>hello</span>
+      </template>
+    </w-tooltip>
+    <w-tooltip>
+      <w-button text="hi,Tooltip"/>
       <template #content>
         <span>hello</span>
       </template>
@@ -11,7 +23,7 @@
 
 <script>
   export default {
-    name: 'TooltipDemo',
+    name: 'TooltipDemo'
   }
 </script>
 
