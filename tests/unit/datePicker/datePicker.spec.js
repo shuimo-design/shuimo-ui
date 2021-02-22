@@ -35,11 +35,20 @@ describe('日期选择组件', () => {
   })
 
   test('日期选择', async () => {
+    const map = {};
+    window.addEventListener = jest.fn((event, cb) => {
+      map[event] = cb;
+    })
     const teleportTarget = new DOMWrapper(document.querySelector('body'))
     const wrapper = mount(WDatePicker);
     await wrapper.find('.w-date-picker-div').trigger('click');
     const calendar = teleportTarget.find('.calendar-dropdown');
     expect(calendar.isVisible()).toBe(true);
+    map.mousedown({
+      path: null
+    })
+    map.resize();
+    await wrapper.find('.w-date-picker-div').trigger('click');
     expect(calendar.find('.date-table').isVisible()).toBe(true);
 
     const spans = document.querySelectorAll('.calendar-dropdown-header span');
@@ -50,14 +59,20 @@ describe('日期选择组件', () => {
 
     await calendar.find('.calendar-year-prev').trigger('click');
     await calendar.find('.calendar-year-next').trigger('click');
-    expect(calendar.find('.year').text()).toBe(`${year}`);
+    expect(calendar.find('.year').text()).toContain(`${year}`);
+    await calendar.find('.year').trigger('click');
+    await calendar.find('.calendar-year-prev').trigger('click');
+    await calendar.find('.calendar-year-next').trigger('click');
+    expect(calendar.find('.year-table').isVisible()).toBe(true);
 
+    await calendar.find('.month').trigger('click');
+    expect(calendar.find('.month-table').isVisible()).toBe(true);
     await calendar.find('.calendar-month-prev').trigger('click');
     await calendar.find('.calendar-month-next').trigger('click');
     expect(calendar.find('.month').text()).toBe(`${month}`);
 
+
     await calendar.find('.year').trigger('click');
-    expect(calendar.find('.year-table').isVisible()).toBe(true);
     await calendar.find('.year-table .today .cell').trigger('click');
     expect(calendar.find('.year').text()).toBe(`${year}`);
     expect(calendar.find('.month-table').isVisible()).toBe(true);
@@ -68,11 +83,18 @@ describe('日期选择组件', () => {
 
     await calendar.find('.date-table td .today').trigger('click');
     expect(wrapper.vm.defaultValue).toBeDefined();
+    map.mousedown({
+      path: [{classList: ['calendar-dropdown']}]
+    })
     setTimeout(async() => {
       expect(calendar.isVisible()).toBe(false);
+      await calendar.trigger('onresize');
       done()
     }, 100);
-    await calendar.trigger('onresize');
+
+    map.mousedown({
+      path: [{classList: []}]
+    })
     wrapper.unmount();
   })
 
