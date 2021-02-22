@@ -17,15 +17,10 @@
   </div>
 </template>
 <script>
-import { addClass, removeClass } from "../_utils/dom";
-import { off, on } from "../_utils/dom";
+import DomEventHandler from '../_utils/DomEventHandler';
 
 const DEFAULT_MARGIN_BOTTOM = 8;
 const DEFAULT_MARGIN_TOP = 5;
-const getStyle = (selectStyle, type) => {
-  const num = Number(selectStyle[type].replace('px', ''));
-  return isNaN(num) ? 0 : num;
-};
 
 export default {
   name: 'WTooltip',
@@ -60,112 +55,41 @@ export default {
       }
     }
   },
-  data() {
+  setup() {
+    const {onController, offController, tooltipVisible, referenceStyle} = DomEventHandler()
     return {
-      tooltipVisible: false,
-      reference: null,
-      _timer: null,
-      referenceStyle: {
-        offsetTop: null,
-        offsetLeft: null,
-        height: null,
-        width: null
-      }
+      onController,
+      offController,
+      tooltipVisible,
+      referenceStyle
     }
   },
   mounted() {
-    let reference = this.reference = this.$refs.reference.children[0]
-        ? this.$refs.reference.children[0]
-        : this.$refs.reference;
-    const popper = this.$refs.popover;
-    if (reference.tagName === 'SPAN') {
-      reference.style.display = 'inline-block';
-    }
-    // 可访问性
-    if (reference) {
-      on(reference, 'focusin', this.handleFocus);
-      on(popper, 'focusin', this.handleFocus);
-      on(reference, 'focusout', this.handleBlur);
-      on(popper, 'focusout', this.handleBlur);
-    }
-    if (this.trigger === 'hover') {
-      on(reference, 'mouseenter', this.handleMouseEnter);
-      on(popper, 'mouseenter', this.handleMouseEnter);
-      on(reference, 'mouseleave', this.handleMouseLeave);
-      on(popper, 'mouseleave', this.handleMouseLeave);
-    } else if (this.trigger === 'focus') {
-      on(reference, 'mousedown', this.doShow);
-      on(reference, 'mouseup', this.doClose);
-    }
-  },
-  methods: {
-    handleFocus() {
-      const popper = this.$refs.popover;
-      addClass(popper, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') {
-        this.tooltipVisible = true;
-        this.setStyle();
-      }
-    },
-    handleBlur() {
-      const popper = this.$refs.popover;
-      removeClass(popper, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.tooltipVisible = false;
-    },
-    doClose() {
-      this.tooltipVisible = false;
-    },
-    handleMouseEnter() {
-      clearTimeout(this._timer);
-      if (this.openDelay) {
-        this._timer = setTimeout(() => {
-          this.tooltipVisible = true;
-          this.setStyle();
-        }, this.openDelay);
-      } else {
-        this.tooltipVisible = true;
-        this.setStyle();
-      }
-    },
-    handleMouseLeave() {
-      clearTimeout(this._timer);
-      if (this.closeDelay) {
-        this._timer = setTimeout(() => {
-          this.tooltipVisible = false;
-        }, this.closeDelay);
-      } else {
-        this.tooltipVisible = false;
-      }
-    },
-    doShow() {
-      this.tooltipVisible = true;
-      this.setStyle();
-    },
-    cleanup() {
-      if (this.openDelay || this.closeDelay) {
-        clearTimeout(this._timer);
-      }
-    },
-    setStyle() {
-      const { reference } = this;
-      const referenceStyle = window.getComputedStyle(reference);
-      this.referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
-      this.referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
-      this.referenceStyle.height = getStyle(referenceStyle, 'height');
-      this.referenceStyle.width = getStyle(referenceStyle, 'width');
-    }
+    const configs = this.getElements();
+    this.onController(configs);
   },
   beforeUnmount() {
-    this.cleanup();
-    const reference = this.reference;
-
-    off(reference, 'focusin', this.doShow);
-    off(reference, 'focusout', this.doClose);
-    off(reference, 'mousedown', this.doShow);
-    off(reference, 'mouseup', this.doClose);
-    off(reference, 'mouseleave', this.handleMouseLeave);
-    off(reference, 'mouseenter', this.handleMouseEnter);
+    const configs = this.getElements();
+    this.offController(configs)
   },
+  methods: {
+    getElements() {
+      const reference = this.$refs.reference.children[0]
+          ? this.$refs.reference.children[0]
+          : this.$refs.reference;
+      if (reference.tagName === 'SPAN') {
+        reference.style.display = 'inline-block';
+      }
+      const popper = this.$refs.popover;
+      return {
+        reference,
+        popper,
+        trigger: this.trigger,
+        openDelay: this.openDelay,
+        closeDelay: this.closeDelay
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">
