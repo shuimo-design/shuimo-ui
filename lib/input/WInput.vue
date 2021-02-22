@@ -1,6 +1,6 @@
 <template>
   <div :class="['w-input', {'w-textarea':type === 'textarea'}]">
-    <input type="text" class="w-input-inner"
+    <input :type="type" class="w-input-inner"
            :value="modelValue"
            v-if="type!=='textarea'"
            @input="$emit('update:modelValue', $event.target.value)"/>

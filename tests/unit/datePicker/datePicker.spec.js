@@ -119,5 +119,9 @@ describe('日期选择组件', () => {
     await calendar.find('.month-table td div .today').trigger('click');
     expect(calendar.find('.month').text()).toBe(`${month}`);
     expect(wrapper.vm.defaultValue).toBeDefined();
+    setTimeout(async() => {
+      expect(calendar.isVisible()).toBe(false);
+      done()
+    }, 100);
   })
 })

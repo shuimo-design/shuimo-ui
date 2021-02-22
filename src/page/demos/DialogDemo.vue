@@ -57,6 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 .height-600 {
-  height: 400px;
+  height: 600px;
 }
 </style>
