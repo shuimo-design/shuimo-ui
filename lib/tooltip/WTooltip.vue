@@ -78,6 +78,9 @@ export default {
         ? this.$refs.reference.children[0]
         : this.$refs.reference;
     const popper = this.$refs.popover;
+    if (reference.tagName === 'SPAN') {
+      reference.style.display = 'inline-block';
+    }
     // 可访问性
     if (reference) {
       on(reference, 'focusin', this.handleFocus);
