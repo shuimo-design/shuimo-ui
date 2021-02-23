@@ -18,7 +18,7 @@ export interface DomConfigs {
   closeDelay: number
 }
 
-export default function DomEventHandler() {
+export default function domEventHandler() {
   const tooltipVisible = ref(false);
   const trigger = ref('');
   const openDelay = ref(0);

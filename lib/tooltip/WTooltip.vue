@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import DomEventHandler from '../_utils/DomEventHandler';
+import domEventHandler from '../_utils/domEventHandler';
 
 const DEFAULT_MARGIN_BOTTOM = 8;
 const DEFAULT_MARGIN_TOP = 5;
@@ -56,7 +56,7 @@ export default {
     }
   },
   setup() {
-    const {onController, offController, tooltipVisible, referenceStyle} = DomEventHandler()
+    const {onController, offController, tooltipVisible, referenceStyle} = domEventHandler()
     return {
       onController,
       offController,
