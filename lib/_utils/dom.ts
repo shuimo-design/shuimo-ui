@@ -8,6 +8,8 @@
  */
 
 /* istanbul ignore next */
+import {throttle} from "./throttleDebounce";
+
 const trim = (string: string) => {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
@@ -18,13 +20,15 @@ export const on = (function() {
   if (document.addEventListener) {
     return function(element: any, event: string, handler: Function) {
       if (element && event && handler) {
-        element.addEventListener(event, handler, false);
+        const eventHandler = throttle(1000, handler)
+        element.addEventListener(event, eventHandler, false);
       }
     };
   } else {
     return function(element: any, event: string, handler: Function) {
       if (element && event && handler) {
-        element.attachEvent('on' + event, handler);
+        const eventHandler = throttle(1000, handler)
+        element.attachEvent('on' + event, eventHandler);
       }
     };
   }
@@ -36,13 +40,15 @@ export const off = (function() {
   if (document.removeEventListener) {
     return function(element: any, event: string, handler: Function) {
       if (element && event) {
-        element.removeEventListener(event, handler, false);
+        const eventHandler = throttle(1000, handler)
+        element.removeEventListener(event, eventHandler, false);
       }
     };
   } else {
     return function(element: any, event: string, handler: Function) {
       if (element && event) {
-        element.detachEvent('on' + event, handler);
+        const eventHandler = throttle(1000, handler)
+        element.detachEvent('on' + event, eventHandler);
       }
     };
   }
