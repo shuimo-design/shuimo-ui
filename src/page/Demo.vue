@@ -47,7 +47,8 @@ export default {
         { name: '表单', url: 'form' },
         { name: '分页', url: 'pagination' },
         { name: '文件上传', url: 'upload' },
-        { name: '控制台输出', url: 'print' }
+        { name: '控制台输出', url: 'print' },
+        { name: '分割线', url: 'divider' }
       ]
     }
   }
