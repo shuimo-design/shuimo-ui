@@ -7,6 +7,9 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { h, defineComponent } from 'vue';
+// todo fix ts error
+import normalImg from '../assets/divider/divider.png';
+import strongImg from '../assets/divider/divider_strong.png';
 
 export default defineComponent({
   name: 'WDivider',
@@ -15,9 +18,9 @@ export default defineComponent({
   },
   render() {
     const { type } = this;
-    const url = type === '' ? '' : `_${type}`;
+    const src = type === '' ? normalImg : strongImg;
     return (
-      <img class={['w-divider', type]} src={`/lib/assets/divider/divider${url}.png`} alt="divider"/>
+      <img class={['w-divider', type]} src={src} alt="divider"/>
     )
   }
 

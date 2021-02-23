@@ -14,7 +14,6 @@ describe('分割线组件', function () {
   test('无参数渲染', () => {
     const wrapper = mount(WDivider);
     expect(wrapper.html()).toContain('w-divider');
-    expect(wrapper.get('img').html()).toContain('divider.png');
   })
 
   test('粗分割线渲染', () => {
@@ -23,6 +22,6 @@ describe('分割线组件', function () {
         type: 'strong'
       }
     });
-    expect(wrapper.get('img').html()).toContain('divider_strong.png');
+    expect(wrapper.get('img').html()).toContain('strong');
   })
 });
