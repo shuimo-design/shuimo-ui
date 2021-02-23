@@ -5,7 +5,7 @@
     </div>
     <div
         class="w-tooltip"
-        :class="{ 'visible': tooltipVisible === true }"
+        :class="{ 'visible': popoverVisible }"
         :style="popoverStyle"
         ref="popover"
         role="tooltip">
@@ -56,11 +56,11 @@ export default {
     }
   },
   setup() {
-    const {onController, offController, tooltipVisible, referenceStyle} = domEventHandler()
+    const {onController, offController, popoverVisible, referenceStyle} = domEventHandler()
     return {
       onController,
       offController,
-      tooltipVisible,
+      popoverVisible,
       referenceStyle
     }
   },

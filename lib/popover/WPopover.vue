@@ -19,15 +19,10 @@
 </template>
 
 <script>
-import { addClass, removeClass } from "../_utils/dom";
-import { off, on } from "../_utils/dom";
+import domEventHandler from "../_utils/domEventHandler";
 
 const DEFAULT_MARGIN_LEFT = 5;
 const DEFAULT_WIDTH = 234;
-const getStyle = (selectStyle, type) => {
-  const num = Number(selectStyle[type].replace('px', ''));
-  return isNaN(num) ? 0 : num;
-};
 
 export default {
   name: "WPopover",
@@ -68,149 +63,39 @@ export default {
       this.popoverVisible = this.visible;
     }
   },
-  data() {
+  setup() {
+    const {onController, offController, popoverVisible, referenceStyle} = domEventHandler()
     return {
-      popoverVisible: false,
-      reference: null,
-      _timer: null,
-      referenceStyle: {
-        offsetTop: null,
-        offsetLeft: null,
-        height: null,
-        width: null
-      }
+      onController,
+      offController,
+      popoverVisible,
+      referenceStyle
     }
   },
   mounted() {
-    let reference = this.reference = this.$refs.reference.children[0]
-        ? this.$refs.reference.children[0]
-        : this.$refs.reference;
-    const popper = this.$refs.popover;
-    // 可访问性
-    if (reference) {
-      if (this.trigger !== 'click') {
-        on(reference, 'focusin', this.handleFocus);
-        on(popper, 'focusin', this.handleFocus);
-        on(reference, 'focusout', this.handleBlur);
-        on(popper, 'focusout', this.handleBlur);
-      }
-      on(reference, 'keydown', this.handleKeydown);
-      on(reference, 'click', this.handleClick);
-    }
-    if (this.trigger === 'click') {
-      on(reference, 'click', this.doToggle);
-      on(document, 'click', this.handleDocumentClick);
-    } else if (this.trigger === 'hover') {
-      on(reference, 'mouseenter', this.handleMouseEnter);
-      on(popper, 'mouseenter', this.handleMouseEnter);
-      on(reference, 'mouseleave', this.handleMouseLeave);
-      on(popper, 'mouseleave', this.handleMouseLeave);
-    } else if (this.trigger === 'focus') {
-      if (reference.querySelector('input, textarea')) {
-        on(reference, 'focusin', this.doShow);
-        on(reference, 'focusout', this.doClose);
-      } else {
-        on(reference, 'mousedown', this.doShow);
-        on(reference, 'mouseup', this.doClose);
-      }
-    }
+    const configs = this.getElements();
+    this.onController(configs);
   },
-  // 在组件销毁前移除监听，释放内存
   beforeUnmount() {
-    this.cleanup();
-    const reference = this.reference;
-
-    off(reference, 'click', this.doToggle);
-    off(reference, 'mouseup', this.doClose);
-    off(reference, 'mousedown', this.doShow);
-    off(reference, 'focusin', this.doShow);
-    off(reference, 'focusout', this.doClose);
-    off(reference, 'mousedown', this.doShow);
-    off(reference, 'mouseup', this.doClose);
-    off(reference, 'mouseleave', this.handleMouseLeave);
-    off(reference, 'mouseenter', this.handleMouseEnter);
-    off(document, 'click', this.handleDocumentClick);
+    const configs = this.getElements();
+    this.offController(configs)
   },
   methods: {
-    doToggle() {
-      this.popoverVisible = !this.popoverVisible;
-      this.setStyle();
-    },
-    doShow() {
-      this.popoverVisible = true;
-      this.setStyle();
-    },
-    doClose() {
-      this.popoverVisible = false;
-    },
-    handleFocus() {
+    getElements() {
+      const reference = this.$refs.reference.children[0]
+          ? this.$refs.reference.children[0]
+          : this.$refs.reference;
+      if (reference.tagName === 'SPAN') {
+        reference.style.display = 'inline-block';
+      }
       const popper = this.$refs.popover;
-      addClass(popper, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') {
-        this.popoverVisible = true;
-        this.setStyle();
+      return {
+        reference,
+        popper,
+        trigger: this.trigger,
+        openDelay: this.openDelay,
+        closeDelay: this.closeDelay
       }
-    },
-    handleBlur() {
-      const popper = this.$refs.popover;
-      removeClass(popper, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.popoverVisible = false;
-    },
-    handleKeydown(ev) {
-      if (ev.keyCode === 27 && this.trigger !== 'manual') { // esc
-        this.doClose();
-      }
-    },
-    handleClick() {
-      const reference = this.reference;
-      removeClass(reference, 'focusing');
-    },
-    handleDocumentClick(e) {
-      let reference = this.reference || this.$refs.reference.children[0];
-      const popper = this.$refs.popover;
-      if (!reference ||
-          reference.contains(e.target) ||
-          !popper ||
-          popper.contains(e.target)) return;
-      this.doClose();
-    },
-    handleMouseEnter() {
-      clearTimeout(this._timer);
-      if (this.openDelay) {
-        this._timer = setTimeout(() => {
-          this.popoverVisible = true;
-          this.setStyle();
-        }, this.openDelay);
-      } else {
-        this.popoverVisible = true;
-        this.setStyle();
-      }
-    },
-    handleMouseLeave() {
-      clearTimeout(this._timer);
-      if (this.closeDelay) {
-        this._timer = setTimeout(() => {
-          this.popoverVisible = false;
-        }, this.closeDelay);
-      } else {
-        this.popoverVisible = false;
-      }
-    },
-    cleanup() {
-      if (this.openDelay || this.closeDelay) {
-        clearTimeout(this._timer);
-      }
-    },
-    /**
-     * 设置下拉框样式
-     */
-    setStyle() {
-      const { reference } = this;
-      const referenceStyle = window.getComputedStyle(reference);
-      this.referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
-      this.referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
-      this.referenceStyle.height = getStyle(referenceStyle, 'height');
-      this.referenceStyle.width = getStyle(referenceStyle, 'width');
     }
   }
 }

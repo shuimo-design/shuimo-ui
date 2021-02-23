@@ -19,7 +19,7 @@ export interface DomConfigs {
 }
 
 export default function domEventHandler() {
-  const tooltipVisible = ref(false);
+  const popoverVisible = ref(false);
   const trigger = ref('');
   const openDelay = ref(0);
   const closeDelay = ref(200);
@@ -27,11 +27,16 @@ export default function domEventHandler() {
   const popper = reactive(Object.create(null));
   const reference = reactive(Object.create(null));
   const referenceStyle = reactive(Object.create(null));
-  tooltipVisible.value = false;
+  popoverVisible.value = false;
 
   const getStyle = (selectStyle: CSSStyleDeclaration, type: any) => {
     const num = Number(selectStyle[type].replace('px', ''));
     return isNaN(num) ? 0 : num;
+  };
+
+  const doToggle = () => {
+    popoverVisible.value = !popoverVisible.value;
+    setStyle();
   };
 
   const setStyle = () => {
@@ -45,29 +50,29 @@ export default function domEventHandler() {
   const handleFocus = () => {
     addClass(popper, 'focusing');
     if (trigger.value === 'click' || trigger.value === 'focus') {
-      tooltipVisible.value = true;
+      popoverVisible.value = true;
       setStyle();
     }
   };
 
   const handleBlur = () => {
     removeClass(popper, 'focusing');
-    if (trigger.value === 'click' || trigger.value === 'focus') tooltipVisible.value = false;
+    if (trigger.value === 'click' || trigger.value === 'focus') popoverVisible.value = false;
   };
 
   const doClose = () => {
-    tooltipVisible.value = false;
+    popoverVisible.value = false;
   };
 
   const handleMouseEnter = () => {
     clearTimeout(_timer.value);
     if (openDelay.value) {
       _timer.value = setTimeout(() => {
-        tooltipVisible.value = true;
+        popoverVisible.value = true;
         setStyle();
       }, openDelay.value);
     } else {
-      tooltipVisible.value = true;
+      popoverVisible.value = true;
       setStyle();
     }
   };
@@ -76,15 +81,15 @@ export default function domEventHandler() {
     clearTimeout(_timer.value);
     if (closeDelay.value) {
       _timer.value = setTimeout(() => {
-        tooltipVisible.value = false;
+        popoverVisible.value = false;
       }, closeDelay.value);
     } else {
-      tooltipVisible.value = false;
+      popoverVisible.value = false;
     }
   };
 
   const doShow = () => {
-    tooltipVisible.value = true;
+    popoverVisible.value = true;
     setStyle();
   };
 
@@ -94,6 +99,24 @@ export default function domEventHandler() {
     }
   };
 
+  const handleDocumentClick = (e: any) => {
+    if (!reference.value ||
+        reference.value.contains(e.target) ||
+        !popper.value ||
+        popper.value.contains(e.target)) return;
+    doClose();
+  };
+
+  const handleKeydown = (ev: any) => {
+    if (ev.keyCode === 27 && trigger.value !== 'manual') { // esc
+      doClose();
+    }
+  };
+
+  const handleClick = () => {
+    removeClass(reference, 'focusing');
+  };
+
   const onController = (configs: DomConfigs) => {
     popper.value = configs.popper;
     reference.value = configs.reference;
@@ -101,12 +124,19 @@ export default function domEventHandler() {
     openDelay.value = configs.openDelay;
     closeDelay.value = configs.closeDelay;
     if (configs.reference) {
-      on(configs.reference, 'focusin', handleFocus);
-      on(configs.popper, 'focusin', handleFocus);
-      on(configs.reference, 'focusout', handleBlur);
-      on(configs.popper, 'focusout', handleBlur);
+      if (configs.trigger !== 'click') {
+        on(configs.reference, 'focusin', handleFocus);
+        on(configs.popper, 'focusin', handleFocus);
+        on(configs.reference, 'focusout', handleBlur);
+        on(configs.popper, 'focusout', handleBlur);
+      }
+      on(configs.reference, 'keydown', handleKeydown);
+      on(configs.reference, 'click', handleClick);
     }
-    if (configs.trigger === 'hover') {
+    if (configs.trigger === 'click') {
+      on(configs.reference, 'click', doToggle);
+      on(document, 'click', handleDocumentClick);
+    } else if (configs.trigger === 'hover') {
       on(configs.reference, 'mouseenter', handleMouseEnter);
       on(configs.popper, 'mouseenter', handleMouseEnter);
       on(configs.reference, 'mouseleave', handleMouseLeave);
@@ -120,18 +150,20 @@ export default function domEventHandler() {
   const offController = (configs: DomConfigs) => {
     cleanup(configs.openDelay, configs.closeDelay);
 
+    off(configs.reference, 'click', doToggle);
     off(configs.reference, 'focusin', doShow);
     off(configs.reference, 'focusout', doClose);
     off(configs.reference, 'mousedown', doShow);
     off(configs.reference, 'mouseup', doClose);
     off(configs.reference, 'mouseleave', handleMouseLeave);
     off(configs.reference, 'mouseenter', handleMouseEnter);
+    off(document, 'click', handleDocumentClick);
   }
 
   return {
     onController,
     offController,
-    tooltipVisible,
+    popoverVisible,
     referenceStyle
   }
 }
