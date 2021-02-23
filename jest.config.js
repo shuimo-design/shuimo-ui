@@ -6,5 +6,8 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest',
     '^.+\\js$': 'babel-jest'
   },
+  collectCoverageFrom: [
+    "lib/**/*.{js,tsx,ts,vue}",
+  ],
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node']
 }
