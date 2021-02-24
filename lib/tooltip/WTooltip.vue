@@ -1,6 +1,6 @@
 <template>
   <div style="position:relative">
-    <div ref="reference" class="reference">
+    <div ref="reference" class="w-tooltip-reference">
       <slot></slot>
     </div>
     <div
@@ -18,8 +18,9 @@
 </template>
 <script>
 import domEventHandler from '../_utils/domEventHandler';
+import { getStyleNumber } from "../_utils/dom";
 
-const DEFAULT_MARGIN_BOTTOM = 8;
+const DEFAULT_MARGIN_BOTTOM = 18;
 const DEFAULT_MARGIN_TOP = 5;
 
 export default {
@@ -45,18 +46,22 @@ export default {
   },
   computed: {
     popoverStyle() {
-      const r = this.referenceStyle;
+      const { offsetLeft, offsetTop, width, height } = this.referenceStyle;
+      let popoverHeight = 0;
+      if (this.$refs.popover) {
+        popoverHeight = getStyleNumber(this.$refs.popover, 'height');
+      }
       return {
-        left: `${r.offsetLeft + r.width / 2}px`,
-        top: (r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM) > 0
-            ? `${r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM}px`
-            : `${r.offsetTop + r.height + DEFAULT_MARGIN_TOP}px`,
-        fixed: r.offsetTop - r.height - DEFAULT_MARGIN_BOTTOM < 0
+        left: `${offsetLeft + width / 2}px`,
+        top: (offsetTop - height - DEFAULT_MARGIN_BOTTOM) > 0
+            ? `${offsetTop - popoverHeight - DEFAULT_MARGIN_BOTTOM}px`
+            : `${offsetTop + height + DEFAULT_MARGIN_TOP}px`,
+        fixed: offsetTop - height - DEFAULT_MARGIN_BOTTOM < 0
       }
     }
   },
   setup() {
-    const {onController, offController, popoverVisible, referenceStyle} = domEventHandler()
+    const { onController, offController, popoverVisible, referenceStyle } = domEventHandler()
     return {
       onController,
       offController,
@@ -101,10 +106,6 @@ export default {
   100% {
     opacity: 1;
   }
-}
-.reference {
-  display: inline-block;
-  width: auto;
 }
 
 .w-tooltip {

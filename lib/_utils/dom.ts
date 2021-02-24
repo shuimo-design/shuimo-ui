@@ -106,3 +106,16 @@ export function hasClass(el: Element, cls: string) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
   }
 }
+
+/**
+ * 获取dom的像素数值
+ * @param elt
+ * @param type
+ */
+export const getStyleNumber = (elt: Element, type: any) => {
+  if(elt){
+    const num = Number(window.getComputedStyle(elt)[type].replace('px', ''));
+    return isNaN(num) ? 0 : num;
+  }
+  return 0;
+};
