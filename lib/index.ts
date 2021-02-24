@@ -13,6 +13,7 @@ import { WForm, WFormItem } from "./form";
 import { default as WInputNumber } from './inputNumber'
 import { default as WPagination } from './pagination'
 import { default as WUpload } from './upload'
+import { default as WDivider } from './divider'
 import { WPrinter } from "./printer";
 
 import '../lib/style.scss'
@@ -32,6 +33,7 @@ const components = [
   WInputNumber,
   WPagination,
   WUpload,
+  WDivider,
   WPrinter
 ]
 const install = function (app: App) {
@@ -56,6 +58,7 @@ export {
   WInputNumber,
   WPagination,
   WUpload,
+  WDivider,
   WPrinter
 };
 

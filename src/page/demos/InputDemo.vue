@@ -1,12 +1,19 @@
 <template>
   <div>
     <span>{{ data }}</span>
+    <span>普通输入框</span>
     <w-input v-model="data"/>
+    <w-input v-model="emptyData" placeholder="请输入文字"/>
+    <br/>
+    <span>多文本输入框</span>
     <w-input v-model="data" type="textarea"/>
+    <br/>
     <span>密码框</span>
     <w-input v-model="data" type="password"/>
+    <br/>
     <span>输入的数字为：{{ number }}</span>
     <w-input-number v-model="number" :max="100"/>
+    <br/>
   </div>
 </template>
 
@@ -25,6 +32,7 @@ export default {
   data() {
     return {
       data: '3333',
+      emptyData: '',
       number: 0
     }
   }

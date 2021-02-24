@@ -79,6 +79,11 @@ const routes = [
         path: '/print',
         name: 'Print',
         component: defineAsyncComponent(() => import('../page/demos/PrinterDemo.vue'))
+      },
+      {
+        path: '/divider',
+        name: 'Divider',
+        component: defineAsyncComponent(() => import('../page/demos/DividerDemo.vue'))
       }
     ]
   }

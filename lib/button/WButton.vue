@@ -40,6 +40,7 @@ export default {
 .w-button-disabled,
 .w-button-gray {
   border-image: url("/lib/assets/button/button-border-gray.png") 10;
+  color: #333333;
 }
 
 .w-button:disabled {

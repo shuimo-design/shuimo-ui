@@ -7,7 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import {mount} from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import WInput from '../../../lib/input/WInput.vue';
 
 describe('输入组件', () => {
@@ -17,13 +17,36 @@ describe('输入组件', () => {
     expect(wrapper.html()).toContain('w-input');
   });
 
-  test('测试参数', () => {
+  test('传递默认值', () => {
+    const wrapper = mount(WInput, {
+      props: { modelValue: 'test' }
+    });
+    expect(wrapper.get('input').element.value).toBe('test');
+  });
+
+  test('校验placeholder', () => {
+    const wrapper = mount(WInput, {
+      props: { placeholder: 'test placeholder' }
+    });
+    expect(wrapper.get('input').element.placeholder).toBe('test placeholder');
+  });
+
+  test('修改默认值', async () => {
+    const wrapper = mount(WInput, {
+      props: { modelValue: 'test' }
+    });
+    await wrapper.setProps({ modelValue: 'hi' });
+    expect(wrapper.get('input').element.value).toContain('hi');
+  })
+
+  test('测试类型为多文本输入框', () => {
     const wrapper = mount(WInput, {
       props: {
-        modelValue: 'test'
+        type: 'textarea'
       }
     });
-    expect(wrapper.get('input').element.value).toContain('test');
+    expect(wrapper.find('input').exists()).toBe(false);
+    expect(wrapper.get('textarea').element.value).toBe('');
   })
 })
 
