@@ -1,8 +1,8 @@
 <template>
   <div class="w-date-picker">
-    <div class="w-date-picker-div" ref="select" @click="showCalendar">
+    <div class="w-date-picker-div cursor-brush" ref="select" @click="showCalendar">
       <span>{{ defaultValue ? defaultValue : placeholder }}</span>
-      <div class="calendar-icon"></div>
+      <div class="calendar-icon cursor-brush"/>
     </div>
     <Teleport to="body">
       <transition name="w-opacity">
@@ -272,7 +272,6 @@ export default {
   border: 3px double transparent;
   padding: 0 5px;
   border-image: url("/lib/assets/input/input244.png") 3;
-  cursor: pointer;
 
   span {
     line-height: 31px;
@@ -283,7 +282,6 @@ export default {
     position: relative;
     bottom: -3px;
     float: right;
-    cursor: pointer;
 
     &:before {
       content: url("/lib/assets/date-picker/calendar.png");
