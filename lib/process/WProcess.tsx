@@ -8,6 +8,9 @@
  */
 import { h, defineComponent } from 'vue';
 
+import grayLine from '../assets/process/gray_line.png';
+import blackLine from '../assets/process/black_line.png';
+
 const prependDefault = {
   position: 'left',
   text: ''
@@ -48,9 +51,9 @@ export default defineComponent({
 
     return (
       <div class="w-process" style={processStyle}>
-        <img style={processStyle} src="/lib/assets/process/gray_line.png" alt=""/>
+        <img style={processStyle} src={grayLine} alt=""/>
         <div class="process-mask" style={maskStyle}>
-          <img style={processStyle} src="/lib/assets/process/black_line.png" alt=""/>
+          <img style={processStyle} src={blackLine} alt=""/>
         </div>
         <div class="process-text" style={textStyle}>
           <span class="process-prepend-left">{this.prepend.position !== 'right' ? this.prepend.text : ''}</span>
