@@ -84,6 +84,11 @@ const routes = [
         path: '/divider',
         name: 'Divider',
         component: defineAsyncComponent(() => import('../page/demos/DividerDemo.vue'))
+      },
+      {
+        path: '/process',
+        name: 'Process',
+        component: defineAsyncComponent(() => import('../page/demos/ProcessDemo.vue'))
       }
     ]
   }

@@ -10,11 +10,13 @@ import { default as WDatePicker } from './datePicker';
 import { default as WPopover } from './popover';
 import { WMessage } from './message';
 import { WForm, WFormItem } from "./form";
-import { default as WInputNumber } from './inputNumber'
-import { default as WPagination } from './pagination'
-import { default as WUpload } from './upload'
-import { default as WDivider } from './divider'
+import { default as WInputNumber } from './inputNumber';
+import { default as WPagination } from './pagination';
+import { default as WUpload } from './upload';
+import { default as WDivider } from './divider';
+import { default as WProcess } from './process';
 import { WPrinter } from "./printer";
+
 
 import '../lib/style.scss'
 
@@ -34,6 +36,7 @@ const components = [
   WPagination,
   WUpload,
   WDivider,
+  WProcess,
   WPrinter
 ]
 const install = function (app: App) {
@@ -59,6 +62,7 @@ export {
   WPagination,
   WUpload,
   WDivider,
+  WProcess,
   WPrinter
 };
 
