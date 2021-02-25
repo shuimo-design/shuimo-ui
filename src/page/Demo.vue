@@ -48,7 +48,8 @@ export default {
         { name: '分页', url: 'pagination' },
         { name: '文件上传', url: 'upload' },
         { name: '控制台输出', url: 'print' },
-        { name: '分割线', url: 'divider' }
+        { name: '分割线', url: 'divider' },
+        { name: '进度条', url: 'process' }
       ]
     }
   }

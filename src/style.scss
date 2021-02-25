@@ -5,3 +5,7 @@ body, html {
   color: #333;
   cursor: url("./assets/point.png"), auto;
 }
+
+.cursor-brush{
+  cursor: url("./assets/mouse-pointer.png"),auto !important;
+}

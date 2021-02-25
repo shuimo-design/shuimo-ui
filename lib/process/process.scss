@@ -1,0 +1,16 @@
+.w-process {
+
+  .process-mask {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .process-text {
+    display: flex;
+    position: relative;
+    color: white;
+    justify-content: space-between;
+  }
+
+}
