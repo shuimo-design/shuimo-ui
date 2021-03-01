@@ -1,5 +1,5 @@
 <template>
-  <div style="position:relative">
+  <div>
     <div ref="reference" class="w-tooltip-reference">
       <slot></slot>
     </div>
@@ -110,7 +110,7 @@ export default {
 
 .w-tooltip {
   padding: 3px 4px;
-  position: fixed;
+  position: absolute;
   visibility: hidden;
   color: #192F6F;
   z-index: 2;
