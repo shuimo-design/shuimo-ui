@@ -38,14 +38,15 @@ export default defineComponent({
     const maskStyle = {
       height: `${height}px`,
       width: `${width * this.per}px`,
-      top: `-${height + 5}px`
+      top: `-${height}px`
     }
     const textStyle = {
       height: `${height}px`,
       'line-height': `${height}px`,
+      'font-size': `${height/2}px`,
       'padding-left': `${width * 0.02}px`,
       width: `${width * 0.98}px`,
-      top: `-${height * 2 + 10}px`
+      top: `-${height * 2}px`
     }
 
 
