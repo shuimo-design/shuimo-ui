@@ -22,3 +22,9 @@
 .w-button:disabled {
   cursor: not-allowed;
 }
+
+.w-button-dialog {
+  border: unset;
+  background: url("/lib/assets/button/button-border-dialog.png") no-repeat;
+  background-size: 100% 100%;
+}
