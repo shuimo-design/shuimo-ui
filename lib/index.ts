@@ -17,6 +17,7 @@ import { default as WUpload } from './upload';
 import { default as WDivider } from './divider';
 import { default as WProcess } from './process';
 import { WPrinter } from "./printer";
+import { default as WRadio } from './radio';
 
 
 import '../lib/style.scss'
@@ -39,7 +40,8 @@ const components = [
   WDivider,
   WProcess,
   WPrinter,
-  WAdventureDialog
+  WAdventureDialog,
+  WRadio
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -66,7 +68,8 @@ export {
   WDivider,
   WProcess,
   WPrinter,
-  WAdventureDialog
+  WAdventureDialog,
+  WRadio
 };
 
 export default {
