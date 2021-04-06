@@ -94,6 +94,11 @@ const routes = [
         path: '/radio',
         name: 'Radio',
         component: defineAsyncComponent(() => import('../page/demos/RadioDemo.vue'))
+      },
+      {
+        path: '/checkbox',
+        name: 'Checkbox',
+        component: defineAsyncComponent(() => import('../page/demos/CheckboxDemo.vue'))
       }
     ]
   }
