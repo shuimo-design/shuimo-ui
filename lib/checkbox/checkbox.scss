@@ -1,0 +1,67 @@
+.w-checkbox {
+  color: #606266;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  user-select: none;
+  margin: 5px;
+}
+
+.w-checkbox__input {
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  vertical-align: middle;
+}
+
+.w-checkbox__inner {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+
+  img {
+    width: 100%;
+  }
+}
+
+.w-checkbox__original {
+  opacity: 0;
+  outline: none;
+  position: absolute;
+  margin: 0;
+  width: 0;
+  height: 0;
+  z-index: -1;
+}
+
+.w-checkbox__label {
+  display: inline-block;
+  padding-left: 10px;
+  line-height: 19px;
+  font-size: 14px;
+}
+
+.w-checkbox__input.is-checked .w-checkbox__inner {
+  .w-checkbox__inner_checked {
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    background: url("/lib/assets/checkbox/checkbox-checked.png") no-repeat;
+    background-size: 100% 100%;
+    top: 7px;
+    left: 6px;
+  }
+}
+
+.w-checkbox__input.is-checked+.w-checkbox__label {
+  font-weight: 600;
+}
