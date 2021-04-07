@@ -3,6 +3,7 @@ import { App } from 'vue';
 import { default as WInput } from './input';
 import { default as WButton } from './button';
 import { default as WDialog } from './dialog';
+import { default as WAdventureDialog } from './adventureDialog';
 import { default as WTooltip } from './tooltip';
 import { default as WScrollNumber } from './scrollNumber';
 import { default as WSelect } from './select';
@@ -16,6 +17,8 @@ import { default as WUpload } from './upload';
 import { default as WDivider } from './divider';
 import { default as WProcess } from './process';
 import { WPrinter } from "./printer";
+import { default as WRadio } from './radio';
+import { default as WCheckbox } from './checkbox';
 
 
 import '../lib/style.scss'
@@ -37,7 +40,10 @@ const components = [
   WUpload,
   WDivider,
   WProcess,
-  WPrinter
+  WPrinter,
+  WAdventureDialog,
+  WRadio,
+  WCheckbox
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -63,7 +69,10 @@ export {
   WUpload,
   WDivider,
   WProcess,
-  WPrinter
+  WPrinter,
+  WAdventureDialog,
+  WRadio,
+  WCheckbox
 };
 
 export default {

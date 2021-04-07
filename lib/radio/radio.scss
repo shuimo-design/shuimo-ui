@@ -1,0 +1,76 @@
+.w-radio {
+  color: #606266;
+  font-weight: 500;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  outline: none;
+  font-size: 14px;
+  margin-right: 30px;
+  user-select: unset;
+}
+
+.w-radio__input {
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  vertical-align: middle;
+}
+
+.w-radio__label {
+  font-size: 14px;
+  padding-left: 10px;
+  line-height: 25px;
+}
+
+.w-radio__inner {
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  box-sizing: border-box;
+
+  img {
+    width: 100%;
+  }
+}
+
+.w-radio__input.is-checked .w-radio__inner {
+  .w-radio__inner_checked {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background: url("/lib/assets/radio/radio-checked.png") no-repeat;
+    background-size: 100% 100%;
+    top: 6px;
+    left: 7px;
+  }
+}
+
+.w-radio__original {
+  opacity: 0;
+  outline: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.w-radio__input.is-checked+.w-radio__label {
+  font-weight: 600;
+}
+
+.w-radio__label {
+  font-size: 14px;
+  padding-left: 10px;
+}

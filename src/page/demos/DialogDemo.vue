@@ -13,6 +13,12 @@
         <span>height:600</span>
       </div>
     </w-dialog>
+    <w-button text="点击显示奇遇弹窗" @click="showAdventure"/>
+    <w-adventure-dialog :visible="dialogAdventureVisible" @close="closeAdventure" @confirm="closeAdventure">
+      <div class="adventure-tip">
+        <span>今日份奇遇，获得了某物品奖励，恭喜你！</span>
+      </div>
+    </w-adventure-dialog>
   </div>
 </template>
 
@@ -35,7 +41,8 @@ export default {
       maskNoShowOption: {
         show: false,
         clickClose: false
-      }
+      },
+      dialogAdventureVisible: false
     }
   },
   methods: {
@@ -50,6 +57,12 @@ export default {
     },
     closeNormal() {
       this.dialogNormalVisible = false;
+    },
+    showAdventure() {
+      this.dialogAdventureVisible = true;
+    },
+    closeAdventure() {
+      this.dialogAdventureVisible = false;
     }
   }
 };
@@ -58,5 +71,9 @@ export default {
 <style lang="scss" scoped>
 .height-600 {
   height: 600px;
+}
+
+.adventure-tip {
+  text-align: center;
 }
 </style>

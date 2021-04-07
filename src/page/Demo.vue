@@ -49,7 +49,9 @@ export default {
         { name: '文件上传', url: 'upload' },
         { name: '控制台输出', url: 'print' },
         { name: '分割线', url: 'divider' },
-        { name: '进度条', url: 'process' }
+        { name: '进度条', url: 'process' },
+        { name: '单选', url: 'radio' },
+        { name: '复选框', url: 'checkbox' }
       ]
     }
   }

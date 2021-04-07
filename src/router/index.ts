@@ -89,6 +89,16 @@ const routes = [
         path: '/process',
         name: 'Process',
         component: defineAsyncComponent(() => import('../page/demos/ProcessDemo.vue'))
+      },
+      {
+        path: '/radio',
+        name: 'Radio',
+        component: defineAsyncComponent(() => import('../page/demos/RadioDemo.vue'))
+      },
+      {
+        path: '/checkbox',
+        name: 'Checkbox',
+        component: defineAsyncComponent(() => import('../page/demos/CheckboxDemo.vue'))
       }
     ]
   }

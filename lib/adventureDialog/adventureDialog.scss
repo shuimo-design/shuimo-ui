@@ -1,0 +1,99 @@
+.mask {
+  position: fixed;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.mask-bg {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.w-adventure-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("/lib/assets/adventureDialog/bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+
+// close button
+
+@keyframes Wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.dialog-close-btn {
+  display: inline-block;
+  background: url("/lib/assets/adventureDialog/close.png") no-repeat;
+  background-size: 100% 100%;
+  width: 46px;
+  height: 75px;
+  transform-origin: 50% 0;
+  animation: Wave 8s linear both infinite;
+  position: absolute;
+  cursor: pointer;
+}
+
+.dialog-girl {
+  display: inline-block;
+  background: url("/lib/assets/adventureDialog/girl.gif") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.dialog-confirm-btn {
+  background: url("/lib/assets/adventureDialog/button.png") no-repeat;
+  background-size: 100% 100%;
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.mask{
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
