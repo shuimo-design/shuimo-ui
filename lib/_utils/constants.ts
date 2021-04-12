@@ -8,3 +8,7 @@
  */
 
 export const UPDATE_MODEL_EVENT = 'update:modelValue';
+
+export const CLOSE_EVENT = 'close';
+
+export const CONFIRM_EVENT = 'confirm';
