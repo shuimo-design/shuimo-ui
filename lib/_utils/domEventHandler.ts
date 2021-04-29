@@ -6,7 +6,7 @@
  *
  * Hello, humor
  */
-
+import type { Ref } from 'vue'
 import {on, off, addClass, removeClass} from './dom';
 import { reactive, ref } from 'vue';
 
@@ -23,7 +23,8 @@ export default function domEventHandler() {
   const trigger = ref('');
   const openDelay = ref(0);
   const closeDelay = ref(200);
-  let _timer = reactive(Object.create(null));
+  // @ts-ignore
+  let _timer = ref<TimeoutHandle>(null);
   let popper = reactive(Object.create(null));
   let reference = reactive(Object.create(null));
   const referenceStyle = reactive(Object.create(null));
@@ -65,9 +66,10 @@ export default function domEventHandler() {
   };
 
   const handleMouseEnter = () => {
-    clearTimeout(_timer);
+    clearTimeout(_timer.value);
     if (openDelay.value) {
-      _timer = setTimeout(() => {
+      // @ts-ignore
+      _timer.value = setTimeout(() => {
         popoverVisible.value = true;
         setStyle();
       }, openDelay.value);
@@ -78,9 +80,10 @@ export default function domEventHandler() {
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(_timer);
+    clearTimeout(_timer.value);
     if (closeDelay.value) {
-      _timer = setTimeout(() => {
+      // @ts-ignore
+      _timer.value = setTimeout(() => {
         popoverVisible.value = false;
       }, closeDelay.value);
     } else {
@@ -95,7 +98,7 @@ export default function domEventHandler() {
 
   const cleanup = (openDelay: any, closeDelay: any) => {
     if (openDelay || closeDelay) {
-      clearTimeout(_timer);
+      clearTimeout(_timer.value);
     }
   };
 
