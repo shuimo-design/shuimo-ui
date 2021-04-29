@@ -6,7 +6,7 @@
  *
  * Hello, humor
  */
-
+import type { Ref } from 'vue'
 import {on, off, addClass, removeClass} from './dom';
 import { reactive, ref } from 'vue';
 
@@ -23,9 +23,10 @@ export default function domEventHandler() {
   const trigger = ref('');
   const openDelay = ref(0);
   const closeDelay = ref(200);
-  const _timer = reactive(Object.create(null));
-  const popper = reactive(Object.create(null));
-  const reference = reactive(Object.create(null));
+  // @ts-ignore
+  let _timer = ref<TimeoutHandle>(null);
+  let popper = reactive(Object.create(null));
+  let reference = reactive(Object.create(null));
   const referenceStyle = reactive(Object.create(null));
   popoverVisible.value = false;
 
@@ -40,9 +41,9 @@ export default function domEventHandler() {
   };
 
   const setStyle = () => {
-    const rStyle = window.getComputedStyle(reference.value);
-    referenceStyle.offsetLeft = reference.value.getBoundingClientRect().left + window.pageXOffset;
-    referenceStyle.offsetTop = reference.value.getBoundingClientRect().top + window.pageYOffset;
+    const rStyle = window.getComputedStyle(reference);
+    referenceStyle.offsetLeft = reference.getBoundingClientRect().left + window.pageXOffset;
+    referenceStyle.offsetTop = reference.getBoundingClientRect().top + window.pageYOffset;
     referenceStyle.height = getStyle(rStyle, 'height');
     referenceStyle.width = getStyle(rStyle, 'width');
   };
@@ -67,6 +68,7 @@ export default function domEventHandler() {
   const handleMouseEnter = () => {
     clearTimeout(_timer.value);
     if (openDelay.value) {
+      // @ts-ignore
       _timer.value = setTimeout(() => {
         popoverVisible.value = true;
         setStyle();
@@ -80,6 +82,7 @@ export default function domEventHandler() {
   const handleMouseLeave = () => {
     clearTimeout(_timer.value);
     if (closeDelay.value) {
+      // @ts-ignore
       _timer.value = setTimeout(() => {
         popoverVisible.value = false;
       }, closeDelay.value);
@@ -102,8 +105,8 @@ export default function domEventHandler() {
   const handleDocumentClick = (e: any) => {
     if (!reference.value ||
         reference.value.contains(e.target) ||
-        !popper.value ||
-        popper.value.contains(e.target)) return;
+        !popper ||
+        popper.contains(e.target)) return;
     doClose();
   };
 
@@ -118,8 +121,8 @@ export default function domEventHandler() {
   };
 
   const onController = (configs: DomConfigs) => {
-    popper.value = configs.popper;
-    reference.value = configs.reference;
+    popper = configs.popper;
+    reference = configs.reference;
     trigger.value = configs.trigger;
     openDelay.value = configs.openDelay;
     closeDelay.value = configs.closeDelay;

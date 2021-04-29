@@ -3,17 +3,19 @@
     <div ref="reference" class="w-tooltip-reference">
       <slot></slot>
     </div>
-    <div
-        class="w-tooltip"
-        :class="{ 'visible': popoverVisible }"
-        :style="popoverStyle"
-        ref="popover"
-        role="tooltip">
-      <div :class="['w-tooltip-arrow', { 'fixed-arrow': popoverStyle.fixed }]"/>
-      <div class="w-tooltip-inner">
-        <slot name="content"></slot>
+    <Teleport to="body">
+      <div
+          class="w-tooltip"
+          :class="{ 'visible': popoverVisible }"
+          :style="popoverStyle"
+          ref="popover"
+          role="tooltip">
+        <div :class="['w-tooltip-arrow', { 'fixed-arrow': popoverStyle.fixed }]"/>
+        <div class="w-tooltip-inner">
+          <slot name="content"></slot>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </div>
 </template>
 <script>

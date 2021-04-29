@@ -6,6 +6,7 @@
  *
  * Hello, humor
  */
+import { CLOSE_EVENT, CONFIRM_EVENT } from "../_utils/constants";
 
 const DialogMixins = {
     data() {
@@ -13,6 +14,7 @@ const DialogMixins = {
             pes: 1
         }
     },
+    emits: [CLOSE_EVENT, CONFIRM_EVENT],
     props: {
         mask: { type: Object, default: { show: true, clickClose: false } },
         visible: { type: Boolean, default: false },
