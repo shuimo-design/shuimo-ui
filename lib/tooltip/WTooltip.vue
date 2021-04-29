@@ -115,7 +115,7 @@ export default {
   position: absolute;
   visibility: hidden;
   color: #192F6F;
-  z-index: 2;
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
