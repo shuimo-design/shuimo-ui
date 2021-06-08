@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       demoList: [
+        { name: '首页', url: '' },
         { name: '按钮', url: 'button' },
         { name: '输入框', url: 'input' },
         { name: '选择框', url: 'select' },

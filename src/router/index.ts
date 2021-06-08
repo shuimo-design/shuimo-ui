@@ -16,6 +16,11 @@ const routes = [
     component: defineAsyncComponent(() => import('../page/Demo.vue')),
     children: [
       {
+        path:'',
+        name:'base',
+        component: defineAsyncComponent(() => import('../page/Main.vue'))
+      },
+      {
         path: '/button',
         name: 'Button',
         component: defineAsyncComponent(() => import('../page/demos/ButtonDemo.vue'))
