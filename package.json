@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "vite",
     "tsx-build": "vuedx-typecheck . && vite build",
-    "build": "vite build",
+    "build": "vite build --mode npm",
+    "server": "vite build --mode server",
     "publish": "npm publish --access public",
     "test": "jest"
   },
