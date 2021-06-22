@@ -10,13 +10,13 @@ import { default as WSelect } from './select';
 import { default as WDatePicker } from './datePicker';
 import { default as WPopover } from './popover';
 import { WMessage } from './message';
+import { WPrinter } from "./printer";
 import { WForm, WFormItem } from "./form";
 import { default as WInputNumber } from './inputNumber';
 import { default as WPagination } from './pagination';
 import { default as WUpload } from './upload';
 import { default as WDivider } from './divider';
 import { default as WProcess } from './process';
-import { WPrinter } from "./printer";
 import { default as WRadio } from './radio';
 import { default as WCheckbox } from './checkbox';
 
@@ -40,7 +40,6 @@ const components = [
   WUpload,
   WDivider,
   WProcess,
-  WPrinter,
   WAdventureDialog,
   WRadio,
   WCheckbox

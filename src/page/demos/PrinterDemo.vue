@@ -1,3 +1,7 @@
+<template>
+  <w-button @click="rePrint" text="再次打印"/>
+</template>
+
 <script>
 /**
  * @Description: 控制台打印插件demo
@@ -11,9 +15,14 @@
 export default {
   name: 'PrinterDemo',
   mounted() {
-    this.print.suggest('建议');
-    this.print.info('信息');
-    this.print.error('异常');
+    this.rePrint();
+  },
+  methods: {
+    rePrint() {
+      this.$print.suggest('建议');
+      this.$print.info('信息');
+      this.$print.error('异常');
+    }
   }
 };
 </script>

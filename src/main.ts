@@ -16,4 +16,4 @@ app.use(router)
   .mount('#app');
 
 app.config.globalProperties.$message = WMessage;
-app.config.globalProperties.print = WPrinter('水墨测试');
+app.config.globalProperties.$print = WPrinter('水墨测试');
