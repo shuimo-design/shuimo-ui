@@ -5,6 +5,7 @@
   "files": [
     "dist"
   ],
+  "types": "types/wash-painting-ui.d.ts",
   "main": "./dist/wash-painting-ui.umd.js",
   "module": "./dist/wash-painting-ui.es.js",
   "exports": {
