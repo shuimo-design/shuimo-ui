@@ -1,9 +1,9 @@
 {
   "name": "@higuaifan/wash-painting-ui",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.0.31",
+  "version": "0.1.1",
   "files": [
-    "dist"
+    "dist","types"
   ],
   "types": "types/wash-painting-ui.d.ts",
   "main": "./dist/wash-painting-ui.umd.js",
