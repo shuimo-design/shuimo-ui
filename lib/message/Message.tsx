@@ -2,27 +2,21 @@
  * @description message消息组件
  * @author: 菩萨蛮
  * @date 2021/1/8 4:37 下午
- * @version V1.0.0
+ * @version V1.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行
  *
- * 第一版非常粗暴的message消息组件
+ * V1.0 第一版非常粗暴的message消息组件
+ * V1.1 添加类型定义
  */
-import {h, createApp} from 'vue';
+import { h, createApp } from 'vue';
+import { BaseMessageConfig, IMessage, MessageConfig } from "../../types/components/WMessage";
 
-export interface MessageConfig {
-  content?: string,
-  time?: number,
-  type?: string
-}
-export interface ThenableArgument {
-  (val: any): void;
-}
-
-export interface MessageType {
-  (): void;
-  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<void>;
-  promise: Promise<void>;
+enum MessageEnum {
+  success = 'success',
+  warning = 'warning',
+  info = 'info',
+  error = 'error',
 }
 
 const setMessageDiv = () => {
@@ -35,8 +29,9 @@ const setMessageDiv = () => {
   div.id = 'message–div';
   document.body.appendChild(div);
   return div;
-}
-const Message = (config: MessageConfig) => {
+};
+
+const Message: IMessage = (config: BaseMessageConfig) => {
 
   const parent = setMessageDiv();
   const div = document.createElement('div');
@@ -79,9 +74,8 @@ const Message = (config: MessageConfig) => {
   render(currentConfig);
 }
 
-['success', 'info', 'warning', 'error'].forEach(type => {
-  // @ts-ignore
-  Message[type] = options => {
+for (let type of Object.values(MessageEnum)) {
+  Message[type] = (options: MessageConfig) => {
     if (typeof options === 'string') {
       options = {
         content: options
@@ -90,6 +84,6 @@ const Message = (config: MessageConfig) => {
     options.type = type;
     return Message(options);
   };
-});
+}
 
 export default Message;
