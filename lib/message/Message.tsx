@@ -10,7 +10,7 @@
  * V1.1 添加类型定义
  */
 import { h, createApp } from 'vue';
-import { BaseMessageConfig, IMessage, MessageConfig } from "../../types/components/WMessage";
+import { BaseMessageConfig, WMessage, MessageConfig } from "../../types/components/WMessage";
 
 enum MessageEnum {
   success = 'success',
@@ -31,7 +31,7 @@ const setMessageDiv = () => {
   return div;
 };
 
-const Message: IMessage = (config: BaseMessageConfig) => {
+const Message: WMessage = (config: BaseMessageConfig) => {
 
   const parent = setMessageDiv();
   const div = document.createElement('div');

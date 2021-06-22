@@ -8,14 +8,6 @@
  */
 
 
-export type BaseMessageConfig =  {
-  content?: string,
-  time?: number,
-  type?: string
-}
-
-export type MessageConfig = BaseMessageConfig | string;
-
 declare enum MessageEnum {
   success = 'success',
   warning = 'warning',
@@ -23,6 +15,21 @@ declare enum MessageEnum {
   error = 'error',
 }
 
+/**
+ * 基础Message信息
+ * <br/>
+ * @param content 提示内容 <br/>
+ * @param time 延迟时间 <br/>
+ * @param type 类型 <br/>
+ */
+export type BaseMessageConfig = {
+  content?: string,
+  time?: number,
+  type?: string
+}
+
+export type MessageConfig = BaseMessageConfig | string;
+
 type IMessageEnum = { [T in MessageEnum]?: (options: MessageConfig) => void; }
 type IMessageFunc = { (config: BaseMessageConfig): void; };
-export type IMessage = IMessageEnum & IMessageFunc;
+export type WMessage = IMessageEnum & IMessageFunc;
