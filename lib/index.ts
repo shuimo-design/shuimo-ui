@@ -74,6 +74,8 @@ export {
   WCheckbox
 };
 
-export default {
-  install
+export const createWUI = () => {
+  return {
+    install
+  }
 }

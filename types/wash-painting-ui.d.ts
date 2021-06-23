@@ -11,7 +11,11 @@ import { WMessage } from "./components/WMessage";
 import { WPrinter } from "./components/WPrint";
 
 declare module "wash-painting-ui" {
-  function install(app: App<any>): void;
+
 }
+
+export function createWUI(): {
+  install: (app: App<any>) => void
+};
 
 export { WMessage, WPrinter };

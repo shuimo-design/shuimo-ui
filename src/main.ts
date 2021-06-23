@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import WUI from "../lib";
+import { createWUI } from "../lib";
 import { WMessage } from "../lib";
 import { WPrinter } from "../lib";
 // import WUI from "../dist/wash-painting-ui.es.js";
@@ -10,7 +10,7 @@ import './style.scss'
 
 
 const app = createApp(App);
-
+const WUI = createWUI();
 app.use(router)
   .use(WUI)
   .mount('#app');
