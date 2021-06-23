@@ -7,14 +7,6 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-
-declare enum MessageEnum {
-  success = 'success',
-  warning = 'warning',
-  info = 'info',
-  error = 'error',
-}
-
 /**
  * 基础Message信息
  * <br/>
@@ -30,6 +22,12 @@ export type BaseMessageConfig = {
 
 export type MessageConfig = BaseMessageConfig | string;
 
-type IMessageEnum = { [T in MessageEnum]?: (options: MessageConfig) => void; }
-type IMessageFunc = { (config: BaseMessageConfig): void; };
-export type IMessage = IMessageEnum & IMessageFunc;
+type IMessageEnum = {
+  success: (options: MessageConfig) => void,
+  warning: (options: MessageConfig) => void,
+  info: (options: MessageConfig) => void,
+  error: (options: MessageConfig) => void,
+};
+export type IMessage = IMessageEnum & {
+  (config: BaseMessageConfig): void;
+};
