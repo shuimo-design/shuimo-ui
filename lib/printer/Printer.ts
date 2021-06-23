@@ -9,7 +9,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import { PrinterType, printInterface, WPrinter } from "../../types/components/WPrint";
+import { PrinterType, printInterface, IPrinter } from "../../types/components/WPrint";
 
 enum PrinterEnum {
   suggest = 'suggest',
@@ -23,7 +23,7 @@ const typeColor = {
   error: '#c04851',
 }
 
-const Printer: WPrinter = (defaultUser: string = '水墨UI') => {
+const Printer: IPrinter = (defaultUser: string = '水墨UI') => {
   const DEFAULT_USER = defaultUser;
   const getType = (o: any) => {
     const s = Object.prototype.toString.call(o);

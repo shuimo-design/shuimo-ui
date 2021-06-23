@@ -32,4 +32,4 @@ export type MessageConfig = BaseMessageConfig | string;
 
 type IMessageEnum = { [T in MessageEnum]?: (options: MessageConfig) => void; }
 type IMessageFunc = { (config: BaseMessageConfig): void; };
-export type WMessage = IMessageEnum & IMessageFunc;
+export type IMessage = IMessageEnum & IMessageFunc;

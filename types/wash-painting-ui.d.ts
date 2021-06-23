@@ -7,8 +7,8 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { App } from "vue";
-import { WMessage } from "./components/WMessage";
-import { WPrinter } from "./components/WPrint";
+import { IMessage } from "./components/WMessage";
+import { IPrinter } from "./components/WPrint";
 
 declare module "wash-painting-ui" {
 
@@ -18,4 +18,6 @@ export function createWUI(): {
   install: (app: App<any>) => void
 };
 
-export { WMessage, WPrinter };
+export const WMessage: IMessage;
+export const WPrinter: IPrinter;
+

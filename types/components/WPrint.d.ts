@@ -30,5 +30,5 @@ export type printInterface = { (options: OptionalType): void; }
 
 export type PrinterType = { [T in PrinterEnum]: (content: any, user: string) => void }
 
-export type WPrinter = (defaultUser: string) => PrinterType;
+export type IPrinter = (defaultUser: string) => PrinterType;
 
