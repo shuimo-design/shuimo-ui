@@ -19,6 +19,7 @@ import { default as WDivider } from './divider';
 import { default as WProcess } from './process';
 import { default as WRadio } from './radio';
 import { default as WCheckbox } from './checkbox';
+import { default as WMenu } from './menu';
 
 
 import '../lib/style.scss'
@@ -42,7 +43,8 @@ const components = [
   WProcess,
   WAdventureDialog,
   WRadio,
-  WCheckbox
+  WCheckbox,
+  WMenu
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -71,7 +73,8 @@ export {
   WPrinter,
   WAdventureDialog,
   WRadio,
-  WCheckbox
+  WCheckbox,
+  WMenu
 };
 
 export const createWUI = () => {
