@@ -51,11 +51,11 @@ export default defineComponent({
 
 .header-line {
   position: relative;
-  top: -23px;
+  top: -11px;
   left: 18px;
-  background: url(/src/assets/header/header_line.png) repeat;
+  background: url(/src/assets/line/crossrange.png) repeat-x;
   width: 100%;
-  height: 23px;
+  height: 5px;
 }
 
 

@@ -14,9 +14,6 @@
       </w-form-item>
     </w-form>
   </div>
-  <div class="footer cursor-brush">
-    <span @click="toBeian">浙ICP备15017406号</span>
-  </div>
 </template>
 
 <script lang="ts">
@@ -42,9 +39,6 @@ export default defineComponent({
     toNpm() {
       window.open('https://www.npmjs.com/package/@higuaifan/wash-painting-ui');
     },
-    toBeian() {
-      window.open('https://www.miit.gov.cn/');
-    }
   }
 });
 </script>
@@ -53,15 +47,6 @@ export default defineComponent({
 
 .base {
   margin: 10px 20px;
-}
-
-.footer {
-  width: 100vw;
-  background-color: rgba(200, 199, 199, 0.36);
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 </style>

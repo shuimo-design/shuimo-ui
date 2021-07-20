@@ -6,8 +6,13 @@
     <div class="main">
       <w-menu :menu="menuList" class="menu" @click="menuClick"/>
       <div class="main-page">
-        <router-view/>
+        <Mask>
+          <router-view/>
+        </Mask>
       </div>
+    </div>
+    <div class="footer cursor-brush">
+      <span @click="toBeian">浙ICP备15017406号</span>
     </div>
   </div>
 </template>
@@ -21,6 +26,7 @@
 import { reactive } from 'vue';
 import router from "../router";
 import Header from "../components/Header.vue";
+import Mask from "../components/Mask.vue";
 
 const menuList = reactive([
   { title: '首页', key: '', isActive: true },
@@ -70,6 +76,10 @@ const menuClick = (index) => {
   router.push(`/${m.key}`);
 }
 
+const toBeian = () => {
+  window.open('https://www.miit.gov.cn/');
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -78,7 +88,7 @@ const menuClick = (index) => {
   height: 100vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(2px);
+  //backdrop-filter: blur(2px);
   overflow: hidden;
 
   .demo-header {
@@ -89,7 +99,7 @@ const menuClick = (index) => {
 
   .main {
     display: inline-block;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 140px);
   }
 
   .menu {
@@ -103,10 +113,21 @@ const menuClick = (index) => {
   display: block;
 }
 
-.main-page, .base {
-  float: right;
+.main-page {
   display: inline-block;
-  width: calc(100vw - 315px);
+  float: right;
+  width: calc(100vw - 355px);
+  margin: 0 40px 0 0;
+  height: 100%;
+}
+
+.footer {
+  width: 100vw;
+  background-color: rgba(200, 199, 199, 0.36);
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 </style>
