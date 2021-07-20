@@ -7,103 +7,102 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { createRouter, createWebHistory } from 'vue-router';
-import { defineAsyncComponent } from 'vue';
 
 const routes = [
   {
     path: '/',
     name: 'Demo',
-    component: defineAsyncComponent(() => import('../page/Demo.vue')),
+    component: () => import('../page/Demo.vue'),
     children: [
       {
-        path:'',
-        name:'base',
-        component: defineAsyncComponent(() => import('../page/Main.vue'))
+        path: '',
+        name: 'base',
+        component: () => import('../page/Main.vue')
       },
       {
         path: '/button',
         name: 'Button',
-        component: defineAsyncComponent(() => import('../page/demos/ButtonDemo.vue'))
+        component: () => import('../page/demos/ButtonDemo.vue')
       },
       {
         path: '/input',
         name: 'Input',
-        component: defineAsyncComponent(() => import('../page/demos/InputDemo.vue'))
+        component: () => import('../page/demos/InputDemo.vue')
       },
       {
         path: '/select',
         name: 'Select',
-        component: defineAsyncComponent(() => import('../page/demos/SelectDemo.vue'))
+        component: () => import('../page/demos/SelectDemo.vue')
       },
       {
         path: '/date-picker',
         name: 'DatePicker',
-        component: defineAsyncComponent(() => import('../page/demos/DatePickerDemo.vue'))
+        component: () => import('../page/demos/DatePickerDemo.vue')
       },
       {
         path: '/dialog',
         name: 'Dialog',
-        component: defineAsyncComponent(() => import('../page/demos/DialogDemo.vue'))
+        component: () => import('../page/demos/DialogDemo.vue')
       },
       {
         path: '/scroll-number',
         name: 'ScrollNumber',
-        component: defineAsyncComponent(() => import('../page/demos/ScrollNumberDemo.vue'))
+        component: () => import('../page/demos/ScrollNumberDemo.vue')
       },
       {
         path: '/tooltip',
         name: 'Tooltip',
-        component: defineAsyncComponent(() => import('../page/demos/TooltipDemo.vue'))
+        component: () => import('../page/demos/TooltipDemo.vue')
       },
       {
         path: '/popover',
         name: 'Popover',
-        component: defineAsyncComponent(() => import('../page/demos/PopoverDemo.vue'))
+        component: () => import('../page/demos/PopoverDemo.vue')
       },
       {
         path: '/message',
         name: 'Message',
-        component: defineAsyncComponent(() => import('../page/demos/MessageDemo.vue'))
+        component: () => import('../page/demos/MessageDemo.vue')
       },
       {
         path: '/form',
         name: 'Form',
-        component: defineAsyncComponent(() => import('../page/demos/FormDemo.vue'))
+        component: () => import('../page/demos/FormDemo.vue')
       },
       {
         path: '/pagination',
         name: 'Pagination',
-        component: defineAsyncComponent(() => import('../page/demos/PaginationDemo.vue'))
+        component: () => import('../page/demos/PaginationDemo.vue')
       },
       {
         path: '/upload',
         name: 'Upload',
-        component: defineAsyncComponent(() => import('../page/demos/UploadDemo.vue'))
+        component: () => import('../page/demos/UploadDemo.vue')
       },
       {
         path: '/print',
         name: 'Print',
-        component: defineAsyncComponent(() => import('../page/demos/PrinterDemo.vue'))
+        component: () => import('../page/demos/PrinterDemo.vue')
       },
       {
         path: '/divider',
         name: 'Divider',
-        component: defineAsyncComponent(() => import('../page/demos/DividerDemo.vue'))
+        component: () => import('../page/demos/DividerDemo.vue')
       },
       {
         path: '/process',
         name: 'Process',
-        component: defineAsyncComponent(() => import('../page/demos/ProcessDemo.vue'))
+        component: () => import('../page/demos/ProcessDemo.vue')
       },
       {
         path: '/radio',
         name: 'Radio',
-        component: defineAsyncComponent(() => import('../page/demos/RadioDemo.vue'))
+        component: () => import('../page/demos/RadioDemo.vue')
       },
       {
         path: '/checkbox',
         name: 'Checkbox',
-        component: defineAsyncComponent(() => import('../page/demos/CheckboxDemo.vue'))
+        component: () => import('../page/demos/CheckboxDemo.vue')
       }
     ]
   }
