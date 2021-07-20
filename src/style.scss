@@ -1,3 +1,8 @@
+@font-face {
+  font-family: wljh;
+  src: url(/src/assets/fonts/wljh.ttf);
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -6,6 +11,16 @@ body, html {
   cursor: url("./assets/point.png"), auto;
 }
 
-.cursor-brush{
-  cursor: url("./assets/mouse-pointer.png"),auto !important;
+body {
+  background: url(/src/assets/base/bg.png) #cfdcdf no-repeat bottom;
+  background-size: 100% auto;
+}
+
+.cursor-brush {
+  cursor: url("./assets/mouse-pointer.png"), auto !important;
+}
+
+.w-menu {
+  font-family: wljh, serif;
+  letter-spacing: 2px;
 }

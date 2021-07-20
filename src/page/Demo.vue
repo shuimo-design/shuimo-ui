@@ -1,76 +1,112 @@
 <template>
   <div class="demo">
-    <div class="menu">
-      <template v-for="demo in demoList">
-        <w-button :text="demo.name" @click="$router.push(`/${demo.url}`)"/>
-      </template>
+    <div class="demo-header">
+      <Header/>
     </div>
     <div class="main">
-      <router-view/>
+      <w-menu :menu="menuList" class="menu" @click="menuClick"/>
+      <div class="main-page">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 /**
  * @description
  * @author higuaifan
  * @date 2020/11/17 22:33
  **/
+import { reactive } from 'vue';
+import router from "../router";
+import Header from "../components/Header.vue";
 
-export default {
-  name: "Demo",
-  data() {
-    return {
-      demoList: [
-        { name: '首页', url: '' },
-        { name: '按钮', url: 'button' },
-        { name: '输入框', url: 'input' },
-        { name: '选择框', url: 'select' },
-        { name: '日期选择框', url: 'date-picker' },
-        { name: '弹窗', url: 'dialog' },
-        { name: '数字滚动', url: 'scroll-number' },
-        { name: '悬浮提示', url: 'tooltip' },
-        { name: '悬浮交互', url: 'popover' },
-        { name: '提示', url: 'message' },
-        { name: '表单', url: 'form' },
-        { name: '分页', url: 'pagination' },
-        { name: '文件上传', url: 'upload' },
-        { name: '控制台输出', url: 'print' },
-        { name: '分割线', url: 'divider' },
-        { name: '进度条', url: 'process' },
-        { name: '单选', url: 'radio' },
-        { name: '复选框', url: 'checkbox' }
-      ]
-    }
+const menuList = reactive([
+  { title: '首页', key: '', isActive: true },
+  {
+    title: '基础组件', key: '', isActive: false, children: [
+      { title: '按钮', key: 'button', isActive: true },
+      { title: '输入框', key: 'input', isActive: false },
+      { title: '选择框', key: 'select', isActive: false },
+      { title: '单选框', key: 'radio', isActive: false },
+      { title: '复选框', key: 'checkbox', isActive: false },
+      { title: '日期选择框', key: 'date-picker', isActive: false },
+    ]
+  },
+  {
+    title: '模版组件', key: '', isActive: false, children: [
+      { title: '表单', key: 'form', isActive: false },
+      { title: '分页', key: 'pagination', isActive: false },
+    ]
+  },
+  {
+    title: '消息交互组件', key: '', isActive: false, children: [
+      { title: '弹窗', key: 'dialog', isActive: false },
+      { title: '提示', key: 'message', isActive: false },
+      { title: '悬浮提示', key: 'tooltip', isActive: false },
+      { title: '悬浮交互', key: 'popover', isActive: false },
+    ]
+  },
+  {
+    title: '其他组件', key: '', isActive: false, children: [
+      { title: '数字滚动', key: 'scroll-number', isActive: false },
+      { title: '文件上传', key: 'upload', isActive: false },
+      { title: '控制台输出', key: 'print', isActive: false },
+      { title: '分割线', key: 'divider', isActive: false },
+      { title: '进度条', key: 'process', isActive: false },
+
+    ]
   }
-};
+]);
+
+const menuClick = (index) => {
+  let m;
+  if (index.length === 1) {
+    m = menuList[index[0]];
+  } else {
+    m = menuList[index[0]].children[index[1]];
+  }
+  router.push(`/${m.key}`);
+}
+
 </script>
 
 <style lang="scss" scoped>
 
 .demo {
-  display: flex;
   height: 100vh;
   width: 100vw;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
 
-  & > div {
+  .demo-header {
     display: inline-block;
-    height: 100%;
-  }
-
-  .menu {
-    width: 200px;
-    border-right: 1px solid #999999;
+    height: 100px;
+    width: 100vw;
   }
 
   .main {
-    width: calc(100vw - 202px);
+    display: inline-block;
+    height: calc(100vh - 100px);
+  }
+
+  .menu {
+    margin-left: 99px;
+    height: 100%;
+    width: 216px;
   }
 }
 
 .w-button {
   display: block;
+}
+
+.main-page, .base {
+  float: right;
+  display: inline-block;
+  width: calc(100vw - 315px);
 }
 
 </style>

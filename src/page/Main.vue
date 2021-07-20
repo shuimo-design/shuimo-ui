@@ -57,7 +57,7 @@ export default defineComponent({
 
 .footer {
   width: 100vw;
-  background-color: #a3a3a3;
+  background-color: rgba(200, 199, 199, 0.36);
   text-align: center;
   position: absolute;
   bottom: 0;
