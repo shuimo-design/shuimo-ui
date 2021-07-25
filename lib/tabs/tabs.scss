@@ -1,0 +1,142 @@
+.w-tab-pane {
+  display: grid;
+  grid-template-columns: 6px auto 6px;
+  grid-template-rows: 5px auto 5px;
+  grid-template-areas: "topleft top topright"
+                       "left main right"
+                       "bottomleft bottom bottomright";
+  height: 100%;
+  width: 100%;
+}
+
+.pane-line, .pane-main {
+  display: inline-block;
+}
+
+.pane-line{
+  position: relative;
+}
+
+.pane-top-line, .pane-bottom-line {
+  background: url("lib/assets/tabs/crossrange.png") repeat-x;
+  width: 100%;
+  height: 5px;
+}
+
+.pane-left-line, .pane-right-line {
+  background: url("lib/assets/tabs/vertical.png") repeat-y;
+  height: 100%;
+  width: 6px;
+}
+
+.pane-top-line {
+  grid-area: topleft / topleft / topright / topright;
+  top: -2.5px;
+}
+
+.pane-right-line {
+  grid-area: topright / topright / bottomright / bottomright;
+  right: -3px;
+}
+
+.pane-bottom-line {
+  grid-area: bottomleft / bottomleft / bottomright / bottomright;
+  bottom: -2.5px;
+}
+
+.pane-left-line {
+  grid-area: topleft / topleft / bottomleft / bottomleft;
+  left: -3px;
+}
+
+
+.pane-main {
+  grid-area: topleft / topleft / bottomright / bottomright;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+
+.w-tabs-bar {
+  display: flex;
+  overflow-x: auto;
+  font-family: wljh, serif;
+}
+
+.w-tabs-tab {
+  display: grid;
+  grid-template-columns: 6px auto 6px;
+  grid-template-rows: 5px auto 5px;
+  grid-template-areas: "topleft top topright"
+                       "left main right"
+                       "bottomleft bottom bottomright";
+  height: 31px;
+  min-width: 151px;
+  cursor: pointer;
+}
+
+.tab-line, .tab-main {
+  display: inline-block;
+}
+
+.tab-line{
+  position: relative;
+}
+
+.tab-top-line, .tab-bottom-line {
+  background: url("lib/assets/tabs/tab_crossrange.png") repeat-x;
+  width: 100%;
+  height: 6px;
+}
+
+.tab-left-line, .tab-right-line {
+  background: url("lib/assets/tabs/tab_vertical.png") repeat-y;
+  height: 100%;
+  width: 3px;
+}
+
+.tab-top-line {
+  grid-area: topleft / topleft / topright / topright;
+  top: -3px;
+}
+
+.tab-left-line {
+  grid-area: topleft / topleft / bottomleft / bottomleft;
+  left: 1px;
+}
+
+.tab-bottom-line {
+  grid-area: bottomleft / bottomleft / bottomright / bottomright;
+  bottom: -0.5px;
+}
+
+.tab-right-line {
+  grid-area: topright / topright / bottomright / bottomright;
+  right: -6px;
+}
+
+.tab-main {
+  z-index: 1;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  overflow: auto;
+  font-size: 19px;
+  grid-area: topleft / topleft / bottomright / bottomright;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+  }
+}
+
+.w-tabs-tab-active {
+  font-weight: 600;
+  color: #760000;
+  background: rgba(255, 255, 255, 0.6);
+}

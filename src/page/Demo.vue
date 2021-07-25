@@ -44,6 +44,7 @@ const menuList = reactive([
     title: '模版组件', key: '', isActive: false, children: [
       { title: '表单', key: 'form', isActive: false },
       { title: '分页', key: 'pagination', isActive: false },
+      { title: '标签页', key: 'tabs', isActive: false },
     ]
   },
   {

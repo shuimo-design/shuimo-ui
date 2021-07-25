@@ -20,6 +20,7 @@ import { default as WProcess } from './process';
 import { default as WRadio } from './radio';
 import { default as WCheckbox } from './checkbox';
 import { default as WMenu } from './menu';
+import { WTabs, WTabPane } from './tabs';
 
 
 import '../lib/style.scss'
@@ -44,7 +45,9 @@ const components = [
   WAdventureDialog,
   WRadio,
   WCheckbox,
-  WMenu
+  WMenu,
+  WTabs,
+  WTabPane
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -74,7 +77,9 @@ export {
   WAdventureDialog,
   WRadio,
   WCheckbox,
-  WMenu
+  WMenu,
+  WTabs,
+  WTabPane
 };
 
 export const createWUI = () => {
