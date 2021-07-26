@@ -1,13 +1,15 @@
 <template>
+  <h1>标签页</h1>
   <w-tabs v-model="current">
     <w-tab-pane v-for="tab in tabList" :label="tab.label" :name="tab.name" :key="tab.name">
-      {{tab.label}}
+      {{ tab.label }}
     </w-tab-pane>
   </w-tabs>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
+
 const current = ref('0')
 
 const tabList = ref([
