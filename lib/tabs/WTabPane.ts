@@ -1,4 +1,5 @@
 import { defineComponent, h } from 'vue'
+import { borderDivCreator } from "../_utils/borderDivCreator";
 
 
 export default defineComponent({
@@ -11,17 +12,17 @@ export default defineComponent({
     }
   },
   methods: {
-    updateNav () {
+    updateNav() {
       // @ts-ignore
       this.$parent.updateNav()
     }
   },
   watch: {
-    label () {
+    label() {
       this.updateNav()
     }
   },
-  mounted () {
+  mounted() {
     this.updateNav()
   },
   computed: {
@@ -33,27 +34,10 @@ export default defineComponent({
     const main = h('div', {
       class: ['pane-main']
     }, [ctx.$slots.default()]);
-    
-    const top = h('div', {
-      class: ['pane-line', 'pane-top-line']
-    })
-  
-    const right = h('div', {
-      class: ['pane-line', 'pane-right-line']
-    })
-  
-    const bottom = h('div', {
-      class: ['pane-line', 'pane-bottom-line']
-    })
-  
-    const left = h('div', {
-      class: ['pane-line', 'pane-left-line']
-    })
-    
-    
+
     return h('div', {
       class: ['w-tab-pane'],
       style: { display: ctx.active ? '' : 'none' }
-    }, [main, top, right, bottom, left])
+    }, [main, ...borderDivCreator('pane')])
   }
 })

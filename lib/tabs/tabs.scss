@@ -13,7 +13,7 @@
   display: inline-block;
 }
 
-.pane-line{
+.pane-line {
   position: relative;
 }
 
@@ -67,6 +67,7 @@
 }
 
 .w-tabs-tab {
+  margin: 0 2px 3px;
   display: grid;
   grid-template-columns: 6px auto 6px;
   grid-template-rows: 5px auto 5px;
@@ -82,7 +83,7 @@
   display: inline-block;
 }
 
-.tab-line{
+.tab-line {
   position: relative;
 }
 

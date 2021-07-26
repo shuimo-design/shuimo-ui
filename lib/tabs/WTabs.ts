@@ -1,4 +1,6 @@
 import { defineComponent, h } from 'vue'
+import { borderDivCreator } from "../_utils/borderDivCreator";
+
 type TabType = {
   label: string,
   name: string | number
@@ -15,7 +17,7 @@ export default defineComponent({
   data() {
     return {
       currentValue: this.modelValue,
-      navList: []
+      navList: [] as TabTypeArr
     }
   },
   watch: {
@@ -24,17 +26,9 @@ export default defineComponent({
     }
   },
   methods: {
-    tabClass (tab: TabType) {
-      return [
-        'w-tabs-tab',
-        {
-          'w-tabs-tab-active': tab.name === this.currentValue
-        }
-      ]
-    },
     getTabs() {
       const childrenList = this.$slots.default().map((c: any) => c.children).flat()
-      
+
       if (childrenList.length) {
         return childrenList.filter((c: any) => c.type.name === 'WTabPane')
       } else {
@@ -43,8 +37,7 @@ export default defineComponent({
           return child.type.name === 'WTabPane';
         });
       }
-    }
-    ,
+    },
     updateNav() {
       this.navList = [];
       this.getTabs().forEach((pane: any, index: number) => {
@@ -69,49 +62,25 @@ export default defineComponent({
     }
   },
   render(ctx: any) {
-    
-    const { navList } = ctx.$data;
-    
-    const top = h('div', {
-      class: ['tab-line', 'tab-top-line']
-    })
-  
-    const right = h('div', {
-      class: ['tab-line', 'tab-right-line']
-    })
-  
-    const bottom = h('div', {
-      class: ['tab-line', 'tab-bottom-line']
-    })
-  
-    const left = h('div', {
-      class: ['tab-line', 'tab-left-line']
-    })
-    
+    const { navList, currentValue } = ctx;
+    const tabClass = (tab: TabType) => ['w-tabs-tab', { 'w-tabs-tab-active': tab.name === currentValue }];
+
     const tabs = navList.map((tab: TabType, index: number) => {
-      const main = h('div', {
-        class: ['tab-main']
-      }, [tab.label])
+      const main = h('div', { class: ['tab-main'] }, [tab.label])
       return h('div', {
-        class: [ctx.tabClass(tab)],
+        class: tabClass(tab),
         key: tab.name,
         onClick: (event: Event) => {
           event.stopPropagation();
-          ctx.handleChange(index)
+          ctx.handleChange(index);
         }
-      }, [top, right, bottom, left, main]);
+      }, [main, ...borderDivCreator('tab')]);
     });
-    
-    const bar = h('div', {
-      class: ['w-tabs-bar']
-    }, [tabs]);
-    
-    const pane = h('div', {
-      class: ['w-tabs-content']
-    }, [ctx.$slots.default()])
-    
-    return h('div', {
-      class: ['w-tabs']
-    }, [bar, pane])
+
+    const bar = h('div', { class: ['w-tabs-bar'] }, [tabs]);
+
+    const pane = h('div', { class: ['w-tabs-content'] }, [ctx.$slots.default()]);
+
+    return h('div', { class: ['w-tabs'] }, [bar, pane]);
   }
 })
