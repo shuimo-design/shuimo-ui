@@ -77,6 +77,10 @@
   height: 31px;
   min-width: 151px;
   cursor: pointer;
+
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .tab-line, .tab-main {
