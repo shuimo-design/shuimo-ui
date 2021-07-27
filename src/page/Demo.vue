@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="footer cursor-brush">
-      <span @click="toBeian">浙ICP备15017406号</span>
+      <span @click="toBeian">浙ICP备15017406号-2</span>
     </div>
   </div>
 </template>
@@ -78,7 +78,7 @@ const menuClick = (index) => {
 }
 
 const toBeian = () => {
-  window.open('https://www.miit.gov.cn/');
+  window.open('http://beian.miit.gov.cn/');
 }
 
 </script>
