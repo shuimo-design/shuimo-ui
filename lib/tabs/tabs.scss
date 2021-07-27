@@ -18,13 +18,13 @@
 }
 
 .pane-top-line, .pane-bottom-line {
-  background: url("lib/assets/tabs/crossrange.png") repeat-x;
+  background: url("/lib/assets/tabs/crossrange.png") repeat-x;
   width: 100%;
   height: 5px;
 }
 
 .pane-left-line, .pane-right-line {
-  background: url("lib/assets/tabs/vertical.png") repeat-y;
+  background: url("/lib/assets/tabs/vertical.png") repeat-y;
   height: 100%;
   width: 6px;
 }
@@ -92,13 +92,13 @@
 }
 
 .tab-top-line, .tab-bottom-line {
-  background: url("lib/assets/tabs/tab_crossrange.png") repeat-x;
+  background: url("/lib/assets/tabs/tab_crossrange.png") repeat-x;
   width: 100%;
   height: 6px;
 }
 
 .tab-left-line, .tab-right-line {
-  background: url("lib/assets/tabs/tab_vertical.png") repeat-y;
+  background: url("/lib/assets/tabs/tab_vertical.png") repeat-y;
   height: 100%;
   width: 3px;
 }
