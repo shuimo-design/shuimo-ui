@@ -26,15 +26,17 @@
  * @Description: 选择框
  * @Author: 菩萨蛮
  * @Date: 2021/1/3 3:50 下午
- * @Version v1.0.2
+ * @Version v1.0.3
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
  * 选择框不可输入
  * v1.0.1 修复moduleValue不更新问题、keyParam默认值改为title 菩萨蛮
  * v1.0.2 keyParam默认值改为value，新增titleParam
+ * v1.0.3 修复之前两个版本错误的参数流转问题
  * TODO：option template功能
  */
+import { deepClone, notEmpty } from "../_utils/tools";
 
 const DEFAULT_SELECT_PADDING = 16;
 const DEFAULT_SELECT_BORDER = 3;
@@ -47,22 +49,10 @@ const getStyle = (selectStyle, type) => {
 export default {
   name: 'WSelect',
   props: {
-    modelValue: {
-      type: null,
-      default: ''
-    },
-    options: {
-      type: Array,
-      default: () => []
-    },
-    keyParam: {
-      type: String,
-      default: 'value'
-    },
-    titleParam: {
-      type: String,
-      default: 'title'
-    }
+    modelValue: { type: null, default: '' },
+    options: { type: Array, default: () => [] },
+    keyParam: { type: String, default: 'value' },
+    titleParam: { type: String, default: 'title' }
   },
   data() {
     return {
@@ -107,9 +97,11 @@ export default {
      * 设置默认值
      */
     setDefault() {
-      this.defaultValue = this.modelValue;
-      // todo change copy func
-      this.optionsCopy = JSON.parse(JSON.stringify(this.options));
+      const defaultSelected = this.options.filter(d => {
+        return d[this.keyParam] === this.modelValue;
+      });
+      this.defaultValue = notEmpty(defaultSelected) ? defaultSelected[0][this.titleParam] : '';
+      this.optionsCopy = deepClone(this.options);
       this.optionsCopy.forEach(e => {
         e.selected = e[this.keyParam] === this.modelValue;
       });
@@ -176,8 +168,8 @@ export default {
      * @param option 选择的内容
      */
     emitValue(option) {
-      this.defaultValue = option[this.keyParam];
-      this.$emit('update:modelValue', this.defaultValue);
+      this.defaultValue = option[this.titleParam];
+      this.$emit('update:modelValue', option[this.keyParam]);
       this.optionsCopy.forEach(e => {
         e.selected = false
       });
