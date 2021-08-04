@@ -13,8 +13,8 @@ export default defineComponent({
   },
   methods: {
     updateNav() {
-      // @ts-ignore
-      this.$parent.updateNav()
+      const vm: any = this;
+      vm.$parent.updateNav()
     }
   },
   watch: {
@@ -27,7 +27,8 @@ export default defineComponent({
   },
   computed: {
     active() {
-      return this.$parent.currentValue === this.name;
+      const vm: any = this;
+      return vm.$parent.currentValue === vm.name;
     }
   },
   render(ctx: any) {

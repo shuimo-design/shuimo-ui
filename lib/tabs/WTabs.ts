@@ -27,13 +27,13 @@ export default defineComponent({
   },
   methods: {
     getTabs() {
-      const childrenList = this.$slots.default().map((c: any) => c.children).flat()
+      const vm: any = this;
+      const childrenList = vm.$slots.default().map((c: any) => c.children).flat()
 
       if (childrenList.length) {
         return childrenList.filter((c: any) => c.type.name === 'WTabPane')
       } else {
-        return this.$slots.default().filter((child: any) => {
-
+        return vm.$slots.default().filter((child: any) => {
           return child.type.name === 'WTabPane';
         });
       }
