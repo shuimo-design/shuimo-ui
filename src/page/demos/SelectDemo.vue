@@ -8,6 +8,8 @@
     <br/>
     <span>参数defaultValue3:{{ defaultValue3 }}</span>
     <br/>
+    <span>修改参数 defaultValue: <w-input v-model="defaultValue"/></span>
+    <br/>
     <w-select v-model="defaultValue" :options="options" @select="select"/>
     <w-select v-model="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
     <w-select v-model="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
@@ -28,15 +30,15 @@ export default {
   name: 'SelectDemo',
   data() {
     return {
-      defaultValue: 1,
+      defaultValue: '1',
       defaultValue2: 'psm',
       defaultValue3: 'ljx',
       selected: { title: '未选择' },
       options: [
-        { title: 'psm', value: 1 },
-        { title: 'ngz', value: 2 },
-        { title: 'kh3', value: 3 },
-        { title: 'ljx', value: 4 },
+        { title: 'psm', value: '1' },
+        { title: 'ngz', value: '2' },
+        { title: 'kh3', value: '3' },
+        { title: 'ljx', value: '4' },
       ],
       options2: [
         { title: 'psm', value: 1 },
