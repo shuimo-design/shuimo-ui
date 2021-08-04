@@ -12,7 +12,7 @@
             <div :class="['dropdown-option',option.selected?'selected':'']"
                  v-for="option in optionsCopy"
                  @click="emitValue(option)">
-              <span>{{ option[keyParam] }}</span>
+              <span>{{ option[titleParam] }}</span>
             </div>
           </div>
         </div>
@@ -26,12 +26,13 @@
  * @Description: 选择框
  * @Author: 菩萨蛮
  * @Date: 2021/1/3 3:50 下午
- * @Version v1.0.1
+ * @Version v1.0.2
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
  * 选择框不可输入
- * 修复moduleValue不更新问题、keyParam默认值改为title
+ * v1.0.1 修复moduleValue不更新问题、keyParam默认值改为title 菩萨蛮
+ * v1.0.2 keyParam默认值改为value，新增titleParam
  * TODO：option template功能
  */
 
@@ -55,6 +56,10 @@ export default {
       default: () => []
     },
     keyParam: {
+      type: String,
+      default: 'value'
+    },
+    titleParam: {
       type: String,
       default: 'title'
     }
