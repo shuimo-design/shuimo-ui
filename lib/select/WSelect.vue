@@ -26,11 +26,12 @@
  * @Description: 选择框
  * @Author: 菩萨蛮
  * @Date: 2021/1/3 3:50 下午
- * @Version v1.0.0
+ * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
  * 选择框不可输入
+ * 修复moduleValue不更新问题、keyParam默认值改为title
  * TODO：option template功能
  */
 
@@ -55,7 +56,7 @@ export default {
     },
     keyParam: {
       type: String,
-      default: 'value'
+      default: 'title'
     }
   },
   data() {
@@ -171,6 +172,7 @@ export default {
      */
     emitValue(option) {
       this.defaultValue = option[this.keyParam];
+      this.$emit('update:modelValue', this.defaultValue);
       this.optionsCopy.forEach(e => {
         e.selected = false
       });
