@@ -1,6 +1,13 @@
 <template>
   <div>
     <span>选择的title:{{ selected.title }}</span>
+    <br/>
+    <span>参数defaultValue:{{ defaultValue }}</span>
+    <br/>
+    <span>参数defaultValue2:{{ defaultValue2 }}</span>
+    <br/>
+    <span>参数defaultValue3:{{ defaultValue3 }}</span>
+    <br/>
     <w-select v-model="defaultValue" :options="options" @select="select"/>
     <w-select v-model="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
     <w-select v-model="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
