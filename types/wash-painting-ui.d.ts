@@ -10,6 +10,8 @@ import { App } from "vue";
 import { IMessage } from "./components/WMessage";
 import { IPrinter } from "./components/WPrint";
 
+export * from './components/components';
+
 declare module "wash-painting-ui" {
 
 }
