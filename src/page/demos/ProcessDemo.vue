@@ -6,14 +6,14 @@
     <w-process :per="loopPer"/>
     <br/>
     <w-process :height="38" :width="898" :per="loopPer"
-               :text="`进度条百分比:${Math.floor(loopPer*100)}%`"
+               :text="text"
                :prepend="{text:'exp'}"/>
     <br/>
     <w-process :height="38" :width="898" :per="0.1" text="测试文案" :prepend="{text:'exp',position:'right'}"/>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 /**
  * @Description: 进度条demo
  * @Author: 菩萨蛮
@@ -23,22 +23,19 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-export default {
-  name: 'ProcessDemo',
-  data() {
-    return {
-      loopPer: 0
-    }
-  },
-  mounted() {
-    const self = this;
-    setInterval(() => {
-      if (self.loopPer < 1) {
-        self.loopPer += 0.001;
-      } else {
-        self.loopPer = 0;
-      }
-    }, 16);
+import { ref, computed } from 'vue';
+
+const loopPer = ref(0);
+setInterval(() => {
+  if (loopPer.value < 1) {
+    loopPer.value += 0.001;
+  } else {
+    loopPer.value = 0;
   }
-};
+}, 16);
+
+const text = computed(() => {
+  const num = Math.floor(loopPer.value * 100);
+  return '进度条百分比:' + num + '%'; // 插件改天处理下模版语法的渲染问题
+})
 </script>

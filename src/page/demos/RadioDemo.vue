@@ -5,25 +5,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "RadioDemo",
-  data() {
-    return {
-      radio: '1'
-    }
-  },
-  methods: {
-    changeHandle(val) {
-      console.log(`当前值---${this.radio}`);
-      console.log(`change后---${val}`);
-    },
-    beforeHandle(val) {
-      console.log(`当前值---${this.radio}`);
-      console.log(`目标值---${val}`);
-    }
-  }
-};
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const radio = ref('1');
+
+const changeHandle = (val) => {
+  console.log(radio.value);
+  console.log(val);
+}
+
+const beforeHandle = (val) => {
+  console.log(radio.value);
+  console.log(val);
+}
 </script>
 
 <style lang="scss" scoped>
