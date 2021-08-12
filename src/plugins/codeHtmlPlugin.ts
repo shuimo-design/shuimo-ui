@@ -27,7 +27,6 @@ const resetCode = (code: string) => {
     .replace(/\}/g, '&#125;')
     .replace(/\'/g, '&#39;')
     .replace(/\"/g, '&quot;');
-  console.log(temp);
   return `<template>
   <div class="code-div">
     ${template}
@@ -40,7 +39,7 @@ const resetCode = (code: string) => {
 export const codeHtmlPlugin = {
   name: 'code-html-plugin',
   transform(code: string, path: string) {
-    if (path.includes('/page/demos')) {
+    if (path.includes('/page/demos')&&!path.includes('?')) {
       return resetCode(code);
     }
     return code;
