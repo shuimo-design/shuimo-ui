@@ -4,15 +4,16 @@ import router from './router';
 import { createWUI } from "../lib";
 import { WMessage } from "../lib";
 import { WPrinter } from "../lib";
+import PrismCode from './components/PrismCode.vue'
 // import WUI from "../dist/wash-painting-ui.es.js";
 // import {WMessage} from "../dist/wash-painting-ui.es.js";
 import './style.scss'
-
 
 const app = createApp(App);
 const WUI = createWUI();
 app.use(router)
   .use(WUI)
+  .component('PrismCode', PrismCode)
   .mount('#app');
 
 app.config.globalProperties.$message = WMessage;

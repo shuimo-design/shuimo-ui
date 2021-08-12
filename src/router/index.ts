@@ -10,12 +10,12 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
-    path: '/',
+    path: '/entry',
     name: 'Entry',
     component: () => import('../page/Entry.vue'),
   },
   {
-    path: '/Home',
+    path: '/',
     name: 'Demo',
     component: () => import('../page/Demo.vue'),
     children: [
