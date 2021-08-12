@@ -1,5 +1,6 @@
 import { defineConfig, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 
 export default defineConfig((configEnv: ConfigEnv) => {
   const { mode } = configEnv;
@@ -17,7 +18,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
   }
   return {
     build,
-    plugins: [vue()],
+    plugins: [codeHtmlPlugin, vue()],
     esbuild: {
       jsxFactory: 'h',
       jsxFragment: 'Fragment'
