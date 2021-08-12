@@ -69,11 +69,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.height-600 {
-  height: 600px;
-}
-
-.adventure-tip {
-  text-align: center;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="upload-demo">
     <span>上传文件为：{{file.name}}</span>
     <w-upload @upload="uploadHandle">
       <img :src="fileUrl" alt="" v-if="fileUrl">
@@ -32,8 +32,4 @@
 </script>
 
 <style scoped lang="scss">
-  img {
-    width: 117px;
-    height: 117px;
-  }
 </style>

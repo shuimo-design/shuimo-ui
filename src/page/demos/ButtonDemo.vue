@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <w-button text="hi" @click="print"/>
-    <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="print"/>
-    <w-button text="type测试" @click="print" type="gray"/>
-    <w-button text="弹窗按钮" @click="print" type="dialog"/>
+  <div class="code-div">
+    <div>
+      <w-button text="hi" @click="printHi"/>
+      <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="printHi"/>
+      <w-button text="type测试" @click="printHi" type="gray"/>
+      <w-button text="弹窗按钮" @click="printHi" type="dialog"/>
+    </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 /**
  * @Description:
  * @Author: 菩萨蛮
@@ -17,16 +19,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-export default {
-  name: 'ButtonDemo',
-  methods: {
-    print() {
-      console.log('hi');
-    }
-  }
-};
+const printHi = () => {
+  console.log('hi');
+}
 </script>
-
-<style lang="scss" scoped>
-
-</style>

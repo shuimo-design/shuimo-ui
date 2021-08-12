@@ -42,18 +42,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.process {
-  height: calc(100vh - 40px);
-  background: #d0d0d0;
-  padding: 20px;
-}
-
-
-.w-process {
-  width: 449px;
-  height: 19px;
-}
-
-</style>
