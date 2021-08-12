@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 /**
  * @Description: Message弹窗Demo
  * @Author: 菩萨蛮
@@ -13,26 +13,17 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+import { getCurrentInstance } from 'vue'
 
-export default {
-  name: 'MessageDemo',
-  data() {
-    return {
-      flag: 0
-    }
-  },
-  methods: {
-    callMessage() {
-      this.flag++;
-      this.$message.success(`这是第${this.flag}条message`);
-      this.$message.warning('warning的message');
-      this.$message.info('info的message');
-      this.$message({content: 'normal'})
-    }
-  }
-};
+let flag = 0;
+const ctx = getCurrentInstance();
+const message = ctx.appContext.config.globalProperties.$message;
+const callMessage = () => {
+  message.success('success的message');
+  message.warning('warning的message');
+  message.info('info的message');
+  message({ content: 'normal' })
+}
+
 </script>
 
-<style lang="scss" scoped>
-
-</style>
