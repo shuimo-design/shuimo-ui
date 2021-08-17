@@ -1,8 +1,8 @@
 <template>
   <div class="w-date-picker">
-    <div class="w-date-picker-div cursor-brush" ref="select" @click="showCalendar">
+    <div class="w-date-picker-div w-cursor" ref="select" @click="showCalendar">
       <span>{{ defaultValue ? defaultValue : placeholder }}</span>
-      <div class="calendar-icon cursor-brush"/>
+      <div class="calendar-icon w-cursor"/>
     </div>
     <Teleport to="body">
       <transition name="w-opacity">

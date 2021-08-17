@@ -71,7 +71,7 @@ export default defineComponent({
      */
     const initChildItems: (list: MenuTypeArr) => VNode = list => {
       const items = list.map(menu => {
-        const titleSpan = h('span', {}, menu.title);
+        const titleSpan = h('span', { class: 'w-cursor' }, menu.title);
         return h('div', {
           class: ['w-menu-item-child', menu.isActive ? 'active' : ''],
           onClick: (event: Event) => {
@@ -87,7 +87,7 @@ export default defineComponent({
 
 
     const itemList = propsMenu.map(menu => {
-      const titleSpan = h('span', {}, menu.title);
+      const titleSpan = h('span', { class: 'w-cursor' }, menu.title);
       // 先只有二级吧
       const childItems = menu.children && menu.isActive ? initChildItems(menu.children) : [];
       const icon = h('div', { class: 'w-menu-item-icon' });

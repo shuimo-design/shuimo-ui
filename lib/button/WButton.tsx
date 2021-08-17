@@ -18,7 +18,7 @@ export default defineComponent({
   render(ctx: any) {
     const { disabled, type, text } = ctx;
     return h('button', {
-      class: ['w-button cursor-brush', { 'w-button-disabled': disabled }, `w-button-${type}`],
+      class: ['w-button w-cursor', { 'w-button-disabled': disabled }, `w-button-${type}`],
       disabled: disabled
     }, text);
   }

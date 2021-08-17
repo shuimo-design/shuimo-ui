@@ -42,16 +42,16 @@ export default defineComponent({
       const {prevPage, nextPage, quickPrevPage, quickNextPage} = this;
       const {disPrev, disNext} = this;
       const prev = (
-        <button class={['cursor-brush page-prev', {'page-prev-disabled': disPrev}]} onClick={prevPage} disabled={disPrev}/>
+        <button class={['w-cursor page-prev', {'page-prev-disabled': disPrev}]} onClick={prevPage} disabled={disPrev}/>
       );
       const next = (
-        <button class={['cursor-brush page-next', {'page-next-disabled': disNext}]} onClick={nextPage} disabled={disNext}/>
+        <button class={['w-cursor page-next', {'page-next-disabled': disNext}]} onClick={nextPage} disabled={disNext}/>
       );
       const quickPrev = (
-        <button class="cursor-brush page-quick-prev" title={'向前5页'} onClick={quickPrevPage}/>
+        <button class="w-cursor page-quick-prev" title={'向前5页'} onClick={quickPrevPage}/>
       );
       const quickNext = (
-        <button class="cursor-brush page-quick-prev" title={'向后5页'} onClick={quickNextPage}/>
+        <button class="w-cursor page-quick-prev" title={'向后5页'} onClick={quickNextPage}/>
       );
       return {
         prev,
@@ -130,7 +130,7 @@ export default defineComponent({
         {iconsProps.prev}
         <ul onClick={pageSelected} class={'pages'}>
           {pagers.map(item => (
-            <li class={['pager cursor-brush', {'current-page': item === current}]} key={item}>{item}</li>
+            <li class={['pager w-cursor', {'current-page': item === current}]} key={item}>{item}</li>
           ))}
         </ul>
         {iconsProps.next}

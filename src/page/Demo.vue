@@ -11,13 +11,13 @@
         </Mask>
       </div>
     </div>
-    <div class="footer cursor-brush">
+    <div class="footer w-cursor">
       <span @click="toBeian">浙ICP备15017406号-2</span>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /**
  * @description
  * @author higuaifan
@@ -27,11 +27,12 @@ import { reactive } from 'vue';
 import router from "../router";
 import Header from "../components/Header.vue";
 import Mask from "../components/Mask.vue";
+import { MenuTypeArr } from "../../types/components/components";
 
-const menuList = reactive([
+const menuList: MenuTypeArr = reactive([
   { title: '首页', key: '', isActive: true },
   {
-    title: '基础组件', key: '', isActive: false, children: [
+    title: '基础组件', key: 'button', isActive: false, children: [
       { title: '按钮', key: 'button', isActive: true },
       { title: '输入框', key: 'input', isActive: false },
       { title: '选择框', key: 'select', isActive: false },
@@ -41,14 +42,14 @@ const menuList = reactive([
     ]
   },
   {
-    title: '模版组件', key: '', isActive: false, children: [
+    title: '模版组件', key: 'form', isActive: false, children: [
       { title: '表单', key: 'form', isActive: false },
       { title: '分页', key: 'pagination', isActive: false },
       { title: '标签页', key: 'tabs', isActive: false },
     ]
   },
   {
-    title: '消息交互组件', key: '', isActive: false, children: [
+    title: '消息交互组件', key: 'dialog', isActive: false, children: [
       { title: '弹窗', key: 'dialog', isActive: false },
       { title: '提示', key: 'message', isActive: false },
       { title: '悬浮提示', key: 'tooltip', isActive: false },
@@ -56,7 +57,7 @@ const menuList = reactive([
     ]
   },
   {
-    title: '其他组件', key: '', isActive: false, children: [
+    title: '其他组件', key: 'scroll-number', isActive: false, children: [
       { title: '数字滚动', key: 'scroll-number', isActive: false },
       { title: '文件上传', key: 'upload', isActive: false },
       { title: '控制台输出', key: 'print', isActive: false },
@@ -67,7 +68,7 @@ const menuList = reactive([
   }
 ]);
 
-const menuClick = (index) => {
+const menuClick = (index: number[]) => {
   let m;
   if (index.length === 1) {
     m = menuList[index[0]];

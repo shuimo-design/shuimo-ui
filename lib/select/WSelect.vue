@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-select-div cursor-brush" ref="select" @click="showSelectDropdown">
+    <div class="w-select-div w-cursor" ref="select" @click="showSelectDropdown">
       <span>{{ defaultValue }}</span>
     </div>
     <Teleport to="body">
