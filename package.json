@@ -48,6 +48,20 @@
     "vite": "^2.0.0",
     "vue": "^3.2.2",
     "vue-jest": "^5.0.0-alpha.8",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "@milkdown/core": "^4.9.6",
+    "@milkdown/plugin-clipboard": "^4.9.6",
+    "@milkdown/plugin-cursor": "^4.9.6",
+    "@milkdown/plugin-emoji": "^4.9.6",
+    "@milkdown/plugin-history": "^4.9.6",
+    "@milkdown/plugin-listener": "^4.9.6",
+    "@milkdown/plugin-math": "^4.9.6",
+    "@milkdown/plugin-prism": "^4.9.6",
+    "@milkdown/plugin-slash": "^4.9.6",
+    "@milkdown/plugin-tooltip": "^4.9.6",
+    "@milkdown/preset-gfm": "^4.9.6",
+    "@milkdown/theme-nord": "^4.9.6",
+    "@milkdown/vue": "^4.9.6",
+    "@rollup/pluginutils": "^4.1.1"
   }
 }

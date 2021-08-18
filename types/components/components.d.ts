@@ -32,3 +32,4 @@ export const WCheckbox: DefineComponent;
 export const WMenu: DefineComponent;
 export const WTabs: DefineComponent;
 export const WTabPane: DefineComponent;
+export const WMdEditor: DefineComponent;

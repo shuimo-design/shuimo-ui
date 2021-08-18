@@ -113,6 +113,11 @@ const routes = [
         path: '/tabs',
         name: 'Tabs',
         component: () => import('../page/demos/TabsDemo.vue')
+      },
+      {
+        path: '/mdEditor',
+        name: 'MdEditor',
+        component: () => import('../page/demos/MdEditorDemo.vue')
       }
     ]
   }
