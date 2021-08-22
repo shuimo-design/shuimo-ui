@@ -9,7 +9,7 @@
  * todo 背景图
  */
 import { h, defineComponent, VNode, PropType, reactive } from 'vue';
-import { MenuTypeArr } from "../../types/components/components";
+import { MenuTypeArr } from "../../../types/components/components";
 
 const setMenuIndex = (menu: MenuTypeArr) => {
   menu.forEach((m, i) => {
