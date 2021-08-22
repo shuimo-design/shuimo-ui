@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import domEventHandler from "../_utils/domEventHandler";
+import domEventHandler from "../dependents/_utils/domEventHandler";
 
 const DEFAULT_MARGIN_LEFT = 5;
 const DEFAULT_WIDTH = 234;

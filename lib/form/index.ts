@@ -1,4 +1,4 @@
-import {withInstall} from "../_utils/install";
+import {withInstall} from "../dependents/_utils/install";
 import Form from './WForm.vue';
 import FormItem from './WFormItem.vue'
 

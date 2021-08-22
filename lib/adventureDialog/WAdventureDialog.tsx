@@ -8,7 +8,7 @@
  */
 
 import { h, defineComponent, Teleport } from 'vue';
-import DialogMixins from '../_mixins/DialogMixins';
+import DialogMixins from '../dependents/_mixins/DialogMixins';
 
 export default defineComponent({
   name: 'WAdventureDialog',

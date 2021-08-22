@@ -70,7 +70,7 @@
  * Hello, humor
  */
 import { defineComponent } from 'vue';
-import { UPDATE_MODEL_EVENT } from "../_utils/constants";
+import { UPDATE_MODEL_EVENT } from "../dependents/_utils/constants";
 import { useCheckbox } from './useCheckbox';
 
 export default defineComponent({

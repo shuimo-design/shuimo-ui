@@ -48,7 +48,7 @@
 </template>
 <script lang="ts">
 import { computed, nextTick, ref } from "vue";
-import { UPDATE_MODEL_EVENT } from "../_utils/constants";
+import { UPDATE_MODEL_EVENT } from "../dependents/_utils/constants";
 import { useRadio, useRadioAttrs } from "./useRadio";
 
 export default {

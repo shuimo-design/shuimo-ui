@@ -36,7 +36,7 @@
  * v1.0.3 修复之前两个版本错误的参数流转问题
  * TODO：option template功能
  */
-import { deepClone, notEmpty } from "../_utils/tools";
+import { deepClone, notEmpty } from "../dependents/_utils/tools";
 
 const DEFAULT_SELECT_PADDING = 16;
 const DEFAULT_SELECT_BORDER = 3;

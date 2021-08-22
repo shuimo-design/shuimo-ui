@@ -1,5 +1,5 @@
 import { defineComponent, h } from 'vue'
-import { borderDivCreator } from "../_utils/borderDivCreator";
+import { borderDivCreator } from "../dependents/_utils/borderDivCreator";
 
 
 export default defineComponent({

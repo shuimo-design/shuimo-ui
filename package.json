@@ -1,9 +1,10 @@
 {
   "name": "@higuaifan/wash-painting-ui",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "files": [
-    "dist","types"
+    "dist",
+    "types"
   ],
   "types": "types/wash-painting-ui.d.ts",
   "main": "./dist/wash-painting-ui.umd.js",
@@ -16,7 +17,6 @@
   },
   "author": "菩萨蛮 <zousitanghulu@foxmail.com>",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "dev": "vite",
     "tsx-build": "vuedx-typecheck . && vite build",

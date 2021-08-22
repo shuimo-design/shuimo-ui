@@ -19,8 +19,8 @@
   </div>
 </template>
 <script>
-import domEventHandler from '../_utils/domEventHandler';
-import { getStyleNumber } from "../_utils/dom";
+import domEventHandler from '../dependents/_utils/domEventHandler';
+import { getStyleNumber } from "../dependents/_utils/dom";
 
 const DEFAULT_MARGIN_BOTTOM = 18;
 const DEFAULT_MARGIN_TOP = 5;

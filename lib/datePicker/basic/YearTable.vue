@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import {arrayFindIndex, coerceTruthyValueToArray} from "../../_utils/dateUtil";
+  import {arrayFindIndex, coerceTruthyValueToArray} from "../../dependents/_utils/dateUtil";
 
   export default {
     name: "year-table",

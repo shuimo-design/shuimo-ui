@@ -12,7 +12,7 @@ import {
     getCurrentInstance
 } from 'vue';
 import { toTypeString } from '@vue/shared'
-import { UPDATE_MODEL_EVENT } from "../_utils/constants";
+import { UPDATE_MODEL_EVENT } from "../dependents/_utils/constants";
 import { ICheckboxProps } from './checkbox.type'
 
 const useModel = (props: ICheckboxProps) => {
