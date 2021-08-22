@@ -1,26 +1,26 @@
 import { App } from 'vue';
 
-import { default as WInput } from './input';
-import { default as WButton } from './button';
-import { default as WDialog } from './dialog';
-import { default as WAdventureDialog } from './adventureDialog';
-import { default as WTooltip } from './tooltip';
-import { default as WScrollNumber } from './scrollNumber';
-import { default as WSelect } from './select';
-import { default as WDatePicker } from './datePicker';
-import { default as WPopover } from './popover';
-import { WMessage } from './message';
-import { WPrinter } from "./printer";
-import { WForm, WFormItem } from "./form";
-import { default as WInputNumber } from './inputNumber';
-import { default as WPagination } from './pagination';
-import { default as WUpload } from './upload';
-import { default as WDivider } from './divider';
-import { default as WProcess } from './process';
-import { default as WRadio } from './radio';
-import { default as WCheckbox } from './checkbox';
-import { default as WMenu } from './menu';
-import { WTabs, WTabPane } from './tabs';
+import { default as WInput } from './base/input';
+import { default as WButton } from './base/button';
+import { default as WDialog } from './message/dialog';
+import { default as WAdventureDialog } from './message/adventureDialog';
+import { default as WTooltip } from './message/tooltip';
+import { default as WScrollNumber } from './other/scrollNumber';
+import { default as WSelect } from './base/select';
+import { default as WDatePicker } from './base/datePicker';
+import { default as WPopover } from './message/popover';
+import { WMessage } from './message/message';
+import { WPrinter } from "./other/printer";
+import { WForm, WFormItem } from "./template/form";
+import { default as WInputNumber } from './other/inputNumber';
+import { default as WPagination } from './template/pagination';
+import { default as WUpload } from './other/upload';
+import { default as WDivider } from './other/divider';
+import { default as WProcess } from './other/process';
+import { default as WRadio } from './base/radio';
+import { default as WCheckbox } from './base/checkbox';
+import { default as WMenu } from './other/menu';
+import { WTabs, WTabPane } from './template/tabs';
 
 
 import '../lib/style.scss'
