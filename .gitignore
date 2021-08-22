@@ -17,6 +17,7 @@ yarn-error.log*
 pnpm-debug.log*
 package-lock.json*
 yarn.lock
+.yarn
 
 # Editor directories and files
 .vscode
