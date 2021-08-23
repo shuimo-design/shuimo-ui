@@ -21,6 +21,7 @@ import { default as WRadio } from './base/radio';
 import { default as WCheckbox } from './base/checkbox';
 import { default as WMenu } from './other/menu';
 import { WTabs, WTabPane } from './template/tabs';
+import { WTable, WTableColumn } from "./template/table";
 
 
 import '../lib/style.scss'
@@ -47,7 +48,9 @@ const components = [
   WCheckbox,
   WMenu,
   WTabs,
-  WTabPane
+  WTabPane,
+  WTable,
+  WTableColumn
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -79,7 +82,9 @@ export {
   WCheckbox,
   WMenu,
   WTabs,
-  WTabPane
+  WTabPane,
+  WTable,
+  WTableColumn
 };
 
 export const createWUI = () => {

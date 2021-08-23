@@ -44,6 +44,7 @@ const menuList: MenuTypeArr = reactive([
   {
     title: '模版组件', key: 'form', isActive: false, children: [
       { title: '表单', key: 'form', isActive: false },
+      { title: '列表', key: 'table', isActive: false },
       { title: '分页', key: 'pagination', isActive: false },
       { title: '标签页', key: 'tabs', isActive: false },
     ]
@@ -63,7 +64,6 @@ const menuList: MenuTypeArr = reactive([
       { title: '控制台输出', key: 'print', isActive: false },
       { title: '分割线', key: 'divider', isActive: false },
       { title: '进度条', key: 'process', isActive: false },
-
     ]
   }
 ]);

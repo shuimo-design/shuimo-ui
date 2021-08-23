@@ -1,0 +1,82 @@
+.w-table-wrap {
+  width: 100%;
+  display: grid;
+  grid-template-areas:  "head-img-top"
+                        "head-img-bottom"
+                        "table"
+                        "table-img-bottom";
+}
+
+.w-table {
+  position: relative;
+  grid-area: table;
+  top: -8px;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.w-thead {
+  background: rgba(63, 74, 85, 0.30);
+  height: 37px;
+  font-size: 14px;
+}
+
+.w-tbody {
+  backdrop-filter: blur(10px);
+}
+
+.w-tr {
+  width: 200px;
+
+  &:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .w-table-tbody-img {
+    left: 0;
+    margin-top: -2px;
+  }
+}
+
+.w-td {
+  padding: 9px 5px;
+  text-align: center;
+  word-break: break-word;
+}
+
+
+// 边框图片
+
+
+.w-table-img {
+  background: url(/src/assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: 100%;
+}
+
+.w-table-thead-img {
+  @extend .w-table-img;
+  position: relative;
+}
+
+.w-table-tbody-img {
+  @extend .w-table-img;
+  position: absolute;
+}
+
+.w-table-header-img-top {
+  @extend .w-table-thead-img;
+  grid-area: head-img-top;
+}
+
+.w-table-header-img-bottom {
+  @extend .w-table-thead-img;
+  grid-area: head-img-bottom;
+  top: 32px;
+}
+
+.w-table-border-img-bottom {
+  @extend .w-table-thead-img;
+  grid-area: table-img-bottom;
+  top: -13px;
+}

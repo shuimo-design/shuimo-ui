@@ -23,5 +23,10 @@ export const template = [
     path: '/tabs',
     name: 'Tabs',
     component: () => import('../../page/demos/template/TabsDemo.vue')
+  },
+  {
+    path: '/table',
+    name: 'Table',
+    component: () => import('../../page/demos/template/TableDemo.vue')
   }
 ]
