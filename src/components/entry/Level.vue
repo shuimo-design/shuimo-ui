@@ -1,5 +1,5 @@
 <template>
-  <div class="level-component">
+  <div class="level-component" id="level">
     <img class="level" src="/src/assets/entry/level.png" alt="">
     <img class="left" src="/src/assets/entry/left.png" alt="">
     <img class="center" src="/src/assets/entry/center.png" alt="">
@@ -9,7 +9,14 @@
 
 <script>
 export default {
-  name: 'Level'
+  name: 'Level',
+  mounted() {
+    window.addEventListener('mousemove', (e) => {
+      let x = 0.5-e.clientX/document.body.offsetWidth;
+      let y = 0.5-e.clientY/document.body.offsetHeight;
+      document.getElementById('level').style.transform = `translate(${x*10}px, ${y*10}px)`;
+    })
+  }
 }
 </script>
 
@@ -23,6 +30,8 @@ export default {
   grid-auto-columns: realPx(518) auto realPx(227);
   grid-auto-rows: auto realPx(584) realPx(147);
   position: relative;
+  transform: translate(0px, 0px);
+  transition: transform 500ms;
 
   .level {
     height: realPx(564);

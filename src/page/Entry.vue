@@ -1,7 +1,7 @@
 <template>
   <div class="entry">
-    <Level/>
     <Dialog/>
+    <Level/>
   </div>
 </template>
 
