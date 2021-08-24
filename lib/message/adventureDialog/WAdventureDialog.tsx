@@ -8,11 +8,21 @@
  */
 
 import { h, defineComponent, Teleport } from 'vue';
-import DialogMixins from '../../dependents/_mixins/DialogMixins';
+import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
+import DialogHandler from "../../dependents/_composables/DialogHandler";
 
 export default defineComponent({
   name: 'WAdventureDialog',
-  mixins: [DialogMixins],
+  props: {
+    mask: { type: Object, default: { show: true, clickClose: false } },
+    visible: { type: Boolean, default: false },
+    confirmText: { type: String, default: '我知道了' }
+  },
+  emits: [CLOSE_EVENT, CONFIRM_EVENT],
+  setup(props, context) {
+    const { pes, maskClass, resetSize, maskClick, closeDialog, confirmDialog } = DialogHandler(props, context);
+    return { pes, maskClass, resetSize, maskClick, closeDialog, confirmDialog };
+  },
   computed: {
     baseStyle() {
       const baseH = 235, baseW = 384, basePaddingTop = 100, basePaddingSide = 50, basePaddingLeft = 100;
@@ -45,7 +55,7 @@ export default defineComponent({
     }
   },
   render() {
-    const classes = this.getClasses();
+    const classes = this.maskClass;
     const { visible, mask, confirmText } = this;
     const { maskClick, closeDialog, confirmDialog } = this;
     if (!visible) {
@@ -57,11 +67,11 @@ export default defineComponent({
     });
     return (
       <Teleport to="body">
-        <div class={classes.maskClass} onClick={mask.clickClose ? maskClick : null}>
+        <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
           <div class="w-adventure-dialog" style={this.baseStyle}>
             <div class="dialog-girl" style={this.girlBaseStyle}/>
             <div class="dialog-close-btn" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
-            {this.$slots.default()}
+            {this.$slots.default!()}
             <div class="dialog-confirm-btn" onClick={confirmDialog}>{confirmText}</div>
           </div>
         </div>
