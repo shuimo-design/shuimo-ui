@@ -53,7 +53,7 @@ export default defineComponent({
   position: relative;
   top: -11px;
   left: 18px;
-  background: url(/src/assets/line/crossrange.png) repeat-x;
+  background: url(/src/assets/header/crossrange.png) repeat-x;
   width: 100%;
   height: 5px;
 }
