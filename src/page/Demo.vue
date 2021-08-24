@@ -6,9 +6,9 @@
     <div class="main">
       <w-menu :menu="menuList" class="menu" @click="menuClick"/>
       <div class="main-page">
-        <Mask>
+        <w-border class="main-border">
           <router-view/>
-        </Mask>
+        </w-border>
       </div>
     </div>
     <div class="footer w-cursor">
@@ -26,7 +26,6 @@
 import { reactive } from 'vue';
 import router from "../router";
 import Header from "../components/Header.vue";
-import Mask from "../components/Mask.vue";
 import { MenuTypeArr } from "../../types/components/components";
 
 const menuList: MenuTypeArr = reactive([
