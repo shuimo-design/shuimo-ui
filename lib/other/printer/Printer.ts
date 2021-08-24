@@ -23,7 +23,7 @@ const typeColor = {
   error: '#c04851',
 }
 
-const Printer: IPrinter = (defaultUser: string = '水墨UI') => {
+const Printer: IPrinter = (defaultUser = '水墨UI') => {
   const DEFAULT_USER = defaultUser;
   const getType = (o: any) => {
     const s = Object.prototype.toString.call(o);

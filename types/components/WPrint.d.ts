@@ -34,5 +34,5 @@ export type PrinterType = {
   error: (content: any, user?: string) => void,
 }
 
-export type IPrinter = (defaultUser: string) => PrinterType;
+export type IPrinter = (defaultUser?: string) => PrinterType;
 
