@@ -64,6 +64,7 @@ const menuList: MenuTypeArr = reactive([
       { title: '控制台输出', key: 'print', isActive: false },
       { title: '分割线', key: 'divider', isActive: false },
       { title: '进度条', key: 'process', isActive: false },
+      { title: '边框', key: 'border', isActive: false },
     ]
   }
 ]);

@@ -34,3 +34,4 @@ export const WTabs: DefineComponent;
 export const WTabPane: DefineComponent;
 export const WTable: DefineComponent;
 export const WTableColumn: DefineComponent;
+export const WBorder: DefineComponent;

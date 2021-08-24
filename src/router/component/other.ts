@@ -33,4 +33,9 @@ export const other = [
     name: 'Process',
     component: () => import('../../page/demos/other/ProcessDemo.vue')
   },
+  {
+    path: '/border',
+    name: 'Border',
+    component: () => import('../../page/demos/other/BorderDemo.vue')
+  },
 ]
