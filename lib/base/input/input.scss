@@ -1,7 +1,6 @@
 .w-input {
   box-sizing: content-box;
   border: 3px double transparent;
-  border-image: url("/lib/assets/input/input244.png") 3;
   width: 244px;
   height: 31px;
   line-height: 31px;
@@ -10,8 +9,6 @@
 .w-textarea {
   width: 100%;
   height: auto;
-  border: 3px double transparent;
-  border-image: url("/lib/assets/input/textarea.png") 3;
 }
 
 .w-input-inner {

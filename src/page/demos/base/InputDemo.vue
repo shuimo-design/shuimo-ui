@@ -1,6 +1,7 @@
 <template>
   <div>
     <span>{{ data }}</span>
+    <br/>
     <span>普通输入框</span>
     <w-input v-model="data"/>
     <w-input v-model="emptyData" placeholder="请输入文字"/>

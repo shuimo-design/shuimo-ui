@@ -1,5 +1,5 @@
 <template>
-  <div :class="['w-input', {'w-textarea':type === 'textarea'}]">
+  <WBorder :class="['w-input', {'w-textarea':type === 'textarea'}]">
     <input v-if="type!=='textarea'"
            :type="type" class="w-input-inner"
            :value="modelValue"
@@ -10,7 +10,7 @@
               :value="modelValue"
               :placeholder="placeholder"
               @input="$emit('update:modelValue', $event.target.value)"/>
-  </div>
+  </WBorder>
 </template>
 
 <script lang="ts">
@@ -19,16 +19,16 @@
  * @author higuaifan
  * @date 2020/11/17 22:03
  **/
+import WBorder from "../../other/border/WBorder";
 
 export default {
   name: "WInput",
+  components: { WBorder },
   props: {
     type: { type: String, default: 'text' },
     placeholder: { type: String, default: '' },
     modelValue: { type: null, default: '' }
   }
 };
-</script>
 
-<style scoped lang="scss">
-</style>
+</script>

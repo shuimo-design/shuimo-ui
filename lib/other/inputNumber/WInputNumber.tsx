@@ -1,4 +1,5 @@
 import { h, defineComponent } from "vue";
+import WBorder from "../../other/border/WBorder";
 
 export default defineComponent({
   name: 'WInputNumber',
@@ -39,12 +40,12 @@ export default defineComponent({
     let { currentVal } = this;
     const { inputHandle } = this;
     return (
-        <div class="w-input-number">
+        <WBorder class="w-input-number">
           <input type="number"
                  class="w-input-number-inner"
                  onInput={inputHandle}
                  value={currentVal}/>
-        </div>
+        </WBorder>
     )
   }
 })
