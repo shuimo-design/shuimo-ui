@@ -4,17 +4,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Dialog',
-  mounted() {
-    window.addEventListener('mousemove', (e) => {
-      let x = 0.5-e.clientX/document.body.offsetWidth;
-      let y = 0.5-e.clientY/document.body.offsetHeight;
-      document.getElementById('dialog').style.transform = `translate(${x*10}px, ${y*10}px)`;
-    })
-  }
-}
+<script setup lang="ts">
+
+import { initEventHandler } from "../../plugins/mouseMovePlugin";
+
+initEventHandler('dialog', 80);
+
 </script>
 
 <style scoped lang="scss">

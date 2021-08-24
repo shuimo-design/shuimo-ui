@@ -7,17 +7,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Level',
-  mounted() {
-    window.addEventListener('mousemove', (e) => {
-      let x = 0.5-e.clientX/document.body.offsetWidth;
-      let y = 0.5-e.clientY/document.body.offsetHeight;
-      document.getElementById('level').style.transform = `translate(${x*10}px, ${y*10}px)`;
-    })
-  }
-}
+<script setup lang="ts">
+
+import { initEventHandler } from "../../plugins/mouseMovePlugin";
+
+initEventHandler('level', 25);
+
 </script>
 
 <style scoped lang="scss">
@@ -41,6 +36,7 @@ export default {
     z-index: 4;
     left: realPx(30);
   }
+
   .center {
     height: realPx(524);
     grid-area: main;
@@ -49,6 +45,7 @@ export default {
     z-index: 2;
     right: realPx(50);
   }
+
   .left {
     height: realPx(246);
     grid-area: main;
@@ -57,6 +54,7 @@ export default {
     bottom: 0;
     z-index: 3;
   }
+
   .right {
     height: realPx(245);
     grid-area: main;
