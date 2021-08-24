@@ -15,47 +15,46 @@ export default {
 
 <style scoped lang="scss">
 .level-component {
-  position: absolute;
-  left: 543px;
-  bottom: 104px;
-  height: 546px;
-  width: 980px;
-
-  .level,
-  .left,
-  .right,
-  .center {
-    position: absolute;
-  }
+  display: grid;
+  grid-template-areas:  ". . ."
+                        ". main ."
+                        ". . .";
+  height: 100%;
+  grid-auto-columns: realPx(518) auto realPx(227);
+  grid-auto-rows: auto realPx(584) realPx(147);
+  position: relative;
 
   .level {
-    height: 546px;
-    z-index: 10;
+    height: realPx(564);
+    grid-area: main;
+    position: absolute;
+    bottom: realPx(-50);
+    z-index: 4;
+    left: realPx(30);
   }
-
   .center {
-    height: 500px;
-    z-index: 8;
-    left: 80px;
-    top: -20px;
+    height: realPx(524);
+    grid-area: main;
+    position: absolute;
+    bottom: 10px;
+    z-index: 2;
+    right: realPx(50);
   }
-
-  .left,
-  .right {
-    z-index: 9;
-  }
-
-  .right {
-    height: 245px;
-    bottom: 40px;
-    right: -150px;
-  }
-
   .left {
-    height: 247px;
-    bottom: 40px;
-    left: -30px;
+    height: realPx(246);
+    grid-area: main;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+  }
+  .right {
+    height: realPx(245);
+    grid-area: main;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
   }
 }
-
 </style>

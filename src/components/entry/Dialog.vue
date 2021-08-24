@@ -1,20 +1,30 @@
 <template>
-  <img class="dialog-component" src="/src/assets/entry/dialog.png" alt="">
+  <div class="dialog-component">
+    <img class="dialog" src="/src/assets/entry/dialog.png" alt="">
+  </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
+export default {
   name: 'Dialog'
-})
+}
 </script>
 
 <style scoped lang="scss">
 .dialog-component {
-  height: 696px;
-  position: absolute;
-  bottom: 190px;
-  left: 575px;
+  display: grid;
+  grid-template-areas:  ". . ."
+                        ". main ."
+                        ". . .";
+  height: 100%;
+  grid-auto-columns: realPx(575) auto realPx(351);
+  grid-auto-rows: auto realPx(696) realPx(207);
+  position: relative;
+
+  .dialog {
+    grid-area: main;
+    height: realPx(696);
+    z-index: 1;
+  }
 }
 </style>
