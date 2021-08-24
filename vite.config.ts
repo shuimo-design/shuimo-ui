@@ -22,6 +22,19 @@ export default defineConfig((configEnv: ConfigEnv) => {
     esbuild: {
       jsxFactory: 'h',
       jsxFragment: 'Fragment'
+    },
+    css: {
+      modules: {
+        scopeBehaviour: 'global',
+        globalModulePaths: []
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@function realPx($px) {\n' +
+            '  @return calc(#{$px} / 1920 * 100vw);\n' +
+            '}'
+        }
+      }
     }
   }
 })
