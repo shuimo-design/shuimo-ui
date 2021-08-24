@@ -51,6 +51,7 @@ const menuList: MenuTypeArr = reactive([
   {
     title: '消息交互组件', key: 'dialog', isActive: false, children: [
       { title: '弹窗', key: 'dialog', isActive: false },
+      { title: '抽屉', key: 'drawer', isActive: false },
       { title: '提示', key: 'message', isActive: false },
       { title: '悬浮提示', key: 'tooltip', isActive: false },
       { title: '悬浮交互', key: 'popover', isActive: false },

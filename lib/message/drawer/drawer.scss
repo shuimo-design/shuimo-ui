@@ -1,0 +1,12 @@
+.w-drawer {
+  float: right;
+  margin: 30px 20px;
+
+  & > .w-border-main {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.w-drawer-main {
+  height: calc(100vh - 60px);
+}

@@ -23,6 +23,7 @@ import { default as WMenu } from './other/menu';
 import { WTabs, WTabPane } from './template/tabs';
 import { WTable, WTableColumn } from "./template/table";
 import { default as WBorder } from './other/border';
+import { default as WDrawer } from './message/drawer';
 
 
 import '../lib/style.scss'
@@ -52,7 +53,8 @@ const components = [
   WTabPane,
   WTable,
   WTableColumn,
-  WBorder
+  WBorder,
+  WDrawer
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -87,7 +89,8 @@ export {
   WTabPane,
   WTable,
   WTableColumn,
-  WBorder
+  WBorder,
+  WDrawer
 };
 
 export const createWUI = () => {

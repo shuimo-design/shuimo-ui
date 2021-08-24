@@ -29,4 +29,9 @@ export const message = [
     name: 'Message',
     component: () => import('../../page/demos/message/MessageDemo.vue')
   },
+  {
+    path: '/drawer',
+    name: 'Drawer',
+    component: () => import('../../page/demos/message/DrawerDemo.vue')
+  },
 ]
