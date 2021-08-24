@@ -9,7 +9,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import { PrinterType, printInterface, IPrinter } from "../../types/components/WPrint";
+import { PrinterType, printInterface, IPrinter } from "../../../types/components/WPrint";
 
 enum PrinterEnum {
   suggest = 'suggest',
