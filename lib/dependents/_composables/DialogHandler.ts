@@ -23,6 +23,9 @@ export default function DialogHandler(props: any, context: any) {
   const confirmDialog = () => {emit(CONFIRM_EVENT);}
 
   const maskClick = (e: MouseEvent) => {
+    if (!props.mask.clickClose) {
+      return;
+    }
     const pathList = e.composedPath();
     if (notEmpty(pathList)) {
       const dom = pathList[0] as Element;
