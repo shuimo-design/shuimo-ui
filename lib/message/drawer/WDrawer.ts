@@ -17,7 +17,7 @@ export default defineComponent({
   name: 'WDrawer',
   props: {
     width: { type: String, default: '524px' },
-    mask: { type: Object, default: { show: true, clickClose: false } },
+    mask: { type: Object, default: { show: true, clickClose: true } },
     visible: { type: Boolean, default: false },
   },
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
@@ -26,7 +26,7 @@ export default defineComponent({
     return { pes, maskClass, resetSize, maskClick, closeDialog };
   },
   render(ctx: any) {
-    const { visible, closeDialog } = this;
+    const { visible, maskClick } = this;
 
     if (!visible) {
       return null;
@@ -42,9 +42,7 @@ export default defineComponent({
 
     const maskWrap = h('div', {
       class: this.maskClass,
-      onClick: (event: Event) => {
-        closeDialog();
-      }
+      onClick: maskClick
     }, borderWrap);
 
     return h(Teleport, { to: 'body' }, maskWrap);
