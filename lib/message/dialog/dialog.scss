@@ -11,7 +11,8 @@
 }
 
 .mask-bg {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
 }
 
 .w-dialog {
@@ -66,9 +67,4 @@
   animation: Wave 8s linear both infinite;
   position: absolute;
   cursor: pointer;
-}
-
-.mask{
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
 }
