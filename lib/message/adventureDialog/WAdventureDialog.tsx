@@ -14,7 +14,7 @@ import DialogHandler from "../../dependents/_composables/DialogHandler";
 export default defineComponent({
   name: 'WAdventureDialog',
   props: {
-    mask: { type: Object, default: { show: true, clickClose: false } },
+    mask: { type: Object, default: { show: true, clickClose: true } },
     visible: { type: Boolean, default: false },
     confirmText: { type: String, default: '我知道了' }
   },
