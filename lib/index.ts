@@ -22,6 +22,7 @@ import { default as WCheckbox } from './base/checkbox';
 import { default as WMenu } from './other/menu';
 import { WTabs, WTabPane } from './template/tabs';
 import { WTable, WTableColumn } from "./template/table";
+import { WTree, WTreeItem } from "./template/tree";
 import { default as WBorder } from './other/border';
 import { default as WDrawer } from './message/drawer';
 
@@ -54,7 +55,9 @@ const components = [
   WTable,
   WTableColumn,
   WBorder,
-  WDrawer
+  WDrawer,
+  WTree,
+  WTreeItem
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -90,7 +93,9 @@ export {
   WTable,
   WTableColumn,
   WBorder,
-  WDrawer
+  WDrawer,
+  WTree,
+  WTreeItem
 };
 
 export const createWUI = () => {
