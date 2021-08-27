@@ -7,6 +7,7 @@
  * TODO: 封装待优化，这写法可维护性好弱
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ * V1.0.1 添加console底层打印分类
  */
 
 import { PrinterType, printInterface, IPrinter } from "../../../types/components/WPrint";
@@ -23,6 +24,12 @@ const typeColor = {
   error: '#c04851',
 }
 
+const PrinterConsole: Record<PrinterEnum, keyof Console> = {
+  [PrinterEnum.suggest]: 'log',
+  [PrinterEnum.info]: 'log',
+  [PrinterEnum.error]: 'error'
+}
+
 const Printer: IPrinter = (defaultUser = '水墨UI') => {
   const DEFAULT_USER = defaultUser;
   const getType = (o: any) => {
@@ -35,7 +42,7 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
   };
 
   const print: printInterface = options => {
-    console.log(options.format,
+    console[PrinterConsole[options.type]](options.format,
       `background:${typeColor[options.type]}; border-radius:5px; padding:5px 7px;color:white;`,
       '', options.content);
   };
