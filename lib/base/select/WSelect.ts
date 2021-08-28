@@ -15,7 +15,6 @@
 import { defineComponent, h, Teleport, Transition, VNode } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import WInput from "../input/WInput.vue";
-import { WPrinter } from "../../other/printer";
 import { deepClone, DOMTokenListToArray, getStyle, notEmpty } from "../../dependents/_utils/tools";
 import ShowDomHandler from "./composables/ShowDomHandler";
 import SelectEventHandler from "./composables/SelectEventHandler";
@@ -33,10 +32,11 @@ export default defineComponent({
     titleParam: { type: String, default: 'title' }, // 下拉框中显示的key
     canChange: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
+    placeholder: { type: String, default: '请选择...' }
   },
   data() {
     return {
-      showValue: '请选择...',
+      showValue: '',
     } as WSelectDataType
   },
   setup() {
@@ -115,6 +115,7 @@ export default defineComponent({
 
     if (canChange && !disabled) {
       showNode = h(WInput, {
+          placeholder: ctx.placeholder,
           modelValue: ctx.showValue,
           'onUpdate:modelValue': (newValue: any) => {
             this.$emit('update:modelValue', newValue);
