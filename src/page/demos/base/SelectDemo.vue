@@ -25,7 +25,11 @@
     <w-select v-model="defaultValue5" :options="searchData"
               :can-change="true"
               @select="select"
-              v-on:updateOptions="filterOptions2"/>
+              v-on:updateOptions="filterOptions2">
+      <template #default="{data}">
+        <span><b>title: </b>{{ data.title }} <b>value:</b> {{ data.value }}</span>
+      </template>
+    </w-select>
   </div>
 </template>
 
@@ -72,7 +76,7 @@ const select = (option: SelectedType) => {
   Object.assign(selected, option);
 };
 
-const searchData = reactive([
+const searchData: Array<SelectedType> = reactive([
   { title: 'psm', value: 1 },
   { title: 'ngz', value: 2 },
   { title: 'kh3', value: 3 },
@@ -88,7 +92,7 @@ const filterOptions = async () => {
 }
 
 const filterOptions2 = async () => {
-  const newData = options.filter(e => e.value === defaultValue5.value);
+  const newData = options.filter(e => e.value === String(defaultValue5.value));
   searchData.length = 0;
   searchData.push(...newData);
 }

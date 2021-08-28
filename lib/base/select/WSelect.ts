@@ -2,7 +2,7 @@
  * @Description: 选择框组件
  * @Author: 菩萨蛮
  * @Date: 2021/8/27 11:05 上午
- * @Version v1.1.0
+ * @Version v1.1.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
@@ -10,7 +10,7 @@
  * v1.0.2 keyParam默认值改为value，新增titleParam
  * v1.0.3 修复之前两个版本错误的参数流转问题
  * v1.1.0 代码结构改为使用ts，新增输入框筛选功能
- * TODO：option template功能
+ * v1.1.1 添加slot功能
  */
 import { defineComponent, h, Teleport, Transition, VNode } from 'vue';
 import WBorder from "../../other/border/WBorder";
@@ -112,17 +112,15 @@ export default defineComponent({
     setShowValue();
 
     let showNode = undefined;
-
     if (canChange && !disabled) {
       showNode = h(WInput, {
-          placeholder: ctx.placeholder,
-          modelValue: ctx.showValue,
-          'onUpdate:modelValue': (newValue: any) => {
-            this.$emit('update:modelValue', newValue);
-          },
-          onInput: canChangeInputEvent,
-        }
-      );
+        placeholder: ctx.placeholder,
+        modelValue: ctx.showValue,
+        'onUpdate:modelValue': (newValue: any) => {
+          this.$emit('update:modelValue', newValue);
+        },
+        onInput: canChangeInputEvent,
+      });
     } else {
       const wrapInputNode = (showNode: VNode) => h(WBorder, { class: 'w-select-border' }, () => showNode);
       showNode = wrapInputNode(h('div', {
@@ -130,20 +128,27 @@ export default defineComponent({
       }, ctx.showValue));
     }
 
+    const optionRenderCreator = (o: any) => {
+      if (ctx.$slots && ctx.$slots.default) {
+        const defaultSlot: any[] = ctx.$slots.default({ data: o });
+        return defaultSlot;
+      }
+      return h('span', {}, o[titleParam]);
+    }
+
     // 渲染选择框
     let teleportNode
     if (ctx.selectDropdown) {
 
       const dropdownOptionDom = optionsCopy.map((o: any) => {
-        const span = h('span', {}, o[titleParam]);
+        const option = optionRenderCreator(o);
         return h('div', {
           class: ['dropdown-option', o.selected ? 'selected' : ''],
           onClick: () => {
             emitValue(o);
           }
-        }, span)
+        }, option)
       })
-
 
       const dropdownDom = h('div', {
         style: dropdownStyle,
@@ -160,8 +165,6 @@ export default defineComponent({
 
     let divEvent;
     if (canChange) {
-
-
       divEvent = {
         onFocus: showSelectDropdown,
         onkeyup: enterFunc
