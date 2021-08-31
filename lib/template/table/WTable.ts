@@ -2,15 +2,16 @@
  * @Description: table组件
  * @Author: 菩萨蛮
  * @Date: 2021/8/23 11:30 上午
- * @Version v0.0.1-beta.1
+ * @Version v0.0.1-beta.2
  *
  * 一个极度简单的table组件
  * beta版 支持 slot width 设置
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v0.0.1-beta.1 添加slot检查提升健壮性
+ * v0.0.1-beta.2 新增header fixed功能
  */
-import { defineComponent, h, VNode, VNodeNormalizedChildren } from 'vue'
+import { defineComponent, h, VNode } from 'vue'
 import { notEmpty } from "../../dependents/_utils/tools";
 import Printer from "../../other/printer/Printer";
 
@@ -58,7 +59,8 @@ type columnType = {
 export default defineComponent({
   name: 'WTable',
   props: {
-    data: { type: Array, default: () => [] }
+    data: { type: Array, default: () => [] },
+    height: { type: String }
   },
   render(ctx: any) {
     const theadThList: VNode[] = [];
@@ -95,8 +97,9 @@ export default defineComponent({
 
     const thead = h('thead', { class: 'w-thead' }, wrapWithTr(theadThList));
     const tbody = h('tbody', { class: 'w-tbody' }, tbodyTrList);
-    const table = h('table', { class: 'w-table' }, [thead, tbody]);
+    const table = h('table', { class: 'w-table-inner' }, [thead, tbody]);
+    const tableWrap = h('div', { class: 'w-table-wrap', style: { height: ctx.height } }, table);
 
-    return h('div', { class: 'w-table-wrap' }, [theadBorderTop, theadBorderBottom, table, tbodyBorderBottom]);
+    return h('div', { class: 'w-table' }, [theadBorderTop, theadBorderBottom, tableWrap, tbodyBorderBottom]);
   }
 })
