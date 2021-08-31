@@ -1,7 +1,7 @@
 <template>
   <div class="table-demo">
     <h2>空列表</h2>
-    <!--    <w-table></w-table>-->
+    <w-table></w-table>
     <w-divider></w-divider>
     <h2>正常列表</h2>
     <i>目前只有在mac的chrome上有最佳表现</i>
