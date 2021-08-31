@@ -10,6 +10,17 @@
 
 import { DefineComponent } from "vue";
 
+export type keyType = any;
+
+export type MenuType = {
+  title: string,
+  key: keyType,
+  isActive: boolean,
+  index?: number[],
+  children?: MenuTypeArr
+}
+export type MenuTypeArr = Array<MenuType>;
+
 
 export const WInput: DefineComponent;
 export const WButton: DefineComponent;
