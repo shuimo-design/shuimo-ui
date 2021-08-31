@@ -9,7 +9,7 @@
 
 
 import { ref } from 'vue';
-import { DOMTokenListToArray } from "../../../dependents/_utils/tools";
+import { DOMTokenListToArray } from "../../../dependents/_utils/dom";
 
 
 

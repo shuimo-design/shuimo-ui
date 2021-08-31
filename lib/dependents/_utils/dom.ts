@@ -8,24 +8,24 @@
  */
 
 /* istanbul ignore next */
-import {throttle} from "./throttleDebounce";
+import { throttle } from "./throttleDebounce";
 
 const trim = (string: string) => {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
 
 /* istanbul ignore next */
-export const on = (function() {
+export const on = (function () {
   // @ts-ignore
   if (document.addEventListener) {
-    return function(element: any, event: string, handler: Function) {
+    return function (element: any, event: string, handler: Function) {
       if (element && event && handler) {
         const eventHandler = throttle(1000, handler)
         element.addEventListener(event, eventHandler, false);
       }
     };
   } else {
-    return function(element: any, event: string, handler: Function) {
+    return function (element: any, event: string, handler: Function) {
       if (element && event && handler) {
         const eventHandler = throttle(1000, handler)
         element.attachEvent('on' + event, eventHandler);
@@ -35,17 +35,17 @@ export const on = (function() {
 })();
 
 /* istanbul ignore next */
-export const off = (function() {
+export const off = (function () {
   // @ts-ignore
   if (document.removeEventListener) {
-    return function(element: any, event: string, handler: Function) {
+    return function (element: any, event: string, handler: Function) {
       if (element && event) {
         const eventHandler = throttle(1000, handler)
         element.removeEventListener(event, eventHandler, false);
       }
     };
   } else {
-    return function(element: any, event: string, handler: Function) {
+    return function (element: any, event: string, handler: Function) {
       if (element && event) {
         const eventHandler = throttle(1000, handler)
         element.detachEvent('on' + event, eventHandler);
@@ -113,9 +113,23 @@ export function hasClass(el: Element, cls: string) {
  * @param type
  */
 export const getStyleNumber = (elt: Element, type: any) => {
-  if(elt){
+  if (elt) {
     const num = Number(window.getComputedStyle(elt)[type].replace('px', ''));
     return isNaN(num) ? 0 : num;
   }
   return 0;
 };
+
+
+/**
+ * 用于将DOMTokenList转换成Array获取class list 的方法
+ * @param list DOMTokenList | HtmlCollection
+ * @return array class array
+ */
+export const DOMTokenListToArray = (list: DOMTokenList|HTMLCollection) => {
+  const array = [];
+  for (let i = 0; i < list.length; i++) {
+    array.push(list[i]);
+  }
+  return array;
+}

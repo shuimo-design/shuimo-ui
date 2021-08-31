@@ -124,15 +124,3 @@ export const getStyle = (selectStyle: CSSStyleDeclaration, type: string) => {
   return isNaN(num) ? 0 : num;
 }
 
-/**
- * 用于将DOMTokenList转换成Array获取class list 的方法
- * @param list DOMTokenList
- * @return array class array
- */
-export const DOMTokenListToArray = (list: DOMTokenList) => {
-  const array = [];
-  for (let i = 0; i < list.length; i++) {
-    array.push(list[i]);
-  }
-  return array;
-}

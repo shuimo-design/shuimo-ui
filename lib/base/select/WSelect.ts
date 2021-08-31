@@ -16,9 +16,10 @@
 import { defineComponent, h, Teleport, Transition, VNode } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import WInput from "../input/WInput.vue";
-import { deepClone, DOMTokenListToArray, getStyle, notEmpty } from "../../dependents/_utils/tools";
+import { deepClone, getStyle, notEmpty } from "../../dependents/_utils/tools";
 import ShowDomHandler from "./composables/ShowDomHandler";
 import SelectEventHandler from "./composables/SelectEventHandler";
+import { DOMTokenListToArray } from "../../dependents/_utils/dom";
 
 type WSelectDataType = {
   showValue: string,
