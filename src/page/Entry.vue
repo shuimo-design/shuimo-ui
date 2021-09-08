@@ -1,13 +1,11 @@
 <template>
   <div class="entry">
-    <Dialog/>
-    <Level/>
+    <Component/>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Level from '../components/entry/Level.vue'
-import Dialog from '../components/entry/Dialog.vue'
+import Component from '../components/entry/Component.vue'
 </script>
 
 <style scoped lang="scss">
@@ -17,8 +15,7 @@ import Dialog from '../components/entry/Dialog.vue'
   grid-template-areas:  "container";
 }
 
-.level-component,
-.dialog-component {
+.component {
   grid-area: container;
 }
 </style>
