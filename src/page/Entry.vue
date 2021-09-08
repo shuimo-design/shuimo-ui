@@ -1,5 +1,5 @@
 <template>
-  <Header/>
+  <Header :show-button="false"/>
   <div class="entry">
     <Component/>
   </div>

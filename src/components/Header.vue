@@ -3,11 +3,13 @@
     <div class="header-title">
       <span>水墨UI</span>
     </div>
+    <HeaderButton v-if="showButton" @click="toHome">回到首页</HeaderButton>
+    <HeaderButton v-if="!showButton" @click="toDemo">进入组件</HeaderButton>
     <div class="header-line"/>
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 /**
  * @Description:
  * @Author: 菩萨蛮
@@ -16,11 +18,20 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent } from 'vue';
+import HeaderButton from '../components/entry/HeaderButton.vue'
+import { useRouter } from 'vue-router';
 
-export default defineComponent({
-  name: 'Header'
-});
+const { showButton } = defineProps({
+  showButton: { type: Boolean, default: true }
+})
+
+const router = useRouter();
+const toHome = () => {
+  router.push('/');
+}
+const toDemo = () => {
+  router.push('/demo');
+}
 </script>
 
 <style lang="scss" scoped>
@@ -58,5 +69,8 @@ export default defineComponent({
   height: 5px;
 }
 
+.header-button {
+  margin-top: -30px;
+}
 
 </style>
