@@ -2,7 +2,7 @@
   <div class="component" id="level">
     <div class="entry-dialog">
       <w-input/>
-      <w-button text="确定"/>
+      <w-button text="点我进入组件页面" @click="toMain"/>
     </div>
     <img class="level" src="/src/assets/entry/level.png" alt="">
     <img class="fan-left" src="/src/assets/entry/fan-left.png" alt="">
@@ -13,8 +13,14 @@
 
 <script setup lang="ts">
 import { initEventHandler } from "../../plugins/mouseMovePlugin";
+import { useRouter } from 'vue-router';
 
 initEventHandler('level', 25);
+
+const router = useRouter();
+const toMain = () => {
+  router.push('/demo')
+}
 
 </script>
 
@@ -28,7 +34,7 @@ initEventHandler('level', 25);
                         ". . .";
   height: 100%;
   grid-auto-columns: realPx(400) auto realPx(227);
-  grid-auto-rows: auto realPx(734) realPx(104);
+  grid-auto-rows: auto realPx(734) realPx(144);
   position: relative;
   transform: translate(0px, 0px);
   transition: transform 500ms;

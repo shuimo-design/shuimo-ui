@@ -1,4 +1,5 @@
 <template>
+  <Header/>
   <div class="entry">
     <Component/>
   </div>
@@ -6,11 +7,12 @@
 
 <script lang="ts" setup>
 import Component from '../components/entry/Component.vue'
+import Header from '../components/Header.vue'
 </script>
 
 <style scoped lang="scss">
 .entry {
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: grid;
   grid-template-areas:  "container";
 }
