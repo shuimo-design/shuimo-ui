@@ -5,9 +5,9 @@
       <w-button text="点我进入组件页面" @click="toMain"/>
     </div>
     <img class="level" src="/src/assets/entry/level.png" alt="">
-    <img class="fan-left" src="/src/assets/entry/fan-left.png" alt="">
-    <img class="fan-center" src="/src/assets/entry/fan-center.png" alt="">
-    <img class="fan-right" src="/src/assets/entry/fan-right.png" alt="">
+    <img class="fan-left" src="/src/assets/entry/fan_left.png" alt="">
+    <img class="fan-center" src="/src/assets/entry/fan_center.png" alt="">
+    <img class="fan-right" src="/src/assets/entry/fan_right.png" alt="">
   </div>
 </template>
 
