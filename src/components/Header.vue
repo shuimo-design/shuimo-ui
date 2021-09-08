@@ -5,6 +5,7 @@
     </div>
     <HeaderButton v-if="showButton" @click="toHome">回到首页</HeaderButton>
     <HeaderButton v-if="!showButton" @click="toDemo">进入组件</HeaderButton>
+    <HeaderButton @click="toGeekjx">极客江湖</HeaderButton>
     <div class="header-line"/>
   </div>
 </template>
@@ -31,6 +32,9 @@ const toHome = () => {
 }
 const toDemo = () => {
   router.push('/demo');
+}
+const toGeekjx = () => {
+  window.open('https://www.geekjx.com');
 }
 </script>
 
