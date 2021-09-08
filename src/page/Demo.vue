@@ -24,12 +24,14 @@
  * @date 2020/11/17 22:33
  **/
 import { reactive } from 'vue';
-import router from "../router";
 import Header from "../components/Header.vue";
 import { MenuTypeArr } from "../../types/components/components";
 
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 const menuList: MenuTypeArr = reactive([
-  { title: '首页', key: '', isActive: true },
+  { title: '首页', key: 'demo', isActive: true },
   {
     title: '基础组件', key: 'button', isActive: false, children: [
       { title: '按钮', key: 'button', isActive: true },
@@ -72,9 +74,9 @@ const menuList: MenuTypeArr = reactive([
 const menuClick = (index: number[]) => {
   let m;
   if (index.length === 1) {
-    m = menuList[index[0]];
+    m = menuList![index[0]];
   } else {
-    m = menuList[index[0]].children[index[1]];
+    m = menuList![index[0]]!.children![index[1]];
   }
   router.push(`/${m.key}`);
 }
