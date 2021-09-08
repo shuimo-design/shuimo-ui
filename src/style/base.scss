@@ -1,0 +1,7 @@
+/**
+ * 样式工具
+ */
+
+@function realPx($px) {
+  @return calc(#{$px} / 1920 * 100vw);
+}
