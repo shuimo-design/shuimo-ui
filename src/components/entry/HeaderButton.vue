@@ -24,6 +24,7 @@
   display: inline-block;
   height: 80px;
   width: 84px;
+  margin-left: 20px;
   background: url(/src/assets/entry/header_btn.png) no-repeat;
 
   font-size: 24px;
@@ -32,6 +33,10 @@
   color: #222222;
   letter-spacing: -4px;
   text-shadow: 1px 2px 0 #ffffff;
+
+  &:hover {
+    color: #660000;
+  }
 }
 
 </style>
