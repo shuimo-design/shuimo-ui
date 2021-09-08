@@ -1,5 +1,6 @@
 <template>
   <div class="base">
+    <img src="/src/assets/logo.png" alt="">
     <h1>一款粗暴的水墨UI</h1>
     <span>基于Vite2.0 + Vue3</span>
     <br/>
