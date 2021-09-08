@@ -112,9 +112,9 @@ export function hasClass(el: Element, cls: string) {
  * @param elt
  * @param type
  */
-export const getStyleNumber = (elt: Element, type: any) => {
+export const getStyleNumber = (elt: Element, type: keyof CSSStyleDeclaration) => {
   if (elt) {
-    const num = Number(window.getComputedStyle(elt)[type].replace('px', ''));
+    const num = Number((window.getComputedStyle(elt)[type]! as string).replace('px', ''));
     return isNaN(num) ? 0 : num;
   }
   return 0;
@@ -126,7 +126,7 @@ export const getStyleNumber = (elt: Element, type: any) => {
  * @param list DOMTokenList | HtmlCollection
  * @return array class array
  */
-export const DOMTokenListToArray = (list: DOMTokenList|HTMLCollection) => {
+export const DOMTokenListToArray = (list: DOMTokenList | HTMLCollection) => {
   const array = [];
   for (let i = 0; i < list.length; i++) {
     array.push(list[i]);
