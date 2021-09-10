@@ -1,20 +1,22 @@
+<p align="center">
+  <a href="https://wash-painting.com" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://raw.githubusercontent.com/higuaifan/wash-painting-ui/master/src/assets/logo.png" 
+        alt="wash-painting logo">
+  </a>
+</p>
+
 # 水墨UI(wash-painting-ui)
 
+![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
+
 一款很粗暴的水墨UI
-A wash-painting Vue.js 3.0 UI Library. 
+
+**A wash-painting Vue.js 3.2 UI Library.**
 
 ## 技术栈(technology stack)
 
-> vite+vue3
+> vite 2.0 + vue 3.2
 
-## 组件(components)
+## 文档(document)
 
-1. 输入框组件(input)
-2. 按钮组件(button)
-3. 弹窗组件(dialog)
-4. 滚动数字组件(scroll-number)
-5. 选择组件(select)
-6. popover组件(popover)
-7. messageBox组件(message-box)
-8. 表单(form)
-9. 日期选择组件(date-picker)
+[点击这里(click here)](https://wash-painting.com)
