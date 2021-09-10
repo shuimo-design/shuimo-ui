@@ -2,9 +2,10 @@
  * @Description: 抽屉组件
  * @Author: 菩萨蛮
  * @Date: 2021/8/24 11:27 上午
- * @Version v1.0.0
+ * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ * V1.0.1 添加drawerClass数组字段
  */
 
 
@@ -19,6 +20,7 @@ export default defineComponent({
     width: { type: String, default: '524px' },
     mask: { type: Object, default: { show: true, clickClose: true } },
     visible: { type: Boolean, default: false },
+    drawerClass: { type: Array, default: [] }
   },
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
@@ -26,7 +28,7 @@ export default defineComponent({
     return { pes, maskClass, resetSize, maskClick, closeDialog };
   },
   render(ctx: any) {
-    const { visible, maskClick } = this;
+    const { visible, maskClick, drawerClass } = ctx;
 
     if (!visible) {
       return null;
@@ -41,7 +43,7 @@ export default defineComponent({
     const borderWrap = h(WBorder, { class: 'w-drawer' }, () => [drawerMain]);
 
     const maskWrap = h('div', {
-      class: this.maskClass,
+      class: [...this.maskClass, ...drawerClass],
       onClick: maskClick
     }, borderWrap);
 
