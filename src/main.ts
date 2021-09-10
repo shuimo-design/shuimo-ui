@@ -4,7 +4,8 @@ import router from './router';
 import { createWUI } from "../lib";
 import { WMessage } from "../lib";
 import { WPrinter } from "../lib";
-import PrismCode from './components/PrismCode.vue'
+import PrismCode from './components/code/PrismCode.vue'
+import ButtonDrawer from './components/code/ButtonDrawer.vue'
 // import WUI from "../dist/wash-painting-ui.es.js";
 // import {WMessage} from "../dist/wash-painting-ui.es.js";
 import './style.scss'
@@ -14,6 +15,7 @@ const WUI = createWUI();
 app.use(router)
   .use(WUI)
   .component('PrismCode', PrismCode)
+  .component('ButtonDrawer', ButtonDrawer)
   .mount('#app');
 
 app.config.globalProperties.$message = WMessage;

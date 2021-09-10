@@ -28,18 +28,19 @@ const resetCode = (code: string) => {
     .replace(/\'/g, '&#39;')
     .replace(/\"/g, '&quot;');
   return `<template>
-  <div class="code-div">
-    ${template}
-    <PrismCode type="html" languageType="html" :code="&#x60;${temp}&#x60;">
-    </PrismCode>
-  </div>
+    <div class="code-div">
+      ${template}
+      <ButtonDrawer>
+         <PrismCode type="html" languageType="html" :code="&#x60;${temp}&#x60;"/>
+      </ButtonDrawer>
+    </div>
 </template>${left}`;
 }
 
 export const codeHtmlPlugin = {
   name: 'code-html-plugin',
   transform(code: string, path: string) {
-    if (path.includes('/page/demos')&&!path.includes('?')) {
+    if (path.includes('/page/demos') && !path.includes('?')) {
       return resetCode(code);
     }
     return code;
