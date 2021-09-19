@@ -1,10 +1,17 @@
 <template>
   <div>
     <w-button text="点击显示抽屉" @click="show"/>
-    <w-drawer :visible="visible" @close="close">
+    <w-drawer :visible="visible" @close="close" >
       <div>
         <span>普通抽屉</span>
         <w-button text="关闭" @click="close"/>
+      </div>
+    </w-drawer>
+    <w-button text="点击显示无蒙板抽屉" @click="show2"/>
+    <w-drawer :visible="visible2" @close="close2" :mask="mask">
+      <div>
+        <span>无蒙板抽屉</span>
+        <w-button text="关闭" @click="close2"/>
       </div>
     </w-drawer>
   </div>
@@ -22,8 +29,14 @@
 import { defineComponent, ref } from 'vue';
 
 const visible = ref(false);
+const visible2 = ref(false);
 
 const show = () => {visible.value = true};
 const close = () => {visible.value = false};
+const show2 = () => {visible2.value = true};
+const close2 = () => {visible2.value = false};
+
+const mask = { show: false, clickClose: false };
+
 
 </script>

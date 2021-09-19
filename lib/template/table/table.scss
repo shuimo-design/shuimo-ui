@@ -1,4 +1,4 @@
-.w-table-wrap {
+.w-table {
   width: 100%;
   display: grid;
   grid-template-areas:  "head-img-top"
@@ -7,18 +7,28 @@
                         "table-img-bottom";
 }
 
-.w-table {
+.w-table-inner {
+  border-spacing: 0;
+  width: 100%;
+}
+
+.w-table-wrap{
   position: relative;
   grid-area: table;
   top: -8px;
   width: 100%;
-  border-spacing: 0;
+  overflow: auto;
 }
 
 .w-thead {
-  background: rgba(63, 74, 85, 0.30);
+  //background: rgba(63, 74, 85, 0.30);
+  background: #b7bec4;
   height: 37px;
   font-size: 14px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .w-tbody {

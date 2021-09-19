@@ -4,9 +4,9 @@ import WBorder from "../../other/border/WBorder";
 export default defineComponent({
   name: 'WInputNumber',
   props: {
-    modelValue: {type: Number, default: 0},
-    max: {type: Number, default: Infinity},
-    min: {type: Number, default: -Infinity}
+    modelValue: { type: Number, default: 0 },
+    max: { type: Number, default: Infinity },
+    min: { type: Number, default: -Infinity }
   },
   data() {
     return {
@@ -27,10 +27,10 @@ export default defineComponent({
       if (e.target.value !== '') {
         this.currentVal = Number(e.target.value);
       }
-      if (inputNumber  > this.max) {
+      if (inputNumber > this.max) {
         this.currentVal = this.max;
       }
-      if (inputNumber  < this.min) {
+      if (inputNumber < this.min) {
         this.currentVal = this.min;
       }
       this.$emit('update:modelValue', Number(this.currentVal));
@@ -39,13 +39,12 @@ export default defineComponent({
   render() {
     let { currentVal } = this;
     const { inputHandle } = this;
-    return (
-        <WBorder class="w-input-number">
-          <input type="number"
-                 class="w-input-number-inner"
-                 onInput={inputHandle}
-                 value={currentVal}/>
-        </WBorder>
-    )
+
+    return h(WBorder,
+      { class: 'w-input-number' },
+      () => (<input type="number" class="w-input-number-inner"
+                    onInput={inputHandle}
+                    value={currentVal}/>));
+
   }
 })

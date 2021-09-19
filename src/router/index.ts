@@ -14,12 +14,12 @@ import { other } from "./component/other";
 
 const routes = [
   {
-    path: '/entry',
+    path: '/',
     name: 'Entry',
     component: () => import('../page/Entry.vue'),
   },
   {
-    path: '/',
+    path: '/demo',
     name: 'Demo',
     component: () => import('../page/Demo.vue'),
     children: [

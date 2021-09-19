@@ -118,3 +118,9 @@ export const everyIsEmpty = (...arg: any[]) => {
 }
 
 export const isValidDate = (date: Date) => date instanceof Date && !isNaN(date.getTime());
+
+export const getStyle = (selectStyle: CSSStyleDeclaration, type: string) => {
+  const num = Number(selectStyle.getPropertyValue(type).replace('px', ''));
+  return isNaN(num) ? 0 : num;
+}
+
