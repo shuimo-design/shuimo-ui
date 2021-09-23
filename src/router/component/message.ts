@@ -34,4 +34,9 @@ export const message = [
     name: 'Drawer',
     component: () => import('../../page/demos/message/DrawerDemo.vue')
   },
+  {
+    path: '/confirm',
+    name: 'Confirm',
+    component: () => import('../../page/demos/message/ConfirmDemo.vue')
+  },
 ]

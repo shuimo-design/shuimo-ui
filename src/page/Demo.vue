@@ -57,6 +57,7 @@ const menuList: MenuTypeArr = reactive([
       { title: '提示', key: 'message', isActive: false },
       { title: '悬浮提示', key: 'tooltip', isActive: false },
       { title: '悬浮交互', key: 'popover', isActive: false },
+      { title: '确认框', key: 'confirm', isActive: false },
     ]
   },
   {

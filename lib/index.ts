@@ -24,6 +24,7 @@ import { WTabs, WTabPane } from './template/tabs';
 import { WTable, WTableColumn } from "./template/table";
 import { default as WBorder } from './other/border';
 import { default as WDrawer } from './message/drawer';
+import { default as WConfirm } from './message/confirm';
 
 
 import '../lib/style.scss'
@@ -54,7 +55,8 @@ const components = [
   WTable,
   WTableColumn,
   WBorder,
-  WDrawer
+  WDrawer,
+  WConfirm
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -90,7 +92,8 @@ export {
   WTable,
   WTableColumn,
   WBorder,
-  WDrawer
+  WDrawer,
+  WConfirm
 };
 
 export const createWUI = () => {

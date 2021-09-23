@@ -9,6 +9,7 @@
 import { App } from "vue";
 import { IMessage } from "./components/WMessage";
 import { IPrinter } from "./components/WPrint";
+import { IConfirm } from "./components/WConfirm";
 
 export * from './components/components';
 
@@ -22,4 +23,5 @@ export function createWUI(): {
 
 export const WMessage: IMessage;
 export const WPrinter: IPrinter;
+export const WConfirm: IConfirm;
 
