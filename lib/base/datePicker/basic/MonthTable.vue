@@ -3,8 +3,8 @@
     <tbody>
     <tr v-for="(row, key) in rows" :key="key">
       <td v-for="(cell, key) in row" :key="key">
-        <div>
-          <a class="cell" :class="getCellStyle(cell)">{{cell.text + 1}}月</a>
+        <div class="w-cursor">
+          <a class="w-cell w-cursor" :class="getCellStyle(cell)">{{cell.text + 1}}月</a>
         </div>
       </td>
     </tr>
@@ -131,9 +131,8 @@
         padding: 0;
         box-sizing: border-box;
         text-align: center;
-        cursor: pointer;
 
-        .cell {
+        .w-cell {
           width: 40px;
           height: 40px;
           display: block;
@@ -142,7 +141,6 @@
           margin: 0 auto;
           border-radius: 18px;
           transition: all 0.4s;
-          cursor: pointer;
 
           &:hover {
             transform: scale(1.2);
