@@ -145,7 +145,7 @@ export default defineComponent({
       const dropdownOptionDom = optionsCopy.map((o: any) => {
         const option = optionRenderCreator(o);
         return h('div', {
-          class: ['dropdown-option', o.selected ? 'selected' : ''],
+          class: ['dropdown-option','w-cursor', o.selected ? 'selected' : ''],
           onClick: () => {
             emitValue(o);
           }

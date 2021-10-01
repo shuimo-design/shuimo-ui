@@ -1,7 +1,7 @@
 <template>
   <label
       :id="id"
-      class="w-checkbox"
+      class="w-checkbox w-cursor"
       :class="[
       { 'is-disabled': isDisabled },
       { 'is-checked': isChecked }

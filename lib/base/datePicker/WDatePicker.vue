@@ -10,20 +10,20 @@
              class="calendar-dropdown"
              @onresize="leaveDropdown">
           <div class="calendar-dropdown-header">
-            <button class="calendar-year-prev" @click="prevYear"></button>
-            <button class="calendar-month-prev"
+            <button class="calendar-year-prev w-cursor" @click="prevYear"></button>
+            <button class="calendar-month-prev w-cursor"
                     v-show="currentView === 'date'"
                     @click="prevMonth"></button>
-            <span class="year"
+            <span class="year w-cursor"
                   @click="showYearPicker">{{ year }}</span>
-            <span class="between" v-show="currentView === 'date'">，</span>
-            <span class="month"
+            <span class="between w-cursor" v-show="currentView === 'date'">，</span>
+            <span class="month w-cursor"
                   @click="showMonthPicker"
                   v-show="currentView === 'date'">{{ month }}</span>
-            <button class="calendar-month-next"
+            <button class="calendar-month-next w-cursor"
                     v-show="currentView === 'date'"
                     @click="nextMonth"></button>
-            <button class="calendar-year-next" @click="nextYear"></button>
+            <button class="calendar-year-next w-cursor" @click="nextYear"></button>
           </div>
           <div class="content">
             <date-table :date="date"

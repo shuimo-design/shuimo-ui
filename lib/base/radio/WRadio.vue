@@ -1,6 +1,6 @@
 <template>
   <label
-      class="w-radio"
+      class="w-radio w-cursor"
       :class="{
       'is-disabled': isDisabled,
       'is-focus': focus,
@@ -13,13 +13,13 @@
       @keydown.space.stop.prevent="model = isDisabled ? model : label"
   >
     <span
-        class="w-radio__input"
+        class="w-radio__input w-cursor"
         :class="{
         'is-disabled': isDisabled,
         'is-checked': model === label
       }"
     >
-      <span class="w-radio__inner">
+      <span class="w-radio__inner w-cursor">
         <img src="/lib/assets/radio/border.png" alt="">
         <span class="w-radio__inner_checked"></span>
       </span>

@@ -25,6 +25,7 @@ import { WTable, WTableColumn } from "./template/table";
 import { WTree, WTreeItem } from "./template/tree";
 import { default as WBorder } from './other/border';
 import { default as WDrawer } from './message/drawer';
+import { default as WConfirm } from './message/confirm';
 
 
 import '../lib/style.scss'
@@ -57,7 +58,8 @@ const components = [
   WBorder,
   WDrawer,
   WTree,
-  WTreeItem
+  WTreeItem,
+  WConfirm
 ]
 const install = function (app: App) {
   components.forEach(component => {
@@ -95,7 +97,8 @@ export {
   WBorder,
   WDrawer,
   WTree,
-  WTreeItem
+  WTreeItem,
+  WConfirm
 };
 
 export const createWUI = () => {

@@ -16,8 +16,7 @@
     </tr>
     <tr v-for="(row, key) in rows"
         :key="key">
-      <td v-for="(cell, key) in row"
-          :key="key">
+      <td v-for="(cell, key) in row" :key="key" class="w-cursor">
         <div :class="getCellClasses(cell)">
           <span>
             {{ cell.text }}
@@ -162,7 +161,7 @@
 
         let classes = [];
         if ((cell.type === 'normal' || cell.type === 'today') && !cell.disabled) {
-          classes.push('available');
+          classes.push('w-available');
           if (cell.type === 'today') {
             classes.push('today');
           }
@@ -256,7 +255,6 @@
 
     td {
       transition: all 0.4s;
-      cursor: pointer;
 
       &:hover {
         transform: scale(1.2);
