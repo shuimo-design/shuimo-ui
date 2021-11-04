@@ -2,15 +2,16 @@
  * @description message消息组件
  * @author: 菩萨蛮
  * @date 2021/1/8 4:37 下午
- * @version V1.1.0
+ * @version V1.1.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行
  *
- * V1.0 第一版非常粗暴的message消息组件
- * V1.1 添加类型定义
+ * V1.0.0 第一版非常粗暴的message消息组件
+ * V1.1.0 添加类型定义
+ * V1.1.1 类型定义优化
  */
 import { h, createApp } from 'vue';
-import { BaseMessageConfig, MessageConfig, IMessage } from "../../types/components/WMessage";
+import { BaseMessageConfig, MessageConfig, IMessage } from "../../../types/components/WMessage";
 
 enum MessageEnum {
   success = 'success',
@@ -31,7 +32,7 @@ const setMessageDiv = () => {
   return div;
 };
 
-const Message: IMessage = (config: BaseMessageConfig) => {
+const Message = (config: BaseMessageConfig) => {
 
   const parent = setMessageDiv();
   const div = document.createElement('div');
@@ -75,7 +76,7 @@ const Message: IMessage = (config: BaseMessageConfig) => {
 }
 
 for (let type of Object.values(MessageEnum)) {
-  Message[type] = (options: MessageConfig) => {
+  (Message as IMessage)[type] = (options: MessageConfig) => {
     if (typeof options === 'string') {
       options = {
         content: options
