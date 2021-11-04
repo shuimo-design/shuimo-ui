@@ -1,36 +1,44 @@
-import { App } from 'vue';
+import { App, Component } from 'vue';
 
-import { default as WInput } from './base/input';
-import { default as WButton } from './base/button';
-import { default as WDialog } from './message/dialog';
-import { default as WAdventureDialog } from './message/adventureDialog';
-import { default as WTooltip } from './message/tooltip';
-import { default as WScrollNumber } from './other/scrollNumber';
-import { default as WSelect } from './base/select';
-import { default as WDatePicker } from './base/datePicker';
-import { default as WPopover } from './message/popover';
-import { WMessage } from './message/message';
-import { WPrinter } from "./other/printer";
-import { WForm, WFormItem } from "./template/form";
-import { default as WInputNumber } from './other/inputNumber';
-import { default as WPagination } from './template/pagination';
-import { default as WUpload } from './other/upload';
-import { default as WDivider } from './other/divider';
-import { default as WProcess } from './other/process';
-import { default as WRadio } from './base/radio';
-import { default as WCheckbox } from './base/checkbox';
-import { default as WMenu } from './other/menu';
-import { WTabs, WTabPane } from './template/tabs';
-import { WTable, WTableColumn } from "./template/table";
-import { default as WBorder } from './other/border';
-import { default as WDrawer } from './message/drawer';
-import { default as WConfirm } from './message/confirm';
+import WInput from './base/input/WInput.vue';
+import WButton from './base/button/WButton';
+import WSelect from './base/select/WSelect';
+import WDatePicker from './base/datePicker/WDatePicker.vue';
+import WRadio from './base/radio/WRadio.vue';
+import WCheckbox from './base/checkbox/WCheckbox.vue';
+
+import WAdventureDialog from './message/adventureDialog/WAdventureDialog';
+import WConfirm from './message/confirm/WConfirm';
+import WDialog from './message/dialog/WDialog';
+import WDrawer from './message/drawer/WDrawer';
+import WMessage from './message/message/Message';
+import WPopover from './message/popover/WPopover.vue';
+import WTooltip from './message/tooltip/WTooltip.vue';
+
+import WBorder from './other/border/WBorder';
+import WDivider from './other/divider/WDivider';
+import WInputNumber from './other/inputNumber/WInputNumber';
+import WMenu from './other/menu/WMenu';
+import WPrinter from "./other/printer/Printer";
+import WScrollNumber from './other/scrollNumber/WScrollNumber';
+import WProcess from './other/process/WProcess';
+import WUpload from './other/upload/WUpload';
+
+import WPagination from './template/pagination/WPagination';
+import WFormItem from "./template/form/WFormItem.vue";
+import WForm from "./template/form/WForm.vue";
+import WTabPane from './template/tabs/WTabPane';
+import WTabs from './template/tabs/WTabs';
+import WTable from "./template/table/WTable";
+import WTableColumn from "./template/table/WTableColumn";
+
+
 
 
 import '../lib/style.scss'
 
 
-const components = [
+const components: Record<any, Component> = {
   WInput,
   WButton,
   WDialog,
@@ -57,10 +65,11 @@ const components = [
   WBorder,
   WDrawer,
   WConfirm
-]
+}
+
 const install = function (app: App) {
-  components.forEach(component => {
-    app.use(component);
+  Object.keys(components).forEach(key => {
+    app.component(key, components[key]);
   });
   return app;
 };
