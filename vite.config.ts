@@ -1,10 +1,10 @@
-import { defineConfig, ConfigEnv } from 'vite'
+import { defineConfig, ConfigEnv, BuildOptions } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 
 export default defineConfig((configEnv: ConfigEnv) => {
   const { mode } = configEnv;
-  let build: any = {};
+  let build: BuildOptions = {};
   if (mode === 'npm') {
     build = {
       lib: {
