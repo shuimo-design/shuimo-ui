@@ -1,12 +1,12 @@
 export default {
-  mounted(el) {
+  mounted(el: HTMLElement) {
     el.classList.add('scroll');
     const s = document.styleSheets[0];
     el.classList.add('panda2');
     let isInsert = false;
     el.addEventListener('scroll', () => {
       if (el) {
-        const {scrollTop, offsetHeight, scrollHeight} = el;
+        const { scrollTop, offsetHeight, scrollHeight } = el;
         // eslint-disable-next-line no-mixed-operators
         if ((scrollTop % 80 - 40) > 0) {
           el.classList.replace('panda2', 'panda1');
