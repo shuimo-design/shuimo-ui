@@ -1,0 +1,51 @@
+$width: calc(var(--w-progress-width, 556px) * 2);
+$bg-width: var(--w-progress-width, 556px);
+$height: var(--w-progress-height, 37px);
+$bg-size: $bg-width $height;
+
+$leaf-height: var(--w-progress-leaf-height, 22px);
+$per-width: var(--w-progress-per-widht, 120px);
+$per-height: max(var(--w-progress-per-height, 20px),#{$leaf-height});
+$per-font-size: var(--w-progress-per-font-size, 16px);
+
+.w-progress-border {
+  display: inline-block;
+}
+
+.w-progress-per {
+  position: relative;
+  width: calc(#{$per-width} * 0.98);
+  height: $per-height;
+  line-height: $per-height;
+  top: calc(#{$per-height} * 0.2);
+  font-size: $per-font-size;
+  font-weight: bold;
+
+  span {
+    float: left;
+  }
+}
+
+.leaf {
+  height: $leaf-height;
+}
+
+.w-progress {
+  width: $width;
+  height: $height;
+  -webkit-appearance: none;
+
+  //background-size: 556px 37px;
+
+  //全部进度
+  &::-webkit-progress-bar {
+    background: url("/lib/assets/progress/bamboo_bg.png") repeat-x;
+    background-size: $bg-size;
+  }
+
+  //已完成进度
+  &::-webkit-progress-value {
+    background: url("/lib/assets/progress/bamboo.png");
+    background-size: $bg-size;
+  }
+}

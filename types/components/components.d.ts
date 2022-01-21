@@ -37,7 +37,7 @@ export const WInputNumber: DefineComponent;
 export const WPagination: DefineComponent;
 export const WUpload: DefineComponent;
 export const WDivider: DefineComponent;
-export const WProcess: DefineComponent;
+export const WProgress: DefineComponent;
 export const WRadio: DefineComponent;
 export const WCheckbox: DefineComponent;
 export const WMenu: DefineComponent;

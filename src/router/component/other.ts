@@ -29,9 +29,9 @@ export const other = [
     component: () => import('../../page/demos/other/DividerDemo.vue')
   },
   {
-    path: '/process',
-    name: 'Process',
-    component: () => import('../../page/demos/other/ProcessDemo.vue')
+    path: '/progress',
+    name: 'Progress',
+    component: () => import('../../page/demos/other/ProgressDemo.vue')
   },
   {
     path: '/border',

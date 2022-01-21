@@ -21,7 +21,7 @@ import WInputNumber from './other/inputNumber/WInputNumber';
 import WMenu from './other/menu/WMenu';
 import WPrinter from "./other/printer/Printer";
 import WScrollNumber from './other/scrollNumber/WScrollNumber';
-import WProcess from './other/process/WProcess';
+import WProgress from './other/progress/WProgress';
 import WUpload from './other/upload/WUpload';
 
 import WPagination from './template/pagination/WPagination';
@@ -53,7 +53,7 @@ const components: Record<any, Component> = {
   WPagination,
   WUpload,
   WDivider,
-  WProcess,
+  WProgress,
   WAdventureDialog,
   WRadio,
   WCheckbox,
@@ -90,7 +90,7 @@ export {
   WPagination,
   WUpload,
   WDivider,
-  WProcess,
+  WProgress,
   WPrinter,
   WAdventureDialog,
   WRadio,
