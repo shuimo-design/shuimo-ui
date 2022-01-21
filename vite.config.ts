@@ -6,8 +6,7 @@ import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 export default defineConfig((configEnv: ConfigEnv) => {
   const { mode } = configEnv;
   let build: BuildOptions = {};
-  const isNpm = mode === 'npm';
-  if (isNpm) {
+  if (mode === 'npm') {
     build = {
       lib: {
         name: 'wash-painting-ui',
@@ -21,6 +20,6 @@ export default defineConfig((configEnv: ConfigEnv) => {
   return {
     build,
     server: { port: 8513 },
-    plugins: [isNpm ? undefined : codeHtmlPlugin, vue(), vueJsx()]
+    plugins: [mode === 'server' ? codeHtmlPlugin : undefined, vue(), vueJsx()]
   }
 })
