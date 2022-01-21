@@ -1,11 +1,13 @@
-import { defineConfig, ConfigEnv, BuildOptions } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig, ConfigEnv, BuildOptions } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 
 export default defineConfig((configEnv: ConfigEnv) => {
   const { mode } = configEnv;
   let build: BuildOptions = {};
-  if (mode === 'npm') {
+  const isNpm = mode === 'npm';
+  if (isNpm) {
     build = {
       lib: {
         name: 'wash-painting-ui',
@@ -18,10 +20,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
   }
   return {
     build,
-    plugins: [codeHtmlPlugin, vue()],
-    esbuild: {
-      jsxFactory: 'h',
-      jsxFragment: 'Fragment'
-    }
+    server: { port: 8513 },
+    plugins: [isNpm ? codeHtmlPlugin : undefined, vue(), vueJsx()]
   }
 })
