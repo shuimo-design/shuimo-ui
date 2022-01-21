@@ -1,7 +1,7 @@
 {
   "name": "@higuaifan/wash-painting-ui",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.1.11",
+  "version": "0.1.11-beta.1",
   "files": [
     "dist",
     "types"
