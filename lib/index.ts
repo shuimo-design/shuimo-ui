@@ -32,7 +32,7 @@ import WTabs from './template/tabs/WTabs';
 import WTable from "./template/table/WTable";
 import WTableColumn from "./template/table/WTableColumn";
 
-
+import WScroll from './other/scroll';
 
 
 import '../lib/style.scss'
@@ -102,7 +102,8 @@ export {
   WTableColumn,
   WBorder,
   WDrawer,
-  WConfirm
+  WConfirm,
+  WScroll
 };
 
 export const createWUI = () => {

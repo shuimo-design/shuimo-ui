@@ -6,7 +6,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { App } from "vue";
+import { App, Directive } from "vue";
 import { IMessage } from "./components/WMessage";
 import { IPrinter } from "./components/WPrint";
 import { IConfirm } from "./components/WConfirm";
@@ -24,4 +24,5 @@ export function createWUI(): {
 export const WMessage: IMessage;
 export const WPrinter: IPrinter;
 export const WConfirm: IConfirm;
+export const WScroll: Directive;
 
