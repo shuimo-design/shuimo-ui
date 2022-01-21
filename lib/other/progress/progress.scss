@@ -10,19 +10,16 @@ $per-font-size: var(--w-progress-per-font-size, 16px);
 
 .w-progress-border {
   display: inline-block;
-
-  &.show-info {
-    padding-top: $leaf-height;
-  }
+  width: $width;
 }
 
 .w-progress-per {
-  position: absolute;
+  position: relative;
   display: inline-block;
   width: $per-width;
   height: $per-height;
   line-height: $per-height;
-  margin-top: calc(#{$per-height} * -1 + #{$height} * 0.15);
+  top: calc(#{$per-height} * 0.4);
   font-size: $per-font-size;
   font-weight: bold;
 

@@ -1,11 +1,12 @@
 /**
- * @Description: 竹子进度条
+ * @Description: 进度条组件
  * @Author: 菩萨蛮
  * @Date: 2022/1/21 6:13 下午
  * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 修复width与预期不一致的问题，优化渲染逻辑
+ * v1.0.2 修复绝对定位造成竹叶及数字渲染位置错误的问题
  */
 import { defineComponent } from "vue";
 import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
@@ -32,8 +33,8 @@ const getSize = (w?: number, h?: number, w2h = W2H) => {
   }
   return size;
 };
-const getTextLeft = (width: number, perWidth: number, per: number) => {
-  return (width - perWidth / 2) * per / 100;
+const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: number) => {
+  return (width - leafWidth) * per / 100 - infoWidth / 2;
 }
 
 export default defineComponent({
@@ -66,17 +67,18 @@ export default defineComponent({
     const per = Math.ceil(ctx.value / ctx.max * 100);
     const perWidth = leafSize.width + infoWidth;
     const textStyle = {
-      '--w-progress-per-height': `${leafSize.height}px`,
-      '--w-progress-per-width': `${perWidth}px`,
-      left: `${getTextLeft(width, perWidth, per)}px`
+      left: `${getTextLeft(width, infoWidth, leafSize.width, per)}px`
     }
 
     const baseStyle: Object = {
+      ...style,
+      '--w-progress-per-height': `${leafSize.height}px`,
+      '--w-progress-per-width': `${perWidth}px`,
       '--w-progress-leaf-height': `${leafHeight}px`
     }
 
     return (
-      <div class={['w-progress-border', showInfo ? 'show-info' : '']} style={baseStyle}>
+      <div class={['w-progress-border']} style={baseStyle}>
         <div class='w-progress-per' style={textStyle}>
           <img class='leaf' src={leaf} alt=""/>
           <span>{per}%</span>

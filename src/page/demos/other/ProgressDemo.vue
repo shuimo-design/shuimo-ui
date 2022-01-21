@@ -2,6 +2,7 @@
   <div class="progress">
     <BaseTitle>建议实践</BaseTitle>
     <w-progress :width="399" :value="0" :max="100" :show-info="true"/>
+    <w-progress :width="399" :value="100" :max="100" :show-info="true"/>
     <br/>
     <w-progress :width="399" :value="100" :max="100" :show-info="true"/>
     <br/>
