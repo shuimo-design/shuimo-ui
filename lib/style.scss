@@ -27,3 +27,19 @@
 @import './message/adventureDialog/adventureDialog.scss';
 @import './message/drawer/drawer.scss';
 @import './message/confirm/confirm.scss';
+
+[class^="w-"], .w-cursor {
+  cursor: url("/lib/assets/cursor/auto.png"), auto;
+
+  &:disabled{
+    cursor: url("/lib/assets/cursor/disabled.png"), auto;
+  }
+}
+
+.w-cursor-pointer {
+  cursor: url("/lib/assets/cursor/pointer.png"), auto;
+}
+
+ .w-cursor-disabled {
+  cursor: url("/lib/assets/cursor/disabled.png"), auto;
+}
