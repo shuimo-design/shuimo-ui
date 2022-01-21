@@ -1,28 +1,33 @@
-$width: calc(var(--w-progress-width, 556px) * 2);
+$width: calc(var(--w-progress-width, 556px));
 $bg-width: var(--w-progress-width, 556px);
 $height: var(--w-progress-height, 37px);
-$bg-size: $bg-width $height;
+$bg-size: calc(#{$bg-width} / 2) $height;
 
-$leaf-height: var(--w-progress-leaf-height, 22px);
-$per-width: var(--w-progress-per-widht, 120px);
-$per-height: max(var(--w-progress-per-height, 20px),#{$leaf-height});
+$leaf-height: var(--w-progress-leaf-height, 28px);
+$per-width: var(--w-progress-per-width, 80px);
+$per-height: max(var(--w-progress-per-height, 20px), #{$leaf-height});
 $per-font-size: var(--w-progress-per-font-size, 16px);
 
 .w-progress-border {
   display: inline-block;
+
+  &.show-info {
+    padding-top: $leaf-height;
+  }
 }
 
 .w-progress-per {
-  position: relative;
-  width: calc(#{$per-width} * 0.98);
+  position: absolute;
+  display: inline-block;
+  width: $per-width;
   height: $per-height;
   line-height: $per-height;
-  top: calc(#{$per-height} * 0.2);
+  margin-top: calc(#{$per-height} * -1 + #{$height} * 0.15);
   font-size: $per-font-size;
   font-weight: bold;
 
-  span {
-    float: left;
+  img,span {
+    float: right;
   }
 }
 
@@ -35,8 +40,6 @@ $per-font-size: var(--w-progress-per-font-size, 16px);
   height: $height;
   -webkit-appearance: none;
 
-  //background-size: 556px 37px;
-
   //全部进度
   &::-webkit-progress-bar {
     background: url("/lib/assets/progress/bamboo_bg.png") repeat-x;
@@ -45,7 +48,7 @@ $per-font-size: var(--w-progress-per-font-size, 16px);
 
   //已完成进度
   &::-webkit-progress-value {
-    background: url("/lib/assets/progress/bamboo.png");
+    background: url("/lib/assets/progress/bamboo.png") repeat-x;
     background-size: $bg-size;
   }
 }
