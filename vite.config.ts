@@ -21,6 +21,6 @@ export default defineConfig((configEnv: ConfigEnv) => {
   return {
     build,
     server: { port: 8513 },
-    plugins: [isNpm ? codeHtmlPlugin : undefined, vue(), vueJsx()]
+    plugins: [isNpm ? undefined : codeHtmlPlugin, vue(), vueJsx()]
   }
 })
