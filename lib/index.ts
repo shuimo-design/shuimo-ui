@@ -21,7 +21,7 @@ import WInputNumber from './other/inputNumber/WInputNumber';
 import WMenu from './other/menu/WMenu';
 import WPrinter from "./other/printer/Printer";
 import WScrollNumber from './other/scrollNumber/WScrollNumber';
-import WProcess from './other/process/WProcess';
+import WProgress from './other/progress/WProgress';
 import WUpload from './other/upload/WUpload';
 
 import WPagination from './template/pagination/WPagination';
@@ -32,7 +32,7 @@ import WTabs from './template/tabs/WTabs';
 import WTable from "./template/table/WTable";
 import WTableColumn from "./template/table/WTableColumn";
 
-
+import WScroll from './other/scroll';
 
 
 import '../lib/style.scss'
@@ -53,7 +53,7 @@ const components: Record<any, Component> = {
   WPagination,
   WUpload,
   WDivider,
-  WProcess,
+  WProgress,
   WAdventureDialog,
   WRadio,
   WCheckbox,
@@ -90,7 +90,7 @@ export {
   WPagination,
   WUpload,
   WDivider,
-  WProcess,
+  WProgress,
   WPrinter,
   WAdventureDialog,
   WRadio,
@@ -102,7 +102,8 @@ export {
   WTableColumn,
   WBorder,
   WDrawer,
-  WConfirm
+  WConfirm,
+  WScroll
 };
 
 export const createWUI = () => {

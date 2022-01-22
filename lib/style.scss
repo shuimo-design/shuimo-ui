@@ -10,7 +10,7 @@
 @import './other/inputNumber/inputNumber.scss';
 @import './other/upload/upload.scss';
 @import './other/divider/divider.scss';
-@import './other/process/process.scss';
+@import './other/progress/progress.scss';
 @import './other/menu/menu.scss';
 @import "./other/border/border.scss";
 @import './other/scroll/scroll.scss';
@@ -21,9 +21,24 @@
 @import './template/tabs/tabs.scss';
 @import './template/table/table.scss';
 
-
 @import './message/dialog/dialog.scss';
 @import './message/message/message.scss';
 @import './message/adventureDialog/adventureDialog.scss';
 @import './message/drawer/drawer.scss';
 @import './message/confirm/confirm.scss';
+
+[class^="w-"], .w-cursor {
+  cursor: url("/lib/assets/cursor/auto.png"), auto;
+
+  &:disabled{
+    cursor: url("/lib/assets/cursor/disabled.png"), auto;
+  }
+}
+
+.w-cursor-pointer {
+  cursor: url("/lib/assets/cursor/pointer.png"), auto;
+}
+
+ .w-cursor-disabled {
+  cursor: url("/lib/assets/cursor/disabled.png"), auto;
+}

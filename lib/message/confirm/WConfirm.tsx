@@ -37,6 +37,8 @@ const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
           }
         },
         render(ctx: any) {
+          const confirmBtn = h(WButton, { text: '确定', onClick: ctx.confirm });
+          const cancelBtn = h(WButton, { text: '取消', type: 'gray', onClick: ctx.cancel });
           return (
             <div class="mask mask-bg">
               <div class="w-confirm">
@@ -45,8 +47,8 @@ const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
                     <span>{config.content}</span>
 
                     <div class="w-confirm-button">
-                      <WButton text='确定' onClick={ctx.confirm}/>
-                      <WButton type='gray' text='取消' onClick={ctx.cancel}/>
+                      {confirmBtn}
+                      {cancelBtn}
                     </div>
 
                   </div>

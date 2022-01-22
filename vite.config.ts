@@ -1,5 +1,6 @@
-import { defineConfig, ConfigEnv, BuildOptions } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig, ConfigEnv, BuildOptions } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 
 export default defineConfig((configEnv: ConfigEnv) => {
@@ -18,10 +19,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
   }
   return {
     build,
-    plugins: [codeHtmlPlugin, vue()],
-    esbuild: {
-      jsxFactory: 'h',
-      jsxFragment: 'Fragment'
-    }
+    server: { port: 8513 },
+    plugins: [mode === 'server' ? codeHtmlPlugin : undefined, vue(), vueJsx()]
   }
 })
