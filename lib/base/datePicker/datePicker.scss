@@ -1,3 +1,33 @@
+.w-date-picker {
+  width: 230px;
+  height: 37px;
+}
+
+.w-date-picker-div {
+  background-color: #fff;
+  display: inline-block;
+  width: calc(100% - 16px);
+  height: calc(100% - 6px);
+  border: 3px double transparent;
+  padding: 0 5px;
+  border-image: url("/lib/assets/input/input244.png") 3;
+
+  span {
+    line-height: 31px;
+  }
+
+  .calendar-icon {
+    background: transparent;
+    position: relative;
+    bottom: -3px;
+    float: right;
+
+    &:before {
+      content: url("/lib/assets/date-picker/calendar.png");
+    }
+  }
+}
+
 .calendar-dropdown {
   position: absolute;
   background: url("/lib/assets/date-picker/calendar_border.png") no-repeat;
@@ -77,3 +107,111 @@
   }
 }
 
+.date-table {
+  margin-top: 5px;
+
+  th {
+    padding: 0 10px;
+  }
+
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    width: 26px;
+    margin: auto;
+  }
+
+  .current {
+    background: url("/lib/assets/date-picker/circle.png") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .today {
+    font-weight: 700;
+    color: #1a336d;
+  }
+
+  .prev-month,
+  .next-month {
+    color: #a3a3a3;
+  }
+
+  td {
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+
+.month-table {
+  margin-top: 14px;
+
+  td {
+    padding: 8px 8px;
+
+    div {
+      height: 40px;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+
+      .w-cell {
+        width: 40px;
+        height: 40px;
+        display: block;
+        line-height: 40px;
+        color: #606266;
+        margin: 0 auto;
+        border-radius: 18px;
+        transition: all 0.4s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+      }
+
+      .today {
+        font-weight: 700;
+        color: #1a336d;
+      }
+
+      .current {
+        background: url("/lib/assets/date-picker/circle.png") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+
+.year-table {
+  margin-top: 10px;
+  td {
+    text-align: center;
+    padding: 15px 3px;
+
+    .w-cell {
+      width: 48px;
+      height: 30px;
+      display: block;
+      line-height: 30px;
+      color: #606266;
+      margin: 0 auto;
+      transition: all 0.4s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .today .w-cell {
+    font-weight: 700;
+    color: #1a336d;
+  }
+}
