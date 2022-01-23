@@ -7,7 +7,7 @@
  * Hello, humor
  */
 
-import { defineComponent, watch, computed, ref, Teleport, onMounted } from 'vue';
+import { defineComponent, watch, computed, ref, Teleport, onMounted, Transition } from 'vue';
 import {
   modifyDate,
   setDate,
@@ -138,7 +138,6 @@ export default defineComponent({
     }
     
     const datePickHandler = (d: Date) => {
-      console.log(d)
       let newDate = modifyDate(d, d.getFullYear(), d.getMonth(), d.getDate())
       defaultValue.value = setDate(newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate())
       emit('update:modelValue', defaultValue.value)
@@ -203,39 +202,41 @@ export default defineComponent({
           <div class="calendar-icon w-cursor"/>
         </div>
         <Teleport to="body">
-          <div v-show={calendarDropdown.value}
-            // @ts-ignore
-               style={dropdownStyle.value}
-               class="calendar-dropdown">
-            <div class="calendar-dropdown-header">
-              <button class="calendar-year-prev w-cursor" onClick={prevYearHandler}/>
-              <button class="calendar-month-prev w-cursor"
-                      v-show={currentView.value === 'date'}
-                      onClick={prevMonthHandler}/>
-              <span class="year w-cursor"
-                    onClick={showYearPicker}>{year.value}</span>
-              <span class="between w-cursor" v-show={currentView.value === 'date'}>，</span>
-              <span class="month w-cursor"
-                    onClick={showMonthPicker}
-                    v-show={currentView.value === 'date'}>{month.value}</span>
-              <button class="calendar-month-next w-cursor"
-                      v-show={currentView.value === 'date'}
-                      onClick={nextMonthHandler}/>
-              <button class="calendar-year-next w-cursor" onClick={nextYearHandler}/>
+          <Transition name="w-opacity">
+            <div v-show={calendarDropdown.value}
+              // @ts-ignore
+                 style={dropdownStyle.value}
+                 class="calendar-dropdown">
+              <div class="calendar-dropdown-header">
+                <button class="calendar-year-prev w-cursor" onClick={prevYearHandler}/>
+                <button class="calendar-month-prev w-cursor"
+                        v-show={currentView.value === 'date'}
+                        onClick={prevMonthHandler}/>
+                <span class="year w-cursor"
+                      onClick={showYearPicker}>{year.value}</span>
+                <span class="between w-cursor" v-show={currentView.value === 'date'}>，</span>
+                <span class="month w-cursor"
+                      onClick={showMonthPicker}
+                      v-show={currentView.value === 'date'}>{month.value}</span>
+                <button class="calendar-month-next w-cursor"
+                        v-show={currentView.value === 'date'}
+                        onClick={nextMonthHandler}/>
+                <button class="calendar-year-next w-cursor" onClick={nextYearHandler}/>
+              </div>
+              <div class="content">
+                <DateTable date={date.value}
+                           v-show={currentView.value === 'date'}
+                           onPick={datePickHandler}
+                           value={defaultValue.value}/>
+                <YearTable v-show={currentView.value === 'year'}
+                           onPick={yearPickerHandler}/>
+                <MonthTable v-show={currentView.value === 'month'}
+                            value={defaultValue.value}
+                            date={date.value}
+                            onPick={monthPickerHandler}/>
+              </div>
             </div>
-            <div class="content">
-              <DateTable date={date.value}
-                         v-show={currentView.value === 'date'}
-                         onPick={datePickHandler}
-                         value={defaultValue.value}/>
-              <YearTable v-show={currentView.value === 'year'}
-                         onPick={yearPickerHandler}/>
-              <MonthTable v-show={currentView.value === 'month'}
-                          value={defaultValue.value}
-                          date={date.value}
-                          onPick={monthPickerHandler}/>
-            </div>
-          </div>
+          </Transition>
         </Teleport>
       </div>
     )
