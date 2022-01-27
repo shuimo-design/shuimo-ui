@@ -123,18 +123,18 @@
     margin: auto;
   }
 
-  .current {
+  .w-date-current {
     background: url("/lib/assets/date-picker/circle.png") no-repeat;
     background-size: 100% 100%;
   }
 
-  .today {
+  .w-date-today {
     font-weight: 700;
     color: #1a336d;
   }
 
-  .prev-month,
-  .next-month {
+  .w-date-prev-month,
+  .w-date-next-month {
     color: #a3a3a3;
   }
 
@@ -176,12 +176,12 @@
 
       }
 
-      .today {
+      .w-month-today {
         font-weight: 700;
         color: #1a336d;
       }
 
-      .current {
+      .w-month-current {
         background: url("/lib/assets/date-picker/circle.png") no-repeat;
         background-size: 100% 100%;
       }
@@ -210,8 +210,13 @@
       }
     }
   }
-  .today .w-cell {
+  .w-year-today .w-cell {
     font-weight: 700;
     color: #1a336d;
+  }
+
+  .w-year-current {
+    background: url("/lib/assets/date-picker/circle.png") no-repeat;
+    background-size: 100% 100%;
   }
 }

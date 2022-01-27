@@ -14,7 +14,7 @@ import {
   coerceTruthyValueToArray,
   getTimestamp
 } from '../../../dependents/_utils/dateUtil';
-import useCommon from './useCommon';
+import useTypeTable from './useTypeTable';
 
 export default defineComponent({
   name: 'MonthTable',
@@ -44,7 +44,7 @@ export default defineComponent({
       date,
       value,
       tableRows
-    } = useCommon(props)
+    } = useTypeTable(props);
     
     const rows = computed(() => {
       const rows = tableRows;
@@ -87,18 +87,18 @@ export default defineComponent({
       const today = new Date();
       const month = cell.text;
       const dateVal = new Date(value.value);
-      style.current = arrayFindIndex(coerceTruthyValueToArray([dateVal]), (date: any) => date.getFullYear() === year && date.getMonth() === month) >= 0;
-      style.today = today.getFullYear() === year && today.getMonth() === month;
+      style['w-month-current'] = arrayFindIndex(coerceTruthyValueToArray([dateVal]), (date: any) => date.getFullYear() === year && date.getMonth() === month) >= 0;
+      style['w-month-today'] = today.getFullYear() === year && today.getMonth() === month;
   
       if (cell.inRange) {
-        style['in-range'] = true;
+        style['w-month-in-range'] = true;
     
         if (cell.start) {
-          style['start-date'] = true;
+          style['w-month-start-date'] = true;
         }
     
         if (cell.end) {
-          style['end-date'] = true;
+          style['w-month-end-date'] = true;
         }
       }
       return style;

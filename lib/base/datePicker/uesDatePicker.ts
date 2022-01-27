@@ -19,20 +19,27 @@ import {
   setDate,
   valueFormatByType
 } from '../../dependents/_utils/dateUtil';
+import {DOMTokenListToArray} from '../../dependents/_utils/dom';
 
 const useEvents = (setStyle: Function) => {
-  const calendarDropdown = ref<boolean>(false)
+  const isCalendarDropdown = ref<boolean>(false);
   
-  const mousedownEvent = (e: any) => {
-    if (e.path && e.path.length > 0) {
-      const isSelectDropdown = e.path.some((q: any) => q.classList && Array(...q.classList).includes('calendar-dropdown'));
+  const mousedownEvent = (e: MouseEvent) => {
+    const path = e.composedPath();
+    if (path && path.length > 0) {
+      const isSelectDropdown = path.some((e) => {
+        const q = e as Element;
+        return q.classList &&
+          [...DOMTokenListToArray(q.classList)].includes('calendar-dropdown');
+        
+      });
       if (!isSelectDropdown) {
         leaveDropdown();
       }
     } else {
       leaveDropdown();
     }
-  };
+  }
   
   const resizeWindow = () => {
     setStyle();
@@ -44,13 +51,13 @@ const useEvents = (setStyle: Function) => {
   }
   
   const leaveDropdown = () => {
-    calendarDropdown.value = false;
+    isCalendarDropdown.value = false;
     window.removeEventListener('mousedown', mousedownEvent);
     window.removeEventListener('resize', resizeWindow);
   };
   
   return {
-    calendarDropdown,
+    isCalendarDropdown,
     mousedownEvent,
     setEvents,
     leaveDropdown
@@ -132,17 +139,17 @@ const useDate = () => {
 }
 
 export const useDatePicker = (props: any, emit: any) => {
-  const { setStyle, selectRef, dropdownStyle } = useDom()
-  const { setEvents, calendarDropdown }  = useEvents(setStyle)
+  const { setStyle, selectRef, dropdownStyle } = useDom();
+  const { setEvents, isCalendarDropdown }  = useEvents(setStyle);
   const { date, year, month, currentView, showMonthPicker, showYearPicker } = useDate();
   
-  const defaultValue = ref<string>('')
+  const defaultValue = ref<string>('');
   
   const datePickHandler = (d: Date) => {
     let newDate = modifyDate(d, d.getFullYear(), d.getMonth(), d.getDate());
     defaultValue.value = setDate(newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate());
-    emitHandler(defaultValue.value)
-    calendarDropdown.value = false;
+    emitHandler(defaultValue.value);
+    isCalendarDropdown.value = false;
     date.value = newDate;
   };
   
@@ -174,37 +181,35 @@ export const useDatePicker = (props: any, emit: any) => {
     }
     if (props.type === 'month') {
       defaultValue.value = valueFormatByType(date.value, 'month');
-      calendarDropdown.value = false;
-      emitHandler(defaultValue.value)
+      isCalendarDropdown.value = false;
+      emitHandler(defaultValue.value);
       return;
     }
     currentView.value = 'date';
   };
   
   const yearPickerHandler = (y: number) => {
-    if (typeof month.value === 'number') {
-      date.value = changeYearMonthAndClampDate(date.value, y, month.value);
-    }
+    date.value = changeYearMonthAndClampDate(date.value, y, Number(month.value));
     currentView.value = 'month';
   };
   
   const showCalendar = () => {
     setStyle();
     setEvents();
-    calendarDropdown.value = !calendarDropdown.value;
-  }
+    isCalendarDropdown.value = !isCalendarDropdown.value;
+  };
   
   const emitHandler = (value: string) => {
     emit('update:modelValue', value);
     emit('change', value);
-  }
+  };
   
   return {
     defaultValue,
     date, year, month,
     currentView,
     selectRef,
-    calendarDropdown,
+    isCalendarDropdown,
     dropdownStyle,
     showCalendar,
     prevYearHandler, prevMonthHandler,

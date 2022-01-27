@@ -16,7 +16,7 @@ import {
   getTimestamp,
   nextDate
 } from '../../../dependents/_utils/dateUtil';
-import useCommon from './useCommon';
+import useTypeTable from './useTypeTable';
 
 export default defineComponent({
   name: 'DateTable',
@@ -55,7 +55,7 @@ export default defineComponent({
       date,
       value,
       tableRows
-    } = useCommon(props)
+    } = useTypeTable(props)
     
     const offsetDay = computed(() => firstDayOfWeek.value > 3 ? 7 - firstDayOfWeek.value : -firstDayOfWeek.value);
     
@@ -108,14 +108,14 @@ export default defineComponent({
               cell.text = count++;
             } else {
               cell.text = dateCountOfLastMonth - (numberOfDaysFromPreviousMonth - j % 7) + 1 + i * 7;
-              cell.type = 'prev-month';
+              cell.type = 'w-date-prev-month';
             }
           } else {
             if (count <= dateCountOfMonth) {
               cell.text = count++;
             } else {
               cell.text = count++ - dateCountOfMonth;
-              cell.type = 'next-month';
+              cell.type = 'w-date-next-month';
             }
           }
       
@@ -140,34 +140,34 @@ export default defineComponent({
       let classes = [];
       if ((cell.type === 'normal' || cell.type === 'today') && !cell.disabled) {
         if (cell.type === 'today') {
-          classes.push('today');
+          classes.push('w-date-today');
         }
       } else {
         classes.push(cell.type);
       }
   
       if (selectionMode === 'day' && (cell.type === 'normal' || cell.type === 'today') && cellMatchesDate(cell, value.value)) {
-        classes.push('current');
+        classes.push('w-date-current');
       }
   
       if (cell.inRange && ((cell.type === 'normal' || cell.type === 'today'))) {
-        classes.push('in-range');
+        classes.push('w-date-in-range');
     
         if (cell.start) {
-          classes.push('start-date');
+          classes.push('w-start-date');
         }
     
         if (cell.end) {
-          classes.push('end-date');
+          classes.push('w-end-date');
         }
       }
   
       if (cell.disabled) {
-        classes.push('disabled');
+        classes.push('w-date-disabled');
       }
   
       if (cell.selected) {
-        classes.push('selected');
+        classes.push('w-date-selected');
       }
   
       return classes;

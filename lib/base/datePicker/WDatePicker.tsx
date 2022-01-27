@@ -39,14 +39,14 @@ export default defineComponent({
       date, year, month,
       currentView,
       selectRef,
-      calendarDropdown,
+      isCalendarDropdown,
       dropdownStyle,
       showCalendar,
       prevYearHandler, prevMonthHandler,
       nextYearHandler, nextMonthHandler,
       showYearPicker, showMonthPicker,
       datePickHandler, monthPickerHandler, yearPickerHandler
-    } = useDatePicker(props, emit)
+    } = useDatePicker(props, emit);
     watch(() => props.modelValue, () => setDefaultValue());
     
     const setDefaultValue = () => {
@@ -69,7 +69,7 @@ export default defineComponent({
         </div>
         <Teleport to="body">
           <Transition name="w-opacity">
-            <div v-show={calendarDropdown.value}
+            <div v-show={isCalendarDropdown.value}
                  style={dropdownStyle.value}
                  class="calendar-dropdown">
               <div class="calendar-dropdown-header">

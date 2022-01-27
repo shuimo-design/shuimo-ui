@@ -30,8 +30,8 @@ export default defineComponent({
       const style = Object.create({});
       const today = new Date();
   
-      style.current = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
-      style.today = today.getFullYear() === year;
+      style['w-year-current'] = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
+      style['w-year-today'] = today.getFullYear() === year;
   
       return style;
     }
