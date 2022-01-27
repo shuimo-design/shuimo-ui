@@ -7,6 +7,8 @@
  * Hello, humor
  */
 
+import Printer from '../../other/printer/Printer';
+
 /**
  * 获取本月第一天
  * @param date
@@ -66,9 +68,10 @@ export const getStartDateOfMonth = (year: number, month: number) => {
 /**
  * 初始化日期
  * @param date
+ * @param type
  */
-export const clearTime = (date: Date) => {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+export const clearTime = (date: Date, type: string) => {
+  return new Date(date.getFullYear(), date.getMonth(), type === 'date' ? date.getDate() : undefined);
 };
 
 /**
@@ -115,8 +118,8 @@ export const coerceTruthyValueToArray = (val: any[]) => {
 export const isDate = (date: any) => {
   if (date === null || date === undefined) return false;
   if (isNaN(new Date(date).getTime())) return false;
-  if (Array.isArray(date)) return false;
-  return true;
+  return !Array.isArray(date);
+  
 };
 
 /**
@@ -209,9 +212,27 @@ export const nextYear = (date: Date, amount = 1) => {
  * @param type
  */
 export const valueFormatByType = (val: string | Date, type: string) => {
+  if (!val) {
+    return '';
+  }
   const date = new Date(val);
   const year = date.getFullYear();
   const m = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
   const d = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   return type === 'date' ? `${year}-${m}-${d}` : `${year}-${m}`;
+};
+
+/**
+ * 获取时间戳
+ * @param time
+ * @param type
+ */
+export const getTimestamp = (time: any, type='date') => {
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearTime(new Date(time), type).getTime();
+  } else if (time instanceof Date) {
+    return clearTime(time, type).getTime();
+  }
+  Printer('水墨UI表格组件').error('须传入正确的日期格式');
+  return NaN
 };

@@ -3,7 +3,7 @@ import { App, Component } from 'vue';
 import WInput from './base/input/WInput.vue';
 import WButton from './base/button/WButton';
 import WSelect from './base/select/WSelect';
-import WDatePicker from './base/datePicker/WDatePicker.vue';
+import WDatePicker from './base/datePicker/WDatePicker';
 import WRadio from './base/radio/WRadio.vue';
 import WCheckbox from './base/checkbox/WCheckbox.vue';
 

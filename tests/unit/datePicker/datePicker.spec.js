@@ -8,7 +8,7 @@
  */
 
 import {mount, DOMWrapper} from '@vue/test-utils';
-import WDatePicker from '../../../lib/datePicker/WDatePicker.vue';
+import WDatePicker from '../../../lib/base/datePicker/WDatePicker';
 
 describe('日期选择组件', () => {
   test('无参数渲染', () => {
@@ -73,7 +73,7 @@ describe('日期选择组件', () => {
 
 
     await calendar.find('.year').trigger('click');
-    await calendar.find('.year-table .today .cell').trigger('click');
+    await calendar.find('.year-table .today .w-cell').trigger('click');
     expect(calendar.find('.year').text()).toBe(`${year}`);
     expect(calendar.find('.month-table').isVisible()).toBe(true);
 
@@ -82,7 +82,7 @@ describe('日期选择组件', () => {
     expect(calendar.find('.date-table').isVisible()).toBe(true);
 
     await calendar.find('.date-table td .today').trigger('click');
-    expect(wrapper.vm.defaultValue).toBeDefined();
+    expect(wrapper.vm.$props.modelValue).toBeDefined();
     map.mousedown({
       path: [{classList: ['calendar-dropdown']}]
     })
@@ -118,7 +118,7 @@ describe('日期选择组件', () => {
 
     await calendar.find('.month-table td div .today').trigger('click');
     expect(calendar.find('.month').text()).toBe(`${month}`);
-    expect(wrapper.vm.defaultValue).toBeDefined();
+    expect(wrapper.vm.$props.modelValue).toBeDefined();
     setTimeout(async() => {
       expect(calendar.isVisible()).toBe(false);
       done()
