@@ -10,33 +10,13 @@
 import { computed, defineComponent, reactive, toRefs } from 'vue';
 import {
   arrayFind,
-  clearTime as _clearTime,
   getDayCountOfMonth,
   getFirstDayOfMonth,
   getStartDateOfMonth,
+  getTimestamp,
   nextDate
 } from '../../../dependents/_utils/dateUtil';
-
-const getDateTimestamp = (time: any) => {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return _clearTime(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return _clearTime(time).getTime();
-  }
-  return NaN;
-};
-
-type DateCellType = {
-  row: number,
-  column: number,
-  type: string,
-  inRange: boolean,
-  start: boolean,
-  end: boolean,
-  text?: number,
-  selected?: boolean,
-  disabled?: boolean
-}
+import useCommon from './useCommon';
 
 export default defineComponent({
   name: 'DateTable',
@@ -45,13 +25,22 @@ export default defineComponent({
       default: 1,
       type: Number
     },
-    minDate: {},
-    maxDate: {},
-    date: {
-      type: Date,
+    minDate: {
+      type: Object,
       default: () => new Date()
     },
-    value: {},
+    maxDate: {
+      type: Object,
+      default: () => new Date()
+    },
+    date: {
+      type: Object,
+      default: () => new Date()
+    },
+    value: {
+      type: String,
+      default: ''
+    },
     defaultValue: {
       type: String,
       default: ''
@@ -59,15 +48,21 @@ export default defineComponent({
   },
   emits: ['pick'],
   setup(props, {emit}) {
-    const { firstDayOfWeek, minDate, maxDate, date, value } = toRefs(props)
-    const tableRows = reactive<Array<Array<DateCellType>>>([[], [], [], [], [], []])
+    const { firstDayOfWeek } = toRefs(props);
+    const {
+      minDate,
+      maxDate,
+      date,
+      value,
+      tableRows
+    } = useCommon(props)
     
-    const offsetDay = computed(() => firstDayOfWeek.value > 3 ? 7 - firstDayOfWeek.value : -firstDayOfWeek.value)
+    const offsetDay = computed(() => firstDayOfWeek.value > 3 ? 7 - firstDayOfWeek.value : -firstDayOfWeek.value);
     
-    const month = computed(() => date.value.getMonth())
-    const year = computed(() => date.value.getFullYear())
+    const month = computed(() => date.value.getMonth());
+    const year = computed(() => date.value.getFullYear());
     
-    const startDate = computed(() => getStartDateOfMonth(year.value, month.value))
+    const startDate = computed(() => getStartDateOfMonth(year.value, month.value));
     
     const rows = computed(() => {
       const currentDate = new Date(year.value, month.value, 1);
@@ -82,7 +77,7 @@ export default defineComponent({
       let count = 1;
       
       const selectedDate: any = [];
-      const now = getDateTimestamp(new Date());
+      const now = getTimestamp(new Date());
   
       for (let i = 0; i < 6; i++) {
         const row = rows[i];
@@ -97,11 +92,9 @@ export default defineComponent({
       
           const index = i * 7 + j;
           const time = nextDate(startDate.value, index - offset).getTime();
-          cell.inRange = time >= getDateTimestamp(minDate.value) && time <= getDateTimestamp(maxDate.value);
-          // @ts-ignore
-          cell.start = minDate.value && time === getDateTimestamp(minDate.value);
-          // @ts-ignore
-          cell.end = maxDate.value && time === getDateTimestamp(maxDate.value);
+          cell.inRange = time >= getTimestamp(minDate.value) && time <= getTimestamp(maxDate.value);
+          cell.start = time === getTimestamp(minDate.value);
+          cell.end = time === getTimestamp(maxDate.value);
           const isToday = time === now;
       
           if (isToday) {
@@ -134,19 +127,18 @@ export default defineComponent({
       return rows;
     })
     
-    const cellMatchesDate = (cell: DateCellType, date: any) => {
-      const currentDate = new Date(date)
+    const cellMatchesDate = (cell: CellType, date: any) => {
+      const currentDate = new Date(date);
       return year.value === currentDate.getFullYear()
         && month.value === currentDate.getMonth()
-        && Number(cell.text) === currentDate.getDate()
+        && Number(cell.text) === currentDate.getDate();
     }
     
-    const getCellClasses = (cell: DateCellType) => {
+    const getCellClasses = (cell: CellType) => {
       const selectionMode = 'day';
   
       let classes = [];
       if ((cell.type === 'normal' || cell.type === 'today') && !cell.disabled) {
-        classes.push('w-available');
         if (cell.type === 'today') {
           classes.push('today');
         }
@@ -178,12 +170,12 @@ export default defineComponent({
         classes.push('selected');
       }
   
-      return classes.join(' ');
+      return classes;
     }
     
     const getDateOfCell = (row: number, column: number) => {
-      const offsetFromStart = row * 7 + column - offsetDay.value
-      return nextDate(startDate.value, offsetFromStart)
+      const offsetFromStart = row * 7 + column - offsetDay.value;
+      return nextDate(startDate.value, offsetFromStart);
     }
     
     const clickHandler = (event: any) => {
@@ -207,7 +199,7 @@ export default defineComponent({
     
     return () => (
       <table onClick={clickHandler}
-             class="date-table"
+             class="w-date-table"
              cellspacing="0"
              cellpadding="0">
         <tbody>
@@ -225,7 +217,7 @@ export default defineComponent({
               <tr key={key}>
                 {
                   row.map((cell: any, k: number) => (
-                    <td key={k} class="w-cursor">
+                    <td key={k} class="w-cursor-pointer">
                       <div class={getCellClasses(cell)}>
                         <span>{ cell.text }</span>
                       </div>

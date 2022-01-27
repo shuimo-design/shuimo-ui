@@ -46,9 +46,9 @@
     align-items: center;
     justify-content: center;
 
-    .year,
-    .month,
-    .between {
+    .w-year,
+    .w-month,
+    .w-block-between {
       font-size: 20px;
       text-align: left;
       color: #333333;
@@ -107,7 +107,7 @@
   }
 }
 
-.date-table {
+.w-date-table {
   margin-top: 5px;
 
   th {
@@ -148,7 +148,7 @@
 }
 
 
-.month-table {
+.w-month-table {
   margin-top: 14px;
 
   td {
@@ -190,7 +190,7 @@
 }
 
 
-.year-table {
+.w-year-table {
   margin-top: 10px;
   td {
     text-align: center;

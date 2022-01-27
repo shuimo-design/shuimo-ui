@@ -7,41 +7,27 @@
  * Hello, humor
  */
 
-import {defineComponent, computed, toRefs, reactive} from 'vue';
-import {arrayFind, arrayFindIndex, coerceTruthyValueToArray} from '../../../dependents/_utils/dateUtil';
-
-const clearDate = (date: any) => {
-  return new Date(date.getFullYear(), date.getMonth());
-};
-
-const getMonthTimestamp = (time: any) => {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return clearDate(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return clearDate(time).getTime();
-  } else {
-    return NaN;
-  }
-};
-
-type MonthCellType = {
-  row: number,
-  column: number,
-  type: string,
-  inRange: boolean,
-  start: boolean,
-  end: boolean,
-  text?: number,
-  selected?: boolean,
-  disabled?: boolean
-}
+import { defineComponent, computed, toRefs, reactive } from 'vue';
+import {
+  arrayFind,
+  arrayFindIndex,
+  coerceTruthyValueToArray,
+  getTimestamp
+} from '../../../dependents/_utils/dateUtil';
+import useCommon from './useCommon';
 
 export default defineComponent({
   name: 'MonthTable',
   emits: ['pick'],
   props: {
-    minDate: {},
-    maxDate: {},
+    minDate: {
+      type: Object,
+      default: () => new Date()
+    },
+    maxDate: {
+      type: Object,
+      default: () => new Date()
+    },
     date: {
       type: Date,
       default: () => new Date()
@@ -52,14 +38,18 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const { minDate, maxDate, date, value } = toRefs(props)
-  
-    const tableRows = reactive<Array<Array<MonthCellType>>>([[], [], [], [], [], []])
+    const {
+      minDate,
+      maxDate,
+      date,
+      value,
+      tableRows
+    } = useCommon(props)
     
     const rows = computed(() => {
       const rows = tableRows;
       const selectedDate: any = [];
-      const now = getMonthTimestamp(new Date(new Date().getFullYear(), new Date().getMonth()));
+      const now = getTimestamp(new Date(new Date().getFullYear(), new Date().getMonth()), 'month');
   
       for (let i = 0; i < 3; i++) {
         const row = rows[i];
@@ -73,11 +63,9 @@ export default defineComponent({
       
           const index = i * 4 + j;
           const time = new Date(date.value.getFullYear(), index).getTime();
-          cell.inRange = time >= getMonthTimestamp(minDate.value) && time <= getMonthTimestamp(maxDate.value);
-          // @ts-ignore
-          cell.start = minDate.value && time === getMonthTimestamp(minDate.value);
-          // @ts-ignore
-          cell.end = maxDate.value && time === getMonthTimestamp(maxDate.value);
+          cell.inRange = time >= getTimestamp(minDate.value, 'month') && time <= getTimestamp(maxDate.value, 'month');
+          cell.start = time === getTimestamp(minDate.value, 'month');
+          cell.end = time === getTimestamp(maxDate.value, 'month');
           const isToday = time === now;
       
           if (isToday) {
@@ -93,7 +81,7 @@ export default defineComponent({
       return rows;
     })
     
-    const getCellStyle = (cell: MonthCellType) => {
+    const getCellStyle = (cell: CellType) => {
       const style = Object.create({});
       const year = date.value.getFullYear();
       const today = new Date();
@@ -118,7 +106,7 @@ export default defineComponent({
     
     const monthTableClickHandler = (event: any) => {
       let target = event.target;
-      if (target.tagName === 'A') {
+      if (target.tagName === 'SPAN') {
         target = target.parentNode.parentNode;
       }
       if (target.tagName === 'DIV') {
@@ -132,7 +120,7 @@ export default defineComponent({
     }
     
     return () => (
-      <table class="month-table" onClick={monthTableClickHandler}>
+      <table class="w-month-table" onClick={monthTableClickHandler}>
         <tbody>
         {
           rows.value.map((row: any, key) => (
@@ -140,10 +128,10 @@ export default defineComponent({
               {
                 row.map((cell: any, k: number) => (
                   <td key={k}>
-                    <div class="w-cursor">
-                      <a class={["w-cell", "w-cursor", getCellStyle(cell)]}>
+                    <div class="w-cursor-pointer">
+                      <span class={["w-cell", "w-cursor-pointer", getCellStyle(cell)]}>
                         {`${cell.text + 1}月`}
-                      </a>
+                      </span>
                     </div>
                   </td>
                 ))
@@ -153,6 +141,6 @@ export default defineComponent({
         }
         </tbody>
       </table>
-    )
+    );
   }
-})
+});

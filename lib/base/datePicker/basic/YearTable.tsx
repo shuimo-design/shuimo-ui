@@ -10,6 +10,8 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { arrayFindIndex, coerceTruthyValueToArray } from '../../../dependents/_utils/dateUtil';
 
+const YEAR_DISPLAY = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9]];
+
 export default defineComponent({
   name: 'YearTable',
   emits: ['pick'],
@@ -20,13 +22,13 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const { date } = toRefs(props)
+    const { date } = toRefs(props);
     
-    const startYear = computed(() => Math.floor(date.value.getFullYear() / 10) * 10)
+    const startYear = computed(() => Math.floor(date.value.getFullYear() / 10) * 10);
     
     const getCellStyle = (year: any) => {
-      const style = Object.create({})
-      const today = new Date()
+      const style = Object.create({});
+      const today = new Date();
   
       style.current = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
       style.today = today.getFullYear() === year;
@@ -36,53 +38,26 @@ export default defineComponent({
     
     const yearTableClickHandler = (event: any) => {
       const target = event.target;
-      if (target.tagName === 'A') {
+      if (target.tagName === 'SPAN') {
         const year = target.textContent || target.innerText;
         emit('pick', Number(year));
       }
     }
     
     return () => (
-      <table onClick={yearTableClickHandler} class="year-table">
+      <table onClick={yearTableClickHandler} class="w-year-table">
         <tbody>
+        {YEAR_DISPLAY.map(years =>(
           <tr>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value)]}>
-              <a class="w-cell w-cursor">{startYear.value}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 1)]}>
-              <a class="w-cell w-cursor">{startYear.value + 1}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 2)]}>
-              <a class="w-cell w-cursor">{startYear.value + 2}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 3)]}>
-              <a class="w-cell w-cursor">{startYear.value + 3}</a>
-            </td>
+            {years.map(y => (
+              <td class={["w-available", "w-cursor-pointer", getCellStyle(startYear.value + y)]}>
+                <span class="w-cell w-cursor-pointer">{startYear.value + y}</span>
+              </td>
+            ))}
           </tr>
-          <tr>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 4)]}>
-              <a class="w-cell w-cursor">{startYear.value + 4}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 5)]}>
-              <a class="w-cell w-cursor">{startYear.value + 5}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 6)]}>
-              <a class="w-cell w-cursor">{startYear.value + 6}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 7)]}>
-              <a class="w-cell w-cursor">{startYear.value + 7}</a>
-            </td>
-          </tr>
-          <tr>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 8)]}>
-              <a class="w-cell w-cursor">{startYear.value + 8}</a>
-            </td>
-            <td class={["w-available", "w-cursor", getCellStyle(startYear.value + 9)]}>
-              <a class="w-cell w-cursor">{startYear.value + 9}</a>
-            </td>
-          </tr>
+        ))}
         </tbody>
       </table>
-    )
+    );
   }
-})
+});
