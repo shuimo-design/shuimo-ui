@@ -1,3 +1,12 @@
+/**
+ * @Description: 文件上传组件
+ * @Author: youus
+ * @Date: 2021/1/19 4:05 下午
+ * @Version v1.0.1
+ *
+ * 公司的业务千篇一律，复杂的代码好几百行。
+ * v1.0.1 input添加pointer样式 阿怪
+ */
 import {h, defineComponent} from "vue";
 
 export default defineComponent({
@@ -26,8 +35,7 @@ export default defineComponent({
     return (
         <div class={'w-upload'} >
           <span>{this.$slots.default()}</span>
-          <input type="file" accept={fileTypes} onchange={changeHandle}>
-          </input>
+          <input class="w-cursor-pointer" type="file" accept={fileTypes} onchange={changeHandle}/>
         </div>
     )
   }
