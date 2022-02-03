@@ -22,50 +22,31 @@
   </div>
 </template>
 
-<script>
+
+<script setup lang="ts">
 /**
- * @Description:
+ * @Description: dialog demo
  * @Author: 菩萨蛮
  * @Date: 2020/11/27 10:32 下午
- * @Version v1.0.0
+ * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ *  v1.0.1 改为setup script写法
  */
+import { reactive, ref } from 'vue';
 
-export default {
-  name: 'DialogDemo',
-  data() {
-    return {
-      dialogVisible: false,
-      dialogNormalVisible: false,
-      maskNoShowOption: {
-        show: false,
-        clickClose: false
-      },
-      dialogAdventureVisible: false
-    }
-  },
-  methods: {
-    show() {
-      this.dialogVisible = true;
-    },
-    showNormal() {
-      this.dialogNormalVisible = true;
-    },
-    close() {
-      this.dialogVisible = false;
-    },
-    closeNormal() {
-      this.dialogNormalVisible = false;
-    },
-    showAdventure() {
-      this.dialogAdventureVisible = true;
-    },
-    closeAdventure() {
-      this.dialogAdventureVisible = false;
-    }
-  }
-};
+const dialogVisible = ref(false);
+const dialogNormalVisible = ref(false);
+const dialogAdventureVisible = ref(false);
+const maskNoShowOption = reactive({ show: false, clickClose: false });
+
+const show = () => {dialogVisible.value = true};
+const showNormal = () => {dialogNormalVisible.value = true};
+const close = () => {dialogVisible.value = false};
+const closeNormal = () => {dialogNormalVisible.value = false};
+const showAdventure = () => {dialogAdventureVisible.value = true};
+const closeAdventure = () => {dialogAdventureVisible.value = false};
+
 </script>
 
 <style lang="scss" scoped>
