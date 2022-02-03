@@ -48,8 +48,8 @@ export default function DialogHandler(props: any, context: any) {
     if (slotDom && slotDom[0]) {
       const slotDomDefault = slotDom[0];
       let dom = slotDomDefault.el as Element;
-      if (!dom) {
-        const className = slotDomDefault.props!.class;
+      if (!dom && slotDomDefault.props) {
+        const className = slotDomDefault.props.class;
         const domList = document.getElementsByClassName(className)
         if (domList && domList.length === 1) {
           dom = domList[0];
