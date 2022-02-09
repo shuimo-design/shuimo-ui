@@ -59,7 +59,7 @@ export default defineComponent({
       <Teleport to="body">
         <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
           <div class="w-dialog" style={this.baseStyle}>
-            <div class="dialog-close-btn w-cursor" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
+            <div class="dialog-close-btn w-cursor-pointer" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
             {this.$slots.default!()}
           </div>
         </div>

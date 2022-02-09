@@ -23,7 +23,7 @@ export default defineComponent({
       text = slots.default();
     }
     return h('button', {
-      class: ['w-button w-cursor', { 'w-button-disabled': disabled }, `w-button-${type}`],
+      class: ['w-button w-cursor-pointer', { 'w-button-disabled': disabled }, `w-button-${type}`],
       disabled: disabled
     }, text);
   }
