@@ -12,6 +12,7 @@ import { IPrinter } from "./components/WPrint";
 import { IConfirm } from "./components/WConfirm";
 
 export * from './components/components';
+export * from './components/hooks';
 
 declare module "wash-painting-ui" {
 

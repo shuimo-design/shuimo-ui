@@ -33,7 +33,7 @@ import WTable from "./template/table/WTable";
 import WTableColumn from "./template/table/WTableColumn";
 
 import WScroll from './other/scroll';
-
+import useDialog from './message/dialog/useDialog';
 
 import '../lib/style.scss'
 
@@ -103,7 +103,8 @@ export {
   WBorder,
   WDrawer,
   WConfirm,
-  WScroll
+  WScroll,
+  useDialog,
 };
 
 export const createWUI = () => {
