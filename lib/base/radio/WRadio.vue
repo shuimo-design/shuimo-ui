@@ -69,7 +69,7 @@ export default {
       default: '',
     }
   },
-  emits: [UPDATE_MODEL_EVENT, 'change'],
+  emits: [UPDATE_MODEL_EVENT, 'change', 'before'],
   setup(props, ctx) {
     const {
       focus
