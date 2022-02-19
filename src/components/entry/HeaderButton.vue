@@ -1,5 +1,5 @@
 <template>
-  <div class="header-button w-cursor">
+  <div class="header-button w-cursor-pointer">
     <slot></slot>
   </div>
 </template>

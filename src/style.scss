@@ -20,14 +20,6 @@ body {
   background-size: 100% auto;
 }
 
-.w-cursor, .w-cursor-pointer {
-  cursor: url("./assets/mouse/cursor.png"), auto;
-}
-
-*:disabled, .w-cursor-disabled {
-  cursor: url("./assets/mouse/disabled.png"), auto;
-}
-
 .w-menu {
   font-family: wljh, serif;
   letter-spacing: 2px;
