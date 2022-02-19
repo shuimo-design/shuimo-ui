@@ -1,6 +1,6 @@
 <template>
   <label
-      class="w-radio w-cursor"
+      class="w-radio w-cursor-pointer"
       :class="{
       'is-disabled': isDisabled,
       'is-focus': focus,
@@ -13,20 +13,20 @@
       @keydown.space.stop.prevent="model = isDisabled ? model : label"
   >
     <span
-        class="w-radio__input w-cursor"
+        class="w-radio__input w-cursor-pointer"
         :class="{
         'is-disabled': isDisabled,
         'is-checked': model === label
       }"
     >
-      <span class="w-radio__inner w-cursor">
+      <span class="w-radio__inner w-cursor-pointer">
         <img src="/lib/assets/radio/border.png" alt="">
-        <span class="w-radio__inner_checked"></span>
+        <span class="w-radio__inner_checked w-cursor-pointer"></span>
       </span>
       <input
           ref="radioRef"
           v-model="model"
-          class="w-radio__original"
+          class="w-radio__original w-cursor-pointer"
           :value="label"
           type="radio"
           aria-hidden="true"
@@ -39,7 +39,7 @@
           @click.stop="beforeClick(label)"
       >
     </span>
-    <span class="w-radio__label" @keydown.stop>
+    <span class="w-radio__label w-cursor-pointer" @keydown.stop>
       <slot>
         {{ label }}
       </slot>

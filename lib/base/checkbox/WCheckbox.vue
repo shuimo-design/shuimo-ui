@@ -1,7 +1,7 @@
 <template>
   <label
       :id="id"
-      class="w-checkbox w-cursor"
+      class="w-checkbox w-cursor-pointer"
       :class="[
       { 'is-disabled': isDisabled },
       { 'is-checked': isChecked }
@@ -20,9 +20,9 @@
         :role="indeterminate ? 'checkbox' : false"
         :aria-checked="indeterminate ? 'mixed' : false"
     >
-      <span class="w-checkbox__inner">
+      <span class="w-checkbox__inner w-cursor-pointer">
         <img src="/lib/assets/checkbox/border.png" alt="">
-        <span class="w-checkbox__inner_checked"></span>
+        <span class="w-checkbox__inner_checked w-cursor-pointer"></span>
       </span>
       <input
           v-if="trueLabel || falseLabel"
@@ -53,7 +53,7 @@
           @blur="focus = false"
       >
     </span>
-    <span v-if="$slots.default || label" class="w-checkbox__label">
+    <span v-if="$slots.default || label" class="w-checkbox__label w-cursor-pointer">
       <slot></slot>
       <template v-if="!$slots.default">{{ label }}</template>
     </span>

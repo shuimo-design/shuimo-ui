@@ -70,9 +70,9 @@ export default defineComponent({
         <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
           <div class="w-adventure-dialog" style={this.baseStyle}>
             <div class="dialog-girl" style={this.girlBaseStyle}/>
-            <div class="dialog-close-btn w-cursor" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
+            <div class="dialog-close-btn w-cursor-pointer" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
             {this.$slots.default!()}
-            <div class="dialog-confirm-btn w-cursor" onClick={confirmDialog}>{confirmText}</div>
+            <div class="dialog-confirm-btn w-cursor-pointer" onClick={confirmDialog}>{confirmText}</div>
           </div>
         </div>
       </Teleport>

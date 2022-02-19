@@ -63,7 +63,7 @@ export default defineComponent({
   },
   render(ctx: any) {
     const { navList, currentValue } = ctx;
-    const tabClass = (tab: TabType) => ['w-tabs-tab', 'w-cursor', { 'w-tabs-tab-active': tab.name === currentValue }];
+    const tabClass = (tab: TabType) => ['w-tabs-tab', 'w-cursor-pointer', { 'w-tabs-tab-active': tab.name === currentValue }];
 
     const tabs = navList.map((tab: TabType, index: number) => {
       const main = h('div', { class: ['tab-main'] }, [tab.label])
