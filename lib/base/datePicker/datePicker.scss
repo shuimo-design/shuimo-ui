@@ -1,16 +1,12 @@
 .w-date-picker {
   width: 230px;
-  height: 37px;
+  border: 3px double transparent;
 }
 
 .w-date-picker-div {
-  background-color: #fff;
   display: inline-block;
   width: calc(100% - 16px);
   height: calc(100% - 6px);
-  border: 3px double transparent;
-  padding: 0 5px;
-  border-image: url("/lib/assets/input/input244.png") 3;
 
   span {
     line-height: 31px;
