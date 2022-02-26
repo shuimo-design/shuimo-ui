@@ -1,6 +1,6 @@
 import { App, Component } from 'vue';
 
-import WInput from './base/input/WInput.vue';
+import WInput from './base/input/WInput';
 import WButton from './base/button/WButton';
 import WSelect from './base/select/WSelect';
 import WDatePicker from './base/datePicker/WDatePicker';

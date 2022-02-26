@@ -10,7 +10,7 @@
 import {mount} from '@vue/test-utils';
 import WForm from '../../../lib/form/WForm.vue';
 import WFormItem from '../../../lib/form/WFormItem.vue';
-import WInput from '../../../lib/input/WInput.vue';
+import WInput from '../../../lib/input/WInput';
 
 const mountForm = config => {
   return mount({

@@ -8,7 +8,7 @@
  */
 
 import { mount } from '@vue/test-utils'
-import WInput from '../../../lib/input/WInput.vue';
+import WInput from '../../../lib/input/WInput';
 
 describe('输入组件', () => {
 
