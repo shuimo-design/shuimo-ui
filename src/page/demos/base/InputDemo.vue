@@ -1,43 +1,41 @@
 <template>
   <div>
-    <span>{{ data }}</span>
+    <BaseTitle>普通输入框</BaseTitle>
+    <span>参数值：{{ data }}</span>
     <br/>
-    <span>普通输入框</span>
     <w-input v-model="data"/>
+    <BaseTitle>空文本输入框</BaseTitle>
+    <span>参数值：{{ emptyData }}</span>
+    <br/>
     <w-input v-model="emptyData" placeholder="请输入文字"/>
-    <br/>
-    <span>多文本输入框</span>
+    <BaseTitle>多文本输入框</BaseTitle>
     <w-input v-model="data" type="textarea"/>
-    <br/>
-    <span>密码框</span>
+    <BaseTitle>密码框</BaseTitle>
     <w-input v-model="data" type="password"/>
-    <br/>
+    <BaseTitle>数字输入框</BaseTitle>
     <span>输入的数字为：{{ number }}</span>
-    <w-input-number v-model="number" :max="100"/>
     <br/>
+    <w-input-number v-model="number" :max="100"/>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 /**
- * @Description:
- * @Author: 菩萨蛮
+ * @Description: input demo
+ * @Author: 阿怪
  * @Date: 2020/11/27 10:32 下午
- * @Version v1.0.0
+ * @Version v1.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ *
+ * v1.1.0 优化为setup版本及优化整体结构 阿怪
  */
+import { ref } from 'vue';
+import BaseTitle from '../../../components/base/BaseTitle.vue';
 
-export default {
-  name: 'InputDemo',
-  data() {
-    return {
-      data: '3333',
-      emptyData: '',
-      number: 0
-    }
-  }
-};
+const data = ref('这是一些初始数据');
+const emptyData = ref('');
+const number = ref(0);
 </script>
 
 <style lang="scss" scoped>
