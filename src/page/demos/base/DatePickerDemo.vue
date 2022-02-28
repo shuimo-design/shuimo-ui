@@ -1,24 +1,34 @@
 <template>
   <div>
-    <span>选择的日期为{{date}}</span>
+    <BaseTitle>日期</BaseTitle>
+    <span>选择的日期为{{ date }}</span>
+    <br/>
     <w-date-picker v-model="date"/>
-    <span>选择的月份为{{month}}</span>
+    <BaseTitle>月份</BaseTitle>
+    <span>选择的月份为{{ month }}</span>
+    <br/>
     <w-date-picker v-model="month" type="month"/>
   </div>
 </template>
 
-<script>
-  export default {
-    name: "DatePickerDemo",
-    data() {
-      return {
-        date: '',
-        month: ''
-      }
-    }
-  }
+<script setup lang="ts">
+/**
+ * @Description: date picker demo
+ * @Author: youus
+ * @Date: 2020/11/27 10:32 下午
+ * @Version v1.1.0
+ *
+ * Hello, humor
+ *
+ * v1.1.0 升级为setup版本 阿怪
+ */
+import { ref } from 'vue';
+import BaseTitle from '../../../components/base/BaseTitle.vue';
+
+const date = ref('');
+const month = ref('');
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
