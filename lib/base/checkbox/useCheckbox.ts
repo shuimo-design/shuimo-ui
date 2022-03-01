@@ -11,7 +11,6 @@ import {
     computed,
     getCurrentInstance
 } from 'vue';
-import { toTypeString } from '@vue/shared'
 import { UPDATE_MODEL_EVENT } from "../../dependents/_utils/constants";
 import { ICheckboxProps } from './checkbox.type'
 
@@ -40,7 +39,7 @@ const useCheckboxStatus = (props: ICheckboxProps, { model }: any) => {
     const focus = ref(false);
     const isChecked = computed(() => {
         const value = model.value;
-        if (toTypeString(value) === '[object Boolean]') {
+        if (Object.prototype.toString.call(value) === '[object Boolean]') {
             return value;
         } else if (value !== null && value !== undefined) {
             return value === props.trueLabel;
