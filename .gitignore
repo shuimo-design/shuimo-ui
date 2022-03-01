@@ -26,3 +26,5 @@ yarn.lock
 *.njsproj
 *.sln
 *.sw?
+
+pnpm-lock.yaml
