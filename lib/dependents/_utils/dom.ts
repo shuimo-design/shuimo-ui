@@ -16,8 +16,7 @@ const trim = (string: string) => {
 
 /* istanbul ignore next */
 export const on = (function () {
-  // @ts-ignore
-  if (document.addEventListener) {
+  if (document) {
     return function (element: any, event: string, handler: Function) {
       if (element && event && handler) {
         const eventHandler = throttle(1000, handler)
@@ -36,8 +35,7 @@ export const on = (function () {
 
 /* istanbul ignore next */
 export const off = (function () {
-  // @ts-ignore
-  if (document.removeEventListener) {
+  if (document) {
     return function (element: any, event: string, handler: Function) {
       if (element && event) {
         const eventHandler = throttle(1000, handler)

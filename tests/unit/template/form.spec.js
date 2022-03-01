@@ -2,15 +2,17 @@
  * @description: form表单测试用例
  * @author: 南歌子
  * @date 2021/02/22 14:34
- * @version V1.0.0
+ * @version v1.0.1
  *
  * Hello, humor
+ *
+ * v1.0.1 升级为vitest版本测试用例 阿怪
  */
-
-import {mount} from '@vue/test-utils';
-import WForm from '../../../lib/form/WForm.vue';
-import WFormItem from '../../../lib/form/WFormItem.vue';
-import WInput from '../../../lib/input/WInput';
+import { mount } from '@vue/test-utils';
+import { describe, test, expect } from "vitest";
+import WForm from '../../../lib/template/form/WForm.tsx';
+import WFormItem from '../../../lib/template/form/WFormItem.vue';
+import WInput from '../../../lib/base/input/WInput';
 
 const mountForm = config => {
   return mount({

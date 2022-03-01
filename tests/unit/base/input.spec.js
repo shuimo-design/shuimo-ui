@@ -1,14 +1,17 @@
 /**
  * @Description: input输入框测试用例
- * @Author: 菩萨蛮
+ * @Author: 阿怪
  * @Date: 2021/2/12 9:45 下午
- * @Version v1.0.0
+ * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ *
+ * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 
 import { mount } from '@vue/test-utils'
-import WInput from '../../../lib/input/WInput';
+import { describe, test, expect } from "vitest";
+import WInput from '../../../lib/base/input/WInput';
 
 describe('输入组件', () => {
 

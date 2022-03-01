@@ -20,6 +20,12 @@ export default defineConfig((configEnv: ConfigEnv) => {
   return {
     build,
     server: { port: 8513 },
-    plugins: [mode === 'server' ? codeHtmlPlugin : undefined, vue(), vueJsx()]
+    plugins: [mode === 'server' ? codeHtmlPlugin : undefined, vue(), vueJsx()],
+    test: {
+      transformMode: {
+        web: [/\.[jt]sx$/],
+      },
+      environment: 'jsdom'
+    }
   }
 })

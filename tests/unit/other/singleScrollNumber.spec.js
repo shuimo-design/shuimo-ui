@@ -1,7 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import SingleScrollNumber from '../../../lib/scrollNumber/SingleScrollNumber';
+import { describe, test, vi, expect } from "vitest";
+import SingleScrollNumber from '../../../lib/other/scrollNumber/SingleScrollNumber';
 
-jest.useFakeTimers();
+vi.useFakeTimers();
+vi.runAllTimers();
 
 describe('单页面滚动数字', () => {
 
@@ -30,7 +32,7 @@ describe('单页面滚动数字', () => {
       SingleScrollNumber,
       { global: { provide: { speed: 1, duration: 2 } } }
     );
-    jest.runOnlyPendingTimers();
+    vi.runOnlyPendingTimers();
     expect(wrapper.vm.style).toMatchObject({ transform: 'translate(-50%,-0%)' });
   });
 
@@ -42,7 +44,7 @@ describe('单页面滚动数字', () => {
         global: { provide: { speed: 1, duration: 2 } }
       }
     );
-    jest.runOnlyPendingTimers();
+    vi.runOnlyPendingTimers();
     expect(wrapper.vm.style).toMatchObject({ transform: 'translate(-50%,-70%)' });
   });
 })
