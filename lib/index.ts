@@ -64,7 +64,6 @@ const components: Record<any, Component> = {
   WTableColumn,
   WBorder,
   WDrawer,
-  WConfirm
 }
 
 const install = function (app: App) {
@@ -83,7 +82,6 @@ export {
   WSelect,
   WDatePicker,
   WPopover,
-  WMessage,
   WForm,
   WFormItem,
   WInputNumber,
@@ -91,7 +89,6 @@ export {
   WUpload,
   WDivider,
   WProgress,
-  WPrinter,
   WAdventureDialog,
   WRadio,
   WCheckbox,
@@ -102,8 +99,10 @@ export {
   WTableColumn,
   WBorder,
   WDrawer,
-  WConfirm,
   WScroll,
+  WPrinter,
+  WConfirm,
+  WMessage,
   useDialog,
 };
 
