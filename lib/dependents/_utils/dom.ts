@@ -14,41 +14,47 @@ const trim = (string: string) => {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
 
+const isNode = typeof process !== "undefined";
+
 /* istanbul ignore next */
 export const on = (function () {
-  if (document) {
-    return function (element: any, event: string, handler: Function) {
-      if (element && event && handler) {
-        const eventHandler = throttle(1000, handler)
-        element.addEventListener(event, eventHandler, false);
-      }
-    };
-  } else {
-    return function (element: any, event: string, handler: Function) {
-      if (element && event && handler) {
-        const eventHandler = throttle(1000, handler)
-        element.attachEvent('on' + event, eventHandler);
-      }
-    };
+  if(!isNode){
+    if (document) {
+      return function (element: any, event: string, handler: Function) {
+        if (element && event && handler) {
+          const eventHandler = throttle(1000, handler)
+          element.addEventListener(event, eventHandler, false);
+        }
+      };
+    } else {
+      return function (element: any, event: string, handler: Function) {
+        if (element && event && handler) {
+          const eventHandler = throttle(1000, handler)
+          element.attachEvent('on' + event, eventHandler);
+        }
+      };
+    }
   }
 })();
 
 /* istanbul ignore next */
 export const off = (function () {
-  if (document) {
-    return function (element: any, event: string, handler: Function) {
-      if (element && event) {
-        const eventHandler = throttle(1000, handler)
-        element.removeEventListener(event, eventHandler, false);
-      }
-    };
-  } else {
-    return function (element: any, event: string, handler: Function) {
-      if (element && event) {
-        const eventHandler = throttle(1000, handler)
-        element.detachEvent('on' + event, eventHandler);
-      }
-    };
+  if(!isNode){
+    if (document) {
+      return function (element: any, event: string, handler: Function) {
+        if (element && event) {
+          const eventHandler = throttle(1000, handler)
+          element.removeEventListener(event, eventHandler, false);
+        }
+      };
+    } else {
+      return function (element: any, event: string, handler: Function) {
+        if (element && event) {
+          const eventHandler = throttle(1000, handler)
+          element.detachEvent('on' + event, eventHandler);
+        }
+      };
+    }
   }
 })();
 
