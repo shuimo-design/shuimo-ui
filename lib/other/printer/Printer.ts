@@ -8,6 +8,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * V1.0.1 添加console底层打印分类
+ * V1.0.2 优化ts支持，修改type颜色
  */
 
 import { PrinterType, printInterface, IPrinter } from "../../../types/components/WPrint";
@@ -19,12 +20,12 @@ enum PrinterEnum {
 }
 
 const typeColor = {
-  suggest: '#e8b004',
-  info: '#5e616d',
-  error: '#c04851',
+  suggest: '#ebb10d',
+  info: '#474b4c',
+  error: '#f03f24',
 }
 
-const PrinterConsole: Record<PrinterEnum, keyof Console> = {
+const PrinterConsole: Record<PrinterEnum, keyof Pick<Console, 'log' | 'error'>> = {
   [PrinterEnum.suggest]: 'log',
   [PrinterEnum.info]: 'log',
   [PrinterEnum.error]: 'error'
@@ -42,9 +43,12 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
   };
 
   const print: printInterface = options => {
-    console[PrinterConsole[options.type]](options.format,
+    console[PrinterConsole[options.type]](
+      options.format,
       `background:${typeColor[options.type]}; border-radius:5px; padding:5px 7px;color:white;`,
-      '', options.content);
+      '',
+      options.content
+    );
   };
 
   const printer: PrinterType = Object.create(null);
