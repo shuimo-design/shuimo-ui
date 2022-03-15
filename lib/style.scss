@@ -26,11 +26,13 @@
 @import './message/adventureDialog/adventureDialog.scss';
 @import './message/drawer/drawer.scss';
 @import './message/confirm/confirm.scss';
+@import './message/popover/popover.scss';
+@import './message/tooltip/tooltip.scss';
 
 [class^="w-"], .w-cursor {
   cursor: url("/lib/assets/cursor/auto.png"), auto;
 
-  &:disabled{
+  &:disabled {
     cursor: url("/lib/assets/cursor/disabled.png"), auto;
   }
 }
@@ -39,6 +41,6 @@
   cursor: url("/lib/assets/cursor/pointer.png"), auto;
 }
 
- .w-cursor-disabled {
+.w-cursor-disabled {
   cursor: url("/lib/assets/cursor/disabled.png"), auto;
 }

@@ -1,0 +1,23 @@
+.w-popover {
+  display: inline-block;
+}
+
+.popover {
+  position: absolute;
+  background: url("/lib/assets/popover/popover_bg.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 3px 4px;
+  padding: 2px 0 5px;
+  min-width: 150px;
+  max-width: 234px;
+  min-height: 150px;
+  z-index: 9999;
+
+  &.focusing {
+    display: block;
+  }
+
+  .content {
+    margin: 0 28px;
+  }
+}
