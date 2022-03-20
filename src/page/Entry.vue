@@ -4,6 +4,9 @@
     <div class="entry-main">
       <Component/>
     </div>
+    <footer >
+      <a herf="https://beian.miit.gov.cn" target="_blank">浙ICP备15017406号-2</a>
+    </footer>
   </div>
 </template>
 
@@ -29,5 +32,19 @@ import Header from '../components/Header.vue'
 
 .component {
   grid-area: container;
+}
+
+footer{
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100vw;
+  height: 24px;
+  line-height: 24px;
+  background: rgba(51, 51, 51, 0.6);
+
+  a{
+    color: white;
+  }
 }
 </style>
