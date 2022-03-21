@@ -12,7 +12,7 @@
 import { h, defineComponent, Teleport } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
-import DialogHandler from "../../dependents/_composables/DialogHandler";
+import useDialog from "../../dependents/_composables/UseDialog";
 
 export default defineComponent({
   name: 'WDrawer',
@@ -24,7 +24,7 @@ export default defineComponent({
   },
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
-    const { pes, maskClass, resetSize, maskClick, closeDialog } = DialogHandler(props, context);
+    const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, context);
     return { pes, maskClass, resetSize, maskClick, closeDialog };
   },
   render(ctx: any) {

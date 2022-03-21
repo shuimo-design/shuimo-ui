@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import domEventHandler from "../../dependents/_utils/domEventHandler";
+import useDomEvent from "../../dependents/_utils/useDomEvent";
 
 const DEFAULT_MARGIN_LEFT = 5;
 const DEFAULT_WIDTH = 234;
@@ -64,7 +64,7 @@ export default {
     }
   },
   setup() {
-    const {onController, offController, popoverVisible, referenceStyle} = domEventHandler()
+    const {onController, offController, popoverVisible, referenceStyle} = useDomEvent()
     return {
       onController,
       offController,

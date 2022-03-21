@@ -8,7 +8,7 @@
  */
 
 import { h, defineComponent, Teleport } from 'vue';
-import DialogHandler from "../../dependents/_composables/DialogHandler";
+import useDialog from "../../dependents/_composables/UseDialog";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 
 export default defineComponent({
@@ -20,7 +20,7 @@ export default defineComponent({
   },
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
-    const { pes, maskClass, resetSize, maskClick, closeDialog } = DialogHandler(props, context);
+    const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, context);
     return { pes, maskClass, resetSize, maskClick, closeDialog };
   },
   computed: {

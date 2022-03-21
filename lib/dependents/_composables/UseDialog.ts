@@ -10,7 +10,7 @@ import { computed, useSlots, ref } from 'vue';
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../_utils/constants";
 import { notEmpty } from "../_utils/tools";
 
-export default function DialogHandler(props: any, context: any) {
+export default function useDialog(props: any, context: any) {
 
   const pes = ref(1);
 

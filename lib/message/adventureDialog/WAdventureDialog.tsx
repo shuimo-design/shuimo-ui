@@ -9,7 +9,7 @@
 
 import { h, defineComponent, Teleport } from 'vue';
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
-import DialogHandler from "../../dependents/_composables/DialogHandler";
+import useDialog from "../../dependents/_composables/UseDialog";
 
 export default defineComponent({
   name: 'WAdventureDialog',
@@ -20,7 +20,7 @@ export default defineComponent({
   },
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
-    const { pes, maskClass, resetSize, maskClick, closeDialog, confirmDialog } = DialogHandler(props, context);
+    const { pes, maskClass, resetSize, maskClick, closeDialog, confirmDialog } = useDialog(props, context);
     return { pes, maskClass, resetSize, maskClick, closeDialog, confirmDialog };
   },
   computed: {

@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import domEventHandler from '../../dependents/_utils/domEventHandler';
+import useDomEvent from '../../dependents/_utils/useDomEvent';
 import { getStyleNumber } from "../../dependents/_utils/dom";
 
 const DEFAULT_MARGIN_BOTTOM = 18;
@@ -63,7 +63,7 @@ export default {
     }
   },
   setup() {
-    const { onController, offController, popoverVisible, referenceStyle } = domEventHandler()
+    const { onController, offController, popoverVisible, referenceStyle } = useDomEvent()
     return {
       onController,
       offController,

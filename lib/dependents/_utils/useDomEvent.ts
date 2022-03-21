@@ -18,7 +18,7 @@ export interface DomConfigs {
   closeDelay: number
 }
 
-export default function domEventHandler() {
+export default function useDomEvent() {
   const popoverVisible = ref(false);
   const trigger = ref('');
   const openDelay = ref(0);
