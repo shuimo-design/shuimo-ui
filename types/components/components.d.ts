@@ -25,7 +25,6 @@ export type MenuTypeArr = Array<MenuType>;
 export const WInput: DefineComponent;
 export const WButton: DefineComponent;
 export const WDialog: DefineComponent;
-export const WAdventureDialog: DefineComponent;
 export const WTooltip: DefineComponent;
 export const WScrollNumber: DefineComponent;
 export const WSelect: DefineComponent;

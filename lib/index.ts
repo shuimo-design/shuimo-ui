@@ -7,7 +7,6 @@ import WDatePicker from './base/datePicker/WDatePicker';
 import WRadio from './base/radio/WRadio.vue';
 import WCheckbox from './base/checkbox/WCheckbox.vue';
 
-import WAdventureDialog from './message/adventureDialog/WAdventureDialog';
 import WConfirm from './message/confirm/WConfirm';
 import WDialog from './message/dialog/WDialog';
 import WDrawer from './message/drawer/WDrawer';
@@ -54,7 +53,6 @@ const components: Record<any, Component> = {
   WUpload,
   WDivider,
   WProgress,
-  WAdventureDialog,
   WRadio,
   WCheckbox,
   WMenu,
@@ -89,7 +87,6 @@ export {
   WUpload,
   WDivider,
   WProgress,
-  WAdventureDialog,
   WRadio,
   WCheckbox,
   WMenu,

@@ -13,12 +13,6 @@
         <span>height:600</span>
       </div>
     </w-dialog>
-    <w-button text="点击显示奇遇弹窗" @click="showAdventure"/>
-    <w-adventure-dialog :visible="dialogAdventureVisible" @close="closeAdventure" @confirm="closeAdventure">
-      <div class="adventure-tip">
-        <span>今日份奇遇，获得了某物品奖励，恭喜你！</span>
-      </div>
-    </w-adventure-dialog>
   </div>
 </template>
 
