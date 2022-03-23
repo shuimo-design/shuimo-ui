@@ -4,7 +4,7 @@ import WInput from './base/input/WInput';
 import WButton from './base/button/WButton';
 import WSelect from './base/select/WSelect';
 import WDatePicker from './base/datePicker/WDatePicker';
-import WRadio from './base/radio/WRadio.vue';
+import WRadio from './base/radio/WRadio';
 import WCheckbox from './base/checkbox/WCheckbox.vue';
 
 import WConfirm from './message/confirm/WConfirm';
