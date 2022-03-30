@@ -2,25 +2,26 @@
  * @Description: 分割线
  * @Author: 菩萨蛮
  * @Date: 2021/2/23 3:57 下午
- * @Version v1.0.0
+ * @Version v1.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ * v1.1.0  优化分割线素材，并新增分割线类型，暂时去除strong类型
  */
 import { h, defineComponent } from 'vue';
-import normalImg from '../../assets/divider/divider.png';
-import strongImg from '../../assets/divider/divider_strong.png';
 
 export default defineComponent({
   name: 'WDivider',
   props: {
-    type: { type: String, default: '' }
+    // type: { type: String, default: '' },
+    vertical: { type: Boolean, default: false },
   },
   render() {
-    const { type } = this;
-    const src = type === '' ? normalImg : strongImg;
-    return (
-      <img class={['w-divider', type]} src={src} alt="divider"/>
-    )
+    return h('div', {
+      class: {
+        'w-divider': true,
+        'w-divider-vertical': this.vertical,
+        // 'w-divider-strong': this.type === 'strong',
+      },
+    });
   }
-
 })
