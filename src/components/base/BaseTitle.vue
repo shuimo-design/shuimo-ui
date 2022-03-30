@@ -1,15 +1,22 @@
 <template>
   <h2><slot></slot></h2>
-  <w-divider/>
+  <w-divider v-if="divider"/>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 /**
  * @Description: 基础标题模块
  * @Author: 阿怪
  * @Date: 2022/1/22 2:58 AM
- * @Version v1.0.0
+ * @Version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ * v1.0.1 增加一个divider开关选项
  */
+
+const props = withDefaults(defineProps<{
+  divider?: boolean
+}>(), {
+  divider: true
+});
 </script>
