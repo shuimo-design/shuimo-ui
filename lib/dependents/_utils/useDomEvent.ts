@@ -24,7 +24,7 @@ export default function useDomEvent() {
   const openDelay = ref(0);
   const closeDelay = ref(200);
   // @ts-ignore
-  let _timer = ref<TimeoutHandle>(null);
+  let _timer = ref<number>(null);
   let popper = reactive(Object.create(null));
   let reference = reactive(Object.create(null));
   const referenceStyle = reactive(Object.create(null));
@@ -68,7 +68,6 @@ export default function useDomEvent() {
   const handleMouseEnter = () => {
     clearTimeout(_timer.value);
     if (openDelay.value) {
-      // @ts-ignore
       _timer.value = setTimeout(() => {
         popoverVisible.value = true;
         setStyle();
@@ -82,7 +81,6 @@ export default function useDomEvent() {
   const handleMouseLeave = () => {
     clearTimeout(_timer.value);
     if (closeDelay.value) {
-      // @ts-ignore
       _timer.value = setTimeout(() => {
         popoverVisible.value = false;
       }, closeDelay.value);
