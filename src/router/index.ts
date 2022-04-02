@@ -28,6 +28,11 @@ const routes = [
         name: 'base',
         component: () => import('../page/Main.vue')
       },
+      {
+        path: '/color',
+        name: 'color',
+        component: () => import('../page/demos/ColorDemo.vue')
+      },
       ...base,
       ...template,
       ...message,

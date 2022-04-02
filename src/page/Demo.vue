@@ -33,6 +33,11 @@ const router = useRouter();
 const menuList: MenuTypeArr = reactive([
   { title: '首页', key: 'demo', isActive: true },
   {
+    title: '颜色', key: 'color', isActive: false, children: [
+      { title: '颜色', key: 'color', isActive: true },
+    ]
+  },
+  {
     title: '基础组件', key: 'button', isActive: false, children: [
       { title: '按钮', key: 'button', isActive: true },
       { title: '输入框', key: 'input', isActive: false },
