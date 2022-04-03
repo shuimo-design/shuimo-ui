@@ -2,6 +2,8 @@ import { defineConfig, ConfigEnv, BuildOptions } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
+import RollupPluginFontmin from '@higuaifan/rollup-plugin-fontmin';
+
 
 export default defineConfig((configEnv: ConfigEnv) => {
   const { mode } = configEnv;
@@ -16,6 +18,15 @@ export default defineConfig((configEnv: ConfigEnv) => {
         external: ['vue']
       }
     };
+  } else {
+    build = {
+      rollupOptions: {
+        plugins: [RollupPluginFontmin({
+          fontSrc: 'dist/assets/*.ttf',
+          fontDest: 'dist/assets',
+        })]
+      }
+    }
   }
   return {
     build,

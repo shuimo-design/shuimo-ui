@@ -1,13 +1,19 @@
 <template>
   <div>
-    <span>细线</span>
-    <w-divider/>
-    <span>粗线</span>
-    <w-divider type="strong"/>
+    <div>
+      <BaseTitle :divider="false">细线</BaseTitle>
+      <w-divider/>
+    </div>
+    <div>
+      <BaseTitle :divider="false">竖线</BaseTitle>
+      <div class="vertical-divider">
+        <w-divider vertical/>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 /**
  * @Description: 分割线demo
  * @Author: 菩萨蛮
@@ -16,12 +22,15 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+import BaseTitle from "../../../components/base/BaseTitle.vue";
 
-export default {
-  name: 'DividerDemo'
-};
 </script>
 
 <style lang="scss" scoped>
+
+.vertical-divider {
+  height: 500px;
+  width: 10px;
+}
 
 </style>
