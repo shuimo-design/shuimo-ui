@@ -7,7 +7,8 @@
  * Hello, humor
  */
 
-import {Ref, unref} from 'vue';
+import { unref } from 'vue';
+import type { Ref } from 'vue';
 import useEventListener from './useEventListener';
 
 

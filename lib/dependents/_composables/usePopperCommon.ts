@@ -1,4 +1,5 @@
-import { computed, Ref, ref, toRefs, watch, watchEffect } from 'vue';
+import { computed, ref, toRefs, watch, watchEffect } from 'vue';
+import type { Ref } from 'vue';
 import useContent from './useContent';
 import debounce from '../_utils/debounce';
 import useClickAway from './useClickAway';

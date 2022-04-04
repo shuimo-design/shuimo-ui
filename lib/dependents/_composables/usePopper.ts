@@ -1,4 +1,5 @@
-import {toRefs, watch, nextTick, onBeforeUnmount, reactive, Ref, ref} from 'vue';
+import { toRefs, watch, nextTick, onBeforeUnmount, reactive } from 'vue';
+import type { Ref } from 'vue';
 import { createPopper, Instance, preventOverflow, flip, offset, arrow } from '@popperjs/core';
 
 const toInt = (x: string) => parseInt(x, 10);
