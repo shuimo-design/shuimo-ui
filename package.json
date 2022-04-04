@@ -32,6 +32,9 @@
   "peerDependencies": {
     "vue": "^3.2.28"
   },
+  "dependencies": {
+    "@popperjs/core": "^2.11.4"
+  },
   "devDependencies": {
     "@higuaifan/rollup-plugin-fontmin": "^0.0.1",
     "@vitejs/plugin-vue": "^2.0.1",
