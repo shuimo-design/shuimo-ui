@@ -89,7 +89,7 @@ export default defineComponent({
             hidden={!shouldShowPopper.value}
           >
             <div class="w-input__content">
-              {slots.content && slots.content({ close, isOpen: modifiedIsOpen.value })}
+              {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
             </div>
             <div id="arrow" data-popper-arrow/>
           </div>
