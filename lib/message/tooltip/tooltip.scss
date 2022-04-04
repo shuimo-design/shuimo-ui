@@ -1,80 +1,86 @@
-@keyframes fade-in {
-  /*设置内容由显示变为隐藏*/
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .w-tooltip {
+  display: inline-block;
+}
+.w-tooltip-inner {
   padding: 3px 4px;
-  position: absolute;
-  visibility: hidden;
   color: #192F6F;
   z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: unset;
   outline: unset;
   border: 3px double transparent;
   border-image: url("/lib/assets/tooltip/bg.png") 10;
   background-color: whitesmoke;
-  transform: translateX(-50%);
+  border-radius: 3px;
+}
 
-  &.visible {
-    visibility: visible;
-    animation: fade-in .5s ease;
-  }
+#arrow,
+#arrow::before {
+  transition: background 250ms ease-in-out;
+  position: absolute;
+  width: calc(10px - var(--w-theme-border-width, 0px));
+  height: calc(10px - var(--w-theme-border-width, 0px));
+  box-sizing: border-box;
+  background: var(--w-theme-background-color);
+}
 
-  &.focusing {
-    visibility: visible;
-    animation: fade-in .5s ease;
-  }
+#arrow {
+  visibility: hidden;
+}
 
-  &-inner {
-    text-decoration: none;
-    word-wrap: break-word;
-    min-width: 30px;
-    min-height: 10px;
-  }
+#arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+}
 
-  &-arrow {
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    background: transparent;
-    pointer-events: none;
-    bottom: -8px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #d0d0d0;
+/* Top arrow */
+.w-tooltip-inner[data-popper-placement^="top"] > #arrow {
+  bottom: -7px;
+}
 
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: block;
-      width: 5px;
-      height: 5px;
-      margin: auto;
-      content: '';
-      pointer-events: auto;
-    }
-  }
+.w-tooltip-inner[data-popper-placement^="top"] > #arrow::before {
+  border-right: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+  border-bottom: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+}
 
-  .fixed-arrow {
-    bottom: unset;
-    top: -13px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid #d0d0d0;
-    border-top: 5px solid transparent;
-  }
+/* Bottom arrow */
+.w-tooltip-inner[data-popper-placement^="bottom"] > #arrow {
+  top: -7px;
+}
+
+.w-tooltip-inner[data-popper-placement^="bottom"] > #arrow::before {
+  border-left: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+  border-top: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+}
+
+/* Left arrow */
+.w-tooltip-inner[data-popper-placement^="left"] > #arrow {
+  right: -7px;
+}
+
+.w-tooltip-inner[data-popper-placement^="left"] > #arrow::before {
+  border-right: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+  border-top: var(--w-theme-border-width)
+  var(--w-theme-border-style) var(--w-theme-border-color);
+}
+
+/* Right arrow */
+.w-tooltip-inner[data-popper-placement^="right"] > #arrow {
+  left: -7px;
+}
+
+:root {
+  --w-theme-background-color: whitesmoke;
+  --w-theme-background-color-hover: whitesmoke;
+  --w-theme-text-color: #8d8d8d;
+  --w-theme-border-width: 1px;
+  --w-theme-border-style: solid;
+  --w-theme-border-color: #8d8d8d;
+  --w-theme-border-radius: 6px;
+  --w-theme-padding: 32px;
+  --w-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
 }

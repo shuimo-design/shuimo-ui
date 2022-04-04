@@ -52,5 +52,8 @@
   "bugs": {
     "url": "https://github.com/janghood/wash-painting-ui/issues"
   },
-  "homepage": "https://wash-painting.com"
+  "homepage": "https://wash-painting.com",
+  "dependencies": {
+    "@popperjs/core": "^2.11.4"
+  }
 }

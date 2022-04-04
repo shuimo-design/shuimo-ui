@@ -11,8 +11,8 @@ import WConfirm from './message/confirm/WConfirm';
 import WDialog from './message/dialog/WDialog';
 import WDrawer from './message/drawer/WDrawer';
 import WMessage from './message/message/Message';
-import WPopover from './message/popover/WPopover.vue';
-import WTooltip from './message/tooltip/WTooltip.vue';
+import WPopover from './message/popover/WPopover';
+import WTooltip from './message/tooltip/WTooltip';
 
 import WBorder from './other/border/WBorder';
 import WDivider from './other/divider/WDivider';
