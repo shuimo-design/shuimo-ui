@@ -8,15 +8,13 @@
  * v1.0.1 新增slot文本形式
  */
 import { h, defineComponent, useSlots } from 'vue';
+import { props } from "./api";
+import type { OptionType } from "./index";
 
 export default defineComponent({
   name: 'WButton',
-  props: {
-    text: { type: String, default: '' },
-    disabled: { type: Boolean, default: false },
-    type: { type: String, default: 'primary' }
-  },
-  render(ctx: any) {
+  props,
+  render(ctx: OptionType['ctx']) {
     let { disabled, type, text } = ctx;
     const slots = useSlots();
     if (slots.default) {
