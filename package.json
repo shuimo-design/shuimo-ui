@@ -5,7 +5,9 @@
   "files": [
     "dist",
     "types",
-    "lib"
+    "lib",
+    "public",
+    "web-types.json"
   ],
   "types": "types/wash-painting-ui.d.ts",
   "main": "./dist/wash-painting-ui.umd.js",
@@ -49,6 +51,7 @@
     "type": "git",
     "url": "git+https://github.com/janghood/wash-painting-ui.git"
   },
+  "web-types": "./web-types.json",
   "bugs": {
     "url": "https://github.com/janghood/wash-painting-ui/issues"
   },

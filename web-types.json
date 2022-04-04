@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "framework": "vue",
+  "name": "wash-painting-ui",
+  "default-icon": "./icons/logo.png",
+  "js-types-syntax": "typescript",
+  "version": "0.1.11-beta.10",
+  "contributions": {
+    "html": {
+      "types-syntax": "typescript",
+      "description-markup": "markdown",
+      "tags": [
+        {
+          "name": "w-button",
+          "source": {
+            "symbol": "WButton"
+          },
+          "description": "Button component with wash-painting-ui style.\r 水墨组件的按钮组件。",
+          "doc-url": "https://wash-painting.com/button",
+          "attributes": [
+            {
+              "name": "text",
+              "description": "button inside info",
+              "doc-url": "https://wash-painting.com/button",
+              "value": {
+                "type": "string",
+                "kind": "expression",
+                "default": ""
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "disabled button or not",
+              "doc-url": "https://wash-painting.com/button",
+              "value": {
+                "type": "boolean",
+                "kind": "expression",
+                "default": "false"
+              }
+            },
+            {
+              "name": "type",
+              "description": "button type",
+              "doc-url": "https://wash-painting.com/button",
+              "value": {
+                "type": "'gray'"
+              }
+            }
+          ],
+          "events": [],
+          "slots": []
+        }
+      ]
+    }
+  }
+}
