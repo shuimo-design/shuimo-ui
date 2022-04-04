@@ -4,14 +4,25 @@
         alt="wash-painting logo">
   </a>
 </p>
+<h1 align="center">水墨UI(wash-painting-ui)</h1>
 
-# 水墨UI(wash-painting-ui)
+<p align="center">一款很粗暴的水墨UI</p>
+
+<p align="center">A wash-painting Vue.js 3.2 UI Library.</p>
 
 ![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
 
-一款很粗暴的水墨UI
+## 简介（Introduction）
 
-**A wash-painting Vue.js 3.2 UI Library.**
+这是一款开箱即用的**水墨化**组件库。
+
+我们注意到有许多优秀的企业级UI设计语言和组件库。
+
+作为炎黄子孙，我们十分推崇中国独有的美术风格：水墨。
+
+我们整理出了一套具有中国传统风格的水墨风组件库。
+
+希望这款中国传统风格的组件库，能用于一些小众的需求，能满足于一些对页面有美术追求，又希望能快速搭建的用户。
 
 ## 技术栈(technology stack)
 
