@@ -15,8 +15,8 @@ import select from "../../lib/base/select/WSelect";
 
 import dialog from "../../lib/message/dialog/WDialog";
 import drawer from "../../lib/message/drawer/WDrawer";
-import popover from "../../lib/message/popover/WPopover.vue";
-import tooltip from "../../lib/message/tooltip/WTooltip.vue";
+import popover from "../../lib/message/popover/WPopover";
+import tooltip from "../../lib/message/tooltip/WTooltip";
 
 import border from "../../lib/other/border/WBorder";
 import divider from "../../lib/other/divider/WDivider";
