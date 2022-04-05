@@ -49,7 +49,7 @@
 .w-border-main {
   box-sizing: border-box;
   grid-area: topleft / topleft / bottomright / bottomright;
-  overflow: hidden;
+  overflow: auto;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(6px);
 }
