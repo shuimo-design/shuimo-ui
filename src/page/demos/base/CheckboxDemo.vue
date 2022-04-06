@@ -1,7 +1,7 @@
 <template>
   <div>
-    <w-checkbox v-model="checkedOriginal" @change="changeHandle">备选项</w-checkbox>
-    <w-checkbox v-model="checked" true-label="选中返回值" false-label="未选中返回值" @change="changeHandle">备选项1</w-checkbox>
+    <w-checkbox label="A" v-model="checkedOriginal" value="a" @change="changeHandle"/>
+    <w-checkbox label="B" disabled value="B" checked/>
   </div>
 </template>
 
@@ -15,8 +15,8 @@ export default {
     };
   },
   methods: {
-    changeHandle(val) {
-      console.log(val);
+    changeHandle(val, e) {
+      console.log(val, e);
     }
   }
 };

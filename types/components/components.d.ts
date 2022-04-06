@@ -7,7 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import button from "../../lib/base/button/WButton";
-import checkbox from "../../lib/base/checkbox/WCheckbox.vue";
+import checkbox from "../../lib/base/checkbox/WCheckbox";
 import datepicker from "../../lib/base/datePicker/WDatePicker";
 import input from "../../lib/base/input/WInput";
 import radio from "../../lib/base/radio/WRadio";
