@@ -10,21 +10,19 @@
  */
 import { defineComponent, h } from 'vue';
 import WBorder from '../../other/border/WBorder';
+import { props } from "./api";
+import type { OptionType } from "./index";
 
 export default defineComponent({
   name: 'WInput',
   components: { WBorder },
   emits: ['update:modelValue'],
-  props: {
-    type: { type: String, default: 'text' },
-    placeholder: { type: String, default: '' },
-    modelValue: { type: null, default: '' }
-  },
-  render() {
-    const { type } = this.$props;
+  props,
+  render(ctx: OptionType['ctx']) {
+    const { type } = ctx;
     const domProps = {
-      value: this.$props.modelValue,
-      placeholder: this.$props.placeholder,
+      value: ctx.modelValue,
+      placeholder: ctx.placeholder,
       onInput: (e: InputEvent) => {
         // @ts-ignore why EventTarget not include value?
         this.$emit('update:modelValue', e.target.value);
