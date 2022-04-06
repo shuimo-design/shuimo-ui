@@ -1,5 +1,14 @@
-import {defineComponent, computed, toRefs} from 'vue';
-import props from './props';
+/**
+ * @Description WCheckbox
+ * @Author youus
+ * @Date 2022/4/7 00:01
+ * @Version v1.0.0
+ *
+ * Hello, humor
+ */
+
+import { defineComponent, computed, toRefs } from 'vue';
+import { props } from './api';
 import useVModel from '../../dependents/_composables/useVModel';
 
 export default defineComponent({
