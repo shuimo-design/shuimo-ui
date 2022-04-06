@@ -9,22 +9,21 @@
  */
 
 import { h, defineComponent, useSlots } from 'vue';
+import { props } from "./api";
+import type { OptionType } from "./form";
 
 export default defineComponent({
   name: 'WForm',
-  props: {
-    inline: Boolean,
-    submit: {
-      type: Boolean,
-      default: false
-    }
-  },
-  render(ctx: any) {
+  props,
+  render(ctx: OptionType['ctx']) {
     const slots = useSlots();
     return h('form', {
-      ...ctx.$props,
+      class: {
+        'w-form': true,
+        'inline': ctx.inline
+      },
       onsubmit: () => {
-        return ctx.$props.submit;
+        return ctx.submit;
       }
     }, slots);
   }

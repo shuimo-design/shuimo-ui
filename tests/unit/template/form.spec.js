@@ -11,7 +11,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from "vitest";
 import WForm from '../../../lib/template/form/WForm.tsx';
-import WFormItem from '../../../lib/template/form/WFormItem.vue';
+import WFormItem from '../../../lib/template/form/WFormItem.tsx';
 import WInput from '../../../lib/base/input/WInput';
 
 const mountForm = config => {

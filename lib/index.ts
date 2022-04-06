@@ -24,7 +24,7 @@ import WProgress from './other/progress/WProgress';
 import WUpload from './other/upload/WUpload';
 
 import WPagination from './template/pagination/WPagination';
-import WFormItem from "./template/form/WFormItem.vue";
+import WFormItem from "./template/form/WFormItem";
 import WForm from "./template/form/WForm";
 import WTabPane from './template/tabs/WTabPane';
 import WTabs from './template/tabs/WTabs';

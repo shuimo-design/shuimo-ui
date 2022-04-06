@@ -1,5 +1,9 @@
 .w-form {
-  width: 500px;
+  &.inline {
+    .w-form-item {
+      display: inline-block;
+    }
+  }
 
   .w-form-item {
     margin-bottom: 10px;
