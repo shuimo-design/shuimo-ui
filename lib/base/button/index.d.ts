@@ -1,8 +1,8 @@
 /**
- * @Description: button api type
- * @Author: 阿怪
- * @Date: 2022/4/2 12:58 AM
- * @Version v1.0.0
+ * @description button api type
+ * @author 阿怪
+ * @date 2022/4/2 12:58 AM
+ * @version v1.0.0
  *
  * @name w-button
  * @docDescription Button component with wash-painting-ui style.
