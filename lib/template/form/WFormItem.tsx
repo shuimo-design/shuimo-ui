@@ -1,29 +1,31 @@
-import { defineComponent } from 'vue';
+/**
+ * @Description: 表单的item组件
+ * @Author: youus
+ * @Date: 2021/1/11 11:51 AM
+ * @Version v1.0.0
+ *
+ * 公司的业务千篇一律，复杂的代码好几百行。
+ * v1.1.0 升级为tsx版本
+ */
+import { h, defineComponent, useSlots } from "vue";
+import { itemProps } from "./api";
+import type { OptionType } from "./formItem";
 
 export default defineComponent({
   name: 'WFormItem',
-  props: {
-    label: {
-      type: String,
-      default: '',
-    },
-    prop: {
-      type: String,
-      default: '',
-    },
-  },
-  render() {
-    const { label, prop } = this.$props;
+  props: itemProps,
+  render(ctx: OptionType['ctx']) {
+    const slots = useSlots();
+
+    const labelSlot = slots.label ? slots.label() : ctx.label;
+    const defaultSlot = slots.default ? slots.default() : '';
     return (
       <div class="w-form-item">
-        <label
-          for={prop}
-          class="w-form-item__label"
-        >
-          {label || (this.$slots.label && this.$slots.label())}
+        <label for={ctx.prop} class="w-form-item__label">
+          {labelSlot}
         </label>
         <div class="w-form-item__content">
-          {this.$slots.default && this.$slots.default()}
+          {defaultSlot}
         </div>
       </div>
     )

@@ -14,6 +14,12 @@
       <w-form-item label="按钮">
         <w-button @click="clickBtn">点击按钮</w-button>
       </w-form-item>
+      <w-form-item label="按钮">
+        <template #label>
+          <w-button>标题插槽</w-button>
+        </template>
+        <w-button @click="clickBtn">点击按钮</w-button>
+      </w-form-item>
     </w-form>
     <BaseTitle>form-inline</BaseTitle>
     <w-form inline>
