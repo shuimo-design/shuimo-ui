@@ -27,7 +27,7 @@ import scrollNumber from "../../lib/other/scrollNumber/WScrollNumber";
 import upload from "../../lib/other/upload/WUpload";
 
 import form from "../../lib/template/form/WForm";
-import formItem from "../../lib/template/form/WFormItem.vue";
+import formItem from "../../lib/template/form/WFormItem";
 import pagination from "../../lib/template/pagination/WPagination";
 import table from "../../lib/template/table/WTable";
 import tab from "../../lib/template/tabs/WTabs";
