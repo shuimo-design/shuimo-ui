@@ -16,15 +16,15 @@ import { IComponentOption } from "../../dependents/_types";
 
 export declare type FormProps = {
   /**
-   * @description: form是否行内显示
-   * @type: boolean
-   * @default: false
+   * @description form是否行内显示
+   * @type boolean
+   * @default false
    */
   inline:boolean,
   /**
-   * @description: form 是否默认发送
-   * @type: boolean
-   * @default: false
+   * @description form 是否默认发送
+   * @type boolean
+   * @default false
    */
   submit: boolean
 }

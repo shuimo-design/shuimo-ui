@@ -1,8 +1,8 @@
 /**
- * @Description: form item api type
- * @Author: 阿怪
- * @Date: 2022/4/5 9:43 AM
- * @Version v1.0.0
+ * @description form item api type
+ * @author 阿怪
+ * @date 2022/4/5 9:43 AM
+ * @version v1.0.0
  *
  * @name w-form-item
  * @docDescription FormItem component with wash-painting-ui style.
