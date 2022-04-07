@@ -2,7 +2,7 @@ import type { OptionType } from './index';
 import { PropType } from 'vue';
 import { CheckboxProps } from './index';
 
-export const props = {
+export const props: OptionType['props'] = {
   checked: {
     type: Boolean,
     default: undefined

@@ -1,4 +1,5 @@
-import { ref, Ref } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
+import {ComponentInternalInstance} from '@vue/runtime-core';
 
 // 用于实现 v-model
 export default function useVModel(
@@ -6,9 +7,9 @@ export default function useVModel(
   modelValue: Ref<any>,
   defaultValue: any,
   onChange: any,
-  emit: any
 ){
   const internalValue = ref(defaultValue);
+  const { emit } = getCurrentInstance() as ComponentInternalInstance;
 
   // 受控模式
   if (typeof value.value !== 'undefined') {

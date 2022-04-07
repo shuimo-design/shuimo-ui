@@ -16,7 +16,7 @@ export default defineComponent({
   props,
   setup(props, {emit}) {
     const { checked, modelValue } = toRefs(props)
-    const [innerChecked, setInnerChecker] = useVModel(checked, modelValue, props.defaultChecked, props.onChange, emit)
+    const [innerChecked, setInnerChecker] = useVModel(checked, modelValue, props.defaultChecked, props.onChange)
     
     const selfChecked = computed(() => innerChecked.value);
   
@@ -25,13 +25,13 @@ export default defineComponent({
       {
         'w-cursor-disabled': props.disabled,
       }
-    ])
+    ]);
     const checkStyle = computed(() => [
       'w-checkbox__inner',
       {
         'w-checkbox-is-checked': innerChecked.value,
         'w-cursor-disabled': props.disabled,
-        'w-cursor-pointer': !props.disabled
+        'w-cursor-pointer': !props.disabled,
       },
     ]);
     
@@ -39,7 +39,10 @@ export default defineComponent({
       'w-checkbox__inner_checked': innerChecked.value,
       'w-cursor-disabled': props.disabled,
       'w-cursor-pointer': !props.disabled,
-    }])
+    }]);
+    
+    const disabled = computed(() => props.disabled as boolean);
+    
     
     const changeHandle = (e: Event) => {
       if (props.disabled) {
@@ -55,7 +58,7 @@ export default defineComponent({
           value={props.value}
           class="w-checkbox__former"
           onChange={changeHandle}
-          disabled={props.disabled}
+          disabled={disabled.value}
           checked={selfChecked.value}
         />
         <span class={checkStyle.value}>
