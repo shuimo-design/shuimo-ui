@@ -7,47 +7,65 @@
  * Hello, humor
  */
 
-import { defineComponent, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs, inject, watchEffect, onBeforeUnmount } from 'vue';
 import { props } from './api';
 import useVModel from '../../dependents/_composables/useVModel';
+import { CheckboxGroupContextKey } from './checkboxGroupApi';
 
 export default defineComponent({
   name: 'WCheckbox',
   props,
   setup(props, {emit}) {
+    const uniId = Symbol('wCheckboxUniId');
+    const checkboxGroup = inject(CheckboxGroupContextKey, undefined);
+    
     const { checked, modelValue } = toRefs(props)
     const [innerChecked, setInnerChecker] = useVModel(checked, modelValue, props.defaultChecked, props.onChange)
     
-    const selfChecked = computed(() => innerChecked.value);
+    const selfChecked = computed(() => {
+      return checkboxGroup
+        ? checkboxGroup.groupValue.value.includes(props.value)
+        : innerChecked.value;
+    })
+  
+    watchEffect(() => {
+      if (checkboxGroup && selfChecked.value) {
+        checkboxGroup.registerValue(uniId, props.value as string);
+      }
+    });
+    onBeforeUnmount(() => {
+      checkboxGroup?.cancelValue(uniId);
+    });
+    
+    const innerDisabled = computed(() => (props.disabled as boolean) || checkboxGroup?.disabled.value);
   
     const wCheckboxStyle = computed(() => [
       'w-checkbox',
       {
-        'w-cursor-disabled': props.disabled,
+        'w-cursor-disabled': innerDisabled.value,
       }
     ]);
     const checkStyle = computed(() => [
       'w-checkbox__inner',
       {
-        'w-checkbox-is-checked': innerChecked.value,
-        'w-cursor-disabled': props.disabled,
-        'w-cursor-pointer': !props.disabled,
+        'w-checkbox-is-checked': selfChecked.value,
+        'w-cursor-disabled': innerDisabled.value,
+        'w-cursor-pointer': !innerDisabled.value,
       },
     ]);
     
     const innerStyle = computed(() => [{
-      'w-checkbox__inner_checked': innerChecked.value,
-      'w-cursor-disabled': props.disabled,
-      'w-cursor-pointer': !props.disabled,
+      'w-checkbox__inner_checked': selfChecked.value,
+      'w-cursor-disabled': innerDisabled.value,
+      'w-cursor-pointer': !innerDisabled.value,
     }]);
-    
-    const disabled = computed(() => props.disabled as boolean);
     
     
     const changeHandle = (e: Event) => {
       if (props.disabled) {
         return;
       }
+      checkboxGroup?.checkHandle(props.label as string, props.value as string);
       setInnerChecker(!innerChecked.value, { e });
     };
 
@@ -58,7 +76,7 @@ export default defineComponent({
           value={props.value}
           class="w-checkbox__former"
           onChange={changeHandle}
-          disabled={disabled.value}
+          disabled={innerDisabled.value}
           checked={selfChecked.value}
         />
         <span class={checkStyle.value}>
