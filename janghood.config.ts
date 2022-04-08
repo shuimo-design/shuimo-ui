@@ -23,10 +23,13 @@ export default {
     include: ["lib"],
     exclude: ['dependents'],
     document: {
-      webTypesInfo: {
-        "framework": "vue",
-      },
-      sourceSymbolTranslator
+      webTypes:{
+        active: true,
+        webTypesInfo: {
+          "framework": "vue",
+        },
+        sourceSymbolTranslator
+      }
     }
   }
 };
