@@ -5,7 +5,8 @@ import WButton from './base/button/WButton';
 import WSelect from './base/select/WSelect';
 import WDatePicker from './base/datePicker/WDatePicker';
 import WRadio from './base/radio/WRadio';
-import WCheckbox from './base/checkbox/WCheckbox.vue';
+import WCheckbox from './base/checkbox/WCheckbox';
+import WCheckboxGroup from './base/checkbox/WCheckboxGroup';
 
 import WConfirm from './message/confirm/WConfirm';
 import WDialog from './message/dialog/WDialog';
@@ -62,6 +63,7 @@ const components: Record<any, Component> = {
   WTableColumn,
   WBorder,
   WDrawer,
+  WCheckboxGroup,
 }
 
 const install = function (app: App) {
@@ -101,6 +103,7 @@ export {
   WConfirm,
   WMessage,
   useDialog,
+  WCheckboxGroup,
 };
 
 export const createWUI = () => {
