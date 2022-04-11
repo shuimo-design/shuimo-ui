@@ -1,8 +1,8 @@
 /**
- * @Description WCheckbox
- * @Author youus
- * @Date 2022/4/7 00:01
- * @Version v1.0.0
+ * @description WCheckbox
+ * @author youus
+ * @date 2022/4/7 00:01
+ * @version v1.0.0
  *
  * Hello, humor
  */

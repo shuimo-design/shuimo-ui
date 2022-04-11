@@ -1,7 +1,7 @@
 /**
- * @Description 单选handler
- * @Author: 南歌子
- * @Date 2021/4/6 11:43
+ * @description 单选handler
+ * @author 南歌子
+ * @date 2021/4/6 11:43
  * @version V1.0.0
  *
  * Hello, humor

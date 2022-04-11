@@ -19,10 +19,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: dialog demo
- * @Author: 菩萨蛮
- * @Date: 2020/11/27 10:32 下午
- * @Version v1.0.2
+ * @description dialog demo
+ * @author 阿怪
+ * @date 2020/11/27 10:32 下午
+ * @version v1.0.2
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *  v1.0.1 改为setup script写法

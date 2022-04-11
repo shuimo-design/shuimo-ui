@@ -1,8 +1,8 @@
 /**
- * @Description: 公共类型
- * @Author: 阿怪
- * @Date: 2022/4/5 9:44 AM
- * @Version v1.0.0
+ * @description 公共类型
+ * @author 阿怪
+ * @date 2022/4/5 9:44 AM
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

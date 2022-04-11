@@ -1,6 +1,6 @@
 /**
  * @description message消息组件
- * @author: 菩萨蛮
+ * @author: 阿怪
  * @date 2021/1/8 4:37 下午
  * @version V1.1.1
  *

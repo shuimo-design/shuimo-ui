@@ -1,8 +1,8 @@
 /**
- * @Description: confirm 确认组件
- * @Author: 菩萨蛮
- * @Date: 2021/9/24 1:11 上午
- * @Version v0.0.1-beta
+ * @description confirm 确认组件
+ * @author 阿怪
+ * @date 2021/9/24 1:11 上午
+ * @version v0.0.1-beta
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

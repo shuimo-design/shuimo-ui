@@ -1,8 +1,8 @@
 /**
- * @Description: table组件
- * @Author: 菩萨蛮
- * @Date: 2021/8/23 11:30 上午
- * @Version v0.0.1-beta.2
+ * @description table组件
+ * @author 阿怪
+ * @date 2021/8/23 11:30 上午
+ * @version v0.0.1-beta.2
  *
  * 一个极度简单的table组件
  * beta版 支持 slot width 设置

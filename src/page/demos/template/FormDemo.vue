@@ -44,10 +44,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: 表单组件demo
- * @Author: youus
- * @Date: 2021/1/11 11:51 AM
- * @Version v1.1.0
+ * @description 表单组件demo
+ * @author youus
+ * @date 2021/1/11 11:51 AM
+ * @version v1.1.0
  *
  * Hello, humor
  * V1.1.0 @author 阿怪 重构为setup版本，并添加submit开启demo

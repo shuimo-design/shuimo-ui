@@ -1,13 +1,13 @@
 /**
- * @description
+ * @description checkbox api type
  * @author youus
  * @date 2022/4/7 00:02
  * @version v1.0.0
- * @name w-checkbox
  *
+ * @name w-checkbox
  * @docDescription Checkbox component with wash-painting-ui style.
  *              水墨组件的复选框组件。
- * @docUrl https://wash-painting.com/button
+ * @docUrl https://wash-painting.com/checkbox
  *
  * Hello, humor
  */
@@ -55,12 +55,10 @@ export declare type CheckboxProps = {
    * @description checkbox Change event
    *              checkbox change事件
    * @type Function
-   * @default () => {}
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
   /**
    * @description checkbox modelValue
-   *              checkbox modelValue
    * @type boolean
    * @default false
    */

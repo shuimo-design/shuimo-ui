@@ -1,8 +1,8 @@
-/*
- * @Author: 望海潮
- * @Date: 2022-03-23 18:24:55
- * @LastEditTime: 2022-03-24 00:32:35
- * @Description: radio单选框
+/**
+ * @description WRadio
+ * @author 望海潮
+ * @date 2022-03-23 18:24:55
+ * @description radio单选框
  */
 
 import { defineComponent } from "vue";

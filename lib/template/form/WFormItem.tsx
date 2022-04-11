@@ -1,8 +1,8 @@
 /**
- * @Description: 表单的item组件
- * @Author: youus
- * @Date: 2021/1/11 11:51 AM
- * @Version v1.0.0
+ * @description 表单的item组件
+ * @author youus
+ * @date 2021/1/11 11:51 AM
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.1.0 升级为tsx版本

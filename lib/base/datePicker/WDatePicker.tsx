@@ -1,8 +1,8 @@
 /**
- * @Description:
- * @Author: youus
- * @Date: 2022/1/22 9:23 PM
- * @Version v1.0.1
+ * @description
+ * @author youus
+ * @date 2022/1/22 9:23 PM
+ * @version v1.0.1
  *
  * Hello, humor
  * v1.0.1 边框样式改为使用边框组件

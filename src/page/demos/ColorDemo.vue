@@ -18,9 +18,9 @@
 <script lang="ts" setup>
 /**
  *
- * @Author: 阿怪
- * @Date: 2022/3/6 1:43 AM
- * @Version v1.0.0
+ * @author 阿怪
+ * @date 2022/3/6 1:43 AM
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

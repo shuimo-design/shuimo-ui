@@ -1,8 +1,8 @@
 /**
- * @Description dom事件监听hook
- * @Author youus
- * @Date 2022/4/3 16:26
- * @Version v1.0.0
+ * @description dom事件监听hook
+ * @author youus
+ * @date 2022/4/3 16:26
+ * @version v1.0.0
  *
  * Hello, humor
  */

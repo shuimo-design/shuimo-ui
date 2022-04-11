@@ -19,10 +19,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: 表格组件demo页
- * @Author: 菩萨蛮
- * @Date: 2021/8/23 11:42 上午
- * @Version v1.0.0
+ * @description 表格组件demo页
+ * @author 阿怪
+ * @date 2021/8/23 11:42 上午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

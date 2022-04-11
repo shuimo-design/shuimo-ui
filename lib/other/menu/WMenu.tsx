@@ -1,11 +1,11 @@
 /**
- * @Description: 菜单组件
- * @Author: 菩萨蛮
- * @Date: 2021/7/19 2:46 下午
- * @Version v1.0.1
+ * @description 菜单组件
+ * @author 阿怪
+ * @date 2021/7/19 2:46 下午
+ * @version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
- * v1.0.1 menu添加默认选中key相同的子目录的功能 菩萨蛮
+ * v1.0.1 menu添加默认选中key相同的子目录的功能 阿怪
  * todo 背景图
  */
 import { h, defineComponent, VNode, PropType, reactive } from 'vue';

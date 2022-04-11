@@ -1,8 +1,8 @@
 /**
- * @Description: 显示的dom管理方法
- * @Author: 菩萨蛮
- * @Date: 2021/8/27 11:22 下午
- * @Version v1.0.0
+ * @description 显示的dom管理方法
+ * @author 阿怪
+ * @date 2021/8/27 11:22 下午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

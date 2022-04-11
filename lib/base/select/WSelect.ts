@@ -1,12 +1,12 @@
 /**
- * @Description: 选择框组件
- * @Author: 菩萨蛮
- * @Date: 2021/8/27 11:05 上午
- * @Version v1.1.2
+ * @description 选择框组件
+ * @author 阿怪
+ * @date 2021/8/27 11:05 上午
+ * @version v1.1.2
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
- * v1.0.1 修复moduleValue不更新问题、keyParam默认值改为title 菩萨蛮
+ * v1.0.1 修复moduleValue不更新问题、keyParam默认值改为title 阿怪
  * v1.0.2 keyParam默认值改为value，新增titleParam
  * v1.0.3 修复之前两个版本错误的参数流转问题
  * v1.1.0 代码结构改为使用ts，新增输入框筛选功能

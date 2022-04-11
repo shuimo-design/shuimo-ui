@@ -1,6 +1,6 @@
 /**
  * @description 弹窗组件
- * @author: 菩萨蛮
+ * @author: 阿怪
  * @date 2020/11/23 3:08 下午
  * @version V1.0.0
  *

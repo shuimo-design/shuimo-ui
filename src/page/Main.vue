@@ -19,10 +19,10 @@
 
 <script lang="ts">
 /**
- * @Description: 主页
- * @Author: 菩萨蛮
- * @Date: 2021/6/8 11:42 下午
- * @Version v1.0.0
+ * @description 主页
+ * @author 阿怪
+ * @date 2021/6/8 11:42 下午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

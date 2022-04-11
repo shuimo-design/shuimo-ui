@@ -21,10 +21,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: input demo
- * @Author: 阿怪
- * @Date: 2020/11/27 10:32 下午
- * @Version v1.1.0
+ * @description input demo
+ * @author 阿怪
+ * @date 2020/11/27 10:32 下午
+ * @version v1.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *

@@ -1,8 +1,8 @@
 /**
- * @Description: 控制台打印模块
- * @Author: 菩萨蛮
- * @Date: 2021/2/6 10:10 上午
- * @Version v1.0.0
+ * @description 控制台打印模块
+ * @author 阿怪
+ * @date 2021/2/6 10:10 上午
+ * @version v1.0.0
  *
  * TODO: 封装待优化，这写法可维护性好弱
  *

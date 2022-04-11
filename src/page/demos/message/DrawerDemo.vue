@@ -19,10 +19,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: 抽屉组件demo
- * @Author: 菩萨蛮
- * @Date: 2021/8/24 11:29 上午
- * @Version v1.0.0
+ * @description 抽屉组件demo
+ * @author 阿怪
+ * @date 2021/8/24 11:29 上午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

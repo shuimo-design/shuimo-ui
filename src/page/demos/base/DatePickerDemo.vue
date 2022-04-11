@@ -13,10 +13,10 @@
 
 <script setup lang="ts">
 /**
- * @Description: date picker demo
- * @Author: youus
- * @Date: 2020/11/27 10:32 下午
- * @Version v1.1.0
+ * @description date picker demo
+ * @author youus
+ * @date 2020/11/27 10:32 下午
+ * @version v1.1.0
  *
  * Hello, humor
  *

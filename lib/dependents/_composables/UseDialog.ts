@@ -1,8 +1,8 @@
 /**
- * @Description: 弹窗、抽屉相关模块管理
- * @Author: 菩萨蛮
- * @Date: 2021/8/24 2:44 下午
- * @Version v1.0.0
+ * @description 弹窗、抽屉相关模块管理
+ * @author 阿怪
+ * @date 2021/8/24 2:44 下午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

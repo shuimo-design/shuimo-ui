@@ -1,8 +1,8 @@
 /**
- * @Description: input输入框测试用例
- * @Author: 阿怪
- * @Date: 2021/2/12 9:45 下午
- * @Version v1.0.1
+ * @description input输入框测试用例
+ * @author 阿怪
+ * @date 2021/2/12 9:45 下午
+ * @version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *

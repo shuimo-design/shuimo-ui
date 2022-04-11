@@ -1,8 +1,8 @@
 /**
- * @Description: form api type
- * @Author: 阿怪
- * @Date: 2022/4/5 9:42 AM
- * @Version v1.0.0
+ * @description form api type
+ * @author 阿怪
+ * @date 2022/4/5 9:42 AM
+ * @version v1.0.0
  *
  * @name w-form
  * @docDescription Form component with wash-painting-ui style.

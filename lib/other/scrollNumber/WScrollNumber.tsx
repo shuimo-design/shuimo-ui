@@ -4,7 +4,7 @@
  * @date 2020/12/23 20:49
  * @version V1.1.0
  *
- * V1.1.0 @author 菩萨蛮 添加同时滚动的类型选择、速度、时间提供修改入口
+ * V1.1.0 @author 阿怪 添加同时滚动的类型选择、速度、时间提供修改入口
  */
 
 import {h, defineComponent, provide, CSSProperties} from 'vue';

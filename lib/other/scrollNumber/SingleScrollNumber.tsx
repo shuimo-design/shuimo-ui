@@ -1,6 +1,6 @@
 /**
  * @description 数字滚动单个组件
- * @author: 菩萨蛮
+ * @author: 阿怪
  * @date 2021/1/3 1:16 下午
  * @version V1.0.0
  *

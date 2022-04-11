@@ -1,8 +1,8 @@
 /**
- * @Description: 进度条组件
- * @Author: 菩萨蛮
- * @Date: 2022/1/21 6:13 下午
- * @Version v1.0.1
+ * @description 进度条组件
+ * @author 阿怪
+ * @date 2022/1/21 6:13 下午
+ * @version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 修复width与预期不一致的问题，优化渲染逻辑

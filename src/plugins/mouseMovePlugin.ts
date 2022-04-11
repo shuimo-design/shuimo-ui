@@ -1,8 +1,8 @@
 /**
- * @Description: 鼠标移动插件
- * @Author: 菩萨蛮
- * @Date: 2021/8/24 8:46 下午
- * @Version v1.0.0
+ * @description 鼠标移动插件
+ * @author 阿怪
+ * @date 2021/8/24 8:46 下午
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * TODO 1. 鼠标X,Y使用偏移量

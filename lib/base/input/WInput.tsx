@@ -1,8 +1,8 @@
 /**
- * @Description: Input组件
- * @Author: 阿怪
+ * @description Input组件
+ * @author 阿怪
  * @date 2020/11/17 22:03
- * @Version v1.1.0
+ * @version v1.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
