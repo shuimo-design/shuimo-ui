@@ -13,9 +13,8 @@ import { props } from "./api";
 export default defineComponent({
   name: 'WButton',
   props,
-  setup(props) {
+  setup(props, { slots }) {
     const { disabled, type, text } = props;
-    const slots = useSlots();
     let buttonText = slots.default?.() || text;
     return () => h('button', {
       class: ['w-button w-cursor-pointer', { 'w-button-disabled': disabled }, `w-button-${type}`],

@@ -14,14 +14,12 @@ import type { OptionType } from "./formItem";
 export default defineComponent({
   name: 'WFormItem',
   props: itemProps,
-  render(ctx: OptionType['ctx']) {
-    const slots = useSlots();
-
-    const labelSlot = slots.label ? slots.label() : ctx.label;
+  setup(props, { slots }) {
+    const labelSlot = slots.label ? slots.label() : props.label;
     const defaultSlot = slots.default ? slots.default() : '';
     return (
       <div class="w-form-item">
-        <label for={ctx.prop} class="w-form-item__label">
+        <label for={props.prop} class="w-form-item__label">
           {labelSlot}
         </label>
         <div class="w-form-item__content">

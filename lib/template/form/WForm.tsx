@@ -15,8 +15,7 @@ import type { OptionType } from "./form";
 export default defineComponent({
   name: 'WForm',
   props,
-  setup(props){
-    const slots = useSlots();
+  setup(props, { slots }) {
     return h('form', {
       class: {
         'w-form': true,
