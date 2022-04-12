@@ -7,12 +7,15 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import type { ComponentPublicInstance } from "vue";
-import type { ComponentObjectPropsOptions } from "@vue/runtime-core";
+import type { Prop } from '@vue/runtime-core';
 
+type PropOptions<T> = {
+  [P in keyof T]: Prop<T[P]>;
+}
 /**
  * props和ctx类型接口
  */
 export declare interface IComponentOption<Props> {
-  props: ComponentObjectPropsOptions<Props>;
+  props: PropOptions<Props>;
   ctx: ComponentPublicInstance<Props>;
 }
