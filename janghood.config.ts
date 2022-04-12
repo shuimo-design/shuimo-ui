@@ -1,12 +1,12 @@
 /**
- * @Description: 极客江湖插件配置文件
- * @Author: 阿怪
- * @Date: 2022/4/6 4:55 PM
- * @Version v1.0.0
+ * @description 极客江湖插件配置文件
+ * @author 阿怪
+ * @date 2022/4/6 4:55 PM
+ * @version v1.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-
+import { defineJhConfig } from '@janghood/api-extractor';
 
 const firstUpperCase = (str: string) => {
   return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
@@ -18,12 +18,12 @@ const sourceSymbolTranslator = (dirList: string[]) => {
 }
 
 // 后续可以扩展为defineConfig
-export default {
+export default defineJhConfig({
   apiExtractor: {
     include: ["lib"],
     exclude: ['dependents'],
     document: {
-      webTypes:{
+      webTypes: {
         active: true,
         webTypesInfo: {
           "framework": "vue",
@@ -32,4 +32,4 @@ export default {
       }
     }
   }
-};
+});

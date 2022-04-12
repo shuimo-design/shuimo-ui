@@ -45,6 +45,78 @@
           ]
         },
         {
+          "name": "w-checkbox",
+          "source": {
+            "symbol": "WCheckbox"
+          },
+          "description": "Checkbox component with wash-painting-ui style.\n水墨组件的复选框组件。",
+          "doc-url": "https://wash-painting.com/checkbox",
+          "attributes": [
+            {
+              "name": "label",
+              "description": "checkbox label text, will replace by slot\n按钮文本 会被slot覆盖",
+              "value": {
+                "type": "string | VNode[]",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "value",
+              "description": "checkbox value\n复选框值",
+              "value": {
+                "type": "string | number",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "checkbox disabled\n是否禁用",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "checked",
+              "description": "checkbox checked\n是否选中",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "defaultChecked",
+              "description": "checkbox default value\ncheckbox默认值",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "onChange",
+              "description": "checkbox Change event\ncheckbox change事件",
+              "value": {
+                "type": "Function",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "modelValue",
+              "description": "checkbox modelValue",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
           "name": "w-input",
           "source": {
             "symbol": "WInput"

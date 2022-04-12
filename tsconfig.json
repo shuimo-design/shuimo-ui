@@ -8,7 +8,6 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "lib": ["esnext", "dom", "@vue/runtime-core/dist/runtime-core.d.ts"],
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }]
   },
   "include": [
