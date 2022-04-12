@@ -9,20 +9,17 @@
  */
 import { h, defineComponent, useSlots } from 'vue';
 import { props } from "./api";
-import type { OptionType } from "./index";
 
 export default defineComponent({
   name: 'WButton',
   props,
-  render(ctx: OptionType['ctx']) {
-    let { disabled, type, text } = ctx;
+  setup(props) {
+    const { disabled, type, text } = props;
     const slots = useSlots();
-    if (slots.default) {
-      text = slots.default();
-    }
-    return h('button', {
+    let buttonText = slots.default?.() || text;
+    return () => h('button', {
       class: ['w-button w-cursor-pointer', { 'w-button-disabled': disabled }, `w-button-${type}`],
       disabled: disabled
-    }, text);
+    }, buttonText);
   }
 })

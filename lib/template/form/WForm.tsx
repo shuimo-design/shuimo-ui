@@ -15,15 +15,15 @@ import type { OptionType } from "./form";
 export default defineComponent({
   name: 'WForm',
   props,
-  render(ctx: OptionType['ctx']) {
+  setup(props){
     const slots = useSlots();
     return h('form', {
       class: {
         'w-form': true,
-        'inline': ctx.inline
+        'inline': props.inline
       },
       onsubmit: () => {
-        return ctx.submit;
+        return props.submit;
       }
     }, slots);
   }
