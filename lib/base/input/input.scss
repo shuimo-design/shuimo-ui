@@ -11,8 +11,13 @@
 }
 
 .w-textarea {
-  width: 100%;
+  width: calc(100% - 6px);
   height: auto;
+
+  textarea {
+    background-color: unset !important;
+    background-repeat: no-repeat !important;
+  }
 }
 
 .w-input-inner {
@@ -26,7 +31,7 @@
 }
 
 .w-textarea-inner {
-  padding: 5px;
+  padding: 10px;
   width: calc(100% - 10px);
   height: calc(100% - 10px);
   border: none !important;
