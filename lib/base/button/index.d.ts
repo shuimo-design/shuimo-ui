@@ -32,7 +32,7 @@ export declare type ButtonProps = {
    * @description button type 按钮类型
    * @type string
    * @default primary
-   * @enum primary|gray
+   * @enum primary|gray|double
    */
   type: string
 };
