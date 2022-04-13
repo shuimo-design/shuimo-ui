@@ -9,11 +9,6 @@
 
 export const other = [
   {
-    path: '/scroll-number',
-    name: 'ScrollNumber',
-    component: () => import('../../page/demos/other/ScrollNumberDemo.vue')
-  },
-  {
     path: '/upload',
     name: 'Upload',
     component: () => import('../../page/demos/other/UploadDemo.vue')

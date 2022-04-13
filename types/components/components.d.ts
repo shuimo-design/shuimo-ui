@@ -23,7 +23,6 @@ import divider from "../../lib/other/divider/WDivider";
 import inputNumber from "../../lib/other/inputNumber/WInputNumber";
 import menu from "../../lib/other/menu/WMenu";
 import progress from "../../lib/other/progress/WProgress";
-import scrollNumber from "../../lib/other/scrollNumber/WScrollNumber";
 import upload from "../../lib/other/upload/WUpload";
 
 import form from "../../lib/template/form/WForm";
@@ -64,7 +63,6 @@ export declare const WDivider: typeof divider;
 export declare const WInputNumber: typeof inputNumber;
 export declare const WMenu: typeof menu;
 export declare const WProgress: typeof progress;
-export declare const WScrollNumber: typeof scrollNumber;
 export declare const WUpload: typeof upload;
 
 export declare const WForm: typeof form;

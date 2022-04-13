@@ -67,8 +67,7 @@ const menuList: MenuTypeArr = reactive([
     ]
   },
   {
-    title: '其他组件', key: 'scroll-number', isActive: false, children: [
-      { title: '数字滚动', key: 'scroll-number', isActive: false },
+    title: '其他组件', key: 'upload', isActive: false, children: [
       { title: '文件上传', key: 'upload', isActive: false },
       { title: '控制台输出', key: 'print', isActive: false },
       { title: '分割线', key: 'divider', isActive: false },

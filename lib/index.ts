@@ -20,7 +20,6 @@ import WDivider from './other/divider/WDivider';
 import WInputNumber from './other/inputNumber/WInputNumber';
 import WMenu from './other/menu/WMenu';
 import WPrinter from "./other/printer/Printer";
-import WScrollNumber from './other/scrollNumber/WScrollNumber';
 import WProgress from './other/progress/WProgress';
 import WUpload from './other/upload/WUpload';
 
@@ -43,7 +42,6 @@ const components: Record<any, Component> = {
   WButton,
   WDialog,
   WTooltip,
-  WScrollNumber,
   WSelect,
   WDatePicker,
   WPopover,
@@ -78,7 +76,6 @@ export {
   WButton,
   WDialog,
   WTooltip,
-  WScrollNumber,
   WSelect,
   WDatePicker,
   WPopover,
