@@ -1,4 +1,5 @@
 .w-button {
+  @extend .w-cursor-pointer;
   margin: 6px 0 0 10px;
   padding: 0 15px;
   height: 28px;
@@ -18,8 +19,8 @@
   color: #333333;
 }
 
-.w-button-dialog {
+.w-button-double {
   border: unset;
-  background: url("/lib/assets/button/button-border-dialog.png") no-repeat;
+  background: url("/lib/assets/button/button-border-double.png") no-repeat;
   background-size: 100% 100%;
 }

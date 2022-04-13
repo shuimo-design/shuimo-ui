@@ -6,8 +6,9 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 新增slot文本形式
+ * v1.0.2 优化结构
  */
-import { h, defineComponent, useSlots } from 'vue';
+import { h, defineComponent } from 'vue';
 import { props } from "./api";
 
 export default defineComponent({
@@ -15,10 +16,12 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     const { disabled, type, text } = props;
-    let buttonText = slots.default?.() || text;
-    return () => h('button', {
-      class: ['w-button w-cursor-pointer', { 'w-button-disabled': disabled }, `w-button-${type}`],
-      disabled: disabled
-    }, buttonText);
+    return () => {
+      let buttonText = slots.default && slots.default() || text;
+      return h('button', {
+        class: ['w-button', { 'w-button-disabled': disabled }, `w-button-${type}`],
+        disabled: disabled
+      }, buttonText);
+    }
   }
 })

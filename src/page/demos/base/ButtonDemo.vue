@@ -4,8 +4,8 @@
       <w-button text="hi" @click="printHi"/>
       <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="printHi"/>
       <w-button text="type测试" @click="printHi" type="gray"/>
-      <w-button text="弹窗按钮" @click="printHi" type="dialog"/>
-      <w-button @click="printHi" type="dialog">slot形式</w-button>
+      <w-button text="double按钮" @click="printHi" type="double"/>
+      <w-button @click="printHi" type="double">slot形式</w-button>
     </div>
   </div>
 </template>
