@@ -8,15 +8,14 @@
  * V1.1.0 @author 阿怪 重构为tsx版本，并添加submit事件劫持
  */
 
-import { h, defineComponent, useSlots } from 'vue';
+import { h, defineComponent } from 'vue';
 import { props } from "./api";
-import type { OptionType } from "./form";
 
 export default defineComponent({
   name: 'WForm',
   props,
   setup(props, { slots }) {
-    return h('form', {
+    return () => h('form', {
       class: {
         'w-form': true,
         'inline': props.inline
