@@ -11,7 +11,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import type { IComponentOption } from "../../dependents/_types";
 
 export declare type InputProps = {
   /**
@@ -20,19 +19,18 @@ export declare type InputProps = {
    * @default text
    * @enum text|textarea
    */
-  type: string,
+  type?: string,
   /**
    * @description input placeholder. 提示语
    * @type string
    * @default ''
    */
-  placeholder: string,
+  placeholder?: string,
   /**
    * @description input value. 输入框绑定值
    * @type string|number
    * @default ''
    */
-  modelValue: string | number
+  modelValue?: string | number
 }
 
-export declare type OptionType = IComponentOption<InputProps>

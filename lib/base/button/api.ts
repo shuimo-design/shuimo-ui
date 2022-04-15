@@ -6,10 +6,11 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+import { WCOPO } from "../../dependents/_types";
+import { ButtonProps } from "./index";
 
-import type { OptionType } from "./index";
 
-export const props: OptionType['props'] = {
+export const props: WCOPO<ButtonProps> = {
   text: { type: String, default: '' },
   disabled: { type: Boolean, default: false },
   type: { type: String, default: 'primary' }

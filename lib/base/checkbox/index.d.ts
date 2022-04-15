@@ -13,7 +13,6 @@
  */
 
 import type { VNode } from 'vue';
-import type { IComponentOption } from '../../dependents/_types';
 
 export declare type CheckboxProps = {
   /**
@@ -52,12 +51,6 @@ export declare type CheckboxProps = {
    */
   defaultChecked?: boolean;
   /**
-   * @description checkbox Change event
-   *              checkbox change事件
-   * @type Function
-   */
-  onChange?: (checked: boolean, context: { e: Event }) => void;
-  /**
    * @description checkbox modelValue
    * @type boolean
    * @default false
@@ -65,4 +58,3 @@ export declare type CheckboxProps = {
   modelValue?: boolean;
 }
 
-export declare type OptionType = IComponentOption<CheckboxProps>

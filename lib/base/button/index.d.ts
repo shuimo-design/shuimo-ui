@@ -12,7 +12,6 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import type { VNode } from 'vue';
-import type { IComponentOption } from "../../dependents/_types";
 
 export declare type ButtonProps = {
   /**
@@ -21,20 +20,19 @@ export declare type ButtonProps = {
    * @type string | VNode[]
    * @default ''
    */
-  text: string | VNode[];
+  text?: string | VNode[];
   /**
    * @description disable or not 是否禁用
    * @type boolean
    * @default false
    */
-  disabled: boolean,
+  disabled?: boolean,
   /**
    * @description button type 按钮类型
    * @type string
    * @default primary
    * @enum primary|gray|double
    */
-  type: string
+  type?: string
 };
 
-export declare type OptionType = IComponentOption<ButtonProps>;

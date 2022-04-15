@@ -1,34 +1,12 @@
-import type { OptionType } from './index';
-import { PropType } from 'vue';
-import { CheckboxProps } from './index';
+import { CheckboxProps } from "./index";
+import { WCOPO } from "../../dependents/_types";
 
-export const props: OptionType['props'] = {
-  checked: {
-    type: Boolean,
-    default: undefined
-  },
-  disabled: {
-    type: Boolean,
-    default: undefined
-  },
-  label: {
-    type: String,
-    default: ''
-  },
-  value: {
-    type: String,
-    default: ''
-  },
-  modelValue: {
-    type: Boolean,
-    default: undefined,
-  },
-  defaultChecked: {
-    type: Boolean,
-    default: false,
-  },
-  onChange: {
-    type: Function as PropType<CheckboxProps['onChange']>,
-    default: () => {},
-  },
+
+export const props: WCOPO<CheckboxProps> = {
+  checked: { type: Boolean, default: false },
+  defaultChecked: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
+  label: { type: String, default: '' },
+  value: { type: String, default: '' },
+  modelValue: { type: Boolean, default: false },
 }

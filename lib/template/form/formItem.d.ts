@@ -12,7 +12,6 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { IComponentOption } from "../../dependents/_types";
 
 export declare type FormItemProps = {
   /**
@@ -20,13 +19,12 @@ export declare type FormItemProps = {
    *              表单项的标题
    * @type string
    */
-  label: string,
+  label?: string,
   /**
    * @description form item label prop
    *              表单内置label的原生prop属性
    * @type string
    */
-  prop: string
+  prop?: string
 }
 
-export declare type OptionType = IComponentOption<FormItemProps>;

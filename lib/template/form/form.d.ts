@@ -12,7 +12,6 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import { IComponentOption } from "../../dependents/_types";
 
 export declare type FormProps = {
   /**
@@ -20,13 +19,12 @@ export declare type FormProps = {
    * @type boolean
    * @default false
    */
-  inline:boolean,
+  inline?:boolean,
   /**
    * @description form 是否默认发送
    * @type boolean
    * @default false
    */
-  submit: boolean
+  submit?: boolean
 }
 
-export declare type OptionType = IComponentOption<FormProps>;

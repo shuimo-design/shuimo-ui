@@ -7,9 +7,8 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.1.0 升级为tsx版本
  */
-import { h, defineComponent, useSlots } from "vue";
+import { defineComponent } from "vue";
 import { itemProps } from "./api";
-import type { OptionType } from "./formItem";
 
 export default defineComponent({
   name: 'WFormItem',
