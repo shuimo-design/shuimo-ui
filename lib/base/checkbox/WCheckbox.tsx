@@ -15,19 +15,28 @@ import { CheckboxGroupContextKey } from './checkboxGroupApi';
 export default defineComponent({
   name: 'WCheckbox',
   props,
-  setup(props, {emit}) {
+  emits: ['change'],
+  setup(props, { emit }) {
     const uniId = Symbol('wCheckboxUniId');
     const checkboxGroup = inject(CheckboxGroupContextKey, undefined);
-    
-    const { checked, modelValue } = toRefs(props)
-    const [innerChecked, setInnerChecker] = useVModel(checked, modelValue, props.defaultChecked, props.onChange)
-    
+
+    const { checked, modelValue } = toRefs(props);
+
+    const [innerChecked, setInnerChecker] = useVModel<boolean>({
+      value: checked,
+      modelValue,
+      defaultValue: props.defaultChecked,
+      onChange: (newValue, args) => {
+        emit('change', newValue, args);
+      },
+    })
+
     const selfChecked = computed(() => {
       return checkboxGroup
         ? checkboxGroup.groupValue.value.includes(props.value)
         : innerChecked.value;
     })
-  
+
     watchEffect(() => {
       if (checkboxGroup && selfChecked.value) {
         checkboxGroup.registerValue(uniId, props.value as string);
@@ -36,9 +45,9 @@ export default defineComponent({
     onBeforeUnmount(() => {
       checkboxGroup?.cancelValue(uniId);
     });
-    
+
     const innerDisabled = computed(() => (props.disabled as boolean) || checkboxGroup?.disabled.value);
-  
+
     const wCheckboxStyle = computed(() => [
       'w-checkbox',
       {
@@ -53,14 +62,14 @@ export default defineComponent({
         'w-cursor-pointer': !innerDisabled.value,
       },
     ]);
-    
+
     const innerStyle = computed(() => [{
       'w-checkbox__inner_checked': selfChecked.value,
       'w-cursor-disabled': innerDisabled.value,
       'w-cursor-pointer': !innerDisabled.value,
     }]);
-    
-    
+
+
     const changeHandle = (e: Event) => {
       if (props.disabled) {
         return;
@@ -80,8 +89,8 @@ export default defineComponent({
           checked={selfChecked.value}
         />
         <span class={checkStyle.value}>
-          <img src="/lib/assets/checkbox/border.png" alt="" />
-          <span class={innerStyle.value} />
+          <img src="/lib/assets/checkbox/border.png" alt=""/>
+          <span class={innerStyle.value}/>
         </span>
         <span class="w-checkbox__label">{props.label}</span>
       </label>
