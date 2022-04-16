@@ -10,14 +10,11 @@
 import { h, defineComponent, Teleport } from 'vue';
 import useDialog from "../../dependents/_composables/UseDialog";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WDialog',
-  props: {
-    mask: { type: Object, default: { show: true, clickClose: true } },
-    visible: { type: Boolean, default: false },
-    confirmText: { type: String, default: '我知道了' }
-  },
+  props,
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
     const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, context);

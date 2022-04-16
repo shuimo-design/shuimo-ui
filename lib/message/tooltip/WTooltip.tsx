@@ -9,7 +9,7 @@
 
 import { defineComponent, onMounted, ref, toRefs, Transition } from 'vue';
 import Printer from '../../other/printer/Printer';
-import props from './props'
+import { props } from './api'
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
 
@@ -23,17 +23,17 @@ export default defineComponent({
   setup(props, { slots, emit }) {
     const popperNode = ref();
     const triggerNode = ref();
-    
+
     onMounted(() => {
       const children = slots.default && slots.default();
-      
+
       if (children && children.length > 1) {
         return printer.error(
           `[WTooltip]: The <WTooltip> or <w-tooltip>component expects only one child element at its root. You passed ${children.length} child nodes.`,
         );
       }
     });
-    
+
     const {
       locked,
       offsetDistance,
@@ -41,7 +41,7 @@ export default defineComponent({
       placement,
       arrowPadding,
     } = toRefs(props);
-    
+
     const popperHandleMap = usePopper({
       arrowPadding: arrowPadding.value,
       emit,
@@ -52,7 +52,7 @@ export default defineComponent({
       popperNode,
       triggerNode,
     });
-    
+
     const {
       popperContainerNode,
       modifiedIsOpen,
@@ -64,7 +64,7 @@ export default defineComponent({
       shouldShowPopper,
       interactiveStyle
     } = usePopperCommon(props, slots, popperHandleMap, popperNode)
-    
+
     return () => (
       <div
         class="w-tooltip"

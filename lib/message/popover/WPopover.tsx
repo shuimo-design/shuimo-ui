@@ -9,10 +9,9 @@
 
 import { defineComponent, onMounted, ref, toRefs, Transition } from 'vue';
 import Printer from '../../other/printer/Printer';
-import props from './props'
+import { props } from "./api";
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
-
 
 const printer = Printer();
 
@@ -23,24 +22,24 @@ export default defineComponent({
   setup(props, { slots, emit }) {
     const popperNode = ref();
     const triggerNode = ref();
-    
+
     onMounted(() => {
       const children = slots.default && slots.default();
-      
+
       if (children && children.length > 1) {
         return printer.error(
           `[WPopover]: The <WPopover> or <w-popover>component expects only one child element at its root. You passed ${children.length} child nodes.`,
         );
       }
     });
-    
+
     const {
       locked,
       offsetDistance,
       offsetSkid,
       placement,
     } = toRefs(props);
-    
+
     const popperHandleMap = usePopper({
       emit,
       locked: locked.value,
@@ -50,7 +49,7 @@ export default defineComponent({
       popperNode,
       triggerNode,
     });
-    
+
     const {
       popperContainerNode,
       modifiedIsOpen,
@@ -62,7 +61,7 @@ export default defineComponent({
       shouldShowPopper,
       interactiveStyle
     } = usePopperCommon(props, slots, popperHandleMap, popperNode)
-    
+
     return () => (
       <div
         class="w-popover"

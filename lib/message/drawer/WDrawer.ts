@@ -13,15 +13,11 @@ import { h, defineComponent, Teleport } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import useDialog from "../../dependents/_composables/UseDialog";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WDrawer',
-  props: {
-    width: { type: String, default: '524px' },
-    mask: { type: Object, default: { show: true, clickClose: true } },
-    visible: { type: Boolean, default: false },
-    drawerClass: { type: Array, default: [] }
-  },
+  props,
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
     const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, context);
