@@ -6,7 +6,7 @@
  *
  * @name w-input-number
  * @docDescription InputNumber component with wash-painting-ui style.
- *                 水墨组件数字输入框的组件。
+ *                 水墨组件的数字输入框组件。
  * @docUrl https://wash-painting.com/input#number
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。

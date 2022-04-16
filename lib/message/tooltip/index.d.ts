@@ -6,7 +6,7 @@
  *
  * @name w-tooltip
  * @docDescription Tooltip component with wash-painting-ui style.
- *                 水墨组件提示框的组件。
+ *                 水墨组件的提示框组件。
  * @docUrl https://wash-painting.com/tooltip
  *
  * Hello, humor

@@ -6,7 +6,7 @@
  *
  * @name w-popover
  * @docDescription Popover component with wash-painting-ui style.
- *                 水墨组件弹出框的组件。
+ *                 水墨组件的弹出框组件。
  * @docUrl https://wash-painting.com/popover
  *
  * Hello, humor

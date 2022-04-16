@@ -6,7 +6,7 @@
  *
  * @name w-dialog
  * @docDescription Dialog component with wash-painting-ui style.
- *                 水墨组件弹窗交互的组件。
+ *                 水墨组件的弹窗交互组件。
  * @docUrl https://wash-painting.com/dialog
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
