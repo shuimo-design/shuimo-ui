@@ -14,6 +14,7 @@
 import { defineComponent, h, VNode } from 'vue'
 import { notEmpty } from "../../dependents/_utils/tools";
 import Printer from "../../other/printer/Printer";
+import { props } from "./api";
 
 
 const img = h('div', { class: 'w-table-tbody-img' });
@@ -58,10 +59,7 @@ type columnType = {
 
 export default defineComponent({
   name: 'WTable',
-  props: {
-    data: { type: Array, default: () => [] },
-    height: { type: String }
-  },
+  props,
   render(ctx: any) {
     const theadThList: VNode[] = [];
     const tbodyTrList: VNode[] = [];

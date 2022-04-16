@@ -1,4 +1,5 @@
 import {h, defineComponent} from "vue";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WPagination',
@@ -8,19 +9,7 @@ export default defineComponent({
       disNext: false
     }
   },
-  props: {
-    total: {type: Number, default: 0},
-    current: {type: Number, default: 1},
-    pageSize: {type: Number, default: 10},
-    pageSizes: {
-      type: Array, default() {
-        return [10, 20, 30, 40, 50, 100]
-      }
-    },
-    layout: {
-      default: 'prev, pager, next, jumper, total'
-    }
-  },
+  props,
   computed: {
     pagers() {
       // @ts-ignore
