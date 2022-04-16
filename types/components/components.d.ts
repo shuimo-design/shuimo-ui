@@ -10,6 +10,7 @@ import button from "../../lib/base/button/WButton";
 import checkbox from "../../lib/base/checkbox/WCheckbox";
 import datepicker from "../../lib/base/datePicker/WDatePicker";
 import input from "../../lib/base/input/WInput";
+import inputNumber from "../../lib/base/inputNumber/WInputNumber";
 import radio from "../../lib/base/radio/WRadio";
 import select from "../../lib/base/select/WSelect";
 
@@ -20,7 +21,6 @@ import tooltip from "../../lib/message/tooltip/WTooltip";
 
 import border from "../../lib/other/border/WBorder";
 import divider from "../../lib/other/divider/WDivider";
-import inputNumber from "../../lib/other/inputNumber/WInputNumber";
 import menu from "../../lib/other/menu/WMenu";
 import progress from "../../lib/other/progress/WProgress";
 import upload from "../../lib/other/upload/WUpload";

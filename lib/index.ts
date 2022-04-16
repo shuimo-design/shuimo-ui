@@ -1,6 +1,7 @@
 import { App, Component } from 'vue';
 
 import WInput from './base/input/WInput';
+import WInputNumber from './base/inputNumber/WInputNumber';
 import WButton from './base/button/WButton';
 import WSelect from './base/select/WSelect';
 import WDatePicker from './base/datePicker/WDatePicker';
@@ -17,7 +18,6 @@ import WTooltip from './message/tooltip/WTooltip';
 
 import WBorder from './other/border/WBorder';
 import WDivider from './other/divider/WDivider';
-import WInputNumber from './other/inputNumber/WInputNumber';
 import WMenu from './other/menu/WMenu';
 import WPrinter from "./other/printer/Printer";
 import WProgress from './other/progress/WProgress';
