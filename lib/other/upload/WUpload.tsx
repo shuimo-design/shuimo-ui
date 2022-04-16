@@ -7,13 +7,12 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 input添加pointer样式 阿怪
  */
-import {h, defineComponent} from "vue";
+import { h, defineComponent } from "vue";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WUpload',
-  props: {
-    fileTypes: {type: String, default: 'png, jpeg'}
-  },
+  props,
   methods: {
     changeHandle(e: any) {
       const files = e.target.files;
@@ -30,13 +29,13 @@ export default defineComponent({
     },
   },
   render() {
-    const {changeHandle} = this;
-    const {fileTypes} = this;
+    const { changeHandle } = this;
+    const { fileTypes } = this;
     return (
-        <div class={'w-upload'} >
-          <span>{this.$slots.default()}</span>
-          <input class="w-cursor-pointer" type="file" accept={fileTypes} onchange={changeHandle}/>
-        </div>
+      <div class={'w-upload'}>
+        <span>{this.$slots.default()}</span>
+        <input class="w-cursor-pointer" type="file" accept={fileTypes} onchange={changeHandle}/>
+      </div>
     )
   }
 })

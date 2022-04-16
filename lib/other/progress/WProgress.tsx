@@ -11,6 +11,7 @@
 import { defineComponent } from "vue";
 import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
 import leaf from '../../assets/progress/leaf.png';
+import { props } from "./api";
 
 const BASE_SIZE = {
   BG: { W: 556, H: 37 },
@@ -39,15 +40,7 @@ const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: n
 
 export default defineComponent({
   name: 'WProgress',
-  props: {
-    width: { type: Number },
-    height: { type: Number },
-    value: { type: Number, default: 0 },
-    max: { type: Number, default: 100 },
-    showInfo: { type: Boolean, default: false },
-    infoWidth: { type: Number, default: 44 },
-    leafHeight: { type: Number, default: 28 }
-  },
+  props,
   render(ctx: any) {
     const { showInfo, leafHeight } = ctx;
     const { width, height } = getSize(ctx.width, ctx.height);

@@ -8,8 +8,9 @@
  * v1.0.1 menu添加默认选中key相同的子目录的功能 阿怪
  * todo 背景图
  */
-import { h, defineComponent, VNode, PropType, reactive } from 'vue';
+import { h, defineComponent, VNode } from 'vue';
 import { MenuTypeArr } from "../../../types/components/components";
+import { props } from "./api";
 
 const setMenuIndex = (menu: MenuTypeArr) => {
   menu.forEach((m, i) => {
@@ -23,9 +24,7 @@ const setMenuIndex = (menu: MenuTypeArr) => {
 
 export default defineComponent({
   name: 'WMenu',
-  props: {
-    menu: { type: Array as PropType<MenuTypeArr>, default: () => [] }
-  },
+  props,
   emits: ['click'],
   render(ctx: any) {
     const propsMenu: MenuTypeArr = ctx.$props.menu;
