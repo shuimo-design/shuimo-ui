@@ -1,13 +1,10 @@
 import { h, defineComponent } from "vue";
 import WBorder from "../../other/border/WBorder";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WInputNumber',
-  props: {
-    modelValue: { type: Number, default: 0 },
-    max: { type: Number, default: Infinity },
-    min: { type: Number, default: -Infinity }
-  },
+  props,
   data() {
     return {
       currentVal: 0
