@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description 日期选择组件
  * @author youus
  * @date 2022/1/22 9:23 PM
  * @version v1.0.1
@@ -17,23 +17,11 @@ import MonthTable from './basic/MonthTable';
 import YearTable from './basic/YearTable';
 import { useDatePicker } from './uesDatePicker';
 import WBorder from '../../other/border/WBorder';
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WDatePicker',
-  props: {
-    modelValue: {
-      type: null,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: '请选择日期'
-    },
-    type: {
-      type: String,
-      default: 'date'
-    }
-  },
+  props,
   emits: ['change', 'update:modelValue'],
   setup(props, { emit }) {
     const {

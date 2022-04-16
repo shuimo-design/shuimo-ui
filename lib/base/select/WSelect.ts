@@ -16,10 +16,11 @@
 import { defineComponent, h, Teleport, Transition, VNode } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import WInput from "../input/WInput";
-import { deepClone, getStyle, notEmpty } from "../../dependents/_utils/tools";
+import { deepClone, notEmpty } from "../../dependents/_utils/tools";
 import ShowDomHandler from "./composables/ShowDomHandler";
 import SelectEventHandler from "./composables/SelectEventHandler";
 import { DOMTokenListToArray } from "../../dependents/_utils/dom";
+import { props } from "./api";
 
 type WSelectDataType = {
   showValue: string,
@@ -27,15 +28,7 @@ type WSelectDataType = {
 
 export default defineComponent({
   name: 'WSelect',
-  props: {
-    modelValue: { type: null, default: '' },
-    options: { type: Array, default: () => [] },
-    keyParam: { type: String, default: 'value' }, // 输入框或者文本框中的key
-    titleParam: { type: String, default: 'title' }, // 下拉框中显示的key
-    canChange: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false },
-    placeholder: { type: String, default: '请选择...' }
-  },
+  props,
   data() {
     return {
       showValue: '',

@@ -6,13 +6,11 @@
  */
 
 import { defineComponent } from "vue";
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WRadio',
-  props: {
-    modelValue: { type: String, default: '' },
-    label: { type: String, default: '' }
-  },
+  props,
   setup(props, { slots, emit }) {
     // 默认插槽内容
     const slotsDefault = slots.default?.();
