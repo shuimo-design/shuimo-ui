@@ -5,7 +5,7 @@
  * @version v1.0.0
  *
  * @name w-date-picker
- * @docDescription DatePicker component with  wash-painting-ui style.
+ * @docDescription DatePicker component with wash-painting-ui style.
  *                 水墨组件的日期选择组件。
  * @docUrl https://wash-painting.com/date-picker
  *
@@ -18,7 +18,6 @@ export declare type DatePickerProps = {
    *              日期值
    * @type string|Date
    * @default ''
-   * @required true
    */
   modelValue?: string | Date,
   /**
