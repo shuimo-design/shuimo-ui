@@ -17,7 +17,6 @@ const sourceSymbolTranslator = (dirList: string[]) => {
   return `W${lastDir}`;
 }
 
-// 后续可以扩展为defineConfig
 export default defineJhConfig({
   apiExtractor: {
     include: ["lib"],
