@@ -12,7 +12,7 @@
   width: 100%;
 }
 
-.w-table-wrap{
+.w-table-wrap {
   position: relative;
   grid-area: table;
   top: -8px;
@@ -77,6 +77,7 @@
 .w-table-header-img-top {
   @extend .w-table-thead-img;
   grid-area: head-img-top;
+  top: -2px;
 }
 
 .w-table-header-img-bottom {
