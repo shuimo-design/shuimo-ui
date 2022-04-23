@@ -18,13 +18,4 @@ describe('分割线组件', function () {
     const wrapper = mount(WDivider);
     expect(wrapper.html()).toContain('w-divider');
   })
-
-  test('粗分割线渲染', () => {
-    const wrapper = mount(WDivider, {
-      props: {
-        type: 'strong'
-      }
-    });
-    expect(wrapper.get('img').html()).toContain('strong');
-  })
 });

@@ -24,14 +24,14 @@ describe('输入组件', () => {
     const wrapper = mount(WInput, {
       props: { modelValue: 'test' }
     });
-    expect(wrapper.get('input').element.value).toBe('test');
+    expect(wrapper.element.querySelector('input')!.value).toBe('test');
   });
 
   test('校验placeholder', () => {
     const wrapper = mount(WInput, {
       props: { placeholder: 'test placeholder' }
     });
-    expect(wrapper.get('input').element.placeholder).toBe('test placeholder');
+    expect(wrapper.element.querySelector('input')!.placeholder).toBe('test placeholder');
   });
 
   test('修改默认值', async () => {
@@ -39,7 +39,7 @@ describe('输入组件', () => {
       props: { modelValue: 'test' }
     });
     await wrapper.setProps({ modelValue: 'hi' });
-    expect(wrapper.get('input').element.value).toContain('hi');
+    expect(wrapper.element.querySelector('input')!.value).toContain('hi');
   })
 
   test('测试类型为多文本输入框', () => {
@@ -48,8 +48,8 @@ describe('输入组件', () => {
         type: 'textarea'
       }
     });
-    expect(wrapper.find('input').exists()).toBe(false);
-    expect(wrapper.get('textarea').element.value).toBe('');
+    expect(wrapper.element.querySelector('input')).toBe(null);
+    expect(wrapper.element.querySelector('textarea')!.value).toBe('');
   })
 })
 
