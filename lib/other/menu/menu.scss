@@ -34,7 +34,7 @@
       display: inline-block;
       height: 11px;
       width: 11px;
-      background: url(/lib/assets/menu/base_icon.png);
+      background: url(/lib/assets/base/icon/base_icon.png);
     }
 
     &.active {
@@ -46,7 +46,7 @@
         display: inline-block;
         height: 27px;
         width: 27px;
-        background: url(/lib/assets/menu/active_icon.png);
+        background: url(/lib/assets/base/icon/active_icon.png);
       }
 
     }
