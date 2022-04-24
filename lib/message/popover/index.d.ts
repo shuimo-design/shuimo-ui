@@ -13,7 +13,7 @@
  */
 import type { Placement } from '../../dependents/_composables/usePopper';
 
-export interface WPopoverProps {
+export type WPopoverProps = {
   /**
    * @description popover display placement
    * @type Placement
