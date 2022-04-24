@@ -18,7 +18,7 @@ export declare type InputNumberProps = {
    * @type number
    * @default 0
    */
-  modelValue?: number;
+  modelValue?: number,
   /**
    * @description input-number max
    * @type number

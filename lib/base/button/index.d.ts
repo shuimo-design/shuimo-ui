@@ -20,7 +20,7 @@ export declare type ButtonProps = {
    * @type string | VNode[]
    * @default ''
    */
-  text?: string | VNode[];
+  text?: string | VNode[],
   /**
    * @description disable or not 是否禁用
    * @type boolean

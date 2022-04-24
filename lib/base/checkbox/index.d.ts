@@ -21,40 +21,40 @@ export declare type CheckboxProps = {
    * @type string | VNode[]
    * @default ''
    */
-  label?: string | VNode[];
+  label?: string | VNode[],
   /**
    * @description checkbox value
    *              复选框值
    * @type string | number
    * @default ''
    */
-  value?: string | number;
+  value?: string | number,
   /**
    * @description checkbox disabled
    *              是否禁用
    * @type boolean
    * @default false
    */
-  disabled?: boolean;
+  disabled?: boolean,
   /**
    * @description checkbox checked
    *              是否选中
    * @type boolean
    * @default false
    */
-  checked?: boolean;
+  checked?: boolean,
   /**
    * @description checkbox default value
    *              checkbox默认值
    * @type boolean
    * @default false
    */
-  defaultChecked?: boolean;
+  defaultChecked?: boolean,
   /**
    * @description checkbox modelValue
    * @type boolean
    * @default false
    */
-  modelValue?: boolean;
+  modelValue?: boolean,
 }
 

@@ -25,7 +25,7 @@ export interface WTooltipProps {
    * @type boolean
    * @default false
    */
-  disableClickAway?: boolean;
+  disableClickAway?: boolean,
   /**
    * @description Offset in pixels along the trigger element
    * @type string
@@ -43,7 +43,7 @@ export interface WTooltipProps {
    * @type boolean
    * @default false
    */
-  hover?: boolean;
+  hover?: boolean,
   /**
    * @description Disables the Popper. If it was already open, it will be closed.
    * @type boolean
@@ -55,13 +55,13 @@ export interface WTooltipProps {
    * @type number
    * @default 0
    */
-  openDelay?: number;
+  openDelay?: number,
   /**
    * @description Close the Popper after a delay (ms).
    * @type number
    * @default 0
    */
-  closeDelay?: number;
+  closeDelay?: number,
   /**
    * @description Stop arrow from reaching the edge of the popper
    * @type string
@@ -73,13 +73,13 @@ export interface WTooltipProps {
    * @type boolean
    * @default true
    */
-  interactive?: boolean;
+  interactive?: boolean,
   /**
    * @description Lock the Popper into place, it will not flip dynamically when it runs out of space if true
    * @type boolean
    * @default false
    */
-  locked?: boolean;
+  locked?: boolean,
   /**
    * @description If the content is just a simple string, it can be passed in as a prop
    * @type string

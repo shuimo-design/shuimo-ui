@@ -18,11 +18,11 @@ export declare type TableProps = {
    *              表格内容
    * @type any[]
    */
-  data?: Array<any>;
+  data?: Array<any>,
   /**
    * @description table height
    *              表格高度
    * @type string
    */
-  height?: string | null;
+  height?: string | null,
 }
