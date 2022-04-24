@@ -8,6 +8,7 @@ import WDatePicker from './base/datePicker/WDatePicker';
 import WRadio from './base/radio/WRadio';
 import WCheckbox from './base/checkbox/WCheckbox';
 import WCheckboxGroup from './base/checkbox/WCheckboxGroup';
+import WList from './base/list/WList';
 
 import WConfirm from './message/confirm/WConfirm';
 import WDialog from './message/dialog/WDialog';
@@ -62,6 +63,7 @@ const components: Record<any, Component> = {
   WBorder,
   WDrawer,
   WCheckboxGroup,
+  WList
 }
 
 const install = function (app: App) {
@@ -101,6 +103,7 @@ export {
   WMessage,
   useDialog,
   WCheckboxGroup,
+  WList
 };
 
 export const createWUI = () => {

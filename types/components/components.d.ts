@@ -13,6 +13,7 @@ import input from "../../lib/base/input/WInput";
 import inputNumber from "../../lib/base/inputNumber/WInputNumber";
 import radio from "../../lib/base/radio/WRadio";
 import select from "../../lib/base/select/WSelect";
+import list from "../../lib/base/list/WList";
 
 import dialog from "../../lib/message/dialog/WDialog";
 import drawer from "../../lib/message/drawer/WDrawer";
@@ -52,6 +53,7 @@ export declare const WCheckbox: typeof checkbox;
 export declare const WDatePicker: typeof datepicker;
 export declare const WRadio: typeof radio;
 export declare const WSelect: typeof select;
+export declare const WList: typeof list;
 
 export declare const WDialog: typeof dialog;
 export declare const WDrawer: typeof drawer;

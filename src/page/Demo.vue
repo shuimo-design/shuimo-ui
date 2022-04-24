@@ -45,6 +45,7 @@ const menuList: MenuTypeArr = reactive([
       { title: '单选框', key: 'radio', isActive: false },
       { title: '复选框', key: 'checkbox', isActive: false },
       { title: '日期选择框', key: 'date-picker', isActive: false },
+      { title: '列表', key: 'list', isActive: false },
     ]
   },
   {

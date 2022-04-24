@@ -39,4 +39,9 @@ export const base = [
     name: 'Checkbox',
     component: () => import('../../page/demos/base/CheckboxDemo.vue')
   },
+  {
+    path: '/list',
+    name: 'List',
+    component: () => import('../../page/demos/base/ListDemo.vue')
+  },
 ]
