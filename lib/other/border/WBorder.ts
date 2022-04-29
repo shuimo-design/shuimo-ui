@@ -7,9 +7,8 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import { h, defineComponent, VNode, onMounted, reactive, watchEffect } from 'vue';
+import { h, defineComponent, VNode } from 'vue';
 import Printer from "../printer/Printer";
-import { notEmpty } from "../../dependents/_utils/tools";
 
 const printer = Printer();
 
