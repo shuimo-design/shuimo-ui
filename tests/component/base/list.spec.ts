@@ -10,7 +10,6 @@
 import { describe, test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import WList from "../../../lib/base/list/WList";
-import { dGet } from "../tools/domUtils";
 
 describe('列表组件', () => {
 
@@ -20,7 +19,7 @@ describe('列表组件', () => {
         data: ['轩辕剑', '湛卢', '赤霄']
       }
     });
-    expect(dGet(wrapper,'.w-list-item-main').text()).toBe('"轩辕剑"');
+    expect(wrapper.find('.w-list-item-main').text()).toBe('"轩辕剑"');
   })
 
   test('active数据渲染', () => {
@@ -33,8 +32,7 @@ describe('列表组件', () => {
         ]
       }
     });
-    const res= dGet(wrapper,'.w-list-item');
-    expect(dGet(wrapper,'.w-list-item').html().includes('w-active')).toBe(true);
+    expect(wrapper.find('.w-list-item').html().includes('w-active')).toBe(true);
   })
 
 })
