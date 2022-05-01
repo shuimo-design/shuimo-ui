@@ -16,7 +16,7 @@ import border from '../../assets/checkbox/border.png';
 export default defineComponent({
   name: 'WCheckbox',
   props,
-  emits: ['change'],
+  emits: ['change', 'update:modelValue'],
   setup(props, { emit }) {
     const uniId = Symbol('wCheckboxUniId');
     const checkboxGroup = inject(CheckboxGroupContextKey, undefined);
@@ -30,6 +30,7 @@ export default defineComponent({
       onChange: (newValue, args) => {
         emit('change', newValue, args);
       },
+      emit
     })
 
     const selfChecked = computed(() => {
@@ -63,7 +64,6 @@ export default defineComponent({
         'w-cursor-pointer': !innerDisabled.value,
       },
     ]);
-
     const innerStyle = computed(() => [{
       'w-checkbox__inner_checked': selfChecked.value,
       'w-cursor-disabled': innerDisabled.value,

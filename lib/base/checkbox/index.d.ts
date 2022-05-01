@@ -39,10 +39,9 @@ export declare type CheckboxProps = {
   /**
    * @description checkbox checked
    *              是否选中
-   * @type boolean
-   * @default false
+   * @default undefined
    */
-  checked?: boolean,
+  checked?: boolean | undefined,
   /**
    * @description checkbox default value
    *              checkbox默认值
@@ -52,9 +51,8 @@ export declare type CheckboxProps = {
   defaultChecked?: boolean,
   /**
    * @description checkbox modelValue
-   * @type boolean
-   * @default false
+   * @default undefined
    */
-  modelValue?: boolean,
+  modelValue?: boolean | undefined,
 }
 
