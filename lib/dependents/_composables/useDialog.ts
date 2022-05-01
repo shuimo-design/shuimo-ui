@@ -18,7 +18,7 @@ export default function useDialog(props: any, context: any) {
 
   const maskClass = computed(() => ['mask', props.mask.show ? 'mask-bg' : '']);
 
-  const closeDialog = () => {emit(CLOSE_EVENT);}
+  const closeDialog = (e: MouseEvent) => {emit(CLOSE_EVENT, e);}
 
   const confirmDialog = () => {emit(CONFIRM_EVENT);}
 
@@ -30,7 +30,7 @@ export default function useDialog(props: any, context: any) {
     if (notEmpty(pathList)) {
       const dom = pathList[0] as Element;
       if (dom && dom.classList.contains('mask')) {
-        closeDialog();
+        closeDialog(e);
       }
     }
   }

@@ -8,7 +8,7 @@
  */
 
 import { h, defineComponent, Teleport } from 'vue';
-import useDialog from "../../dependents/_composables/UseDialog";
+import useDialog from "../../dependents/_composables/useDialog";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import { props } from "./api";
 

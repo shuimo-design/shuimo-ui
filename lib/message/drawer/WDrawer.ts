@@ -12,7 +12,7 @@
 import { h, defineComponent, Teleport } from 'vue';
 import WBorder from "../../other/border/WBorder";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
-import useDialog from "../../dependents/_composables/UseDialog";
+import useDialog from "../../dependents/_composables/useDialog";
 import { props } from "./api";
 
 export default defineComponent({
