@@ -28,7 +28,7 @@ export type WPropOptions<T = any, D = T> = {
 export type WPropOptionsWithDefault<T = any, D = T> = {
   type?: WPropType<T>
   required?: false
-  default: D | DefaultFactory<D>
+  default: D | DefaultFactory<D> | undefined
   validator?(value: unknown): boolean
 }
 
