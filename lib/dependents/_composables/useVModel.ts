@@ -15,7 +15,7 @@ const useVModel = <T>(param: {
   modelValue: Ref<T>,
   defaultValue: T,
   onChange?: (newValue: UnwrapRef<T> | T, ...args: any[]) => void,
-  emit?: (event: string, ...args: any[]) => void
+  emit?: (event: any, ...args: any[]) => void
 }): [Ref<UnwrapRef<T> | T>, any] => {
   const { value, modelValue, defaultValue } = param;
   const _valueRef = ref(defaultValue);
@@ -37,7 +37,7 @@ const useVModel = <T>(param: {
   }
 
 
-  //   // 非受控模式
+  // 非受控模式
   return [
     _valueRef,
     (newValue: UnwrapRef<T>, ...args: any[]) => {
