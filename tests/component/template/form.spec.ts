@@ -9,12 +9,12 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
-import WForm from '../../../lib/template/form/WForm.tsx';
-import WFormItem from '../../../lib/template/form/WFormItem.tsx';
+import { describe, test, expect } from 'vitest';
+import WForm from '../../../lib/template/form/WForm';
+import WFormItem from '../../../lib/template/form/WFormItem';
 import WInput from '../../../lib/base/input/WInput';
 
-const mountForm = config => {
+const mountForm = (config: any) => {
   return mount({
     components: {
       [WForm.name]: WForm,
