@@ -30,10 +30,6 @@ import form from "../../lib/template/form/WForm";
 import formItem from "../../lib/template/form/WFormItem";
 import pagination from "../../lib/template/pagination/WPagination";
 import table from "../../lib/template/table/WTable";
-import tab from "../../lib/template/tabs/WTabs";
-import tabPane from "../../lib/template/tabs/WTabPane";
-import tree from "../../lib/template/tree/WTree";
-import treeItem from "../../lib/template/tree/WTreeItem";
 
 export type keyType = any;
 
@@ -71,7 +67,3 @@ export declare const WForm: typeof form;
 export declare const WFormItem: typeof formItem;
 export declare const WPagination: typeof pagination;
 export declare const WTable: typeof table;
-export declare const WTabs: typeof tab;
-export declare const WTabPane: typeof tabPane;
-export declare const WTree: typeof tree;
-export declare const WTreeItem: typeof treeItem;

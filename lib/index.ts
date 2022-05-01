@@ -27,8 +27,6 @@ import WUpload from './other/upload/WUpload';
 import WPagination from './template/pagination/WPagination';
 import WFormItem from "./template/form/WFormItem";
 import WForm from "./template/form/WForm";
-import WTabPane from './template/tabs/WTabPane';
-import WTabs from './template/tabs/WTabs';
 import WTable from "./template/table/WTable";
 import WTableColumn from "./template/table/WTableColumn";
 
@@ -56,8 +54,6 @@ const components: Record<any, Component> = {
   WRadio,
   WCheckbox,
   WMenu,
-  WTabs,
-  WTabPane,
   WTable,
   WTableColumn,
   WBorder,
@@ -91,8 +87,6 @@ export {
   WRadio,
   WCheckbox,
   WMenu,
-  WTabs,
-  WTabPane,
   WTable,
   WTableColumn,
   WBorder,

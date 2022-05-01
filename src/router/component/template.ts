@@ -20,18 +20,8 @@ export const template = [
     component: () => import('../../page/demos/template/PaginationDemo.vue')
   },
   {
-    path: '/tabs',
-    name: 'Tabs',
-    component: () => import('../../page/demos/template/TabsDemo.vue')
-  },
-  {
     path: '/table',
     name: 'Table',
     component: () => import('../../page/demos/template/TableDemo.vue')
-  },
-  {
-    path: '/tree',
-    name: 'Tree',
-    component: () => import('../../page/demos/template/TreeDemo.vue')
   }
 ]

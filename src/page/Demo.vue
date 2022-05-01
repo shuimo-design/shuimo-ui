@@ -53,8 +53,6 @@ const menuList: MenuTypeArr = reactive([
       { title: '表单', key: 'form', isActive: false },
       { title: '列表', key: 'table', isActive: false },
       { title: '分页', key: 'pagination', isActive: false },
-      { title: '标签页', key: 'tabs', isActive: false },
-      // { title: '树形', key: 'tree', isActive: false },
     ]
   },
   {
