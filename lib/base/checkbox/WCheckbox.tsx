@@ -11,6 +11,7 @@ import { defineComponent, computed, toRefs, inject, watchEffect, onBeforeUnmount
 import { props } from './api';
 import useVModel from '../../dependents/_composables/useVModel';
 import { CheckboxGroupContextKey } from './checkboxGroupApi';
+import border from '../../assets/checkbox/border.png';
 
 export default defineComponent({
   name: 'WCheckbox',
@@ -89,7 +90,7 @@ export default defineComponent({
           checked={selfChecked.value}
         />
         <span class={checkStyle.value}>
-          <img src="/lib/assets/checkbox/border.png" alt=""/>
+          <img src={border} alt=""/>
           <span class={innerStyle.value}/>
         </span>
         <span class="w-checkbox__label">{props.label}</span>
