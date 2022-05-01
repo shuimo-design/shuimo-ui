@@ -8,10 +8,10 @@
  *
  * v1.1.0 阿怪 升级为tsx版本
  */
-import { defineComponent, h, toRef, toRefs } from 'vue';
+import { defineComponent, h } from 'vue';
 import WBorder from '../../other/border/WBorder';
 import { props } from "./api";
-import { HTMLElementEvent } from "../../types/base";
+import type { HTMLElementEvent } from "../../dependents/_types";
 
 
 export default defineComponent({

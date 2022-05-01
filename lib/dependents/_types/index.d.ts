@@ -6,6 +6,10 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+}
+
 export type Data = Record<string, unknown>
 
 /**
