@@ -19,8 +19,8 @@ const sourceSymbolTranslator = (dirList: string[]) => {
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ["lib"],
-    exclude: ['dependents'],
+    include: ["lib/**/*.d.ts"],
+    exclude: ['**/dependents/**', '**/types/**', '**/basic/**'],
     document: {
       webTypes: {
         active: true,
