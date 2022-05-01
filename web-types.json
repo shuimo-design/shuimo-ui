@@ -45,6 +45,34 @@
           ]
         },
         {
+          "name": "w-checkbox-group",
+          "source": {
+            "symbol": "WCheckbox"
+          },
+          "description": "CheckboxGroup component with wash-painting-ui style.\n水墨组件的复选框包裹组件。",
+          "doc-url": "https://wash-painting.com/checkbox#group",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "checkbox group modelValue\n复选框组的modelValue",
+              "value": {
+                "type": "any[]",
+                "default": "empty array",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "checkbox disabled\n是否禁用",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
           "name": "w-checkbox",
           "source": {
             "symbol": "WCheckbox"
@@ -83,8 +111,8 @@
               "name": "checked",
               "description": "checkbox checked\n是否选中",
               "value": {
-                "type": "boolean",
-                "default": "false",
+                "type": "boolean|undefined",
+                "default": "undefined",
                 "kind": "expression"
               }
             },
@@ -101,8 +129,8 @@
               "name": "modelValue",
               "description": "checkbox modelValue",
               "value": {
-                "type": "boolean",
-                "default": "false",
+                "type": "boolean|undefined",
+                "default": "undefined",
                 "kind": "expression"
               }
             }
@@ -136,7 +164,7 @@
             },
             {
               "name": "type",
-              "description": "datePicker format type",
+              "description": "datePicker format type date/month\n日期选择框类型 date/month",
               "value": {
                 "type": "string",
                 "default": "date",

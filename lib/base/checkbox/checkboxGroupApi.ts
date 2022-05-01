@@ -1,14 +1,10 @@
 import type { InjectionKey, Ref } from 'vue';
+import { CheckboxGroupProps } from "./checkboxGroup";
+import { WCOPO } from "../../dependents/_types";
 
-export const props = {
-  modelValue: {
-    type: Array,
-    default: () => [],
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+export const props:WCOPO<CheckboxGroupProps> = {
+  modelValue: { type: Array, default: () => [] },
+  disabled: { type: Boolean, default: false },
 }
 
 export type CheckboxGroupContext = {
