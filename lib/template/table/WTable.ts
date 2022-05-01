@@ -17,7 +17,7 @@ import Printer from "../../other/printer/Printer";
 import { props } from "./api";
 
 
-const img = h('div', { class: 'w-table-tbody-img' });
+const img = h('td', { class: 'w-table-tbody-img' });
 
 /**
  * 使用tr包裹
