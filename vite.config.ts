@@ -37,7 +37,11 @@ export default defineConfig((configEnv: ConfigEnv) => {
       transformMode: {
         web: [/\.[jt]sx$/],
       },
-      environment: 'jsdom'
+      environment: 'jsdom',
+      coverage: {
+        all: true,
+        include: ['lib']
+      }
     }
   }
 })
