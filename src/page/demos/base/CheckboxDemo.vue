@@ -1,11 +1,15 @@
 <template>
   <div>
-    <w-checkbox label="A" v-model="checkedOriginal" value="a" @change="changeHandle"/>
-    <w-checkbox label="B" disabled value="B" checked/>
+    <div>{{ checkedOriginal }}</div>
+    <w-checkbox label="A" v-model="checkedOriginal" value="a"/>
+    <w-checkbox label="B" value="B" :checked="checkedOriginal2" @change="changeHandle"/>
+    <w-checkbox label="C" disabled checked value="C"/>
+    <div>{{ checkedArr.join(',') }}</div>
     <w-checkbox-group v-model="checkedArr">
       <w-checkbox label="C" value="c"/>
       <w-checkbox label="D" value="d"/>
     </w-checkbox-group>
+    <div>{{ checkedArr2.join(',') }}</div>
     <w-checkbox-group v-model="checkedArr2" disabled>
       <w-checkbox label="E" value="e"/>
       <w-checkbox label="F" value="f"/>
@@ -13,27 +17,16 @@
   </div>
 </template>
 
-<script>
-import WCheckboxGroup from "../../../../lib/base/checkbox/WCheckboxGroup";
-export default {
-  name: "CheckboxDemo",
-  components: {WCheckboxGroup},
-  data() {
-    return {
-      checked: '选中返回值',
-      checkedOriginal: true,
-      checkedArr: ['c'],
-      checkedArr2: ['e', 'f']
-    };
-  },
-  methods: {
-    changeHandle(val, e) {
-      console.log(val, e);
-    }
-  }
-};
+<script setup lang="ts">
+import { ref } from "vue";
+
+const checkedOriginal = ref(true);
+const checkedOriginal2 = ref(true);
+const checkedArr = ref(['c']);
+const checkedArr2 = ref(['e', 'f']);
+
+const changeHandle = (val: boolean, e: Event) => {
+  console.log(val, e);
+}
+
 </script>
-
-<style lang="scss" scoped>
-
-</style>
