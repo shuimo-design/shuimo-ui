@@ -2,13 +2,14 @@
  * @description 进度条组件
  * @author 阿怪
  * @date 2022/1/21 6:13 下午
- * @version v1.0.1
+ * @version v1.0.3
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 修复width与预期不一致的问题，优化渲染逻辑
  * v1.0.2 修复绝对定位造成竹叶及数字渲染位置错误的问题
+ * v1.0.3 百分比模块改为slot模式（为支持nuxt ssr ）
  */
-import { defineComponent } from "vue";
+import { computed, defineComponent, toRefs } from "vue";
 import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
 import leaf from '../../assets/progress/leaf.png';
 import { props } from "./api";
@@ -41,43 +42,45 @@ const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: n
 export default defineComponent({
   name: 'WProgress',
   props,
-  render(ctx: any) {
-    const { showInfo, leafHeight } = ctx;
-    const { width, height } = getSize(ctx.width, ctx.height);
-    const style: Object = {
+  setup(props,{slots}) {
+    const { showInfo, leafHeight, value, max } = toRefs(props);
+
+    const { width, height } = getSize(props.width, props.height);
+    const style = computed<Object>(() => ({
       '--w-progress-width': `${width}px`,
       '--w-progress-height': `${height}px`
-    }
-    const progress = (<progress class='w-progress' value={ctx.value} max={ctx.max} style={style}/>);
-    if (!showInfo) {
-      return progress;
-    }
-    // 如果是有info的情况
-    const leafSize = getSize(undefined, leafHeight, LEAF_W2H);
+    }))
 
-    const { infoWidth } = ctx;
+    return () => {
+      const progress = (<progress class='w-progress' value={value.value} max={max.value} style={style.value}/>);
+      if (!showInfo.value) {
+        return progress;
+      }
+      // 如果是有info的情况
 
-    const per = Math.ceil(ctx.value / ctx.max * 100);
-    const perWidth = leafSize.width + infoWidth;
-    const textStyle = {
-      left: `${getTextLeft(width, infoWidth, leafSize.width, per)}px`
-    }
+      const { infoWidth } = toRefs(props);
+      const leafSize = getSize(undefined, leafHeight.value, LEAF_W2H);
+      const per = Math.ceil(value.value / max.value * 100);
+      const perWidth = leafSize.width + infoWidth.value;
+      const textStyle = {
+        left: `${getTextLeft(width, infoWidth.value, leafSize.width, per)}px`
+      }
+      const baseStyle: Object = {
+        ...style.value,
+        '--w-progress-per-height': `${leafSize.height}px`,
+        '--w-progress-per-width': `${perWidth}px`,
+        '--w-progress-leaf-height': `${leafHeight.value}px`
+      }
 
-    const baseStyle: Object = {
-      ...style,
-      '--w-progress-per-height': `${leafSize.height}px`,
-      '--w-progress-per-width': `${perWidth}px`,
-      '--w-progress-leaf-height': `${leafHeight}px`
-    }
-
-    return (
-      <div class={['w-progress-border']} style={baseStyle}>
-        <div class='w-progress-per' style={textStyle}>
-          <img class='leaf' src={leaf} alt=""/>
-          <span>{per}%</span>
+      return (
+        <div class={['w-progress-border']} style={baseStyle}>
+          <div class='w-progress-per' style={textStyle}>
+            <img class='leaf' src={leaf} alt=""/>
+            {slots.default ? slots.default() : null}
+          </div>
+          {progress}
         </div>
-        {progress}
-      </div>
-    )
+      )
+    }
   }
 });
