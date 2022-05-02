@@ -7,7 +7,7 @@
  * @name w-upload
  * @docDescription upload component with wash-painting-ui style.
  *                 水墨组件的文件上传组件。
- * @docUrl https://wash-painting.com/menu
+ * @docUrl https://wash-painting.com/upload
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
