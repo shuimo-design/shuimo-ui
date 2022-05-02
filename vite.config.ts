@@ -38,6 +38,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
         web: [/\.[jt]sx$/],
       },
       environment: 'jsdom',
+      clearMocks: true,
       coverage: {
         all: true,
         include: ['lib']
