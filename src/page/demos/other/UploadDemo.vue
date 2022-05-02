@@ -7,29 +7,25 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "UploadDemo",
-    data() {
-      return {
-        file: {},
-        fileUrl: ''
-      }
-    },
-    methods: {
-      uploadHandle(file) {
-        this.file = file;
-        console.log(file);
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        let that = this;
-        reader.onload = (e) => {
-          that.fileUrl = e.currentTarget.result;
-        }
-      }
-    }
+<script setup lang="ts">
+
+import { ref } from "vue";
+import { WPrinter } from "@higuaifan/wash-painting-ui";
+
+const file = ref({
+  name: ''
+});
+const fileUrl = ref([]);
+
+const uploadHandle = (file: any) => {
+  file.value = file;
+  WPrinter('文件上传组件').info(file);
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = (e: any) => {
+    fileUrl.value = e.currentTarget.result;
   }
+
+}
 </script>
 
-<style scoped lang="scss">
-</style>
