@@ -6,7 +6,7 @@
  *
  * @name w-drawer
  * @docDescription Drawer component with wash-painting-ui style.
- *                 水墨组件的侧拉框组件。
+ *                 水墨组件的抽屉组件。
  * @docUrl https://wash-painting.com/drawer
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
@@ -22,22 +22,22 @@ export declare type DrawerProps = {
    */
   width?: string,
   /**
-   * @description dialog mask option
-   *              弹窗背景配置
+   * @description drawer mask option
+   *              抽屉背景配置
    * @type DialogMask
    * @default show:true, clickClose:true
    */
   mask?: DialogMask,
   /**
-   * @description dialog visible value
-   *              弹窗是否显示参数
+   * @description drawer visible value
+   *              抽屉是否显示参数
    * @type boolean
    * @default false
    */
   visible?: boolean,
   /**
-   * @description dialog class
-   *              弹窗扩展类型
+   * @description drawer class
+   *              抽屉扩展类型
    * @type string[]
    * @default []
    */
