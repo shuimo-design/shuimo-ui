@@ -8,13 +8,11 @@
  * v1.1.0  优化分割线素材，并新增分割线类型，暂时去除strong类型
  */
 import { h, defineComponent } from 'vue';
+import { props } from "./api";
 
 export default defineComponent({
   name: 'WDivider',
-  props: {
-    // type: { type: String, default: '' },
-    vertical: { type: Boolean, default: false },
-  },
+  props,
   render() {
     return h('div', {
       class: {
