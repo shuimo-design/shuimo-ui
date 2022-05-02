@@ -11,6 +11,7 @@
 <p align="center">A wash-painting Vue.js 3.2 UI Library.</p>
 
 ![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
+[![codecov](https://codecov.io/gh/janghood/wash-painting-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/wash-painting-ui)
 
 ## 简介（Introduction）
 
