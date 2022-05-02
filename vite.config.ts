@@ -41,7 +41,9 @@ export default defineConfig((configEnv: ConfigEnv) => {
       clearMocks: true,
       coverage: {
         all: true,
-        include: ['lib']
+        include: ['lib/**'],
+        exclude:['lib/index.ts','lib/**/*.d.ts'],
+        reporter: ['json', 'html']
       }
     }
   }
