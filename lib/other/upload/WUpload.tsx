@@ -13,6 +13,7 @@ import { props } from "./api";
 export default defineComponent({
   name: 'WUpload',
   props,
+  emit: ['upload'],
   methods: {
     changeHandle(e: any) {
       const files = e.target.files;
@@ -33,8 +34,8 @@ export default defineComponent({
     const { fileTypes } = this;
     return (
       <div class={'w-upload'}>
-        <span>{this.$slots.default()}</span>
-        <input class="w-cursor-pointer" type="file" accept={fileTypes} onchange={changeHandle}/>
+        <span>{this.$slots.default!()}</span>
+        <input class="w-cursor-pointer" type="file" accept={fileTypes} onChange={changeHandle}/>
       </div>
     )
   }
