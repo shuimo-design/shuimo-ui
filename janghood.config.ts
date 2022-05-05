@@ -26,6 +26,7 @@ export default defineJhConfig({
         active: true,
         webTypesInfo: {
           "framework": "vue",
+          "default-icon": "./icons/logo.svg",
         },
         sourceSymbolTranslator
       }

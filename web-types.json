@@ -990,5 +990,6 @@
       ]
     }
   },
-  "framework": "vue"
+  "framework": "vue",
+  "default-icon": "./icons/logo.svg"
 }
