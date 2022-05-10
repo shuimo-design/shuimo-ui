@@ -9,8 +9,7 @@
 
 .w-table-inner {
   border-spacing: 0;
-  width: calc(100% - 4px);
-  margin-left: 2px;
+  width: calc(100% - 2px);
 }
 
 .w-table-wrap {
@@ -30,7 +29,7 @@
   top: 0;
   z-index: 1;
 
-  &.w-thead-overflow{
+  &.w-thead-overflow {
     background: #b7bec4;
   }
 }
@@ -65,7 +64,7 @@
 .w-table-img {
   background: url(/lib/assets/base/line/crossrange.png) repeat-x;
   height: 5px;
-  width: 100%;
+  width: calc(100% - 2px);
 }
 
 .w-table-thead-img {
