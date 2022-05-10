@@ -9,7 +9,8 @@
 
 .w-table-inner {
   border-spacing: 0;
-  width: 100%;
+  width: calc(100% - 4px);
+  margin-left: 2px;
 }
 
 .w-table-wrap {
