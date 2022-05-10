@@ -10,7 +10,7 @@
 <script setup lang="ts">
 
 import { ref } from "vue";
-import { WPrinter } from "@higuaifan/wash-painting-ui";
+import { WPrinter } from "../../../../lib";
 
 const file = ref({
   name: ''
