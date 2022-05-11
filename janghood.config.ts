@@ -9,7 +9,7 @@
 import { defineJhConfig } from '@janghood/api-extractor';
 
 const firstUpperCase = (str: string) => {
-  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
+  return `${str[0].toUpperCase()}${str.slice(1, str.length)}`;
 }
 
 const sourceSymbolTranslator = (dirList: string[]) => {

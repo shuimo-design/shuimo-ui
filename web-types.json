@@ -45,34 +45,6 @@
           ]
         },
         {
-          "name": "w-checkbox-group",
-          "source": {
-            "symbol": "WCheckboxGroup"
-          },
-          "description": "CheckboxGroup component with wash-painting-ui style.\n水墨组件的复选框包裹组件。",
-          "doc-url": "https://wash-painting.com/checkbox#group",
-          "attributes": [
-            {
-              "name": "modelValue",
-              "description": "checkbox group modelValue\n复选框组的modelValue",
-              "value": {
-                "type": "any[]",
-                "default": "empty array",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "disabled",
-              "description": "checkbox disabled\n是否禁用",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
           "name": "w-checkbox",
           "source": {
             "symbol": "WCheckbox"
@@ -137,6 +109,34 @@
           ]
         },
         {
+          "name": "w-checkbox-group",
+          "source": {
+            "symbol": "WCheckbox"
+          },
+          "description": "CheckboxGroup component with wash-painting-ui style.\n水墨组件的复选框包裹组件。",
+          "doc-url": "https://wash-painting.com/checkbox#group",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "checkbox group modelValue\n复选框组的modelValue",
+              "value": {
+                "type": "any[]",
+                "default": "empty array",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "checkbox disabled\n是否禁用",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
           "name": "w-date-picker",
           "source": {
             "symbol": "WDatePicker"
@@ -168,209 +168,6 @@
               "value": {
                 "type": "string",
                 "default": "date",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-input-number",
-          "source": {
-            "symbol": "WInputNumber"
-          },
-          "description": "InputNumber component with wash-painting-ui style.\n水墨组件的数字输入框组件。",
-          "doc-url": "https://wash-painting.com/input#number",
-          "attributes": [
-            {
-              "name": "modelValue",
-              "description": "input-number modelValue",
-              "value": {
-                "type": "number",
-                "default": "0",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "max",
-              "description": "input-number max",
-              "value": {
-                "type": "number",
-                "default": "Infinity",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "min",
-              "description": "input-number min",
-              "value": {
-                "type": "number",
-                "default": "-Infinity",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-input",
-          "source": {
-            "symbol": "WInput"
-          },
-          "description": "Input component with wash-painting-ui style.\n水墨组件的输入组件。",
-          "doc-url": "https://wash-painting.com/input",
-          "attributes": [
-            {
-              "name": "type",
-              "description": "input type. 输入框类型",
-              "value": {
-                "type": "string",
-                "default": "text",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "placeholder",
-              "description": "input placeholder. 提示语",
-              "value": {
-                "type": "string",
-                "default": "",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "modelValue",
-              "description": "input value. 输入框绑定值",
-              "value": {
-                "type": "string|number",
-                "default": "",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-list",
-          "source": {
-            "symbol": "WList"
-          },
-          "description": "List component with wash-painting-ui style.\n水墨组件的列表组件。",
-          "doc-url": "https://wash-painting.com/list",
-          "attributes": [
-            {
-              "name": "data",
-              "description": "List data\n列表数据",
-              "value": {
-                "type": "any[]",
-                "default": "[]",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "autoActive",
-              "description": "all item use active style\n所有项使用激活样式",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-radio",
-          "source": {
-            "symbol": "WRadio"
-          },
-          "description": "Radio component with wash-painting-ui style.\n水墨组件的单选组件。",
-          "doc-url": "https://wash-painting.com/radio",
-          "attributes": [
-            {
-              "name": "modelValue",
-              "description": "radio value\n单选框的值",
-              "value": {
-                "type": "string",
-                "default": "",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "label",
-              "description": "radio label\n单选框的标签值",
-              "value": {
-                "type": "string",
-                "default": "",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-select",
-          "source": {
-            "symbol": "WSelect"
-          },
-          "description": "Select component with wash-painting-ui style.\n水墨组件的选择组件。",
-          "doc-url": "https://wash-painting.com/select",
-          "attributes": [
-            {
-              "name": "modelValue",
-              "description": "select value\n选择框的值",
-              "value": {
-                "type": "any",
-                "default": "",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "options",
-              "description": "select options\n选择框的数组",
-              "value": {
-                "type": "Array<any>",
-                "default": "[]",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "keyParam",
-              "description": "support for which key value to update modelValue\n选择后使用option中的哪个key的值去更新modelValue",
-              "value": {
-                "type": "string",
-                "default": "'value'",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "titleParam",
-              "description": "select dropdown display info key\n选择下拉框中显示内容的key",
-              "value": {
-                "type": "string",
-                "default": "'title'",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "canChange",
-              "description": "used to disable input event\n用于禁止输入事件",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "disabled",
-              "description": "used to disable select\n是否禁用选择",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "placeholder",
-              "description": "input placeholder. 提示语",
-              "value": {
-                "type": "string",
-                "default": "'请选择...'",
                 "kind": "expression"
               }
             }
@@ -414,6 +211,15 @@
           ]
         },
         {
+          "name": "w-divider",
+          "source": {
+            "symbol": "WDivider"
+          },
+          "description": "divider component with wash-painting-ui style.\n水墨组件的分割线组件。",
+          "doc-url": "https://wash-painting.com/divider",
+          "attributes": []
+        },
+        {
           "name": "w-drawer",
           "source": {
             "symbol": "WDrawer"
@@ -454,6 +260,236 @@
               "value": {
                 "type": "string[]",
                 "default": "[]",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-form",
+          "source": {
+            "symbol": "WForm"
+          },
+          "description": "Form component with wash-painting-ui style.\n水墨组件的表单组件。",
+          "doc-url": "https://wash-painting.com/form",
+          "attributes": [
+            {
+              "name": "inline",
+              "description": "form是否行内显示",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "submit",
+              "description": "form 是否默认发送",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-form-item",
+          "source": {
+            "symbol": "WFormItem"
+          },
+          "description": "FormItem component with wash-painting-ui style.\n水墨组件的表单item组件。",
+          "doc-url": "https://wash-painting.com/form#item",
+          "attributes": [
+            {
+              "name": "label",
+              "description": "form item label\n表单项的标题",
+              "value": {
+                "type": "string",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "prop",
+              "description": "form item label prop\n表单内置label的原生prop属性",
+              "value": {
+                "type": "string",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-input",
+          "source": {
+            "symbol": "WInput"
+          },
+          "description": "Input component with wash-painting-ui style.\n水墨组件的输入组件。",
+          "doc-url": "https://wash-painting.com/input",
+          "attributes": [
+            {
+              "name": "type",
+              "description": "input type. 输入框类型",
+              "value": {
+                "type": "string",
+                "default": "text",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "modelValue",
+              "description": "input value. 输入框绑定值",
+              "value": {
+                "type": "string|number",
+                "default": "",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-input-number",
+          "source": {
+            "symbol": "WInputNumber"
+          },
+          "description": "InputNumber component with wash-painting-ui style.\n水墨组件的数字输入框组件。",
+          "doc-url": "https://wash-painting.com/input#number",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "input-number modelValue",
+              "value": {
+                "type": "number",
+                "default": "0",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "max",
+              "description": "input-number max",
+              "value": {
+                "type": "number",
+                "default": "Infinity",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "min",
+              "description": "input-number min",
+              "value": {
+                "type": "number",
+                "default": "-Infinity",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-list",
+          "source": {
+            "symbol": "WList"
+          },
+          "description": "List component with wash-painting-ui style.\n水墨组件的列表组件。",
+          "doc-url": "https://wash-painting.com/list",
+          "attributes": [
+            {
+              "name": "data",
+              "description": "List data\n列表数据",
+              "value": {
+                "type": "any[]",
+                "default": "[]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "autoActive",
+              "description": "all item use active style\n所有项使用激活样式",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-menu",
+          "source": {
+            "symbol": "WMenu"
+          },
+          "description": "menu component with wash-painting-ui style.\n水墨组件的目录组件。",
+          "doc-url": "https://wash-painting.com/menu",
+          "attributes": [
+            {
+              "name": "menu",
+              "description": "menu array",
+              "value": {
+                "type": "MenuTypeArr",
+                "default": "[]",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-pagination",
+          "source": {
+            "symbol": "WPagination"
+          },
+          "description": "pagination component with wash-painting-ui style.\n水墨组件的分页组件。",
+          "doc-url": "https://wash-painting.com/pagination",
+          "attributes": [
+            {
+              "name": "total",
+              "description": "page total\n分页总数",
+              "value": {
+                "type": "number",
+                "default": "0",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "current",
+              "description": "current page number\n当前页",
+              "value": {
+                "type": "number",
+                "default": "1",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "pageSize",
+              "description": "page size\n每页数量",
+              "value": {
+                "type": "number",
+                "default": "10",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "pageSizes",
+              "description": "page size select list\n可选每页数量",
+              "value": {
+                "type": "number[]",
+                "default": "[10, 20, 30, 40, 50, 100]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "layout",
+              "description": "component layout\n组件显示",
+              "value": {
+                "type": "string",
+                "default": "'prev, pager, next, jumper, total'",
                 "kind": "expression"
               }
             }
@@ -569,6 +605,243 @@
             {
               "name": "content",
               "description": "If the content is just a simple string, it can be passed in as a prop",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-progress",
+          "source": {
+            "symbol": "WProgress"
+          },
+          "description": "progress component with wash-painting-ui style.\n水墨组件的进度条组件。",
+          "doc-url": "https://wash-painting.com/progress",
+          "attributes": [
+            {
+              "name": "width",
+              "description": "progress bar width\n进度条的宽度",
+              "value": {
+                "type": "number",
+                "default": "399",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "height",
+              "description": "progress bar height\n进度条的高度",
+              "value": {
+                "type": "number",
+                "default": "26.547",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "value",
+              "description": "progress value\n进度条的值",
+              "value": {
+                "type": "number",
+                "default": "0",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "max",
+              "description": "progress value max\n进度条最大值",
+              "value": {
+                "type": "number",
+                "default": "100",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "showInfo",
+              "description": "display value\n是否显示进度值",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "infoWidth",
+              "description": "info width\n进度值的宽度",
+              "value": {
+                "type": "number",
+                "default": "44",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "leafHeight",
+              "description": "leaf height\n叶子的高度",
+              "value": {
+                "type": "number",
+                "default": "28",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-radio",
+          "source": {
+            "symbol": "WRadio"
+          },
+          "description": "Radio component with wash-painting-ui style.\n水墨组件的单选组件。",
+          "doc-url": "https://wash-painting.com/radio",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "radio value\n单选框的值",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "label",
+              "description": "radio label\n单选框的标签值",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-select",
+          "source": {
+            "symbol": "WSelect"
+          },
+          "description": "Select component with wash-painting-ui style.\n水墨组件的选择组件。",
+          "doc-url": "https://wash-painting.com/select",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "select value\n选择框的值",
+              "value": {
+                "type": "any",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "options",
+              "description": "select options\n选择框的数组",
+              "value": {
+                "type": "Array<any>",
+                "default": "[]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "keyParam",
+              "description": "support for which key value to update modelValue\n选择后使用option中的哪个key的值去更新modelValue",
+              "value": {
+                "type": "string",
+                "default": "'value'",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "titleParam",
+              "description": "select dropdown display info key\n选择下拉框中显示内容的key",
+              "value": {
+                "type": "string",
+                "default": "'title'",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "canChange",
+              "description": "used to disable input event\n用于禁止输入事件",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "used to disable select\n是否禁用选择",
+              "value": {
+                "type": "boolean",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "value": {
+                "type": "string",
+                "default": "'请选择...'",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-table",
+          "source": {
+            "symbol": "WTable"
+          },
+          "description": "Table component with wash-painting-ui style.\n水墨组件的表格组件。",
+          "doc-url": "https://wash-painting.com/table",
+          "attributes": [
+            {
+              "name": "data",
+              "description": "table data\n表格内容",
+              "value": {
+                "type": "Array<any>",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "height",
+              "description": "table height\n表格高度",
+              "value": {
+                "type": "string|null",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "w-table-column",
+          "source": {
+            "symbol": "WTableColumn"
+          },
+          "description": "Table column component with wash-painting-ui style.\n水墨组件的表格列组件。",
+          "doc-url": "https://wash-painting.com/table#column",
+          "attributes": [
+            {
+              "name": "width",
+              "description": "table column width\n列宽",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "param",
+              "description": "table column param\n列对应的参数",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "label",
+              "description": "table column label\n列名",
               "value": {
                 "type": "string",
                 "default": "",
@@ -696,107 +969,6 @@
           ]
         },
         {
-          "name": "w-divider",
-          "source": {
-            "symbol": "WDivider"
-          },
-          "description": "divider component with wash-painting-ui style.\n水墨组件的分割线组件。",
-          "doc-url": "https://wash-painting.com/divider",
-          "attributes": []
-        },
-        {
-          "name": "w-menu",
-          "source": {
-            "symbol": "WMenu"
-          },
-          "description": "menu component with wash-painting-ui style.\n水墨组件的目录组件。",
-          "doc-url": "https://wash-painting.com/menu",
-          "attributes": [
-            {
-              "name": "menu",
-              "description": "menu array",
-              "value": {
-                "type": "MenuTypeArr",
-                "default": "[]",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-progress",
-          "source": {
-            "symbol": "WProgress"
-          },
-          "description": "progress component with wash-painting-ui style.\n水墨组件的进度条组件。",
-          "doc-url": "https://wash-painting.com/progress",
-          "attributes": [
-            {
-              "name": "width",
-              "description": "progress bar width\n进度条的宽度",
-              "value": {
-                "type": "number",
-                "default": "399",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "height",
-              "description": "progress bar height\n进度条的高度",
-              "value": {
-                "type": "number",
-                "default": "26.547",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "value",
-              "description": "progress value\n进度条的值",
-              "value": {
-                "type": "number",
-                "default": "0",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "max",
-              "description": "progress value max\n进度条最大值",
-              "value": {
-                "type": "number",
-                "default": "100",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "showInfo",
-              "description": "display value\n是否显示进度值",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "infoWidth",
-              "description": "info width\n进度值的宽度",
-              "value": {
-                "type": "number",
-                "default": "44",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "leafHeight",
-              "description": "leaf height\n叶子的高度",
-              "value": {
-                "type": "number",
-                "default": "28",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
           "name": "w-upload",
           "source": {
             "symbol": "WUpload"
@@ -810,178 +982,6 @@
               "value": {
                 "type": "string",
                 "default": "'png, jpeg'",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-form",
-          "source": {
-            "symbol": "WForm"
-          },
-          "description": "Form component with wash-painting-ui style.\n水墨组件的表单组件。",
-          "doc-url": "https://wash-painting.com/form",
-          "attributes": [
-            {
-              "name": "inline",
-              "description": "form是否行内显示",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "submit",
-              "description": "form 是否默认发送",
-              "value": {
-                "type": "boolean",
-                "default": "false",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-form-item",
-          "source": {
-            "symbol": "WFormItem"
-          },
-          "description": "FormItem component with wash-painting-ui style.\n水墨组件的表单item组件。",
-          "doc-url": "https://wash-painting.com/form#item",
-          "attributes": [
-            {
-              "name": "label",
-              "description": "form item label\n表单项的标题",
-              "value": {
-                "type": "string",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "prop",
-              "description": "form item label prop\n表单内置label的原生prop属性",
-              "value": {
-                "type": "string",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-pagination",
-          "source": {
-            "symbol": "WPagination"
-          },
-          "description": "pagination component with wash-painting-ui style.\n水墨组件的分页组件。",
-          "doc-url": "https://wash-painting.com/pagination",
-          "attributes": [
-            {
-              "name": "total",
-              "description": "page total\n分页总数",
-              "value": {
-                "type": "number",
-                "default": "0",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "current",
-              "description": "current page number\n当前页",
-              "value": {
-                "type": "number",
-                "default": "1",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "pageSize",
-              "description": "page size\n每页数量",
-              "value": {
-                "type": "number",
-                "default": "10",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "pageSizes",
-              "description": "page size select list\n可选每页数量",
-              "value": {
-                "type": "number[]",
-                "default": "[10, 20, 30, 40, 50, 100]",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "layout",
-              "description": "component layout\n组件显示",
-              "value": {
-                "type": "string",
-                "default": "'prev, pager, next, jumper, total'",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-table",
-          "source": {
-            "symbol": "WTable"
-          },
-          "description": "Table component with wash-painting-ui style.\n水墨组件的表格组件。",
-          "doc-url": "https://wash-painting.com/table",
-          "attributes": [
-            {
-              "name": "data",
-              "description": "table data\n表格内容",
-              "value": {
-                "type": "Array<any>",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "height",
-              "description": "table height\n表格高度",
-              "value": {
-                "type": "string|null",
-                "kind": "expression"
-              }
-            }
-          ]
-        },
-        {
-          "name": "w-table-column",
-          "source": {
-            "symbol": "WTableColumn"
-          },
-          "description": "Table column component with wash-painting-ui style.\n水墨组件的表格列组件。",
-          "doc-url": "https://wash-painting.com/table#column",
-          "attributes": [
-            {
-              "name": "width",
-              "description": "table column width\n列宽",
-              "value": {
-                "type": "string",
-                "default": "",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "param",
-              "description": "table column param\n列对应的参数",
-              "value": {
-                "type": "string",
-                "default": "",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "label",
-              "description": "table column label\n列名",
-              "value": {
-                "type": "string",
-                "default": "",
                 "kind": "expression"
               }
             }
