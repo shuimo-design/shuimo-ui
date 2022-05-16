@@ -13,7 +13,8 @@ import WList from './base/list/WList';
 import WConfirm from './message/confirm/WConfirm';
 import WDialog from './message/dialog/WDialog';
 import WDrawer from './message/drawer/WDrawer';
-import WMessage from './message/message/Message';
+import { WMessageItem, WMessage } from './message/message/';
+
 import WPopover from './message/popover/WPopover';
 import WTooltip from './message/tooltip/WTooltip';
 
@@ -58,6 +59,7 @@ const components: Record<any, Component> = {
   WTableColumn,
   WBorder,
   WDrawer,
+  WMessageItem,
   WCheckboxGroup,
   WList
 }

@@ -19,6 +19,7 @@ import dialog from "../../lib/message/dialog/WDialog";
 import drawer from "../../lib/message/drawer/WDrawer";
 import popover from "../../lib/message/popover/WPopover";
 import tooltip from "../../lib/message/tooltip/WTooltip";
+import message from "../../lib/message/message/WMessageItem";
 
 import border from "../../lib/other/border/WBorder";
 import divider from "../../lib/other/divider/WDivider";
@@ -55,6 +56,7 @@ export declare const WDialog: typeof dialog;
 export declare const WDrawer: typeof drawer;
 export declare const WPopover: typeof popover;
 export declare const WTooltip: typeof tooltip;
+export declare const WMessage: typeof message;
 
 export declare const WBorder: typeof border;
 export declare const WDivider: typeof divider;
