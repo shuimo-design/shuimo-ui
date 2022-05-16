@@ -19,8 +19,9 @@
 <script setup lang="ts">
 import { WMessage } from '../../../../lib';
 import BaseTitle from '../../../components/base/BaseTitle.vue';
+import { MessageDirectionType } from "../../../../types/components/WMessage";
 
-const callMessage = (direction: string) => {
+const callMessage = (direction: MessageDirectionType) => {
   WMessage.success({ content: '这是一条信息', direction });
 }
 </script>
