@@ -1,56 +1,47 @@
-#w-messages {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#message–div {
+.w-message-list {
   position: fixed;
   z-index: 9999;
-  top: 20px;
-  // 先写死好了
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 250px;
-  justify-content: center;
-  transition: opacity 0.3s, transform .4s, top 0.4s;
+    
+  &_top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(0%);
+  }
+  &_top-right {
+    top: 0px;
+    right: 0px;
+  }
+  &_top-left {
+    top: 0px;
+    left: 0px;
+  }
+  &_bottom-right {
+    bottom: 0px;
+    right: 0px;
+  }
+  &_bottom-left {
+    bottom: 0px;
+    left: 0px;
+  }
 }
-
-
-.w-message-div {
+.w-message {
+  min-height: 80px;
+  min-width: 300px;
   display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  box-sizing: border-box;
   background: url("/lib/assets/message/message-box.png") no-repeat;
   background-size: 100% 100%;
-  line-height: 20px;
-  text-align: center;
-  align-items: center;
-  width: auto;
-  min-height: 80px;
 
-  .icon {
+  &-icon {
+    display: inline-block;
     height: 20px;
     width: 20px;
-    margin-left: 40px;
-
-    &.error{
-      background: url("/lib/assets/message/error.png") no-repeat;
-      background-size: 100% 100%;
-    }
-    &.success{
-      background: url("/lib/assets/message/success.png") no-repeat;
-      background-size: 100% 100%;
-    }
-    &.warning{
-      background: url("/lib/assets/message/warning.png") no-repeat;
-      background-size: 100% 100%;
-    }
-    &.info{
-      background: url("/lib/assets/message/info.png") no-repeat;
-      background-size: 100% 100%;
-    }
   }
 
-  .w-message-content {
-    padding: 16px;
-    margin-right: 20px;
+  &-content {
+    max-width: 250px;
+    margin-left: 10px;
   }
 }
