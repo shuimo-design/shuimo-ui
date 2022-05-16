@@ -11,9 +11,17 @@ import type { MessageApi, MessageIns, MessageProps, ShowTypeMessage } from "./ty
 
 const messageListMap = new Map();
 
-const showTypeMessage: ShowTypeMessage = (type: MessageTypeEnum, params: MessageProps, duration?: number): Promise<MessageIns> => {
-  const messageOptions: MessageProps = { type, ...params, duration };
+const showTypeMessage: ShowTypeMessage = (type: MessageTypeEnum, params: MessageProps | string, duration?: number): Promise<MessageIns> => {
+  let messageOptions: MessageProps = { content: '' };
+  if (typeof params === 'string') {
+    messageOptions.content = params;
+  } else if (typeof params === 'object') {
+    messageOptions = { type, ...params, duration };
+  }
   messageOptions.direction = messageOptions.direction || "top-right";
+  messageOptions.duration = duration || 3000;
+  messageOptions.type = type;
+  
   const { direction } = messageOptions;
 
   // 根据当前方向，获取对应的MessageList实例

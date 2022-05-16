@@ -48,23 +48,31 @@ export declare type messageIconType = {
   [k in MessageTypeEnum]: string
 }
 
-// MessageList实例
+/**
+  * @description MessageList实例
+  */
 export declare interface MessageIns extends ComponentPublicInstance { 
   add: (params: MessageProps) => void,
   remove: (index: number) => void
 }
 
-// 展示消息方法类型
+/**
+  * @description 展示消息方法类型
+  */
 export declare interface ShowTypeMessage {
-  (type: MessageTypeEnum, params: MessageProps, duration?: number): Promise<MessageIns>;
+  (type: MessageTypeEnum, params: MessageProps | string, duration?: number): Promise<MessageIns>;
 }
 
-// API方法类型
+/**
+  * @description type的方法类型
+  */
 export declare interface MessageApiMethod {
-  (params: MessageProps, duration?: number): Promise<MessageIns>
+  (params: MessageProps | string, duration?: number): Promise<MessageIns>
 }
 
-// API方法
+/**
+  * @description Message各种type的方法对象类型
+  */
 export declare type MessageApi = {
   [key in MessageTypeEnum]: MessageApiMethod;
 }
