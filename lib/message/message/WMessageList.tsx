@@ -6,12 +6,12 @@
  */
 import { defineComponent, ref, Teleport } from "vue";
 import { props } from "./api";
-import Message from "./WMessageItem";
+import WMessageItem from "./WMessageItem";
 import type { MessageProps } from "../../../types/components/WMessage";
 
 /**
-  * @description MessageList使用到的属性
-  */
+ * @description MessageList使用到的属性
+ */
 interface MessageOptions extends MessageProps {
   id?: number
 }
@@ -40,13 +40,6 @@ export default defineComponent({
       messageList.value.splice(index, 1);
     }
 
-    const getProps = (item: MessageOptions, index: number) => {
-      return {
-        ...item,
-        onCloseDuration: () => remove(index),
-      }
-    }
-
     const messageItemDom = (element: any) => {
       if (element) {
         domList.value.push(element);
@@ -61,13 +54,12 @@ export default defineComponent({
       return (
         <Teleport to={'body'}>
           <div class={`w-message-list w-message-list_${props.direction}`}>
-            {
-              messageList.value.map((item, index) => (
-                <Message ref={messageItemDom}
-                         key={item.id}
-                         {...getProps(item, index)}/>
-              ))
-            }
+            {messageList.value.map((item, index) => (
+              <WMessageItem ref={messageItemDom}
+                            key={item.id}
+                            {...item}
+                            onCloseDuration={() => remove(index)}/>
+            ))}
           </div>
         </Teleport>
       )

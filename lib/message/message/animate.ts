@@ -23,21 +23,20 @@ const directionArr = ['top-right', 'bottom-right', 'top-left', 'bottom-left', 't
 
 const fadeIn = (dom: HTMLElement | null, direction: string) => {
   if (!dom) return;
-  const offsetHeight = dom?.offsetHeight || 0;
-  const offsetWidth = dom?.offsetWidth || 0;
+  const offsetHeight = dom.offsetHeight || 0;
+  const offsetWidth = dom.offsetWidth || 0;
   const keyframes = getFadeInKeyframes(direction, offsetHeight, offsetWidth);
-  dom?.animate(keyframes, OPTION)
+  dom.animate(keyframes, OPTION)
 }
 
 const fadeOut = (dom: HTMLElement | null, direction: MessageDirectionType, onFinish: Function) => {
 
   if (!dom) return;
-  const offsetHeight = dom?.offsetHeight || 0;
-  const offsetWidth = dom?.offsetWidth || 0;
+  const offsetHeight = dom.offsetHeight || 0;
+  const offsetWidth = dom.offsetWidth || 0;
 
   const keyframes = getFadeOutKeyframes(direction, offsetWidth, offsetHeight);
-
-  const animate = dom?.animate(keyframes, OPTION);
+  const animate = dom.animate(keyframes, OPTION);
   if (animate) {
     animate.onfinish = () => {
       onFinish();

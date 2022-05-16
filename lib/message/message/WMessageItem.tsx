@@ -23,6 +23,7 @@ import type { MessageType } from "../../../types/components/WMessage";
 export default defineComponent({
   name: 'WMessageItem',
   props,
+  emits: ['closeDuration'],
   setup(props, { emit }) {
     const messageIcon: Record<MessageType, any> = {
       success: successIcon,
@@ -43,7 +44,7 @@ export default defineComponent({
         clearTimer();
         const dom = domRef.value;
         fadeOut(dom, props.direction, () => {
-          emit('close-duration');
+          emit('closeDuration');
         })
       }, props.duration);
     }
