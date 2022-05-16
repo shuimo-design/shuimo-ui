@@ -14,23 +14,23 @@
 import { defineComponent, ref, onBeforeMount, onMounted } from 'vue';
 import { fadeIn, fadeOut } from './animate';
 import { props } from './api';
-import { messageIconType } from './type';
 import successIcon from '../../assets/message/success.png';
 import errorIcon from '../../assets/message/error.png';
 import warningIcon from '../../assets/message/warning.png';
 import infoIcon from '../../assets/message/info.png';
+import type { MessageType } from "../../../types/components/WMessage";
 
 export default defineComponent({
   name: 'WMessageItem',
   props,
   setup(props, { emit }) {
-    const messageIcon: messageIconType = {
+    const messageIcon: Record<MessageType, any> = {
       success: successIcon,
       warning: warningIcon,
       info: infoIcon,
       error: errorIcon
     }
-    
+
     let timer = ref<number>(0);
     let domRef = ref(null);
 

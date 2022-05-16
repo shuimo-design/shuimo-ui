@@ -7,17 +7,13 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { describe, expect, test, vi } from "vitest";
-import Message from "../../../lib/message/message/Message";
+import { WMessage } from "../../../lib/message/message";
 import { DOMWrapper } from "@vue/test-utils";
 
 describe('消息提示', () => {
   test('普通渲染', () => {
     vi.useFakeTimers();
-    Message({
-      content: '提示内容',
-      time: 2000,
-      type: 'success'
-    });
+    WMessage('提示内容');
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.find('.w-message-content').text()).toBe('提示内容');
@@ -26,10 +22,9 @@ describe('消息提示', () => {
 
   test('2秒后触发remove', () => {
     vi.useFakeTimers();
-    Message({
+    WMessage.info({
       content: '提示内容',
-      time: 2000,
-      type: 'success'
+      duration: 2000
     });
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);

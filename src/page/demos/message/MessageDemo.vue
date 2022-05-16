@@ -1,11 +1,11 @@
 <template>
   <BaseTitle>位置</BaseTitle>
   <div>
-    <w-button text="top-right" @click="callMessagePlugin('top-right')"/>
-    <w-button text="top-left" @click="callMessagePlugin('top-left')"/>
-    <w-button text="bottom-left" @click="callMessagePlugin('bottom-left')"/>
-    <w-button text="bottom-right" @click="callMessagePlugin('bottom-right')"/>
-    <w-button text="top-center" @click="callMessagePlugin('top-center')"/>
+    <w-button text="top-right" @click="callMessage('top-right')"/>
+    <w-button text="top-left" @click="callMessage('top-left')"/>
+    <w-button text="bottom-left" @click="callMessage('bottom-left')"/>
+    <w-button text="bottom-right" @click="callMessage('bottom-right')"/>
+    <w-button text="top-center" @click="callMessage('top-center')"/>
   </div>
   <BaseTitle>类型</BaseTitle>
   <div>
@@ -20,7 +20,7 @@
 import { WMessage } from '../../../../lib';
 import BaseTitle from '../../../components/base/BaseTitle.vue';
 
-const callMessagePlugin = (direction: string) => {
+const callMessage = (direction: string) => {
   WMessage.success({ content: '这是一条信息', direction });
 }
 </script>

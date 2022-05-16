@@ -4,6 +4,9 @@
  * @date 2022/5/16 4:37 下午
  * @version V2.0.0
  */
+
+import type { MessageDirectionType } from "../../../types/components/WMessage";
+
 interface AnimateKeyframe {
   composite?: 'accumulate' | 'add' | 'auto' | 'replace';
   easing?: string;
@@ -26,14 +29,14 @@ const fadeIn = (dom: HTMLElement | null, direction: string) => {
   dom?.animate(keyframes, OPTION)
 }
 
-const fadeOut = (dom: HTMLElement | null, direction: string, onFinish: Function) => {
+const fadeOut = (dom: HTMLElement | null, direction: MessageDirectionType, onFinish: Function) => {
 
   if (!dom) return;
   const offsetHeight = dom?.offsetHeight || 0;
   const offsetWidth = dom?.offsetWidth || 0;
-  
+
   const keyframes = getFadeOutKeyframes(direction, offsetWidth, offsetHeight);
-  
+
   const animate = dom?.animate(keyframes, OPTION);
   if (animate) {
     animate.onfinish = () => {

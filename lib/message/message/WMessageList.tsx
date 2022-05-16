@@ -7,7 +7,7 @@
 import { defineComponent, ref, Teleport } from "vue";
 import { props } from "./api";
 import Message from "./WMessageItem";
-import { MessageProps } from "./type";
+import type { MessageProps } from "../../../types/components/WMessage";
 
 /**
   * @description MessageList使用到的属性
@@ -30,7 +30,7 @@ export default defineComponent({
   setup(props, { expose }) {
     const messageList = ref<Array<MessageOptions>>([]);
     const domList = ref<Array<any>>([]);
-    
+
     const add = (item: MessageOptions) => {
       item.id = getKey();
       messageList.value.push(item);
@@ -52,7 +52,7 @@ export default defineComponent({
         domList.value.push(element);
       }
     }
-    
+
     expose({ add, messageList, domList });
 
     return () => {

@@ -2,32 +2,51 @@
  * @description message消息组件类型
  * @author 阿怪
  * @date 2021/6/22 2:33 下午
- * @version v1.0.0
+ * @version v2.0.1
+ *
+ * @name w-message
+ * @docDescription Message component with wash-painting-ui style.
+ *              水墨组件的消息组件。
+ * @docUrl https://wash-painting.com/message
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
+ *
+ * v2.0.0 重构message qunbotop
+ * v2.0.1 优化类型结构 阿怪
  */
 
-/**
- * 基础Message信息
- * <br/>
- * @param content 提示内容 <br/>
- * @param time 延迟时间 <br/>
- * @param type 类型 <br/>
- */
-export type BaseMessageConfig = {
-  content?: string,
-  time?: number,
-  type?: string
+export type MessageProps = {
+  /**
+   * @description Type of message
+   * @default 'info'
+   */
+  type?: MessageType,
+  /**
+   * @description The time of duration
+   * @default 3000
+   */
+  duration?: number,
+  /**
+   * @description The message content
+   * @default 这是一条消息
+   */
+  content: string,
+  /**
+   * @description The direction in which the component appears
+   * @default top-right
+   */
+  direction?: MessageDirectionType,
 }
 
-export type MessageConfig = BaseMessageConfig | string;
+export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
+
+export type MessageType = 'success' | 'warning' | 'info' | 'error';
+
+export type MessageConfig = MessageProps | string;
 
 type IMessageEnum = {
-  success: (options: MessageConfig) => void,
-  warning: (options: MessageConfig) => void,
-  info: (options: MessageConfig) => void,
-  error: (options: MessageConfig) => void,
+  [K in MessageType]: (options: MessageConfig, duration?: number) => void
 };
 export type IMessage = IMessageEnum & {
-  (config: BaseMessageConfig): void;
+  (config: MessageConfig): void;
 };
