@@ -2,7 +2,7 @@
  * @description message动画
  * @author: qunbotop
  * @date 2022/5/16 4:37 下午
- * @version V2.0.0
+ * @version v2.0.0
  */
 
 import type { MessageDirectionType } from "../../../types/components/WMessage";

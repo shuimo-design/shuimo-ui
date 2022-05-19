@@ -2,28 +2,32 @@
  * @description message插件式组件
  * @author: qunbotop
  * @date 2022/5/16 4:37 下午
- * @version V2.0.0
+ * @version v2.0.1
+ *
+ * v2.0.1 message handler 提供返回
  */
 import { ComponentPublicInstance, createApp, nextTick } from "vue";
 import MessageList from "./WMessageList";
-import type { IMessage, MessageProps, MessageType } from "../../../types/components/WMessage";
+import type { IMessage, MessageDirectionType, MessageProps, MessageType } from "../../../types/components/WMessage";
 import { MessageTypeEnum } from "./api";
-import { MessageConfig } from "../../../types/components/WMessage";
+import type { MessageConfig } from "../../../types/components/WMessage";
+import WMessageItem from "./WMessageItem";
 
-const messageListMap = new Map();
+const messageListMap = new Map<MessageDirectionType, MessageIns>();
 
 /**
  * @description MessageList实例
  */
 export declare interface MessageIns extends ComponentPublicInstance {
   add: (params: MessageProps) => void,
-  remove: (index: number) => void
+  remove: (index: number) => void,
+  domList: Array<InstanceType<typeof WMessageItem>>
 }
 
 const mergeOption = (options: MessageConfig,
                      type = MessageTypeEnum.success,
                      duration = 3000) => {
-  let messageOptions: MessageProps = {
+  let messageOptions: Required<MessageProps> = {
     direction: 'top-right',
     duration,
     type,
@@ -38,7 +42,8 @@ const mergeOption = (options: MessageConfig,
   return messageOptions;
 }
 
-const showTypeMessage = (options: MessageConfig, type?: MessageTypeEnum, duration?: number) => {
+const showTypeMessage = (options: MessageConfig, type?: MessageTypeEnum, duration?: number):
+  Promise<InstanceType<typeof WMessageItem>> => {
   let messageOptions = mergeOption(options, type, duration);
 
   const { direction } = messageOptions;
@@ -59,13 +64,16 @@ const showTypeMessage = (options: MessageConfig, type?: MessageTypeEnum, duratio
     mountInstance.add(messageOptions);
   }
 
-  new Promise(async (resolve) => {
+  return new Promise(async (resolve, reject) => {
     const messageListIns = messageListMap.get(direction);
     await nextTick(() => {
-      const { domList } = messageListIns
-      resolve(domList[domList.length - 1]);
+      if (messageListIns) {
+        const { domList } = messageListIns;
+        resolve(domList[domList.length - 1]);
+      }
+      reject();
     })
-  }).then();
+  })
 }
 
 const WMessage = showTypeMessage as IMessage;

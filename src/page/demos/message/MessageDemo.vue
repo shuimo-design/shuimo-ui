@@ -21,7 +21,8 @@ import { WMessage } from '../../../../lib';
 import BaseTitle from '../../../components/base/BaseTitle.vue';
 import { MessageDirectionType } from "../../../../types/components/WMessage";
 
-const callMessage = (direction: MessageDirectionType) => {
-  WMessage.success({ content: '这是一条信息', direction });
+const callMessage = async (direction: MessageDirectionType) => {
+  const res = await WMessage.success({ content: '这是一条信息', direction });
+  console.log(typeof res);
 }
 </script>

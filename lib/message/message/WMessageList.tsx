@@ -2,9 +2,9 @@
  * @description messageList组件
  * @author: qunbotop
  * @date 2022/5/16 4:37 下午
- * @version V2.0.0
+ * @version v2.0.0
  */
-import { defineComponent, ref, Teleport } from "vue";
+import { defineComponent, h, ref, Teleport } from "vue";
 import { props } from "./api";
 import WMessageItem from "./WMessageItem";
 import type { MessageProps } from "../../../types/components/WMessage";
@@ -13,14 +13,14 @@ import type { MessageProps } from "../../../types/components/WMessage";
  * @description MessageList使用到的属性
  */
 interface MessageOptions extends MessageProps {
-  id?: number
+  id?: string
 }
 
 const getKey = (() => {
   let id = 0;
   return () => {
     id += 1;
-    return id;
+    return `w-msg-${id}`;
   }
 })()
 
@@ -29,7 +29,7 @@ export default defineComponent({
   props,
   setup(props, { expose }) {
     const messageList = ref<Array<MessageOptions>>([]);
-    const domList = ref<Array<any>>([]);
+    const domList = ref<Array<InstanceType<typeof WMessageItem>>>([]);
 
     const add = (item: MessageOptions) => {
       item.id = getKey();
@@ -40,26 +40,27 @@ export default defineComponent({
       messageList.value.splice(index, 1);
     }
 
-    const messageItemDom = (element: any) => {
-      if (element) {
-        domList.value.push(element);
-      }
-    }
-
     expose({ add, messageList, domList });
 
     return () => {
       if (!messageList.value.length) return;
 
+      const messages = messageList.value.map((item, index) =>
+        h(WMessageItem, {
+          ref: ref => {
+            if (ref) {
+              domList.value.push(ref as InstanceType<typeof WMessageItem>);
+            }
+          },
+          key: item.id,
+          ...item,
+          onCloseDuration: () => remove(index)
+        }))
+
       return (
         <Teleport to={'body'}>
           <div class={`w-message-list w-message-list_${props.direction}`}>
-            {messageList.value.map((item, index) => (
-              <WMessageItem ref={messageItemDom}
-                            key={item.id}
-                            {...item}
-                            onCloseDuration={() => remove(index)}/>
-            ))}
+            {messages}
           </div>
         </Teleport>
       )

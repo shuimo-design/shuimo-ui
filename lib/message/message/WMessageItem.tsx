@@ -2,14 +2,14 @@
  * @description message消息组件
  * @author: qunbotop
  * @date 2021/1/8 4:37 下午
- * @version V2.0.0
+ * @version v2.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行
  *
- * V1.0.0 第一版非常粗暴的message消息组件
- * V1.1.0 添加类型定义
- * V1.1.1 类型定义优化
- * V2.0.0 重构组件
+ * v1.0.0 第一版非常粗暴的message消息组件
+ * v1.1.0 添加类型定义
+ * v1.1.1 类型定义优化
+ * v2.0.0 重构组件
  */
 import { defineComponent, ref, onBeforeMount, onMounted } from 'vue';
 import { fadeIn, fadeOut } from './animate';
@@ -33,7 +33,7 @@ export default defineComponent({
     }
 
     let timer = ref<number>(0);
-    let domRef = ref(null);
+    let domRef = ref<HTMLElement | null>(null);
 
     const clearTimer = () => {
       props.duration && clearTimeout(timer.value);
