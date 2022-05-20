@@ -10,6 +10,7 @@
 import { describe, expect, test, vi } from "vitest";
 import { WMessage } from "../../../lib/message/message";
 import { DOMWrapper } from "@vue/test-utils";
+import { MessageDirectionType } from "../../../types/components/WMessage";
 
 describe('消息提示', () => {
 
@@ -39,4 +40,28 @@ describe('消息提示', () => {
     await vi.runAllTimers();
     expect(body.innerHTML).toBe('');
   });
+
+  test('测试所有类型', async () => {
+    vi.useFakeTimers();
+
+    const directions: Array<MessageDirectionType> = [
+      'top-right',
+      'top-left',
+      'bottom-right',
+      'bottom-left',
+      'top-center'
+    ]
+    directions.map(async direction => await WMessage({
+      content: '',
+      direction
+    }));
+    await vi.runAllTicks();
+    const body = document.body;
+    const bodyWrapper = new DOMWrapper(body);
+    for (let direction of directions) {
+      expect(bodyWrapper.find('w-message-list_' + direction)).not.toBeNull();
+    }
+    await vi.runAllTimers();
+    expect(bodyWrapper.html()).toBe('<body></body>');
+  })
 });
