@@ -37,6 +37,15 @@ describe('多选组件', () => {
     await wrapper.find('input[type=checkbox]').setValue(true);
     expect(wrapper.emitted('update:modelValue'))
       .toMatchObject([[true, { e: { isTrusted: false } }]])
+  });
+
+  test('使用slot', () => {
+    const wrapper = mount(WCheckbox, {
+      slots: {
+        default: () => h('div', '测试slot')
+      }
+    })
+    expect(wrapper.find('.w-checkbox__label').text()).toBe('测试slot');
   })
 });
 

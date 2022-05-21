@@ -2,9 +2,11 @@
  * @description WCheckbox
  * @author youus
  * @date 2022/4/7 00:01
- * @version v1.0.0
+ * @version v1.0.1
  *
  * Hello, humor
+ *
+ * v1.0.1 修复checkbox的slot支持
  */
 
 import { defineComponent, computed, toRefs, inject, watchEffect, onBeforeUnmount } from 'vue';
@@ -17,7 +19,7 @@ export default defineComponent({
   name: 'WCheckbox',
   props,
   emits: ['change', 'update:modelValue'],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const uniId = Symbol('wCheckboxUniId');
     const checkboxGroup = inject(CheckboxGroupContextKey, undefined);
 
@@ -93,7 +95,7 @@ export default defineComponent({
           <img src={border} alt=""/>
           <span class={innerStyle.value}/>
         </span>
-        <span class="w-checkbox__label">{props.label}</span>
+        <span class="w-checkbox__label">{slots.default?.() ?? props.label}</span>
       </label>
     );
   },

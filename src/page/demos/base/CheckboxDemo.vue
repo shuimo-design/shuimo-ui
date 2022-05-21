@@ -14,6 +14,11 @@
       <w-checkbox label="E" value="e"/>
       <w-checkbox label="F" value="f"/>
     </w-checkbox-group>
+    <div>{{ checkedArr2.join(',') }}</div>
+    <w-checkbox-group v-model="checkedArr2" disabled>
+      <w-checkbox value="e">这里是slot</w-checkbox>
+      <w-checkbox label="F" value="f"/>
+    </w-checkbox-group>
   </div>
 </template>
 
