@@ -31,6 +31,7 @@ import form from "../../lib/template/form/WForm";
 import formItem from "../../lib/template/form/WFormItem";
 import pagination from "../../lib/template/pagination/WPagination";
 import table from "../../lib/template/table/WTable";
+import tableColumn from "../../lib/template/table/WTableColumn";
 
 export type keyType = any;
 
@@ -69,3 +70,4 @@ export declare const WForm: typeof form;
 export declare const WFormItem: typeof formItem;
 export declare const WPagination: typeof pagination;
 export declare const WTable: typeof table;
+export declare const WTableColumn: typeof tableColumn;
