@@ -45,8 +45,8 @@ export type MessageType = 'success' | 'warning' | 'info' | 'error';
 export type MessageConfig = MessageProps | string;
 
 type IMessageEnum = {
-  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object>
+  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object> | void;
 };
 export type IMessage = IMessageEnum & {
-  (config: MessageConfig): Promise<object>;
+  (config: MessageConfig): Promise<object> | void;
 };
