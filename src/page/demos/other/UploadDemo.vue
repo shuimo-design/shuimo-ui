@@ -1,8 +1,8 @@
 <template>
   <div class="upload-demo">
-    <span>上传文件为：{{file.name}}</span>
+    <span>上传文件为：{{ file.name }}</span>
     <w-upload @upload="uploadHandle">
-      <img :src="fileUrl" alt="" v-if="fileUrl">
+      <img :src="fileUrl" alt="" v-if="fileUrl&&fileUrl.length>0">
     </w-upload>
   </div>
 </template>
