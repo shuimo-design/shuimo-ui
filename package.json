@@ -1,7 +1,7 @@
 {
-  "name": "@janghood/shuimo-ui",
+  "name": "shuimo-ui",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.1.13",
+  "version": "0.2.0",
   "files": [
     "dist",
     "icons",
