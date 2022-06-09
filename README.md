@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://wash-painting.com" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://raw.githubusercontent.com/higuaifan/wash-painting-ui/master/src/assets/logo.png" 
-        alt="wash-painting logo">
+  <a href="https://shuimo.janghood.com" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://raw.githubusercontent.com/janghood/shuimo-ui/master/icons/logo.svg" 
+        alt="shuimo logo">
   </a>
 </p>
 <h1 align="center">水墨UI(shuimo-ui)</h1>
@@ -10,8 +10,8 @@
 
 <p align="center">A wash-painting(shuimo) Vue.js 3.2 UI Library.</p>
 
-![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
-[![codecov](https://codecov.io/gh/janghood/wash-painting-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/wash-painting-ui)
+![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
+[![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
 
 ## 简介（Introduction）
 
@@ -31,7 +31,7 @@
 
 ## 文档(document)
 
-[点击这里(click here)](https://wash-painting.com)
+[点击这里(click here)](https://shuimo.janghood.com)
 
 ## 前生
 
