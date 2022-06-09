@@ -102,8 +102,6 @@ export {
   MList
 };
 
-export const createWUI = () => {
-  return {
-    install
-  }
+export const createMUI = () => {
+  return { install };
 }

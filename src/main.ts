@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import { createWUI } from "../lib";
+import { createMUI } from "../lib";
 import { MPrinter } from "../lib";
 import { MConfirm } from "../lib";
 import PrismCode from './components/code/PrismCode.vue'
@@ -11,9 +11,9 @@ import ButtonDrawer from './components/code/ButtonDrawer.vue'
 import './style.scss'
 
 const app = createApp(App);
-const WUI = createWUI();
+const MUI = createMUI();
 app.use(router)
-  .use(WUI)
+  .use(MUI)
   .component('PrismCode', PrismCode)
   .component('ButtonDrawer', ButtonDrawer)
   .mount('#app');
