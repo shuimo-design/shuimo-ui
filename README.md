@@ -1,34 +1,45 @@
-<p align="center">
-  <a href="https://wash-painting.com" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://raw.githubusercontent.com/higuaifan/wash-painting-ui/master/src/assets/logo.png" 
-        alt="wash-painting logo">
-  </a>
-</p>
-<h1 align="center">水墨UI(wash-painting-ui)</h1>
+# 说明
 
-<p align="center">一款很粗暴的水墨UI</p>
+经过我们团队多次讨论、深思熟虑（大概）后，我们决定将组件更名为`shuimo-ui`。
 
-<p align="center">A wash-painting Vue.js 3.2 UI Library.</p>
+其实最早建这个项目的时候有想过这个名字，但是思来想去觉得`shuimo`这种拼音叫法不太好，
 
-![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
-[![codecov](https://codecov.io/gh/janghood/wash-painting-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/wash-painting-ui)
+> "是得有个英文名吧？"
 
-## 简介（Introduction）
+于是经过一番冲浪后，犹犹豫豫地定下了`wash-painting`这个名字，可越读这玩意越觉得奇怪。
 
-这是一款开箱即用的**水墨化**组件库。
+也没有地道的原装英语使用者能给出好的建议。
 
-我们注意到有许多优秀的企业级UI设计语言和组件库。
+后来想改名的想法愈发强烈，但是拖延症发作一直拖到之前发现有人在使用我们的组件。
 
-作为炎黄子孙，我们十分推崇中国独有的美术风格：水墨。
+于是不能再拖了。
 
-我们整理出了一套具有中国传统风格的水墨风组件库。
+也许会不小心丢掉这些用户，但是还是想把名字给改了。
 
-希望这款中国传统风格的组件库，能用于一些小众的需求，能满足于一些对页面有美术追求，又希望能快速搭建的用户。
+占一个`水墨ui`名头也是舒服的呀。
 
-## 技术栈(technology stack)
+## 组件开头字母为什么是M
 
-> vite 2.0 + vue 3.2
+我想了很多的借口，例如`水墨的本质还是墨`之类的。
 
-## 文档(document)
+但是还是比不上我们讨论的时候我随手打出了`SButton`这几个单词。
 
-[点击这里(click here)](https://wash-painting.com)
+加上我觉得`s`打头没有曾经的`w`或者是现在的`m`来的稳重。
+
+所以还是`m`吧，墨组件听起来也挺酷的。
+
+## 快速升级
+
+要切换到新版本，会影响到本来的组件命名，
+
+这边我提供一个小工具，目前已经经过我们内部项目的测试，大抵上是没有问题的。
+
+可以直接阅读[wash-painting-to-shuimo的npm文档](https://www.npmjs.com/package/@janghood/wash-painting-to-shuimo)。
+
+
+----
+
+> 给您带来的麻烦我们深表歉意🙇
+
+不过大概率这个分支不再更新了，也许发现没人在用后会删除掉。
+
