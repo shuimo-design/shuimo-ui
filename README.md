@@ -4,11 +4,11 @@
         alt="wash-painting logo">
   </a>
 </p>
-<h1 align="center">水墨UI(wash-painting-ui)</h1>
+<h1 align="center">水墨UI(shuimo-ui)</h1>
 
 <p align="center">一款很粗暴的水墨UI</p>
 
-<p align="center">A wash-painting Vue.js 3.2 UI Library.</p>
+<p align="center">A wash-painting(shuimo) Vue.js 3.2 UI Library.</p>
 
 ![npm](https://img.shields.io/npm/v/@higuaifan/wash-painting-ui?color=%23c50315&style=flat-square)
 [![codecov](https://codecov.io/gh/janghood/wash-painting-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/wash-painting-ui)
@@ -32,3 +32,8 @@
 ## 文档(document)
 
 [点击这里(click here)](https://wash-painting.com)
+
+## 前生
+
+> 曾经的名字叫 **wash-painting-ui** ，冲浪了很久找不到什么信达雅的名字，就算这个名字也是冲浪很久翻出来的。
+> 但是这个名字实在是奇怪，犹豫了很久，还是选择拼音吧。虽然技术不怎么自信，但是文化自信！
