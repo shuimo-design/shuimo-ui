@@ -20,7 +20,7 @@
   overflow: auto;
 }
 
-.w-thead {
+.m-thead {
   background: rgba(63, 74, 85, 0.30);
   height: 37px;
   font-size: 14px;
@@ -29,16 +29,16 @@
   top: 0;
   z-index: 1;
 
-  &.w-thead-overflow {
+  &.m-thead-overflow {
     background: #b7bec4;
   }
 }
 
-.w-tbody {
+.m-tbody {
   backdrop-filter: blur(10px);
 }
 
-.w-tr {
+.m-tr {
   width: 200px;
 
   &:nth-child(even) {
@@ -51,7 +51,7 @@
   }
 }
 
-.w-td {
+.m-td {
   padding: 9px 5px;
   text-align: center;
   word-break: break-word;

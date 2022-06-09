@@ -25,7 +25,7 @@ const img = h('td', { class: 'm-table-tbody-img' });
  * @param tList td或者th列表
  */
 const wrapWithTr = (tList: VNode[]) => {
-  return h('tr', { class: 'w-tr' }, tList);
+  return h('tr', { class: 'm-tr' }, tList);
 }
 
 const dataTrRender = (data: any, tableColumn: columnType[]) => {
@@ -34,9 +34,9 @@ const dataTrRender = (data: any, tableColumn: columnType[]) => {
 
     if (col.children) {
       const defaultSlot = col.children.default({ data });
-      trList.push(h('td', { class: 'w-td' }, defaultSlot));
+      trList.push(h('td', { class: 'm-td' }, defaultSlot));
     } else {
-      trList.push(h('td', { class: 'w-td' }, data[col.key]));
+      trList.push(h('td', { class: 'm-td' }, data[col.key]));
     }
 
 
@@ -85,7 +85,7 @@ export default defineComponent({
             children: s.children
           });
           // 构造thead
-          theadThList.push(h('th', { class: 'w-th', width }, label));
+          theadThList.push(h('th', { class: 'm-th', width }, label));
         })
         props.data.forEach((d: any) => {
           tbodyTrList.push(dataTrRender(d, tableColumn));
@@ -96,9 +96,9 @@ export default defineComponent({
       const { theadBorderTop, theadBorderBottom, tbodyBorderBottom } = borderRender();
 
       const thead = h('thead', {
-        class: ['w-thead', { 'w-thead-overflow': props.height }]
+        class: ['m-thead', { 'm-thead-overflow': props.height }]
       }, wrapWithTr(theadThList));
-      const tbody = h('tbody', { class: 'w-tbody' }, tbodyTrList);
+      const tbody = h('tbody', { class: 'm-tbody' }, tbodyTrList);
       const table = h('table', { class: 'm-table-inner' }, [thead, tbody]);
       const tableWrap = h('div', { class: 'm-table-wrap', style: { height: props.height } }, table);
 

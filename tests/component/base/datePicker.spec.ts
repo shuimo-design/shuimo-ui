@@ -90,28 +90,28 @@ describe('伴随事件', () => {
 
     test('点击年份后显示年份选择内容', async () => {
       expect(yearTable.isVisible()).toBe(false);
-      await calendar.find('.w-year').trigger('click');
+      await calendar.find('.m-year').trigger('click');
       expect(yearTable.isVisible()).toBe(true);
 
       await calendar.find('.calendar-year-prev').trigger('click');
-      expect(calendar.find('.w-year').text()).toBe('2010 - 2019');
+      expect(calendar.find('.m-year').text()).toBe('2010 - 2019');
       await calendar.find('.calendar-year-next').trigger('click');
-      expect(calendar.find('.w-year').text()).toBe('2020 - 2029');
+      expect(calendar.find('.m-year').text()).toBe('2020 - 2029');
     });
 
     test('点击月份后显示月份选择内容', async () => {
       expect(monthTable.isVisible()).toBe(false);
-      await calendar.find('.w-month').trigger('click');
+      await calendar.find('.m-month').trigger('click');
       expect(monthTable.isVisible()).toBe(true);
       await calendar.find('.calendar-month-prev').trigger('click');
-      expect(calendar.find('.w-month').text()).toBe(`0${month - 1}`);
+      expect(calendar.find('.m-month').text()).toBe(`0${month - 1}`);
       await calendar.find('.calendar-month-next').trigger('click');
-      expect(calendar.find('.w-month').text()).toBe(`0${month}`);
+      expect(calendar.find('.m-month').text()).toBe(`0${month}`);
     });
 
     test('点击日期后数据更新',async ()=>{
       expect(dateTable.isVisible()).toBe(true);
-      await dateTable.find('.w-date-prev-month').trigger('click');
+      await dateTable.find('.m-date-prev-month').trigger('click');
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['2022-04-25']);
     })
 

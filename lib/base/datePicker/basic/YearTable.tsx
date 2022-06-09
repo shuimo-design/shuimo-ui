@@ -30,8 +30,8 @@ export default defineComponent({
       const style = Object.create({});
       const today = new Date();
   
-      style['w-year-current'] = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
-      style['w-year-today'] = today.getFullYear() === year;
+      style['m-year-current'] = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
+      style['m-year-today'] = today.getFullYear() === year;
   
       return style;
     }
@@ -45,13 +45,13 @@ export default defineComponent({
     }
     
     return () => (
-      <table onClick={yearTableClickHandler} class="w-year-table">
+      <table onClick={yearTableClickHandler} class="m-year-table">
         <tbody>
         {YEAR_DISPLAY.map(years =>(
           <tr>
             {years.map(y => (
-              <td class={["w-available", "w-cursor-pointer", getCellStyle(startYear.value + y)]}>
-                <span class="w-cell w-cursor-pointer">{startYear.value + y}</span>
+              <td class={["m-available", "m-cursor-pointer", getCellStyle(startYear.value + y)]}>
+                <span class="m-cell m-cursor-pointer">{startYear.value + y}</span>
               </td>
             ))}
           </tr>

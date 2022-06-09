@@ -87,18 +87,18 @@ export default defineComponent({
       const today = new Date();
       const month = cell.text;
       const dateVal = new Date(value.value);
-      style['w-month-current'] = arrayFindIndex(coerceTruthyValueToArray([dateVal]), (date: any) => date.getFullYear() === year && date.getMonth() === month) >= 0;
-      style['w-month-today'] = today.getFullYear() === year && today.getMonth() === month;
+      style['m-month-current'] = arrayFindIndex(coerceTruthyValueToArray([dateVal]), (date: any) => date.getFullYear() === year && date.getMonth() === month) >= 0;
+      style['m-month-today'] = today.getFullYear() === year && today.getMonth() === month;
   
       if (cell.inRange) {
-        style['w-month-in-range'] = true;
+        style['m-month-in-range'] = true;
     
         if (cell.start) {
-          style['w-month-start-date'] = true;
+          style['m-month-start-date'] = true;
         }
     
         if (cell.end) {
-          style['w-month-end-date'] = true;
+          style['m-month-end-date'] = true;
         }
       }
       return style;
@@ -120,7 +120,7 @@ export default defineComponent({
     }
     
     return () => (
-      <table class="w-month-table" onClick={monthTableClickHandler}>
+      <table class="m-month-table" onClick={monthTableClickHandler}>
         <tbody>
         {
           rows.value.map((row: any, key) => (
@@ -128,8 +128,8 @@ export default defineComponent({
               {
                 row.map((cell: any, k: number) => (
                   <td key={k}>
-                    <div class="w-cursor-pointer">
-                      <span class={["w-cell", "w-cursor-pointer", getCellStyle(cell)]}>
+                    <div class="m-cursor-pointer">
+                      <span class={["m-cell", "m-cursor-pointer", getCellStyle(cell)]}>
                         {`${cell.text + 1}月`}
                       </span>
                     </div>

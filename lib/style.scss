@@ -28,7 +28,7 @@
 @import './message/popover/popover.scss';
 @import './message/tooltip/tooltip.scss';
 
-[class^="w-"], .w-cursor {
+[class^="m-"], .m-cursor {
   cursor: url("/lib/assets/cursor/auto.png"), auto;
 
   &:disabled {
@@ -36,10 +36,10 @@
   }
 }
 
-.w-cursor-pointer {
+.m-cursor-pointer {
   cursor: url("/lib/assets/cursor/pointer.png"), auto;
 }
 
-.w-cursor-disabled {
+.m-cursor-disabled {
   cursor: url("/lib/assets/cursor/disabled.png"), auto;
 }

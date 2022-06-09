@@ -37,20 +37,20 @@ export default defineComponent({
            style={dropdownStyle.value}
            class="calendar-dropdown">
         <div class="calendar-dropdown-header">
-          <button class="calendar-year-prev w-cursor-pointer" onClick={prevYearHandler}/>
-          <button class="calendar-month-prev w-cursor-pointer"
+          <button class="calendar-year-prev m-cursor-pointer" onClick={prevYearHandler}/>
+          <button class="calendar-month-prev m-cursor-pointer"
                   v-show={currentView.value === 'date'}
                   onClick={prevMonthHandler}/>
-          <span class="w-year w-cursor-pointer"
+          <span class="m-year m-cursor-pointer"
                 onClick={showYearPicker}>{year.value}</span>
-          <span class="w-block-between w-cursor-pointer" v-show={currentView.value === 'date'}>，</span>
-          <span class="w-month w-cursor-pointer"
+          <span class="m-block-between m-cursor-pointer" v-show={currentView.value === 'date'}>，</span>
+          <span class="m-month m-cursor-pointer"
                 onClick={showMonthPicker}
                 v-show={currentView.value === 'date'}>{month.value}</span>
-          <button class="calendar-month-next w-cursor-pointer"
+          <button class="calendar-month-next m-cursor-pointer"
                   v-show={currentView.value === 'date'}
                   onClick={nextMonthHandler}/>
-          <button class="calendar-year-next w-cursor-pointer" onClick={nextYearHandler}/>
+          <button class="calendar-year-next m-cursor-pointer" onClick={nextYearHandler}/>
         </div>
         <div class="content">
           <DateTable date={date.value}

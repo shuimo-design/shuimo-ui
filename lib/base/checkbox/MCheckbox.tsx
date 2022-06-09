@@ -55,21 +55,21 @@ export default defineComponent({
     const wCheckboxStyle = computed(() => [
       'm-checkbox',
       {
-        'w-cursor-disabled': innerDisabled.value,
+        'm-cursor-disabled': innerDisabled.value,
       }
     ]);
     const checkStyle = computed(() => [
       'm-checkbox__inner',
       {
         'm-checkbox-is-checked': selfChecked.value,
-        'w-cursor-disabled': innerDisabled.value,
-        'w-cursor-pointer': !innerDisabled.value,
+        'm-cursor-disabled': innerDisabled.value,
+        'm-cursor-pointer': !innerDisabled.value,
       },
     ]);
     const innerStyle = computed(() => [{
       'm-checkbox__inner_checked': selfChecked.value,
-      'w-cursor-disabled': innerDisabled.value,
-      'w-cursor-pointer': !innerDisabled.value,
+      'm-cursor-disabled': innerDisabled.value,
+      'm-cursor-pointer': !innerDisabled.value,
     }]);
 
 

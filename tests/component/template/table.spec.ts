@@ -28,12 +28,12 @@ describe('列表组件', function () {
         <div class=\\"m-table-header-img-bottom\\"></div>
         <div class=\\"m-table-wrap\\">
           <table class=\\"m-table-inner\\">
-            <thead class=\\"w-thead\\">
-              <tr class=\\"w-tr\\">
-                <th class=\\"w-th\\">label</th>
+            <thead class=\\"m-thead\\">
+              <tr class=\\"m-tr\\">
+                <th class=\\"m-th\\">label</th>
               </tr>
             </thead>
-            <tbody class=\\"w-tbody\\"></tbody>
+            <tbody class=\\"m-tbody\\"></tbody>
           </table>
         </div>
         <div class=\\"m-table-border-img-bottom\\"></div>

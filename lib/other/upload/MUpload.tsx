@@ -40,7 +40,7 @@ export default defineComponent({
       return (
         <div class="m-upload">
           <span>{slots.default!()}</span>
-          <input class="w-cursor-pointer" ref={inputRef} type="file" accept={props.fileTypes} onChange={changeHandle}/>
+          <input class="m-cursor-pointer" ref={inputRef} type="file" accept={props.fileTypes} onChange={changeHandle}/>
         </div>)
     }
   }

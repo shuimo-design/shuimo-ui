@@ -138,7 +138,7 @@ export default defineComponent({
       const dropdownOptionDom = optionsCopy.map((o: any) => {
         const option = optionRenderCreator(o);
         return h('div', {
-          class: ['dropdown-option','w-cursor-pointer', o.selected ? 'selected' : ''],
+          class: ['dropdown-option','m-cursor-pointer', o.selected ? 'selected' : ''],
           onClick: () => {
             emitValue(o);
           }
@@ -152,7 +152,7 @@ export default defineComponent({
       }, notEmpty(dropdownOptionDom) ? dropdownOptionDom : h('div', { class: 'm-select-dropdown-empty' }, '暂无数据...'))
 
 
-      const transition = h(Transition, { name: 'w-opacity' }, {
+      const transition = h(Transition, { name: 'm-opacity' }, {
         default: () => dropdownDom
       });
       teleportNode = h(Teleport, { to: 'body' }, transition);
@@ -174,8 +174,8 @@ export default defineComponent({
 
     const baseNose = h(showNode, {
       class: [
-        disabled ? 'w-cursor-disabled' : 'w-cursor-pointer',
-        disabled ? 'w-disabled' : ''
+        disabled ? 'm-cursor-disabled' : 'm-cursor-pointer',
+        disabled ? 'm-disabled' : ''
       ],
       ...divEvent
     });

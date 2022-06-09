@@ -17,7 +17,7 @@ export default defineComponent({
     return () => {
       const icon = h('div', { class: 'm-list-icon' });
       const listItems = props.data?.map(item => h('div', {
-        class: ['m-list-item', props.autoActive || item.active ? 'w-active' : ''],
+        class: ['m-list-item', props.autoActive || item.active ? 'm-active' : ''],
       },  [
         icon,
         h(

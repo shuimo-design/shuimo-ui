@@ -44,11 +44,11 @@ export default defineComponent({
 
     return () => (
       <MBorder class="m-date-picker">
-        <div class="m-date-picker-div w-cursor-pointer m-input-inner" ref={selectRef} onClick={showCalendar}>
+        <div class="m-date-picker-div m-cursor-pointer m-input-inner" ref={selectRef} onClick={showCalendar}>
           <span>{defaultValue.value || props.placeholder}</span>
-          <div class="calendar-icon w-cursor-pointer"/>
+          <div class="calendar-icon m-cursor-pointer"/>
           <Teleport to="body">
-            <Transition name="w-opacity">
+            <Transition name="m-opacity">
               <CalendarDropdown datePickHook={datePickHook}/>
             </Transition>
           </Teleport>

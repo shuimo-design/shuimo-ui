@@ -81,7 +81,7 @@ export default defineComponent({
         >
           {slots.default && slots.default()}
         </div>
-        <Transition name="w-linear">
+        <Transition name="m-linear">
           <div
             onClick={() => !interactive.value && closePopper()}
             class="m-tooltip-inner"

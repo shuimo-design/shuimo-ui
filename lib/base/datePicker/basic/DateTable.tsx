@@ -108,14 +108,14 @@ export default defineComponent({
               cell.text = count++;
             } else {
               cell.text = dateCountOfLastMonth - (numberOfDaysFromPreviousMonth - j % 7) + 1 + i * 7;
-              cell.type = 'w-date-prev-month';
+              cell.type = 'm-date-prev-month';
             }
           } else {
             if (count <= dateCountOfMonth) {
               cell.text = count++;
             } else {
               cell.text = count++ - dateCountOfMonth;
-              cell.type = 'w-date-next-month';
+              cell.type = 'm-date-next-month';
             }
           }
       
@@ -140,34 +140,34 @@ export default defineComponent({
       let classes = [];
       if ((cell.type === 'normal' || cell.type === 'today') && !cell.disabled) {
         if (cell.type === 'today') {
-          classes.push('w-date-today');
+          classes.push('m-date-today');
         }
       } else {
         classes.push(cell.type);
       }
   
       if (selectionMode === 'day' && (cell.type === 'normal' || cell.type === 'today') && cellMatchesDate(cell, value.value)) {
-        classes.push('w-date-current');
+        classes.push('m-date-current');
       }
   
       if (cell.inRange && ((cell.type === 'normal' || cell.type === 'today'))) {
-        classes.push('w-date-in-range');
+        classes.push('m-date-in-range');
     
         if (cell.start) {
-          classes.push('w-start-date');
+          classes.push('m-start-date');
         }
     
         if (cell.end) {
-          classes.push('w-end-date');
+          classes.push('m-end-date');
         }
       }
   
       if (cell.disabled) {
-        classes.push('w-date-disabled');
+        classes.push('m-date-disabled');
       }
   
       if (cell.selected) {
-        classes.push('w-date-selected');
+        classes.push('m-date-selected');
       }
   
       return classes;
@@ -199,7 +199,7 @@ export default defineComponent({
     
     return () => (
       <table onClick={clickHandler}
-             class="w-date-table"
+             class="m-date-table"
              cellspacing="0"
              cellpadding="0">
         <tbody>
@@ -217,7 +217,7 @@ export default defineComponent({
               <tr key={key}>
                 {
                   row.map((cell: any, k: number) => (
-                    <td key={k} class="w-cursor-pointer">
+                    <td key={k} class="m-cursor-pointer">
                       <div class={getCellClasses(cell)}>
                         <span>{ cell.text }</span>
                       </div>

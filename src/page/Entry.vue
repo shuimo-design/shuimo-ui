@@ -5,7 +5,7 @@
       <Component/>
     </div>
     <footer>
-      <a class="w-cursor-pointer" href="https://beian.miit.gov.cn" target="_blank">浙ICP备15017406号-2</a>
+      <a class="m-cursor-pointer" href="https://beian.miit.gov.cn" target="_blank">浙ICP备15017406号-2</a>
     </footer>
   </div>
 </template>

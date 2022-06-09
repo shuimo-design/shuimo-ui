@@ -20,7 +20,7 @@ export default defineComponent({
   props,
   setup(props, { emit }) {
     const { type } = props;
-    const borderClass = { class: ['m-input', { 'w-textarea': type === 'textarea' }] };
+    const borderClass = { class: ['m-input', { 'm-textarea': type === 'textarea' }] };
 
     return () => {
       const domProps = {
@@ -36,7 +36,7 @@ export default defineComponent({
         return h(MBorder, borderClass, () => h(
           'textarea', {
             rows: 10,
-            class: 'w-textarea-inner',
+            class: 'm-textarea-inner',
             ...domProps
           }
         ))

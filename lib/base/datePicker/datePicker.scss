@@ -41,9 +41,9 @@
     align-items: center;
     justify-content: center;
 
-    .w-year,
-    .w-month,
-    .w-block-between {
+    .m-year,
+    .m-month,
+    .m-block-between {
       font-size: 20px;
       text-align: left;
       color: #333333;
@@ -102,7 +102,7 @@
   }
 }
 
-.w-date-table {
+.m-date-table {
   margin-top: 5px;
 
   th {
@@ -118,18 +118,18 @@
     margin: auto;
   }
 
-  .w-date-current {
+  .m-date-current {
     background: url("/lib/assets/date-picker/circle.png") no-repeat;
     background-size: 100% 100%;
   }
 
-  .w-date-today {
+  .m-date-today {
     font-weight: 700;
     color: #1a336d;
   }
 
-  .w-date-prev-month,
-  .w-date-next-month {
+  .m-date-prev-month,
+  .m-date-next-month {
     color: #a3a3a3;
   }
 
@@ -143,7 +143,7 @@
 }
 
 
-.w-month-table {
+.m-month-table {
   margin-top: 14px;
 
   td {
@@ -155,7 +155,7 @@
       box-sizing: border-box;
       text-align: center;
 
-      .w-cell {
+      .m-cell {
         width: 40px;
         height: 40px;
         display: block;
@@ -171,12 +171,12 @@
 
       }
 
-      .w-month-today {
+      .m-month-today {
         font-weight: 700;
         color: #1a336d;
       }
 
-      .w-month-current {
+      .m-month-current {
         background: url("/lib/assets/date-picker/circle.png") no-repeat;
         background-size: 100% 100%;
       }
@@ -185,13 +185,13 @@
 }
 
 
-.w-year-table {
+.m-year-table {
   margin-top: 10px;
   td {
     text-align: center;
     padding: 15px 3px;
 
-    .w-cell {
+    .m-cell {
       width: 48px;
       height: 30px;
       display: block;
@@ -205,12 +205,12 @@
       }
     }
   }
-  .w-year-today .w-cell {
+  .m-year-today .m-cell {
     font-weight: 700;
     color: #1a336d;
   }
 
-  .w-year-current {
+  .m-year-current {
     background: url("/lib/assets/date-picker/circle.png") no-repeat;
     background-size: 100% 100%;
   }

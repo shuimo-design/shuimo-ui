@@ -11,7 +11,7 @@
         </m-border>
       </div>
     </div>
-    <div class="footer w-cursor-pointer">
+    <div class="footer m-cursor-pointer">
       <span @click="toBeian">浙ICP备15017406号-2</span>
     </div>
   </div>

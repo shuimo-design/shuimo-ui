@@ -32,7 +32,7 @@ describe('列表组件', () => {
         ]
       }
     });
-    expect(wrapper.find('.m-list-item').html().includes('w-active')).toBe(true);
+    expect(wrapper.find('.m-list-item').html().includes('m-active')).toBe(true);
   })
 
 })
