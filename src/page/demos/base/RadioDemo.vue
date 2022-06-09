@@ -1,7 +1,7 @@
 <template>
   <div>
-    <w-radio v-model="radio1" label="A">选项A</w-radio>
-    <w-radio v-model="radio1" label="B">选项B</w-radio>
+    <m-radio v-model="radio1" label="A">选项A</m-radio>
+    <m-radio v-model="radio1" label="B">选项B</m-radio>
   </div>
 </template>
 

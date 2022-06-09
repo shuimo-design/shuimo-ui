@@ -1,9 +1,9 @@
 import { h, defineComponent } from "vue";
-import WBorder from "../../other/border/WBorder";
+import MBorder from "../../other/border/MBorder";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WInputNumber',
+  name: 'MInputNumber',
   props,
   data() {
     return {
@@ -37,9 +37,9 @@ export default defineComponent({
     let { currentVal } = this;
     const { inputHandle } = this;
 
-    return h(WBorder,
-      { class: 'w-input-number' },
-      () => (<input type="number" class="w-input-number-inner"
+    return h(MBorder,
+      { class: 'm-input-number' },
+      () => (<input type="number" class="m-input-number-inner"
                     onInput={inputHandle}
                     value={currentVal}/>));
 

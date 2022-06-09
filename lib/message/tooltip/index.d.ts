@@ -4,16 +4,16 @@
  * @date 2022/4/4 01:22
  * @version v1.0.0
  *
- * @name w-tooltip
- * @docDescription Tooltip component with wash-painting-ui style.
+ * @name m-tooltip
+ * @docDescription Tooltip component with shuimo-ui style.
  *                 水墨组件的提示框组件。
- * @docUrl https://wash-painting.com/tooltip
+ * @docUrl https://shuimo.janghood.com/tooltip
  *
  * Hello, humor
  */
 import type { Placement } from '../../dependents/_composables/usePopper'
 
-export type WTooltipProps = {
+export type MTooltipProps = {
   /**
    * @description popover display placement
    * @type Placement

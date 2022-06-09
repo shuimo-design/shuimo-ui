@@ -1,24 +1,24 @@
 <template>
   <div>
     <div>{{ checkedOriginal }}</div>
-    <w-checkbox label="A" v-model="checkedOriginal" value="a"/>
-    <w-checkbox label="B" value="B" :checked="checkedOriginal2" @change="changeHandle"/>
-    <w-checkbox label="C" disabled checked value="C"/>
+    <m-checkbox label="A" v-model="checkedOriginal" value="a"/>
+    <m-checkbox label="B" value="B" :checked="checkedOriginal2" @change="changeHandle"/>
+    <m-checkbox label="C" disabled checked value="C"/>
     <div>{{ checkedArr.join(',') }}</div>
-    <w-checkbox-group v-model="checkedArr">
-      <w-checkbox label="C" value="c"/>
-      <w-checkbox label="D" value="d"/>
-    </w-checkbox-group>
+    <m-checkbox-group v-model="checkedArr">
+      <m-checkbox label="C" value="c"/>
+      <m-checkbox label="D" value="d"/>
+    </m-checkbox-group>
     <div>{{ checkedArr2.join(',') }}</div>
-    <w-checkbox-group v-model="checkedArr2" disabled>
-      <w-checkbox label="E" value="e"/>
-      <w-checkbox label="F" value="f"/>
-    </w-checkbox-group>
+    <m-checkbox-group v-model="checkedArr2" disabled>
+      <m-checkbox label="E" value="e"/>
+      <m-checkbox label="F" value="f"/>
+    </m-checkbox-group>
     <div>{{ checkedArr2.join(',') }}</div>
-    <w-checkbox-group v-model="checkedArr2" disabled>
-      <w-checkbox value="e">这里是slot</w-checkbox>
-      <w-checkbox label="F" value="f"/>
-    </w-checkbox-group>
+    <m-checkbox-group v-model="checkedArr2" disabled>
+      <m-checkbox value="e">这里是slot</m-checkbox>
+      <m-checkbox label="F" value="f"/>
+    </m-checkbox-group>
   </div>
 </template>
 

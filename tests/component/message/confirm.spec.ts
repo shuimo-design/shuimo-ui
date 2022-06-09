@@ -8,13 +8,13 @@
  */
 
 import { describe, expect, test } from "vitest";
-import WConfirm from "../../../lib/message/confirm/WConfirm";
+import MConfirm from "../../../lib/message/confirm/MConfirm";
 import { DOMWrapper } from "@vue/test-utils";
 
 describe('确认框测试用例',async () => {
 
   test('正常渲染',()=>{
-    WConfirm('text');
+    MConfirm('text');
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.html()).toContain('确定');

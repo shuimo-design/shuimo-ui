@@ -4,10 +4,10 @@
  * @date 2022/4/17 00:49
  * @version v1.0.0
  *
- * @name w-input-number
- * @docDescription InputNumber component with wash-painting-ui style.
+ * @name m-input-number
+ * @docDescription InputNumber component with shuimo-ui style.
  *                 水墨组件的数字输入框组件。
- * @docUrl https://wash-painting.com/input#number
+ * @docUrl https://shuimo.janghood.com/input#number
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

@@ -4,11 +4,11 @@
       <Header/>
     </div>
     <div class="main">
-      <w-menu :menu="menuList" class="menu" @click="menuClick"/>
+      <m-menu :menu="menuList" class="menu" @click="menuClick"/>
       <div class="main-page">
-        <w-border class="main-border">
+        <m-border class="main-border">
           <router-view/>
-        </w-border>
+        </m-border>
       </div>
     </div>
     <div class="footer w-cursor-pointer">
@@ -119,7 +119,7 @@ const toBeian = () => {
   }
 }
 
-.w-button {
+.m-button {
   display: block;
 }
 

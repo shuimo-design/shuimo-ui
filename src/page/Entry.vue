@@ -1,6 +1,6 @@
 <template>
   <div class="entry">
-    <Header :show-button="false"/>
+    <Header :shom-button="false"/>
     <div class="entry-main">
       <Component/>
     </div>

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <w-list :data="data">
+    <m-list :data="data">
       <template #default="item">
         <span>{{ item.title }}</span>
         <div :style="{height:item.value+'px'}">div height: {{ item.value }}</div>
       </template>
-    </w-list>
-    <w-list :data="data"/>
+    </m-list>
+    <m-list :data="data"/>
   </div>
 </template>
 

@@ -9,18 +9,18 @@
  * v1.1.0 阿怪 升级为tsx版本
  */
 import { defineComponent, h } from 'vue';
-import WBorder from '../../other/border/WBorder';
+import MBorder from '../../other/border/MBorder';
 import { props } from "./api";
 import type { HTMLElementEvent } from "../../dependents/_types";
 
 
 export default defineComponent({
-  name: 'WInput',
+  name: 'MInput',
   emits: ['update:modelValue'],
   props,
   setup(props, { emit }) {
     const { type } = props;
-    const borderClass = { class: ['w-input', { 'w-textarea': type === 'textarea' }] };
+    const borderClass = { class: ['m-input', { 'w-textarea': type === 'textarea' }] };
 
     return () => {
       const domProps = {
@@ -33,7 +33,7 @@ export default defineComponent({
 
 
       if (type === 'textarea') {
-        return h(WBorder, borderClass, () => h(
+        return h(MBorder, borderClass, () => h(
           'textarea', {
             rows: 10,
             class: 'w-textarea-inner',
@@ -42,10 +42,10 @@ export default defineComponent({
         ))
       }
 
-      return h(WBorder, borderClass, () => h(
+      return h(MBorder, borderClass, () => h(
         'input', {
           type,
-          class: 'w-input-inner',
+          class: 'm-input-inner',
           ...domProps
         }
       ))

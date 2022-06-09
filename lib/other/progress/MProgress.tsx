@@ -40,19 +40,19 @@ const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: n
 }
 
 export default defineComponent({
-  name: 'WProgress',
+  name: 'MProgress',
   props,
   setup(props,{slots}) {
     const { showInfo, leafHeight, value, max } = toRefs(props);
 
     const { width, height } = getSize(props.width, props.height);
     const style = computed<Object>(() => ({
-      '--w-progress-width': `${width}px`,
-      '--w-progress-height': `${height}px`
+      '--m-progress-width': `${width}px`,
+      '--m-progress-height': `${height}px`
     }))
 
     return () => {
-      const progress = (<progress class='w-progress' value={value.value} max={max.value} style={style.value}/>);
+      const progress = (<progress class='m-progress' value={value.value} max={max.value} style={style.value}/>);
       if (!showInfo.value) {
         return progress;
       }
@@ -67,14 +67,14 @@ export default defineComponent({
       }
       const baseStyle: Object = {
         ...style.value,
-        '--w-progress-per-height': `${leafSize.height}px`,
-        '--w-progress-per-width': `${perWidth}px`,
-        '--w-progress-leaf-height': `${leafHeight.value}px`
+        '--m-progress-per-height': `${leafSize.height}px`,
+        '--m-progress-per-width': `${perWidth}px`,
+        '--m-progress-leaf-height': `${leafHeight.value}px`
       }
 
       return (
-        <div class={['w-progress-border']} style={baseStyle}>
-          <div class='w-progress-per' style={textStyle}>
+        <div class={['m-progress-border']} style={baseStyle}>
+          <div class='m-progress-per' style={textStyle}>
             <img class='leaf' src={leaf} alt=""/>
             {slots.default ? slots.default() : null}
           </div>

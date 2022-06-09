@@ -7,14 +7,14 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { App, Directive } from "vue";
-import { IMessage } from "./components/WMessage";
-import { IPrinter } from "./components/WPrint";
-import { IConfirm } from "./components/WConfirm";
+import { IMessage } from "./components/MMessage";
+import { IPrinter } from "./components/MPrint";
+import { IConfirm } from "./components/MConfirm";
 
 export * from './components/components';
 export * from './components/hooks';
 
-declare module "wash-painting-ui" {
+declare module "shuimo-ui" {
 
 }
 
@@ -22,8 +22,8 @@ export function createWUI(): {
   install: (app: App<any>) => void
 };
 
-export const WMessage: IMessage;
-export const WPrinter: IPrinter;
-export const WConfirm: IConfirm;
+export const MMessage: IMessage;
+export const MPrinter: IPrinter;
+export const MConfirm: IConfirm;
 export const WScroll: Directive;
 

@@ -10,12 +10,12 @@
 import { defineComponent, watch, Teleport, onMounted, Transition } from 'vue';
 import { valueFormatByType } from '../../dependents/_utils/dateUtil';
 import { useDatePicker } from './uesDatePicker';
-import WBorder from '../../other/border/WBorder';
+import MBorder from '../../other/border/MBorder';
 import { props } from "./api";
 import CalendarDropdown from "./basic/CalendarDropdown";
 
 export default defineComponent({
-  name: 'WDatePicker',
+  name: 'MDatePicker',
   props,
   emits: ['change', 'update:modelValue'],
   setup(props, { emit }) {
@@ -43,8 +43,8 @@ export default defineComponent({
 
 
     return () => (
-      <WBorder class="w-date-picker">
-        <div class="w-date-picker-div w-cursor-pointer w-input-inner" ref={selectRef} onClick={showCalendar}>
+      <MBorder class="m-date-picker">
+        <div class="m-date-picker-div w-cursor-pointer m-input-inner" ref={selectRef} onClick={showCalendar}>
           <span>{defaultValue.value || props.placeholder}</span>
           <div class="calendar-icon w-cursor-pointer"/>
           <Teleport to="body">
@@ -53,7 +53,7 @@ export default defineComponent({
             </Transition>
           </Teleport>
         </div>
-      </WBorder>
+      </MBorder>
     )
   }
 })

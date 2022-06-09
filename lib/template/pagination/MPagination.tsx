@@ -2,7 +2,7 @@ import {h, defineComponent} from "vue";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WPagination',
+  name: 'MPagination',
   data() {
     return {
       disPrev: true,
@@ -115,7 +115,7 @@ export default defineComponent({
       ...this.getIconsProps()
     };
     return (
-      <div class={'w-pagination'}>
+      <div class={'m-pagination'}>
         {iconsProps.prev}
         <ul onClick={pageSelected} class={'pages'}>
           {pagers.map(item => (

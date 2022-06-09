@@ -1,35 +1,35 @@
 <template>
   <div>
     <h2>选择的title: {{ selected.title }}</h2>
-    <w-divider/>
+    <m-divider/>
     <span>参数defaultValue:{{ defaultValue }}</span>
     <br/>
-    <span>修改参数 defaultValue: <w-input v-model="defaultValue"/></span>
+    <span>修改参数 defaultValue: <m-input v-model="defaultValue"/></span>
     <br/>
-    <w-select v-model="defaultValue" :options="options" @select="select" :can-change="false"/>
-    <w-select v-model="defaultValue" :options="options" @select="select" :disabled="true"/>
-    <w-divider/>
+    <m-select v-model="defaultValue" :options="options" @select="select" :can-change="false"/>
+    <m-select v-model="defaultValue" :options="options" @select="select" :disabled="true"/>
+    <m-divider/>
     <span>参数defaultValue2:{{ defaultValue2 }}</span>
-    <w-select v-model="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
-    <w-divider/>
+    <m-select v-model="defaultValue2" :options="options" :keyParam="'title'" @select="select"/>
+    <m-divider/>
     <span>参数defaultValue3:{{ defaultValue3 }}</span>
-    <w-select v-model="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
-    <w-divider/>
+    <m-select v-model="defaultValue3" :options="options2" :keyParam="'title'" @select="select"/>
+    <m-divider/>
     <span>参数defaultValue4:{{ defaultValue4 }}</span>
-    <w-select v-model="defaultValue4" :options="searchData"
+    <m-select v-model="defaultValue4" :options="searchData"
               :can-change="true" keyParam="title"
               @select="select"
               v-on:updateOptions="filterOptions"/>
-    <w-divider/>
+    <m-divider/>
     <span>参数defaultValue5:{{ defaultValue5 }}</span>
-    <w-select v-model="defaultValue5" :options="searchData"
+    <m-select v-model="defaultValue5" :options="searchData"
               :can-change="true"
               @select="select"
               v-on:updateOptions="filterOptions2">
       <template #default="{data}">
         <span><b>title: </b>{{ data.title }} <b>value:</b> {{ data.value }}</span>
       </template>
-    </w-select>
+    </m-select>
   </div>
 </template>
 
@@ -101,7 +101,7 @@ const filterOptions2 = async () => {
 
 <style lang="scss" scoped>
 
-.w-select {
+.m-select {
   display: block;
 }
 

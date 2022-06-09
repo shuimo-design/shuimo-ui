@@ -59,7 +59,7 @@ export default function ShowDomHandler() {
   const setElement = () => {
     const internalInstance: ComponentInternalInstance | null = getCurrentInstance();
     if (internalInstance!.vnode!.el) {
-      const children = internalInstance!.vnode!.el.getElementsByClassName('w-border-main');
+      const children = internalInstance!.vnode!.el.getElementsByClassName('m-border-main');
       if (children && children.length > 0) {
         selectRef.value = children[0];
       }

@@ -11,31 +11,31 @@
 
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from "vitest";
-import WInput from '../../../lib/base/input/WInput';
+import MInput from '../../../lib/base/input/MInput';
 
 describe('输入组件', () => {
 
   test('无参数渲染', () => {
-    const wrapper = mount(WInput);
-    expect(wrapper.html()).toContain('w-input');
+    const wrapper = mount(MInput);
+    expect(wrapper.html()).toContain('m-input');
   });
 
   test('传递默认值', () => {
-    const wrapper = mount(WInput, {
+    const wrapper = mount(MInput, {
       props: { modelValue: 'test' }
     });
     expect(wrapper.element.querySelector('input')!.value).toBe('test');
   });
 
   test('校验placeholder', () => {
-    const wrapper = mount(WInput, {
+    const wrapper = mount(MInput, {
       props: { placeholder: 'test placeholder' }
     });
     expect(wrapper.element.querySelector('input')!.placeholder).toBe('test placeholder');
   });
 
   test('修改默认值', async () => {
-    const wrapper = mount(WInput, {
+    const wrapper = mount(MInput, {
       props: { modelValue: 'test' }
     });
     await wrapper.setProps({ modelValue: 'hi' });
@@ -43,7 +43,7 @@ describe('输入组件', () => {
   })
 
   test('测试类型为多文本输入框', () => {
-    const wrapper = mount(WInput, {
+    const wrapper = mount(MInput, {
       props: {
         type: 'textarea'
       }

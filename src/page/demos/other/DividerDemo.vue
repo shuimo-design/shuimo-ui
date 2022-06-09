@@ -2,12 +2,12 @@
   <div>
     <div>
       <BaseTitle :divider="false">细线</BaseTitle>
-      <w-divider/>
+      <m-divider/>
     </div>
     <div>
       <BaseTitle :divider="false">竖线</BaseTitle>
       <div class="vertical-divider">
-        <w-divider vertical/>
+        <m-divider vertical/>
       </div>
     </div>
   </div>

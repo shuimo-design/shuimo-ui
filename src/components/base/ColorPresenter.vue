@@ -1,5 +1,5 @@
 <template>
-  <div class="w-color">
+  <div class="m-color">
     <slot/>
   </div>
 </template>
@@ -22,7 +22,7 @@ const props = defineProps<{
 
 const slot = useSlots();
 
-const colorValue = computed(() => `var(--w-color-${props.color},white)`);
+const colorValue = computed(() => `var(--m-color-${props.color},white)`);
 const fontColor = props.fontColor || 'white';
 
 const fontSize = computed(() => String(slot.default!()[0].children).length === 2 ? '40px' : '28px');
@@ -31,7 +31,7 @@ const fontSize = computed(() => String(slot.default!()[0].children).length === 2
 
 <style lang="scss" scoped>
 
-.w-color {
+.m-color {
   display: inline-block;
   height: 100px;
   width: 100px;

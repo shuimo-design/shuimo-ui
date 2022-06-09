@@ -11,18 +11,18 @@ import { defineComponent } from "vue";
 import { itemProps } from "./api";
 
 export default defineComponent({
-  name: 'WFormItem',
+  name: 'MFormItem',
   props: itemProps,
   setup(props, { slots }) {
     return ()=>{
       const labelSlot = slots.label ? slots.label() : props.label;
       const defaultSlot = slots.default ? slots.default() : '';
       return (
-        <div class="w-form-item">
-          <label for={props.prop} class="w-form-item__label">
+        <div class="m-form-item">
+          <label for={props.prop} class="m-form-item__label">
             {labelSlot}
           </label>
-          <div class="w-form-item__content">
+          <div class="m-form-item__content">
             {defaultSlot}
           </div>
         </div>

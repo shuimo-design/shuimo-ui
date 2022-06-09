@@ -9,11 +9,11 @@
 
 import { describe, test, expect } from 'vitest';
 import { mount } from "@vue/test-utils";
-import WPagination from "../../../lib/template/pagination/WPagination";
+import MPagination from "../../../lib/template/pagination/MPagination";
 
 
 describe('分页组件', function () {
-  const wrapper = mount(WPagination, {
+  const wrapper = mount(MPagination, {
     props: {
       total: 11
     }

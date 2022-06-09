@@ -1,23 +1,23 @@
 <template>
   <div class="progress">
     <BaseTitle>建议实践</BaseTitle>
-    <w-progress :width="399" :value="0" :max="100" :show-info="true"/>
-    <w-progress :width="399" :value="100" :max="100" :show-info="true"/>
+    <m-progress :width="399" :value="0" :max="100" :show-info="true"/>
+    <m-progress :width="399" :value="100" :max="100" :show-info="true"/>
     <br/>
-    <w-progress :width="399" :value="100" :max="100" :show-info="true"/>
+    <m-progress :width="399" :value="100" :max="100" :show-info="true"/>
     <br/>
     <BaseTitle>滚动效果</BaseTitle>
-    <w-progress :height="18" :value="loopPer" :max="1000" :show-info="true">
+    <m-progress :height="18" :value="loopPer" :max="1000" :show-info="true">
       <span>{{ Math.ceil(loopPer / 10) }}%</span>
-    </w-progress>
+    </m-progress>
     <br/>
     <BaseTitle>修改尺寸</BaseTitle>
-    <w-progress :value="50" :leafHeight="50" :show-info="true"/>
+    <m-progress :value="50" :leafHeight="50" :show-info="true"/>
     <br/>
-    <w-progress :width="300" :value="loopPer" :max="1000"/>
+    <m-progress :width="300" :value="loopPer" :max="1000"/>
     <br/>
     <BaseTitle>不显示插槽</BaseTitle>
-    <w-progress :width="300" :height="40" :value="loopPer" :max="1000"/>
+    <m-progress :width="300" :height="40" :value="loopPer" :max="1000"/>
     <br/>
   </div>
 </template>

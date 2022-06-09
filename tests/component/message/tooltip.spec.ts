@@ -9,11 +9,11 @@
 
 import { describe, expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
-import WTooltip from "../../../lib/message/tooltip/WTooltip";
+import MTooltip from "../../../lib/message/tooltip/MTooltip";
 
 describe("tooltip组件", () => {
   test("正常渲染", () => {
-    const wrapper = mount(WTooltip);
-    expect(wrapper.html()).toContain('w-tooltip');
+    const wrapper = mount(MTooltip);
+    expect(wrapper.html()).toContain('m-tooltip');
   });
 });

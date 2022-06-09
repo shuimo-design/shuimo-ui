@@ -11,17 +11,17 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from "vitest";
-import WButton from '../../../lib/base/button/WButton';
+import MButton from '../../../lib/base/button/MButton';
 
 describe('按钮组件', () => {
   test('无参数渲染', () => {
-    const wrapper = mount(WButton);
-    expect(wrapper.html()).toContain('<button class="w-button');
+    const wrapper = mount(MButton);
+    expect(wrapper.html()).toContain('<button class="m-button');
   });
 
   describe('参数按钮内置文本', () => {
     test('参数text', () => {
-      const wrapper = mount(WButton, {
+      const wrapper = mount(MButton, {
         props: {
           text: 'test'
         }
@@ -30,7 +30,7 @@ describe('按钮组件', () => {
     });
 
     test('插槽text', () => {
-      const wrapper = mount(WButton, {
+      const wrapper = mount(MButton, {
         slots: {
           default: 'slot info'
         }
@@ -41,16 +41,16 @@ describe('按钮组件', () => {
 
 
   test('参数type', () => {
-    const wrapper = mount(WButton, {
+    const wrapper = mount(MButton, {
       props: {
         type: 'gray'
       }
     });
-    expect(wrapper.html()).toContain('w-button-gray');
+    expect(wrapper.html()).toContain('m-button-gray');
   });
 
   test('参数disabled', () => {
-    const wrapper = mount(WButton, {
+    const wrapper = mount(MButton, {
       props: {
         disabled: true
       }

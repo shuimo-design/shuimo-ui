@@ -18,7 +18,7 @@ import Printer from "../../other/printer/Printer";
 import { props } from "./api";
 
 
-const img = h('td', { class: 'w-table-tbody-img' });
+const img = h('td', { class: 'm-table-tbody-img' });
 
 /**
  * 使用tr包裹
@@ -46,9 +46,9 @@ const dataTrRender = (data: any, tableColumn: columnType[]) => {
 }
 
 const borderRender = () => {
-  const theadBorderTop = h('div', { class: 'w-table-header-img-top' }, []);
-  const theadBorderBottom = h('div', { class: 'w-table-header-img-bottom' }, []);
-  const tbodyBorderBottom = h('div', { class: 'w-table-border-img-bottom' }, []);
+  const theadBorderTop = h('div', { class: 'm-table-header-img-top' }, []);
+  const theadBorderBottom = h('div', { class: 'm-table-header-img-bottom' }, []);
+  const tbodyBorderBottom = h('div', { class: 'm-table-border-img-bottom' }, []);
 
   return { theadBorderTop, theadBorderBottom, tbodyBorderBottom };
 }
@@ -59,7 +59,7 @@ type columnType = {
 }
 
 export default defineComponent({
-  name: 'WTable',
+  name: 'MTable',
   props,
   setup(props, { slots }) {
     return () => {
@@ -99,10 +99,10 @@ export default defineComponent({
         class: ['w-thead', { 'w-thead-overflow': props.height }]
       }, wrapWithTr(theadThList));
       const tbody = h('tbody', { class: 'w-tbody' }, tbodyTrList);
-      const table = h('table', { class: 'w-table-inner' }, [thead, tbody]);
-      const tableWrap = h('div', { class: 'w-table-wrap', style: { height: props.height } }, table);
+      const table = h('table', { class: 'm-table-inner' }, [thead, tbody]);
+      const tableWrap = h('div', { class: 'm-table-wrap', style: { height: props.height } }, table);
 
-      return h('div', { class: 'w-table' }, [theadBorderTop, theadBorderBottom, tableWrap, tbodyBorderBottom]);
+      return h('div', { class: 'm-table' }, [theadBorderTop, theadBorderBottom, tableWrap, tbodyBorderBottom]);
     }
   },
 })

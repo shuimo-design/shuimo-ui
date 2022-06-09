@@ -1,5 +1,5 @@
 <template>
-  <w-button @click="rePrint" text="再次打印"/>
+  <m-button @click="rePrint" text="再次打印"/>
 </template>
 
 <script>

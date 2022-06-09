@@ -11,7 +11,7 @@ import { tableColumnProps } from "./api";
 
 
 export default defineComponent({
-  name: 'WTableColumn',
+  name: 'MTableColumn',
   props: tableColumnProps,
   render(ctx: any) {
     return h('');

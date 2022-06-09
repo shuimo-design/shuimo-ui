@@ -1,19 +1,19 @@
 <template>
   <div class="table-demo">
     <h2>空列表</h2>
-    <w-table></w-table>
-    <w-divider></w-divider>
+    <m-table></m-table>
+    <m-divider></m-divider>
     <h2>正常列表</h2>
     <i>目前只有在mac的chrome上有最佳表现</i>
-    <w-table :data="dataDemo" height="400px">
-      <w-table-column width="80px" param="id" label="序号"/>
-      <w-table-column param="param" label="参数"/>
-      <w-table-column param="option" label="操作">
+    <m-table :data="dataDemo" height="400px">
+      <m-table-column width="80px" param="id" label="序号"/>
+      <m-table-column param="param" label="参数"/>
+      <m-table-column param="option" label="操作">
         <template #default="{data}">
-          <w-button text="操作" @click="print(data)"/>
+          <m-button text="操作" @click="print(data)"/>
         </template>
-      </w-table-column>
-    </w-table>
+      </m-table-column>
+    </m-table>
   </div>
 </template>
 

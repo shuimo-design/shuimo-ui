@@ -11,12 +11,12 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from "vitest";
-import WSelect from '../../../lib/base/select/WSelect';
+import MSelect from '../../../lib/base/select/MSelect';
 
 describe('选择框组件', () => {
   test('无参数渲染)', () => {
-    const wrapper = mount(WSelect);
-    expect(wrapper.html()).toContain('w-select');
+    const wrapper = mount(MSelect);
+    expect(wrapper.html()).toContain('m-select');
     wrapper.unmount();
   });
 })

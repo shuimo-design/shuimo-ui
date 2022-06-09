@@ -1,6 +1,6 @@
 <template>
   <div>
-    <w-button text="点击弹出确认框" @click="showConfirm"/>
+    <m-button text="点击弹出确认框" @click="showConfirm"/>
   </div>
 </template>
 

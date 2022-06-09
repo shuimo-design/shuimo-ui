@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
-  "name": "@higuaifan/wash-painting-ui",
+  "name": "@janghood/shuimo-ui",
   "version": "0.1.13",
   "contributions": {
     "html": {
@@ -8,12 +8,12 @@
       "description-markup": "markdown",
       "tags": [
         {
-          "name": "w-button",
+          "name": "m-button",
           "source": {
-            "symbol": "WButton"
+            "symbol": "MButton"
           },
-          "description": "Button component with wash-painting-ui style.\n水墨组件的按钮组件。",
-          "doc-url": "https://wash-painting.com/button",
+          "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。",
+          "doc-url": "https://shuimo.janghood.com/button",
           "attributes": [
             {
               "name": "text",
@@ -45,12 +45,12 @@
           ]
         },
         {
-          "name": "w-checkbox",
+          "name": "m-checkbox",
           "source": {
-            "symbol": "WCheckbox"
+            "symbol": "MCheckbox"
           },
-          "description": "Checkbox component with wash-painting-ui style.\n水墨组件的复选框组件。",
-          "doc-url": "https://wash-painting.com/checkbox",
+          "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。",
+          "doc-url": "https://shuimo.janghood.com/checkbox",
           "attributes": [
             {
               "name": "label",
@@ -109,12 +109,12 @@
           ]
         },
         {
-          "name": "w-checkbox-group",
+          "name": "m-checkbox-group",
           "source": {
-            "symbol": "WCheckbox"
+            "symbol": "MCheckbox"
           },
-          "description": "CheckboxGroup component with wash-painting-ui style.\n水墨组件的复选框包裹组件。",
-          "doc-url": "https://wash-painting.com/checkbox#group",
+          "description": "CheckboxGroup component with shuimo-ui style.\n水墨组件的复选框包裹组件。",
+          "doc-url": "https://shuimo.janghood.com/checkbox#group",
           "attributes": [
             {
               "name": "modelValue",
@@ -137,12 +137,12 @@
           ]
         },
         {
-          "name": "w-date-picker",
+          "name": "m-date-picker",
           "source": {
-            "symbol": "WDatePicker"
+            "symbol": "MDatePicker"
           },
-          "description": "DatePicker component with wash-painting-ui style.\n水墨组件的日期选择组件。",
-          "doc-url": "https://wash-painting.com/date-picker",
+          "description": "DatePicker component with shuimo-ui style.\n水墨组件的日期选择组件。",
+          "doc-url": "https://shuimo.janghood.com/date-picker",
           "attributes": [
             {
               "name": "modelValue",
@@ -174,12 +174,12 @@
           ]
         },
         {
-          "name": "w-dialog",
+          "name": "m-dialog",
           "source": {
-            "symbol": "WDialog"
+            "symbol": "MDialog"
           },
-          "description": "Dialog component with wash-painting-ui style.\n水墨组件的弹窗交互组件。",
-          "doc-url": "https://wash-painting.com/dialog",
+          "description": "Dialog component with shuimo-ui style.\n水墨组件的弹窗交互组件。",
+          "doc-url": "https://shuimo.janghood.com/dialog",
           "attributes": [
             {
               "name": "mask",
@@ -211,21 +211,21 @@
           ]
         },
         {
-          "name": "w-divider",
+          "name": "m-divider",
           "source": {
-            "symbol": "WDivider"
+            "symbol": "MDivider"
           },
-          "description": "divider component with wash-painting-ui style.\n水墨组件的分割线组件。",
-          "doc-url": "https://wash-painting.com/divider",
+          "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。",
+          "doc-url": "https://shuimo.janghood.com/divider",
           "attributes": []
         },
         {
-          "name": "w-drawer",
+          "name": "m-drawer",
           "source": {
-            "symbol": "WDrawer"
+            "symbol": "MDrawer"
           },
-          "description": "Drawer component with wash-painting-ui style.\n水墨组件的抽屉组件。",
-          "doc-url": "https://wash-painting.com/drawer",
+          "description": "Drawer component with shuimo-ui style.\n水墨组件的抽屉组件。",
+          "doc-url": "https://shuimo.janghood.com/drawer",
           "attributes": [
             {
               "name": "width",
@@ -266,12 +266,12 @@
           ]
         },
         {
-          "name": "w-form",
+          "name": "m-form",
           "source": {
-            "symbol": "WForm"
+            "symbol": "MForm"
           },
-          "description": "Form component with wash-painting-ui style.\n水墨组件的表单组件。",
-          "doc-url": "https://wash-painting.com/form",
+          "description": "Form component with shuimo-ui style.\n水墨组件的表单组件。",
+          "doc-url": "https://shuimo.janghood.com/form",
           "attributes": [
             {
               "name": "inline",
@@ -294,12 +294,12 @@
           ]
         },
         {
-          "name": "w-form-item",
+          "name": "m-form-item",
           "source": {
-            "symbol": "WFormItem"
+            "symbol": "MFormItem"
           },
-          "description": "FormItem component with wash-painting-ui style.\n水墨组件的表单item组件。",
-          "doc-url": "https://wash-painting.com/form#item",
+          "description": "FormItem component with shuimo-ui style.\n水墨组件的表单item组件。",
+          "doc-url": "https://shuimo.janghood.com/form#item",
           "attributes": [
             {
               "name": "label",
@@ -320,12 +320,12 @@
           ]
         },
         {
-          "name": "w-input",
+          "name": "m-input",
           "source": {
-            "symbol": "WInput"
+            "symbol": "MInput"
           },
-          "description": "Input component with wash-painting-ui style.\n水墨组件的输入组件。",
-          "doc-url": "https://wash-painting.com/input",
+          "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。",
+          "doc-url": "https://shuimo.janghood.com/input",
           "attributes": [
             {
               "name": "type",
@@ -357,12 +357,12 @@
           ]
         },
         {
-          "name": "w-input-number",
+          "name": "m-input-number",
           "source": {
-            "symbol": "WInputNumber"
+            "symbol": "MInputNumber"
           },
-          "description": "InputNumber component with wash-painting-ui style.\n水墨组件的数字输入框组件。",
-          "doc-url": "https://wash-painting.com/input#number",
+          "description": "InputNumber component with shuimo-ui style.\n水墨组件的数字输入框组件。",
+          "doc-url": "https://shuimo.janghood.com/input#number",
           "attributes": [
             {
               "name": "modelValue",
@@ -394,12 +394,12 @@
           ]
         },
         {
-          "name": "w-list",
+          "name": "m-list",
           "source": {
-            "symbol": "WList"
+            "symbol": "MList"
           },
-          "description": "List component with wash-painting-ui style.\n水墨组件的列表组件。",
-          "doc-url": "https://wash-painting.com/list",
+          "description": "List component with shuimo-ui style.\n水墨组件的列表组件。",
+          "doc-url": "https://shuimo.janghood.com/list",
           "attributes": [
             {
               "name": "data",
@@ -422,12 +422,12 @@
           ]
         },
         {
-          "name": "w-menu",
+          "name": "m-menu",
           "source": {
-            "symbol": "WMenu"
+            "symbol": "MMenu"
           },
-          "description": "menu component with wash-painting-ui style.\n水墨组件的目录组件。",
-          "doc-url": "https://wash-painting.com/menu",
+          "description": "menu component with shuimo-ui style.\n水墨组件的目录组件。",
+          "doc-url": "https://shuimo.janghood.com/menu",
           "attributes": [
             {
               "name": "menu",
@@ -441,12 +441,12 @@
           ]
         },
         {
-          "name": "w-pagination",
+          "name": "m-pagination",
           "source": {
-            "symbol": "WPagination"
+            "symbol": "MPagination"
           },
-          "description": "pagination component with wash-painting-ui style.\n水墨组件的分页组件。",
-          "doc-url": "https://wash-painting.com/pagination",
+          "description": "pagination component with shuimo-ui style.\n水墨组件的分页组件。",
+          "doc-url": "https://shuimo.janghood.com/pagination",
           "attributes": [
             {
               "name": "total",
@@ -496,12 +496,12 @@
           ]
         },
         {
-          "name": "w-popover",
+          "name": "m-popover",
           "source": {
-            "symbol": "WPopover"
+            "symbol": "MPopover"
           },
-          "description": "Popover component with wash-painting-ui style.\n水墨组件的弹出框组件。",
-          "doc-url": "https://wash-painting.com/popover",
+          "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。",
+          "doc-url": "https://shuimo.janghood.com/popover",
           "attributes": [
             {
               "name": "placement",
@@ -614,12 +614,12 @@
           ]
         },
         {
-          "name": "w-progress",
+          "name": "m-progress",
           "source": {
-            "symbol": "WProgress"
+            "symbol": "MProgress"
           },
-          "description": "progress component with wash-painting-ui style.\n水墨组件的进度条组件。",
-          "doc-url": "https://wash-painting.com/progress",
+          "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。",
+          "doc-url": "https://shuimo.janghood.com/progress",
           "attributes": [
             {
               "name": "width",
@@ -687,12 +687,12 @@
           ]
         },
         {
-          "name": "w-radio",
+          "name": "m-radio",
           "source": {
-            "symbol": "WRadio"
+            "symbol": "MRadio"
           },
-          "description": "Radio component with wash-painting-ui style.\n水墨组件的单选组件。",
-          "doc-url": "https://wash-painting.com/radio",
+          "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。",
+          "doc-url": "https://shuimo.janghood.com/radio",
           "attributes": [
             {
               "name": "modelValue",
@@ -715,12 +715,12 @@
           ]
         },
         {
-          "name": "w-select",
+          "name": "m-select",
           "source": {
-            "symbol": "WSelect"
+            "symbol": "MSelect"
           },
-          "description": "Select component with wash-painting-ui style.\n水墨组件的选择组件。",
-          "doc-url": "https://wash-painting.com/select",
+          "description": "Select component with shuimo-ui style.\n水墨组件的选择组件。",
+          "doc-url": "https://shuimo.janghood.com/select",
           "attributes": [
             {
               "name": "modelValue",
@@ -788,12 +788,12 @@
           ]
         },
         {
-          "name": "w-table",
+          "name": "m-table",
           "source": {
-            "symbol": "WTable"
+            "symbol": "MTable"
           },
-          "description": "Table component with wash-painting-ui style.\n水墨组件的表格组件。",
-          "doc-url": "https://wash-painting.com/table",
+          "description": "Table component with shuimo-ui style.\n水墨组件的表格组件。",
+          "doc-url": "https://shuimo.janghood.com/table",
           "attributes": [
             {
               "name": "data",
@@ -814,12 +814,12 @@
           ]
         },
         {
-          "name": "w-table-column",
+          "name": "m-table-column",
           "source": {
-            "symbol": "WTableColumn"
+            "symbol": "MTableColumn"
           },
-          "description": "Table column component with wash-painting-ui style.\n水墨组件的表格列组件。",
-          "doc-url": "https://wash-painting.com/table#column",
+          "description": "Table column component with shuimo-ui style.\n水墨组件的表格列组件。",
+          "doc-url": "https://shuimo.janghood.com/table#column",
           "attributes": [
             {
               "name": "width",
@@ -851,12 +851,12 @@
           ]
         },
         {
-          "name": "w-tooltip",
+          "name": "m-tooltip",
           "source": {
-            "symbol": "WTooltip"
+            "symbol": "MTooltip"
           },
-          "description": "Tooltip component with wash-painting-ui style.\n水墨组件的提示框组件。",
-          "doc-url": "https://wash-painting.com/tooltip",
+          "description": "Tooltip component with shuimo-ui style.\n水墨组件的提示框组件。",
+          "doc-url": "https://shuimo.janghood.com/tooltip",
           "attributes": [
             {
               "name": "placement",
@@ -969,12 +969,12 @@
           ]
         },
         {
-          "name": "w-upload",
+          "name": "m-upload",
           "source": {
-            "symbol": "WUpload"
+            "symbol": "MUpload"
           },
-          "description": "upload component with wash-painting-ui style.\n水墨组件的文件上传组件。",
-          "doc-url": "https://wash-painting.com/upload",
+          "description": "upload component with shuimo-ui style.\n水墨组件的文件上传组件。",
+          "doc-url": "https://shuimo.janghood.com/upload",
           "attributes": [
             {
               "name": "fileTypes",

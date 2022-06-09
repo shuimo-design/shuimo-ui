@@ -14,7 +14,7 @@ const firstUpperCase = (str: string) => {
 
 const sourceSymbolTranslator = (dirList: string[]) => {
   let lastDir = firstUpperCase(dirList[dirList.length - 1]);
-  return `W${lastDir}`;
+  return `M${lastDir}`;
 }
 
 export default defineJhConfig({

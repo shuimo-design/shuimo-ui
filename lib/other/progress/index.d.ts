@@ -4,10 +4,10 @@
  * @date 2022/4/17 01:12
  * @version v1.0.0
  *
- * @name w-progress
- * @docDescription progress component with wash-painting-ui style.
+ * @name m-progress
+ * @docDescription progress component with shuimo-ui style.
  *                 水墨组件的进度条组件。
- * @docUrl https://wash-painting.com/progress
+ * @docUrl https://shuimo.janghood.com/progress
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

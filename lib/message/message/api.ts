@@ -1,5 +1,5 @@
 import type { WCOPO, WPropType } from "../../dependents/_types";
-import type { MessageProps, MessageDirectionType } from "../../../types/components/WMessage";
+import type { MessageProps, MessageDirectionType } from "../../../types/components/MMessage";
 
 export enum MessageTypeEnum {
   success = 'success',

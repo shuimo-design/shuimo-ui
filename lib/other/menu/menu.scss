@@ -1,8 +1,8 @@
-.w-menu {
+.m-menu {
   display: inline-block;
 }
 
-.w-menu-left-line {
+.m-menu-left-line {
   display: inline-block;
   margin-top: 25px;
   height: calc(100% - 25px);
@@ -12,7 +12,7 @@
   top: 0;
 }
 
-.w-menu-items {
+.m-menu-items {
   padding-left: 22px;
   margin-top: 55px;
   color: #333;
@@ -23,12 +23,12 @@
     display: inline-block;
   }
 
-  .w-menu-item {
+  .m-menu-item {
     font-size: 20px;
     line-height: 28px;
     padding: 18px 0 0;
 
-    .w-menu-item-icon {
+    .m-menu-item-icon {
       position: fixed;
       margin: 8px 0 0 -21px;
       display: inline-block;
@@ -40,7 +40,7 @@
     &.active {
       color: #000;
 
-      .w-menu-item-icon {
+      .m-menu-item-icon {
         position: fixed;
         margin: 2px 0 0 -29px;
         display: inline-block;
@@ -52,10 +52,10 @@
     }
   }
 
-  .w-menu-item-children {
+  .m-menu-item-children {
     line-height: 14px;
 
-    .w-menu-item-child {
+    .m-menu-item-child {
       &:last-child {
         padding: 12px 0 0;
       }

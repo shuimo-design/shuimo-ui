@@ -9,11 +9,11 @@
 
 import { describe, expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
-import WPopover from "../../../lib/message/popover/WPopover";
+import MPopover from "../../../lib/message/popover/MPopover";
 
 describe("popover组件", () => {
   test("正常渲染", () => {
-    const wrapper = mount(WPopover);
-    expect(wrapper.html()).toContain('w-popover');
+    const wrapper = mount(MPopover);
+    expect(wrapper.html()).toContain('m-popover');
   });
 });

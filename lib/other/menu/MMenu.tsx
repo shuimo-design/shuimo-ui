@@ -23,14 +23,14 @@ const setMenuIndex = (menu: MenuTypeArr) => {
 
 
 export default defineComponent({
-  name: 'WMenu',
+  name: 'MMenu',
   props,
   emits: ['click'],
   render(ctx: any) {
     const propsMenu: MenuTypeArr = ctx.$props.menu;
     setMenuIndex(propsMenu);
     // 左边的灰色条
-    const leftLine = h('div', { class: 'w-menu-left-line' });
+    const leftLine = h('div', { class: 'm-menu-left-line' });
 
     const divClick = (index: number[]) => {
       if (index.length === 1) {
@@ -61,7 +61,7 @@ export default defineComponent({
       const items = list.map(menu => {
         const titleSpan = h('span', { class: 'w-cursor-pointer' }, menu.title);
         return h('div', {
-          class: ['w-menu-item-child', menu.isActive ? 'active' : ''],
+          class: ['m-menu-item-child', menu.isActive ? 'active' : ''],
           onClick: (event: Event) => {
             event.stopPropagation();
             divClick(menu.index!);
@@ -70,7 +70,7 @@ export default defineComponent({
           titleSpan
         ])
       });
-      return h('div', { class: ['w-menu-item-children'] }, items);
+      return h('div', { class: ['m-menu-item-children'] }, items);
     }
 
 
@@ -78,10 +78,10 @@ export default defineComponent({
       const titleSpan = h('span', { class: 'w-cursor-pointer' }, menu.title);
       // 先只有二级吧
       const childItems = menu.children && menu.isActive ? initChildItems(menu.children) : [];
-      const icon = h('div', { class: 'w-menu-item-icon' });
+      const icon = h('div', { class: 'm-menu-item-icon' });
       return h('div',
         {
-          class: ['w-menu-item', menu.isActive ? 'active' : ''],
+          class: ['m-menu-item', menu.isActive ? 'active' : ''],
           onClick: (event: Event) => {
             event.stopPropagation();
             divClick(menu.index!);
@@ -94,12 +94,12 @@ export default defineComponent({
         ])
     });
 
-    const WMenuItems = h('div', { class: ['w-menu-items'] }, itemList);
+    const MMenuItems = h('div', { class: ['m-menu-items'] }, itemList);
 
 
-    return h('div', { class: 'w-menu' }, [
+    return h('div', { class: 'm-menu' }, [
       leftLine,
-      WMenuItems
+      MMenuItems
     ]);
   }
 })

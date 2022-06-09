@@ -9,25 +9,25 @@
 
 import { describe, expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
-import WInputNumber from "../../../lib/base/inputNumber/WInputNumber";
+import MInputNumber from "../../../lib/base/inputNumber/MInputNumber";
 
 describe('数字输入组件', () => {
 
   test('无参数渲染', () => {
-    const wrapper = mount(WInputNumber);
-    expect(wrapper.html()).toContain('w-input-number');
+    const wrapper = mount(MInputNumber);
+    expect(wrapper.html()).toContain('m-input-number');
   });
 
   // todo 重构inputNumber组件后再测试这个用例
   test.skip('传递默认值', () => {
-    const wrapper = mount(WInputNumber, {
+    const wrapper = mount(MInputNumber, {
       props: { modelValue: 5 }
     });
     expect(wrapper.element.querySelector('input')!.value).toBe(5);
   });
 
   test('修改默认值', async () => {
-    const wrapper = mount(WInputNumber, {
+    const wrapper = mount(MInputNumber, {
       props: { modelValue: 5 }
     });
     await wrapper.setProps({ modelValue: 8 });
@@ -35,7 +35,7 @@ describe('数字输入组件', () => {
   });
 
   test('设置最大值', async () => {
-    const wrapper = mount(WInputNumber, {
+    const wrapper = mount(MInputNumber, {
       props: { modelValue: 5, max: 10 }
     });
 
@@ -45,7 +45,7 @@ describe('数字输入组件', () => {
   });
 
   test('设置最小值', async () => {
-    const wrapper = mount(WInputNumber, {
+    const wrapper = mount(MInputNumber, {
       props: { modelValue: 5, min: 4 }
     });
 

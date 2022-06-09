@@ -1,11 +1,11 @@
 <template>
   <div class="code-div">
     <div>
-      <w-button text="hi" @click="printHi"/>
-      <w-button text="长长长长长长长长长长长长长长" :disabled="true" @click="printHi"/>
-      <w-button text="type测试" @click="printHi" type="gray"/>
-      <w-button text="double按钮" @click="printHi" type="double"/>
-      <w-button @click="printHi" type="double">slot形式</w-button>
+      <m-button text="hi" @click="printHi"/>
+      <m-button text="长长长长长长长长长长长长长长" :disabled="true" @click="printHi"/>
+      <m-button text="type测试" @click="printHi" type="gray"/>
+      <m-button text="double按钮" @click="printHi" type="double"/>
+      <m-button @click="printHi" type="double">slot形式</m-button>
     </div>
   </div>
 </template>

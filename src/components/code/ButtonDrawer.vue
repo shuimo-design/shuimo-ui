@@ -1,9 +1,9 @@
 <template>
-  <w-button text="点击查看demo源码" @click="show"/>
-  <w-drawer :visible="visible" @close="hide" :drawerClass="['code-drawer']">
+  <m-button text="点击查看demo源码" @click="show"/>
+  <m-drawer :visible="visible" @close="hide" :drawerClass="['code-drawer']">
     <slot></slot>
-    <w-button text="关闭" @click="hide"/>
-  </w-drawer>
+    <m-button text="关闭" @click="hide"/>
+  </m-drawer>
 </template>
 
 <script setup lang="ts">

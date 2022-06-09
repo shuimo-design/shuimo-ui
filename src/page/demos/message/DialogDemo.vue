@@ -1,18 +1,18 @@
 <template>
   <div>
-    <w-button text="点击显示普通弹窗" @click="showNormal"/>
-    <w-dialog :visible="dialogNormalVisible" @close="closeNormal">
+    <m-button text="点击显示普通弹窗" @click="showNormal"/>
+    <m-dialog :visible="dialogNormalVisible" @close="closeNormal">
       <div>
         <span>普通弹窗</span>
       </div>
-    </w-dialog>
-    <w-button text="点击显示弹窗" @click="showDialog"/>
-    <w-dialog :visible="visible" @close="closeDialog"
+    </m-dialog>
+    <m-button text="点击显示弹窗" @click="showDialog"/>
+    <m-dialog :visible="visible" @close="closeDialog"
               :mask="maskNoShowOption">
       <div class="height-600">
         <span>height:600</span>
       </div>
-    </w-dialog>
+    </m-dialog>
   </div>
 </template>
 

@@ -11,13 +11,13 @@
 
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from "vitest";
-import WProgress from "../../../lib/other/progress/WProgress";
+import MProgress from "../../../lib/other/progress/MProgress";
 
 describe('滚动条组件', () => {
 
   test('无参数渲染', () => {
-    const wrapper = mount(WProgress);
-    expect(wrapper.html()).toContain('w-progress');
+    const wrapper = mount(MProgress);
+    expect(wrapper.html()).toContain('m-progress');
   });
 
 })

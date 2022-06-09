@@ -10,22 +10,22 @@
 import { describe, expect, test } from "vitest";
 import { DOMWrapper, mount } from "@vue/test-utils";
 import { h } from "vue";
-import WDialog from "../../../lib/message/dialog/WDialog";
+import MDialog from "../../../lib/message/dialog/MDialog";
 
 describe('弹窗组件', () => {
   const body = document.body;
   test('默认不显示', () => {
-    const wrapper = mount(WDialog, {
+    const wrapper = mount(MDialog, {
       slots: {
         default: () => h('div', 'hello')
       }
     });
-    expect(body.outerHTML).not.toContain('w-dialog');
+    expect(body.outerHTML).not.toContain('m-dialog');
     wrapper.unmount();
   });
 
   test('显示弹窗', () => {
-    const wrapper = mount(WDialog, {
+    const wrapper = mount(MDialog, {
       props: {
         visible: true
       },
@@ -33,12 +33,12 @@ describe('弹窗组件', () => {
         default: () => h('div', 'hello')
       }
     });
-    expect(body.outerHTML).toContain('w-dialog');
+    expect(body.outerHTML).toContain('m-dialog');
     wrapper.unmount();
   });
 
   test('点击mask触发close', async () => {
-    const wrapper = mount(WDialog, {
+    const wrapper = mount(MDialog, {
       props: {
         visible: true,
       },
@@ -54,7 +54,7 @@ describe('弹窗组件', () => {
   });
 
   test('点击关闭按钮触发close', async () => {
-    const wrapper = mount(WDialog, {
+    const wrapper = mount(MDialog, {
       props: {
         visible: true,
       },
@@ -70,7 +70,7 @@ describe('弹窗组件', () => {
   });
 
   test('不渲染mask背景', async () => {
-    const wrapper = mount(WDialog, {
+    const wrapper = mount(MDialog, {
       props: {
         mask: { show: false },
         visible: true

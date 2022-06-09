@@ -11,23 +11,23 @@ import { props } from "./api";
 
 
 export default defineComponent({
-  name: 'WList',
+  name: 'MList',
   props,
   setup(props, { slots }) {
     return () => {
-      const icon = h('div', { class: 'w-list-icon' });
+      const icon = h('div', { class: 'm-list-icon' });
       const listItems = props.data?.map(item => h('div', {
-        class: ['w-list-item', props.autoActive || item.active ? 'w-active' : ''],
+        class: ['m-list-item', props.autoActive || item.active ? 'w-active' : ''],
       },  [
         icon,
         h(
           'div',
-          { class: 'w-list-item-main' },
+          { class: 'm-list-item-main' },
           slots.default ? slots.default.call(this, item) : JSON.stringify(item)
         )
       ]));
 
-      return h('div', { class: 'w-list' }, listItems);
+      return h('div', { class: 'm-list' }, listItems);
     }
   }
 })

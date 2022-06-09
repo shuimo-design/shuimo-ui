@@ -10,16 +10,16 @@
  */
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from 'vitest';
-import WForm from '../../../lib/template/form/WForm';
-import WFormItem from '../../../lib/template/form/WFormItem';
-import WInput from '../../../lib/base/input/WInput';
+import MForm from '../../../lib/template/form/MForm';
+import MFormItem from '../../../lib/template/form/MFormItem';
+import MInput from '../../../lib/base/input/MInput';
 
 const mountForm = (config: any) => {
   return mount({
     components: {
-      [WForm.name]: WForm,
-      [WFormItem.name]: WFormItem,
-      [WInput.name]: WInput
+      [MForm.name]: MForm,
+      [MFormItem.name]: MFormItem,
+      [MInput.name]: MInput
     },
     ...config
   })
@@ -29,26 +29,26 @@ describe('form组件', () => {
   test('block渲染', () => {
     const wrapper = mountForm({
       template: `
-        <w-form>
-          <w-form-item label="input输入：" prop="hello">
-            <w-input value="hello, form"/>
-          </w-form-item>
-        </w-form>
+        <m-form>
+          <m-form-item label="input输入：" prop="hello">
+            <m-input value="hello, form"/>
+          </m-form-item>
+        </m-form>
       `
     })
-    expect(wrapper.html()).toContain('w-form');
+    expect(wrapper.html()).toContain('m-form');
   })
 
   test('inline渲染', () => {
     const wrapper = mountForm({
       template: `
-        <w-form inline>
-          <w-form-item label="input输入：" prop="hello">
-            <w-input value="hello, form"/>
-          </w-form-item>
-        </w-form>
+        <m-form inline>
+          <m-form-item label="input输入：" prop="hello">
+            <m-input value="hello, form"/>
+          </m-form-item>
+        </m-form>
       `
     })
-    expect(wrapper.html()).toContain('w-form');
+    expect(wrapper.html()).toContain('m-form');
   })
 })

@@ -8,16 +8,16 @@
  */
 
 import { describe, test, expect } from "vitest";
-import WRadio from "../../../lib/base/radio/WRadio";
+import MRadio from "../../../lib/base/radio/MRadio";
 import { mount } from "@vue/test-utils";
 
 describe('单选组件', () => {
 
   test('正确渲染单选组件', () => {
-    const wrapper = mount(WRadio);
-    expect(wrapper.find('label').html()).toContain('w-radio');
+    const wrapper = mount(MRadio);
+    expect(wrapper.find('label').html()).toContain('m-radio');
 
-    const wrapperWithValue = mount(WRadio, {
+    const wrapperWithValue = mount(MRadio, {
       props: {
         modelValue: 'labelValue',
         label: 'labelValue'
@@ -28,7 +28,7 @@ describe('单选组件', () => {
   });
 
   test('修改选项', async () => {
-    const wrapper = mount(WRadio, {
+    const wrapper = mount(MRadio, {
       props: {
         modelValue: '',
         label: 'labelValue'
@@ -42,7 +42,7 @@ describe('单选组件', () => {
   });
 
   test('点击更新', async ()=>{
-    const wrapper = mount(WRadio, {
+    const wrapper = mount(MRadio, {
       props: {
         modelValue: '',
         label: 'labelValue'

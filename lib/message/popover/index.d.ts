@@ -4,16 +4,16 @@
  * @date 2022/4/4 01:22
  * @version v1.0.0
  *
- * @name w-popover
- * @docDescription Popover component with wash-painting-ui style.
+ * @name m-popover
+ * @docDescription Popover component with shuimo-ui style.
  *                 水墨组件的弹出框组件。
- * @docUrl https://wash-painting.com/popover
+ * @docUrl https://shuimo.janghood.com/popover
  *
  * Hello, humor
  */
 import type { Placement } from '../../dependents/_composables/usePopper';
 
-export type WPopoverProps = {
+export type MPopoverProps = {
   /**
    * @description popover display placement
    * @type Placement

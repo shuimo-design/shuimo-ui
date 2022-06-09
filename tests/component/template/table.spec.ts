@@ -10,24 +10,24 @@
 import { describe, test, expect } from 'vitest';
 import { h } from "vue";
 import { mount } from "@vue/test-utils";
-import WTable from "../../../lib/template/table/WTable";
-import WTableColumn from "../../../lib/template/table/WTableColumn";
+import MTable from "../../../lib/template/table/MTable";
+import MTableColumn from "../../../lib/template/table/MTableColumn";
 
 describe('列表组件', function () {
   test('普通渲染', () => {
-    const wrapper = mount(WTable, {
+    const wrapper = mount(MTable, {
       slots: {
         default: [
-          h(WTableColumn, { param: 'param', label: 'label' })
+          h(MTableColumn, { param: 'param', label: 'label' })
         ]
       }
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"w-table\\">
-        <div class=\\"w-table-header-img-top\\"></div>
-        <div class=\\"w-table-header-img-bottom\\"></div>
-        <div class=\\"w-table-wrap\\">
-          <table class=\\"w-table-inner\\">
+      "<div class=\\"m-table\\">
+        <div class=\\"m-table-header-img-top\\"></div>
+        <div class=\\"m-table-header-img-bottom\\"></div>
+        <div class=\\"m-table-wrap\\">
+          <table class=\\"m-table-inner\\">
             <thead class=\\"w-thead\\">
               <tr class=\\"w-tr\\">
                 <th class=\\"w-th\\">label</th>
@@ -36,7 +36,7 @@ describe('列表组件', function () {
             <tbody class=\\"w-tbody\\"></tbody>
           </table>
         </div>
-        <div class=\\"w-table-border-img-bottom\\"></div>
+        <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
   })

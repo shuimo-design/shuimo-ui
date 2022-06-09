@@ -1,5 +1,5 @@
 /**
- * @description WPopover
+ * @description MPopover
  * @author youus
  * @date 2022/4/3 18:07
  * @version v1.0.0
@@ -17,7 +17,7 @@ import usePopperCommon from '../../dependents/_composables/usePopperCommon';
 const printer = Printer();
 
 export default defineComponent({
-  name: 'WTooltip',
+  name: 'MTooltip',
   props,
   emits: ['open:popper', 'close:popper'],
   setup(props, { slots, emit }) {
@@ -29,7 +29,7 @@ export default defineComponent({
 
       if (children && children.length > 1) {
         return printer.error(
-          `[WTooltip]: The <WTooltip> or <w-tooltip>component expects only one child element at its root. You passed ${children.length} child nodes.`,
+          `[MTooltip]: The <MTooltip> or <m-tooltip>component expects only one child element at its root. You passed ${children.length} child nodes.`,
         );
       }
     });
@@ -67,7 +67,7 @@ export default defineComponent({
 
     return () => (
       <div
-        class="w-tooltip"
+        class="m-tooltip"
         style={interactiveStyle.value}
         onMouseleave={() => hover.value && closePopper()}
         ref={popperContainerNode}
@@ -84,11 +84,11 @@ export default defineComponent({
         <Transition name="w-linear">
           <div
             onClick={() => !interactive.value && closePopper()}
-            class="w-tooltip-inner"
+            class="m-tooltip-inner"
             ref={popperNode}
             hidden={!shouldShowPopper.value}
           >
-            <div class="w-input__content">
+            <div class="m-input__content">
               {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
             </div>
             <div id="arrow" data-popper-arrow/>

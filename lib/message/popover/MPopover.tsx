@@ -1,5 +1,5 @@
 /**
- * @description WPopover
+ * @description MPopover
  * @author youus
  * @date 2022/4/3 18:07
  * @version v1.0.0
@@ -16,7 +16,7 @@ import usePopperCommon from '../../dependents/_composables/usePopperCommon';
 const printer = Printer();
 
 export default defineComponent({
-  name: 'WPopover',
+  name: 'MPopover',
   props,
   emits: ['open:popper', 'close:popper'],
   setup(props, { slots, emit }) {
@@ -28,7 +28,7 @@ export default defineComponent({
 
       if (children && children.length > 1) {
         return printer.error(
-          `[WPopover]: The <WPopover> or <w-popover>component expects only one child element at its root. You passed ${children.length} child nodes.`,
+          `[MPopover]: The <MPopover> or <m-popover>component expects only one child element at its root. You passed ${children.length} child nodes.`,
         );
       }
     });
@@ -64,7 +64,7 @@ export default defineComponent({
 
     return () => (
       <div
-        class="w-popover"
+        class="m-popover"
         style={interactiveStyle.value}
         onMouseleave={() => hover.value && closePopper()}
         ref={popperContainerNode}

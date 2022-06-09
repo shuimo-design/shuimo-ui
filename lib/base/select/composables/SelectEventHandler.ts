@@ -27,7 +27,7 @@ export default function SelectEventHandler(setStyle: Function) {
       const isSelectDropdown = path.some((e) => {
         const q = e as Element;
         return q.classList &&
-          [...DOMTokenListToArray(q.classList)].includes('w-select-dropdown');
+          [...DOMTokenListToArray(q.classList)].includes('m-select-dropdown');
 
       });
       if (!isSelectDropdown) {

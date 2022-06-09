@@ -11,14 +11,14 @@ import { h, defineComponent } from 'vue';
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WDivider',
+  name: 'MDivider',
   props,
   render() {
     return h('div', {
       class: {
-        'w-divider': true,
-        'w-divider-vertical': this.vertical,
-        // 'w-divider-strong': this.type === 'strong',
+        'm-divider': true,
+        'm-divider-vertical': this.vertical,
+        // 'm-divider-strong': this.type === 'strong',
       },
     });
   }

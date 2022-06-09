@@ -4,10 +4,10 @@
  * @date 2022/4/6 10:50 PM
  * @version v1.0.0
  *
- * @name w-input
- * @docDescription Input component with wash-painting-ui style.
+ * @name m-input
+ * @docDescription Input component with shuimo-ui style.
  *              水墨组件的输入组件。
- * @docUrl https://wash-painting.com/input
+ * @docUrl https://shuimo.janghood.com/input
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

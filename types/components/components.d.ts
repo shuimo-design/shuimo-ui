@@ -6,32 +6,32 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import button from "../../lib/base/button/WButton";
-import checkbox from "../../lib/base/checkbox/WCheckbox";
-import datepicker from "../../lib/base/datePicker/WDatePicker";
-import input from "../../lib/base/input/WInput";
-import inputNumber from "../../lib/base/inputNumber/WInputNumber";
-import radio from "../../lib/base/radio/WRadio";
-import select from "../../lib/base/select/WSelect";
-import list from "../../lib/base/list/WList";
+import button from "../../lib/base/button/MButton";
+import checkbox from "../../lib/base/checkbox/MCheckbox";
+import datepicker from "../../lib/base/datePicker/MDatePicker";
+import input from "../../lib/base/input/MInput";
+import inputNumber from "../../lib/base/inputNumber/MInputNumber";
+import radio from "../../lib/base/radio/MRadio";
+import select from "../../lib/base/select/MSelect";
+import list from "../../lib/base/list/MList";
 
-import dialog from "../../lib/message/dialog/WDialog";
-import drawer from "../../lib/message/drawer/WDrawer";
-import popover from "../../lib/message/popover/WPopover";
-import tooltip from "../../lib/message/tooltip/WTooltip";
-import message from "../../lib/message/message/WMessageItem";
+import dialog from "../../lib/message/dialog/MDialog";
+import drawer from "../../lib/message/drawer/MDrawer";
+import popover from "../../lib/message/popover/MPopover";
+import tooltip from "../../lib/message/tooltip/MTooltip";
+import message from "../../lib/message/message/MMessageItem";
 
-import border from "../../lib/other/border/WBorder";
-import divider from "../../lib/other/divider/WDivider";
-import menu from "../../lib/other/menu/WMenu";
-import progress from "../../lib/other/progress/WProgress";
-import upload from "../../lib/other/upload/WUpload";
+import border from "../../lib/other/border/MBorder";
+import divider from "../../lib/other/divider/MDivider";
+import menu from "../../lib/other/menu/MMenu";
+import progress from "../../lib/other/progress/MProgress";
+import upload from "../../lib/other/upload/MUpload";
 
-import form from "../../lib/template/form/WForm";
-import formItem from "../../lib/template/form/WFormItem";
-import pagination from "../../lib/template/pagination/WPagination";
-import table from "../../lib/template/table/WTable";
-import tableColumn from "../../lib/template/table/WTableColumn";
+import form from "../../lib/template/form/MForm";
+import formItem from "../../lib/template/form/MFormItem";
+import pagination from "../../lib/template/pagination/MPagination";
+import table from "../../lib/template/table/MTable";
+import tableColumn from "../../lib/template/table/MTableColumn";
 
 export type keyType = any;
 
@@ -45,29 +45,29 @@ export type MenuType = {
 export type MenuTypeArr = Array<MenuType>;
 
 
-export declare const WButton: typeof button;
-export declare const WInput: typeof input;
-export declare const WCheckbox: typeof checkbox;
-export declare const WDatePicker: typeof datepicker;
-export declare const WRadio: typeof radio;
-export declare const WSelect: typeof select;
-export declare const WList: typeof list;
+export declare const MButton: typeof button;
+export declare const MInput: typeof input;
+export declare const MCheckbox: typeof checkbox;
+export declare const MDatePicker: typeof datepicker;
+export declare const MRadio: typeof radio;
+export declare const MSelect: typeof select;
+export declare const MList: typeof list;
 
-export declare const WDialog: typeof dialog;
-export declare const WDrawer: typeof drawer;
-export declare const WPopover: typeof popover;
-export declare const WTooltip: typeof tooltip;
-export declare const WMessage: typeof message;
+export declare const MDialog: typeof dialog;
+export declare const MDrawer: typeof drawer;
+export declare const MPopover: typeof popover;
+export declare const MTooltip: typeof tooltip;
+export declare const MMessage: typeof message;
 
-export declare const WBorder: typeof border;
-export declare const WDivider: typeof divider;
-export declare const WInputNumber: typeof inputNumber;
-export declare const WMenu: typeof menu;
-export declare const WProgress: typeof progress;
-export declare const WUpload: typeof upload;
+export declare const MBorder: typeof border;
+export declare const MDivider: typeof divider;
+export declare const MInputNumber: typeof inputNumber;
+export declare const MMenu: typeof menu;
+export declare const MProgress: typeof progress;
+export declare const MUpload: typeof upload;
 
-export declare const WForm: typeof form;
-export declare const WFormItem: typeof formItem;
-export declare const WPagination: typeof pagination;
-export declare const WTable: typeof table;
-export declare const WTableColumn: typeof tableColumn;
+export declare const MForm: typeof form;
+export declare const MFormItem: typeof formItem;
+export declare const MPagination: typeof pagination;
+export declare const MTable: typeof table;
+export declare const MTableColumn: typeof tableColumn;

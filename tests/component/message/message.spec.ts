@@ -8,9 +8,9 @@
  * v2.0.0 适配新版Message
  */
 import { describe, expect, test, vi } from "vitest";
-import { WMessage } from "../../../lib/message/message";
+import { MMessage } from "../../../lib/message/message";
 import { DOMWrapper } from "@vue/test-utils";
-import { MessageDirectionType } from "../../../types/components/WMessage";
+import { MessageDirectionType } from "../../../types/components/MMessage";
 
 describe('消息提示', () => {
 
@@ -19,24 +19,24 @@ describe('消息提示', () => {
 
   test('普通渲染', async () => {
     vi.useFakeTimers();
-    await WMessage('提示内容');
+    await MMessage('提示内容');
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
-    expect(bodyWrapper.find('.w-message-content').text()).toBe('提示内容');
+    expect(bodyWrapper.find('.m-message-content').text()).toBe('提示内容');
     await vi.runAllTimers();
   });
 
   test('2秒后触发remove', async () => {
     vi.useFakeTimers();
-    await WMessage.info({
+    await MMessage.info({
       content: '提示内容',
       duration: 2000
     });
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
-    expect(bodyWrapper.find('.w-message-content').text()).toBe('提示内容');
+    expect(bodyWrapper.find('.m-message-content').text()).toBe('提示内容');
     // 我们需要模拟手动调用animate
-    expect(bodyWrapper.find('.w-message')).not.toBeNull();
+    expect(bodyWrapper.find('.m-message')).not.toBeNull();
     await vi.runAllTimers();
     expect(body.innerHTML).toBe('');
   });
@@ -51,7 +51,7 @@ describe('消息提示', () => {
       'bottom-left',
       'top-center'
     ]
-    directions.map(async direction => await WMessage({
+    directions.map(async direction => await MMessage({
       content: '',
       direction
     }));
@@ -59,7 +59,7 @@ describe('消息提示', () => {
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
     for (let direction of directions) {
-      expect(bodyWrapper.find('w-message-list_' + direction)).not.toBeNull();
+      expect(bodyWrapper.find('m-message-list_' + direction)).not.toBeNull();
     }
     await vi.runAllTimers();
     expect(bodyWrapper.html()).toBe('<body></body>');

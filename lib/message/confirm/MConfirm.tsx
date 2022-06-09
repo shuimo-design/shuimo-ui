@@ -7,10 +7,10 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { h, createApp, Teleport } from 'vue';
-import WBorder from "../../other/border/WBorder";
-import WButton from "../../base/button/WButton";
+import MBorder from "../../other/border/MBorder";
+import MButton from "../../base/button/MButton";
 import { notEmpty } from "../../dependents/_utils/tools";
-import { BaseConfirmConfig, IConfirm } from "../../../types/components/WConfirm";
+import { BaseConfirmConfig, IConfirm } from "../../../types/components/MConfirm";
 
 let confirmDiv: Element | undefined;
 
@@ -37,22 +37,22 @@ const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
           }
         },
         render(ctx: any) {
-          const confirmBtn = h(WButton, { text: '确定', onClick: ctx.confirm });
-          const cancelBtn = h(WButton, { text: '取消', type: 'gray', onClick: ctx.cancel });
+          const confirmBtn = h(MButton, { text: '确定', onClick: ctx.confirm });
+          const cancelBtn = h(MButton, { text: '取消', type: 'gray', onClick: ctx.cancel });
           return (
             <div class="mask mask-bg">
-              <div class="w-confirm">
-                <WBorder>
-                  <div class="w-confirm_inner">
+              <div class="m-confirm">
+                <MBorder>
+                  <div class="m-confirm_inner">
                     <span>{config.content}</span>
 
-                    <div class="w-confirm-button">
+                    <div class="m-confirm-button">
                       {confirmBtn}
                       {cancelBtn}
                     </div>
 
                   </div>
-                </WBorder>
+                </MBorder>
               </div>
             </div>
           )

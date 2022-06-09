@@ -1,11 +1,11 @@
-.w-input {
+.m-input {
   box-sizing: content-box;
   border: 3px double transparent;
   width: 244px;
   height: 31px;
   line-height: 31px;
 
-  .w-border-main {
+  .m-border-main {
     display: flex;
   }
 }
@@ -20,7 +20,7 @@
   }
 }
 
-.w-input-inner {
+.m-input-inner {
   background-color: unset !important;
   background-repeat: no-repeat !important;
   padding: 0 10px;

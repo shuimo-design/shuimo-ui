@@ -1,44 +1,44 @@
 <template>
   <div>
     <BaseTitle>form-block</BaseTitle>
-    <w-form>
-      <w-form-item label="input输入：" prop="hello">
-        <w-input value="hello, form"/>
-      </w-form-item>
-      <w-form-item label="日期选择：" prop="hello">
-        <w-date-picker v-model="month" type="month"/>
-      </w-form-item>
-      <w-form-item label="textarea输入：" prop="hello">
-        <w-input value="hello, form" type="textarea"/>
-      </w-form-item>
-      <w-form-item label="按钮">
-        <w-button @click="clickBtn">点击按钮</w-button>
-      </w-form-item>
-      <w-form-item label="按钮">
+    <m-form>
+      <m-form-item label="input输入：" prop="hello">
+        <m-input value="hello, form"/>
+      </m-form-item>
+      <m-form-item label="日期选择：" prop="hello">
+        <m-date-picker v-model="month" type="month"/>
+      </m-form-item>
+      <m-form-item label="textarea输入：" prop="hello">
+        <m-input value="hello, form" type="textarea"/>
+      </m-form-item>
+      <m-form-item label="按钮">
+        <m-button @click="clickBtn">点击按钮</m-button>
+      </m-form-item>
+      <m-form-item label="按钮">
         <template #label>
-          <w-button>标题插槽</w-button>
+          <m-button>标题插槽</m-button>
         </template>
-        <w-button @click="clickBtn">点击按钮</w-button>
-      </w-form-item>
-    </w-form>
+        <m-button @click="clickBtn">点击按钮</m-button>
+      </m-form-item>
+    </m-form>
     <BaseTitle>form-inline</BaseTitle>
-    <w-form inline>
-      <w-form-item label="input输入：" prop="hello">
-        <w-input value="hello, form"/>
-      </w-form-item>
-      <w-form-item label="日期选择：" prop="hello">
-        <w-date-picker v-model="month" type="month"/>
-      </w-form-item>
-      <w-form-item label="选项：" prop="hello">
-        <w-select v-model="selectVal" :options="options" :keyParam="'title'" @select="select"/>
-      </w-form-item>
-    </w-form>
+    <m-form inline>
+      <m-form-item label="input输入：" prop="hello">
+        <m-input value="hello, form"/>
+      </m-form-item>
+      <m-form-item label="日期选择：" prop="hello">
+        <m-date-picker v-model="month" type="month"/>
+      </m-form-item>
+      <m-form-item label="选项：" prop="hello">
+        <m-select v-model="selectVal" :options="options" :keyParam="'title'" @select="select"/>
+      </m-form-item>
+    </m-form>
     <BaseTitle>form submit开启模式</BaseTitle>
-    <w-form submit>
-      <w-form-item label="按钮">
-        <w-button @click="clickBtn">点击触发action</w-button>
-      </w-form-item>
-    </w-form>
+    <m-form submit>
+      <m-form-item label="按钮">
+        <m-button @click="clickBtn">点击触发action</m-button>
+      </m-form-item>
+    </m-form>
   </div>
 </template>
 
@@ -54,7 +54,7 @@
  */
 import { reactive, ref } from 'vue';
 import BaseTitle from '../../../components/base/BaseTitle.vue';
-import { WPrinter } from '../../../../lib';
+import { MPrinter } from '../../../../lib';
 
 const month = ref('');
 const selectVal = ref('psm');
@@ -71,7 +71,7 @@ const select = (option: { title: string, value: number }) => {
 }
 
 const clickBtn = () => {
-  WPrinter('水墨表单组件').info('点击按钮');
+  MPrinter('水墨表单组件').info('点击按钮');
 }
 </script>
 

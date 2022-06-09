@@ -2,12 +2,12 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { createWUI } from "../lib";
-import { WPrinter } from "../lib";
-import { WConfirm } from "../lib";
+import { MPrinter } from "../lib";
+import { MConfirm } from "../lib";
 import PrismCode from './components/code/PrismCode.vue'
 import ButtonDrawer from './components/code/ButtonDrawer.vue'
-// import WUI from "../dist/wash-painting-ui.es.js";
-// import {WMessage} from "../dist/wash-painting-ui.es.js";
+// import WUI from "../dist/shuimo-ui.es.js";
+// import {MMessage} from "../dist/shuimo-ui.es.js";
 import './style.scss'
 
 const app = createApp(App);
@@ -18,5 +18,5 @@ app.use(router)
   .component('ButtonDrawer', ButtonDrawer)
   .mount('#app');
 
-app.config.globalProperties.$confirm = WConfirm;
-app.config.globalProperties.$print = WPrinter('水墨测试');
+app.config.globalProperties.$confirm = MConfirm;
+app.config.globalProperties.$print = MPrinter('水墨测试');

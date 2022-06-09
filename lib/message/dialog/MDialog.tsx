@@ -13,7 +13,7 @@ import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WDialog',
+  name: 'MDialog',
   props,
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
@@ -55,7 +55,7 @@ export default defineComponent({
     return (
       <Teleport to="body">
         <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
-          <div class="w-dialog" style={this.baseStyle}>
+          <div class="m-dialog" style={this.baseStyle}>
             <div class="dialog-close-btn w-cursor-pointer" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
             {this.$slots.default!()}
           </div>

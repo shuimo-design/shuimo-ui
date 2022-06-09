@@ -12,12 +12,12 @@ import { h, defineComponent } from 'vue';
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WForm',
+  name: 'MForm',
   props,
   setup(props, { slots }) {
     return () => h('form', {
       class: {
-        'w-form': true,
+        'm-form': true,
         'inline': props.inline
       },
       onsubmit: () => {

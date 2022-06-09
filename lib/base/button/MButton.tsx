@@ -12,14 +12,14 @@ import { h, defineComponent } from 'vue';
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WButton',
+  name: 'MButton',
   props,
   setup(props, { slots }) {
     const { disabled, type, text } = props;
     return () => {
       let buttonText = slots.default && slots.default() || text;
       return h('button', {
-        class: ['w-button', { 'w-button-disabled': disabled }, `w-button-${type}`],
+        class: ['m-button', { 'm-button-disabled': disabled }, `m-button-${type}`],
         disabled: disabled
       }, buttonText);
     }

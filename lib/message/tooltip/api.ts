@@ -7,10 +7,10 @@
  * Hello, humor
  */
 import { WCOPO, WPropType } from "../../dependents/_types";
-import { WTooltipProps } from "./index";
+import { MTooltipProps } from "./index";
 import { Placement } from "../../dependents/_composables/usePopper";
 
-export const props:WCOPO<WTooltipProps> =  {
+export const props:WCOPO<MTooltipProps> =  {
   placement: {
     type: String as WPropType<Placement>,
     default: 'bottom',

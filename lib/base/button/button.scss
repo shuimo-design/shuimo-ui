@@ -1,4 +1,4 @@
-.w-button {
+.m-button {
   @extend .w-cursor-pointer;
   margin: 6px 0 0 10px;
   padding: 0 15px;
@@ -13,13 +13,13 @@
   text-align: center;
 }
 
-.w-button-disabled,
-.w-button-gray {
+.m-button-disabled,
+.m-button-gray {
   border-image: url("/lib/assets/button/button-border-gray.png") 10;
   color: #333333;
 }
 
-.w-button-double {
+.m-button-double {
   border: unset;
   background: url("/lib/assets/button/button-border-double.png") no-repeat;
   background-size: 100% 100%;

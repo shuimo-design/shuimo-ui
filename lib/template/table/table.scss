@@ -1,4 +1,4 @@
-.w-table {
+.m-table {
   width: 100%;
   display: grid;
   grid-template-areas:  "head-img-top"
@@ -7,12 +7,12 @@
                         "table-img-bottom";
 }
 
-.w-table-inner {
+.m-table-inner {
   border-spacing: 0;
   width: calc(100% - 2px);
 }
 
-.w-table-wrap {
+.m-table-wrap {
   position: relative;
   grid-area: table;
   top: -8px;
@@ -45,7 +45,7 @@
     background: rgba(0, 0, 0, 0.1);
   }
 
-  .w-table-tbody-img {
+  .m-table-tbody-img {
     left: 0;
     margin-top: -2px;
   }
@@ -61,36 +61,36 @@
 // 边框图片
 
 
-.w-table-img {
+.m-table-img {
   background: url(/lib/assets/base/line/crossrange.png) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
 }
 
-.w-table-thead-img {
-  @extend .w-table-img;
+.m-table-thead-img {
+  @extend .m-table-img;
   position: relative;
 }
 
-.w-table-tbody-img {
-  @extend .w-table-img;
+.m-table-tbody-img {
+  @extend .m-table-img;
   position: absolute;
 }
 
-.w-table-header-img-top {
-  @extend .w-table-thead-img;
+.m-table-header-img-top {
+  @extend .m-table-thead-img;
   grid-area: head-img-top;
   top: -2px;
 }
 
-.w-table-header-img-bottom {
-  @extend .w-table-thead-img;
+.m-table-header-img-bottom {
+  @extend .m-table-thead-img;
   grid-area: head-img-bottom;
   top: 32px;
 }
 
-.w-table-border-img-bottom {
-  @extend .w-table-thead-img;
+.m-table-border-img-bottom {
+  @extend .m-table-thead-img;
   grid-area: table-img-bottom;
   top: -13px;
 }

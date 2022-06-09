@@ -4,10 +4,10 @@
  * @date 2021/6/22 2:33 下午
  * @version v2.0.1
  *
- * @name w-message
- * @docDescription Message component with wash-painting-ui style.
+ * @name m-message
+ * @docDescription Message component with shuimo-ui style.
  *              水墨组件的消息组件。
- * @docUrl https://wash-painting.com/message
+ * @docUrl https://shuimo.janghood.com/message
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *

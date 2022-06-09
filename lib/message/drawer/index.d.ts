@@ -4,10 +4,10 @@
  * @date 2022/4/16 23:32
  * @version v1.0.0
  *
- * @name w-drawer
- * @docDescription Drawer component with wash-painting-ui style.
+ * @name m-drawer
+ * @docDescription Drawer component with shuimo-ui style.
  *                 水墨组件的抽屉组件。
- * @docUrl https://wash-painting.com/drawer
+ * @docUrl https://shuimo.janghood.com/drawer
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

@@ -4,10 +4,10 @@
  * @date 2022/4/16 23:11
  * @version v1.0.0
  *
- * @name w-dialog
- * @docDescription Dialog component with wash-painting-ui style.
+ * @name m-dialog
+ * @docDescription Dialog component with shuimo-ui style.
  *                 水墨组件的弹窗交互组件。
- * @docUrl https://wash-painting.com/dialog
+ * @docUrl https://shuimo.janghood.com/dialog
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

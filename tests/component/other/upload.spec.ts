@@ -9,15 +9,15 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from "vitest";
-import WUpload from "../../../lib/other/upload/WUpload";
+import MUpload from "../../../lib/other/upload/MUpload";
 
 describe('文件上传组件', function () {
   test('无参数渲染', () => {
-    const wrapper = mount(WUpload, {
+    const wrapper = mount(MUpload, {
       slots: {
         default: '<div></div>'
       }
     });
-    expect(wrapper.html()).toContain('w-upload');
+    expect(wrapper.html()).toContain('m-upload');
   })
 });

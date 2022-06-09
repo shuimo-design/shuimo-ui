@@ -6,11 +6,11 @@
  *
  * Hello, humor
  */
-import { WPopoverProps } from "./index";
+import { MPopoverProps } from "./index";
 import { WCOPO, WPropType } from "../../dependents/_types";
 import { Placement } from "../../dependents/_composables/usePopper";
 
-export const props: WCOPO<WPopoverProps> = {
+export const props: WCOPO<MPopoverProps> = {
   placement: {
     type: String as WPropType<Placement>,
     default: 'bottom',

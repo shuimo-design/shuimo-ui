@@ -4,10 +4,10 @@
  * @date 2022/4/16 21:06
  * @version v1.0.0
  *
- * @name w-radio
- * @docDescription Radio component with wash-painting-ui style.
+ * @name m-radio
+ * @docDescription Radio component with shuimo-ui style.
  *                 水墨组件的单选组件。
- * @docUrl https://wash-painting.com/radio
+ * @docUrl https://shuimo.janghood.com/radio
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

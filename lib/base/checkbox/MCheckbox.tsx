@@ -1,5 +1,5 @@
 /**
- * @description WCheckbox
+ * @description MCheckbox
  * @author youus
  * @date 2022/4/7 00:01
  * @version v1.0.1
@@ -16,7 +16,7 @@ import { CheckboxGroupContextKey } from './checkboxGroupApi';
 import border from '../../assets/checkbox/border.png';
 
 export default defineComponent({
-  name: 'WCheckbox',
+  name: 'MCheckbox',
   props,
   emits: ['change', 'update:modelValue'],
   setup(props, { emit, slots }) {
@@ -53,21 +53,21 @@ export default defineComponent({
     const innerDisabled = computed(() => (props.disabled as boolean) || checkboxGroup?.disabled.value);
 
     const wCheckboxStyle = computed(() => [
-      'w-checkbox',
+      'm-checkbox',
       {
         'w-cursor-disabled': innerDisabled.value,
       }
     ]);
     const checkStyle = computed(() => [
-      'w-checkbox__inner',
+      'm-checkbox__inner',
       {
-        'w-checkbox-is-checked': selfChecked.value,
+        'm-checkbox-is-checked': selfChecked.value,
         'w-cursor-disabled': innerDisabled.value,
         'w-cursor-pointer': !innerDisabled.value,
       },
     ]);
     const innerStyle = computed(() => [{
-      'w-checkbox__inner_checked': selfChecked.value,
+      'm-checkbox__inner_checked': selfChecked.value,
       'w-cursor-disabled': innerDisabled.value,
       'w-cursor-pointer': !innerDisabled.value,
     }]);
@@ -86,7 +86,7 @@ export default defineComponent({
         <input
           type="checkbox"
           value={props.value}
-          class="w-checkbox__former"
+          class="m-checkbox__former"
           onChange={changeHandle}
           disabled={innerDisabled.value}
           checked={selfChecked.value}
@@ -95,7 +95,7 @@ export default defineComponent({
           <img src={border} alt=""/>
           <span class={innerStyle.value}/>
         </span>
-        <span class="w-checkbox__label">{slots.default?.() ?? props.label}</span>
+        <span class="m-checkbox__label">{slots.default?.() ?? props.label}</span>
       </label>
     );
   },

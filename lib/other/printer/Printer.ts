@@ -11,7 +11,7 @@
  * V1.0.2 优化ts支持，修改type颜色
  */
 
-import { PrinterType, printInterface, IPrinter } from "../../../types/components/WPrint";
+import { PrinterType, printInterface, IPrinter } from "../../../types/components/MPrint";
 
 enum PrinterEnum {
   suggest = 'suggest',

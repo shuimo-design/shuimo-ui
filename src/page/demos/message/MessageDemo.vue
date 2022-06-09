@@ -1,28 +1,28 @@
 <template>
   <BaseTitle>位置</BaseTitle>
   <div>
-    <w-button text="top-right" @click="callMessage('top-right')"/>
-    <w-button text="top-left" @click="callMessage('top-left')"/>
-    <w-button text="bottom-left" @click="callMessage('bottom-left')"/>
-    <w-button text="bottom-right" @click="callMessage('bottom-right')"/>
-    <w-button text="top-center" @click="callMessage('top-center')"/>
+    <m-button text="top-right" @click="callMessage('top-right')"/>
+    <m-button text="top-left" @click="callMessage('top-left')"/>
+    <m-button text="bottom-left" @click="callMessage('bottom-left')"/>
+    <m-button text="bottom-right" @click="callMessage('bottom-right')"/>
+    <m-button text="top-center" @click="callMessage('top-center')"/>
   </div>
   <BaseTitle>类型</BaseTitle>
   <div>
-    <w-button text="success" @click="WMessage.success('这是一条信息')"></w-button>
-    <w-button text="info" @click="WMessage.info('这是一条信息', 1000)"></w-button>
-    <w-button text="warning" @click="WMessage.warning('这是一条信息')"></w-button>
-    <w-button text="error" @click="WMessage.error('这是一条信息')"></w-button>
+    <m-button text="success" @click="MMessage.success('这是一条信息')"></m-button>
+    <m-button text="info" @click="MMessage.info('这是一条信息', 1000)"></m-button>
+    <m-button text="warning" @click="MMessage.warning('这是一条信息')"></m-button>
+    <m-button text="error" @click="MMessage.error('这是一条信息')"></m-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { WMessage } from '../../../../lib';
+import { MMessage } from '../../../../lib';
 import BaseTitle from '../../../components/base/BaseTitle.vue';
-import { MessageDirectionType } from "../../../../types/components/WMessage";
+import { MessageDirectionType } from "../../../../types/components/MMessage";
 
 const callMessage = async (direction: MessageDirectionType) => {
-  const res = await WMessage.success({ content: '这是一条信息', direction });
+  const res = await MMessage.success({ content: '这是一条信息', direction });
   console.log(typeof res);
 }
 </script>

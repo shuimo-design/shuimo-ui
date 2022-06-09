@@ -2,7 +2,7 @@ import { computed, defineComponent, provide, ref, toRefs, watch } from 'vue';
 import { CheckboxGroupContextKey, props } from './checkboxGroupApi';
 
 export default defineComponent({
-  name: 'WCheckboxGroup',
+  name: 'MCheckboxGroup',
   props,
   emits: ['update:modelValue'],
   setup(props, { emit, slots }) {
@@ -53,7 +53,7 @@ export default defineComponent({
     
     return () => {
       return (
-        <div class="w-checkbox-group">
+        <div class="m-checkbox-group">
           {slots.default?.()}
         </div>
       )

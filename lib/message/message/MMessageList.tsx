@@ -6,8 +6,8 @@
  */
 import { defineComponent, h, ref, Teleport } from "vue";
 import { props } from "./api";
-import WMessageItem from "./WMessageItem";
-import type { MessageProps } from "../../../types/components/WMessage";
+import MMessageItem from "./MMessageItem";
+import type { MessageProps } from "../../../types/components/MMessage";
 
 /**
  * @description MessageList使用到的属性
@@ -25,11 +25,11 @@ const getKey = (() => {
 })()
 
 export default defineComponent({
-  name: 'WMessageList',
+  name: 'MMessageList',
   props,
   setup(props, { expose }) {
     const messageList = ref<Array<MessageOptions>>([]);
-    const domList = ref<Array<InstanceType<typeof WMessageItem>>>([]);
+    const domList = ref<Array<InstanceType<typeof MMessageItem>>>([]);
 
     const add = (item: MessageOptions) => {
       item.id = getKey();
@@ -46,10 +46,10 @@ export default defineComponent({
       if (!messageList.value.length) return;
 
       const messages = messageList.value.map((item, index) =>
-        h(WMessageItem, {
+        h(MMessageItem, {
           ref: ref => {
             if (ref) {
-              domList.value.push(ref as InstanceType<typeof WMessageItem>);
+              domList.value.push(ref as InstanceType<typeof MMessageItem>);
             }
           },
           key: item.id,
@@ -59,7 +59,7 @@ export default defineComponent({
 
       return (
         <Teleport to={'body'}>
-          <div class={`w-message-list w-message-list_${props.direction}`}>
+          <div class={`m-message-list m-message-list_${props.direction}`}>
             {messages}
           </div>
         </Teleport>

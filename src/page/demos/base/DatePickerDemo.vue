@@ -3,11 +3,11 @@
     <BaseTitle>日期</BaseTitle>
     <span>选择的日期为{{ date }}</span>
     <br/>
-    <w-date-picker v-model="date"/>
+    <m-date-picker v-model="date"/>
     <BaseTitle>月份</BaseTitle>
     <span>选择的月份为{{ month }}</span>
     <br/>
-    <w-date-picker v-model="month" type="month"/>
+    <m-date-picker v-model="month" type="month"/>
   </div>
 </template>
 

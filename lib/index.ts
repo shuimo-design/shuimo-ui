@@ -1,35 +1,35 @@
 import { App, Component } from 'vue';
 
-import WInput from './base/input/WInput';
-import WInputNumber from './base/inputNumber/WInputNumber';
-import WButton from './base/button/WButton';
-import WSelect from './base/select/WSelect';
-import WDatePicker from './base/datePicker/WDatePicker';
-import WRadio from './base/radio/WRadio';
-import WCheckbox from './base/checkbox/WCheckbox';
-import WCheckboxGroup from './base/checkbox/WCheckboxGroup';
-import WList from './base/list/WList';
+import MInput from './base/input/MInput';
+import MInputNumber from './base/inputNumber/MInputNumber';
+import MButton from './base/button/MButton';
+import MSelect from './base/select/MSelect';
+import MDatePicker from './base/datePicker/MDatePicker';
+import MRadio from './base/radio/MRadio';
+import MCheckbox from './base/checkbox/MCheckbox';
+import MCheckboxGroup from './base/checkbox/MCheckboxGroup';
+import MList from './base/list/MList';
 
-import WConfirm from './message/confirm/WConfirm';
-import WDialog from './message/dialog/WDialog';
-import WDrawer from './message/drawer/WDrawer';
-import { WMessageItem, WMessage } from './message/message/';
+import MConfirm from './message/confirm/MConfirm';
+import MDialog from './message/dialog/MDialog';
+import MDrawer from './message/drawer/MDrawer';
+import { MMessageItem, MMessage } from './message/message/';
 
-import WPopover from './message/popover/WPopover';
-import WTooltip from './message/tooltip/WTooltip';
+import MPopover from './message/popover/MPopover';
+import MTooltip from './message/tooltip/MTooltip';
 
-import WBorder from './other/border/WBorder';
-import WDivider from './other/divider/WDivider';
-import WMenu from './other/menu/WMenu';
-import WPrinter from "./other/printer/Printer";
-import WProgress from './other/progress/WProgress';
-import WUpload from './other/upload/WUpload';
+import MBorder from './other/border/MBorder';
+import MDivider from './other/divider/MDivider';
+import MMenu from './other/menu/MMenu';
+import MPrinter from "./other/printer/Printer";
+import MProgress from './other/progress/MProgress';
+import MUpload from './other/upload/MUpload';
 
-import WPagination from './template/pagination/WPagination';
-import WFormItem from "./template/form/WFormItem";
-import WForm from "./template/form/WForm";
-import WTable from "./template/table/WTable";
-import WTableColumn from "./template/table/WTableColumn";
+import MPagination from './template/pagination/MPagination';
+import MFormItem from "./template/form/MFormItem";
+import MForm from "./template/form/MForm";
+import MTable from "./template/table/MTable";
+import MTableColumn from "./template/table/MTableColumn";
 
 import WScroll from './other/scroll';
 import useDialog from './message/dialog/useDialog';
@@ -38,30 +38,30 @@ import '../lib/style.scss'
 
 
 const components: Record<any, Component> = {
-  WInput,
-  WButton,
-  WDialog,
-  WTooltip,
-  WSelect,
-  WDatePicker,
-  WPopover,
-  WForm,
-  WFormItem,
-  WInputNumber,
-  WPagination,
-  WUpload,
-  WDivider,
-  WProgress,
-  WRadio,
-  WCheckbox,
-  WMenu,
-  WTable,
-  WTableColumn,
-  WBorder,
-  WDrawer,
-  WMessageItem,
-  WCheckboxGroup,
-  WList
+  MInput,
+  MButton,
+  MDialog,
+  MTooltip,
+  MSelect,
+  MDatePicker,
+  MPopover,
+  MForm,
+  MFormItem,
+  MInputNumber,
+  MPagination,
+  MUpload,
+  MDivider,
+  MProgress,
+  MRadio,
+  MCheckbox,
+  MMenu,
+  MTable,
+  MTableColumn,
+  MBorder,
+  MDrawer,
+  MMessageItem,
+  MCheckboxGroup,
+  MList
 }
 
 const install = function (app: App) {
@@ -72,34 +72,34 @@ const install = function (app: App) {
 };
 
 export {
-  WInput,
-  WButton,
-  WDialog,
-  WTooltip,
-  WSelect,
-  WDatePicker,
-  WPopover,
-  WForm,
-  WFormItem,
-  WInputNumber,
-  WPagination,
-  WUpload,
-  WDivider,
-  WProgress,
-  WRadio,
-  WCheckbox,
-  WMenu,
-  WTable,
-  WTableColumn,
-  WBorder,
-  WDrawer,
+  MInput,
+  MButton,
+  MDialog,
+  MTooltip,
+  MSelect,
+  MDatePicker,
+  MPopover,
+  MForm,
+  MFormItem,
+  MInputNumber,
+  MPagination,
+  MUpload,
+  MDivider,
+  MProgress,
+  MRadio,
+  MCheckbox,
+  MMenu,
+  MTable,
+  MTableColumn,
+  MBorder,
+  MDrawer,
   WScroll,
-  WPrinter,
-  WConfirm,
-  WMessage,
+  MPrinter,
+  MConfirm,
+  MMessage,
   useDialog,
-  WCheckboxGroup,
-  WList
+  MCheckboxGroup,
+  MList
 };
 
 export const createWUI = () => {

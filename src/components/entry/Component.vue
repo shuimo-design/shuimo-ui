@@ -1,8 +1,8 @@
 <template>
   <div class="component" id="level">
     <div class="entry-dialog">
-      <w-input/>
-      <w-button text="点我进入组件页面" @click="toMain"/>
+      <m-input/>
+      <m-button text="点我进入组件页面" @click="toMain"/>
     </div>
     <img class="level" src="/src/assets/entry/level.png" alt="">
     <img class="fan-left" src="/src/assets/entry/fan_left.png" alt="">

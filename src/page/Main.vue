@@ -4,16 +4,16 @@
     <h1>一款粗暴的水墨UI</h1>
     <span>基于Vite2.0 + Vue3</span>
     <br/>
-    <span>运用于 <w-button text="极客江湖" @click="toGeekjx"/></span>
-    <w-divider/>
-    <w-form>
-      <w-form-item label="跳转到：">
-        <w-button text="github" @click="toGithub"/>
-      </w-form-item>
-      <w-form-item label="跳转到：">
-        <w-button text="npm" @click="toNpm"/>
-      </w-form-item>
-    </w-form>
+    <span>运用于 <m-button text="极客江湖" @click="toGeekjx"/></span>
+    <m-divider/>
+    <m-form>
+      <m-form-item label="跳转到：">
+        <m-button text="github" @click="toGithub"/>
+      </m-form-item>
+      <m-form-item label="跳转到：">
+        <m-button text="npm" @click="toNpm"/>
+      </m-form-item>
+    </m-form>
   </div>
 </template>
 
@@ -35,10 +35,10 @@ export default defineComponent({
       window.open('https://geekjx.com');
     },
     toGithub() {
-      window.open('https://github.com/higuaifan/wash-painting-ui');
+      window.open('https://github.com/higuaifan/shuimo-ui');
     },
     toNpm() {
-      window.open('https://www.npmjs.com/package/@higuaifan/wash-painting-ui');
+      window.open('https://www.npmjs.com/package/@janghood/shuimo-ui');
     },
   }
 });

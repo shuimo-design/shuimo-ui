@@ -1,19 +1,19 @@
-$width: calc(var(--w-progress-width, 556px));
-$bg-width: var(--w-progress-width, 556px);
-$height: var(--w-progress-height, 37px);
+$width: calc(var(--m-progress-width, 556px));
+$bg-width: var(--m-progress-width, 556px);
+$height: var(--m-progress-height, 37px);
 $bg-size: calc(#{$bg-width} / 2) $height;
 
-$leaf-height: var(--w-progress-leaf-height, 28px);
-$per-width: var(--w-progress-per-width, 80px);
-$per-height: max(var(--w-progress-per-height, 20px), #{$leaf-height});
-$per-font-size: var(--w-progress-per-font-size, 16px);
+$leaf-height: var(--m-progress-leaf-height, 28px);
+$per-width: var(--m-progress-per-width, 80px);
+$per-height: max(var(--m-progress-per-height, 20px), #{$leaf-height});
+$per-font-size: var(--m-progress-per-font-size, 16px);
 
-.w-progress-border {
+.m-progress-border {
   display: inline-block;
   width: $width;
 }
 
-.w-progress-per {
+.m-progress-per {
   position: relative;
   display: inline-block;
   width: $per-width;
@@ -32,7 +32,7 @@ $per-font-size: var(--w-progress-per-font-size, 16px);
   height: $leaf-height;
 }
 
-.w-progress {
+.m-progress {
   width: $width;
   height: $height;
   -webkit-appearance: none;

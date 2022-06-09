@@ -1,5 +1,5 @@
 {
-  "name": "@higuaifan/wash-painting-ui",
+  "name": "@janghood/shuimo-ui",
   "description": "一款粗暴的水墨风UI组件",
   "version": "0.1.13",
   "files": [
@@ -10,13 +10,13 @@
     "public",
     "web-types.json"
   ],
-  "types": "types/wash-painting-ui.d.ts",
-  "main": "./dist/wash-painting-ui.umd.js",
-  "module": "./dist/wash-painting-ui.es.js",
+  "types": "types/shuimo-ui.d.ts",
+  "main": "./dist/shuimo-ui.umd.js",
+  "module": "./dist/shuimo-ui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/wash-painting-ui.es.js",
-      "require": "./dist/wash-painting-ui.umd.js"
+      "import": "./dist/shuimo-ui.es.js",
+      "require": "./dist/shuimo-ui.umd.js"
     },
     "./*": "./*"
   },
@@ -59,11 +59,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janghood/wash-painting-ui.git"
+    "url": "git+https://github.com/janghood/shuimo-ui.git"
   },
   "web-types": "web-types.json",
   "bugs": {
-    "url": "https://github.com/janghood/wash-painting-ui/issues"
+    "url": "https://github.com/janghood/shuimo-ui/issues"
   },
-  "homepage": "https://wash-painting.com"
+  "homepage": "https://shuimo.janghood.com"
 }

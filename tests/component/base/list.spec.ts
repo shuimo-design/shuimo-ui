@@ -9,21 +9,21 @@
 
 import { describe, test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import WList from "../../../lib/base/list/WList";
+import MList from "../../../lib/base/list/MList";
 
 describe('列表组件', () => {
 
   test('普通数据渲染', () => {
-    const wrapper = mount(WList, {
+    const wrapper = mount(MList, {
       props: {
         data: ['轩辕剑', '湛卢', '赤霄']
       }
     });
-    expect(wrapper.find('.w-list-item-main').text()).toBe('"轩辕剑"');
+    expect(wrapper.find('.m-list-item-main').text()).toBe('"轩辕剑"');
   })
 
   test('active数据渲染', () => {
-    const wrapper = mount(WList, {
+    const wrapper = mount(MList, {
       props: {
         data: [
           { title: '轩辕剑', value: 40, active: true },
@@ -32,7 +32,7 @@ describe('列表组件', () => {
         ]
       }
     });
-    expect(wrapper.find('.w-list-item').html().includes('w-active')).toBe(true);
+    expect(wrapper.find('.m-list-item').html().includes('w-active')).toBe(true);
   })
 
 })

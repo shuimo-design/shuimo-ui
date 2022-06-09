@@ -12,7 +12,7 @@ import { h, defineComponent, ref } from "vue";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WUpload',
+  name: 'MUpload',
   props,
   emit: ['upload'],
   setup(props, { emit, slots }) {
@@ -38,7 +38,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class="w-upload">
+        <div class="m-upload">
           <span>{slots.default!()}</span>
           <input class="w-cursor-pointer" ref={inputRef} type="file" accept={props.fileTypes} onChange={changeHandle}/>
         </div>)

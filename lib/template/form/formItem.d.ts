@@ -4,11 +4,11 @@
  * @date 2022/4/5 9:43 AM
  * @version v1.0.0
  *
- * @name w-form-item
- * @docDescription FormItem component with wash-painting-ui style.
+ * @name m-form-item
+ * @docDescription FormItem component with shuimo-ui style.
  *                  水墨组件的表单item组件。
- * @docUrl https://wash-painting.com/form#item
- * @sourceSymbol WFormItem
+ * @docUrl https://shuimo.janghood.com/form#item
+ * @sourceSymbol MFormItem
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

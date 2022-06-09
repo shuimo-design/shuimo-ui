@@ -1,12 +1,12 @@
 <template>
   <div>
-    <w-border>
+    <m-border>
       <div class="red"></div>
-    </w-border>
+    </m-border>
     <br/>
-    <w-border>
+    <m-border>
       <textarea name="" cols="30" rows="10"></textarea>
-    </w-border>
+    </m-border>
   </div>
 </template>
 

@@ -13,10 +13,10 @@ import Printer from "../printer/Printer";
 const printer = Printer();
 
 export default defineComponent({
-  name: 'WBorder',
+  name: 'MBorder',
   render(ctx: any) {
 
-    const baseLineClass = 'w-border-line';
+    const baseLineClass = 'm-border-line';
 
     enum lineType {
       top = 'top',
@@ -26,7 +26,7 @@ export default defineComponent({
     }
 
     const lineList = Object.keys(lineType).map(key => {
-      return h('div', { class: [baseLineClass, `w-border-${key}-line`] });
+      return h('div', { class: [baseLineClass, `m-border-${key}-line`] });
     });
 
     const slotList = ctx.$slots.default();
@@ -38,10 +38,10 @@ export default defineComponent({
     const slot: VNode = slotList[0];
 
 
-    const main = h('div', { class: 'w-border-main' }, slot);
+    const main = h('div', { class: 'm-border-main' }, slot);
 
     return h('div', {
-        class: 'w-border'
+        class: 'm-border'
       },
       [main, lineList]
     )

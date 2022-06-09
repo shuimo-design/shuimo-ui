@@ -10,13 +10,13 @@
 
 
 import { h, defineComponent, Teleport } from 'vue';
-import WBorder from "../../other/border/WBorder";
+import MBorder from "../../other/border/MBorder";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import useDialog from "../../dependents/_composables/useDialog";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WDrawer',
+  name: 'MDrawer',
   props,
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
   setup(props, context) {
@@ -33,10 +33,10 @@ export default defineComponent({
 
     const drawerMain = h(
       'div',
-      { style: { width: this.width }, class: 'w-drawer-main' },
+      { style: { width: this.width }, class: 'm-drawer-main' },
       { default: ctx.$slots.default }
     );
-    const borderWrap = h(WBorder, { class: 'w-drawer' }, () => [drawerMain]);
+    const borderWrap = h(MBorder, { class: 'm-drawer' }, () => [drawerMain]);
 
     const maskWrap = h('div', {
       class: [...this.maskClass, ...drawerClass],

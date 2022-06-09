@@ -12,7 +12,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
   if (mode === 'npm') {
     build = {
       lib: {
-        name: 'wash-painting-ui',
+        name: 'shuimo-ui',
         entry: 'lib/index.ts'
       },
       rollupOptions: {

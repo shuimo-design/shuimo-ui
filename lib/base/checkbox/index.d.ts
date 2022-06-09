@@ -4,10 +4,10 @@
  * @date 2022/4/7 00:02
  * @version v1.0.0
  *
- * @name w-checkbox
- * @docDescription Checkbox component with wash-painting-ui style.
+ * @name m-checkbox
+ * @docDescription Checkbox component with shuimo-ui style.
  *              水墨组件的复选框组件。
- * @docUrl https://wash-painting.com/checkbox
+ * @docUrl https://shuimo.janghood.com/checkbox
  *
  * Hello, humor
  */

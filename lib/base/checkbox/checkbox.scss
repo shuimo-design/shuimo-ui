@@ -1,4 +1,4 @@
-.w-checkbox {
+.m-checkbox {
   color: #606266;
   display: inline-flex;
   align-items: center;
@@ -33,7 +33,7 @@
   }
 
   &-is-checked {
-    .w-checkbox__inner_checked {
+    .m-checkbox__inner_checked {
       position: absolute;
       width: 12px;
       height: 10px;

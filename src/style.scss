@@ -20,7 +20,7 @@ body {
   background-size: 100% auto;
 }
 
-.w-menu {
+.m-menu {
   font-family: wljh, serif;
   letter-spacing: 2px;
 }
@@ -44,13 +44,13 @@ body {
   width: 100%;
   height: 100%;
 
-  & > .w-border-main {
+  & > .m-border-main {
     padding: 20px;
   }
 }
 
 .code-drawer {
-  .w-drawer-main {
+  .m-drawer-main {
     padding: 10px;
   }
 

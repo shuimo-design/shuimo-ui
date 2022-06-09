@@ -1,5 +1,5 @@
 /**
- * @description WRadio
+ * @description MRadio
  * @author 望海潮
  * @date 2022-03-23 18:24:55
  * @description radio单选框
@@ -9,7 +9,7 @@ import { defineComponent } from "vue";
 import { props } from "./api";
 
 export default defineComponent({
-  name: 'WRadio',
+  name: 'MRadio',
   props,
   setup(props, { slots, emit }) {
     // 默认插槽内容
@@ -21,12 +21,12 @@ export default defineComponent({
     }
 
     return () => (
-      <label class={'w-radio'}>
+      <label class={'m-radio'}>
         <input type="radio"
-               class={'w-radio--former'}
+               class={'m-radio--former'}
                onClick={handleClick}/>
-        <div class={['w-radio--input', props.modelValue === props.label ? 'selected' : '']}></div>
-        <span class={'w-radio--label'}>{slotsDefault}</span>
+        <div class={['m-radio--input', props.modelValue === props.label ? 'selected' : '']}></div>
+        <span class={'m-radio--label'}>{slotsDefault}</span>
       </label>
     )
   }

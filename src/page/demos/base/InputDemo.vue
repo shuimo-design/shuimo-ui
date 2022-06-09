@@ -3,19 +3,19 @@
     <BaseTitle>普通输入框</BaseTitle>
     <span>参数值：{{ data }}</span>
     <br/>
-    <w-input v-model="data"/>
+    <m-input v-model="data"/>
     <BaseTitle>空文本输入框</BaseTitle>
     <span>参数值：{{ emptyData }}</span>
     <br/>
-    <w-input v-model="emptyData" placeholder="请输入文字"/>
+    <m-input v-model="emptyData" placeholder="请输入文字"/>
     <BaseTitle>多文本输入框</BaseTitle>
-    <w-input v-model="data" type="textarea"/>
+    <m-input v-model="data" type="textarea"/>
     <BaseTitle>密码框</BaseTitle>
-    <w-input v-model="data" type="password"/>
+    <m-input v-model="data" type="password"/>
     <BaseTitle>数字输入框</BaseTitle>
     <span>输入的数字为：{{ number }}</span>
     <br/>
-    <w-input-number v-model="number" :max="100"/>
+    <m-input-number v-model="number" :max="100"/>
   </div>
 </template>
 

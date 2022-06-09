@@ -5,7 +5,7 @@
  * @version v2.0.0
  */
 
-import type { MessageDirectionType } from "../../../types/components/WMessage";
+import type { MessageDirectionType } from "../../../types/components/MMessage";
 
 interface AnimateKeyframe {
   composite?: 'accumulate' | 'add' | 'auto' | 'replace';

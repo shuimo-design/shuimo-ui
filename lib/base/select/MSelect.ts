@@ -14,25 +14,25 @@
  * v1.1.2 输入模式添加点击查询功能
  */
 import { defineComponent, h, Teleport, Transition, VNode } from 'vue';
-import WBorder from "../../other/border/WBorder";
-import WInput from "../input/WInput";
+import MBorder from "../../other/border/MBorder";
+import MInput from "../input/MInput";
 import { deepClone, notEmpty } from "../../dependents/_utils/tools";
 import ShowDomHandler from "./composables/ShowDomHandler";
 import SelectEventHandler from "./composables/SelectEventHandler";
 import { DOMTokenListToArray } from "../../dependents/_utils/dom";
 import { props } from "./api";
 
-type WSelectDataType = {
+type MSelectDataType = {
   showValue: string,
 }
 
 export default defineComponent({
-  name: 'WSelect',
+  name: 'MSelect',
   props,
   data() {
     return {
       showValue: '',
-    } as WSelectDataType
+    } as MSelectDataType
   },
   setup() {
     const { dropdownStyle, setStyle } = ShowDomHandler();
@@ -66,7 +66,7 @@ export default defineComponent({
         const path = keyEvent.composedPath();
         if (path && path.length > 0) {
           const input = path[0] as HTMLInputElement;
-          if (input.classList && DOMTokenListToArray(input.classList).includes('w-input-inner')) {
+          if (input.classList && DOMTokenListToArray(input.classList).includes('m-input-inner')) {
             keyEvent.stopPropagation();
             // 这里没用optionCopy有点愚蠢，但是等以后优化吧
             const option = this.options!.filter((e: any) => e[this.keyParam] === input.value);
@@ -108,7 +108,7 @@ export default defineComponent({
 
     let showNode = undefined;
     if (canChange && !disabled) {
-      showNode = h(WInput, {
+      showNode = h(MInput, {
         placeholder: ctx.placeholder,
         modelValue: ctx.showValue,
         'onUpdate:modelValue': (newValue: any) => {
@@ -117,9 +117,9 @@ export default defineComponent({
         onInput: canChangeInputEvent,
       });
     } else {
-      const wrapInputNode = (showNode: VNode) => h(WBorder, { class: 'w-select-border' }, () => showNode);
+      const wrapInputNode = (showNode: VNode) => h(MBorder, { class: 'm-select-border' }, () => showNode);
       showNode = wrapInputNode(h('div', {
-        class: 'w-select-div',
+        class: 'm-select-div',
       }, ctx.showValue));
     }
 
@@ -147,9 +147,9 @@ export default defineComponent({
 
       const dropdownDom = h('div', {
         style: dropdownStyle,
-        class: ['w-select-dropdown', 'w-select-dropdown-size'],
+        class: ['m-select-dropdown', 'm-select-dropdown-size'],
         onResize: leaveDropdown
-      }, notEmpty(dropdownOptionDom) ? dropdownOptionDom : h('div', { class: 'w-select-dropdown-empty' }, '暂无数据...'))
+      }, notEmpty(dropdownOptionDom) ? dropdownOptionDom : h('div', { class: 'm-select-dropdown-empty' }, '暂无数据...'))
 
 
       const transition = h(Transition, { name: 'w-opacity' }, {
@@ -181,7 +181,7 @@ export default defineComponent({
     });
 
 
-    return h('div', { class: 'w-select' }, [baseNose, teleportNode])
+    return h('div', { class: 'm-select' }, [baseNose, teleportNode])
 
   }
 })

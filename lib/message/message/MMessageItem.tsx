@@ -18,10 +18,10 @@ import successIcon from '../../assets/message/success.png';
 import errorIcon from '../../assets/message/error.png';
 import warningIcon from '../../assets/message/warning.png';
 import infoIcon from '../../assets/message/info.png';
-import type { MessageType } from "../../../types/components/WMessage";
+import type { MessageType } from "../../../types/components/MMessage";
 
 export default defineComponent({
-  name: 'WMessageItem',
+  name: 'MMessageItem',
   props,
   emits: ['closeDuration'],
   setup(props, { emit }) {
@@ -59,16 +59,16 @@ export default defineComponent({
     })
 
     const iconDom = (
-      <img class={'w-message-icon'} src={`${messageIcon[props.type]}`}/>
+      <img class={'m-message-icon'} src={`${messageIcon[props.type]}`}/>
     )
 
     const contentDom = (
-      <div class={'w-message-content'}>{props.content}</div>
+      <div class={'m-message-content'}>{props.content}</div>
     )
 
     return () => {
       return (
-        <div class={'w-message'} ref={domRef} onMouseenter={clearTimer} onMouseleave={setTimer}>
+        <div class={'m-message'} ref={domRef} onMouseenter={clearTimer} onMouseleave={setTimer}>
           {iconDom}
           {contentDom}
         </div>

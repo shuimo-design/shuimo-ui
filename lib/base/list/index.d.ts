@@ -4,10 +4,10 @@
  * @date 2022/4/24 21:56
  * @version v1.0.0
  *
- * @name w-list
- * @docDescription List component with wash-painting-ui style.
+ * @name m-list
+ * @docDescription List component with shuimo-ui style.
  *              水墨组件的列表组件。
- * @docUrl https://wash-painting.com/list
+ * @docUrl https://shuimo.janghood.com/list
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
