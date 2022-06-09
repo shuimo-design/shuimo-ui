@@ -64,12 +64,6 @@ const components: Record<any, Component> = {
   MList
 }
 
-const install = function (app: App) {
-  Object.keys(components).forEach(key => {
-    app.component(key, components[key]);
-  });
-  return app;
-};
 
 export {
   MInput,
@@ -102,6 +96,13 @@ export {
   MList
 };
 
-export const createMUI = () => {
-  return { install };
+export function createMUI() {
+  return {
+    install: (app: App) => {
+      Object.keys(components).forEach(key => {
+        app.component(key, components[key]);
+      });
+      return app;
+    }
+  };
 }
