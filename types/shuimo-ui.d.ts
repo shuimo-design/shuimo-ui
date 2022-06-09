@@ -18,9 +18,7 @@ declare module "shuimo-ui" {
 
 }
 
-export function createWUI(): {
-  install: (app: App<any>) => void
-};
+export function createMUI(): Plugin;
 
 export const MMessage: IMessage;
 export const MPrinter: IPrinter;
