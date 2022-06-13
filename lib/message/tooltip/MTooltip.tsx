@@ -1,10 +1,12 @@
 /**
- * @description MPopover
+ * @description MTooltip
  * @author youus
  * @date 2022/4/3 18:07
- * @version v1.0.0
+ * @version v1.1.0
  *
  * Hello, humor
+ *
+ * v1.1.0 阿怪 将弹出框边框改为MBorder组件
  */
 
 import { defineComponent, onMounted, ref, toRefs, Transition } from 'vue';
@@ -12,6 +14,7 @@ import Printer from '../../other/printer/Printer';
 import { props } from './api'
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
+import MBorder from '../../other/border/MBorder';
 
 
 const printer = Printer();
@@ -70,28 +73,26 @@ export default defineComponent({
         class="m-tooltip"
         style={interactiveStyle.value}
         onMouseleave={() => hover.value && closePopper()}
-        ref={popperContainerNode}
-      >
+        ref={popperContainerNode}>
         <div
           ref={triggerNode}
           onMouseover={() => hover.value && openPopper()}
           onClick={togglePopper}
           onFocus={openPopper}
-          onKeyup={(e) => e.key === 'Escape' && closePopper()}
-        >
+          onKeyup={(e) => e.key === 'Escape' && closePopper()}>
           {slots.default && slots.default()}
         </div>
         <Transition name="m-linear">
-          <div
-            onClick={() => !interactive.value && closePopper()}
-            class="m-tooltip-inner"
-            ref={popperNode}
-            hidden={!shouldShowPopper.value}
-          >
-            <div class="m-input__content">
-              {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
-            </div>
-            <div id="arrow" data-popper-arrow/>
+          <div onClick={() => !interactive.value && closePopper()}
+               class="m-tooltip-wrapper"
+               ref={popperNode}
+               hidden={!shouldShowPopper.value}>
+            <MBorder>
+              <div class="m-input__content">
+                {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
+              </div>
+            </MBorder>
+            <div class="m-arrow" data-popper-arrow/>
           </div>
         </Transition>
       </div>
