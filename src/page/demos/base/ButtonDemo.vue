@@ -1,6 +1,7 @@
 <template>
   <div class="code-div">
     <div>
+      <m-button text="链接" link href="/"/>
       <m-button text="hi" @click="printHi"/>
       <m-button text="长长长长长长长长长长长长长长" :disabled="true" @click="printHi"/>
       <m-button text="type测试" @click="printHi" type="gray"/>

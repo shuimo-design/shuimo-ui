@@ -22,6 +22,12 @@ export declare type ButtonProps = {
    */
   text?: string | VNode[],
   /**
+   * @description link or not 是否是链接
+   * @type boolean
+   * @default false
+   */
+  link?: boolean,
+  /**
    * @description disable or not 是否禁用
    * @type boolean
    * @default false

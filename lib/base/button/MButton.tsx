@@ -7,6 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 新增slot文本形式
  * v1.0.2 优化结构
+ * v1.0.3 添加link属性
  */
 import { h, defineComponent } from 'vue';
 import { props } from "./api";
@@ -18,7 +19,8 @@ export default defineComponent({
     const { disabled, type, text } = props;
     return () => {
       let buttonText = slots.default && slots.default() || text;
-      return h('button', {
+      const domType = props.link ? 'a' : 'button';
+      return h(domType, {
         class: ['m-button', { 'm-button-disabled': disabled }, `m-button-${type}`],
         disabled: disabled
       }, buttonText);

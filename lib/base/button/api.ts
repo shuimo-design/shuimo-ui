@@ -12,6 +12,7 @@ import { ButtonProps } from "./index";
 
 export const props: WCOPO<ButtonProps> = {
   text: { type: String, default: '' },
+  link: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   type: { type: String, default: 'primary' }
 }
