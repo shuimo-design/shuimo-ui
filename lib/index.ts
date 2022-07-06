@@ -31,7 +31,6 @@ import MForm from "./template/form/MForm";
 import MTable from "./template/table/MTable";
 import MTableColumn from "./template/table/MTableColumn";
 
-import WScroll from './other/scroll';
 import useDialog from './message/dialog/useDialog';
 
 import '../lib/style.scss'
@@ -87,7 +86,6 @@ export {
   MTableColumn,
   MBorder,
   MDrawer,
-  WScroll,
   MPrinter,
   MConfirm,
   MMessage,
