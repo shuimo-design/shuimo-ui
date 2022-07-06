@@ -15,46 +15,5 @@ body, html {
   overflow: hidden;
 }
 
-body {
-  background: url(/src/assets/base/bg.png) #cfdcdf no-repeat bottom;
-  background-size: 100% auto;
-}
 
-.m-menu {
-  font-family: wljh, serif;
-  letter-spacing: 2px;
-}
 
-.height-600 {
-  height: 600px;
-}
-
-.adventure-tip {
-  text-align: center;
-}
-
-.upload-demo {
-  img {
-    width: 117px;
-    height: 117px;
-  }
-}
-
-.main-border {
-  width: 100%;
-  height: 100%;
-
-  & > .m-border-main {
-    padding: 20px;
-  }
-}
-
-.code-drawer {
-  .m-drawer-main {
-    padding: 10px;
-  }
-
-  .language-html {
-    border-radius: 8px;
-  }
-}
