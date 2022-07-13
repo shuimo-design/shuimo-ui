@@ -33,6 +33,10 @@
 
 [点击这里(click here)](https://shuimo.janghood.com)
 
+## 讨论(discussion)
+
+[discord](https://discord.gg/xy3BenWvYj)
+
 ## 前身
 
 > 曾经的名字叫 **wash-painting-ui** ，冲浪了很久找不到什么信达雅的名字，就算这个名字也是冲浪很久翻出来的。
@@ -40,10 +44,13 @@
 
 ## TODO
 
-我们计划在完成以下组件后发布第一个稳定版本。
+我们计划在完成以下组件或任务后发布第一个稳定版本。
 
 - [ ] loading
 - [x] scroll
 - [ ] menu
-
-然近时忙，尚请待之。
+- [ ] tag
+- [ ] dialog与drawer设计统一
+- [ ] select、popover弹出元素优化
+- [ ] button组件丰富
+- [ ] input、radio、checkbox组件的disabled样式优化
