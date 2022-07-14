@@ -30,6 +30,7 @@ import MFormItem from "./template/form/MFormItem";
 import MForm from "./template/form/MForm";
 import MTable from "./template/table/MTable";
 import MTableColumn from "./template/table/MTableColumn";
+import MRicePaper from "./template/ricePaper/MRicePaper";
 
 import useDialog from './message/dialog/useDialog';
 
@@ -60,7 +61,8 @@ const components: Record<any, Component> = {
   MDrawer,
   MMessageItem,
   MCheckboxGroup,
-  MList
+  MList,
+  MRicePaper
 }
 
 
@@ -91,7 +93,8 @@ export {
   MMessage,
   useDialog,
   MCheckboxGroup,
-  MList
+  MList,
+  MRicePaper
 };
 
 export function createMUI() {

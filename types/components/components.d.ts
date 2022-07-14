@@ -32,6 +32,7 @@ import formItem from "../../lib/template/form/MFormItem";
 import pagination from "../../lib/template/pagination/MPagination";
 import table from "../../lib/template/table/MTable";
 import tableColumn from "../../lib/template/table/MTableColumn";
+import ricePaper from "../../lib/template/ricePaper/MRicePaper";
 
 export type keyType = any;
 
@@ -71,3 +72,4 @@ export declare const MFormItem: typeof formItem;
 export declare const MPagination: typeof pagination;
 export declare const MTable: typeof table;
 export declare const MTableColumn: typeof tableColumn;
+export declare const MRicePaper: typeof ricePaper;
