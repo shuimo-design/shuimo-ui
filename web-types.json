@@ -8,6 +8,15 @@
       "description-markup": "markdown",
       "tags": [
         {
+          "name": "m-border",
+          "source": {
+            "symbol": "MBorder"
+          },
+          "description": "border component with shuimo-ui style.\n水墨组件的边框组件。",
+          "doc-url": "https://shuimo.janghood.com/border",
+          "attributes": []
+        },
+        {
           "name": "m-button",
           "source": {
             "symbol": "MButton"
@@ -21,6 +30,15 @@
               "value": {
                 "type": "string|VNode[]",
                 "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "link",
+              "description": "link or not 是否是链接",
+              "value": {
+                "type": "boolean",
+                "default": "false",
                 "kind": "expression"
               }
             },
@@ -709,6 +727,34 @@
               "value": {
                 "type": "string",
                 "default": "",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
+          "name": "m-rice-paper",
+          "source": {
+            "symbol": "MRicePaper"
+          },
+          "description": "Rice paper layout component with shuimo-ui style.\n水墨组件的宣纸布局组件",
+          "doc-url": "https://shuimo.janghood.com/rice-paper",
+          "attributes": [
+            {
+              "name": "mountain",
+              "description": "是否显示山脉背景",
+              "value": {
+                "type": "boolean",
+                "default": "true",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "crane",
+              "description": "是否显示仙鹤",
+              "value": {
+                "type": "boolean",
+                "default": "true",
                 "kind": "expression"
               }
             }
