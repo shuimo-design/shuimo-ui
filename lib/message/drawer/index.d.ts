@@ -42,4 +42,11 @@ export declare type DrawerProps = {
    * @default []
    */
   drawerClass?: string[],
+  /**
+   * @description close button visible value
+   *              是否显示关闭按钮
+   * @type boolean
+   * @default true
+   */
+  closeBtn?: boolean,
 }

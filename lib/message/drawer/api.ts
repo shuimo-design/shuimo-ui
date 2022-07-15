@@ -13,5 +13,6 @@ export const props: WCOPO<DrawerProps> = {
   width: { type: String, default: '524px' },
   mask: { type: Object, default: { show: true, clickClose: true } },
   visible: { type: Boolean, default: false },
-  drawerClass: { type: Array, default: [] }
+  drawerClass: { type: Array, default: [] },
+  closeBtn: { type: Boolean, default: true }
 }

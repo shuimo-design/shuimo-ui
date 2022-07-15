@@ -2,65 +2,74 @@
  * @description 弹窗组件
  * @author: 阿怪
  * @date 2020/11/23 3:08 下午
- * @version V1.0.0
+ * @version v1.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行
+ *
+ * 太多魔法值了不太好维护，抽空优化下
+ *
+ * v1.0.1 阿怪 调整代码结构为setup形式，抽离关闭按钮
  */
 
-import { h, defineComponent, Teleport } from 'vue';
+import { h, defineComponent, Teleport, computed, nextTick } from 'vue';
 import useDialog from "../../dependents/_composables/useDialog";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import { props } from "./api";
+import MDialogCloseBtn from "./MDialogCloseBtn";
 
 export default defineComponent({
   name: 'MDialog',
   props,
   emits: [CLOSE_EVENT, CONFIRM_EVENT],
-  setup(props, context) {
-    const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, context);
-    return { pes, maskClass, resetSize, maskClick, closeDialog };
-  },
-  computed: {
-    baseStyle() {
+  setup(props, { slots, emit }) {
+    const { pes, maskClass, resetSize, maskClick, closeDialog } = useDialog(props, { emit });
+
+    const baseStyle = computed(() => {
       const baseH = 236, baseW = 368, basePaddingTop = 70, basePaddingSide = 35;
-      const { pes } = this;
       return {
-        'padding-top': `${basePaddingTop * pes}px`,
-        'padding-left': `${basePaddingSide * pes}px`,
-        'padding-right': `${basePaddingSide * pes}px`,
-        'height': `${baseH * pes}px`,
-        'width': `${baseW * pes}px`,
+        'padding-top': `${basePaddingTop * pes.value}px`,
+        'padding-left': `${basePaddingSide * pes.value}px`,
+        'padding-right': `${basePaddingSide * pes.value}px`,
+        'height': `${baseH * pes.value}px`,
+        'width': `${baseW * pes.value}px`,
       }
-    },
-    closeBtnBaseStyle() {
+    })
+
+    const closeBtnBaseStyle = computed(() => {
       const top = 41, left = 427;
-      const { pes } = this;
       return {
-        'top': `${top * pes}px`,
-        'left': `${left * pes - 23}px`,
+        'top': `${top * pes.value}px`,
+        'left': `${left * pes.value - 23}px`,
       }
-    }
-  },
-  render() {
-    const classes = this.maskClass;
-    const { visible, mask } = this;
-    const { maskClick, closeDialog } = this;
-    if (!visible) {
-      return null;
-    }
-    const { resetSize } = this;
-    this.$nextTick(() => {
-      resetSize(236, 368);
     });
-    return (
-      <Teleport to="body">
-        <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
-          <div class="m-dialog" style={this.baseStyle}>
-            <div class="dialog-close-btn m-cursor-pointer" style={this.closeBtnBaseStyle} onClick={closeDialog}/>
-            {this.$slots.default!()}
+
+
+
+
+    return () => {
+      const classes = maskClass.value;
+      const { visible, mask } = props;
+      if (!visible) {
+        return null;
+      }
+      nextTick(() => {
+        resetSize(236, 368);
+      }).then();
+
+      const closeBtn = props.closeBtn ?
+        (<MDialogCloseBtn style={closeBtnBaseStyle.value} onClick={closeDialog}/>) :
+        undefined;
+
+      return (
+        <Teleport to="body">
+          <div class={classes} onClick={mask.clickClose ? maskClick : undefined}>
+            <div class="m-dialog" style={baseStyle.value}>
+              {closeBtn}
+              {slots.default!()}
+            </div>
           </div>
-        </div>
-      </Teleport>
-    )
+        </Teleport>
+      )
+    }
   }
 });

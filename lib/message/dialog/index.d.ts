@@ -28,12 +28,12 @@ export declare type DialogProps = {
    */
   visible?: boolean,
   /**
-   * @description confirmText button text
-   *              确认按钮文本
-   * @type string
-   * @default ''
+   * @description close button visible value
+   *              是否显示关闭按钮
+   * @type boolean
+   * @default true
    */
-  confirmText?: string,
+  closeBtn?: boolean,
 }
 
 

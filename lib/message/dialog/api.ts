@@ -13,5 +13,5 @@ import { DialogProps } from "./index";
 export const props: WCOPO<DialogProps> = {
   mask: { type: Object, default: { show: true, clickClose: true } },
   visible: { type: Boolean, default: false },
-  confirmText: { type: String, default: '我知道了' }
+  closeBtn: { type: Boolean, default: true }
 }

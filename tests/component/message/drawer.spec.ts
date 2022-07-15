@@ -68,4 +68,37 @@ describe('抽屉组件', () => {
     expect(bodyWrapper.findAll('.mask-bg').length).toBe(0);
     wrapper.unmount();
   });
+
+  test('不渲染close按钮', async () => {
+    const wrapper = mount(MDrawer, {
+      props: {
+        visible: true,
+        closeBtn: false,
+      },
+      slots: {
+        default: () => h('div', 'hello')
+      }
+
+    });
+    const bodyWrapper = new DOMWrapper(body);
+    expect(bodyWrapper.html()).not.toContain('m-dialog-close-btn');
+    wrapper.unmount();
+  });
+
+  test('渲染close按钮', async () => {
+    const wrapper = mount(MDrawer, {
+      props: {
+        visible: true,
+        closeBtn: true,
+      },
+      slots: {
+        default: () => h('div', 'hello')
+      }
+
+    });
+    const bodyWrapper = new DOMWrapper(body);
+    expect(bodyWrapper.html()).toContain('m-dialog-close-btn');
+    wrapper.unmount();
+  });
+
 });
