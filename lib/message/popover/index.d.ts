@@ -35,7 +35,7 @@ export type MPopoverProps = {
   /**
    * @description Offset in pixels away from the trigger element
    * @type string
-   * @default '12'
+   * @default '0'
    */
   offsetDistance?: string;
   /**

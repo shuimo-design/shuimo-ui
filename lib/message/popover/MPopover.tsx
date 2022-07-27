@@ -12,6 +12,7 @@ import Printer from '../../other/printer/Printer';
 import { props } from "./api";
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
+import MBorder from "../../other/border/MBorder";
 
 const printer = Printer();
 
@@ -81,13 +82,12 @@ export default defineComponent({
         <Transition name="m-linear">
           <div
             onClick={() => !interactive.value && closePopper()}
-            class="popover"
             ref={popperNode}
             hidden={!shouldShowPopper.value}
           >
-            <div class="content">
+            <MBorder class="m-popover-content">
               {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
-            </div>
+            </MBorder>
           </div>
         </Transition>
       </div>

@@ -1,13 +1,10 @@
 <template>
-  <div class="base">
-    <h1>这里是playground</h1>
-
-
-    <m-button @click="showDialog">打开drawer</m-button>
-    <m-drawer :visible="visible" @close="closeDialog" :close-btn="toggleCloseBtn">
-      <m-button @click="clickCloseBtn">toggle</m-button>
-    </m-drawer>
-  </div>
+  <m-popover hover>
+    <m-button text="将毛笔移入试试"/>
+    <template #content>
+      <div class="popover">大侠别来无恙！</div>
+    </template>
+  </m-popover>
 </template>
 
 <script lang="ts" setup>
@@ -19,46 +16,18 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { useDialog } from "../../lib";
-import { ref } from "vue";
 
-const { visible, closeDialog, showDialog } = useDialog();
-
-const toggleCloseBtn = ref(true);
-const clickCloseBtn = () => {
-  toggleCloseBtn.value = !toggleCloseBtn.value;
-}
 
 </script>
 
 <style lang="scss" scoped>
 
-.base {
+.popover {
+  height: 150px;
+  width: 200px;
   display: flex;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-
+  justify-content: center;
 }
 
-.test {
-  height: 400px;
-  width: 400px;
-  overflow: auto;
-
-}
-
-.inside {
-  height: 5000px;
-  width: 1200px;
-  background: linear-gradient(0deg, #ffc700 0%, #e91e1e 100%);
-
-}
-
-.test-paper {
-  height: 500px;
-  width: 500px;
-}
 </style>

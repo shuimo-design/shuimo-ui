@@ -34,7 +34,7 @@ export const props: WCOPO<MPopoverProps> = {
   },
   disableClickAway: { type: Boolean, default: false },
   offsetSkid: { type: String, default: '0' },
-  offsetDistance: { type: String, default: '12' },
+  offsetDistance: { type: String, default: '0' },
   hover: { type: Boolean, default: false },
   show: { type: Boolean, default: null },
   disabled: { type: Boolean, default: false },
