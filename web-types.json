@@ -218,11 +218,11 @@
               }
             },
             {
-              "name": "confirmText",
-              "description": "confirmText button text\n确认按钮文本",
+              "name": "closeBtn",
+              "description": "close button visible value\n是否显示关闭按钮",
               "value": {
-                "type": "string",
-                "default": "",
+                "type": "boolean",
+                "default": "true",
                 "kind": "expression"
               }
             }
@@ -278,6 +278,15 @@
               "value": {
                 "type": "string[]",
                 "default": "[]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "closeBtn",
+              "description": "close button visible value\n是否显示关闭按钮",
+              "value": {
+                "type": "boolean",
+                "default": "true",
                 "kind": "expression"
               }
             }
@@ -553,7 +562,7 @@
               "description": "Offset in pixels away from the trigger element",
               "value": {
                 "type": "string;",
-                "default": "'12'",
+                "default": "'0'",
                 "kind": "expression"
               }
             },
