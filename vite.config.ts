@@ -2,7 +2,6 @@
 import { defineConfig, ConfigEnv, BuildOptions } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { codeHtmlPlugin } from "./src/plugins/codeHtmlPlugin";
 import RollupPluginFontmin from '@higuaifan/rollup-plugin-fontmin';
 
 
@@ -32,7 +31,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
   return {
     build,
     server: { port: 8513 },
-    plugins: [mode === 'server' ? codeHtmlPlugin : undefined, vue(), vueJsx()],
+    plugins: [ vue(), vueJsx()],
     test: {
       transformMode: {
         web: [/\.[jt]sx$/],
