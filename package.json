@@ -49,13 +49,11 @@
     "@vue/test-utils": "^2.0.0-rc.21",
     "c8": "^7.11.2",
     "jsdom": "^19.0.0",
-    "prismjs": "^1.28.0",
     "sass": "^1.51.0",
     "typescript": "^4.6.4",
     "vite": "^2.9.6",
     "vitest": "^0.9.4",
-    "vue": "^3.2.33",
-    "vue-router": "^4.0.14"
+    "vue": "^3.2.33"
   },
   "repository": {
     "type": "git",

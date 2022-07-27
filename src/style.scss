@@ -1,17 +1,8 @@
-@import '/node_modules/prismjs/themes/prism-tomorrow.css';
-@import "/node_modules/prismjs/plugins/toolbar/prism-toolbar.css";
-
-@font-face {
-  font-family: wljh;
-  src: url(/src/assets/fonts/wljh.ttf);
-}
-
 body, html {
   margin: 0;
   padding: 0;
   font-size: 14px;
   color: #333;
-  cursor: url("./assets/mouse/point.png"), auto;
   overflow: hidden;
 }
 
