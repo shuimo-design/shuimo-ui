@@ -1,10 +1,12 @@
 <template>
-  <m-popover hover>
-    <m-button text="将毛笔移入试试"/>
-    <template #content>
-      <div class="popover">大侠别来无恙！</div>
-    </template>
-  </m-popover>
+
+  <m-button>默认</m-button>
+  <m-button type="primary">主要的</m-button>
+  <m-button type="error">错误</m-button>
+  <m-button type="confirm">确认/保存</m-button>
+  <m-button type="warning">警告</m-button>
+  <m-button disabled>禁用</m-button>
+
 </template>
 
 <script lang="ts" setup>
@@ -22,12 +24,13 @@
 
 <style lang="scss" scoped>
 
-.popover {
-  height: 150px;
-  width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.m-button {
+  margin: 15px;
+}
+
+:deep(.m-button-primary) {
+  --m-button-height: 80px;
+  --m-button-width: 180px;
 }
 
 </style>

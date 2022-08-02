@@ -11,7 +11,7 @@
 import Main from './page/Main.vue';
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .main-paper {
   height: 100vh;
