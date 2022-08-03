@@ -23,10 +23,13 @@ export default defineComponent({
       let buttonText = slots.default && slots.default() || text;
       const domType = props.link ? 'a' : 'button';
       const button = h(domType, {
-        class: ['m-button-base', { 'm-button-disabled': disabled }, `m-button-${type}`],
+        class: ['m-button-base'],
         disabled: disabled
       }, buttonText)
-      return h(MButtonBorder, { class: 'm-button' }, () => button);
+      return h(MButtonBorder, {
+          class: ['m-button', `m-button-${type}`, { 'm-button-disabled': disabled }]
+        },
+        () => button);
     }
   }
 })

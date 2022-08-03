@@ -1,8 +1,50 @@
+$types: default, primary, error, confirm, warning;
+
 .m-button {
   --m-button-min-width: 70px;
   --m-button-width: auto;
   --m-button-height: 28px;
   --m-button-line-height: 24px;
+
+  &.m-button-disabled {
+
+    button {
+      color: var(--m-color-text-disabled) !important;
+    }
+
+    .m-button-border-line {
+      @extend .m-cursor-disabled;
+    }
+
+
+    button {
+      background: url('/lib/base/button/assets/bg/disabled.png') !important;
+      background-size: 20.8px 9.6px !important;
+      color: var(--m-color-text);
+    }
+
+  }
+
+  @each $type in $types {
+
+
+    &.m-button-#{$type} button {
+      background: url('/lib/base/button/assets/bg/#{$type}.png');
+      background-size: 20.8px 9.6px;
+
+    }
+
+    &:hover {
+
+      &.m-button-#{$type} button {
+        background: url('/lib/base/button/assets/bg/hover/#{$type}.png');
+        background-size: 20.8px 9.6px;
+      }
+    }
+
+  }
+
+
 }
 
 
@@ -19,18 +61,6 @@
   text-align: center;
 }
 
-$types: default, primary, error, confirm, warning, disabled;
-
-@each $type in $types {
-  .m-button-#{$type} {
-    background: url('/lib/base/button/assets/bg/#{$type}.png');
-    background-size: 20.8px 9.8px;
-  }
-}
-
-.m-button-disabled {
-  color: var(--m-color-text);
-}
 
 a.m-button {
   text-decoration: unset;
@@ -49,6 +79,7 @@ a.m-button {
 }
 
 .m-button-border-line, .m-button-border-main {
+  @extend .m-cursor-pointer;
   display: inline-block;
 }
 
