@@ -43,10 +43,10 @@ describe('按钮组件', () => {
   test('参数type', () => {
     const wrapper = mount(MButton, {
       props: {
-        type: 'gray'
+        type: 'primary'
       }
     });
-    expect(wrapper.html()).toContain('m-button-gray');
+    expect(wrapper.html()).toContain('m-button-primary');
   });
 
   test('参数disabled', () => {
