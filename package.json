@@ -29,7 +29,8 @@
     "build": "vite build --mode npm",
     "server": "vite build --mode server",
     "publish": "npm publish --access public",
-    "test": "vitest -u",
+    "test": "vitest",
+    "test:update": "vitest -u",
     "test:unit-gui": "vitest --config vite.config.ts --ui",
     "coverage": "vitest --coverage",
     "api": "jh-api"
