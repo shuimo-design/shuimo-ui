@@ -1,146 +1,37 @@
-$types: default, primary, error, confirm, warning;
-
 .m-button {
-  --m-button-min-width: 70px;
-  --m-button-width: auto;
-  --m-button-height: 28px;
-  --m-button-line-height: 24px;
-
-  &.m-button-disabled {
-
-    button {
-      color: var(--m-color-text-disabled) !important;
-    }
-
-    .m-button-border-line {
-      @extend .m-cursor-disabled;
-    }
-
-
-    button {
-      background: url('/lib/base/button/assets/bg/disabled.png') !important;
-      background-size: 20.8px 9.6px !important;
-      color: var(--m-color-text);
-    }
-
-  }
-
-  @each $type in $types {
-
-
-    &.m-button-#{$type} button {
-      background: url('/lib/base/button/assets/bg/#{$type}.png');
-      background-size: 20.8px 9.6px;
-
-    }
-
-    &:hover {
-
-      &.m-button-#{$type} button {
-        background: url('/lib/base/button/assets/bg/hover/#{$type}.png');
-        background-size: 20.8px 9.6px;
-      }
-    }
-
-  }
-
-
-}
-
-
-.m-button-base {
   @extend .m-cursor-pointer;
   padding: 0 15px;
-  min-width: var(--m-button-min-width);
-  width: var(--m-button-width);
-  height: var(--m-button-height);
-  line-height: var(--m-button-line-height);
-  border: unset;
+  height: 32px;
   outline: unset;
+  line-height: 24px;
+  min-width: 70px;
+  border: 5px double transparent;
+  border-radius: 2px;
+  border-image: url("/lib/base/button/assets/border/base.png") 8;
   color: white;
   text-align: center;
 }
 
+$types: default, primary, error, confirm, warning;
+
+@each $type in $types {
+  .m-button-#{$type} {
+    background: url('/lib/base/button/assets/bg/#{$type}.png');
+    background-size: 20.8px 9.8px;
+
+    &:hover {
+      background: url('/lib/base/button/assets/bg/hover/#{$type}.png');
+      background-size: 20.8px 9.8px;
+    }
+  }
+}
 
 a.m-button {
   text-decoration: unset;
 }
 
-
-// 边框模块
-
-.m-button-border {
-  display: inline-grid;
-  grid-template-columns: 22px auto 22px;
-  grid-template-rows: 11px auto 11px;
-  grid-template-areas: "topleft top topright"
-                       "left main right"
-                       "bottomleft bottom bottomright";
-}
-
-.m-button-border-line, .m-button-border-main {
-  @extend .m-cursor-pointer;
-  display: inline-block;
-}
-
-.m-button-border-main {
-  box-sizing: border-box;
-  grid-area: topleft / topleft / bottomright / bottomright;
-  overflow: auto;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  margin: 0 1px 1px;
-}
-
-.m-button-border-line {
-  position: relative;
-}
-
-
-.m-button-border-top {
-  grid-area: top;
-  background: url('/lib/base/button/assets/border/top.png') repeat-x;
-  background-size: auto 11px;
-}
-
-.m-button-border-bottom {
-  grid-area: bottom;
-  background: url('/lib/base/button/assets/border/bottom.png') repeat-x;
-  background-size: auto 11px;
-}
-
-.m-button-border-left {
-  grid-area: left;
-  background: url('/lib/base/button/assets/border/left.png') repeat-y;
-  background-size: 22px auto;
-}
-
-.m-button-border-right {
-  grid-area: right;
-  background: url('/lib/base/button/assets/border/right.png') repeat-y;
-  background-size: 22px auto;
-}
-
-.m-button-border-top-left {
-  grid-area: topleft;
-  background: url('/lib/base/button/assets/border/top-left.png') no-repeat;
-  background-size: 22px 11px;
-}
-
-.m-button-border-top-right {
-  grid-area: topright;
-  background: url('/lib/base/button/assets/border/top-right.png') no-repeat;
-  background-size: 22px 11px;
-}
-
-.m-button-border-bottom-left {
-  grid-area: bottomleft;
-  background: url('/lib/base/button/assets/border/bottom-left.png') no-repeat;
-  background-size: 22px 11px;
-}
-
-.m-button-border-bottom-right {
-  grid-area: bottomright;
-  background: url('/lib/base/button/assets/border/bottom-right.png') no-repeat;
-  background-size: 22px 11px;
+.m-button-disabled, .m-button-disabled:hover {
+  background: url('/lib/base/button/assets/bg/disabled.png');
+  background-size: 20.8px 9.8px;
+  color: var(--m-color-text-disabled);
 }
