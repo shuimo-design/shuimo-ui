@@ -14,6 +14,7 @@ import inputNumber from "../../lib/base/inputNumber/MInputNumber";
 import radio from "../../lib/base/radio/MRadio";
 import select from "../../lib/base/select/MSelect";
 import list from "../../lib/base/list/MList";
+import tag from "../../lib/base/tag/MTag";
 
 import dialog from "../../lib/message/dialog/MDialog";
 import drawer from "../../lib/message/drawer/MDrawer";
@@ -53,6 +54,7 @@ export declare const MDatePicker: typeof datepicker;
 export declare const MRadio: typeof radio;
 export declare const MSelect: typeof select;
 export declare const MList: typeof list;
+export declare const MTag: typeof tag;
 
 export declare const MDialog: typeof dialog;
 export declare const MDrawer: typeof drawer;

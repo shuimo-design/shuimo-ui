@@ -915,6 +915,25 @@
           ]
         },
         {
+          "name": "m-tag",
+          "source": {
+            "symbol": "MTag"
+          },
+          "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。",
+          "doc-url": "https://shuimo.janghood.com/tag",
+          "attributes": [
+            {
+              "name": "type",
+              "description": "button type 按钮类型",
+              "value": {
+                "type": "string",
+                "default": "default",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
           "name": "m-tooltip",
           "source": {
             "symbol": "MTooltip"

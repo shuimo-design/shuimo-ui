@@ -9,6 +9,7 @@ import MRadio from './base/radio/MRadio';
 import MCheckbox from './base/checkbox/MCheckbox';
 import MCheckboxGroup from './base/checkbox/MCheckboxGroup';
 import MList from './base/list/MList';
+import MTag from './base/tag/MTag';
 
 import MConfirm from './message/confirm/MConfirm';
 import MDialog from './message/dialog/MDialog';
@@ -62,7 +63,8 @@ const components: Record<any, Component> = {
   MMessageItem,
   MCheckboxGroup,
   MList,
-  MRicePaper
+  MRicePaper,
+  MTag
 }
 
 
@@ -94,7 +96,8 @@ export {
   useDialog,
   MCheckboxGroup,
   MList,
-  MRicePaper
+  MRicePaper,
+  MTag
 };
 
 export function createMUI() {

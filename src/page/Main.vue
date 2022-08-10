@@ -1,11 +1,11 @@
 <template>
 
-  <m-button>默认</m-button>
-  <m-button type="primary">主要的</m-button>
-  <m-button type="error">错误</m-button>
-  <m-button type="confirm">确认/保存</m-button>
-  <m-button type="warning">警告</m-button>
-  <m-button disabled>禁用</m-button>
+  <m-tag>测试标签</m-tag>
+  <m-tag>测试长度过长长长长长长长长长长长长长长长长长长长长长长长长长长标签</m-tag>
+  <m-tag type="primary">primary</m-tag>
+  <m-tag type="confirm">confirm</m-tag>
+  <m-tag type="error">error</m-tag>
+  <m-tag type="warning">warning</m-tag>
 
 </template>
 
@@ -23,14 +23,5 @@
 </script>
 
 <style lang="scss" scoped>
-
-.m-button {
-  margin: 15px;
-}
-
-:deep(.m-button-primary) {
-  --m-button-height: 80px;
-  --m-button-width: 180px;
-}
 
 </style>

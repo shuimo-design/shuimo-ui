@@ -49,8 +49,8 @@
 - [ ] loading
 - [x] scroll
 - [ ] menu
-- [ ] tag
+- [x] tag
 - [ ] dialog与drawer设计统一
 - [ ] select、popover弹出元素优化
-- [ ] button组件丰富
+- [x] button组件丰富
 - [ ] input、radio、checkbox组件的disabled样式优化
