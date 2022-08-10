@@ -16,6 +16,11 @@
   display: grid;
   grid-template-areas: 'main';
   overflow: hidden;
+
+  &.m-rice-paper-warm {
+    background: url(/lib/template/ricePaper/assets/rice_paper_warm.png) repeat;
+    display: grid;
+  }
 }
 
 .m-rice-paper-mountain {

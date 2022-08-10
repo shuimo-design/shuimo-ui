@@ -750,6 +750,15 @@
           "doc-url": "https://shuimo.janghood.com/rice-paper",
           "attributes": [
             {
+              "name": "cold",
+              "description": "是否使用冷色调",
+              "value": {
+                "type": "boolean",
+                "default": "true",
+                "kind": "expression"
+              }
+            },
+            {
               "name": "mountain",
               "description": "是否显示山脉背景",
               "value": {

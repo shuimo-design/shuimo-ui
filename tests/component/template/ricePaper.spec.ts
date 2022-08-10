@@ -54,5 +54,26 @@ describe('宣纸组件', () => {
     `);
   })
 
+  test('使用暖色调', () => {
+    const wrapper = mount(MRicePaper, {
+      props: {
+        cold: false
+      },
+      slots: {
+        default: '<div>测试</div>'
+      }
+    });
+
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div class=\\"m-rice-paper m-rice-paper-warm\\">
+        <div class=\\"m-rice-paper-mountain\\"></div>
+        <div class=\\"m-rice-paper-crane\\"></div>
+        <div class=\\"m-rice-paper-main\\">
+          <div>测试</div>
+        </div>
+      </div>"
+    `);
+  })
+
 
 })

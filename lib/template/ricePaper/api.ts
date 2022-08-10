@@ -11,6 +11,7 @@ import { RicePaperProps } from "./index";
 
 
 export const props: WCOPO<RicePaperProps> = {
+  cold: { type: Boolean, default: true },
   mountain: { type: Boolean, default: true },
   crane: { type: Boolean, default: true },
 }

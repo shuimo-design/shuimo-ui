@@ -14,6 +14,12 @@
 
 export declare type RicePaperProps = {
   /**
+   * @description 是否使用冷色调
+   * @type boolean
+   * @default true
+   */
+  cold?: boolean,
+  /**
    * @description 是否显示山脉背景
    * @type boolean
    * @default true
