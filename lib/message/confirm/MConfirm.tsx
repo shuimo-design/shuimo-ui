@@ -37,8 +37,8 @@ const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
           }
         },
         render(ctx: any) {
-          const confirmBtn = h(MButton, { text: '确定', onClick: ctx.confirm });
-          const cancelBtn = h(MButton, { text: '取消', type: 'gray', onClick: ctx.cancel });
+          const confirmBtn = h(MButton, { text: '确定', type: 'primary', onClick: ctx.confirm });
+          const cancelBtn = h(MButton, { text: '取消', onClick: ctx.cancel });
           return (
             <div class="mask mask-bg">
               <div class="m-confirm">
