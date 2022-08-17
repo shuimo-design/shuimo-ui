@@ -10,6 +10,7 @@ import MCheckbox from './base/checkbox/MCheckbox';
 import MCheckboxGroup from './base/checkbox/MCheckboxGroup';
 import MList from './base/list/MList';
 import MTag from './base/tag/MTag';
+import MSwitch from './base/switch/MSwitch';
 
 import MConfirm from './message/confirm/MConfirm';
 import MDialog from './message/dialog/MDialog';
@@ -64,7 +65,8 @@ const components: Record<any, Component> = {
   MCheckboxGroup,
   MList,
   MRicePaper,
-  MTag
+  MTag,
+  MSwitch
 }
 
 
@@ -97,7 +99,8 @@ export {
   MCheckboxGroup,
   MList,
   MRicePaper,
-  MTag
+  MTag,
+  MSwitch
 };
 
 export function createMUI() {

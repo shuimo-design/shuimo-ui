@@ -1,3 +1,20 @@
+[class^="m-"], .m-cursor {
+  cursor: url("/lib/assets/cursor/auto.png"), auto;
+
+  &:disabled {
+    cursor: url("/lib/assets/cursor/disabled.png"), auto;
+  }
+}
+
+.m-cursor-pointer {
+  cursor: url("/lib/assets/cursor/pointer.png"), auto;
+}
+
+.m-cursor-disabled {
+  cursor: url("/lib/assets/cursor/disabled.png"), auto;
+}
+
+
 @import "./style/color.scss";
 @import './assets/transition/transition.scss';
 
@@ -10,6 +27,7 @@
 @import './base/checkbox/checkbox.scss';
 @import './base/list/list.scss';
 @import './base/tag/tag.scss';
+@import './base/switch/switch.scss';
 
 @import './other/upload/upload.scss';
 @import './other/divider/divider.scss';
@@ -29,19 +47,3 @@
 @import './message/confirm/confirm.scss';
 @import './message/popover/popover.scss';
 @import './message/tooltip/tooltip.scss';
-
-[class^="m-"], .m-cursor {
-  cursor: url("/lib/assets/cursor/auto.png"), auto;
-
-  &:disabled {
-    cursor: url("/lib/assets/cursor/disabled.png"), auto;
-  }
-}
-
-.m-cursor-pointer {
-  cursor: url("/lib/assets/cursor/pointer.png"), auto;
-}
-
-.m-cursor-disabled {
-  cursor: url("/lib/assets/cursor/disabled.png"), auto;
-}
