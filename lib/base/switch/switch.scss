@@ -89,6 +89,9 @@
   }
 
   &.m-switch-loading {
+    .m-switch-core-border{
+      @extend .m-cursor-disabled;
+    }
 
     .m-switch-core {
       animation: spin 5s linear infinite;
