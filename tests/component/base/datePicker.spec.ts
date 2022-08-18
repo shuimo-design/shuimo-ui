@@ -78,12 +78,12 @@ describe('伴随事件', () => {
       yearTable = wrapper.getComponent(YearTable);
       monthTable = wrapper.getComponent(MonthTable);
       dateTable = wrapper.getComponent(DateTable);
-      calendar = calendarDropdown.find('.calendar-dropdown');
+      calendar = calendarDropdown.find('.m-calendar-dropdown');
     })
 
     test('Header模块渲染', async () => {
       expect(calendar.isVisible()).toBe(true);
-      const spans = calendar.findAll('.calendar-dropdown-header span');
+      const spans = calendar.findAll('.m-calendar-dropdown-header span');
       expect(spans[0].text()).toBe(year.toString());
       expect(spans[2].text()).toBe(`0${month}`);
     });
@@ -93,9 +93,9 @@ describe('伴随事件', () => {
       await calendar.find('.m-year').trigger('click');
       expect(yearTable.isVisible()).toBe(true);
 
-      await calendar.find('.calendar-year-prev').trigger('click');
+      await calendar.find('.m-calendar-year-prev').trigger('click');
       expect(calendar.find('.m-year').text()).toBe('2010 - 2019');
-      await calendar.find('.calendar-year-next').trigger('click');
+      await calendar.find('.m-calendar-year-next').trigger('click');
       expect(calendar.find('.m-year').text()).toBe('2020 - 2029');
     });
 
@@ -103,9 +103,9 @@ describe('伴随事件', () => {
       expect(monthTable.isVisible()).toBe(false);
       await calendar.find('.m-month').trigger('click');
       expect(monthTable.isVisible()).toBe(true);
-      await calendar.find('.calendar-month-prev').trigger('click');
+      await calendar.find('.m-calendar-month-prev').trigger('click');
       expect(calendar.find('.m-month').text()).toBe(`0${month - 1}`);
-      await calendar.find('.calendar-month-next').trigger('click');
+      await calendar.find('.m-calendar-month-next').trigger('click');
       expect(calendar.find('.m-month').text()).toBe(`0${month}`);
     });
 
@@ -125,11 +125,11 @@ describe('伴随事件', () => {
       }
     });
     await wrapper.find('.m-date-picker-div').trigger('click');
-    const calendar = teleportTarget.find('.calendar-dropdown');
+    const calendar = teleportTarget.find('.m-calendar-dropdown');
     expect(calendar.isVisible()).toBe(true);
     expect(calendar.find('.month-table').isVisible()).toBe(true);
 
-    const spans = document.querySelectorAll('.calendar-dropdown-header span');
+    const spans = document.querySelectorAll('.m-calendar-dropdown-header span');
     const year = new Date().getFullYear();
     const month = (new Date().getMonth() + 1) < 10 ? `0${(new Date().getMonth() + 1)}` : (new Date().getMonth() + 1);
     expect(spans[0].textContent).toContain(`${year}`);
