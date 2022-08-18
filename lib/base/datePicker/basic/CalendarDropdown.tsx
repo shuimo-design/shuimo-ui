@@ -35,10 +35,10 @@ export default defineComponent({
     return () => (
       <div v-show={isCalendarDropdown.value}
            style={dropdownStyle.value}
-           class="calendar-dropdown">
-        <div class="calendar-dropdown-header">
-          <button class="calendar-year-prev m-cursor-pointer" onClick={prevYearHandler}/>
-          <button class="calendar-month-prev m-cursor-pointer"
+           class="m-calendar-dropdown">
+        <div class="m-calendar-dropdown-header">
+          <button class="m-calendar-year-prev m-cursor-pointer" onClick={prevYearHandler}/>
+          <button class="m-calendar-month-prev m-cursor-pointer"
                   v-show={currentView.value === 'date'}
                   onClick={prevMonthHandler}/>
           <span class="m-year m-cursor-pointer"
@@ -47,12 +47,12 @@ export default defineComponent({
           <span class="m-month m-cursor-pointer"
                 onClick={showMonthPicker}
                 v-show={currentView.value === 'date'}>{month.value}</span>
-          <button class="calendar-month-next m-cursor-pointer"
+          <button class="m-calendar-month-next m-cursor-pointer"
                   v-show={currentView.value === 'date'}
                   onClick={nextMonthHandler}/>
-          <button class="calendar-year-next m-cursor-pointer" onClick={nextYearHandler}/>
+          <button class="m-calendar-year-next m-cursor-pointer" onClick={nextYearHandler}/>
         </div>
-        <div class="content">
+        <div class="m-calendar-content">
           <DateTable date={date.value}
                      v-show={currentView.value === 'date'}
                      onPick={datePickHandler}

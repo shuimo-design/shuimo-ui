@@ -11,7 +11,7 @@
     line-height: 31px;
   }
 
-  .calendar-icon {
+  .m-calendar-icon {
     background: transparent;
     position: relative;
     bottom: -3px;
@@ -23,7 +23,7 @@
   }
 }
 
-.calendar-dropdown {
+.m-calendar-dropdown {
   position: absolute;
   background: url("/lib/assets/date-picker/calendar_border.png") no-repeat;
   background-size: 100% 100%;
@@ -33,7 +33,11 @@
   padding: 2px 0 5px;
   z-index: 9999;
 
-  .calendar-dropdown-header {
+  .m-calendar-content {
+    font-size: 14px;
+  }
+
+  .m-calendar-dropdown-header {
     height: 21px;
     margin-top: 6px;
     width: 240px;
@@ -61,34 +65,34 @@
       bottom: -2px;
     }
 
-    .calendar-year-prev:before {
+    .m-calendar-year-prev:before {
       content: url("/lib/assets/date-picker/calendar_year_prev.png");
     }
 
-    .calendar-month-prev:before {
+    .m-calendar-month-prev:before {
       content: url("/lib/assets/date-picker/calendar_month_prev.png");
     }
 
-    .calendar-year-next:before {
+    .m-calendar-year-next:before {
       content: url("/lib/assets/date-picker/calendar_year_next.png");
     }
 
-    .calendar-month-next:before {
+    .m-calendar-month-next:before {
       content: url("/lib/assets/date-picker/calendar_month_next.png");
     }
 
-    .calendar-year-prev:active,
-    .calendar-month-prev:active {
+    .m-calendar-year-prev:active,
+    .m-calendar-month-prev:active {
       left: -2px;
     }
 
-    .calendar-year-next:active,
-    .calendar-month-next:active {
+    .m-calendar-year-next:active,
+    .m-calendar-month-next:active {
       right: -2px;
     }
   }
 
-  .calendar-dropdown-week {
+  .m-calendar-dropdown-week {
     height: 21px;
     width: 240px;
 
@@ -187,6 +191,7 @@
 
 .m-year-table {
   margin-top: 10px;
+
   td {
     text-align: center;
     padding: 15px 3px;
@@ -205,6 +210,7 @@
       }
     }
   }
+
   .m-year-today .m-cell {
     font-weight: 700;
     color: #1a336d;
