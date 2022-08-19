@@ -19,7 +19,7 @@ const printer = Printer();
 export default defineComponent({
   name: 'MPopover',
   props,
-  emits: ['open:popper', 'close:popper'],
+  emits: ['open:popper', 'close:popper', 'update:show'],
   setup(props, { slots, emit }) {
     const popperNode = ref();
     const triggerNode = ref();
@@ -61,7 +61,7 @@ export default defineComponent({
       interactive,
       shouldShowPopper,
       interactiveStyle
-    } = usePopperCommon(props, slots, popperHandleMap, popperNode)
+    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode)
 
     return () => (
       <div

@@ -66,7 +66,7 @@ export default defineComponent({
       interactive,
       shouldShowPopper,
       interactiveStyle
-    } = usePopperCommon(props, slots, popperHandleMap, popperNode)
+    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode)
 
     return () => (
       <div

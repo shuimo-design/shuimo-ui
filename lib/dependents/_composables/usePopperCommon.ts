@@ -4,11 +4,11 @@ import useContent from './useContent';
 import debounce from '../_utils/debounce';
 import useClickAway from './useClickAway';
 
-export default function usePopperCommon(props: any, slots: any, popperHandleMap: any, popperNode: Ref) {
+export default function usePopperCommon(props: any, slots: any, emit: any, popperHandleMap: any, popperNode: Ref) {
   const popperContainerNode = ref<HTMLElement | null>(null);
-  
+
   const modifiedIsOpen = ref(false);
-  
+
   const {
     closeDelay,
     content,
@@ -20,15 +20,13 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
     show,
     hover
   } = toRefs(props);
-  
+
   const { hasContent } = useContent(slots, popperNode, content);
-  
+
   const manualMode = computed(() => show && show.value !== null);
   const invalid = computed(() => disabled.value || !hasContent.value);
   const shouldShowPopper = computed(() => popperHandleMap.isOpen.value && !invalid.value);
-  const enableClickAway = computed(
-    () => !disableClickAway.value && !manualMode.value,
-  );
+  const enableClickAway = computed(() => !disableClickAway.value);
   const interactiveStyle = computed(() =>
     interactive.value
       ? {
@@ -36,32 +34,36 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       }
       : undefined,
   );
-  
+
   const openPopperDebounce = debounce(popperHandleMap.open, openDelay.value);
   const closePopperDebounce = debounce(popperHandleMap.close, closeDelay.value);
-  
+
   const openPopper = async () => {
-    if (invalid.value || manualMode.value) {
+    if (invalid.value) {
       return;
     }
-    
+
     closePopperDebounce.clear();
-    openPopperDebounce();
-  };
-  
-  const closePopper = async () => {
     if (manualMode.value) {
-      return;
+      emit('update:show', true);
+    } else {
+      openPopperDebounce();
     }
-    
-    openPopperDebounce.clear();
-    closePopperDebounce();
   };
-  
+
+  const closePopper = async () => {
+    openPopperDebounce.clear();
+    if (manualMode.value) {
+      emit('update:show', false);
+    } else {
+      closePopperDebounce();
+    }
+  };
+
   const togglePopper = () => {
     popperHandleMap.isOpen.value ? closePopper() : openPopper();
   };
-  
+
   /**
    * If Popper is open, we automatically close it if it becomes
    * disabled or without content.
@@ -71,7 +73,7 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       popperHandleMap.close();
     }
   });
-  
+
   /**
    * In order to eliminate flickering or visibly empty Poppers due to
    * the transition when using the isOpen slot property, we need to return a
@@ -86,7 +88,7 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       }, 200);
     }
   });
-  
+
   /**
    * Watch for manual mode.
    */
@@ -95,7 +97,7 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       show.value ? openPopperDebounce() : closePopperDebounce();
     }
   });
-  
+
   /**
    * Use click away if it should be enabled.
    */
@@ -104,7 +106,7 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       useClickAway(popperContainerNode, closePopper);
     }
   });
-  
+
   return {
     popperContainerNode,
     modifiedIsOpen,
