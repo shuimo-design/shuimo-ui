@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.m-popover-content-div {
+  z-index: 999;
+}
+
 .m-popover-content {
   margin: 0 28px;
   padding: 2px 0 5px;

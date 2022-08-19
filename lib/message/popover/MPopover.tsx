@@ -81,6 +81,7 @@ export default defineComponent({
         </div>
         <Transition name="m-linear">
           <div
+            class="m-popover-content-div"
             onClick={() => !interactive.value && closePopper()}
             ref={popperNode}
             hidden={!shouldShowPopper.value}
