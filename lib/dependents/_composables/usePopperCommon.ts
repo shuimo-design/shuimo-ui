@@ -1,7 +1,7 @@
 import { computed, ref, toRefs, watch, watchEffect } from 'vue';
 import type { Ref } from 'vue';
 import useContent from './useContent';
-import debounce from '../_utils/debounce';
+import useDebounceFn from './useDebounceFn';
 import useClickAway from './useClickAway';
 
 export default function usePopperCommon(props: any, slots: any, popperHandleMap: any, popperNode: Ref) {
@@ -37,15 +37,14 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       : undefined,
   );
   
-  const openPopperDebounce = debounce(popperHandleMap.open, openDelay.value);
-  const closePopperDebounce = debounce(popperHandleMap.close, closeDelay.value);
+  const openPopperDebounce = useDebounceFn(popperHandleMap.open, openDelay);
+  const closePopperDebounce = useDebounceFn(popperHandleMap.close, closeDelay);
   
   const openPopper = async () => {
     if (invalid.value || manualMode.value) {
       return;
     }
     
-    closePopperDebounce.clear();
     openPopperDebounce();
   };
   
@@ -54,7 +53,6 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
       return;
     }
     
-    openPopperDebounce.clear();
     closePopperDebounce();
   };
   
@@ -81,7 +79,7 @@ export default function usePopperCommon(props: any, slots: any, popperHandleMap:
     if (isOpen) {
       modifiedIsOpen.value = true;
     } else {
-      debounce(() => {
+      useDebounceFn(() => {
         modifiedIsOpen.value = false;
       }, 200);
     }
