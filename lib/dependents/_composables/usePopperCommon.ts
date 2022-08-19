@@ -1,7 +1,7 @@
 import { computed, ref, toRefs, watch, watchEffect } from 'vue';
 import type { Ref } from 'vue';
 import useContent from './useContent';
-import debounce from '../_utils/debounce';
+import useDebounceFn from './useDebounceFn';
 import useClickAway from './useClickAway';
 
 export default function usePopperCommon(props: any, slots: any, emit: any, popperHandleMap: any, popperNode: Ref) {
@@ -35,15 +35,15 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
       : undefined,
   );
 
-  const openPopperDebounce = debounce(popperHandleMap.open, openDelay.value);
-  const closePopperDebounce = debounce(popperHandleMap.close, closeDelay.value);
+  const openPopperDebounce = useDebounceFn(popperHandleMap.open, openDelay);
+  const closePopperDebounce = useDebounceFn(popperHandleMap.close, closeDelay);
 
   const openPopper = async () => {
     if (invalid.value) {
       return;
     }
 
-    closePopperDebounce.clear();
+
     if (manualMode.value) {
       emit('update:show', true);
     } else {
@@ -52,7 +52,6 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
   };
 
   const closePopper = async () => {
-    openPopperDebounce.clear();
     if (manualMode.value) {
       emit('update:show', false);
     } else {
@@ -61,7 +60,9 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
   };
 
   const togglePopper = () => {
-    popperHandleMap.isOpen.value ? closePopper() : openPopper();
+    if (!manualMode.value) {
+      popperHandleMap.isOpen.value ? closePopper() : openPopper();
+    }
   };
 
   /**
@@ -83,7 +84,7 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
     if (isOpen) {
       modifiedIsOpen.value = true;
     } else {
-      debounce(() => {
+      useDebounceFn(() => {
         modifiedIsOpen.value = false;
       }, 200);
     }

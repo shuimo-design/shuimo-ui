@@ -1,17 +1,24 @@
 <template>
   <span>{{ value }}</span>
-  <m-select v-model="value" :options="options">
-    <template #option="{option}">
-      <span>{{ option.title }} 的值为 {{ option.value }}</span>
-    </template>
-  </m-select>
-  <m-select v-model="value"
-            :options="options" option-param="title" inputParam="title"
-            :to-match="toMatch"/>
+<!--  <m-select v-model="value" :options="options">-->
+<!--    <template #option="{option}">-->
+<!--      <span>{{ option.title }} 的值为 {{ option.value }}</span>-->
+<!--    </template>-->
+<!--  </m-select>-->
+<!--  <m-select v-model="value"-->
+<!--            :options="options" option-param="title" inputParam="title"-->
+<!--            :to-match="toMatch"/>-->
   <m-select v-model="value" v-on:forSearch="filterOptions" @select="selectOption" :inputReadonly="false"
             :options="options" option-param="title" inputParam="title" :valueParam="valueParam"
             :to-match="toMatch"/>
-  <m-input v-model="valueParam"/>
+<!--  <m-input v-model="valueParam"/>-->
+
+  <m-popover :show="visible">
+    <m-button @click="showDialog">hi</m-button>
+    <template #content>
+      <span @click="closeDialog">hello</span>
+    </template>
+  </m-popover>
 
 </template>
 

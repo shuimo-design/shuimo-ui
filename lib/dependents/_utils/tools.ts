@@ -8,6 +8,9 @@
  */
 
 
+import type { MaybeComputedRef } from './types';
+import { unref } from 'vue';
+
 /**
  * 一个暂时的简易克隆方法
  * todo 待优化 别用JSON
@@ -122,5 +125,11 @@ export const isValidDate = (date: Date) => date instanceof Date && !isNaN(date.g
 export const getStyle = (selectStyle: CSSStyleDeclaration, type: string) => {
   const num = Number(selectStyle.getPropertyValue(type).replace('px', ''));
   return isNaN(num) ? 0 : num;
+}
+
+export function resolveUnref<T>(r: MaybeComputedRef<T>): T {
+  return typeof r === 'function'
+    ? (r as any)()
+    : unref(r)
 }
 
