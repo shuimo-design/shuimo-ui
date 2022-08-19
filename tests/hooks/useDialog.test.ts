@@ -30,4 +30,12 @@ describe('弹窗配套hook', () => {
     expect(visible.value).toBe(false);
   });
 
+  test('切换弹窗状态', () => {
+    const { visible, toggleDialog } = useDialog();
+    toggleDialog();
+    expect(visible.value).toBe(true);
+    toggleDialog();
+    expect(visible.value).toBe(false);
+  });
+
 })
