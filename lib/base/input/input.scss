@@ -1,12 +1,22 @@
 .m-input {
   box-sizing: content-box;
   border: 3px double transparent;
-  width: 244px;
+  width: var(--m-input-w);
   height: 31px;
   line-height: 31px;
 
   .m-border-main {
     display: flex;
+  }
+
+  &.m-input-disabled {
+    .m-input-inner, .m-textarea-inner {
+      background-color: var(--m-color-disabled) !important;
+    }
+
+    .m-border-line{
+      opacity: 0.6;
+    }
   }
 }
 

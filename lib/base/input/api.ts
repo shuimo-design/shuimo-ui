@@ -12,5 +12,7 @@ import { InputProps } from "./index";
 export const props: WCOPO<InputProps> = {
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
-  modelValue: { type: [String, Number], default: '' }
+  modelValue: { type: [String, Number], default: '' },
+  readonly: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
 }

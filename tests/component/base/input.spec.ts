@@ -34,6 +34,20 @@ describe('输入组件', () => {
     expect(wrapper.element.querySelector('input')!.placeholder).toBe('test placeholder');
   });
 
+  test('校验disabled', () => {
+    const wrapper = mount(MInput, {
+      props: { disabled: true }
+    });
+    expect(wrapper.element.querySelector('input')!.disabled).toBeTruthy();
+  });
+
+  test('校验readonly', () => {
+    const wrapper = mount(MInput, {
+      props: { readonly: true }
+    });
+    expect(wrapper.element.querySelector('input')!.readOnly).toBeTruthy();
+  });
+
   test('修改默认值', async () => {
     const wrapper = mount(MInput, {
       props: { modelValue: 'test' }

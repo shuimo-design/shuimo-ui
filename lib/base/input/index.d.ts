@@ -31,6 +31,18 @@ export declare type InputProps = {
    * @type string|number
    * @default ''
    */
-  modelValue?: string | number
+  modelValue?: string | number,
+  /**
+   * @description input readonly. 是否只读
+   * @type boolean
+   * @default false
+   */
+  readonly?: boolean,
+  /**
+   * @description input disabled. 是否禁用
+   * @type boolean
+   * @default false
+   */
+  disabled?: boolean,
 }
 

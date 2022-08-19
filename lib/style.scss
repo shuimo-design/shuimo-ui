@@ -14,6 +14,11 @@
   cursor: url("/lib/assets/cursor/disabled.png"), auto;
 }
 
+body {
+  --m-input-w: 244px;
+  --m-select-w: var(--m-input-w);
+  --m-select-dropdown-w: var(--m-input-w);
+}
 
 @import "./style/color.scss";
 @import './assets/transition/transition.scss';
