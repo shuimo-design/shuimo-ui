@@ -1,21 +1,18 @@
 <template>
-
-  <m-switch v-model="s">
-    <template #activeInfo>
-      <span>开</span>
+  <span>{{ value }}</span>
+  <m-select v-model="value" :options="options">
+    <template #option="{option}">
+      <span>{{ option.title }} 的值为 {{ option.value }}</span>
     </template>
-    <template #inactiveInfo>
-      <span>关</span>
-    </template>
-  </m-switch>
+  </m-select>
+  <m-select v-model="value"
+            :options="options" option-param="title" inputParam="title"
+            :to-match="toMatch"/>
+  <m-select v-model="value" v-on:forSearch="filterOptions" @select="selectOption" :inputReadonly="false"
+            :options="options" option-param="title" inputParam="title" :valueParam="valueParam"
+            :to-match="toMatch"/>
+  <m-input v-model="valueParam"/>
 
-  <m-switch v-model="s2" loading/>
-  <m-switch v-model="s3" disabled/>
-
-  <span>{{ s4 }}</span>
-  <m-switch v-model="s4" @change="changeInfo" on-control activeValue="hi" inactiveValue="bye" :loading="s4Loading"/>
-
-  <m-switch v-model="s5" @change="print"/>
 </template>
 
 <script lang="ts" setup>
@@ -28,26 +25,30 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from "vue";
+import useDialog from "../../lib/message/dialog/useDialog";
 
-const s = ref(true);
-const s2 = ref(false);
-const s3 = ref(false);
-const s4 = ref('bye');
-const s4Loading = ref(false)
-const s5 = ref(false);
+const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
 
-const changeInfo = (value: string) => {
-  s4Loading.value = true;
-  setTimeout(() => {
-    s4Loading.value = false;
-    s4.value = value;
-  }, 1000);
+const options = [
+  { title: '公共', value: 1 },
+  { title: '私有', value: 2 },
+];
+
+const value = ref(1);
+const valueParam = ref('value');
+
+const toMatch = (option: any, value: any) => {
+  // return option.value === value.value;
+  return option === value;
 }
 
-const print = (value:any)=>{
+const filterOptions = (value: InputEvent) => {
   console.log(value);
 }
 
+const selectOption = (option: any) => {
+  console.log(option);
+}
 
 </script>
 

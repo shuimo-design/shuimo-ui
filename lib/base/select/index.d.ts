@@ -28,29 +28,36 @@ export declare type SelectProps = {
    */
   options?: Array<any>,
   /**
-   * @description support for which key value to update modelValue
+   * @description support for which key value to display in 'input'
    *              选择后使用option中的哪个key的值去更新modelValue
    * @type string
-   * @default 'value'
+   * @default undefined
    */
-  keyParam?: string,
+  inputParam?: string,
   /**
    * @description select dropdown display info key
    *              选择下拉框中显示内容的key
    * @type string
-   * @default 'title'
+   * @default undefined
    */
-  titleParam?: string,
+  optionParam?: string,
+  /**
+   * @description modelValue's key
+   *              参数的key
+   * @type string
+   * @default undefined
+   */
+  valueParam?: string,
   /**
    * @description used to disable input event
    *              用于禁止输入事件
    * @type boolean
-   * @default false
+   * @default true
    */
-  canChange?: boolean,
+  inputReadonly?: boolean,
   /**
    * @description used to disable select
-   *              是否禁用选择
+   *              是否禁用
    * @type boolean
    * @default false
    */
@@ -61,4 +68,13 @@ export declare type SelectProps = {
    * @default '请选择...'
    */
   placeholder?: string,
+  /**
+   * @description modelValue match function
+   *              用于比较参数和modelValue是否相等的方法，常用于modelValue为对象的场景
+   *              option: 列表数据
+   *              value: modelValue
+   * @type function
+   * @default undefined
+   */
+  toMatch?: (option: any, value: any) => Boolean
 }
