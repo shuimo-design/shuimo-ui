@@ -24,16 +24,6 @@ export default defineComponent({
     const popperNode = ref();
     const triggerNode = ref();
 
-    onMounted(() => {
-      const children = slots.default && slots.default();
-
-      if (children && children.length > 1) {
-        return printer.error(
-          `[MPopover]: The <MPopover> or <m-popover>component expects only one child element at its root. You passed ${children.length} child nodes.`,
-        );
-      }
-    });
-
     const {
       locked,
       offsetDistance,
