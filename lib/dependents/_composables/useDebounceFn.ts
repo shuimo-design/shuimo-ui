@@ -1,8 +1,8 @@
 /**
- * @Description 防抖hook
- * @Author youus
- * @Date 2022/8/19 23:47
- * @Version v1.0.0
+ * @description 防抖hook
+ * @author youus
+ * @date 2022/8/19 23:47
+ * @version v1.0.0
  *
  * Hello, humor
  */

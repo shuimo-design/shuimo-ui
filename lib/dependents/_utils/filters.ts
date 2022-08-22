@@ -1,8 +1,8 @@
 /**
- * @Description event filter(防抖、节流)
- * @Author youus
- * @Date 2022/8/20 00:17
- * @Version v1.0.0
+ * @description event filter(防抖、节流)
+ * @author youus
+ * @date 2022/8/20 00:17
+ * @version v1.0.0
  *
  * Hello, humor
  */
