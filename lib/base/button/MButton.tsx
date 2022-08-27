@@ -13,7 +13,6 @@
  */
 import { h, defineComponent } from 'vue';
 import { props } from "./api";
-import MButtonBorder from "./MButtonBorder";
 
 export default defineComponent({
   name: 'MButton',
