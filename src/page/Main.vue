@@ -1,24 +1,19 @@
 <template>
-  <span>{{ value }}</span>
-<!--  <m-select v-model="value" :options="options">-->
-<!--    <template #option="{option}">-->
-<!--      <span>{{ option.title }} 的值为 {{ option.value }}</span>-->
-<!--    </template>-->
-<!--  </m-select>-->
-<!--  <m-select v-model="value"-->
-<!--            :options="options" option-param="title" inputParam="title"-->
-<!--            :to-match="toMatch"/>-->
-  <m-select v-model="value" v-on:forSearch="filterOptions" @select="selectOption" :inputReadonly="false"
-            :options="options" option-param="title" inputParam="title" :valueParam="valueParam"
-            :to-match="toMatch"/>
-<!--  <m-input v-model="valueParam"/>-->
 
-  <m-popover :show="visible">
-    <m-button @click="showDialog">hi</m-button>
-    <template #content>
-      <span @click="closeDialog">hello</span>
-    </template>
-  </m-popover>
+    <m-loading :side-length="100"/>
+
+
+  <div class="loading-div" v-loading>
+    <span>hello</span>
+  </div>
+
+
+  <m-button @click="toggleLoading">toggle</m-button>
+
+  <div class="loading-div" v-loading="loadingRef">
+    <span>hi</span>
+  </div>
+
 
 </template>
 
@@ -32,33 +27,21 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from "vue";
-import useDialog from "../../lib/message/dialog/useDialog";
 
-const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
-
-const options = [
-  { title: '公共', value: 1 },
-  { title: '私有', value: 2 },
-];
-
-const value = ref(1);
-const valueParam = ref('value');
-
-const toMatch = (option: any, value: any) => {
-  // return option.value === value.value;
-  return option === value;
+const loadingRef = ref(true);
+const toggleLoading = () => {
+  loadingRef.value = !loadingRef.value;
 }
-
-const filterOptions = (value: InputEvent) => {
-  console.log(value);
-}
-
-const selectOption = (option: any) => {
-  console.log(option);
-}
-
 </script>
 
 <style lang="scss" scoped>
+
+.loading-div {
+  height: 200px;
+  width: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
 
 </style>

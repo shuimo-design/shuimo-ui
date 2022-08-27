@@ -22,6 +22,7 @@ import MTooltip from './message/tooltip/MTooltip';
 
 import MBorder from './other/border/MBorder';
 import MDivider from './other/divider/MDivider';
+import MLoading from './other/loading/MLoading';
 import MMenu from './other/menu/MMenu';
 import MPrinter from "./other/printer/Printer";
 import MProgress from './other/progress/MProgress';
@@ -37,6 +38,7 @@ import MRicePaper from "./template/ricePaper/MRicePaper";
 import useDialog from './message/dialog/useDialog';
 
 import '../lib/style.scss'
+import { loadingDirective } from "./other/loading/directive";
 
 
 const components: Record<any, Component> = {
@@ -53,6 +55,7 @@ const components: Record<any, Component> = {
   MPagination,
   MUpload,
   MDivider,
+  MLoading,
   MProgress,
   MRadio,
   MCheckbox,
@@ -84,6 +87,7 @@ export {
   MPagination,
   MUpload,
   MDivider,
+  MLoading,
   MProgress,
   MRadio,
   MCheckbox,
@@ -109,6 +113,7 @@ export function createMUI() {
       Object.keys(components).forEach(key => {
         app.component(key, components[key]);
       });
+      app.directive('loading', loadingDirective);
       return app;
     }
   };

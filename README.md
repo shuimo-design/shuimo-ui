@@ -46,7 +46,7 @@
 
 我们计划在完成以下组件或任务后发布第一个稳定版本。
 
-- [ ] loading
+- [x] loading
 - [x] scroll
 - [ ] menu
 - [x] tag

@@ -24,6 +24,7 @@ import message from "../../lib/message/message/MMessageItem";
 
 import border from "../../lib/other/border/MBorder";
 import divider from "../../lib/other/divider/MDivider";
+import loading from "../../lib/other/loading/MLoading";
 import menu from "../../lib/other/menu/MMenu";
 import progress from "../../lib/other/progress/MProgress";
 import upload from "../../lib/other/upload/MUpload";
@@ -64,6 +65,7 @@ export declare const MMessage: typeof message;
 
 export declare const MBorder: typeof border;
 export declare const MDivider: typeof divider;
+export declare const MLoading: typeof loading;
 export declare const MInputNumber: typeof inputNumber;
 export declare const MMenu: typeof menu;
 export declare const MProgress: typeof progress;
