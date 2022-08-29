@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "contributions": {
     "html": {
       "types-syntax": "typescript",
@@ -467,6 +467,43 @@
           ]
         },
         {
+          "name": "m-loading",
+          "source": {
+            "symbol": "MLoading"
+          },
+          "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。",
+          "doc-url": "https://shuimo.janghood.com/loading",
+          "attributes": [
+            {
+              "name": "speed",
+              "description": "transform speed",
+              "value": {
+                "type": "number;",
+                "default": "1500",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "mask",
+              "description": "with mask or not",
+              "value": {
+                "type": "boolean;",
+                "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "sideLength",
+              "description": "length of loading item's side (px)",
+              "value": {
+                "type": "number|string;",
+                "default": "50",
+                "kind": "expression"
+              }
+            }
+          ]
+        },
+        {
           "name": "m-menu",
           "source": {
             "symbol": "MMenu"
@@ -880,15 +917,8 @@
               "name": "toMatch",
               "description": "modelValue match function\n用于比较参数和modelValue是否相等的方法，常用于modelValue为对象的场景\noption: 列表数据\nvalue: modelValue",
               "value": {
-                "type": "(option:any",
+                "type": "(option:any,value:any)=>Boolean",
                 "default": "undefined",
-                "kind": "expression"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "any)=>Boolean",
                 "kind": "expression"
               }
             }
