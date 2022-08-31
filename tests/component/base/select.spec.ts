@@ -9,8 +9,8 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 
-import { DOMWrapper, mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
+import { mount } from '@vue/test-utils';
+import { describe, expect, test } from "vitest";
 import MSelect from '../../../lib/base/select/MSelect';
 import { SelectProps } from "../../../lib/base/select";
 import { h } from "vue";
@@ -192,7 +192,22 @@ describe('选择框组件', () => {
       expect(wrapper.emitted('input')!.length).toBe(1);
     });
 
-    test('选择冒泡',async () => {
+    describe('focus冒泡', async () => {
+      test('普通场景无冒泡', async () => {
+        const wrapper = getWrapper(baseProps);
+        await wrapper.find('input').trigger('focus');
+        expect(wrapper.emitted('focus')).toBeUndefined();
+      });
+
+      test('可输入场景可以冒泡', async () => {
+        const wrapper = getWrapper({ ...baseProps, inputReadonly: false });
+        await wrapper.find('input').trigger('focus');
+        expect(wrapper.emitted('focus')!.length).toBe(1);
+      });
+    })
+
+
+    test('选择冒泡', async () => {
       const wrapper = getWrapper({
         modelValue: options[1],
         options,

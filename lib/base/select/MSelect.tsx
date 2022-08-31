@@ -13,6 +13,7 @@
  * v1.1.1 添加slot功能
  * v1.1.2 输入模式添加点击查询功能
  * v2.0.0 重构
+ * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
  */
 import { defineComponent, h, ref, watch } from 'vue';
 import MInput from "../input/MInput";
@@ -20,12 +21,13 @@ import { props } from "./api";
 import MPopover from "../../message/popover/MPopover";
 import useDialog from "../../message/dialog/useDialog";
 import { everyNotEmpty } from "../../dependents/_utils/tools";
+import useDebounceFn from "../../dependents/_composables/useDebounceFn";
 
 
 export default defineComponent({
   name: 'MSelect',
   props,
-  emits: ['update:modelValue', 'input', 'select'],
+  emits: ['update:modelValue', 'input', 'select', 'focus'],
   setup(props, { emit, slots }) {
 
     const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
@@ -60,11 +62,26 @@ export default defineComponent({
       return value === props.modelValue;
     }
 
-    const onInput = (value: InputEvent) => {
-      showDialog();
-      emit('input', value);
-      // 这里要做个emit防抖
+    const showSelectDialog = () => {
+      if (props.options.length > 0) {
+        showDialog();
+      }
     }
+
+    const debounceShowSelectDialog = useDebounceFn(showSelectDialog, 200);
+
+    const onFocus = (value: FocusEvent) => {
+      if (props.inputReadonly) {
+        return;
+      }
+      debounceShowSelectDialog();
+      emit('focus', value, inputValue);
+    }
+    const onInput = (value: InputEvent) => {
+      debounceShowSelectDialog();
+      emit('input', value);
+    }
+
 
     // 初始化数据
     const initInputValue = () => {
@@ -96,6 +113,7 @@ export default defineComponent({
         modelValue: inputValue.value,
         onClick: props.disabled ? undefined : toggleDialog,
         onInput,
+        onFocus,
         placeholder: props.placeholder,
         disabled: props.disabled,
         readonly: props.inputReadonly
