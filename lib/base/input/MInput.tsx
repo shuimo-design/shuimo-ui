@@ -8,6 +8,7 @@
  *
  * v1.1.0 阿怪 升级为tsx版本
  * v1.1.1 阿怪 新增disabled和readonly属性
+ * v1.1.2 阿怪 添加focus事件冒泡
  */
 import { defineComponent, h } from 'vue';
 import MBorder from '../../other/border/MBorder';
@@ -17,7 +18,7 @@ import type { HTMLElementEvent } from "../../dependents/_types";
 
 export default defineComponent({
   name: 'MInput',
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'focus'],
   props,
   setup(props, { emit }) {
     const { type, disabled } = props;
@@ -37,6 +38,9 @@ export default defineComponent({
         readOnly: props.readonly,
         onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
           emit('update:modelValue', e.target.value);
+        },
+        onFocus: (e: FocusEvent) => {
+          emit('focus', e);
         }
       }
 

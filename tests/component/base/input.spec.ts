@@ -65,6 +65,12 @@ describe('输入组件', () => {
     expect(wrapper.element.querySelector('input')).toBe(null);
     expect(wrapper.element.querySelector('textarea')!.value).toBe('');
   })
+
+  test('focus冒泡', async () => {
+    const wrapper = mount(MInput, { props: { modelValue: 'test' } });
+    await wrapper.find('input').trigger('focus');
+    expect(wrapper.emitted('focus')!.length).toBe(1);
+  });
 })
 
 
