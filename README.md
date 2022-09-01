@@ -12,6 +12,7 @@
 
 ![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
+[![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
 ## 简介（Introduction）
 
