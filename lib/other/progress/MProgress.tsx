@@ -46,7 +46,7 @@ export default defineComponent({
     const { showInfo, leafHeight, value, max } = toRefs(props);
 
     const { width, height } = getSize(props.width, props.height);
-    const style = computed<Object>(() => ({
+    const style = computed(() => ({
       '--m-progress-width': `${width}px`,
       '--m-progress-height': `${height}px`
     }))
@@ -65,7 +65,7 @@ export default defineComponent({
       const textStyle = {
         left: `${getTextLeft(width, infoWidth.value, leafSize.width, per)}px`
       }
-      const baseStyle: Object = {
+      const baseStyle = {
         ...style.value,
         '--m-progress-per-height': `${leafSize.height}px`,
         '--m-progress-per-width': `${perWidth}px`,
