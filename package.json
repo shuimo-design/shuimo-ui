@@ -27,7 +27,6 @@
     "dev": "vite",
     "tsx-build": "vuedx-typecheck . && vite build",
     "build": "vite build --mode npm",
-    "server": "vite build --mode server",
     "publish": "npm publish --access public",
     "test": "vitest",
     "test:update": "vitest -u",
@@ -39,7 +38,6 @@
     "vue": "^3.2.28"
   },
   "devDependencies": {
-    "@higuaifan/rollup-plugin-fontmin": "^0.0.1",
     "@janghood/api-extractor": "^0.0.1-alpha.7",
     "@popperjs/core": "^2.11.5",
     "@vitejs/plugin-vue": "^2.3.1",
