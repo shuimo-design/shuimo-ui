@@ -94,3 +94,9 @@
   grid-area: table-img-bottom;
   top: -13px;
 }
+
+.m-table-empty{
+    text-align: center;
+    line-height: 40px;
+    color: var(--m-color-text-disabled);
+}
