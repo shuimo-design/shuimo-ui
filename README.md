@@ -28,7 +28,7 @@
 
 ## 技术栈(technology stack)
 
-> vite 2.0 + vue 3.2
+> vite 2.9 + vue 3.2
 
 ## 文档(document)
 
