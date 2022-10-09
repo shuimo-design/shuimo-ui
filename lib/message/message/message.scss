@@ -1,7 +1,7 @@
 .m-message-list {
   position: fixed;
   z-index: 9999;
-    
+
   &_top-center {
     top: 0;
     left: 50%;
@@ -38,6 +38,7 @@
     display: inline-block;
     height: 20px;
     width: 20px;
+    z-index: -1;
   }
 
   &-content {
