@@ -15,38 +15,59 @@
  * v2.0.1 优化类型结构 阿怪
  */
 
-export type MessageProps = {
+ export type MessageProps = {
   /**
    * @description Type of message
    * @default 'info'
    */
-  type?: MessageType,
+  type?: MessageType;
   /**
    * @description The time of duration
    * @default 3000
    */
-  duration?: number,
+  duration?: number;
   /**
    * @description The message content
    * @default 这是一条消息
    */
-  content: string,
+  content: string;
   /**
    * @description The direction in which the component appears
    * @default top-right
    */
-  direction?: MessageDirectionType,
-}
+  direction?: MessageDirectionType;
+  /**
+   * @description Whether the component is allowed to be dragged
+   * @default false
+   */
+  dragAllow?: Boolean;
+  /**
+   * @description Whether the component is allowed to be dragged
+   * @default {triggerBoandary:2}
+   */
+  dragConfig?: DragConfigType;
+};
 
-export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
+export type MessageDirectionType =
+  | "top-right"
+  | "top-left"
+  | "bottom-right"
+  | "bottom-left"
+  | "top-center";
 
-export type MessageType = 'success' | 'warning' | 'info' | 'error';
+export type MessageType = "success" | "warning" | "info" | "error";
 
 export type MessageConfig = MessageProps | string;
 
 type IMessageEnum = {
-  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object> | void;
+  [K in MessageType]: (
+    options: MessageConfig,
+    duration?: number
+  ) => Promise<object> | void;
 };
 export type IMessage = IMessageEnum & {
   (config: MessageConfig): Promise<object> | void;
 };
+export interface DragConfigType {
+  triggerBoandary: number;
+}
