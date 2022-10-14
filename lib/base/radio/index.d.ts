@@ -16,10 +16,10 @@ export declare type RadioProps = {
   /**
    * @description radio value
    *              单选框的值
-   * @type string
+   * @type string | number
    * @default ''
    */
-  modelValue?: string,
+  modelValue?: string| number,
   /**
    * @description radio label
    *              单选框的标签值
