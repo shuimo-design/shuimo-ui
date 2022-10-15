@@ -10,6 +10,6 @@ import { WCOPO } from "../../dependents/_types";
 import { RadioProps } from "./index";
 
 export const props: WCOPO<RadioProps> = {
-  modelValue: { type: String, default: '' },
+  modelValue: { type: [String, Number], default: '' },
   label: { type: String, default: '' }
 }
