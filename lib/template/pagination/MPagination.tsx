@@ -79,19 +79,19 @@ export default defineComponent({
     return () => (
       <div class='m-pagination'>
         <button
-          class={['m-cursor page-prev', {'page-prev-disabled': disPrev.value}]}
+          class={['m-cursor m-page-prev', {'m-page-prev-disabled': disPrev.value}]}
           onClick={prevPage}
           disabled={disPrev.value}
         />
         <ul onClick={pageSelected} class='pages'>
           {
             pagers.value.map(page => (
-              <li class={['pager m-cursor', {'current-page': page === innerCurrent.value}]} key={page}>{page}</li>
+              <li class={['pager m-cursor', {'m-current-page': page === innerCurrent.value}]} key={page}>{page}</li>
             ))
           }
         </ul>
         <button
-          class={['m-cursor page-next', {'page-next-disabled': disNext.value}]}
+          class={['m-cursor m-page-next', {'m-page-next-disabled': disNext.value}]}
           onClick={nextPage}
           disabled={disNext.value}
         />

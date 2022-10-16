@@ -20,11 +20,11 @@ describe('分页组件', function () {
         total: 100,
       }
     })
-    expect(wrapper.find('.current-page').text()).toEqual('1');
+    expect(wrapper.find('.m-current-page').text()).toEqual('1');
     await wrapper.setProps({
       current: 2
     })
-    expect(wrapper.find('.current-page').text()).toEqual('2');
+    expect(wrapper.find('.m-current-page').text()).toEqual('2');
   })
   
   test(':current__model', async () => {
@@ -55,7 +55,7 @@ describe('分页组件', function () {
       }
     })
     
-    await wrapper.find('.page-prev').trigger('click');
+    await wrapper.find('.m-page-prev').trigger('click');
     expect(fn).not.toHaveBeenCalled();
   })
   
@@ -72,9 +72,9 @@ describe('分页组件', function () {
       }
     })
     
-    await wrapper.find('.page-next').trigger('click');
+    await wrapper.find('.m-page-next').trigger('click');
     expect(wrapper.vm.$data.current).toEqual(2);
-    await wrapper.find('.page-next').trigger('click');
+    await wrapper.find('.m-page-next').trigger('click');
     expect(fn).not.toHaveBeenCalled();
   })
 });
