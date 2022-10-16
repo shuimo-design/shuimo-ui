@@ -24,9 +24,23 @@ export declare type PaginationProps = {
    * @description current page number
    *              当前页
    * @type number
-   * @default 1
+   * @default undefined
    */
   current?: number,
+  /**
+   * @description current page number
+   *              当前页
+   * @type number
+   * @default undefined
+   */
+  modelValue?: number,
+  /**
+   * @description default current page number
+   *              默认当前页
+   * @type number
+   * @default undefined
+   */
+  defaultCurrent?: number,
   /**
    * @description page size
    *              每页数量

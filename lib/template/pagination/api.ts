@@ -11,7 +11,9 @@ import { PaginationProps } from "./index";
 
 export const props: WCOPO<PaginationProps> = {
   total: { type: Number, default: 0 },
-  current: { type: Number, default: 1 },
+  current: { type: Number, default: undefined },
+  modelValue: { type: Number, default: undefined },
+  defaultCurrent: { type: Number, default: 1 },
   pageSize: { type: Number, default: 10 },
   pageSizes: {
     type: Array, default() {

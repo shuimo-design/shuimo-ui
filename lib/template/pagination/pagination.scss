@@ -21,7 +21,7 @@
     }
   }
 
-  .current-page {
+  .m-current-page {
     font-weight: 600;
     color: #1a336d;
   }
@@ -35,26 +35,26 @@ button {
   bottom: -2px;
 }
 
-.page-prev:before {
+.m-page-prev:before {
   content: url("/lib/assets/pagination/page_prev.png");
 }
 
-.page-next:before {
+.m-page-next:before {
   content: url("/lib/assets/pagination/page_next.png");
 }
 
-.page-prev-disabled:before {
+.m-page-prev-disabled:before {
   content: url("/lib/assets/pagination/page_prev_disabled.png");
 }
 
-.page-next-disabled:before {
+.m-page-next-disabled:before {
   content: url("/lib/assets/pagination/page_next_disabled.png");
 }
 
-.page-prev:not(.page-prev-disabled):active {
+.m-page-prev:not(.m-page-prev-disabled):active {
   left: -2px;
 }
 
-.page-next:not(.page-next-disabled):active {
+.m-page-next:not(.m-page-next-disabled):active {
   right: -2px;
 }
