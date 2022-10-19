@@ -205,10 +205,45 @@ describe('列表组件', function () {
 
   });
 
-  test('未传列表', () => {
-    const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const wrapper = getWrapper();
-    expect(infoSpy).toHaveBeenCalled()
-  })
+
+  describe('异常状态', function () {
+
+    test('未传列表', () => {
+      const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = getWrapper();
+      expect(infoSpy).toHaveBeenCalled()
+    });
+
+    test('列表中子节点不是m-table-column', () => {
+      const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
+        return mount(MTable, { props, slots });
+      }
+
+      const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = getWrapper(
+        { data: [] },
+        { default: [h('div')] }
+      );
+      expect(infoSpy).toHaveBeenCalled()
+    });
+
+    test('列表中子节点缺少props属性', () => {
+      const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
+        return mount(MTable, { props, slots });
+      }
+
+      const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = getWrapper(
+        { data: [] },
+        { default: [h(MTableColumn)] }
+      );
+      expect(infoSpy).toHaveBeenCalled()
+    });
+
+  });
+
 
 });
+
+
+

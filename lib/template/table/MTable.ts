@@ -14,7 +14,7 @@
  * v0.0.3 添加无数据提示和empty插槽
  */
 import { defineComponent, h, VNode } from 'vue'
-import { notEmpty } from "../../dependents/_utils/tools";
+import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
 import Printer from "../../other/printer/Printer";
 import { props } from "./api";
 
@@ -58,6 +58,7 @@ type columnType = {
   key: string,
   children: any   // VNodeNormalizedChildren  大概率是个RawSlots
 }
+const error = Printer('水墨UI表格组件').error;
 
 export default defineComponent({
   name: 'MTable',
@@ -68,7 +69,7 @@ export default defineComponent({
       const tbodyTrList: VNode[] = [];
 
       if (!(slots && slots.default)) {
-        Printer('水墨UI表格组件').error('列表必须传入一个默认的m-table-column');
+        error('列表必须传入一个默认的m-table-column');
         return null;
       }
 
@@ -80,9 +81,18 @@ export default defineComponent({
       if (notEmpty(slots.default())) {
         const defaultSlot: any[] = slots.default();
         const tableColumn: columnType[] = [];
-
         // 遍历column
         defaultSlot.forEach(s => {
+          if (s.type.name !== 'MTableColumn') {
+            error('列表子节点必须传入m-table-column，否则将会被过滤。');
+            return;
+          }
+
+          if (isEmpty(s.props)) {
+            error('m-table-column必须传入props属性');
+            return;
+          }
+
           const { param, label, width } = s.props;
           tableColumn.push({
             key: param,
