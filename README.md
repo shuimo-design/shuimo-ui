@@ -36,12 +36,9 @@
 
 ## 讨论(discussion)
 
-[discord](https://discord.gg/xy3BenWvYj)
+[discord](https://discord.gg/xy3BenWvYj)，万年上一次。
 
-## 前身
-
-> 曾经的名字叫 **wash-painting-ui** ，冲浪了很久找不到什么信达雅的名字，就算这个名字也是冲浪很久翻出来的。
-> 但是这个名字实在是奇怪，犹豫了很久，还是选择拼音吧。虽然技术不怎么自信，但是文化自信！
+有需要可以邮件 <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a> 联系我 _（以及加入微信小群）_。 
 
 ## TODO
 
