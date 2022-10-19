@@ -11,5 +11,5 @@ import { RadioProps } from "./index";
 
 export const props: WCOPO<RadioProps> = {
   modelValue: { type: [String, Number], default: '' },
-  label: { type: String, default: '' }
+  label: { type: [String, Number], default: '' }
 }
