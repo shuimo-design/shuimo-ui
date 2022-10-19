@@ -2,7 +2,7 @@
  * @description table组件
  * @author 阿怪
  * @date 2021/8/23 11:30 上午
- * @version v0.0.3
+ * @version v0.0.4
  *
  * 一个极度简单的table组件
  * beta版 支持 slot width 设置
@@ -12,11 +12,13 @@
  * v0.0.1-beta.2 新增header fixed功能
  * v0.0.2 header样式根据height变换
  * v0.0.3 添加无数据提示和empty插槽
+ * v0.0.4 添加index参数、添加两个异常提醒，添加v-for支持
  */
-import { defineComponent, h, VNode } from 'vue'
+import { defineComponent, Fragment, h, VNode } from 'vue'
 import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
 import Printer from "../../other/printer/Printer";
 import { props } from "./api";
+import MTableColumn from "./MTableColumn";
 
 
 const img = h('td', { class: 'm-table-tbody-img' });
@@ -81,26 +83,40 @@ export default defineComponent({
       if (notEmpty(slots.default())) {
         const defaultSlot: any[] = slots.default();
         const tableColumn: columnType[] = [];
+
+        const initByTableColumn = (info: { param: string, label: string, width?: number | string }, children: any) => {
+          const { param, label, width } = info;
+          tableColumn.push({
+            key: param,
+            children
+          });
+          // 构造thead
+          theadThList.push(h('th', { class: 'm-th', width }, label));
+        }
+
         // 遍历column
         defaultSlot.forEach(s => {
-          if (s.type.name !== 'MTableColumn') {
-            error('列表子节点必须传入m-table-column，否则将会被过滤。');
+
+          // 如果是Fragment类型，那大概率是v-for生成的，其他场景暂时无法判断
+          if (s.type === Fragment) {
+            s.children.forEach((c: typeof MTableColumn) => {
+              initByTableColumn(c.props, c.children);
+            });
             return;
           }
 
+
+          if (s.type.name !== 'MTableColumn') {
+            error(`传入子节点：${s.type.name}，列表子节点必须传入m-table-column，否则将会被过滤。`);
+            return;
+          }
           if (isEmpty(s.props)) {
             error('m-table-column必须传入props属性');
             return;
           }
-
-          const { param, label, width } = s.props;
-          tableColumn.push({
-            key: param,
-            children: s.children
-          });
-          // 构造thead
-          theadThList.push(h('th', { class: 'm-th', width }, label));
+          initByTableColumn(s.props, s.children);
         })
+
         props.data.forEach((d: any, i) => {
           tbodyTrList.push(dataTrRender(d, i, tableColumn));
         })

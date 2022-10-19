@@ -10,12 +10,13 @@
 import { describe, expect, test, vi } from 'vitest';
 import { h } from "vue";
 import { mount } from "@vue/test-utils";
-import MTable from "../../../lib/template/table/MTable";
-import MTableColumn from "../../../lib/template/table/MTableColumn";
-import { TableProps } from "../../../lib/template/table";
+import MTable from "../../../../lib/template/table/MTable";
+import MTableColumn from "../../../../lib/template/table/MTableColumn";
+import { TableProps } from "../../../../lib/template/table";
 import { Slot } from "@vue/test-utils/dist/types";
+import VForTableColumn from './demo/VForTableColumn.vue'
 
-describe('列表组件', function () {
+describe.skip('列表组件', function () {
 
   const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
     return mount(MTable, { props, slots });
@@ -147,6 +148,41 @@ describe('列表组件', function () {
         </div>"
       `);
   })
+
+  test('v-for渲染column', () => {
+    const wrapper = mount(VForTableColumn)
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+    "<div class=\\"m-table\\">
+      <div class=\\"m-table-header-img-top\\"></div>
+      <div class=\\"m-table-header-img-bottom\\"></div>
+      <div class=\\"m-table-wrap\\">
+        <table class=\\"m-table-inner\\">
+          <thead class=\\"m-thead\\">
+            <tr class=\\"m-tr\\">
+              <th class=\\"m-th\\">id</th>
+              <th class=\\"m-th\\">param</th>
+            </tr>
+          </thead>
+          <tbody class=\\"m-tbody\\">
+            <tr class=\\"m-tr\\">
+              <td class=\\"m-td\\">1</td>
+              <td class=\\"m-td\\">立春</td>
+              <td class=\\"m-table-tbody-img\\"></td>
+            </tr>
+            <tr class=\\"m-tr\\">
+              <td class=\\"m-td\\">2</td>
+              <td class=\\"m-td\\">雨水</td>
+              <td class=\\"m-table-tbody-img\\"></td>
+            </tr>
+          </tbody>
+        </table>
+        <!---->
+      </div>
+      <div class=\\"m-table-border-img-bottom\\"></div>
+    </div>"
+  `);
+  })
+
 
   describe('无数据状态', function () {
 
