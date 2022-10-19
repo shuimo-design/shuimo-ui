@@ -29,12 +29,12 @@ const wrapWithTr = (tList: VNode[]) => {
   return h('tr', { class: 'm-tr' }, tList);
 }
 
-const dataTrRender = (data: any, tableColumn: columnType[]) => {
+const dataTrRender = (data: any, index: number, tableColumn: columnType[]) => {
   const trList: VNode[] = [];
   tableColumn.forEach(col => {
 
     if (col.children) {
-      const defaultSlot = col.children.default({ data });
+      const defaultSlot = col.children.default({ data, index });
       trList.push(h('td', { class: 'm-td' }, defaultSlot));
     } else {
       trList.push(h('td', { class: 'm-td' }, data[col.key]));
@@ -91,8 +91,8 @@ export default defineComponent({
           // 构造thead
           theadThList.push(h('th', { class: 'm-th', width }, label));
         })
-        props.data.forEach((d: any) => {
-          tbodyTrList.push(dataTrRender(d, tableColumn));
+        props.data.forEach((d: any, i) => {
+          tbodyTrList.push(dataTrRender(d, i, tableColumn));
         })
 
       }

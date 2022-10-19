@@ -95,6 +95,59 @@ describe('列表组件', function () {
     `);
   })
 
+  test('slot传递参数', () => {
+    const wrapper = getWrapper(
+      {
+        data: [
+          { slotInfo: 'hi' },
+          { slotInfo: 'hello' },
+        ]
+      },
+      {
+        default: [
+          h(
+            MTableColumn,
+            {
+              param: 'slotInfo',
+              label: 'label'
+            },
+            {
+              default: (data: { data: any, index: number }) =>
+                h('span', `slot数据：${data.data.slotInfo}, index:${data.index}`)
+            }
+          )
+        ],
+      }
+    )
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<div class=\\"m-table\\">
+          <div class=\\"m-table-header-img-top\\"></div>
+          <div class=\\"m-table-header-img-bottom\\"></div>
+          <div class=\\"m-table-wrap\\">
+            <table class=\\"m-table-inner\\">
+              <thead class=\\"m-thead\\">
+                <tr class=\\"m-tr\\">
+                  <th class=\\"m-th\\">label</th>
+                </tr>
+              </thead>
+              <tbody class=\\"m-tbody\\">
+                <tr class=\\"m-tr\\">
+                  <td class=\\"m-td\\"><span>slot数据：hi, index:0</span></td>
+                  <td class=\\"m-table-tbody-img\\"></td>
+                </tr>
+                <tr class=\\"m-tr\\">
+                  <td class=\\"m-td\\"><span>slot数据：hello, index:1</span></td>
+                  <td class=\\"m-table-tbody-img\\"></td>
+                </tr>
+              </tbody>
+            </table>
+            <!---->
+          </div>
+          <div class=\\"m-table-border-img-bottom\\"></div>
+        </div>"
+      `);
+  })
+
   describe('无数据状态', function () {
 
     test('无slot', () => {
@@ -152,7 +205,7 @@ describe('列表组件', function () {
 
   });
 
-  test('未传列表',()=>{
+  test('未传列表', () => {
     const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const wrapper = getWrapper();
     expect(infoSpy).toHaveBeenCalled()
