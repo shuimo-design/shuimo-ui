@@ -72,7 +72,7 @@ export default defineComponent({
     nextTick(() => {
       if (props.dragAllow === true) {
         // 启动拖拽
-        useDraggable(domRef, props.direction, props.dragConfig.triggerBoandary, () => triggerFn(domRef), () => triggeredFn(domRef))
+        useDraggable(domRef, props.direction, props.dragConfig.triggerBoundary, () => triggerFn(domRef), () => triggeredFn(domRef))
 
       }
     })

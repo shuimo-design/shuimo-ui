@@ -8,7 +8,7 @@ export enum MessageTypeEnum {
   error = 'error',
 }
 export interface DragConfigType {
-  triggerBoandary: number,
+  triggerBoundary: number,
 }
 export const props: WCOPO<MessageProps> = {
   type: { type: String as WPropType<MessageTypeEnum>, default: MessageTypeEnum.info },
@@ -19,7 +19,7 @@ export const props: WCOPO<MessageProps> = {
   dragConfig: {
     type: Object as WPropType<DragConfigType>,
     default: {
-      triggerBoandary: 2,
+      triggerBoundary: 2,
     }
   }
 }

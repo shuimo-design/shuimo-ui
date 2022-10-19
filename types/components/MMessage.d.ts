@@ -43,7 +43,7 @@
   dragAllow?: Boolean;
   /**
    * @description Whether the component is allowed to be dragged
-   * @default {triggerBoandary:2}
+   * @default {triggerBoundary:2}
    */
   dragConfig?: DragConfigType;
 };
@@ -69,5 +69,5 @@ export type IMessage = IMessageEnum & {
   (config: MessageConfig): Promise<object> | void;
 };
 export interface DragConfigType {
-  triggerBoandary: number;
+  triggerBoundary: number;
 }

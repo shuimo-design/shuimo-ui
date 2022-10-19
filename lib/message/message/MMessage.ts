@@ -40,7 +40,7 @@ const mergeOption = (
     type,
     content: "",
     dragAllow: false,
-    dragConfig: { triggerBoandary: 2 },
+    dragConfig: { triggerBoundary: 2 },
   };
   if (typeof options === "string") {
     messageOptions.content = options;
