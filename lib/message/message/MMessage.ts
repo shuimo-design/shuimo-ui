@@ -39,7 +39,7 @@ const mergeOption = (
     duration,
     type,
     content: "",
-    dragAllow: false,
+    dragAllow: true,
     dragConfig: { triggerBoundary: 2 },
   };
   if (typeof options === "string") {

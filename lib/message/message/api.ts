@@ -15,7 +15,7 @@ export const props: WCOPO<MessageProps> = {
   duration: { type: Number, default: 3000 },
   content: { type: String, default: '这是一条消息', required: true },
   direction: { type: String as WPropType<MessageDirectionType>, default: 'top-right' },
-  dragAllow: { type: Boolean, default: false },
+  dragAllow: { type: Boolean, default: true },
   dragConfig: {
     type: Object as WPropType<DragConfigType>,
     default: {

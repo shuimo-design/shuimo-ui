@@ -38,7 +38,7 @@
   direction?: MessageDirectionType;
   /**
    * @description Whether the component is allowed to be dragged
-   * @default false
+   * @default true
    */
   dragAllow?: Boolean;
   /**
