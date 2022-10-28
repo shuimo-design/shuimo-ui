@@ -2,7 +2,7 @@
  * @description 选择框组件
  * @author 阿怪
  * @date 2021/8/27 11:05 上午
- * @version v1.1.2
+ * @version v2.0.2
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
@@ -14,6 +14,7 @@
  * v1.1.2 输入模式添加点击查询功能
  * v2.0.0 重构
  * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
+ * v2.0.2 修复inputValue在找不到时不更新数据的问题
  */
 import { defineComponent, h, ref, watch } from 'vue';
 import MInput from "../input/MInput";
@@ -90,8 +91,10 @@ export default defineComponent({
         const optionIndex = options!.findIndex(option => getModelValue(option) === modelValue);
         if (optionIndex > -1) {
           inputValue.value = getInputValue(options[optionIndex]);
+          return;
         }
       }
+      inputValue.value = '';
     }
     initInputValue();
 
