@@ -2,7 +2,7 @@
  * @description 选择框组件
  * @author 阿怪
  * @date 2021/8/27 11:05 上午
- * @version v2.0.2
+ * @version v2.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
@@ -15,14 +15,16 @@
  * v2.0.0 重构
  * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
  * v2.0.2 修复inputValue在找不到时不更新数据的问题
+ * v2.1.0 hook化并添加multiple属性【施工中版本】
  */
-import { defineComponent, h, ref, watch } from 'vue';
+import { defineComponent, h, watch } from 'vue';
 import MInput from "../input/MInput";
-import { props } from "./api";
 import MPopover from "../../message/popover/MPopover";
 import useDialog from "../../message/dialog/useDialog";
-import { everyNotEmpty } from "../../dependents/_utils/tools";
-import useDebounceFn from "../../dependents/_composables/useDebounceFn";
+import useSelectBase from "./compositions/useSelectBase";
+import useSelect from "./compositions/useSelect";
+import useSelectMultiple from "./compositions/useSelectMultiple";
+import { props } from "./api";
 
 
 export default defineComponent({
@@ -31,71 +33,26 @@ export default defineComponent({
   emits: ['update:modelValue', 'input', 'select', 'focus'],
   setup(props, { emit, slots }) {
 
-    const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
     type OptionType = any;
 
-    const inputValue = ref<OptionType>('');
+    const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
 
-    const getInfoWithKey = (option: OptionType, key: 'optionParam' | 'valueParam' | 'inputParam') => {
-      if (!props[key]) {
-        return option;
-      }
-      return option[props[key]];
-    }
+    const {
+      inputValue,
+      emitFocus,
+      optionMatchValue,
+      initInputValue,
+      onClickOption,
+      getOptionDisplayInfo
+    } = props.multiple ?
+      useSelectMultiple<OptionType>(props, emit, slots) :
+      useSelectBase<OptionType>(props, emit, slots, { closeDialog });
 
-    const getInputValue = (option: OptionType) => getInfoWithKey(option, 'inputParam');
-
-    const getModelValue = (option: OptionType) => getInfoWithKey(option, 'valueParam');
-
-    const onClickOption = (option: OptionType) => {
-      inputValue.value = getInputValue(option);
-      emit('update:modelValue', getModelValue(option));
-      emit('select', option);
-      closeDialog();
-    }
-
-    const optionMatchValue = (option: OptionType) => {
-      const value = getModelValue(option);
-      if (props.toMatch) {
-        return props.toMatch(value, props.modelValue);
-      }
-
-      return value === props.modelValue;
-    }
-
-    const showSelectDialog = () => {
-      if (props.options.length > 0) {
-        showDialog();
-      }
-    }
-
-    const debounceShowSelectDialog = useDebounceFn(showSelectDialog, 200);
-
-    const onFocus = (value: FocusEvent) => {
-      if (props.inputReadonly) {
-        return;
-      }
-      debounceShowSelectDialog();
-      emit('focus', value, inputValue);
-    }
-    const onInput = (value: InputEvent) => {
-      debounceShowSelectDialog();
-      emit('input', value);
-    }
+    const {
+      onFocus, onInput,
+    } = useSelect<OptionType>(props, emit, { emitFocus, showDialog });
 
 
-    // 初始化数据
-    const initInputValue = () => {
-      const { modelValue, options } = props;
-      if (everyNotEmpty(modelValue, options)) {
-        const optionIndex = options!.findIndex(option => getModelValue(option) === modelValue);
-        if (optionIndex > -1) {
-          inputValue.value = getInputValue(options[optionIndex]);
-          return;
-        }
-      }
-      inputValue.value = '';
-    }
     initInputValue();
 
 
@@ -104,13 +61,6 @@ export default defineComponent({
     });
 
     return () => {
-
-      const getOptionDisplayInfo = (option: OptionType) => {
-        if (!slots.option) {
-          return getInfoWithKey(option, 'optionParam');
-        }
-        return slots.option({ option });
-      };
 
       const selectInput = h(MInput, {
         modelValue: inputValue.value,

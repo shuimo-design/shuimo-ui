@@ -17,7 +17,7 @@ export declare type InputProps = {
    * @description input type. 输入框类型
    * @type string
    * @default text
-   * @enum text|textarea
+   * @enum text|textarea|password
    */
   type?: string,
   /**
@@ -43,6 +43,6 @@ export declare type InputProps = {
    * @type boolean
    * @default false
    */
-  disabled?: boolean,
+  disabled?: boolean
 }
 

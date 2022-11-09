@@ -14,5 +14,5 @@ export const props: WCOPO<InputProps> = {
   placeholder: { type: String, default: '' },
   modelValue: { type: [String, Number], default: '' },
   readonly: { type: Boolean, default: false },
-  disabled: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false }
 }

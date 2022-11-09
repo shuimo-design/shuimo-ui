@@ -16,10 +16,10 @@ export declare type SelectProps = {
   /**
    * @description select value
    *              选择框的值
-   * @type any
+   * @type any | any[]
    * @default ''
    */
-  modelValue?: any,
+  modelValue?: any | any[],
   /**
    * @description select options
    *              选择框的数组
@@ -76,5 +76,12 @@ export declare type SelectProps = {
    * @type function
    * @default undefined
    */
-  toMatch?: (option: any, value: any) => Boolean
+  toMatch?: (option: any, value: any) => Boolean,
+  /**
+   * @description multiple choice
+   *              是否为多选
+   * @type boolean
+   * @default false
+   */
+  multiple?: boolean
 }
