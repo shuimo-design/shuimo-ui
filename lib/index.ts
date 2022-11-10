@@ -35,6 +35,8 @@ import MTable from "./template/table/MTable";
 import MTableColumn from "./template/table/MTableColumn";
 import MRicePaper from "./template/ricePaper/MRicePaper";
 
+import MDeleteIcon from "./other/icons/deleteIcon/MDeleteIcon";
+
 import useDialog from './message/dialog/useDialog';
 
 import '../lib/style.scss'
@@ -69,7 +71,8 @@ const components: Record<any, Component> = {
   MList,
   MRicePaper,
   MTag,
-  MSwitch
+  MSwitch,
+  MDeleteIcon
 }
 
 
@@ -104,7 +107,8 @@ export {
   MList,
   MRicePaper,
   MTag,
-  MSwitch
+  MSwitch,
+  MDeleteIcon
 };
 
 export function createMUI() {
