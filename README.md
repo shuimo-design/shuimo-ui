@@ -8,7 +8,7 @@
 
 <p align="center">一款很粗暴的水墨UI</p>
 
-<p align="center">A wash-painting(shuimo) Vue.js 3.2 UI Library.</p>
+<p align="center">A wash-painting(shuimo) Vue.js 3 UI Library.</p>
 
 ![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
@@ -28,7 +28,7 @@
 
 ## 技术栈(technology stack)
 
-> vite 2.9 + vue 3.2
+> vite  + vue 3
 
 ## 文档(document)
 
