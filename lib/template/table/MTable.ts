@@ -14,7 +14,7 @@
  * v0.0.3 添加无数据提示和empty插槽
  * v0.0.4 添加index参数、添加两个异常提醒，添加v-for支持
  */
-import { defineComponent, Fragment, h, VNode } from 'vue'
+import { defineComponent, Fragment, Comment, h, VNode } from 'vue'
 import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
 import Printer from "../../other/printer/Printer";
 import { props } from "./api";
@@ -104,8 +104,9 @@ export default defineComponent({
             });
             return;
           }
-
-
+          if (s.type === Comment && s.type.name === undefined) {
+            return;
+          }
           if (s.type.name !== 'MTableColumn') {
             error(`传入子节点：${s.type.name}，列表子节点必须传入m-table-column，否则将会被过滤。`);
             return;
