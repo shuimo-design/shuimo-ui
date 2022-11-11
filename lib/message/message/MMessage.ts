@@ -6,16 +6,16 @@
  *
  * v2.0.1 message handler 提供返回
  */
-import { ComponentPublicInstance, createApp, nextTick, Ref } from "vue";
+import { ComponentPublicInstance, createApp, nextTick } from "vue";
 import MessageList from "./MMessageList";
 import type {
   IMessage,
+  MessageConfig,
   MessageDirectionType,
   MessageProps,
   MessageType,
 } from "../../../types/components/MMessage";
 import { MessageTypeEnum } from "./api";
-import type { MessageConfig } from "../../../types/components/MMessage";
 import MMessageItem from "./MMessageItem";
 
 const messageListMap = new Map<MessageDirectionType, MessageIns>();
@@ -56,7 +56,7 @@ const showTypeMessage = (
   type?: MessageTypeEnum,
   duration?: number
 ): Promise<InstanceType<typeof MMessageItem>> => {
-  let messageOptions = mergeOption(options, type, duration);
+  const messageOptions = mergeOption(options, type, duration);
 
   const { direction } = messageOptions;
 
@@ -76,6 +76,7 @@ const showTypeMessage = (
     mountInstance.add(messageOptions);
   }
 
+  // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     const messageListIns = messageListMap.get(direction);
     await nextTick(() => {

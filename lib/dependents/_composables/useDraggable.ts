@@ -171,13 +171,13 @@ export const useDraggable = (
   /**
    * 鼠标抬起事件
    */
-  const up = (e: MouseEvent) => {
+  const up = () => {
     end();
   };
   /**
    * 鼠标离开元素事件
    */
-  const out = (e: MouseEvent) => {
+  const out = () => {
     end();
   };
   target.value?.addEventListener("mousedown", start);

@@ -246,16 +246,16 @@ describe('列表组件', function () {
 
     test('未传列表', () => {
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper();
+      getWrapper();
       expect(infoSpy).toHaveBeenCalled()
     });
 
     test('列表中子节点不是m-table-column', () => {
 
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper(
+      getWrapper(
         { data: [] },
-        { default: () => h('div','hello') }
+        { default: () => h('div', 'hello') }
       );
       expect(infoSpy).toHaveBeenCalled()
     });
@@ -287,7 +287,7 @@ describe('列表组件', function () {
     test('列表中子节点缺少props属性', () => {
 
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper(
+      getWrapper(
         { data: [] },
         { default: [h(MTableColumn)] }
       );

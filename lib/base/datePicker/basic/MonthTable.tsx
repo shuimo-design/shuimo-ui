@@ -7,13 +7,8 @@
  * Hello, humor
  */
 
-import { defineComponent, computed, toRefs, reactive } from 'vue';
-import {
-  arrayFind,
-  arrayFindIndex,
-  coerceTruthyValueToArray,
-  getTimestamp
-} from '../../../dependents/_utils/dateUtil';
+import { computed, defineComponent } from 'vue';
+import { arrayFind, arrayFindIndex, coerceTruthyValueToArray, getTimestamp } from '../../../dependents/_utils/dateUtil';
 import useTypeTable from './useTypeTable';
 
 export default defineComponent({
@@ -45,42 +40,42 @@ export default defineComponent({
       value,
       tableRows
     } = useTypeTable(props);
-    
+
     const rows = computed(() => {
       const rows = tableRows;
       const selectedDate: any = [];
       const now = getTimestamp(new Date(new Date().getFullYear(), new Date().getMonth()), 'month');
-  
+
       for (let i = 0; i < 3; i++) {
         const row = rows[i];
         for (let j = 0; j < 4; j++) {
           let cell = row[j];
           if (!cell) {
-            cell = {row: i, column: j, type: 'normal', inRange: false, start: false, end: false};
+            cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
           }
-      
+
           cell.type = 'normal';
-      
+
           const index = i * 4 + j;
           const time = new Date(date.value.getFullYear(), index).getTime();
           cell.inRange = time >= getTimestamp(minDate.value, 'month') && time <= getTimestamp(maxDate.value, 'month');
           cell.start = time === getTimestamp(minDate.value, 'month');
           cell.end = time === getTimestamp(maxDate.value, 'month');
           const isToday = time === now;
-      
+
           if (isToday) {
             cell.type = 'today';
           }
           cell.text = index;
-          let cellDate = new Date(time);
+          const cellDate = new Date(time);
           cell.selected = arrayFind(selectedDate, (date: any) => date.getTime() === cellDate.getTime());
-      
+
           row[j] = cell;
         }
       }
       return rows;
     })
-    
+
     const getCellStyle = (cell: CellType) => {
       const style = Object.create({});
       const year = date.value.getFullYear();
@@ -89,21 +84,21 @@ export default defineComponent({
       const dateVal = new Date(value.value);
       style['m-month-current'] = arrayFindIndex(coerceTruthyValueToArray([dateVal]), (date: any) => date.getFullYear() === year && date.getMonth() === month) >= 0;
       style['m-month-today'] = today.getFullYear() === year && today.getMonth() === month;
-  
+
       if (cell.inRange) {
         style['m-month-in-range'] = true;
-    
+
         if (cell.start) {
           style['m-month-start-date'] = true;
         }
-    
+
         if (cell.end) {
           style['m-month-end-date'] = true;
         }
       }
       return style;
     }
-    
+
     const monthTableClickHandler = (event: any) => {
       let target = event.target;
       if (target.tagName === 'SPAN') {
@@ -118,7 +113,7 @@ export default defineComponent({
       const month = row * 4 + column;
       emit('pick', month);
     }
-    
+
     return () => (
       <table class="m-month-table" onClick={monthTableClickHandler}>
         <tbody>

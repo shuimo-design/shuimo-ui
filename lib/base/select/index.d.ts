@@ -76,5 +76,5 @@ export declare type SelectProps = {
    * @type function
    * @default undefined
    */
-  toMatch?: (option: any, value: any) => Boolean
+  toMatch?: (option: any, value: any) => boolean
 }

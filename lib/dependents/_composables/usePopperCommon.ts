@@ -1,5 +1,5 @@
-import { computed, ref, toRefs, watch, watchEffect } from 'vue';
 import type { Ref } from 'vue';
+import { computed, ref, toRefs, watch, watchEffect } from 'vue';
 import useContent from './useContent';
 import useDebounceFn from './useDebounceFn';
 import useClickAway from './useClickAway';
@@ -22,7 +22,7 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
   } = toRefs(props);
 
   const { hasContent } = useContent(slots, popperNode, content);
-
+  //eslint-disable-next-line vue/no-ref-as-operand
   const manualMode = computed(() => show && show.value !== null);
   const invalid = computed(() => disabled.value || !hasContent.value);
   const shouldShowPopper = computed(() => popperHandleMap.isOpen.value && !invalid.value);

@@ -1,18 +1,18 @@
-import { toRefs, watch, nextTick, onBeforeUnmount, reactive } from 'vue';
 import type { Ref } from 'vue';
-import { createPopper, Instance, preventOverflow, flip, offset, arrow } from '@popperjs/core';
+import { nextTick, onBeforeUnmount, reactive, toRefs, watch } from 'vue';
+import { arrow, createPopper, flip, Instance, offset, preventOverflow } from '@popperjs/core';
 
 const toInt = (x: string) => parseInt(x, 10);
 
 export type Placement = 'auto' | 'auto-start' | 'auto-end'
-  | 'top'| 'top-start' | 'top-end'
+  | 'top' | 'top-start' | 'top-end'
   | 'bottom' | 'bottom-start' | 'bottom-end'
   | 'right' | 'right-start' | 'right-end'
   | 'left' | 'left-start' | 'left-end'
 
 interface IPopper {
   arrowPadding?: string;
-  emit: Function;
+  emit: (event: ('close:popper' | 'open:popper'), ...args: any[]) => void;
   locked: boolean;
   offsetDistance: string;
   offsetSkid: string;
@@ -99,7 +99,7 @@ export default function usePopper(popper: IPopper) {
           },
         ],
       });
-  
+
       // Update its position
       await state.popperInstance.update();
     }

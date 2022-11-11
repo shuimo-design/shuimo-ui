@@ -78,7 +78,7 @@ export const notEmpty = (value: any) => {
       Int16Array, Uint16Array,
       Int32Array, Uint32Array, Float32Array,
       Float64Array];
-    for (let arrayType of typedArrayTypes) {
+    for (const arrayType of typedArrayTypes) {
       if (value instanceof arrayType) {
         return value.length;
       }
@@ -99,7 +99,7 @@ export const isEmpty = (value: any) => !notEmpty(value);
  * @param arg
  */
 export const everyNotEmpty = (...arg: any[]) => {
-  for (let a of arg) {
+  for (const a of arg) {
     if (isEmpty(a)) {
       return false;
     }
@@ -112,7 +112,7 @@ export const everyNotEmpty = (...arg: any[]) => {
  * @param arg
  */
 export const everyIsEmpty = (...arg: any[]) => {
-  for (let a of arg) {
+  for (const a of arg) {
     if (notEmpty(a)) {
       return false;
     }

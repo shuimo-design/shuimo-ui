@@ -18,5 +18,5 @@ export const props: WCOPO<SelectProps> = {
   inputReadonly: { type: Boolean, default: true },
   disabled: { type: Boolean, default: false },
   placeholder: { type: String, default: '请选择...' },
-  toMatch: { type: Function as WPropType<(option: any, value: any) => Boolean>, default: undefined }
+  toMatch: { type: Function as WPropType<(option: any, value: any) => boolean>, default: undefined }
 }

@@ -6,7 +6,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { h, createApp, Teleport } from 'vue';
+import { createApp, h } from 'vue';
 import MBorder from "../../other/border/MBorder";
 import MButton from "../../base/button/MButton";
 import { notEmpty } from "../../dependents/_utils/tools";
@@ -19,7 +19,7 @@ const removeDiv = () => {
 }
 
 const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const bodyDomList = document.getElementsByTagName('body');
     if (notEmpty(bodyDomList)) {
       const body = bodyDomList[0];

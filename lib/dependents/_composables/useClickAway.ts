@@ -6,13 +6,12 @@
  *
  * Hello, humor
  */
-
-import { unref } from 'vue';
 import type { Ref } from 'vue';
+import { unref } from 'vue';
 import useEventListener from './useEventListener';
 
 
-export default function useClickAway(target: Ref, handler: Function) {
+export default function useClickAway(target: Ref, handler: (event: any) => void) {
   const event = "pointerdown";
 
   if (typeof window === 'undefined' || !window) {

@@ -54,7 +54,7 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
   const printer: PrinterType = Object.create(null);
 
 
-  for (let t of Object.values(PrinterEnum)) {
+  for (const t of Object.values(PrinterEnum)) {
     printer[t] = (content: any, user: string = DEFAULT_USER) => {
       switch (getType(content)) {
         case 'string':

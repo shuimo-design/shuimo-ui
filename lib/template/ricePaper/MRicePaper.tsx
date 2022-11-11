@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 默认改为冷色调，添加色调选项
  */
-import { defineComponent, h } from "vue";
+import { defineComponent } from "vue";
 import Printer from "../../other/printer/Printer";
 import { props } from "./api";
 

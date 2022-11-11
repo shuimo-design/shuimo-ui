@@ -7,11 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect } from "vitest";
+import { describe, expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
 import MCheckbox from "../../../lib/base/checkbox/MCheckbox";
 import MCheckboxGroup from "../../../lib/base/checkbox/MCheckboxGroup";
-import { h, ref } from "vue";
+import { h } from "vue";
 
 describe('多选组件', () => {
   test('无参数渲染', () => {

@@ -19,7 +19,7 @@ import MonthTable from "./MonthTable";
 export default defineComponent({
   name: 'CalendarDropdown',
   props: { datePickHook: Object },
-  setup(props, { slots }) {
+  setup(props) {
     const {
       date, year, month,
       isCalendarDropdown,

@@ -29,7 +29,7 @@ const fadeIn = (dom: HTMLElement | null, direction: string) => {
   dom.animate(keyframes, OPTION)
 }
 
-const fadeOut = (dom: HTMLElement | null, direction: MessageDirectionType, onFinish: Function) => {
+const fadeOut = (dom: HTMLElement | null, direction: MessageDirectionType, onFinish: () => void) => {
 
   if (!dom) return;
   const offsetHeight = dom.offsetHeight || 0;
@@ -111,7 +111,7 @@ const getFadeOutKeyframes = (direction: string, offsetWidth: Number, offsetHeigh
   }
   if (direction === 'top-center') {
     arr = [
-      { opacity: 1, transform: `translateY(0px)`},
+      { opacity: 1, transform: `translateY(0px)` },
       { opacity: 0, marginBottom: `-${offsetHeight}px`, transform: 'scale(0.8)' },
     ];
   }
