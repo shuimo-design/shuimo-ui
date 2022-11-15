@@ -32,8 +32,8 @@ export default defineComponent({
       info: infoIcon,
       error: errorIcon
     }
-    let timer = ref<number | undefined>(0);
-    let domRef = ref<HTMLElement | null>(null);
+    const timer = ref<number | undefined>(0);
+    const domRef = ref<HTMLElement | null>(null);
 
     const clearTimer = () => {
       props.duration && clearTimeout(timer.value);

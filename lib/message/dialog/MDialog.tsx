@@ -11,7 +11,7 @@
  * v1.0.1 阿怪 调整代码结构为setup形式，抽离关闭按钮
  */
 
-import { h, defineComponent, Teleport, computed, nextTick } from 'vue';
+import { computed, defineComponent, nextTick, Teleport } from 'vue';
 import useDialog from "../../dependents/_composables/useDialog";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import { props } from "./api";
@@ -44,14 +44,13 @@ export default defineComponent({
     });
 
 
-
-
     return () => {
       const classes = maskClass.value;
       const { visible, mask } = props;
       if (!visible) {
         return null;
       }
+      // eslint-disable-next-line vue/valid-next-tick
       nextTick(() => {
         resetSize(236, 368);
       }).then();

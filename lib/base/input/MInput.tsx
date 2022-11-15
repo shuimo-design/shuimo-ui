@@ -10,7 +10,7 @@
  * v1.1.1 阿怪 新增disabled和readonly属性
  * v1.1.2 阿怪 添加focus事件冒泡
  */
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, toRefs } from 'vue';
 import MBorder from '../../other/border/MBorder';
 import { props } from "./api";
 import type { HTMLElementEvent } from "../../dependents/_types";
@@ -21,11 +21,11 @@ export default defineComponent({
   emits: ['update:modelValue', 'focus'],
   props,
   setup(props, { emit }) {
-    const { type, disabled } = props;
+    const { type, disabled } = toRefs(props);
     const borderClass = {
       class: [
         'm-input',
-        { 'm-textarea': type === 'textarea' },
+        { 'm-textarea': type.value === 'textarea' },
         { 'm-input-disabled': disabled },
       ]
     };
@@ -45,7 +45,7 @@ export default defineComponent({
       }
 
 
-      if (type === 'textarea') {
+      if (type.value === 'textarea') {
         return h(MBorder, borderClass, () => h(
           'textarea', {
             rows: 10,

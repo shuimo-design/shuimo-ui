@@ -10,7 +10,7 @@
  */
 
 
-import { h, defineComponent, Teleport, computed } from 'vue';
+import { defineComponent, h, Teleport } from 'vue';
 import MBorder from "../../other/border/MBorder";
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
 import useDialog from "../../dependents/_composables/useDialog";

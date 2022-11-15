@@ -7,14 +7,11 @@
  * Hello, humor
  */
 
-import { defineComponent, onMounted, ref, toRefs, Transition } from 'vue';
-import Printer from '../../other/printer/Printer';
+import { defineComponent, ref, toRefs, Transition } from 'vue';
 import { props } from "./api";
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
 import MBorder from "../../other/border/MBorder";
-
-const printer = Printer();
 
 export default defineComponent({
   name: 'MPopover',

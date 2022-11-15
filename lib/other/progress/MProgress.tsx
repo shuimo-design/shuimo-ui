@@ -23,7 +23,7 @@ const W2H = BASE_SIZE.BG.W / BASE_SIZE.BG.H;
 const LEAF_W2H = BASE_SIZE.LEAF.W / BASE_SIZE.LEAF.H;
 
 const getSize = (w?: number, h?: number, w2h = W2H) => {
-  let size = {
+  const size = {
     width: w || BASE_SIZE.BG.W,
     height: h || BASE_SIZE.BG.H
   }

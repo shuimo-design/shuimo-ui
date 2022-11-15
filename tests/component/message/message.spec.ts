@@ -58,7 +58,7 @@ describe('消息提示', () => {
     await vi.runAllTicks();
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
-    for (let direction of directions) {
+    for (const direction of directions) {
       expect(bodyWrapper.find('m-message-list_' + direction)).not.toBeNull();
     }
     await vi.runAllTimers();

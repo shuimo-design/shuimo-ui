@@ -13,6 +13,4 @@
  */
 
 
-export declare type BorderProps = {
-
-}
+export declare type BorderProps = {}

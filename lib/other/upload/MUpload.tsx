@@ -8,7 +8,7 @@
  * v1.0.1 input添加pointer样式 阿怪
  * v1.1.0 改为setup写法 并修复反复上传同一个文件不触发的问题
  */
-import { h, defineComponent, ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { props } from "./api";
 
 export default defineComponent({

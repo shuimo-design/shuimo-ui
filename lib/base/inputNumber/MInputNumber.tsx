@@ -34,7 +34,7 @@ export default defineComponent({
     }
   },
   render() {
-    let { currentVal } = this;
+    const { currentVal } = this;
     const { inputHandle } = this;
 
     return h(MBorder,

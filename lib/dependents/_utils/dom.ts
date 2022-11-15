@@ -13,8 +13,6 @@ const trim = (string: string) => {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
 
-const isNode = typeof window !== "undefined";
-
 
 /* istanbul ignore next */
 export function addClass(el: Element, cls: string) {

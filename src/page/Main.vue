@@ -1,9 +1,12 @@
 <template>
-  <MSelect v-model="value" input-param="after" option-param="before" value-param="number" :options="options" multiple/>
-  <MSelect v-model="value2" input-param="after" option-param="before" value-param="number" :options="options2"/>
+
+  <MTag>可删除标签</MTag>
+  <MDeleteIcon></MDeleteIcon>
+
 </template>
 
 <script lang="ts" setup>
+
 /**
  * @description playground
  * @author 阿怪
@@ -12,24 +15,10 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { reactive, ref } from "vue";
-import MSelect from "../../lib/base/select/MSelect";
-const value = ref([]);
-// const options = reactive(["子", "丑", "寅", "卯"]);
-const options = reactive([
-  { before: "乾", after: "坎", number: "壹" },
-  { before: "兑", after: "坤", number: "贰" },
-  { before: "离", after: "震", number: "叁" },
-  { before: "震", after: "巽", number: "肆" },
-]);
-const value2 = ref([]);
-// const options = reactive(["子", "丑", "寅", "卯"]);
-const options2 = reactive([
-  { before: "乾", after: "坎", number: "壹" },
-  { before: "兑", after: "坤", number: "贰" },
-  { before: "离", after: "震", number: "叁" },
-  { before: "震", after: "巽", number: "肆" },
-]);
+import { ref } from "vue";
+import MDeleteIcon from "../../lib/other/icons/deleteIcon/MDeleteIcon";
+
+
 </script>
 
 <style lang="scss" scoped>

@@ -19,9 +19,9 @@ import {
   setDate,
   valueFormatByType
 } from '../../dependents/_utils/dateUtil';
-import {DOMTokenListToArray} from '../../dependents/_utils/dom';
+import { DOMTokenListToArray } from '../../dependents/_utils/dom';
 
-const useEvents = (setStyle: Function) => {
+const useEvents = (setStyle: () => void) => {
   const isCalendarDropdown = ref<boolean>(false);
 
   const mousedownEvent = (e: MouseEvent) => {
@@ -91,7 +91,7 @@ const useDom = () => {
   }));
 
   const setStyle = () => {
-    if (selectRef && selectRef.value) {
+    if (selectRef.value) {
       const cssStyleDeclaration = window.getComputedStyle(selectRef.value);
       selectStyle.offsetLeft = selectRef.value.getBoundingClientRect().left + window.scrollX;
       selectStyle.offsetTop = selectRef.value.getBoundingClientRect().top + window.scrollY;
@@ -140,13 +140,13 @@ const useDate = () => {
 
 export const useDatePicker = (props: any, emit: any) => {
   const { setStyle, selectRef, dropdownStyle } = useDom();
-  const { setEvents, isCalendarDropdown }  = useEvents(setStyle);
+  const { setEvents, isCalendarDropdown } = useEvents(setStyle);
   const { date, year, month, currentView, showMonthPicker, showYearPicker } = useDate();
 
   const defaultValue = ref<string>('');
 
   const datePickHandler = (d: Date) => {
-    let newDate = modifyDate(d, d.getFullYear(), d.getMonth(), d.getDate());
+    const newDate = modifyDate(d, d.getFullYear(), d.getMonth(), d.getDate());
     defaultValue.value = setDate(newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate());
     emitHandler(defaultValue.value);
     isCalendarDropdown.value = false;

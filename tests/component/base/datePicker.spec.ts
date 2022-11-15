@@ -10,11 +10,11 @@
  */
 
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import { describe, test, expect, beforeEach } from "vitest";
+import { beforeEach, describe, expect, test } from "vitest";
 import MDatePicker from '../../../lib/base/datePicker/MDatePicker';
 import DateTable from "../../../lib/base/datePicker/basic/DateTable";
 import CalendarDropdown from "../../../lib/base/datePicker/basic/CalendarDropdown";
-import { ComponentPublicInstance } from "@vue/runtime-core";
+import { ComponentPublicInstance } from "vue";
 import YearTable from "../../../lib/base/datePicker/basic/YearTable";
 import MonthTable from "../../../lib/base/datePicker/basic/MonthTable";
 
@@ -109,7 +109,7 @@ describe('伴随事件', () => {
       expect(calendar.find('.m-month').text()).toBe(`0${month}`);
     });
 
-    test('点击日期后数据更新',async ()=>{
+    test('点击日期后数据更新', async () => {
       expect(dateTable.isVisible()).toBe(true);
       await dateTable.find('.m-date-prev-month').trigger('click');
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['2022-04-25']);

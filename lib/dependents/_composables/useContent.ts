@@ -10,7 +10,7 @@
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import type { Ref, Slots } from 'vue';
 
-export default function useContent(slots: Slots, popperNode: Ref<Node>, content: Ref<String>) {
+export default function useContent(slots: Slots, popperNode: Ref<Node>, content: Ref<string>) {
   let observer: MutationObserver | null = null;
   const hasContent = ref(false);
 

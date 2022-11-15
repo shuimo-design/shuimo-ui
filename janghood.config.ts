@@ -13,7 +13,7 @@ const firstUpperCase = (str: string) => {
 }
 
 const sourceSymbolTranslator = (dirList: string[]) => {
-  let lastDir = firstUpperCase(dirList[dirList.length - 1]);
+  const lastDir = firstUpperCase(dirList[dirList.length - 1]);
   return `M${lastDir}`;
 }
 

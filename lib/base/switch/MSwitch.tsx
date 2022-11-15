@@ -8,7 +8,7 @@
  *
  * modelValue不为布尔值的时候暂时不冒泡，里面的逻辑不太清晰，后续可以扩展一下
  */
-import { computed, defineComponent, ref, toRefs } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { props } from "./api";
 import { SwitchProps } from "./index";
 import { everyIsEmpty } from "../../dependents/_utils/tools";
@@ -31,8 +31,8 @@ export default defineComponent({
       return (<span class="m-switch-span">{props[key]}</span>)
     }
 
-    let activeValue = ref(props.activeValue);
-    let inactiveValue = ref(props.inactiveValue);
+    const activeValue = ref(props.activeValue);
+    const inactiveValue = ref(props.inactiveValue);
 
     const isBoolean = computed(() => typeof props.modelValue === 'boolean');
 

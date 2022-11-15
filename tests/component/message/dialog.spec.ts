@@ -11,7 +11,6 @@ import { describe, expect, test } from "vitest";
 import { DOMWrapper, mount } from "@vue/test-utils";
 import { h } from "vue";
 import MDialog from "../../../lib/message/dialog/MDialog";
-import MDialogCloseBtn from "../../../lib/message/dialog/MDialogCloseBtn";
 
 describe('弹窗组件', () => {
   const body = document.body;

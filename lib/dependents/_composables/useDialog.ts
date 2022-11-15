@@ -6,11 +6,14 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { computed, useSlots, ref } from 'vue';
+import { computed, ref, useSlots } from 'vue';
 import { CLOSE_EVENT, CONFIRM_EVENT } from "../_utils/constants";
 import { notEmpty } from "../_utils/tools";
 
-export default function useDialog(props: any, context: { emit: Function }) {
+export default function useDialog(
+  props: any,
+  context: { emit: (event: ('close' | 'confirm'), ...args: any[]) => void }
+) {
 
   const pes = ref(1);
 

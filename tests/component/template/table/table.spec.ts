@@ -16,7 +16,7 @@ import { TableProps } from "../../../../lib/template/table";
 import { Slot } from "@vue/test-utils/dist/types";
 import VForTableColumn from './demo/VForTableColumn.vue'
 
-describe.skip('列表组件', function () {
+describe('列表组件', function () {
 
   const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
     return mount(MTable, { props, slots });
@@ -121,32 +121,32 @@ describe.skip('列表组件', function () {
       }
     )
     expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-table\\">
-          <div class=\\"m-table-header-img-top\\"></div>
-          <div class=\\"m-table-header-img-bottom\\"></div>
-          <div class=\\"m-table-wrap\\">
-            <table class=\\"m-table-inner\\">
-              <thead class=\\"m-thead\\">
-                <tr class=\\"m-tr\\">
-                  <th class=\\"m-th\\">label</th>
-                </tr>
-              </thead>
-              <tbody class=\\"m-tbody\\">
-                <tr class=\\"m-tr\\">
-                  <td class=\\"m-td\\"><span>slot数据：hi, index:0</span></td>
-                  <td class=\\"m-table-tbody-img\\"></td>
-                </tr>
-                <tr class=\\"m-tr\\">
-                  <td class=\\"m-td\\"><span>slot数据：hello, index:1</span></td>
-                  <td class=\\"m-table-tbody-img\\"></td>
-                </tr>
-              </tbody>
-            </table>
-            <!---->
-          </div>
-          <div class=\\"m-table-border-img-bottom\\"></div>
-        </div>"
-      `);
+      "<div class=\\"m-table\\">
+        <div class=\\"m-table-header-img-top\\"></div>
+        <div class=\\"m-table-header-img-bottom\\"></div>
+        <div class=\\"m-table-wrap\\">
+          <table class=\\"m-table-inner\\">
+            <thead class=\\"m-thead\\">
+              <tr class=\\"m-tr\\">
+                <th class=\\"m-th\\">label</th>
+              </tr>
+            </thead>
+            <tbody class=\\"m-tbody\\">
+              <tr class=\\"m-tr\\">
+                <td class=\\"m-td\\"><span>slot数据：hi, index:0</span></td>
+                <td class=\\"m-table-tbody-img\\"></td>
+              </tr>
+              <tr class=\\"m-tr\\">
+                <td class=\\"m-td\\"><span>slot数据：hello, index:1</span></td>
+                <td class=\\"m-table-tbody-img\\"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!---->
+        </div>
+        <div class=\\"m-table-border-img-bottom\\"></div>
+      </div>"
+    `);
   })
 
   test('v-for渲染column', () => {
@@ -192,23 +192,23 @@ describe.skip('列表组件', function () {
         { default: [h(MTableColumn, { param: 'param', label: 'label' })] }
       );
       expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">label</th>
-              </tr>
-            </thead>
-            <tbody class=\\"m-tbody\\"></tbody>
-          </table>
-          <div class=\\"m-table-empty\\">暂无数据</div>
-        </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
-      </div>"
-    `);
+        "<div class=\\"m-table\\">
+          <div class=\\"m-table-header-img-top\\"></div>
+          <div class=\\"m-table-header-img-bottom\\"></div>
+          <div class=\\"m-table-wrap\\">
+            <table class=\\"m-table-inner\\">
+              <thead class=\\"m-thead\\">
+                <tr class=\\"m-tr\\">
+                  <th class=\\"m-th\\">label</th>
+                </tr>
+              </thead>
+              <tbody class=\\"m-tbody\\"></tbody>
+            </table>
+            <div class=\\"m-table-empty\\">暂无数据</div>
+          </div>
+          <div class=\\"m-table-border-img-bottom\\"></div>
+        </div>"
+      `);
     })
 
     test('提供slot', () => {
@@ -246,30 +246,48 @@ describe.skip('列表组件', function () {
 
     test('未传列表', () => {
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper();
+      getWrapper();
       expect(infoSpy).toHaveBeenCalled()
     });
 
     test('列表中子节点不是m-table-column', () => {
-      const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
-        return mount(MTable, { props, slots });
-      }
 
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper(
+      getWrapper(
         { data: [] },
-        { default: [h('div')] }
+        { default: () => h('div', 'hello') }
       );
       expect(infoSpy).toHaveBeenCalled()
     });
 
+    test('列表中子节点不是m-table-column但是是undefined', () => {
+
+      const wrapper = getWrapper(
+        { data: [] },
+        { default: () => undefined }
+      );
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<div class=\\"m-table\\">
+          <div class=\\"m-table-header-img-top\\"></div>
+          <div class=\\"m-table-header-img-bottom\\"></div>
+          <div class=\\"m-table-wrap\\">
+            <table class=\\"m-table-inner\\">
+              <thead class=\\"m-thead\\">
+                <tr class=\\"m-tr\\"></tr>
+              </thead>
+              <tbody class=\\"m-tbody\\"></tbody>
+            </table>
+            <div class=\\"m-table-empty\\">暂无数据</div>
+          </div>
+          <div class=\\"m-table-border-img-bottom\\"></div>
+        </div>"
+      `);
+    });
+
     test('列表中子节点缺少props属性', () => {
-      const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
-        return mount(MTable, { props, slots });
-      }
 
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = getWrapper(
+      getWrapper(
         { data: [] },
         { default: [h(MTableColumn)] }
       );

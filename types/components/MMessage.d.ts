@@ -40,7 +40,7 @@
    * @description Whether the component is allowed to be dragged
    * @default true
    */
-  dragAllow?: Boolean;
+  dragAllow?: boolean;
   /**
    * @description Whether the component is allowed to be dragged
    * @default {triggerBoundary:2}

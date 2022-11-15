@@ -76,7 +76,7 @@ export declare type SelectProps = {
    * @type function
    * @default undefined
    */
-  toMatch?: (option: any, value: any) => Boolean,
+  toMatch?: (option: any, value: any) => boolean,
   /**
    * @description multiple choice
    *              是否为多选
