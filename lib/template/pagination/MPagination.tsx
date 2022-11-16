@@ -78,9 +78,9 @@ export default defineComponent({
           onClick={prevPage}
           disabled={disPrev.value}
         />
-        <ul onClick={pageSelected} class="pages">
+        <ul onClick={pageSelected} class="m-pages">
           {pagers.value.map(page => (
-            <li class={['pager m-cursor', { 'm-current-page': page === innerCurrent.value }]} key={page}>
+            <li class={['m-pager m-cursor', { 'm-current-page': page === innerCurrent.value }]} key={page}>
               {page}
             </li>
           ))}

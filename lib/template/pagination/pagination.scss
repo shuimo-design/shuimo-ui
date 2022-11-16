@@ -1,13 +1,13 @@
 .m-pagination {
   padding: 5px;
 
-  .pages {
+  .m-pages {
     display: inline-block;
     margin: unset;
     padding: unset;
   }
 
-  .pager {
+  .m-pager {
     display: inline-block;
     list-style: none;
     margin: 2px;
@@ -25,14 +25,16 @@
     font-weight: 600;
     color: #1a336d;
   }
-}
 
-button {
-  background: transparent;
-  border: none;
-  outline: none;
-  position: relative;
-  bottom: -2px;
+
+  button {
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    bottom: -2px;
+  }
+
 }
 
 .m-page-prev:before {
