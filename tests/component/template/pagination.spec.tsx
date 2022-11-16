@@ -37,7 +37,7 @@ describe('分页组件', function () {
         return <MPagination total={100} v-model={this.current} />;
       }
     });
-    await wrapper.find('.pager:nth-child(2)').trigger('click');
+    await wrapper.find('.m-pager:nth-child(2)').trigger('click');
     expect(wrapper.vm.$data.current).toEqual(2);
   });
 
