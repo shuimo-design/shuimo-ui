@@ -30,5 +30,5 @@ export declare type LoadingProps = {
    * @type number | string
    * @default 50
    */
-  sideLength?: number | string,
+  sideLength?: number | string
 };

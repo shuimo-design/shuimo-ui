@@ -8,11 +8,11 @@ export const props: WCOPO<CheckboxGroupProps> = {
 };
 
 export type CheckboxGroupContext = {
-  cancelValue: (id: symbol) => void;
-  registerValue: (id: symbol, value: string) => void;
-  checkHandle: (label: string, value: string, id?: symbol) => void;
-  disabled: Ref<boolean>;
-  groupValue: Ref<any[]>;
+  cancelValue: (id: symbol) => void,
+  registerValue: (id: symbol, value: string) => void,
+  checkHandle: (label: string, value: string, id?: symbol) => void,
+  disabled: Ref<boolean>,
+  groupValue: Ref<any[]>
 };
 
 export const CheckboxGroupContextKey: InjectionKey<CheckboxGroupContext> = Symbol('CheckboxGroupContext');

@@ -7,8 +7,8 @@
 import { Ref, ref } from 'vue';
 import type { MessageDirectionType } from '../../../types/components/MMessage';
 interface Position {
-  x: number;
-  y: number;
+  x: number,
+  y: number
 }
 
 type Target = Ref<HTMLElement | null>;

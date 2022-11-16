@@ -33,7 +33,7 @@ export declare type DialogProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean,
+  closeBtn?: boolean
 };
 
 

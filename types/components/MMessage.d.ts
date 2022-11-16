@@ -20,32 +20,32 @@ export type MessageProps = {
    * @description Type of message
    * @default 'info'
    */
-  type?: MessageType;
+  type?: MessageType,
   /**
    * @description The time of duration
    * @default 3000
    */
-  duration?: number;
+  duration?: number,
   /**
    * @description The message content
    * @default 这是一条消息
    */
-  content: string;
+  content: string,
   /**
    * @description The direction in which the component appears
    * @default top-right
    */
-  direction?: MessageDirectionType;
+  direction?: MessageDirectionType,
   /**
    * @description Whether the component is allowed to be dragged
    * @default true
    */
-  dragAllow?: boolean;
+  dragAllow?: boolean,
   /**
    * @description Whether the component is allowed to be dragged
    * @default {triggerBoundary:2}
    */
-  dragConfig?: DragConfigType;
+  dragConfig?: DragConfigType
 };
 
 export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
@@ -58,8 +58,8 @@ type IMessageEnum = {
   [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object> | void;
 };
 export type IMessage = IMessageEnum & {
-  (config: MessageConfig): Promise<object> | void;
+  (config: MessageConfig): Promise<object> | void
 };
 export interface DragConfigType {
-  triggerBoundary: number;
+  triggerBoundary: number
 }

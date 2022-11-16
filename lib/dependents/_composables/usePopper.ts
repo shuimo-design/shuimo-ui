@@ -11,19 +11,19 @@ export type Placement = 'auto' | 'auto-start' | 'auto-end'
   | 'left' | 'left-start' | 'left-end'
 
 interface IPopper {
-  arrowPadding?: string;
-  emit: (event: 'close:popper' | 'open:popper', ...args: any[]) => void;
-  locked: boolean;
-  offsetDistance: string;
-  offsetSkid: string;
-  placement: Ref<Placement>;
-  popperNode: Ref;
-  triggerNode: Ref;
+  arrowPadding?: string,
+  emit: (event: 'close:popper' | 'open:popper', ...args: any[]) => void,
+  locked: boolean,
+  offsetDistance: string,
+  offsetSkid: string,
+  placement: Ref<Placement>,
+  popperNode: Ref,
+  triggerNode: Ref
 }
 
 interface IState {
-  isOpen: boolean;
-  popperInstance?: Instance;
+  isOpen: boolean,
+  popperInstance?: Instance
 }
 
 export default function usePopper(popper: IPopper) {

@@ -17,7 +17,7 @@ export * from './components/hooks';
 declare module 'shuimo-ui' {}
 
 export interface ShuimoUI {
-  install: (app: App) => App;
+  install: (app: App) => App
 }
 export function createMUI(): ShuimoUI;
 

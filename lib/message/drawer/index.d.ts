@@ -48,5 +48,5 @@ export declare type DrawerProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean,
+  closeBtn?: boolean
 }

@@ -66,7 +66,7 @@ export type selectStyleType = {
   offsetTop: number,
   offsetLeft: number,
   height: number,
-  width: number,
+  width: number
 }
 
 const DEFAULT_SELECT_BORDER = 3;

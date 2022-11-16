@@ -8,10 +8,10 @@
 import type { MessageDirectionType } from '../../../types/components/MMessage';
 
 interface AnimateKeyframe {
-  composite?: 'accumulate' | 'add' | 'auto' | 'replace';
-  easing?: string;
-  offset?: number | null;
-  [property: string]: string | number | null | undefined;
+  composite?: 'accumulate' | 'add' | 'auto' | 'replace',
+  easing?: string,
+  offset?: number | null,
+  [property: string]: string | number | null | undefined
 }
 
 const OPTION = {

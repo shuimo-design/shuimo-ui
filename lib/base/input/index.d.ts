@@ -43,6 +43,6 @@ export declare type InputProps = {
    * @type boolean
    * @default false
    */
-  disabled?: boolean,
+  disabled?: boolean
 }
 

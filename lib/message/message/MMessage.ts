@@ -24,9 +24,9 @@ const messageListMap = new Map<MessageDirectionType, MessageIns>();
  * @description MessageList实例
  */
 export declare interface MessageIns extends ComponentPublicInstance {
-  add: (params: MessageProps) => void;
-  remove: (index: number) => void;
-  domList: Array<InstanceType<typeof MMessageItem>>;
+  add: (params: MessageProps) => void,
+  remove: (index: number) => void,
+  domList: Array<InstanceType<typeof MMessageItem>>
 }
 
 const mergeOption = (options: MessageConfig, type = MessageTypeEnum.success, duration = 3000) => {

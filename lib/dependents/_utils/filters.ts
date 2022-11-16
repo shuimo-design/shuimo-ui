@@ -13,9 +13,9 @@ import { resolveUnref } from './tools';
 export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
 
 export interface FunctionWrapperOptions<Args extends any[] = any[], This = any> {
-  fn: FunctionArgs<Args, This>;
-  args: Args;
-  thisArg: This;
+  fn: FunctionArgs<Args, This>,
+  args: Args,
+  thisArg: This
 }
 
 export type EventFilter<Args extends any[] = any[], This = any> = (
@@ -28,7 +28,7 @@ export interface DebounceFilterOptions {
    * The maximum time allowed to be delayed before it's invoked.
    * In milliseconds.
    */
-  maxWait?: MaybeComputedRef<number>;
+  maxWait?: MaybeComputedRef<number>
 }
 
 /**

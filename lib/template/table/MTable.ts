@@ -53,8 +53,8 @@ const borderRender = () => {
 };
 
 type columnType = {
-  key: string;
-  children: any; // VNodeNormalizedChildren  大概率是个RawSlots
+  key: string,
+  children: any // VNodeNormalizedChildren  大概率是个RawSlots
 };
 const error = Printer('水墨UI表格组件').error;
 
