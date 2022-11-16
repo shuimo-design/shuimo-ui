@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { createApp, type Directive } from "vue";
-import MLoading from "./MLoading";
+import { createApp, type Directive } from 'vue';
+import MLoading from './MLoading';
 
 const getNumberFromPx = (px: string) => Number(px.replace('px', ''));
 
@@ -19,12 +19,10 @@ const addLoadingElement = (el: any) => {
   const loadingElement = createApp(MLoading, {
     class: 'm-loading-directive m-loading-mask',
     sideLength: minSide
-  })
-    .mount(document.createElement("div"));
+  }).mount(document.createElement('div'));
   el.classList?.add('m-loading-parent-relative');
   el.appendChild(loadingElement.$el);
-}
-
+};
 
 export const loadingDirective: Directive = {
   mounted(el, binding) {
@@ -43,4 +41,4 @@ export const loadingDirective: Directive = {
       el.classList?.remove('m-loading-parent-relative');
     }
   }
-}
+};

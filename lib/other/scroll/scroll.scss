@@ -1,5 +1,4 @@
 .m-scroll {
-
   --scrollbar-w: 10px;
   --scrollbar-h: 58.8px;
 
@@ -8,15 +7,14 @@
     height: var(--scrollbar-w);
   }
 
-
   &::-webkit-scrollbar-thumb {
-    background: url("/lib/assets/scroll/scrollbar.png") repeat-y;
+    background: url('/lib/assets/scroll/scrollbar.png') repeat-y;
     background-size: var(--scrollbar-w) var(--scrollbar-h);
     border-radius: 20px;
   }
 
   &::-webkit-scrollbar-thumb:horizontal {
-    background: url("/lib/assets/scroll/scrollbar-h.png") repeat-x;
+    background: url('/lib/assets/scroll/scrollbar-h.png') repeat-x;
     background-size: var(--scrollbar-h) var(--scrollbar-w);
     border-radius: 20px;
   }
@@ -26,4 +24,3 @@
     background: unset;
   }
 }
-

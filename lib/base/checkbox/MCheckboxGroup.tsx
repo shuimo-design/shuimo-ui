@@ -6,7 +6,7 @@ export default defineComponent({
   props,
   emits: ['update:modelValue'],
   setup(props, { emit, slots }) {
-    const groupValue = ref(props.modelValue)
+    const groupValue = ref(props.modelValue);
     const triggerUpdate = ref(Symbol());
     const registeredValuesMap = ref<Map<symbol, string>>(new Map());
     const cancelValue = (id: symbol) => {
@@ -34,7 +34,7 @@ export default defineComponent({
       registerValue,
       groupValue,
       checkHandle,
-      disabled: computed(() => props.disabled),
+      disabled: computed(() => props.disabled)
     });
 
     const registeredValues = ref(new Map());
@@ -46,17 +46,13 @@ export default defineComponent({
       registeredValues.value = valueMap;
     });
 
-    watch(() => props.modelValue, (value) => {
+    watch(() => props.modelValue, value => {
       groupValue.value = value || [];
     });
 
 
     return () => {
-      return (
-        <div class="m-checkbox-group">
-          {slots.default?.()}
-        </div>
-      )
-    }
+      return <div class="m-checkbox-group">{slots.default?.()}</div>;
+    };
   }
-})
+});

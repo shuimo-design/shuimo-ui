@@ -17,20 +17,18 @@
  * v2.0.2 修复inputValue在找不到时不更新数据的问题
  */
 import { defineComponent, h, ref, watch } from 'vue';
-import MInput from "../input/MInput";
-import { props } from "./api";
-import MPopover from "../../message/popover/MPopover";
-import useDialog from "../../message/dialog/useDialog";
-import { everyNotEmpty } from "../../dependents/_utils/tools";
-import useDebounceFn from "../../dependents/_composables/useDebounceFn";
-
+import MInput from '../input/MInput';
+import { props } from './api';
+import MPopover from '../../message/popover/MPopover';
+import useDialog from '../../message/dialog/useDialog';
+import { everyNotEmpty } from '../../dependents/_utils/tools';
+import useDebounceFn from '../../dependents/_composables/useDebounceFn';
 
 export default defineComponent({
   name: 'MSelect',
   props,
   emits: ['update:modelValue', 'input', 'select', 'focus'],
   setup(props, { emit, slots }) {
-
     const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
     type OptionType = any;
 
@@ -41,7 +39,7 @@ export default defineComponent({
         return option;
       }
       return option[props[key]];
-    }
+    };
 
     const getInputValue = (option: OptionType) => getInfoWithKey(option, 'inputParam');
 
@@ -52,7 +50,7 @@ export default defineComponent({
       emit('update:modelValue', getModelValue(option));
       emit('select', option);
       closeDialog();
-    }
+    };
 
     const optionMatchValue = (option: OptionType) => {
       const value = getModelValue(option);
@@ -61,13 +59,13 @@ export default defineComponent({
       }
 
       return value === props.modelValue;
-    }
+    };
 
     const showSelectDialog = () => {
       if (props.options.length > 0) {
         showDialog();
       }
-    }
+    };
 
     const debounceShowSelectDialog = useDebounceFn(showSelectDialog, 200);
 
@@ -77,12 +75,11 @@ export default defineComponent({
       }
       debounceShowSelectDialog();
       emit('focus', value, inputValue);
-    }
+    };
     const onInput = (value: InputEvent) => {
       debounceShowSelectDialog();
       emit('input', value);
-    }
-
+    };
 
     // 初始化数据
     const initInputValue = () => {
@@ -95,16 +92,17 @@ export default defineComponent({
         }
       }
       inputValue.value = '';
-    }
+    };
     initInputValue();
 
-
-    watch(() => props.modelValue, () => {
-      initInputValue();
-    });
+    watch(
+      () => props.modelValue,
+      () => {
+        initInputValue();
+      }
+    );
 
     return () => {
-
       const getOptionDisplayInfo = (option: OptionType) => {
         if (!slots.option) {
           return getInfoWithKey(option, 'optionParam');
@@ -122,22 +120,29 @@ export default defineComponent({
         readonly: props.inputReadonly
       });
 
-      const options = props.options
-        .map(option => h('div', {
-          class: ['m-option', { 'm-option-selected': optionMatchValue(option) }],
-          onClick: () => onClickOption(option)
-        }, getOptionDisplayInfo(option)));
+      const options = props.options.map(option =>
+        h(
+          'div',
+          {
+            class: ['m-option', { 'm-option-selected': optionMatchValue(option) }],
+            onClick: () => onClickOption(option)
+          },
+          getOptionDisplayInfo(option)
+        )
+      );
 
-      return h(MPopover,
+      return h(
+        MPopover,
         {
           class: 'm-select',
           show: visible.value,
-          'onUpdate:show': newValue => visible.value = newValue,
+          'onUpdate:show': newValue => (visible.value = newValue)
         },
         {
           default: () => selectInput,
           content: () => h('div', { class: 'm-select-options' }, options)
-        });
-    }
-  },
-})
+        }
+      );
+    };
+  }
+});

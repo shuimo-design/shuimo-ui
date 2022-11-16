@@ -7,28 +7,28 @@
  * Hello, humor
  */
 
-import type { Fn, MaybeComputedRef } from './types'
+import type { Fn, MaybeComputedRef } from './types';
 import { resolveUnref } from './tools';
 
-export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return
+export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
 
 export interface FunctionWrapperOptions<Args extends any[] = any[], This = any> {
-  fn: FunctionArgs<Args, This>
-  args: Args
-  thisArg: This
+  fn: FunctionArgs<Args, This>;
+  args: Args;
+  thisArg: This;
 }
 
 export type EventFilter<Args extends any[] = any[], This = any> = (
   invoke: Fn,
   options: FunctionWrapperOptions<Args, This>
-) => void
+) => void;
 
 export interface DebounceFilterOptions {
   /**
    * The maximum time allowed to be delayed before it's invoked.
    * In milliseconds.
    */
-  maxWait?: MaybeComputedRef<number>
+  maxWait?: MaybeComputedRef<number>;
 }
 
 /**
@@ -36,10 +36,10 @@ export interface DebounceFilterOptions {
  */
 export function createFilterWrapper<T extends FunctionArgs>(filter: EventFilter, fn: T) {
   function wrapper(this: any, ...args: any[]) {
-    filter(() => fn.apply(this, args), { fn, thisArg: this, args })
+    filter(() => fn.apply(this, args), { fn, thisArg: this, args });
   }
 
-  return wrapper as any as T
+  return wrapper as any as T;
 }
 
 /**
@@ -49,45 +49,41 @@ export function createFilterWrapper<T extends FunctionArgs>(filter: EventFilter,
  * @param options
  */
 export function debounceFilter(ms: MaybeComputedRef<number>, options: DebounceFilterOptions = {}) {
-  let timer: ReturnType<typeof setTimeout> | undefined
-  let maxTimer: ReturnType<typeof setTimeout> | undefined | null
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let maxTimer: ReturnType<typeof setTimeout> | undefined | null;
 
-  const filter: EventFilter = (invoke) => {
-    const duration = resolveUnref(ms)
-    const maxDuration = resolveUnref(options.maxWait)
+  const filter: EventFilter = invoke => {
+    const duration = resolveUnref(ms);
+    const maxDuration = resolveUnref(options.maxWait);
 
-    if (timer)
-      clearTimeout(timer)
-
+    if (timer) clearTimeout(timer);
 
     if (duration <= 0 || (maxDuration !== undefined && maxDuration <= 0)) {
       if (maxTimer) {
-        clearTimeout(maxTimer)
-        maxTimer = null
+        clearTimeout(maxTimer);
+        maxTimer = null;
       }
-      return invoke()
+      return invoke();
     }
 
     // Create the maxTimer. Clears the regular timer on invoke
     if (maxDuration && !maxTimer) {
       maxTimer = setTimeout(() => {
-        if (timer)
-          clearTimeout(timer)
-        maxTimer = null
-        invoke()
-      }, maxDuration)
+        if (timer) clearTimeout(timer);
+        maxTimer = null;
+        invoke();
+      }, maxDuration);
     }
 
     // Create the regular timer. Clears the max timer on invoke
     timer = setTimeout(() => {
-      if (maxTimer)
-        clearTimeout(maxTimer)
-      maxTimer = null
-      invoke()
-    }, duration)
-  }
+      if (maxTimer) clearTimeout(maxTimer);
+      maxTimer = null;
+      invoke();
+    }, duration);
+  };
 
-  return filter
+  return filter;
 }
 
 /**
@@ -98,46 +94,44 @@ export function debounceFilter(ms: MaybeComputedRef<number>, options: DebounceFi
  * @param [leading=true]
  */
 export function throttleFilter(ms: MaybeComputedRef<number>, trailing = true, leading = true) {
-  let lastExec = 0
-  let timer: ReturnType<typeof setTimeout> | undefined
-  let isLeading = true
+  let lastExec = 0;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let isLeading = true;
 
   const clear = () => {
     if (timer) {
-      clearTimeout(timer)
-      timer = undefined
+      clearTimeout(timer);
+      timer = undefined;
     }
-  }
+  };
 
-  const filter: EventFilter = (invoke) => {
-    const duration = resolveUnref(ms)
-    const elapsed = Date.now() - lastExec
+  const filter: EventFilter = invoke => {
+    const duration = resolveUnref(ms);
+    const elapsed = Date.now() - lastExec;
 
-    clear()
+    clear();
 
     if (duration <= 0) {
-      lastExec = Date.now()
-      return invoke()
+      lastExec = Date.now();
+      return invoke();
     }
 
     if (elapsed > duration && (leading || !isLeading)) {
-      lastExec = Date.now()
-      invoke()
-    }
-    else if (trailing) {
+      lastExec = Date.now();
+      invoke();
+    } else if (trailing) {
       timer = setTimeout(() => {
-        lastExec = Date.now()
-        isLeading = true
-        clear()
-        invoke()
-      }, duration)
+        lastExec = Date.now();
+        isLeading = true;
+        clear();
+        invoke();
+      }, duration);
     }
 
-    if (!leading && !timer)
-      timer = setTimeout(() => isLeading = true, duration)
+    if (!leading && !timer) timer = setTimeout(() => (isLeading = true), duration);
 
-    isLeading = false
-  }
+    isLeading = false;
+  };
 
-  return filter
+  return filter;
 }

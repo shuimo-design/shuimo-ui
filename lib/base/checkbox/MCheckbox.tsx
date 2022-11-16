@@ -33,13 +33,11 @@ export default defineComponent({
         emit('change', newValue, args);
       },
       emit
-    })
+    });
 
     const selfChecked = computed(() => {
-      return checkboxGroup
-        ? checkboxGroup.groupValue.value.includes(props.value)
-        : innerChecked.value;
-    })
+      return checkboxGroup ? checkboxGroup.groupValue.value.includes(props.value) : innerChecked.value;
+    });
 
     watchEffect(() => {
       if (checkboxGroup && selfChecked.value) {
@@ -55,7 +53,7 @@ export default defineComponent({
     const wCheckboxStyle = computed(() => [
       'm-checkbox',
       {
-        'm-cursor-disabled': innerDisabled.value,
+        'm-cursor-disabled': innerDisabled.value
       }
     ]);
     const checkStyle = computed(() => [
@@ -63,8 +61,8 @@ export default defineComponent({
       {
         'm-checkbox-is-checked': selfChecked.value,
         'm-cursor-disabled': innerDisabled.value,
-        'm-cursor-pointer': !innerDisabled.value,
-      },
+        'm-cursor-pointer': !innerDisabled.value
+      }
     ]);
     const innerStyle = computed(() => [{
       'm-checkbox__inner_checked': selfChecked.value,
@@ -98,5 +96,5 @@ export default defineComponent({
         <span class="m-checkbox__label">{slots.default?.() ?? props.label}</span>
       </label>
     );
-  },
-})
+  }
+});

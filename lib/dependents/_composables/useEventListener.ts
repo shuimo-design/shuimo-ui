@@ -11,7 +11,7 @@ import { isRef, watch, unref, onMounted, onBeforeUnmount } from 'vue';
 
 export default function useEventListener(target: any, event: string, handler: EventListenerOrEventListenerObject) {
   if (isRef(target)) {
-    watch(target, (value: any , oldValue: any) => {
+    watch(target, (value: any, oldValue: any) => {
       oldValue?.removeEventListener(event, handler);
       value?.addEventListener(event, handler);
     });

@@ -6,15 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { describe, expect, test } from "vitest";
-import { mount } from "@vue/test-utils";
-import MBorder from "../../../lib/other/border/MBorder";
+import { describe, expect, test } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MBorder from '../../../lib/other/border/MBorder';
 
 describe('边框组件', () => {
-
   test('无参数渲染', () => {
-    const wrapper = mount(MBorder,{
-      slots:{
+    const wrapper = mount(MBorder, {
+      slots: {
         default: '<div>测试</div>'
       }
     });
@@ -30,5 +29,4 @@ describe('边框组件', () => {
       </div>"
     `);
   });
-
-})
+});

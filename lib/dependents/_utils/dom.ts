@@ -13,7 +13,6 @@ const trim = (string: string) => {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
 
-
 /* istanbul ignore next */
 export function addClass(el: Element, cls: string) {
   if (!el) return;
@@ -80,7 +79,6 @@ export const getStyleNumber = (elt: Element, type: keyof CSSStyleDeclaration) =>
   return 0;
 };
 
-
 /**
  * 用于将DOMTokenList转换成Array获取class list 的方法
  * @param list DOMTokenList | HtmlCollection
@@ -92,4 +90,4 @@ export const DOMTokenListToArray = (list: DOMTokenList | HTMLCollection) => {
     array.push(list[i]);
   }
   return array;
-}
+};

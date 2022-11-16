@@ -11,11 +11,10 @@
 
 import { defineComponent, onMounted, ref, toRefs, Transition } from 'vue';
 import Printer from '../../other/printer/Printer';
-import { props } from './api'
+import { props } from './api';
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
 import MBorder from '../../other/border/MBorder';
-
 
 const printer = Printer();
 
@@ -32,18 +31,12 @@ export default defineComponent({
 
       if (children && children.length > 1) {
         return printer.error(
-          `[MTooltip]: The <MTooltip> or <m-tooltip>component expects only one child element at its root. You passed ${children.length} child nodes.`,
+          `[MTooltip]: The <MTooltip> or <m-tooltip>component expects only one child element at its root. You passed ${children.length} child nodes.`
         );
       }
     });
 
-    const {
-      locked,
-      offsetDistance,
-      offsetSkid,
-      placement,
-      arrowPadding,
-    } = toRefs(props);
+    const { locked, offsetDistance, offsetSkid, placement, arrowPadding } = toRefs(props);
 
     const popperHandleMap = usePopper({
       arrowPadding: arrowPadding.value,
@@ -53,7 +46,7 @@ export default defineComponent({
       offsetSkid: offsetSkid.value,
       placement,
       popperNode,
-      triggerNode,
+      triggerNode
     });
 
     const {
@@ -66,36 +59,40 @@ export default defineComponent({
       interactive,
       shouldShowPopper,
       interactiveStyle
-    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode)
+    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode);
 
     return () => (
       <div
         class="m-tooltip"
         style={interactiveStyle.value}
         onMouseleave={() => hover.value && closePopper()}
-        ref={popperContainerNode}>
+        ref={popperContainerNode}
+      >
         <div
           ref={triggerNode}
           onMouseover={() => hover.value && openPopper()}
           onClick={togglePopper}
           onFocus={openPopper}
-          onKeyup={(e) => e.key === 'Escape' && closePopper()}>
+          onKeyup={e => e.key === 'Escape' && closePopper()}
+        >
           {slots.default && slots.default()}
         </div>
         <Transition name="m-linear">
-          <div onClick={() => !interactive.value && closePopper()}
-               class="m-tooltip-wrapper"
-               ref={popperNode}
-               hidden={!shouldShowPopper.value}>
+          <div
+            onClick={() => !interactive.value && closePopper()}
+            class="m-tooltip-wrapper"
+            ref={popperNode}
+            hidden={!shouldShowPopper.value}
+          >
             <MBorder>
               <div class="m-input__content">
                 {slots.content && slots.content({ close: popperHandleMap.close, isOpen: modifiedIsOpen.value })}
               </div>
             </MBorder>
-            <div class="m-arrow" data-popper-arrow/>
+            <div class="m-arrow" data-popper-arrow />
           </div>
         </Transition>
       </div>
-    )
-  },
-})
+    );
+  }
+});

@@ -27,11 +27,9 @@ const useEvents = (setStyle: () => void) => {
   const mousedownEvent = (e: MouseEvent) => {
     const path = e.composedPath();
     if (path && path.length > 0) {
-      const isSelectDropdown = path.some((e) => {
+      const isSelectDropdown = path.some(e => {
         const q = e as Element;
-        return q.classList &&
-          [...DOMTokenListToArray(q.classList)].includes('m-calendar-dropdown');
-
+        return q.classList && [...DOMTokenListToArray(q.classList)].includes('m-calendar-dropdown');
       });
       if (!isSelectDropdown) {
         leaveDropdown();
@@ -39,7 +37,7 @@ const useEvents = (setStyle: () => void) => {
     } else {
       leaveDropdown();
     }
-  }
+  };
 
   const resizeWindow = () => {
     setStyle();
@@ -48,7 +46,7 @@ const useEvents = (setStyle: () => void) => {
   const setEvents = () => {
     window.addEventListener('mousedown', mousedownEvent);
     window.addEventListener('resize', resizeWindow);
-  }
+  };
 
   const leaveDropdown = () => {
     isCalendarDropdown.value = false;
@@ -61,9 +59,8 @@ const useEvents = (setStyle: () => void) => {
     mousedownEvent,
     setEvents,
     leaveDropdown
-  }
-}
-
+  };
+};
 
 export type selectStyleType = {
   offsetTop: number,
@@ -98,18 +95,18 @@ const useDom = () => {
       selectStyle.height = getStyle(cssStyleDeclaration, 'height');
       selectStyle.width = getStyle(cssStyleDeclaration, 'width');
     }
-  }
+  };
 
   return {
     selectRef,
     dropdownStyle,
     setStyle
-  }
-}
+  };
+};
 
 const useDate = () => {
   const date = ref<Date>(new Date());
-  const currentView = ref<string>('date')
+  const currentView = ref<string>('date');
 
   const year = computed(() => {
     if (currentView.value === 'year') {
@@ -124,9 +121,9 @@ const useDate = () => {
     return m < 10 ? `0${m}` : m;
   });
 
-  const showMonthPicker = () => currentView.value = 'month';
+  const showMonthPicker = () => (currentView.value = 'month');
 
-  const showYearPicker = () => currentView.value = 'year';
+  const showYearPicker = () => (currentView.value = 'year');
 
   return {
     date,
@@ -136,7 +133,7 @@ const useDate = () => {
     showMonthPicker,
     showYearPicker
   };
-}
+};
 
 export const useDatePicker = (props: any, emit: any) => {
   const { setStyle, selectRef, dropdownStyle } = useDom();
@@ -154,9 +151,9 @@ export const useDatePicker = (props: any, emit: any) => {
   };
 
   // [prev, next]month
-  const prevMonthHandler = () => date.value = prevMonth(date.value);
+  const prevMonthHandler = () => (date.value = prevMonth(date.value));
 
-  const nextMonthHandler = () => date.value = nextMonth(date.value);
+  const nextMonthHandler = () => (date.value = nextMonth(date.value));
 
   // [prev, next]year
   const prevYearHandler = () => {

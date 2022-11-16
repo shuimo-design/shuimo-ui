@@ -22,7 +22,7 @@ const mountForm = (config: any) => {
       [MInput.name]: MInput
     },
     ...config
-  })
+  });
 };
 
 describe('form组件', () => {
@@ -35,9 +35,9 @@ describe('form组件', () => {
           </m-form-item>
         </m-form>
       `
-    })
+    });
     expect(wrapper.html()).toContain('m-form');
-  })
+  });
 
   test('inline渲染', () => {
     const wrapper = mountForm({
@@ -48,7 +48,7 @@ describe('form组件', () => {
           </m-form-item>
         </m-form>
       `
-    })
+    });
     expect(wrapper.html()).toContain('m-form');
-  })
-})
+  });
+});

@@ -1,14 +1,14 @@
-import type { WCOPO, WPropType } from "../../dependents/_types";
-import type { MessageProps, MessageDirectionType } from "../../../types/components/MMessage";
+import type { WCOPO, WPropType } from '../../dependents/_types';
+import type { MessageProps, MessageDirectionType } from '../../../types/components/MMessage';
 
 export enum MessageTypeEnum {
   success = 'success',
   warning = 'warning',
   info = 'info',
-  error = 'error',
+  error = 'error'
 }
 export interface DragConfigType {
-  triggerBoundary: number,
+  triggerBoundary: number;
 }
 export const props: WCOPO<MessageProps> = {
   type: { type: String as WPropType<MessageTypeEnum>, default: MessageTypeEnum.info },
@@ -19,8 +19,7 @@ export const props: WCOPO<MessageProps> = {
   dragConfig: {
     type: Object as WPropType<DragConfigType>,
     default: {
-      triggerBoundary: 2,
+      triggerBoundary: 2
     }
   }
-}
-
+};

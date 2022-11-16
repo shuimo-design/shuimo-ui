@@ -6,9 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { DividerType } from "./index";
+import { WCOPO } from '../../dependents/_types';
+import { DividerType } from './index';
 
 export const props: WCOPO<DividerType> = {
   vertical: { type: Boolean, default: false }
-}
+};

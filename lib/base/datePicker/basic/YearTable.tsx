@@ -23,27 +23,28 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const { date } = toRefs(props);
-    
+
     const startYear = computed(() => Math.floor(date.value.getFullYear() / 10) * 10);
-    
+
     const getCellStyle = (year: any) => {
       const style = Object.create({});
       const today = new Date();
-  
-      style['m-year-current'] = arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
+
+      style['m-year-current'] =
+        arrayFindIndex(coerceTruthyValueToArray([date.value]), (date: any) => date.getFullYear() === year) >= 0;
       style['m-year-today'] = today.getFullYear() === year;
-  
+
       return style;
-    }
-    
+    };
+
     const yearTableClickHandler = (event: any) => {
       const target = event.target;
       if (target.tagName === 'SPAN') {
         const year = target.textContent || target.innerText;
         emit('pick', Number(year));
       }
-    }
-    
+    };
+
     return () => (
       <table onClick={yearTableClickHandler} class="m-year-table">
         <tbody>

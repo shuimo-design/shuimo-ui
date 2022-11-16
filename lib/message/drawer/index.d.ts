@@ -11,7 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { DialogMask } from "../dialog";
+import { DialogMask } from '../dialog';
 
 export declare type DrawerProps = {
   /**

@@ -1,17 +1,18 @@
-[class^="m-"], .m-cursor {
-  cursor: url("/lib/assets/cursor/auto.png"), auto;
+[class^='m-'],
+.m-cursor {
+  cursor: url('/lib/assets/cursor/auto.png'), auto;
 
   &:disabled {
-    cursor: url("/lib/assets/cursor/disabled.png"), auto;
+    cursor: url('/lib/assets/cursor/disabled.png'), auto;
   }
 }
 
 .m-cursor-pointer {
-  cursor: url("/lib/assets/cursor/pointer.png"), auto;
+  cursor: url('/lib/assets/cursor/pointer.png'), auto;
 }
 
 .m-cursor-disabled {
-  cursor: url("/lib/assets/cursor/disabled.png"), auto;
+  cursor: url('/lib/assets/cursor/disabled.png'), auto;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
   --m-select-dropdown-w: var(--m-input-w);
 }
 
-@import "./style/color.scss";
+@import './style/color.scss';
 @import './assets/transition/transition.scss';
 
 @import './base/input/input.scss';
@@ -39,7 +40,7 @@ body {
 @import './other/loading/loading.scss';
 @import './other/progress/progress.scss';
 @import './other/menu/menu.scss';
-@import "./other/border/border.scss";
+@import './other/border/border.scss';
 @import './other/scroll/scroll.scss';
 
 @import './template/form/form.scss';

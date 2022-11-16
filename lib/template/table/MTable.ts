@@ -14,12 +14,11 @@
  * v0.0.3 添加无数据提示和empty插槽
  * v0.0.4 添加index参数、添加两个异常提醒，添加v-for支持
  */
-import { defineComponent, Fragment, Comment, h, VNode } from 'vue'
-import { isEmpty, notEmpty } from "../../dependents/_utils/tools";
-import Printer from "../../other/printer/Printer";
-import { props } from "./api";
-import MTableColumn from "./MTableColumn";
-
+import { defineComponent, Fragment, Comment, h, VNode } from 'vue';
+import { isEmpty, notEmpty } from '../../dependents/_utils/tools';
+import Printer from '../../other/printer/Printer';
+import { props } from './api';
+import MTableColumn from './MTableColumn';
 
 const img = h('td', { class: 'm-table-tbody-img' });
 
@@ -29,24 +28,21 @@ const img = h('td', { class: 'm-table-tbody-img' });
  */
 const wrapWithTr = (tList: VNode[]) => {
   return h('tr', { class: 'm-tr' }, tList);
-}
+};
 
 const dataTrRender = (data: any, index: number, tableColumn: columnType[]) => {
   const trList: VNode[] = [];
   tableColumn.forEach(col => {
-
     if (col.children) {
       const defaultSlot = col.children.default({ data, index });
       trList.push(h('td', { class: 'm-td' }, defaultSlot));
     } else {
       trList.push(h('td', { class: 'm-td' }, data[col.key]));
     }
-
-
   });
   trList.push(img);
   return wrapWithTr(trList);
-}
+};
 
 const borderRender = () => {
   const theadBorderTop = h('div', { class: 'm-table-header-img-top' }, []);
@@ -54,12 +50,12 @@ const borderRender = () => {
   const tbodyBorderBottom = h('div', { class: 'm-table-border-img-bottom' }, []);
 
   return { theadBorderTop, theadBorderBottom, tbodyBorderBottom };
-}
+};
 
 type columnType = {
-  key: string,
-  children: any   // VNodeNormalizedChildren  大概率是个RawSlots
-}
+  key: string;
+  children: any; // VNodeNormalizedChildren  大概率是个RawSlots
+};
 const error = Printer('水墨UI表格组件').error;
 
 export default defineComponent({
@@ -75,16 +71,14 @@ export default defineComponent({
         return null;
       }
 
-      const emptySlot = slots && slots.empty ? slots.empty() :
-        h('div', { class: 'm-table-empty' }, '暂无数据');
-
+      const emptySlot = slots && slots.empty ? slots.empty() : h('div', { class: 'm-table-empty' }, '暂无数据');
 
       // 如果表格slot不为空
       if (notEmpty(slots.default())) {
         const defaultSlot: any[] = slots.default();
         const tableColumn: columnType[] = [];
 
-        const initByTableColumn = (info: { param: string, label: string, width?: number | string }, children: any) => {
+        const initByTableColumn = (info: { param: string; label: string; width?: number | string }, children: any) => {
           const { param, label, width } = info;
           tableColumn.push({
             key: param,
@@ -92,11 +86,10 @@ export default defineComponent({
           });
           // 构造thead
           theadThList.push(h('th', { class: 'm-th', width }, label));
-        }
+        };
 
         // 遍历column
         defaultSlot.forEach(s => {
-
           // 如果是Fragment类型，那大概率是v-for生成的，其他场景暂时无法判断
           if (s.type === Fragment) {
             s.children.forEach((c: typeof MTableColumn) => {
@@ -116,26 +109,30 @@ export default defineComponent({
             return;
           }
           initByTableColumn(s.props, s.children);
-        })
+        });
 
         props.data.forEach((d: any, i) => {
           tbodyTrList.push(dataTrRender(d, i, tableColumn));
-        })
-
+        });
       }
 
       const { theadBorderTop, theadBorderBottom, tbodyBorderBottom } = borderRender();
 
-      const thead = h('thead', {
-        class: ['m-thead', { 'm-thead-overflow': props.height }]
-      }, wrapWithTr(theadThList));
+      const thead = h(
+        'thead',
+        {
+          class: ['m-thead', { 'm-thead-overflow': props.height }]
+        },
+        wrapWithTr(theadThList)
+      );
       const tbody = h('tbody', { class: 'm-tbody' }, tbodyTrList);
       const table = h('table', { class: 'm-table-inner' }, [thead, tbody]);
-      const tableWrap = h('div',
-        { class: 'm-table-wrap', style: { height: props.height } },
-        [table, notEmpty(props.data) ? undefined : emptySlot]);
+      const tableWrap = h('div', { class: 'm-table-wrap', style: { height: props.height } }, [
+        table,
+        notEmpty(props.data) ? undefined : emptySlot
+      ]);
 
       return h('div', { class: 'm-table' }, [theadBorderTop, theadBorderBottom, tableWrap, tbodyBorderBottom]);
-    }
-  },
-})
+    };
+  }
+});

@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { ProgressProps } from "./index";
+import { WCOPO } from '../../dependents/_types';
+import { ProgressProps } from './index';
 
 export const props: WCOPO<ProgressProps> = {
   width: { type: Number, default: 399 },
@@ -17,4 +17,4 @@ export const props: WCOPO<ProgressProps> = {
   showInfo: { type: Boolean, default: false },
   infoWidth: { type: Number, default: 44 },
   leafHeight: { type: Number, default: 28 }
-}
+};

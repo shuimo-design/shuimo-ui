@@ -1,12 +1,9 @@
 <template>
-
   <MTag>可删除标签</MTag>
   <MDeleteIcon></MDeleteIcon>
-
 </template>
 
 <script lang="ts" setup>
-
 /**
  * @description playground
  * @author 阿怪
@@ -15,10 +12,8 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from "vue";
-import MDeleteIcon from "../../lib/other/icons/deleteIcon/MDeleteIcon";
-
-
+import { ref } from 'vue';
+import MDeleteIcon from '../../lib/other/icons/deleteIcon/MDeleteIcon';
 </script>
 
 <style lang="scss" scoped>

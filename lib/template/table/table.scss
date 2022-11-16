@@ -1,10 +1,10 @@
 .m-table {
   width: 100%;
   display: grid;
-  grid-template-areas:  "head-img-top"
-                        "head-img-bottom"
-                        "table"
-                        "table-img-bottom";
+  grid-template-areas:  'head-img-top'
+                        'head-img-bottom'
+                        'table'
+                        'table-img-bottom';
 }
 
 .m-table-inner {
@@ -21,7 +21,7 @@
 }
 
 .m-thead {
-  background: rgba(63, 74, 85, 0.30);
+  background: rgba(63, 74, 85, 0.3);
   height: 37px;
   font-size: 14px;
 
@@ -57,9 +57,7 @@
   word-break: break-word;
 }
 
-
 // 边框图片
-
 
 .m-table-img {
   background: url(/lib/assets/base/line/crossrange.png) repeat-x;
@@ -95,8 +93,8 @@
   top: -13px;
 }
 
-.m-table-empty{
-    text-align: center;
-    line-height: 40px;
-    color: var(--m-color-text-disabled);
+.m-table-empty {
+  text-align: center;
+  line-height: 40px;
+  color: var(--m-color-text-disabled);
 }

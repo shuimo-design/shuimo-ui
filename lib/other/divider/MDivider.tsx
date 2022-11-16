@@ -8,7 +8,7 @@
  * v1.1.0  优化分割线素材，并新增分割线类型，暂时去除strong类型
  */
 import { h, defineComponent } from 'vue';
-import { props } from "./api";
+import { props } from './api';
 
 export default defineComponent({
   name: 'MDivider',
@@ -17,9 +17,9 @@ export default defineComponent({
     return h('div', {
       class: {
         'm-divider': true,
-        'm-divider-vertical': this.vertical,
+        'm-divider-vertical': this.vertical
         // 'm-divider-strong': this.type === 'strong',
-      },
+      }
     });
   }
-})
+});

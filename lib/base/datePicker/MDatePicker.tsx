@@ -11,8 +11,8 @@ import { defineComponent, watch, Teleport, onMounted, Transition } from 'vue';
 import { valueFormatByType } from '../../dependents/_utils/dateUtil';
 import { useDatePicker } from './uesDatePicker';
 import MBorder from '../../other/border/MBorder';
-import { props } from "./api";
-import CalendarDropdown from "./basic/CalendarDropdown";
+import { props } from './api';
+import CalendarDropdown from './basic/CalendarDropdown';
 
 export default defineComponent({
   name: 'MDatePicker',
@@ -41,7 +41,6 @@ export default defineComponent({
       setDefaultValue();
     });
 
-
     return () => (
       <MBorder class="m-date-picker">
         <div class="m-date-picker-div m-cursor-pointer m-input-inner" ref={selectRef} onClick={showCalendar}>
@@ -54,6 +53,6 @@ export default defineComponent({
           </Teleport>
         </div>
       </MBorder>
-    )
+    );
   }
-})
+});

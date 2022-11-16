@@ -9,7 +9,6 @@
 import { describe, test, expect } from 'vitest';
 import useDialog from '../../lib/message/dialog/useDialog';
 
-
 describe('弹窗配套hook', () => {
   test('初始化参数', () => {
     const { visible } = useDialog();
@@ -37,5 +36,4 @@ describe('弹窗配套hook', () => {
     toggleDialog();
     expect(visible.value).toBe(false);
   });
-
-})
+});

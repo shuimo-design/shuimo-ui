@@ -8,8 +8,8 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
-import MUpload from "../../../lib/other/upload/MUpload";
+import { describe, test, expect } from 'vitest';
+import MUpload from '../../../lib/other/upload/MUpload';
 
 describe('文件上传组件', function () {
   test('无参数渲染', () => {
@@ -19,5 +19,5 @@ describe('文件上传组件', function () {
       }
     });
     expect(wrapper.html()).toContain('m-upload');
-  })
+  });
 });

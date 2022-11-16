@@ -11,7 +11,7 @@
  *
  * Hello, humor
  */
-import type { Placement } from '../../dependents/_composables/usePopper'
+import type { Placement } from '../../dependents/_composables/usePopper';
 
 export type MTooltipProps = {
   /**
@@ -86,4 +86,4 @@ export type MTooltipProps = {
    * @default ''
    */
   content?: string
-}
+};

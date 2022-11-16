@@ -33,13 +33,7 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const {
-      minDate,
-      maxDate,
-      date,
-      value,
-      tableRows
-    } = useTypeTable(props);
+    const { minDate, maxDate, date, value, tableRows } = useTypeTable(props);
 
     const rows = computed(() => {
       const rows = tableRows;
@@ -74,7 +68,7 @@ export default defineComponent({
         }
       }
       return rows;
-    })
+    });
 
     const getCellStyle = (cell: CellType) => {
       const style = Object.create({});
@@ -97,7 +91,7 @@ export default defineComponent({
         }
       }
       return style;
-    }
+    };
 
     const monthTableClickHandler = (event: any) => {
       let target = event.target;
@@ -112,28 +106,22 @@ export default defineComponent({
       const row = target.parentNode.rowIndex;
       const month = row * 4 + column;
       emit('pick', month);
-    }
+    };
 
     return () => (
       <table class="m-month-table" onClick={monthTableClickHandler}>
         <tbody>
-        {
-          rows.value.map((row: any, key) => (
+          {rows.value.map((row: any, key) => (
             <tr key={key}>
-              {
-                row.map((cell: any, k: number) => (
-                  <td key={k}>
-                    <div class="m-cursor-pointer">
-                      <span class={["m-cell", "m-cursor-pointer", getCellStyle(cell)]}>
-                        {`${cell.text + 1}月`}
-                      </span>
-                    </div>
-                  </td>
-                ))
-              }
+              {row.map((cell: any, k: number) => (
+                <td key={k}>
+                  <div class="m-cursor-pointer">
+                    <span class={['m-cell', 'm-cursor-pointer', getCellStyle(cell)]}>{`${cell.text + 1}月`}</span>
+                  </div>
+                </td>
+              ))}
             </tr>
-          ))
-        }
+          ))}
         </tbody>
       </table>
     );

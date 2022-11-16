@@ -8,4 +8,4 @@ type CellType = {
   text?: number,
   selected?: boolean,
   disabled?: boolean
-}
+};

@@ -9,8 +9,8 @@
 
 export type BaseConfirmConfig = {
   content: string
-}
+};
 
 export type IConfirm = {
   (config: BaseConfirmConfig | string): Promise<boolean>
-}
+};

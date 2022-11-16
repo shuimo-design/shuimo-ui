@@ -6,12 +6,11 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { LoadingProps } from "./index";
-
+import { WCOPO } from '../../dependents/_types';
+import { LoadingProps } from './index';
 
 export const props: WCOPO<LoadingProps> = {
   speed: { type: Number, default: 400 },
   mask: { type: Boolean, default: false },
-  sideLength: { type: [Number, String], default: 50 },
-}
+  sideLength: { type: [Number, String], default: 50 }
+};

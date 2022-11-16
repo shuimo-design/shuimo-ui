@@ -14,4 +14,3 @@ export declare function useDialog(name?: string): {
   closeDialog: () => void,
   showDialog: () => void,
 };
-

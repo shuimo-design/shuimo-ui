@@ -8,10 +8,10 @@
  */
 
 import { defineComponent, ref, toRefs, Transition } from 'vue';
-import { props } from "./api";
+import { props } from './api';
 import usePopper from '../../dependents/_composables/usePopper';
 import usePopperCommon from '../../dependents/_composables/usePopperCommon';
-import MBorder from "../../other/border/MBorder";
+import MBorder from '../../other/border/MBorder';
 
 export default defineComponent({
   name: 'MPopover',
@@ -21,12 +21,7 @@ export default defineComponent({
     const popperNode = ref();
     const triggerNode = ref();
 
-    const {
-      locked,
-      offsetDistance,
-      offsetSkid,
-      placement,
-    } = toRefs(props);
+    const { locked, offsetDistance, offsetSkid, placement } = toRefs(props);
 
     const popperHandleMap = usePopper({
       emit,
@@ -35,7 +30,7 @@ export default defineComponent({
       offsetSkid: offsetSkid.value,
       placement,
       popperNode,
-      triggerNode,
+      triggerNode
     });
 
     const {
@@ -48,7 +43,7 @@ export default defineComponent({
       interactive,
       shouldShowPopper,
       interactiveStyle
-    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode)
+    } = usePopperCommon(props, slots, emit, popperHandleMap, popperNode);
 
     return () => (
       <div
@@ -62,7 +57,7 @@ export default defineComponent({
           onMouseover={() => hover.value && openPopper()}
           onClick={togglePopper}
           onFocus={openPopper}
-          onKeyup={(e) => e.key === 'esc' && closePopper()}
+          onKeyup={e => e.key === 'esc' && closePopper()}
         >
           {slots.default && slots.default()}
         </div>
@@ -79,6 +74,6 @@ export default defineComponent({
           </div>
         </Transition>
       </div>
-    )
-  },
-})
+    );
+  }
+});

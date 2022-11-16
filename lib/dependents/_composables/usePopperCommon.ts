@@ -9,17 +9,8 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
 
   const modifiedIsOpen = ref(false);
 
-  const {
-    closeDelay,
-    content,
-    disableClickAway,
-    disabled,
-    interactive,
-    offsetDistance,
-    openDelay,
-    show,
-    hover
-  } = toRefs(props);
+  const { closeDelay, content, disableClickAway, disabled, interactive, offsetDistance, openDelay, show, hover } =
+    toRefs(props);
 
   const { hasContent } = useContent(slots, popperNode, content);
   //eslint-disable-next-line vue/no-ref-as-operand
@@ -30,9 +21,9 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
   const interactiveStyle = computed(() =>
     interactive.value
       ? {
-        border: `${offsetDistance.value}px solid transparent;`
-      }
-      : undefined,
+          border: `${offsetDistance.value}px solid transparent;`
+        }
+      : undefined
   );
 
   const openPopperDebounce = useDebounceFn(popperHandleMap.open, openDelay);
@@ -42,7 +33,6 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
     if (invalid.value) {
       return;
     }
-
 
     if (manualMode.value) {
       emit('update:show', true);
@@ -118,5 +108,5 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
     interactive,
     shouldShowPopper,
     interactiveStyle
-  }
+  };
 }

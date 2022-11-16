@@ -6,10 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { ListProps } from "./index";
+import { WCOPO } from '../../dependents/_types';
+import { ListProps } from './index';
 
 export const props: WCOPO<ListProps> = {
   data: { type: Array, default: () => [] },
-  autoActive: { type: Boolean, default: false },
-}
+  autoActive: { type: Boolean, default: false }
+};

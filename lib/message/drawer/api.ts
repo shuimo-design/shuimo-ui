@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { DrawerProps } from "./index";
+import { WCOPO } from '../../dependents/_types';
+import { DrawerProps } from './index';
 
 export const props: WCOPO<DrawerProps> = {
   width: { type: String, default: '524px' },
@@ -15,4 +15,4 @@ export const props: WCOPO<DrawerProps> = {
   visible: { type: Boolean, default: false },
   drawerClass: { type: Array, default: [] },
   closeBtn: { type: Boolean, default: true }
-}
+};

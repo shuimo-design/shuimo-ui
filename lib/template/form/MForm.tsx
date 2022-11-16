@@ -9,7 +9,7 @@
  */
 
 import { h, defineComponent } from 'vue';
-import { props } from "./api";
+import { props } from './api';
 
 export default defineComponent({
   name: 'MForm',
@@ -25,5 +25,4 @@ export default defineComponent({
       }
     }, slots);
   }
-})
-
+});

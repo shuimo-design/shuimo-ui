@@ -7,12 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from "vitest";
-import { mount } from "@vue/test-utils";
-import MInputNumber from "../../../lib/base/inputNumber/MInputNumber";
+import { describe, expect, test } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MInputNumber from '../../../lib/base/inputNumber/MInputNumber';
 
 describe('数字输入组件', () => {
-
   test('无参数渲染', () => {
     const wrapper = mount(MInputNumber);
     expect(wrapper.html()).toContain('m-input-number');
@@ -53,4 +52,4 @@ describe('数字输入组件', () => {
 
     expect(wrapper.element.querySelector('input')!.value).toBe('4');
   });
-})
+});

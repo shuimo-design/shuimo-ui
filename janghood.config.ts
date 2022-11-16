@@ -10,23 +10,23 @@ import { defineJhConfig } from '@janghood/api-extractor';
 
 const firstUpperCase = (str: string) => {
   return `${str[0].toUpperCase()}${str.slice(1, str.length)}`;
-}
+};
 
 const sourceSymbolTranslator = (dirList: string[]) => {
   const lastDir = firstUpperCase(dirList[dirList.length - 1]);
   return `M${lastDir}`;
-}
+};
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ["lib/**/*.d.ts"],
+    include: ['lib/**/*.d.ts'],
     exclude: ['**/dependents/**', '**/types/**', '**/basic/**'],
     document: {
       webTypes: {
         active: true,
         webTypesInfo: {
-          "framework": "vue",
-          "default-icon": "./icons/logo.svg",
+          framework: 'vue',
+          'default-icon': './icons/logo.svg'
         },
         sourceSymbolTranslator
       }

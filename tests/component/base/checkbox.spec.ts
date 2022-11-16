@@ -7,11 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from "vitest";
-import { mount } from "@vue/test-utils";
-import MCheckbox from "../../../lib/base/checkbox/MCheckbox";
-import MCheckboxGroup from "../../../lib/base/checkbox/MCheckboxGroup";
-import { h } from "vue";
+import { describe, expect, test } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MCheckbox from '../../../lib/base/checkbox/MCheckbox';
+import MCheckboxGroup from '../../../lib/base/checkbox/MCheckboxGroup';
+import { h } from 'vue';
 
 describe('多选组件', () => {
   test('无参数渲染', () => {
@@ -35,8 +35,7 @@ describe('多选组件', () => {
     });
     expect(wrapper.html()).not.toContain('m-checkbox__inner_checked');
     await wrapper.find('input[type=checkbox]').setValue(true);
-    expect(wrapper.emitted('update:modelValue'))
-      .toMatchObject([[true, { e: { isTrusted: false } }]])
+    expect(wrapper.emitted('update:modelValue')).toMatchObject([[true, { e: { isTrusted: false } }]]);
   });
 
   test('使用slot', () => {
@@ -44,11 +43,10 @@ describe('多选组件', () => {
       slots: {
         default: () => h('div', '测试slot')
       }
-    })
+    });
     expect(wrapper.find('.m-checkbox__label').text()).toBe('测试slot');
-  })
+  });
 });
-
 
 describe('伴随group', () => {
   const slotA = h(MCheckbox, { label: 'A', value: 'a' });
@@ -63,7 +61,7 @@ describe('伴随group', () => {
 
   test('插槽渲染正确', () => {
     expect(wrapper.find('.m-checkbox-group').findAllComponents(MCheckbox).length).toBe(3);
-  })
+  });
 
   test('选中两个参数a,c渲染', () => {
     const slots = wrapper.find('.m-checkbox-group').findAllComponents(MCheckbox);
@@ -71,5 +69,4 @@ describe('伴随group', () => {
     expect(slots[1].html()).not.toContain('m-checkbox__inner_checked');
     expect(slots[2].html()).toContain('m-checkbox__inner_checked');
   });
-
-})
+});

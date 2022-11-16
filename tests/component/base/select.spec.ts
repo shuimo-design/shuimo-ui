@@ -10,18 +10,17 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, expect, test } from "vitest";
+import { describe, expect, test } from 'vitest';
 import MSelect from '../../../lib/base/select/MSelect';
-import { SelectProps } from "../../../lib/base/select";
-import { h } from "vue";
-import { Slot } from "@vue/test-utils/dist/types";
-import MPopover from "../../../lib/message/popover/MPopover";
+import { SelectProps } from '../../../lib/base/select';
+import { h } from 'vue';
+import { Slot } from '@vue/test-utils/dist/types';
+import MPopover from '../../../lib/message/popover/MPopover';
 
 describe('选择框组件', () => {
   const getWrapper = (props?: SelectProps, slots?: Record<string, Slot>) => {
     return mount(MSelect, { props, slots });
-  }
-
+  };
 
   test('无参数渲染)', () => {
     const wrapper = getWrapper();
@@ -32,19 +31,18 @@ describe('选择框组件', () => {
   const baseProps = {
     modelValue: 1,
     options: [1, 2, 3, 4]
-  }
+  };
 
-  type OptionType = { title: string, value: number, inputParam: string, value2: number }
+  type OptionType = { title: string; value: number; inputParam: string; value2: number };
 
   const options: OptionType[] = [
     { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
     { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
     { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
-    { title: 'option4', value: 4, inputParam: 'input4', value2: 7 },
-  ]
+    { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
+  ];
 
   describe('参数相关测试用例', () => {
-
     test('仅modelValue和options参数渲染（即最佳实践）', async () => {
       const wrapper = getWrapper(baseProps);
       expect(wrapper.element.querySelector('input')!.value).toBe('1');
@@ -63,8 +61,7 @@ describe('选择框组件', () => {
         options,
         inputParam: 'inputParam'
       });
-      expect(wrapper.element.querySelector('input')!.value)
-        .toMatchInlineSnapshot('"input1"')
+      expect(wrapper.element.querySelector('input')!.value).toMatchInlineSnapshot('"input1"');
     });
 
     test('指定对象框渲染param', () => {
@@ -72,7 +69,7 @@ describe('选择框组件', () => {
         modelValue: options[0],
         options,
         inputParam: 'inputParam',
-        optionParam: 'title',
+        optionParam: 'title'
       });
 
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
@@ -113,7 +110,7 @@ describe('选择框组件', () => {
     test('开启为可输入模式', () => {
       const wrapper = getWrapper({
         ...baseProps,
-        inputReadonly: false,
+        inputReadonly: false
       });
       expect(wrapper.find('input').attributes().readonly).toBeUndefined();
     });
@@ -121,16 +118,16 @@ describe('选择框组件', () => {
     test('禁用模式', () => {
       const wrapper = getWrapper({
         ...baseProps,
-        disabled: true,
+        disabled: true
       });
       expect(wrapper.find('input').attributes().disabled).not.toBeUndefined();
     });
 
     test('placeholder', () => {
-      const placeholder = 'here is placeholder'
+      const placeholder = 'here is placeholder';
       const wrapper = getWrapper({
         ...baseProps,
-        placeholder,
+        placeholder
       });
       expect(wrapper.find('input').attributes().placeholder).toBe(placeholder);
     });
@@ -157,14 +154,17 @@ describe('选择框组件', () => {
 
   describe('slot测试', () => {
     test('slot覆盖optionParam', () => {
-      const wrapper = getWrapper({
-        modelValue: options[0],
-        options,
-        inputParam: 'inputParam',
-        optionParam: 'title',
-      }, {
-        option: ({ option }) => h('span', option.value2)
-      });
+      const wrapper = getWrapper(
+        {
+          modelValue: options[0],
+          options,
+          inputParam: 'inputParam',
+          optionParam: 'title'
+        },
+        {
+          option: ({ option }) => h('span', option.value2)
+        }
+      );
 
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
         [
@@ -174,11 +174,10 @@ describe('选择框组件', () => {
           "<span>7</span>",
         ]
       `);
-    })
-  })
+    });
+  });
 
   describe('事件相关测试用例', () => {
-
     test('点击打开下拉框', async () => {
       const wrapper = getWrapper(baseProps);
       expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
@@ -204,15 +203,14 @@ describe('选择框组件', () => {
         await wrapper.find('input').trigger('focus');
         expect(wrapper.emitted('focus')!.length).toBe(1);
       });
-    })
-
+    });
 
     test('选择冒泡', async () => {
       const wrapper = getWrapper({
         modelValue: options[1],
         options,
         inputParam: 'inputParam',
-        optionParam: 'title',
+        optionParam: 'title'
       });
       await wrapper.find('.m-option').trigger('click');
       expect(wrapper.emitted()['select'][0]).toMatchInlineSnapshot(`
@@ -224,13 +222,9 @@ describe('选择框组件', () => {
             "value2": 4,
           },
         ]
-      `)
+      `);
     });
 
-
     test.skip('查询用冒泡');
-
   });
-
-
-})
+});

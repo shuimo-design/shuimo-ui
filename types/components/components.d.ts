@@ -6,35 +6,35 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import button from "../../lib/base/button/MButton";
-import checkbox from "../../lib/base/checkbox/MCheckbox";
-import datepicker from "../../lib/base/datePicker/MDatePicker";
-import input from "../../lib/base/input/MInput";
-import inputNumber from "../../lib/base/inputNumber/MInputNumber";
-import radio from "../../lib/base/radio/MRadio";
-import select from "../../lib/base/select/MSelect";
-import list from "../../lib/base/list/MList";
-import tag from "../../lib/base/tag/MTag";
+import button from '../../lib/base/button/MButton';
+import checkbox from '../../lib/base/checkbox/MCheckbox';
+import datepicker from '../../lib/base/datePicker/MDatePicker';
+import input from '../../lib/base/input/MInput';
+import inputNumber from '../../lib/base/inputNumber/MInputNumber';
+import radio from '../../lib/base/radio/MRadio';
+import select from '../../lib/base/select/MSelect';
+import list from '../../lib/base/list/MList';
+import tag from '../../lib/base/tag/MTag';
 
-import dialog from "../../lib/message/dialog/MDialog";
-import drawer from "../../lib/message/drawer/MDrawer";
-import popover from "../../lib/message/popover/MPopover";
-import tooltip from "../../lib/message/tooltip/MTooltip";
-import message from "../../lib/message/message/MMessageItem";
+import dialog from '../../lib/message/dialog/MDialog';
+import drawer from '../../lib/message/drawer/MDrawer';
+import popover from '../../lib/message/popover/MPopover';
+import tooltip from '../../lib/message/tooltip/MTooltip';
+import message from '../../lib/message/message/MMessageItem';
 
-import border from "../../lib/other/border/MBorder";
-import divider from "../../lib/other/divider/MDivider";
-import loading from "../../lib/other/loading/MLoading";
-import menu from "../../lib/other/menu/MMenu";
-import progress from "../../lib/other/progress/MProgress";
-import upload from "../../lib/other/upload/MUpload";
+import border from '../../lib/other/border/MBorder';
+import divider from '../../lib/other/divider/MDivider';
+import loading from '../../lib/other/loading/MLoading';
+import menu from '../../lib/other/menu/MMenu';
+import progress from '../../lib/other/progress/MProgress';
+import upload from '../../lib/other/upload/MUpload';
 
-import form from "../../lib/template/form/MForm";
-import formItem from "../../lib/template/form/MFormItem";
-import pagination from "../../lib/template/pagination/MPagination";
-import table from "../../lib/template/table/MTable";
-import tableColumn from "../../lib/template/table/MTableColumn";
-import ricePaper from "../../lib/template/ricePaper/MRicePaper";
+import form from '../../lib/template/form/MForm';
+import formItem from '../../lib/template/form/MFormItem';
+import pagination from '../../lib/template/pagination/MPagination';
+import table from '../../lib/template/table/MTable';
+import tableColumn from '../../lib/template/table/MTableColumn';
+import ricePaper from '../../lib/template/ricePaper/MRicePaper';
 
 export type keyType = any;
 
@@ -46,7 +46,6 @@ export type MenuType = {
   children?: MenuTypeArr
 }
 export type MenuTypeArr = Array<MenuType>;
-
 
 export declare const MButton: typeof button;
 export declare const MInput: typeof input;

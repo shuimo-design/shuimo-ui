@@ -9,12 +9,11 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 
-import { mount } from '@vue/test-utils'
-import { describe, test, expect } from "vitest";
+import { mount } from '@vue/test-utils';
+import { describe, test, expect } from 'vitest';
 import MInput from '../../../lib/base/input/MInput';
 
 describe('输入组件', () => {
-
   test('无参数渲染', () => {
     const wrapper = mount(MInput);
     expect(wrapper.html()).toContain('m-input');
@@ -54,7 +53,7 @@ describe('输入组件', () => {
     });
     await wrapper.setProps({ modelValue: 'hi' });
     expect(wrapper.element.querySelector('input')!.value).toContain('hi');
-  })
+  });
 
   test('测试类型为多文本输入框', () => {
     const wrapper = mount(MInput, {
@@ -64,13 +63,11 @@ describe('输入组件', () => {
     });
     expect(wrapper.element.querySelector('input')).toBe(null);
     expect(wrapper.element.querySelector('textarea')!.value).toBe('');
-  })
+  });
 
   test('focus冒泡', async () => {
     const wrapper = mount(MInput, { props: { modelValue: 'test' } });
     await wrapper.find('input').trigger('focus');
     expect(wrapper.emitted('focus')!.length).toBe(1);
   });
-})
-
-
+});

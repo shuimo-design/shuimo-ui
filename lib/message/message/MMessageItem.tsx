@@ -19,7 +19,7 @@ import successIcon from '../../assets/message/success.png';
 import errorIcon from '../../assets/message/error.png';
 import warningIcon from '../../assets/message/warning.png';
 import infoIcon from '../../assets/message/info.png';
-import type { MessageType } from "../../../types/components/MMessage";
+import type { MessageType } from '../../../types/components/MMessage';
 import { useDraggable } from '../../dependents/_composables/useDraggable';
 export default defineComponent({
   name: 'MMessageItem',
@@ -31,67 +31,62 @@ export default defineComponent({
       warning: warningIcon,
       info: infoIcon,
       error: errorIcon
-    }
+    };
     const timer = ref<number | undefined>(0);
     const domRef = ref<HTMLElement | null>(null);
 
     const clearTimer = () => {
       props.duration && clearTimeout(timer.value);
-    }
+    };
     const setTimer = () => {
       timer.value = setTimeout(() => {
         clearTimer();
         const dom = domRef.value;
         fadeOut(dom, props.direction, () => {
           emit('closeDuration');
-        })
+        });
       }, props.duration);
-    }
+    };
 
     onBeforeMount(() => {
       props.duration && setTimer();
-    })
+    });
     const triggerFn = (domRef: Ref<HTMLElement | null>) => {
       if (domRef.value !== null) {
-        domRef.value!.style.opacity = "0.3";
+        domRef.value!.style.opacity = '0.3';
         domRef.value!.style.filter = 'opacity(70%)';
       }
-    }
+    };
     const triggeredFn = (domRef: Ref<HTMLElement | null>) => {
       if (domRef.value !== null) {
         fadeOut(domRef.value, props.direction, () => {
           emit('closeDuration');
-        })
+        });
       }
-    }
+    };
     onMounted(() => {
       const dom = domRef.value;
       fadeIn(dom, props.direction);
-
-    })
+    });
     nextTick(() => {
       if (props.dragAllow === true) {
         // 启动拖拽
         useDraggable(domRef, props.direction, props.dragConfig.triggerBoundary, () => triggerFn(domRef), () => triggeredFn(domRef))
 
       }
-    })
+    });
 
-    const iconDom = (
-      <img class={'m-message-icon'} src={`${messageIcon[props.type]}`} />
-    )
+    const iconDom = <img class={'m-message-icon'} src={`${messageIcon[props.type]}`} />;
 
-    const contentDom = (
-      <div class={'m-message-content'}>{props.content}</div>
-    )
-    const PostStyle = 'position: relative;user-select:none;'
+    const contentDom = <div class={'m-message-content'}>{props.content}</div>;
+    const PostStyle = 'position: relative;user-select:none;';
     return () => {
       return (
-        <div style={PostStyle} class={'m-message'} ref={domRef} onMouseenter={clearTimer} onMouseleave={setTimer} >
+        <div style={PostStyle} class={'m-message'} ref={domRef} onMouseenter={clearTimer} onMouseleave={setTimer}>
           {iconDom}
           {contentDom}
-        </div >
-      )
-    }
+        </div>
+      );
+    };
   }
-})
+});

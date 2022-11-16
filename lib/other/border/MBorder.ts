@@ -8,21 +8,20 @@
  */
 
 import { h, defineComponent, VNode } from 'vue';
-import Printer from "../printer/Printer";
+import Printer from '../printer/Printer';
 
 const printer = Printer();
 
 export default defineComponent({
   name: 'MBorder',
   render(ctx: any) {
-
     const baseLineClass = 'm-border-line';
 
     enum lineType {
       top = 'top',
       left = 'left',
       right = 'right',
-      bottom = 'bottom',
+      bottom = 'bottom'
     }
 
     const lineList = Object.keys(lineType).map(key => {
@@ -37,13 +36,8 @@ export default defineComponent({
 
     const slot: VNode = slotList[0];
 
-
     const main = h('div', { class: 'm-border-main' }, slot);
 
-    return h('div', {
-        class: 'm-border'
-      },
-      [main, lineList]
-    )
+    return h('div', { class: 'm-border' }, [main, lineList]);
   }
-})
+});

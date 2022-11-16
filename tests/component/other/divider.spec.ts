@@ -10,12 +10,12 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
+import { describe, test, expect } from 'vitest';
 import MDivider from '../../../lib/other/divider/MDivider';
 
 describe('分割线组件', function () {
   test('无参数渲染', () => {
     const wrapper = mount(MDivider);
     expect(wrapper.html()).toContain('m-divider');
-  })
+  });
 });

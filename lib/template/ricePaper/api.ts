@@ -6,12 +6,11 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { RicePaperProps } from "./index";
-
+import { WCOPO } from '../../dependents/_types';
+import { RicePaperProps } from './index';
 
 export const props: WCOPO<RicePaperProps> = {
   cold: { type: Boolean, default: true },
   mountain: { type: Boolean, default: true },
-  crane: { type: Boolean, default: true },
-}
+  crane: { type: Boolean, default: true }
+};

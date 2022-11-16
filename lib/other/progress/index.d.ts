@@ -62,4 +62,4 @@ export declare type ProgressProps = {
    * @default 28
    */
   leafHeight?: number
-}
+};

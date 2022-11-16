@@ -7,7 +7,7 @@
  * Hello, humor
  */
 import { createFilterWrapper, debounceFilter } from '../_utils/filters';
-import type { DebounceFilterOptions, FunctionArgs } from  '../_utils/filters';
+import type { DebounceFilterOptions, FunctionArgs } from '../_utils/filters';
 import type { MaybeComputedRef } from '../_utils/types';
 
 /**

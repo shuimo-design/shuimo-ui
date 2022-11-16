@@ -7,9 +7,9 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-import { h } from 'vue'
+import { h } from 'vue';
 
 export const borderDivCreator = (typeName: string) => {
   const positionEnum = ['top', 'right', 'bottom', 'left'];
   return positionEnum.map(p => h('div', { class: [`${typeName}-line`, `${typeName}-${p}-line`] }));
-}
+};

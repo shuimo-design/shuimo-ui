@@ -7,9 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from "vitest";
-import { mount } from "@vue/test-utils";
-import MTag from "../../../lib/base/tag/MTag";
+import { describe, expect, test } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MTag from '../../../lib/base/tag/MTag';
 
 describe('标签组件', () => {
   test('无参数渲染', () => {
@@ -24,8 +24,7 @@ describe('标签组件', () => {
       }
     });
     expect(wrapper.text()).toMatchInlineSnapshot('"slot info"');
-  })
-
+  });
 
   test('参数type', () => {
     const wrapper = mount(MTag, {
@@ -35,4 +34,4 @@ describe('标签组件', () => {
     });
     expect(wrapper.html()).toContain('m-tag-primary');
   });
-})
+});

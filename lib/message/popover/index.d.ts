@@ -49,13 +49,13 @@ export type MPopoverProps = {
    * @type boolean | null
    * @default null
    */
-  show?: boolean | null
+  show?: boolean | null,
   /**
    * @description Disables the Popper. If it was already open, it will be closed.
    * @type boolean
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean,
   /**
    * @description Open the Popper after a delay (ms).
    * @type number

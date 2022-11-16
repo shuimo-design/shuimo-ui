@@ -8,19 +8,18 @@
  */
 
 import { describe, expect, test, vi } from 'vitest';
-import { h } from "vue";
-import { mount } from "@vue/test-utils";
-import MTable from "../../../../lib/template/table/MTable";
-import MTableColumn from "../../../../lib/template/table/MTableColumn";
-import { TableProps } from "../../../../lib/template/table";
-import { Slot } from "@vue/test-utils/dist/types";
-import VForTableColumn from './demo/VForTableColumn.vue'
+import { h } from 'vue';
+import { mount } from '@vue/test-utils';
+import MTable from '../../../../lib/template/table/MTable';
+import MTableColumn from '../../../../lib/template/table/MTableColumn';
+import { TableProps } from '../../../../lib/template/table';
+import { Slot } from '@vue/test-utils/dist/types';
+import VForTableColumn from './demo/VForTableColumn.vue';
 
 describe('列表组件', function () {
-
   const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
     return mount(MTable, { props, slots });
-  }
+  };
 
   test('普通渲染', () => {
     const wrapper = getWrapper(
@@ -50,7 +49,7 @@ describe('列表组件', function () {
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
-  })
+  });
 
   test('列表slot', () => {
     const wrapper = getWrapper(
@@ -62,11 +61,11 @@ describe('列表组件', function () {
             { param: 'param', label: 'label' },
             {
               default: (data: { data: { param: string } }) => {
-                return h('div', {}, `slot数据：${data.data.param}`)
+                return h('div', {}, `slot数据：${data.data.param}`);
               }
             }
           )
-        ],
+        ]
       }
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -94,15 +93,12 @@ describe('列表组件', function () {
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
-  })
+  });
 
   test('slot传递参数', () => {
     const wrapper = getWrapper(
       {
-        data: [
-          { slotInfo: 'hi' },
-          { slotInfo: 'hello' },
-        ]
+        data: [{ slotInfo: 'hi' }, { slotInfo: 'hello' }]
       },
       {
         default: [
@@ -113,13 +109,13 @@ describe('列表组件', function () {
               label: 'label'
             },
             {
-              default: (data: { data: any, index: number }) =>
+              default: (data: { data: any; index: number }) =>
                 h('span', `slot数据：${data.data.slotInfo}, index:${data.index}`)
             }
           )
-        ],
+        ]
       }
-    )
+    );
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-table\\">
         <div class=\\"m-table-header-img-top\\"></div>
@@ -147,10 +143,10 @@ describe('列表组件', function () {
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
-  })
+  });
 
   test('v-for渲染column', () => {
-    const wrapper = mount(VForTableColumn)
+    const wrapper = mount(VForTableColumn);
     expect(wrapper.html()).toMatchInlineSnapshot(`
     "<div class=\\"m-table\\">
       <div class=\\"m-table-header-img-top\\"></div>
@@ -181,16 +177,11 @@ describe('列表组件', function () {
       <div class=\\"m-table-border-img-bottom\\"></div>
     </div>"
   `);
-  })
-
+  });
 
   describe('无数据状态', function () {
-
     test('无slot', () => {
-      const wrapper = getWrapper(
-        { data: [] },
-        { default: [h(MTableColumn, { param: 'param', label: 'label' })] }
-      );
+      const wrapper = getWrapper({ data: [] }, { default: [h(MTableColumn, { param: 'param', label: 'label' })] });
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class=\\"m-table\\">
           <div class=\\"m-table-header-img-top\\"></div>
@@ -209,7 +200,7 @@ describe('列表组件', function () {
           <div class=\\"m-table-border-img-bottom\\"></div>
         </div>"
       `);
-    })
+    });
 
     test('提供slot', () => {
       const wrapper = getWrapper(
@@ -236,36 +227,25 @@ describe('列表组件', function () {
           </div>
           <div class=\\"m-table-border-img-bottom\\"></div>
         </div>"
-      `)
-    })
-
+      `);
+    });
   });
 
-
   describe('异常状态', function () {
-
     test('未传列表', () => {
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       getWrapper();
-      expect(infoSpy).toHaveBeenCalled()
+      expect(infoSpy).toHaveBeenCalled();
     });
 
     test('列表中子节点不是m-table-column', () => {
-
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      getWrapper(
-        { data: [] },
-        { default: () => h('div', 'hello') }
-      );
-      expect(infoSpy).toHaveBeenCalled()
+      getWrapper({ data: [] }, { default: () => h('div', 'hello') });
+      expect(infoSpy).toHaveBeenCalled();
     });
 
     test('列表中子节点不是m-table-column但是是undefined', () => {
-
-      const wrapper = getWrapper(
-        { data: [] },
-        { default: () => undefined }
-      );
+      const wrapper = getWrapper({ data: [] }, { default: () => undefined });
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class=\\"m-table\\">
           <div class=\\"m-table-header-img-top\\"></div>
@@ -285,19 +265,9 @@ describe('列表组件', function () {
     });
 
     test('列表中子节点缺少props属性', () => {
-
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      getWrapper(
-        { data: [] },
-        { default: [h(MTableColumn)] }
-      );
-      expect(infoSpy).toHaveBeenCalled()
+      getWrapper({ data: [] }, { default: [h(MTableColumn)] });
+      expect(infoSpy).toHaveBeenCalled();
     });
-
   });
-
-
 });
-
-
-

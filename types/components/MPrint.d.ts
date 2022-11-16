@@ -10,7 +10,7 @@
 declare enum PrinterEnum {
   suggest = 'suggest',
   info = 'info',
-  error = 'error',
+  error = 'error'
 }
 
 /**
@@ -21,18 +21,17 @@ declare enum PrinterEnum {
  * @param content 内容  <br/>
  */
 export type OptionalType = {
-  type: PrinterEnum,
-  format: string,
-  content: any
+  type: PrinterEnum;
+  format: string;
+  content: any;
 };
 
-export type printInterface = { (options: OptionalType): void; }
+export type printInterface = { (options: OptionalType): void };
 
 export type PrinterType = {
-  suggest: (content: any, user?: string) => void,
-  info: (content: any, user?: string) => void,
-  error: (content: any, user?: string) => void,
-}
+  suggest: (content: any, user?: string) => void;
+  info: (content: any, user?: string) => void;
+  error: (content: any, user?: string) => void;
+};
 
 export type IPrinter = (defaultUser?: string) => PrinterType;
-

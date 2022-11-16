@@ -15,7 +15,7 @@
  * v2.0.1 优化类型结构 阿怪
  */
 
- export type MessageProps = {
+export type MessageProps = {
   /**
    * @description Type of message
    * @default 'info'
@@ -48,22 +48,14 @@
   dragConfig?: DragConfigType;
 };
 
-export type MessageDirectionType =
-  | "top-right"
-  | "top-left"
-  | "bottom-right"
-  | "bottom-left"
-  | "top-center";
+export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
 
-export type MessageType = "success" | "warning" | "info" | "error";
+export type MessageType = 'success' | 'warning' | 'info' | 'error';
 
 export type MessageConfig = MessageProps | string;
 
 type IMessageEnum = {
-  [K in MessageType]: (
-    options: MessageConfig,
-    duration?: number
-  ) => Promise<object> | void;
+  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object> | void;
 };
 export type IMessage = IMessageEnum & {
   (config: MessageConfig): Promise<object> | void;

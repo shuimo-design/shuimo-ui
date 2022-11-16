@@ -8,7 +8,7 @@
   outline: unset;
   background-color: whitesmoke;
 
-  .m-border{
+  .m-border {
     z-index: 10000;
   }
 }
@@ -29,46 +29,46 @@
 
 .m-arrow::before {
   visibility: visible;
-  content: "";
+  content: '';
   transform: rotate(45deg);
 }
 
 /* Top arrow */
-.m-tooltip-wrapper[data-popper-placement^="top"] > .m-arrow {
+.m-tooltip-wrapper[data-popper-placement^='top'] > .m-arrow {
   bottom: -4px;
 }
 
-.m-tooltip-wrapper[data-popper-placement^="top"] > .m-arrow::before {
+.m-tooltip-wrapper[data-popper-placement^='top'] > .m-arrow::before {
   border-right: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
   border-bottom: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
 }
 
 /* Bottom arrow */
-.m-tooltip-wrapper[data-popper-placement^="bottom"] > .m-arrow {
+.m-tooltip-wrapper[data-popper-placement^='bottom'] > .m-arrow {
   top: -4px;
 }
 
-.m-tooltip-wrapper[data-popper-placement^="bottom"] > .m-arrow::before {
+.m-tooltip-wrapper[data-popper-placement^='bottom'] > .m-arrow::before {
   border-left: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
   border-top: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
 }
 
 /* Left arrow */
-.m-tooltip-wrapper[data-popper-placement^="left"] > .m-arrow {
+.m-tooltip-wrapper[data-popper-placement^='left'] > .m-arrow {
   right: -4px;
 }
 
-.m-tooltip-wrapper[data-popper-placement^="left"] > .m-arrow::before {
+.m-tooltip-wrapper[data-popper-placement^='left'] > .m-arrow::before {
   border-right: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
   border-top: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
 }
 
 /* Right arrow */
-.m-tooltip-wrapper[data-popper-placement^="right"] > .m-arrow {
+.m-tooltip-wrapper[data-popper-placement^='right'] > .m-arrow {
   left: -4px;
 }
 
-.m-tooltip-wrapper[data-popper-placement^="right"] > .m-arrow::before {
+.m-tooltip-wrapper[data-popper-placement^='right'] > .m-arrow::before {
   border-left: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
   border-bottom: var(--m-theme-border-width) var(--m-theme-border-style) var(--m-theme-border-color);
 }

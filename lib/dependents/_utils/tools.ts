@@ -7,7 +7,6 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-
 import type { MaybeComputedRef } from './types';
 import { unref } from 'vue';
 
@@ -18,14 +17,13 @@ import { unref } from 'vue';
  */
 export const deepClone = (data: any) => {
   return JSON.parse(JSON.stringify(data));
-}
+};
 
 /**
  * 支持稍多类型的判断非空的方法
  * @param value
  */
 export const notEmpty = (value: any) => {
-
   // 先处理基本类型
   // null
   // undefined
@@ -62,7 +60,7 @@ export const notEmpty = (value: any) => {
     }
 
     if (value instanceof WeakMap || value instanceof WeakSet) {
-      console.error('WeakMap和WeakSet无法以通用的方式判断是否为空。')
+      console.error('WeakMap和WeakSet无法以通用的方式判断是否为空。');
       return false;
     }
 
@@ -86,7 +84,7 @@ export const notEmpty = (value: any) => {
 
     return Object.keys(value).length > 0;
   }
-}
+};
 
 /**
  * 判断为空的方法，即notEmpty的取反
@@ -105,7 +103,7 @@ export const everyNotEmpty = (...arg: any[]) => {
     }
   }
   return true;
-}
+};
 
 /**
  * 判断所有都不为空的方法
@@ -118,18 +116,15 @@ export const everyIsEmpty = (...arg: any[]) => {
     }
   }
   return true;
-}
+};
 
 export const isValidDate = (date: Date) => date instanceof Date && !isNaN(date.getTime());
 
 export const getStyle = (selectStyle: CSSStyleDeclaration, type: string) => {
   const num = Number(selectStyle.getPropertyValue(type).replace('px', ''));
   return isNaN(num) ? 0 : num;
-}
+};
 
 export function resolveUnref<T>(r: MaybeComputedRef<T>): T {
-  return typeof r === 'function'
-    ? (r as any)()
-    : unref(r)
+  return typeof r === 'function' ? (r as any)() : unref(r);
 }
-
