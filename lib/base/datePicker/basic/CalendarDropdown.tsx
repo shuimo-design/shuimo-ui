@@ -10,11 +10,10 @@
  *
  * 下拉框可以优化成popover
  */
-import { defineComponent } from "vue";
-import DateTable from "./DateTable";
-import YearTable from "./YearTable";
-import MonthTable from "./MonthTable";
-
+import { defineComponent } from 'vue';
+import DateTable from './DateTable';
+import YearTable from './YearTable';
+import MonthTable from './MonthTable';
 
 export default defineComponent({
   name: 'CalendarDropdown',
@@ -33,9 +32,7 @@ export default defineComponent({
     } = props.datePickHook!;
 
     return () => (
-      <div v-show={isCalendarDropdown.value}
-           style={dropdownStyle.value}
-           class="m-calendar-dropdown">
+      <div v-show={isCalendarDropdown.value} style={dropdownStyle.value} class="m-calendar-dropdown">
         <div class="m-calendar-dropdown-header">
           <button class="m-calendar-year-prev m-cursor-pointer" onClick={prevYearHandler}/>
           <button class="m-calendar-month-prev m-cursor-pointer"
@@ -65,6 +62,6 @@ export default defineComponent({
                       onPick={monthPickerHandler}/>
         </div>
       </div>
-    )
+    );
   }
-})
+});

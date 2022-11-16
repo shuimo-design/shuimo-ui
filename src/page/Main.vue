@@ -1,12 +1,8 @@
 <template>
-
-  <MTag>可删除标签</MTag>
-  <MDeleteIcon></MDeleteIcon>
-
+  <m-pagination :total="122" v-model:current="current"></m-pagination>
 </template>
 
 <script lang="ts" setup>
-
 /**
  * @description playground
  * @author 阿怪
@@ -16,9 +12,8 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from "vue";
-import MDeleteIcon from "../../lib/other/icons/deleteIcon/MDeleteIcon";
 
-
+const current = ref(1);
 </script>
 
 <style lang="scss" scoped>

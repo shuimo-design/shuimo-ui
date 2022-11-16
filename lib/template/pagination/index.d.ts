@@ -61,5 +61,5 @@ export declare type PaginationProps = {
    * @type string
    * @default 'prev, pager, next, jumper, total'
    */
-  layout?: string,
-}
+  layout?: string
+};

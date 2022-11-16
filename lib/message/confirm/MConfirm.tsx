@@ -7,19 +7,19 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { createApp, h } from 'vue';
-import MBorder from "../../other/border/MBorder";
-import MButton from "../../base/button/MButton";
-import { notEmpty } from "../../dependents/_utils/tools";
-import { BaseConfirmConfig, IConfirm } from "../../../types/components/MConfirm";
+import MBorder from '../../other/border/MBorder';
+import MButton from '../../base/button/MButton';
+import { notEmpty } from '../../dependents/_utils/tools';
+import { BaseConfirmConfig, IConfirm } from '../../../types/components/MConfirm';
 
 let confirmDiv: Element | undefined;
 
 const removeDiv = () => {
   confirmDiv?.remove();
-}
+};
 
 const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const bodyDomList = document.getElementsByTagName('body');
     if (notEmpty(bodyDomList)) {
       const body = bodyDomList[0];
@@ -50,26 +50,23 @@ const render: (config: BaseConfirmConfig) => Promise<boolean> = config => {
                       {confirmBtn}
                       {cancelBtn}
                     </div>
-
                   </div>
                 </MBorder>
               </div>
             </div>
-          )
+          );
         }
       }).mount(confirmDiv);
     }
-  })
-}
-
+  });
+};
 
 const Confirm: IConfirm = async config => {
   let c = config;
   if (typeof config === 'string') {
-    c = { content: config }
+    c = { content: config };
   }
   return render(c as BaseConfirmConfig);
-}
-
+};
 
 export default Confirm;

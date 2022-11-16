@@ -4,10 +4,10 @@
  * @date 2022/5/16 4:37 下午
  * @version v2.0.0
  */
-import { defineComponent, h, ref, Teleport } from "vue";
-import { props } from "./api";
-import MMessageItem from "./MMessageItem";
-import type { MessageProps } from "../../../types/components/MMessage";
+import { defineComponent, h, ref, Teleport } from 'vue';
+import { props } from './api';
+import MMessageItem from './MMessageItem';
+import type { MessageProps } from '../../../types/components/MMessage';
 
 /**
  * @description MessageList使用到的属性
@@ -21,8 +21,8 @@ const getKey = (() => {
   return () => {
     id += 1;
     return `m-msg-${id}`;
-  }
-})()
+  };
+})();
 
 export default defineComponent({
   name: 'MMessageList',
@@ -34,11 +34,11 @@ export default defineComponent({
     const add = (item: MessageOptions) => {
       item.id = getKey();
       messageList.value.push(item);
-    }
+    };
 
     const remove = (index: number) => {
       messageList.value.splice(index, 1);
-    }
+    };
 
     expose({ add, messageList, domList });
 
@@ -55,15 +55,14 @@ export default defineComponent({
           key: item.id,
           ...item,
           onCloseDuration: () => remove(index)
-        }))
+        })
+      );
 
       return (
         <Teleport to={'body'}>
-          <div class={`m-message-list m-message-list_${props.direction}`}>
-            {messages}
-          </div>
+          <div class={`m-message-list m-message-list_${props.direction}`}>{messages}</div>
         </Teleport>
-      )
-    }
+      );
+    };
   }
-})
+});

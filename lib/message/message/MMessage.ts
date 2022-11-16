@@ -6,17 +6,17 @@
  *
  * v2.0.1 message handler 提供返回
  */
-import { ComponentPublicInstance, createApp, nextTick } from "vue";
-import MessageList from "./MMessageList";
+import { ComponentPublicInstance, createApp, nextTick } from 'vue';
+import MessageList from './MMessageList';
 import type {
   IMessage,
   MessageConfig,
   MessageDirectionType,
   MessageProps,
-  MessageType,
-} from "../../../types/components/MMessage";
-import { MessageTypeEnum } from "./api";
-import MMessageItem from "./MMessageItem";
+  MessageType
+} from '../../../types/components/MMessage';
+import { MessageTypeEnum } from './api';
+import MMessageItem from './MMessageItem';
 
 const messageListMap = new Map<MessageDirectionType, MessageIns>();
 
@@ -24,25 +24,21 @@ const messageListMap = new Map<MessageDirectionType, MessageIns>();
  * @description MessageList实例
  */
 export declare interface MessageIns extends ComponentPublicInstance {
-  add: (params: MessageProps) => void;
-  remove: (index: number) => void;
-  domList: Array<InstanceType<typeof MMessageItem>>;
+  add: (params: MessageProps) => void,
+  remove: (index: number) => void,
+  domList: Array<InstanceType<typeof MMessageItem>>
 }
 
-const mergeOption = (
-  options: MessageConfig,
-  type = MessageTypeEnum.success,
-  duration = 3000
-) => {
+const mergeOption = (options: MessageConfig, type = MessageTypeEnum.success, duration = 3000) => {
   let messageOptions: Required<MessageProps> = {
-    direction: "top-right",
+    direction: 'top-right',
     duration,
     type,
-    content: "",
+    content: '',
     dragAllow: true,
-    dragConfig: { triggerBoundary: 2 },
+    dragConfig: { triggerBoundary: 2 }
   };
-  if (typeof options === "string") {
+  if (typeof options === 'string') {
     messageOptions.content = options;
     messageOptions.type = type ?? MessageTypeEnum.success;
   } else {
@@ -64,9 +60,9 @@ const showTypeMessage = (
   const mountInstance = messageListMap.get(direction);
   if (!mountInstance) {
     // 没有出现过的方向，创建新的实例，然后调用操作
-    const wrapper = document.createElement("div");
+    const wrapper = document.createElement('div');
     const ins = createApp(MessageList, {
-      ...messageOptions,
+      ...messageOptions
     }).mount(wrapper) as MessageIns;
 
     ins.add(messageOptions);

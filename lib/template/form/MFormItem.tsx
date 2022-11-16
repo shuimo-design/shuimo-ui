@@ -7,14 +7,14 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.1.0 升级为tsx版本
  */
-import { defineComponent } from "vue";
-import { itemProps } from "./api";
+import { defineComponent } from 'vue';
+import { itemProps } from './api';
 
 export default defineComponent({
   name: 'MFormItem',
   props: itemProps,
   setup(props, { slots }) {
-    return ()=>{
+    return () => {
       const labelSlot = slots.label ? slots.label() : props.label;
       const defaultSlot = slots.default ? slots.default() : '';
       return (
@@ -22,11 +22,9 @@ export default defineComponent({
           <label for={props.prop} class="m-form-item__label">
             {labelSlot}
           </label>
-          <div class="m-form-item__content">
-            {defaultSlot}
-          </div>
+          <div class="m-form-item__content">{defaultSlot}</div>
         </div>
-      )
-    }
+      );
+    };
   }
-})
+});

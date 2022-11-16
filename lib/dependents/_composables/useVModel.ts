@@ -9,7 +9,6 @@
 
 import { ref, Ref, UnwrapRef } from 'vue';
 
-
 const useVModel = <T>(param: {
   value: Ref<T>,
   modelValue: Ref<T>,
@@ -32,10 +31,9 @@ const useVModel = <T>(param: {
       (newValue: UnwrapRef<T> | T, ...args: any[]) => {
         param.emit?.(UPDATE_MODEL, newValue, ...args);
         param.onChange?.(newValue, ...args);
-      },
+      }
     ];
   }
-
 
   // 非受控模式
   return [
@@ -43,9 +41,9 @@ const useVModel = <T>(param: {
     (newValue: UnwrapRef<T>, ...args: any[]) => {
       _valueRef.value = newValue;
       param.onChange?.(newValue, ...args);
-    },
+    }
   ];
-}
+};
 export default useVModel;
 
 // emits name

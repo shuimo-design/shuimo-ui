@@ -6,14 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, h } from "vue";
-
+import { defineComponent, h } from 'vue';
 
 export default defineComponent({
   name: 'MDeleteIcon',
   setup: () => {
     return () => {
       return h('div', { class: 'm-delete-icon' });
-    }
+    };
   }
-})
+});

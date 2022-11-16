@@ -49,15 +49,9 @@ export default defineComponent({
   emits: ['pick'],
   setup(props, { emit }) {
     const { firstDayOfWeek } = toRefs(props);
-    const {
-      minDate,
-      maxDate,
-      date,
-      value,
-      tableRows
-    } = useTypeTable(props)
+    const { minDate, maxDate, date, value, tableRows } = useTypeTable(props);
 
-    const offsetDay = computed(() => firstDayOfWeek.value > 3 ? 7 - firstDayOfWeek.value : -firstDayOfWeek.value);
+    const offsetDay = computed(() => (firstDayOfWeek.value > 3 ? 7 - firstDayOfWeek.value : -firstDayOfWeek.value));
 
     const month = computed(() => date.value.getMonth());
     const year = computed(() => date.value.getFullYear());
@@ -68,9 +62,12 @@ export default defineComponent({
       const currentDate = new Date(year.value, month.value, 1);
       let day = getFirstDayOfMonth(currentDate); // day of first day
       const dateCountOfMonth = getDayCountOfMonth(currentDate.getFullYear(), currentDate.getMonth());
-      const dateCountOfLastMonth = getDayCountOfMonth(currentDate.getFullYear(), (currentDate.getMonth() === 0 ? 11 : currentDate.getMonth() - 1));
+      const dateCountOfLastMonth = getDayCountOfMonth(
+        currentDate.getFullYear(),
+        currentDate.getMonth() === 0 ? 11 : currentDate.getMonth() - 1
+      );
 
-      day = (day === 0 ? 7 : day);
+      day = day === 0 ? 7 : day;
 
       const offset = offsetDay.value;
       const rows = tableRows;
@@ -107,7 +104,7 @@ export default defineComponent({
             if (j + i * 7 >= numberOfDaysFromPreviousMonth) {
               cell.text = count++;
             } else {
-              cell.text = dateCountOfLastMonth - (numberOfDaysFromPreviousMonth - j % 7) + 1 + i * 7;
+              cell.text = dateCountOfLastMonth - (numberOfDaysFromPreviousMonth - (j % 7)) + 1 + i * 7;
               cell.type = 'm-date-prev-month';
             }
           } else {
@@ -125,14 +122,16 @@ export default defineComponent({
         }
       }
       return rows;
-    })
+    });
 
     const cellMatchesDate = (cell: CellType, date: any) => {
       const currentDate = new Date(date);
-      return year.value === currentDate.getFullYear()
-        && month.value === currentDate.getMonth()
-        && Number(cell.text) === currentDate.getDate();
-    }
+      return (
+        year.value === currentDate.getFullYear() &&
+        month.value === currentDate.getMonth() &&
+        Number(cell.text) === currentDate.getDate()
+      );
+    };
 
     const getCellClasses = (cell: CellType) => {
       const selectionMode = 'day';
@@ -150,7 +149,7 @@ export default defineComponent({
         classes.push('m-date-current');
       }
 
-      if (cell.inRange && ((cell.type === 'normal' || cell.type === 'today'))) {
+      if (cell.inRange && (cell.type === 'normal' || cell.type === 'today')) {
         classes.push('m-date-in-range');
 
         if (cell.start) {
@@ -171,12 +170,12 @@ export default defineComponent({
       }
 
       return classes;
-    }
+    };
 
     const getDateOfCell = (row: number, column: number) => {
       const offsetFromStart = row * 7 + column - offsetDay.value;
       return nextDate(startDate.value, offsetFromStart);
-    }
+    };
 
     const clickHandler = (event: any) => {
       let target = event.target;
@@ -195,40 +194,33 @@ export default defineComponent({
 
       const newDate = getDateOfCell(row, column);
       emit('pick', newDate);
-    }
+    };
 
     return () => (
-      <table onClick={clickHandler}
-             class="m-date-table"
-             cellspacing="0"
-             cellpadding="0">
+      <table onClick={clickHandler} class="m-date-table" cellspacing="0" cellpadding="0">
         <tbody>
-        <tr>
-          <th>壹</th>
-          <th>贰</th>
-          <th>叁</th>
-          <th>肆</th>
-          <th>伍</th>
-          <th>陆</th>
-          <th>日</th>
-        </tr>
-        {
-          rows.value.map((row: any, key) => (
+          <tr>
+            <th>壹</th>
+            <th>贰</th>
+            <th>叁</th>
+            <th>肆</th>
+            <th>伍</th>
+            <th>陆</th>
+            <th>日</th>
+          </tr>
+          {rows.value.map((row: any, key) => (
             <tr key={key}>
-              {
-                row.map((cell: any, k: number) => (
-                  <td key={k} class="m-cursor-pointer">
-                    <div class={getCellClasses(cell)}>
-                      <span>{cell.text}</span>
-                    </div>
-                  </td>
-                ))
-              }
+              {row.map((cell: any, k: number) => (
+                <td key={k} class="m-cursor-pointer">
+                  <div class={getCellClasses(cell)}>
+                    <span>{cell.text}</span>
+                  </div>
+                </td>
+              ))}
             </tr>
-          ))
-        }
+          ))}
         </tbody>
       </table>
-    )
+    );
   }
-})
+});

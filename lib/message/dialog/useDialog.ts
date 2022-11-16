@@ -13,13 +13,13 @@ export default function useDialog() {
   const visible = ref(false);
   const closeDialog = () => {
     visible.value = false;
-  }
+  };
   const showDialog = () => {
     visible.value = true;
-  }
+  };
   const toggleDialog = () => {
     visible.value = !visible.value;
-  }
+  };
 
-  return { visible, showDialog, closeDialog, toggleDialog }
+  return { visible, showDialog, closeDialog, toggleDialog };
 }

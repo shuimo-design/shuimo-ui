@@ -24,5 +24,5 @@ export declare type TableProps = {
    *              表格高度
    * @type string
    */
-  height?: string | null,
+  height?: string | null
 }

@@ -23,7 +23,7 @@ export default function useContent(slots: Slots, popperNode: Ref<Node>, content:
     if (popperNode.value) {
       observer.observe(popperNode.value, {
         childList: true,
-        subtree: true,
+        subtree: true
       });
     }
   });
@@ -45,6 +45,6 @@ export default function useContent(slots: Slots, popperNode: Ref<Node>, content:
   };
 
   return {
-    hasContent,
+    hasContent
   };
 }

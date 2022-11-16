@@ -30,5 +30,5 @@ export declare type InputNumberProps = {
    * @type number
    * @default -Infinity
    */
-  min?: number,
-}
+  min?: number
+};

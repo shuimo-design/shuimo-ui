@@ -31,7 +31,7 @@
 .m-form-item:after,
 .m-form-item:before {
   display: table;
-  content: "";
+  content: '';
 }
 
 .m-form-item__label {
@@ -52,9 +52,10 @@
   margin-left: 120px;
 }
 
-.m-form-item__content:after, .m-form-item__content:before {
+.m-form-item__content:after,
+.m-form-item__content:before {
   display: table;
-  content: "";
+  content: '';
 }
 
 .m-form-item__content:after {

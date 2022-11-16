@@ -12,9 +12,8 @@
  */
 import { defineComponent, h, toRefs } from 'vue';
 import MBorder from '../../other/border/MBorder';
-import { props } from "./api";
-import type { HTMLElementEvent } from "../../dependents/_types";
-
+import { props } from './api';
+import type { HTMLElementEvent } from '../../dependents/_types';
 
 export default defineComponent({
   name: 'MInput',
@@ -23,11 +22,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const { type, disabled } = toRefs(props);
     const borderClass = {
-      class: [
-        'm-input',
-        { 'm-textarea': type.value === 'textarea' },
-        { 'm-input-disabled': disabled },
-      ]
+      class: ['m-input', { 'm-textarea': type.value === 'textarea' }, { 'm-input-disabled': disabled }]
     };
 
     return () => {
@@ -42,26 +37,25 @@ export default defineComponent({
         onFocus: (e: FocusEvent) => {
           emit('focus', e);
         }
-      }
-
+      };
 
       if (type.value === 'textarea') {
-        return h(MBorder, borderClass, () => h(
-          'textarea', {
+        return h(MBorder, borderClass, () =>
+          h('textarea', {
             rows: 10,
             class: 'm-textarea-inner',
             ...domProps
-          }
-        ))
+          })
+        );
       }
 
-      return h(MBorder, borderClass, () => h(
-        'input', {
+      return h(MBorder, borderClass, () =>
+        h('input', {
           type,
           class: 'm-input-inner',
           ...domProps
-        }
-      ))
-    }
+        })
+      );
+    };
   }
-})
+});

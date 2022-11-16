@@ -6,9 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { SwitchProps } from "./index";
-import { WCOPO } from "../../dependents/_types";
-
+import { SwitchProps } from './index';
+import { WCOPO } from '../../dependents/_types';
 
 export const props: WCOPO<SwitchProps> = {
   modelValue: { type: undefined, required: true },
@@ -19,4 +18,4 @@ export const props: WCOPO<SwitchProps> = {
   activeValue: { type: undefined, default: undefined },
   inactiveValue: { type: undefined, default: undefined },
   onControl: { type: Boolean, default: false }
-}
+};

@@ -18,14 +18,14 @@
     float: right;
 
     &:before {
-      content: url("/lib/assets/date-picker/calendar.png");
+      content: url('/lib/assets/date-picker/calendar.png');
     }
   }
 }
 
 .m-calendar-dropdown {
   position: absolute;
-  background: url("/lib/assets/date-picker/calendar_border.png") no-repeat;
+  background: url('/lib/assets/date-picker/calendar_border.png') no-repeat;
   background-size: 100% 100%;
   width: 243px;
   height: 208px;
@@ -66,19 +66,19 @@
     }
 
     .m-calendar-year-prev:before {
-      content: url("/lib/assets/date-picker/calendar_year_prev.png");
+      content: url('/lib/assets/date-picker/calendar_year_prev.png');
     }
 
     .m-calendar-month-prev:before {
-      content: url("/lib/assets/date-picker/calendar_month_prev.png");
+      content: url('/lib/assets/date-picker/calendar_month_prev.png');
     }
 
     .m-calendar-year-next:before {
-      content: url("/lib/assets/date-picker/calendar_year_next.png");
+      content: url('/lib/assets/date-picker/calendar_year_next.png');
     }
 
     .m-calendar-month-next:before {
-      content: url("/lib/assets/date-picker/calendar_month_next.png");
+      content: url('/lib/assets/date-picker/calendar_month_next.png');
     }
 
     .m-calendar-year-prev:active,
@@ -123,7 +123,7 @@
   }
 
   .m-date-current {
-    background: url("/lib/assets/date-picker/circle.png") no-repeat;
+    background: url('/lib/assets/date-picker/circle.png') no-repeat;
     background-size: 100% 100%;
   }
 
@@ -145,7 +145,6 @@
     }
   }
 }
-
 
 .m-month-table {
   margin-top: 14px;
@@ -172,7 +171,6 @@
         &:hover {
           transform: scale(1.2);
         }
-
       }
 
       .m-month-today {
@@ -181,13 +179,12 @@
       }
 
       .m-month-current {
-        background: url("/lib/assets/date-picker/circle.png") no-repeat;
+        background: url('/lib/assets/date-picker/circle.png') no-repeat;
         background-size: 100% 100%;
       }
     }
   }
 }
-
 
 .m-year-table {
   margin-top: 10px;
@@ -217,7 +214,7 @@
   }
 
   .m-year-current {
-    background: url("/lib/assets/date-picker/circle.png") no-repeat;
+    background: url('/lib/assets/date-picker/circle.png') no-repeat;
     background-size: 100% 100%;
   }
 }

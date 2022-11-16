@@ -21,10 +21,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("/lib/assets/dialog/bg.png") no-repeat;
+  background: url('/lib/assets/dialog/bg.png') no-repeat;
   background-size: 100% 100%;
 }
-
 
 // close button
 
@@ -60,7 +59,7 @@
 
 .m-dialog-close-btn {
   display: inline-block;
-  background: url("/lib/assets/dialog/close.png") no-repeat;
+  background: url('/lib/assets/dialog/close.png') no-repeat;
   background-size: 100% 100%;
   width: 46px;
   height: 75px;

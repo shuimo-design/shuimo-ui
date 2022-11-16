@@ -30,7 +30,7 @@ export declare type SwitchProps = {
    *              是否加载中
    * @default false
    */
-  loading?: boolean
+  loading?: boolean,
   /**
    * @description 打开文本
    * @type string

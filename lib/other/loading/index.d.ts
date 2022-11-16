@@ -12,24 +12,23 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-
 export declare type LoadingProps = {
   /**
    * @description transform speed
    * @type number
    * @default 1500
    */
-  speed?: number;
+  speed?: number,
   /**
    * @description with mask or not
    * @type boolean
    * @default false
    */
-  mask?: boolean;
+  mask?: boolean,
   /**
    * @description length of loading item's side (px)
    * @type number | string
    * @default 50
    */
-  sideLength?: number | string;
-}
+  sideLength?: number | string
+};

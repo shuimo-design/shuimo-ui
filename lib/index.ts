@@ -24,24 +24,23 @@ import MBorder from './other/border/MBorder';
 import MDivider from './other/divider/MDivider';
 import MLoading from './other/loading/MLoading';
 import MMenu from './other/menu/MMenu';
-import MPrinter from "./other/printer/Printer";
+import MPrinter from './other/printer/Printer';
 import MProgress from './other/progress/MProgress';
 import MUpload from './other/upload/MUpload';
 
 import MPagination from './template/pagination/MPagination';
-import MFormItem from "./template/form/MFormItem";
-import MForm from "./template/form/MForm";
-import MTable from "./template/table/MTable";
-import MTableColumn from "./template/table/MTableColumn";
-import MRicePaper from "./template/ricePaper/MRicePaper";
+import MFormItem from './template/form/MFormItem';
+import MForm from './template/form/MForm';
+import MTable from './template/table/MTable';
+import MTableColumn from './template/table/MTableColumn';
+import MRicePaper from './template/ricePaper/MRicePaper';
 
-import MDeleteIcon from "./other/icons/deleteIcon/MDeleteIcon";
+import MDeleteIcon from './other/icons/deleteIcon/MDeleteIcon';
 
 import useDialog from './message/dialog/useDialog';
 
-import '../lib/style.scss'
-import { loadingDirective } from "./other/loading/directive";
-
+import '../lib/style.scss';
+import { loadingDirective } from './other/loading/directive';
 
 const components: Record<any, Component> = {
   MInput,
@@ -73,8 +72,7 @@ const components: Record<any, Component> = {
   MTag,
   MSwitch,
   MDeleteIcon
-}
-
+};
 
 export {
   MInput,

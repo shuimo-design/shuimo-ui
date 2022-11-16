@@ -7,10 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from "vitest";
-import { DOMWrapper, mount } from "@vue/test-utils";
-import { h } from "vue";
-import MDrawer from "../../../lib/message/drawer/MDrawer";
+import { describe, expect, test } from 'vitest';
+import { DOMWrapper, mount } from '@vue/test-utils';
+import { h } from 'vue';
+import MDrawer from '../../../lib/message/drawer/MDrawer';
 
 describe('抽屉组件', () => {
   const body = document.body;
@@ -40,12 +40,11 @@ describe('抽屉组件', () => {
   test('点击mask触发close', async () => {
     const wrapper = mount(MDrawer, {
       props: {
-        visible: true,
+        visible: true
       },
       slots: {
         default: () => h('div', 'hello')
       }
-
     });
     const bodyWrapper = new DOMWrapper(body);
     await bodyWrapper.find('.mask').trigger('click');
@@ -62,7 +61,6 @@ describe('抽屉组件', () => {
       slots: {
         default: () => h('div', 'hello')
       }
-
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.findAll('.mask-bg').length).toBe(0);
@@ -73,12 +71,11 @@ describe('抽屉组件', () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,
-        closeBtn: false,
+        closeBtn: false
       },
       slots: {
         default: () => h('div', 'hello')
       }
-
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.html()).not.toContain('m-dialog-close-btn');
@@ -89,16 +86,14 @@ describe('抽屉组件', () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,
-        closeBtn: true,
+        closeBtn: true
       },
       slots: {
         default: () => h('div', 'hello')
       }
-
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.html()).toContain('m-dialog-close-btn');
     wrapper.unmount();
   });
-
 });

@@ -11,25 +11,25 @@
  * V1.0.2 优化ts支持，修改type颜色
  */
 
-import { PrinterType, printInterface, IPrinter } from "../../../types/components/MPrint";
+import { PrinterType, printInterface, IPrinter } from '../../../types/components/MPrint';
 
 enum PrinterEnum {
   suggest = 'suggest',
   info = 'info',
-  error = 'error',
+  error = 'error'
 }
 
 const typeColor = {
   suggest: '#ebb10d',
   info: '#474b4c',
-  error: '#f03f24',
-}
+  error: '#f03f24'
+};
 
 const PrinterConsole: Record<PrinterEnum, keyof Pick<Console, 'log' | 'error'>> = {
   [PrinterEnum.suggest]: 'log',
   [PrinterEnum.info]: 'log',
   [PrinterEnum.error]: 'error'
-}
+};
 
 const Printer: IPrinter = (defaultUser = '水墨UI') => {
   const DEFAULT_USER = defaultUser;
@@ -53,7 +53,6 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
 
   const printer: PrinterType = Object.create(null);
 
-
   for (const t of Object.values(PrinterEnum)) {
     printer[t] = (content: any, user: string = DEFAULT_USER) => {
       switch (getType(content)) {
@@ -67,9 +66,7 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
     };
   }
 
-
   return printer;
-}
-
+};
 
 export default Printer;

@@ -2,34 +2,31 @@
   display: grid;
   grid-template-columns: 30px auto;
 
-  &>div{
+  & > div {
     display: inline-block;
   }
 
-  & .m-list-icon{
+  & .m-list-icon {
     display: inline-block;
     margin: 4px 0 0 8px;
     height: 11px;
     width: 11px;
   }
 
-  & .m-list-icon{
+  & .m-list-icon {
     background: url(/lib/assets/base/icon/base_icon.png) no-repeat;
   }
 
   &.m-active {
-
-    .m-list-item-main{
+    .m-list-item-main {
       margin-top: 2px;
     }
 
-    & .m-list-icon{
+    & .m-list-icon {
       background: url(/lib/assets/base/icon/active_icon.png) no-repeat;
       margin: 0;
       height: 27px;
       width: 27px;
     }
-
-
   }
 }

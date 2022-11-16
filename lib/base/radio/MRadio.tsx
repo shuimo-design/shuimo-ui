@@ -5,8 +5,8 @@
  * @description radio单选框
  */
 
-import { defineComponent } from "vue";
-import { props } from "./api";
+import { defineComponent } from 'vue';
+import { props } from './api';
 
 export default defineComponent({
   name: 'MRadio',
@@ -18,16 +18,14 @@ export default defineComponent({
     // 点击事件
     const handleClick = () => {
       emit('update:modelValue', props.label);
-    }
+    };
 
     return () => (
       <label class={'m-radio'}>
-        <input type="radio"
-               class={'m-radio--former'}
-               onClick={handleClick}/>
+        <input type="radio" class={'m-radio--former'} onClick={handleClick} />
         <div class={['m-radio--input', props.modelValue === props.label ? 'selected' : '']}></div>
         <span class={'m-radio--label'}>{slotsDefault}</span>
       </label>
-    )
+    );
   }
-})
+});

@@ -26,5 +26,5 @@ export declare type RadioProps = {
    * @type string
    * @default ''
    */
-  label?: string| number,
+  label?: string| number
 }

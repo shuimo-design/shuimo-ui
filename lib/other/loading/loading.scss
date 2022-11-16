@@ -37,11 +37,11 @@
 
 .m-loading-wrapper {
   display: grid;
-  grid-template-areas: "main";
+  grid-template-areas: 'main';
 
   $types: shua1, shua2, shua3, shua4;
 
-  .m-loading-item{
+  .m-loading-item {
     grid-area: main;
     height: 50px;
     width: 50px;

@@ -12,7 +12,7 @@ import { ButtonHTMLAttributes, Ref, ref } from 'vue';
 export default function usePaginationAction(): [Ref<ButtonHTMLAttributes['disabled']>, Ref<ButtonHTMLAttributes['disabled']>, any] {
   const disPrev = ref(true);
   const disNext = ref(false);
-  
+
   /**
    *
    * @param actionBooleanArr [prev, next]
@@ -20,7 +20,7 @@ export default function usePaginationAction(): [Ref<ButtonHTMLAttributes['disabl
   const setDisAction = (actionBooleanArr = [true, false]) => {
     [disPrev.value, disNext.value] = actionBooleanArr
   }
-  
+
   return [
     disPrev,
     disNext,

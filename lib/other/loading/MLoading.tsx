@@ -6,16 +6,16 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { computed, defineComponent, h, onUnmounted, ref, TransitionGroup } from "vue";
-import { props } from "./api";
-import { deepClone } from "../../dependents/_utils/tools";
+import { computed, defineComponent, h, onUnmounted, ref, TransitionGroup } from 'vue';
+import { props } from './api';
+import { deepClone } from '../../dependents/_utils/tools';
 
 const baseTypeList = ['shua1', 'shua2', 'shua3', 'shua4'];
 // const baseTimout = 100;
 const baseTimout = 100;
 
 export default defineComponent({
-  name: "MLoading",
+  name: 'MLoading',
   props,
   setup(props) {
     let popList = deepClone(baseTypeList);
@@ -36,20 +36,19 @@ export default defineComponent({
       }
 
       timer = setTimeout(changeList, props.speed * Math.random() + baseTimout);
-    }
+    };
     changeList();
 
     onUnmounted(() => {
       clearInterval(timer);
-    })
+    });
     const fixedSideLength = computed(() =>
-      typeof props.sideLength === 'number' ? `${props.sideLength}px` : props.sideLength);
-    const itemSize = { height: fixedSideLength.value, width: fixedSideLength.value }
-
+      typeof props.sideLength === 'number' ? `${props.sideLength}px` : props.sideLength
+    );
+    const itemSize = { height: fixedSideLength.value, width: fixedSideLength.value };
 
     const baseProps = { class: ['m-loading', { 'm-loading-mask': props.mask }], style: itemSize, ref: domRef };
     const transitionProps = { class: 'm-loading-wrapper', name: 'm-loading-list', tag: 'div' };
-
 
     return () => {
       return h('div', baseProps,
@@ -62,4 +61,4 @@ export default defineComponent({
             }))));
     }
   }
-})
+});

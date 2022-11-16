@@ -1,17 +1,15 @@
 .m-select-options {
-
   --m-option-bg-hover: #e6e6e6a6;
   --m-option-bg-active: #c9c9c9a6;
 
   width: var(--m-select-dropdown-w);
-
 
   .m-option {
     margin: 4px 4px;
     padding: 2px 4px;
     border-radius: 5px;
 
-    &:hover{
+    &:hover {
       background-color: var(--m-option-bg-hover);
     }
 
@@ -19,5 +17,4 @@
       background: var(--m-option-bg-active);
     }
   }
-
 }

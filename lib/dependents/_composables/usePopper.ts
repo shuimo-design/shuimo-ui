@@ -11,32 +11,32 @@ export type Placement = 'auto' | 'auto-start' | 'auto-end'
   | 'left' | 'left-start' | 'left-end'
 
 interface IPopper {
-  arrowPadding?: string;
-  emit: (event: ('close:popper' | 'open:popper'), ...args: any[]) => void;
-  locked: boolean;
-  offsetDistance: string;
-  offsetSkid: string;
-  placement: Ref<Placement>;
-  popperNode: Ref;
+  arrowPadding?: string,
+  emit: (event: 'close:popper' | 'open:popper', ...args: any[]) => void,
+  locked: boolean,
+  offsetDistance: string,
+  offsetSkid: string,
+  placement: Ref<Placement>,
+  popperNode: Ref,
   triggerNode: Ref
 }
 
 interface IState {
-  isOpen: boolean;
+  isOpen: boolean,
   popperInstance?: Instance
 }
 
 export default function usePopper(popper: IPopper) {
-  const { emit, arrowPadding = '0', placement } = popper
+  const { emit, arrowPadding = '0', placement } = popper;
   const state = reactive<IState>({
-    isOpen: false,
+    isOpen: false
   });
 
   // Enable or disable event listeners to optimize performance.
   const setPopperEventListeners = (enabled: boolean) => {
     state.popperInstance?.setOptions((options: any) => ({
       ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled }],
+      modifiers: [...options.modifiers, { name: 'eventListeners', enabled }]
     }));
   };
 
@@ -81,23 +81,23 @@ export default function usePopper(popper: IPopper) {
           flip,
           {
             name: 'flip',
-            enabled: !popper.locked,
+            enabled: !popper.locked
           },
           arrow,
           {
             name: 'arrow',
             options: {
-              padding: toInt(arrowPadding),
-            },
+              padding: toInt(arrowPadding)
+            }
           },
           offset,
           {
             name: 'offset',
             options: {
-              offset: [toInt(popper.offsetSkid), toInt(popper.offsetDistance)],
-            },
-          },
-        ],
+              offset: [toInt(popper.offsetSkid), toInt(popper.offsetDistance)]
+            }
+          }
+        ]
       });
 
       // Update its position
@@ -112,6 +112,6 @@ export default function usePopper(popper: IPopper) {
   return {
     ...toRefs(state),
     open,
-    close,
+    close
   };
 }

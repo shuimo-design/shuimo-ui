@@ -9,13 +9,12 @@
  * V1.0.1 调整代码结构为setup形式，添加内置关闭交互
  */
 
-
 import { defineComponent, h, Teleport } from 'vue';
-import MBorder from "../../other/border/MBorder";
-import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
-import useDialog from "../../dependents/_composables/useDialog";
-import { props } from "./api";
-import MDialogCloseBtn from "../dialog/MDialogCloseBtn";
+import MBorder from '../../other/border/MBorder';
+import { CLOSE_EVENT, CONFIRM_EVENT } from '../../dependents/_utils/constants';
+import useDialog from '../../dependents/_composables/useDialog';
+import { props } from './api';
+import MDialogCloseBtn from '../dialog/MDialogCloseBtn';
 
 export default defineComponent({
   name: 'MDrawer',
@@ -49,6 +48,6 @@ export default defineComponent({
       }, [borderWrap, closeBtn]);
 
       return h(Teleport, { to: 'body' }, maskWrap);
-    }
-  },
-})
+    };
+  }
+});

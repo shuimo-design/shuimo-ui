@@ -11,7 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { DialogMask } from "../dialog";
+import { DialogMask } from '../dialog';
 
 export declare type DrawerProps = {
   /**
@@ -48,5 +48,5 @@ export declare type DrawerProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean,
+  closeBtn?: boolean
 }

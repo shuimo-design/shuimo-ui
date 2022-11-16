@@ -7,13 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v2.0.0 适配新版Message
  */
-import { describe, expect, test, vi } from "vitest";
-import { MMessage } from "../../../lib/message/message";
-import { DOMWrapper } from "@vue/test-utils";
-import { MessageDirectionType } from "../../../types/components/MMessage";
+import { describe, expect, test, vi } from 'vitest';
+import { MMessage } from '../../../lib/message/message';
+import { DOMWrapper } from '@vue/test-utils';
+import { MessageDirectionType } from '../../../types/components/MMessage';
 
 describe('消息提示', () => {
-
   // todo 修复污染问题
   HTMLDivElement.prototype.animate = vi.fn();
 
@@ -63,5 +62,5 @@ describe('消息提示', () => {
     }
     await vi.runAllTimers();
     expect(bodyWrapper.html()).toBe('<body></body>');
-  })
+  });
 });

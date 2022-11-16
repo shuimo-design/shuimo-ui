@@ -19,7 +19,7 @@ export type MPopoverProps = {
    * @type Placement
    * @default bottom
    */
-  placement?: Placement;
+  placement?: Placement,
   /**
    * @description Disables automatically closing the popover when the user clicks away from it
    * @type boolean
@@ -31,13 +31,13 @@ export type MPopoverProps = {
    * @type string
    * @default '0'
    */
-  offsetSkid?: string;
+  offsetSkid?: string,
   /**
    * @description Offset in pixels away from the trigger element
    * @type string
    * @default '0'
    */
-  offsetDistance?: string;
+  offsetDistance?: string,
   /**
    * @description Trigger the popper on hover
    * @type boolean
@@ -49,13 +49,13 @@ export type MPopoverProps = {
    * @type boolean | null
    * @default null
    */
-  show?: boolean | null
+  show?: boolean | null,
   /**
    * @description Disables the Popper. If it was already open, it will be closed.
    * @type boolean
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean,
   /**
    * @description Open the Popper after a delay (ms).
    * @type number

@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO, WPropType } from "../../dependents/_types";
-import { SelectProps } from "./index";
+import { WCOPO, WPropType } from '../../dependents/_types';
+import { SelectProps } from './index';
 
 export const props: WCOPO<SelectProps> = {
   modelValue: { type: undefined, default: '' },
@@ -20,4 +20,4 @@ export const props: WCOPO<SelectProps> = {
   placeholder: { type: String, default: '请选择...' },
   toMatch: { type: Function as WPropType<(option: any, value: any) => boolean>, default: undefined },
   multiple: { type: Boolean, default: false },
-}
+};

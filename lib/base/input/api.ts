@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from "../../dependents/_types";
-import { InputProps } from "./index";
+import { WCOPO } from '../../dependents/_types';
+import { InputProps } from './index';
 
 export const props: WCOPO<InputProps> = {
   type: { type: String, default: 'text' },
@@ -15,4 +15,4 @@ export const props: WCOPO<InputProps> = {
   modelValue: { type: [String, Number], default: '' },
   readonly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false }
-}
+};

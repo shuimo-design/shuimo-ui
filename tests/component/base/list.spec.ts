@@ -7,12 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect } from "vitest";
-import { mount } from "@vue/test-utils";
-import MList from "../../../lib/base/list/MList";
+import { describe, test, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MList from '../../../lib/base/list/MList';
 
 describe('列表组件', () => {
-
   test('普通数据渲染', () => {
     const wrapper = mount(MList, {
       props: {
@@ -20,7 +19,7 @@ describe('列表组件', () => {
       }
     });
     expect(wrapper.find('.m-list-item-main').text()).toBe('"轩辕剑"');
-  })
+  });
 
   test('active数据渲染', () => {
     const wrapper = mount(MList, {
@@ -33,6 +32,5 @@ describe('列表组件', () => {
       }
     });
     expect(wrapper.find('.m-list-item').html().includes('m-active')).toBe(true);
-  })
-
-})
+  });
+});

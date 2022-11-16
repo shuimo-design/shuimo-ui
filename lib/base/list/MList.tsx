@@ -6,9 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, h } from "vue";
-import { props } from "./api";
-
+import { defineComponent, h } from 'vue';
+import { props } from './api';
 
 export default defineComponent({
   name: 'MList',
@@ -28,6 +27,6 @@ export default defineComponent({
       ]));
 
       return h('div', { class: 'm-list' }, listItems);
-    }
+    };
   }
-})
+});

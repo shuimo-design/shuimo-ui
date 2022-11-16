@@ -9,11 +9,9 @@
 
 <script setup>
 import Main from './page/Main.vue';
-
 </script>
 
 <style lang="scss">
-
 .main-paper {
   height: 100vh;
   width: 100vw;

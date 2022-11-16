@@ -13,11 +13,16 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from "vue";
-import MTable from "../../../../../lib/template/table/MTable";
-import MTableColumn from "../../../../../lib/template/table/MTableColumn";
+import { ref } from 'vue';
+import MTable from '../../../../../lib/template/table/MTable';
+import MTableColumn from '../../../../../lib/template/table/MTableColumn';
 
-const columns = ref([{ param: 'id', label: 'id' }, { param: 'param', label: 'param' }])
-const data = ref([{ id: 1, param: '立春' }, { id: 2, param: '雨水' },]);
-
+const columns = ref([
+  { param: 'id', label: 'id' },
+  { param: 'param', label: 'param' }
+]);
+const data = ref([
+  { id: 1, param: '立春' },
+  { id: 2, param: '雨水' }
+]);
 </script>

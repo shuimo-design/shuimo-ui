@@ -8,9 +8,9 @@
  */
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
   target: T;
-}
+};
 
-export type Data = Record<string, unknown>
+export type Data = Record<string, unknown>;
 
 /**
  * @description WComponentObjectPropsOptions
@@ -37,13 +37,12 @@ export type WPropOptionsWithDefault<T = any, D = T> = {
 }
 
 
-type DefaultFactory<T> = (props: Data) => T
-
+type DefaultFactory<T> = (props: Data) => T;
 
 // 工具
 type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T];
 
-type OptionalKeys<T> = Exclude<keyof T, RequiredKeys<T>>
+type OptionalKeys<T> = Exclude<keyof T, RequiredKeys<T>>;
 
 export declare type WPropType<T> = WPropConstructor<T> | WPropConstructor<T>[];
 

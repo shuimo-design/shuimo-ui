@@ -7,13 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-
-import { describe, test, expect } from "vitest";
-import { mount } from "@vue/test-utils";
-import MRicePaper from "../../../lib/template/ricePaper/MRicePaper";
+import { describe, test, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+import MRicePaper from '../../../lib/template/ricePaper/MRicePaper';
 
 describe('宣纸组件', () => {
-
   test('无参数渲染', () => {
     const wrapper = mount(MRicePaper, {
       slots: {
@@ -30,7 +28,7 @@ describe('宣纸组件', () => {
         </div>
       </div>"
     `);
-  })
+  });
 
   test('隐藏山脉和仙鹤', () => {
     const wrapper = mount(MRicePaper, {
@@ -52,7 +50,7 @@ describe('宣纸组件', () => {
         </div>
       </div>"
     `);
-  })
+  });
 
   test('使用暖色调', () => {
     const wrapper = mount(MRicePaper, {
@@ -73,7 +71,5 @@ describe('宣纸组件', () => {
         </div>
       </div>"
     `);
-  })
-
-
-})
+  });
+});

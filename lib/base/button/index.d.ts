@@ -41,4 +41,3 @@ export declare type ButtonProps = {
    */
   type?: string
 };
-

@@ -30,7 +30,7 @@ export const getDayCountOfMonth = (year: number, month: number) => {
   }
 
   if (month === 1) {
-    if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
       return 29;
     } else {
       return 28;
@@ -119,7 +119,6 @@ export const isDate = (date: any) => {
   if (date === null || date === undefined) return false;
   if (isNaN(new Date(date).getTime())) return false;
   return !Array.isArray(date);
-  
 };
 
 /**
@@ -146,7 +145,7 @@ export const setDate = (y: number, m: number | string, d: number | string) => {
   if (d < 10) {
     d = `0${d}`;
   }
-  return `${y}-${m}-${d}`
+  return `${y}-${m}-${d}`;
 };
 
 /**
@@ -168,8 +167,8 @@ export const prevMonth = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return month === 0
-      ? changeYearMonthAndClampDate(date, year - 1, 11)
-      : changeYearMonthAndClampDate(date, year, month - 1);
+    ? changeYearMonthAndClampDate(date, year - 1, 11)
+    : changeYearMonthAndClampDate(date, year, month - 1);
 };
 
 /**
@@ -180,8 +179,8 @@ export const nextMonth = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth();
   return month === 11
-      ? changeYearMonthAndClampDate(date, year + 1, 0)
-      : changeYearMonthAndClampDate(date, year, month + 1);
+    ? changeYearMonthAndClampDate(date, year + 1, 0)
+    : changeYearMonthAndClampDate(date, year, month + 1);
 };
 
 /**
@@ -227,12 +226,12 @@ export const valueFormatByType = (val: string | Date, type: string) => {
  * @param time
  * @param type
  */
-export const getTimestamp = (time: any, type='date') => {
+export const getTimestamp = (time: any, type = 'date') => {
   if (typeof time === 'number' || typeof time === 'string') {
     return clearTime(new Date(time), type).getTime();
   } else if (time instanceof Date) {
     return clearTime(time, type).getTime();
   }
   Printer('水墨UI表格组件').error('须传入正确的日期格式');
-  return NaN
+  return NaN;
 };

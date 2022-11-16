@@ -52,7 +52,6 @@
     transform: rotate(45deg);
     transition: all 1s;
 
-
     .m-switch-core-border {
       @extend .m-cursor-pointer;
       width: var(--m-switch-core-border-w);
@@ -61,7 +60,6 @@
       margin: var(--m-swicth-core-bg-marigh);
       background-size: 100% 100%;
     }
-
   }
 
   // 组件宽度 - core宽度 - margin右边
@@ -89,7 +87,7 @@
   }
 
   &.m-switch-loading {
-    .m-switch-core-border{
+    .m-switch-core-border {
       @extend .m-cursor-disabled;
     }
 
@@ -99,7 +97,6 @@
   }
 
   &.m-switch-disabled {
-
     .m-switch-core-border {
       @extend .m-cursor-disabled;
     }
@@ -108,6 +105,4 @@
     --m-switch-core-bg: var(--m-switch-core-bg-disabled);
     opacity: 0.3;
   }
-
-
 }

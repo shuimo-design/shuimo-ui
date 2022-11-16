@@ -53,6 +53,6 @@ export declare type CheckboxProps = {
    * @description checkbox modelValue
    * @default undefined
    */
-  modelValue?: boolean | undefined,
+  modelValue?: boolean | undefined
 }
 

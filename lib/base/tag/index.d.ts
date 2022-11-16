@@ -13,7 +13,6 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-
 export declare type TagProps = {
   /**
    * @description button type 按钮类型
@@ -22,4 +21,4 @@ export declare type TagProps = {
    * @enum default|primary|error|confirm|warning
    */
   type?: string
-}
+};

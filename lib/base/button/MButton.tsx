@@ -12,7 +12,7 @@
  * v2.1.0 使用border方式实现边框模块
  */
 import { h, defineComponent, toRefs } from 'vue';
-import { props } from "./api";
+import { props } from './api';
 
 export default defineComponent({
   name: 'MButton',
@@ -20,7 +20,7 @@ export default defineComponent({
   setup(props, { slots }) {
     const { disabled, type, text } = toRefs(props);
     return () => {
-      const buttonText = slots.default && slots.default() || text.value;
+      const buttonText = (slots.default && slots.default()) || text.value;
       const domType = props.link ? 'a' : 'button';
       return h(domType, {
         class: ['m-button', { 'm-button-disabled': disabled.value }, `m-button-${type.value}`],
@@ -28,4 +28,4 @@ export default defineComponent({
       }, buttonText);
     }
   }
-})
+});

@@ -10,8 +10,7 @@ import { Ref } from 'vue';
 
 
 export declare function useDialog(name?: string): {
-  visible: Ref<boolean>
+  visible: Ref<boolean>,
   closeDialog: () => void,
-  showDialog: () => void,
+  showDialog: () => void
 };
-

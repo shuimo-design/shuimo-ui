@@ -84,4 +84,4 @@ export declare type SelectProps = {
    * @default false
    */
   multiple?: boolean
-}
+};

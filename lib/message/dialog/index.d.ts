@@ -33,8 +33,8 @@ export declare type DialogProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean,
-}
+  closeBtn?: boolean
+};
 
 
 export declare type DialogMask = {
@@ -52,4 +52,4 @@ export declare type DialogMask = {
    * @default true
    */
   clickClose?: boolean
-}
+};

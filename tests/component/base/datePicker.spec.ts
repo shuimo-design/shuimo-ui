@@ -10,39 +10,38 @@
  */
 
 import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
-import { beforeEach, describe, expect, test } from "vitest";
+import { beforeEach, describe, expect, test } from 'vitest';
 import MDatePicker from '../../../lib/base/datePicker/MDatePicker';
-import DateTable from "../../../lib/base/datePicker/basic/DateTable";
-import CalendarDropdown from "../../../lib/base/datePicker/basic/CalendarDropdown";
-import { ComponentPublicInstance } from "vue";
-import YearTable from "../../../lib/base/datePicker/basic/YearTable";
-import MonthTable from "../../../lib/base/datePicker/basic/MonthTable";
+import DateTable from '../../../lib/base/datePicker/basic/DateTable';
+import CalendarDropdown from '../../../lib/base/datePicker/basic/CalendarDropdown';
+import { ComponentPublicInstance } from 'vue';
+import YearTable from '../../../lib/base/datePicker/basic/YearTable';
+import MonthTable from '../../../lib/base/datePicker/basic/MonthTable';
 
 describe('日期选择组件', () => {
   test('无参数渲染', () => {
     const wrapper = mount(MDatePicker);
     expect(wrapper.html()).toContain('m-date-picker');
     wrapper.unmount();
-  })
+  });
 
   test('无参数月份选择渲染', () => {
     const wrapper = mount(MDatePicker, {
       props: {
         type: 'month'
       }
-    })
+    });
     expect(wrapper.html()).toContain('m-date-picker');
     wrapper.unmount();
-  })
+  });
 
   test('测试参数', async () => {
     const wrapper = mount(MDatePicker);
     await wrapper.setProps({ modelValue: '2021-02-18' });
     expect(wrapper.find('span').html()).toContain('2021-02-18');
     wrapper.unmount();
-  })
-
-})
+  });
+});
 
 describe('伴随事件', () => {
   let wrapper: VueWrapper<ComponentPublicInstance<any>>;
@@ -54,7 +53,7 @@ describe('伴随事件', () => {
     wrapper = mount(MDatePicker, {
       props: { modelValue: `${year}-0${month}-0${day}` }
     });
-  })
+  });
 
   test('日期选择下拉框正常渲染', async () => {
     const dateTableWrapper = wrapper.getComponent(DateTable);
@@ -71,7 +70,6 @@ describe('伴随事件', () => {
     let monthTable: AnyVueWrapper;
     let dateTable: AnyVueWrapper;
 
-
     beforeEach(async () => {
       await wrapper.find('.m-date-picker-div').trigger('click');
       calendarDropdown = wrapper.getComponent(CalendarDropdown);
@@ -79,7 +77,7 @@ describe('伴随事件', () => {
       monthTable = wrapper.getComponent(MonthTable);
       dateTable = wrapper.getComponent(DateTable);
       calendar = calendarDropdown.find('.m-calendar-dropdown');
-    })
+    });
 
     test('Header模块渲染', async () => {
       expect(calendar.isVisible()).toBe(true);
@@ -113,12 +111,11 @@ describe('伴随事件', () => {
       expect(dateTable.isVisible()).toBe(true);
       await dateTable.find('.m-date-prev-month').trigger('click');
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['2022-04-25']);
-    })
-
+    });
   });
 
-  test.skip('月份选择', async (done) => {
-    const teleportTarget = new DOMWrapper(document.querySelector('body')!)
+  test.skip('月份选择', async done => {
+    const teleportTarget = new DOMWrapper(document.querySelector('body')!);
     const wrapper = mount(MDatePicker, {
       props: {
         type: 'month'
@@ -140,7 +137,7 @@ describe('伴随事件', () => {
     expect(wrapper.vm.$props.modelValue).toBeDefined();
     setTimeout(async () => {
       expect(calendar.isVisible()).toBe(false);
-      done()
+      done();
     }, 100);
-  })
-})
+  });
+});

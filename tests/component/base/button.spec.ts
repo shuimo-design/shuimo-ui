@@ -10,7 +10,7 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from "vitest";
+import { describe, test, expect } from 'vitest';
 import MButton from '../../../lib/base/button/MButton';
 
 describe('按钮组件', () => {
@@ -36,9 +36,8 @@ describe('按钮组件', () => {
         }
       });
       expect(wrapper.text()).toMatchInlineSnapshot('"slot info"');
-    })
+    });
   });
-
 
   test('参数type', () => {
     const wrapper = mount(MButton, {
@@ -57,4 +56,4 @@ describe('按钮组件', () => {
     });
     expect(wrapper.get('button').element.disabled).toBe(true);
   });
-})
+});

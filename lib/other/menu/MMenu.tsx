@@ -9,18 +9,17 @@
  * todo 背景图
  */
 import { h, defineComponent, VNode } from 'vue';
-import { MenuTypeArr } from "../../../types/components/components";
-import { props } from "./api";
+import { MenuTypeArr } from '../../../types/components/components';
+import { props } from './api';
 
 const setMenuIndex = (menu: MenuTypeArr) => {
   menu.forEach((m, i) => {
     m.index = [i];
     m.children?.forEach((cm, j) => {
       cm.index = [i, j];
-    })
+    });
   });
-}
-
+};
 
 export default defineComponent({
   name: 'MMenu',
@@ -38,7 +37,7 @@ export default defineComponent({
           m.isActive = m.index === index;
           m.children?.forEach(cm => {
             cm.isActive = cm.key === m.key;
-          })
+          });
         });
       } else {
         const pIndex = [index[0]];
@@ -46,12 +45,11 @@ export default defineComponent({
           m.isActive = m.index![0] === pIndex[0];
           m.children?.forEach(cm => {
             cm.isActive = cm.index === index;
-          })
+          });
         });
       }
       this.$emit('click', index);
-    }
-
+    };
 
     /**
      * 二级菜单列表
@@ -71,8 +69,7 @@ export default defineComponent({
         ])
       });
       return h('div', { class: ['m-menu-item-children'] }, items);
-    }
-
+    };
 
     const itemList = propsMenu.map(menu => {
       const titleSpan = h('span', { class: 'm-cursor-pointer' }, menu.title);
@@ -87,19 +84,12 @@ export default defineComponent({
             divClick(menu.index!);
           }
         },
-        [
-          icon,
-          titleSpan,
-          childItems
-        ])
+        [icon, titleSpan, childItems]
+      );
     });
 
     const MMenuItems = h('div', { class: ['m-menu-items'] }, itemList);
 
-
-    return h('div', { class: 'm-menu' }, [
-      leftLine,
-      MMenuItems
-    ]);
+    return h('div', { class: 'm-menu' }, [leftLine, MMenuItems]);
   }
-})
+});

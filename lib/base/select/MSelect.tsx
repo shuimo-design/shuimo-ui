@@ -18,13 +18,13 @@
  * v2.1.0 hook化并添加multiple属性【施工中版本】
  */
 import { defineComponent, h, watch } from 'vue';
-import MInput from "../input/MInput";
-import MPopover from "../../message/popover/MPopover";
-import useDialog from "../../message/dialog/useDialog";
-import useSelectBase from "./compositions/useSelectBase";
-import useSelect from "./compositions/useSelect";
-import useSelectMultiple from "./compositions/useSelectMultiple";
-import { props } from "./api";
+import MInput from '../input/MInput';
+import MPopover from '../../message/popover/MPopover';
+import useDialog from '../../message/dialog/useDialog';
+import useSelectBase from './compositions/useSelectBase';
+import useSelect from './compositions/useSelect';
+import useSelectMultiple from './compositions/useSelectMultiple';
+import { props } from './api';
 
 
 export default defineComponent({
@@ -32,7 +32,6 @@ export default defineComponent({
   props,
   emits: ['update:modelValue', 'input', 'select', 'focus'],
   setup(props, { emit, slots }) {
-
     type OptionType = any;
 
     const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
@@ -56,9 +55,7 @@ export default defineComponent({
     initInputValue();
 
 
-    watch(() => props.modelValue, () => {
-      initInputValue();
-    });
+    watch(() => props.modelValue, () => { initInputValue(); });
 
     return () => {
 
@@ -82,12 +79,13 @@ export default defineComponent({
         {
           class: 'm-select',
           show: visible.value,
-          'onUpdate:show': newValue => visible.value = newValue,
+          'onUpdate:show': newValue => (visible.value = newValue)
         },
         {
           default: () => selectInput,
           content: () => h('div', { class: 'm-select-options' }, options)
-        });
-    }
-  },
-})
+        }
+      );
+    };
+  }
+});

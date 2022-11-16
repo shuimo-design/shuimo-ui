@@ -19,7 +19,7 @@
     vertical-align: middle;
 
     &.selected::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;
@@ -38,5 +38,4 @@
     margin-right: 20px;
     vertical-align: middle;
   }
-
 }

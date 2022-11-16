@@ -8,10 +8,10 @@
  *
  * modelValue不为布尔值的时候暂时不冒泡，里面的逻辑不太清晰，后续可以扩展一下
  */
-import { computed, defineComponent, ref } from "vue";
-import { props } from "./api";
-import { SwitchProps } from "./index";
-import { everyIsEmpty } from "../../dependents/_utils/tools";
+import { computed, defineComponent, ref } from 'vue';
+import { props } from './api';
+import { SwitchProps } from './index';
+import { everyIsEmpty } from '../../dependents/_utils/tools';
 
 export default defineComponent({
   name: 'MSwitch',
@@ -28,8 +28,8 @@ export default defineComponent({
       if (slots[key]) {
         return slots[key]!();
       }
-      return (<span class="m-switch-span">{props[key]}</span>)
-    }
+      return <span class="m-switch-span">{props[key]}</span>;
+    };
 
     const activeValue = ref(props.activeValue);
     const inactiveValue = ref(props.inactiveValue);
@@ -59,16 +59,18 @@ export default defineComponent({
         }
       }
       emit('change', !isActive.value ? activeValue.value ?? true : inactiveValue.value ?? false);
-    }
+    };
 
     return () => {
       return (
-        <div class={[
-          "m-switch",
-          isActive.value ? 'm-switch-active' : 'm-switch-inactive',
-          props.loading ? 'm-switch-loading' : '',
-          props.disabled ? 'm-switch-disabled' : ''
-        ]}>
+        <div
+          class={[
+            'm-switch',
+            isActive.value ? 'm-switch-active' : 'm-switch-inactive',
+            props.loading ? 'm-switch-loading' : '',
+            props.disabled ? 'm-switch-disabled' : ''
+          ]}
+        >
           {getInfo('activeInfo')}
           <div class="m-switch-main">
             <div class="m-switch-core" onClick={changeSwitch}>
@@ -77,7 +79,7 @@ export default defineComponent({
           </div>
           {getInfo('inactiveInfo')}
         </div>
-      )
-    }
+      );
+    };
   }
-})
+});

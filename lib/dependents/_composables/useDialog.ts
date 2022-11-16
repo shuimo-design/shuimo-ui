@@ -7,23 +7,23 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { computed, ref, useSlots } from 'vue';
-import { CLOSE_EVENT, CONFIRM_EVENT } from "../_utils/constants";
-import { notEmpty } from "../_utils/tools";
+import { CLOSE_EVENT, CONFIRM_EVENT } from '../_utils/constants';
+import { notEmpty } from '../_utils/tools';
 
-export default function useDialog(
-  props: any,
-  context: { emit: (event: ('close' | 'confirm'), ...args: any[]) => void }
-) {
-
+export default function useDialog(props: any, context: { emit: (event: 'close' | 'confirm', ...args: any[]) => void }) {
   const pes = ref(1);
 
   const emit = context.emit;
 
   const maskClass = computed(() => ['mask', props.mask.show ? 'mask-bg' : '']);
 
-  const closeDialog = (e: MouseEvent) => {emit(CLOSE_EVENT, e);}
+  const closeDialog = (e: MouseEvent) => {
+    emit(CLOSE_EVENT, e);
+  };
 
-  const confirmDialog = () => {emit(CONFIRM_EVENT);}
+  const confirmDialog = () => {
+    emit(CONFIRM_EVENT);
+  };
 
   const maskClick = (e: MouseEvent) => {
     if (!props.mask.clickClose) {
@@ -36,14 +36,14 @@ export default function useDialog(
         closeDialog(e);
       }
     }
-  }
+  };
 
   const getDomHW = (dom: Element) => {
     const getNumber = (type: string) => Number(getComputedStyle(dom, null).getPropertyValue(type).replace('px', ''));
     const h = getNumber('height');
     const w = getNumber('width');
     return { h, w };
-  }
+  };
 
   const slots = useSlots();
   const resetSize = (baseH: number, baseW: number) => {
@@ -53,7 +53,7 @@ export default function useDialog(
       let dom = slotDomDefault.el as Element;
       if (!dom && slotDomDefault.props) {
         const className = slotDomDefault.props.class;
-        const domList = document.getElementsByClassName(className)
+        const domList = document.getElementsByClassName(className);
         if (domList && domList.length === 1) {
           dom = domList[0];
         }
@@ -66,7 +66,7 @@ export default function useDialog(
         }
       }
     }
-  }
+  };
 
   return {
     pes,
@@ -75,5 +75,5 @@ export default function useDialog(
     closeDialog,
     confirmDialog,
     resetSize
-  }
+  };
 }

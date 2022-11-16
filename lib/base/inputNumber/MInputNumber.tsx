@@ -1,15 +1,11 @@
-import { h, defineComponent } from "vue";
-import MBorder from "../../other/border/MBorder";
-import { props } from "./api";
+import { h, defineComponent } from 'vue';
+import MBorder from '../../other/border/MBorder';
+import { props } from './api';
 
 export default defineComponent({
   name: 'MInputNumber',
   props,
-  data() {
-    return {
-      currentVal: 0
-    }
-  },
+  data() {return { currentVal: 0 };},
   mounted() {
     this.currentVal = this.modelValue;
   },
@@ -37,11 +33,8 @@ export default defineComponent({
     const { currentVal } = this;
     const { inputHandle } = this;
 
-    return h(MBorder,
-      { class: 'm-input-number' },
-      () => (<input type="number" class="m-input-number-inner"
-                    onInput={inputHandle}
-                    value={currentVal}/>));
-
+    return h(MBorder, { class: 'm-input-number' }, () => (
+      <input type="number" class="m-input-number-inner" onInput={inputHandle} value={currentVal} />
+    ));
   }
-})
+});

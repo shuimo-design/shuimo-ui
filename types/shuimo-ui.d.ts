@@ -6,20 +6,18 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import type { App, Directive } from "vue";
-import { IMessage } from "./components/MMessage";
-import { IPrinter } from "./components/MPrint";
-import { IConfirm } from "./components/MConfirm";
+import type { App, Directive } from 'vue';
+import { IMessage } from './components/MMessage';
+import { IPrinter } from './components/MPrint';
+import { IConfirm } from './components/MConfirm';
 
 export * from './components/components';
 export * from './components/hooks';
 
-declare module "shuimo-ui" {
-
-}
+declare module 'shuimo-ui' {}
 
 export interface ShuimoUI {
-  install: (app: App) => App;
+  install: (app: App) => App
 }
 export function createMUI(): ShuimoUI;
 
@@ -27,4 +25,3 @@ export const MMessage: IMessage;
 export const MPrinter: IPrinter;
 export const MConfirm: IConfirm;
 export const WScroll: Directive;
-

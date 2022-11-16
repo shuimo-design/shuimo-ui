@@ -12,10 +12,10 @@
  */
 
 import { computed, defineComponent, nextTick, Teleport } from 'vue';
-import useDialog from "../../dependents/_composables/useDialog";
-import { CLOSE_EVENT, CONFIRM_EVENT } from "../../dependents/_utils/constants";
-import { props } from "./api";
-import MDialogCloseBtn from "./MDialogCloseBtn";
+import useDialog from '../../dependents/_composables/useDialog';
+import { CLOSE_EVENT, CONFIRM_EVENT } from '../../dependents/_utils/constants';
+import { props } from './api';
+import MDialogCloseBtn from './MDialogCloseBtn';
 
 export default defineComponent({
   name: 'MDialog',
@@ -30,19 +30,19 @@ export default defineComponent({
         'padding-top': `${basePaddingTop * pes.value}px`,
         'padding-left': `${basePaddingSide * pes.value}px`,
         'padding-right': `${basePaddingSide * pes.value}px`,
-        'height': `${baseH * pes.value}px`,
-        'width': `${baseW * pes.value}px`,
-      }
-    })
-
-    const closeBtnBaseStyle = computed(() => {
-      const top = 41, left = 427;
-      return {
-        'top': `${top * pes.value}px`,
-        'left': `${left * pes.value - 23}px`,
-      }
+        height: `${baseH * pes.value}px`,
+        width: `${baseW * pes.value}px`
+      };
     });
 
+    const closeBtnBaseStyle = computed(() => {
+      const top = 41,
+        left = 427;
+      return {
+        top: `${top * pes.value}px`,
+        left: `${left * pes.value - 23}px`
+      };
+    });
 
     return () => {
       const classes = maskClass.value;
@@ -55,9 +55,9 @@ export default defineComponent({
         resetSize(236, 368);
       }).then();
 
-      const closeBtn = props.closeBtn ?
-        (<MDialogCloseBtn style={closeBtnBaseStyle.value} onClick={closeDialog}/>) :
-        undefined;
+      const closeBtn = props.closeBtn ? (
+        <MDialogCloseBtn style={closeBtnBaseStyle.value} onClick={closeDialog} />
+      ) : undefined;
 
       return (
         <Teleport to="body">
@@ -68,7 +68,7 @@ export default defineComponent({
             </div>
           </div>
         </Teleport>
-      )
-    }
+      );
+    };
   }
 });
