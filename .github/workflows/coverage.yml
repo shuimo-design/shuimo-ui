@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
-      - run: npm install && npm run coverage
+      - run: npm install -g pnpm && pnpm install --shamefully-hoist && npm run coverage
       - uses: codecov/codecov-action@v3.1.0
         with:
           token: ${{ secrets.CODECOVTOKEN }}
