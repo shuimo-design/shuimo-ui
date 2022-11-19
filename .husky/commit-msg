@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-npx --no -- commitlint --edit --config ./node_modules/@janghood/lint/dist/commitlint.cjs
