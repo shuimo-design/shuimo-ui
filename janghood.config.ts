@@ -35,9 +35,10 @@ export default defineJhConfig({
   lint: {
     eslint: {
       include: [
-        '**/*.{vue,ts,tsx,d.ts}',
+        '**/*.{vue,ts,tsx,d.ts}'
       ],
       exclude: ['**/dependents/**', '**/basic/**']
-    }
+    },
+    commitlint: true
   }
 });
