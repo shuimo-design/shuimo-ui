@@ -13,7 +13,10 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { props } from './api';
 import usePaginationAction from './usePaginationAction';
+import useMoreAction from './useMoreAction';
 import useVModel from '../../dependents/_composables/useVModel';
+
+const MIN = 1;
 
 export default defineComponent({
   name: 'MPagination',
@@ -32,62 +35,121 @@ export default defineComponent({
         emit('change', val);
       }
     });
+  
+    const pageCount = computed(() => {
+      const c: number = Math.ceil(props.total / props.pageSize);
+      return c > 0 ? c : 1;
+    });
+    
+    const {
+      curPageLeftCount,
+      curPageRightCount,
+      isPrevMoreShow,
+      isNextMoreShow
+    } = useMoreAction(props, pageCount, innerCurrent)
+  
+    const isFolded = computed(() => pageCount.value > props.maxPageBtn);
 
     const pagers = computed(() => {
-      const { total, pageSize } = props;
-      const pages = Math.ceil(total / pageSize);
+      let start;
+      let end;
       const arr = [];
-      for (let i = 0; i < pages; i++) {
-        arr.push(i + 1);
+  
+      if (isFolded.value) {
+        if (isPrevMoreShow.value && isNextMoreShow.value) {
+          start = innerCurrent.value - curPageLeftCount.value;
+          end = innerCurrent.value + curPageRightCount.value;
+        } else {
+          const foldedStart =  2;
+          const foldedEnd = pageCount.value - 1;
+          start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : foldedStart;
+          end = isPrevMoreShow.value ? foldedEnd : props.foldedMaxPageBtn;
+        }
+      } else {
+        start = 1;
+        end = pageCount.value;
+      }
+      for (let i = start; i <= end; i++) {
+        arr.push(i);
       }
       if (arr.length === 1 || !arr.length) {
         setDisAction([true, true]);
       }
       return arr;
     });
-
-    const prevPage = () => {
-      const newPage = pagers.value.includes(innerCurrent.value - 1) ? innerCurrent.value - 1 : innerCurrent.value;
-      setDisAction([newPage === 1, false]);
-      setInnerCurrent(newPage);
-    };
-
-    const nextPage = () => {
-      const newPage = pagers.value.includes(innerCurrent.value + 1) ? innerCurrent.value + 1 : innerCurrent.value;
-      setDisAction([false, pagers.value.indexOf(newPage) === pagers.value.length - 1]);
-      setInnerCurrent(newPage);
-    };
-
-    const pageSelected = (event: any) => {
-      const target = event.target;
-      if (target.tagName === 'UL') {
-        return;
+  
+    const toPage: (pageIndex: number, isTriggerChange?: boolean) => void = (pageIndex, isTriggerChange) => {
+      let current = pageIndex;
+      if (pageIndex < MIN) {
+        current = MIN;
+      } else if (pageIndex > pageCount.value) {
+        current = pageCount.value;
       }
-      if (pagers.value.length <= 1) {
-        return;
+      if (innerCurrent.value !== current) {
+        setDisAction([current === MIN, current === pageCount.value]);
+        setInnerCurrent(current);
       }
-      const newPage = Number(target.textContent);
-      setDisAction([newPage === 1, pagers.value.indexOf(newPage) === pagers.value.length - 1]);
-      setInnerCurrent(newPage);
+    };
+  
+    const handlePageChange = (type: string) => {
+      const pageChangeMap: Record<string, () => void> = {
+        prevPage: () => toPage(innerCurrent.value - 1),
+        nextPage: () => toPage(innerCurrent.value + 1),
+        prevMorePage: () => toPage(innerCurrent.value - props.foldedMaxPageBtn),
+        nextMorePage: () => toPage(innerCurrent.value + props.foldedMaxPageBtn),
+      };
+    
+      pageChangeMap[type]();
     };
 
     return () => (
       <div class="m-pagination">
         <button
-          class={['m-cursor m-page-prev', { 'm-page-prev-disabled': disPrev.value }]}
-          onClick={prevPage}
+          class={['m-cursor-pointer m-page-prev', { 'm-page-prev-disabled': disPrev.value }]}
+          onClick={() => handlePageChange('prevPage')}
           disabled={disPrev.value}
         />
-        <ul onClick={pageSelected} class="m-pages">
+        <ul class="m-pages">
+          <li
+            class={['m-pager m-cursor-pointer', {'m-current-page': MIN === innerCurrent.value}]}
+            onClick={() => toPage(MIN)}
+          >
+            {MIN}
+          </li>
+          {isFolded.value && isPrevMoreShow.value ? (
+            <li
+              class={['m-pager m-cursor-pointer m-pager_more']}
+              onClick={() => handlePageChange('prevMorePage')}
+            >
+              ···
+            </li>
+          ) : null}
           {pagers.value.map(page => (
-            <li class={['m-pager m-cursor', { 'm-current-page': page === innerCurrent.value }]} key={page}>
+            <li
+              class={['m-pager m-cursor-pointer', { 'm-current-page': page === innerCurrent.value }]}
+              onClick={() => toPage(page)}
+            >
               {page}
             </li>
           ))}
+          {isFolded.value && isNextMoreShow.value ? (
+            <li
+              class={['m-pager m-cursor-pointer m-pager_more']}
+              onClick={() => handlePageChange('nextMorePage')}
+            >
+              ···
+            </li>
+          ) : null}
+          <li
+            class={['m-pager m-cursor-pointer', {'m-current-page': pageCount.value === innerCurrent.value}]}
+            onClick={() => toPage(pageCount.value)}
+          >
+            {pageCount.value}
+          </li>
         </ul>
         <button
-          class={['m-cursor m-page-next', { 'm-page-next-disabled': disNext.value }]}
-          onClick={nextPage}
+          class={['m-cursor-pointer m-page-next', { 'm-page-next-disabled': disNext.value }]}
+          onClick={() => handlePageChange('nextPage')}
           disabled={disNext.value}
         />
       </div>

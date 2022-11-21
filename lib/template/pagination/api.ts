@@ -18,5 +18,7 @@ export const props: WCOPO<PaginationProps> = {
   pageSizes: { type: Array, default() {return [10, 20, 30, 40, 50, 100];} },
   layout: {
     default: 'prev, pager, next, jumper, total'
-  }
+  },
+  foldedMaxPageBtn: { type: Number, default: 5 },
+  maxPageBtn: { type: Number, default: 10 },
 };

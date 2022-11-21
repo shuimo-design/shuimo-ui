@@ -62,4 +62,18 @@ export declare type PaginationProps = {
    * @default 'prev, pager, next, jumper, total'
    */
   layout?: string
+  /**
+   * @description show pages when folded
+   *              折叠时最多显示页码按钮数
+   * @type number
+   * @default 5
+   */
+  foldedMaxPageBtn?: number
+  /**
+   * @description the max display pages
+   *              最大显示页数
+   * @type number
+   * @default 10
+   */
+  maxPageBtn?: number
 };
