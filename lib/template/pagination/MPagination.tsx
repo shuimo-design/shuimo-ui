@@ -35,26 +35,26 @@ export default defineComponent({
         emit('change', val);
       }
     });
-  
+
     const pageCount = computed(() => {
       const c: number = Math.ceil(props.total / props.pageSize);
       return c > 0 ? c : 1;
     });
-    
+
     const {
       curPageLeftCount,
       curPageRightCount,
       isPrevMoreShow,
       isNextMoreShow
     } = useMoreAction(props, pageCount, innerCurrent)
-  
+
     const isFolded = computed(() => pageCount.value > props.maxPageBtn);
 
     const pagers = computed(() => {
       let start;
       let end;
       const arr = [];
-  
+
       if (isFolded.value) {
         if (isPrevMoreShow.value && isNextMoreShow.value) {
           start = innerCurrent.value - curPageLeftCount.value;
@@ -77,8 +77,8 @@ export default defineComponent({
       }
       return arr;
     });
-  
-    const toPage: (pageIndex: number, isTriggerChange?: boolean) => void = (pageIndex, isTriggerChange) => {
+
+    const toPage: (pageIndex: number, isTriggerChange?: boolean) => void = (pageIndex) => {
       let current = pageIndex;
       if (pageIndex < MIN) {
         current = MIN;
@@ -90,7 +90,7 @@ export default defineComponent({
         setInnerCurrent(current);
       }
     };
-  
+
     const handlePageChange = (type: string) => {
       const pageChangeMap: Record<string, () => void> = {
         prevPage: () => toPage(innerCurrent.value - 1),
@@ -98,7 +98,7 @@ export default defineComponent({
         prevMorePage: () => toPage(innerCurrent.value - props.foldedMaxPageBtn),
         nextMorePage: () => toPage(innerCurrent.value + props.foldedMaxPageBtn),
       };
-    
+
       pageChangeMap[type]();
     };
 
