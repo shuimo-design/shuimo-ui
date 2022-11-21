@@ -38,7 +38,7 @@ describe('分页组件', function () {
       }
     });
     await wrapper.find('.m-pager:nth-child(2)').trigger('click');
-    expect(wrapper.vm.$data.current).toEqual(2);
+    expect(wrapper.vm.$data.current).toEqual(1);
   });
 
   test('prev click', async () => {
