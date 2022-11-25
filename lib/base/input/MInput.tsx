@@ -22,7 +22,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const { type, disabled } = toRefs(props);
     const borderClass = {
-      class: ['m-input', { 'm-textarea': type.value === 'textarea' }, { 'm-input-disabled': disabled }]
+      class: ['m-input', { 'm-textarea': type.value === 'textarea' }, { 'm-input-disabled': disabled.value }]
     };
 
     return () => {
