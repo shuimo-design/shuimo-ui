@@ -19,11 +19,8 @@ export default function usePopperCommon(props: any, slots: any, emit: any, poppe
   const shouldShowPopper = computed(() => popperHandleMap.isOpen.value && !invalid.value);
   const enableClickAway = computed(() => !disableClickAway.value);
   const interactiveStyle = computed(() =>
-    interactive.value
-      ? {
-          border: `${offsetDistance.value}px solid transparent;`
-        }
-      : undefined
+    interactive.value && offsetDistance.value !== 0 ?
+      { border: `${offsetDistance.value}px solid transparent` } : undefined
   );
 
   const openPopperDebounce = useDebounceFn(popperHandleMap.open, openDelay);
