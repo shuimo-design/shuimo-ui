@@ -1,40 +1,43 @@
-import { h, defineComponent } from 'vue';
+import { h, defineComponent, ref, watch } from 'vue';
 import MBorder from '../../other/border/MBorder';
-import { props } from './api';
+import { InputNumber, props } from './api';
 
 export default defineComponent({
   name: 'MInputNumber',
+  emits: ['update:modelValue','change'],
   props,
-  data() {return { currentVal: 0 };},
-  mounted() {
-    this.currentVal = this.modelValue;
-  },
-  watch: {
-    modelValue() {
-      this.currentVal = this.modelValue;
+  setup(props,{emit,slots}){
+    const { placeholder,disabled } = props;
+    const currentValue = ref<InputNumber>('');
+   
+    const handleInputChange = (e:any)=>{
+      const value  = e.target.value ;
+      if (!isNaN(value) || value === '') {
+        setCurrentValue(value,e);
+      }
     }
-  },
-  methods: {
-    inputHandle(e: any) {
-      const inputNumber = Number(e.target.value);
-      if (e.target.value !== '') {
-        this.currentVal = Number(e.target.value);
+    const setCurrentValue = (newVal: number | string,e?:any) => {
+      const oldVal = currentValue.value;
+      const { min,max,precision  } = props;
+      if (+newVal >= max){
+        newVal = max;
+        e.target.value = newVal 
+      }else if(newVal <=min){
+        newVal = min;
+      }else if(oldVal === newVal){
+        return;
+      }else if(precision !== 0&& (`${newVal}`.length - (`${newVal}`.indexOf('.')+1 ) >= precision)){
+        newVal = Number(`${newVal}`.substring(0,`${newVal}`.indexOf(".")+(precision+1)));
+        e.target.value = newVal
       }
-      if (inputNumber > this.max) {
-        this.currentVal = this.max;
-      }
-      if (inputNumber < this.min) {
-        this.currentVal = this.min;
-      }
-      this.$emit('update:modelValue', Number(this.currentVal));
+      currentValue.value = newVal;
+      emit('update:modelValue', currentValue.value );
+      emit('change', currentValue.value , oldVal);
+    };
+    return ()=>{
+        return h(MBorder, { class: 'm-input-number' }, () => (
+          <input type="number"  disabled={disabled}  placeholder={placeholder} class="m-input-number-inner"  onInput={handleInputChange} value={currentValue.value} />
+        ));
     }
-  },
-  render() {
-    const { currentVal } = this;
-    const { inputHandle } = this;
-
-    return h(MBorder, { class: 'm-input-number' }, () => (
-      <input type="number" class="m-input-number-inner" onInput={inputHandle} value={currentVal} />
-    ));
   }
 });
