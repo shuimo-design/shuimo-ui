@@ -15,10 +15,10 @@
 export declare type InputNumberProps = {
   /**
    * @description input-number modelValue
-   * @type number
-   * @default 0
+   * @type string
+   * @default ''
    */
-  modelValue?: number,
+  modelValue: number | string,
   /**
    * @description input-number max
    * @type number
@@ -30,5 +30,28 @@ export declare type InputNumberProps = {
    * @type number
    * @default -Infinity
    */
-  min?: number
+  min?: number,
+    /**
+   * @description input-number min
+   * @type number
+   * @default -Infinity
+   */
+  precision?: number,
+     /**
+    * @description input-number min
+    * @type number
+    * @default 0
+    */
+  disabled?: boolean,
+  /**
+   * @description input-number disabled
+   * @type boolean
+   * @default false
+   */
+  placeholder?: string,
+   /**
+   * @description input-number placeholder
+   * @type string
+   * @default false
+   */
 };

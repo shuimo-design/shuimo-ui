@@ -8,9 +8,31 @@
  */
 import { WCOPO } from '../../dependents/_types';
 import { InputNumberProps } from './index';
-
+export type InputNumber = string | number ;
 export const props: WCOPO<InputNumberProps> = {
-  modelValue: { type: Number, default: 0 },
-  max: { type: Number, default: Infinity },
-  min: { type: Number, default: -Infinity }
-};
+  modelValue: {
+    type: [Number, String],
+    default:'',
+    required:true
+  },
+  placeholder: {
+    type: String,
+    default:''
+  },
+  max: {
+    type: Number,
+    default: Infinity,
+  },
+  min: {
+    type: Number,
+    default: -Infinity,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  precision: {
+    type: Number,
+    default: 0,
+  },
+}
