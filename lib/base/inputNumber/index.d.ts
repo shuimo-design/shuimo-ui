@@ -15,7 +15,7 @@
 export declare type InputNumberProps = {
   /**
    * @description input-number modelValue
-   * @type string
+   * @type number | string
    * @default ''
    */
   modelValue: number | string,
@@ -31,27 +31,22 @@ export declare type InputNumberProps = {
    * @default -Infinity
    */
   min?: number,
-    /**
-   * @description input-number min
+  /**
+   * @description input-number precision
    * @type number
-   * @default -Infinity
+   * @default 0
    */
   precision?: number,
-     /**
-    * @description input-number min
-    * @type number
-    * @default 0
-    */
-  disabled?: boolean,
   /**
-   * @description input-number disabled
+   * @description input-number min
    * @type boolean
    * @default false
    */
-  placeholder?: string,
-   /**
+  disabled?: boolean,
+  /**
    * @description input-number placeholder
    * @type string
-   * @default false
+   * @default ''
    */
+  placeholder?: string
 };
