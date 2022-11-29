@@ -18,11 +18,8 @@
  * v2.1.0 hook化并添加multiple属性【施工中版本】
  */
 import { defineComponent, h, watch } from 'vue';
-import MInput from '../input/MInput';
 import MPopover from '../../message/popover/MPopover';
-import useDialog from '../../message/dialog/useDialog';
 import useSelectBase from './compositions/useSelectBase';
-import useSelect from './compositions/useSelect';
 import useSelectMultiple from './compositions/useSelectMultiple';
 import { props } from './api';
 
@@ -34,58 +31,41 @@ export default defineComponent({
   setup(props, { emit, slots }) {
     type OptionType = any;
 
-    const { visible, closeDialog, showDialog, toggleDialog } = useDialog();
-
     const {
-      inputValue,
-      emitFocus,
+      visible,
+      selectInputRender,
+      propsOptions,
       optionMatchValue,
       initInputValue,
       onClickOption,
       getOptionDisplayInfo
     } = props.multiple ?
       useSelectMultiple<OptionType>(props, emit, slots) :
-      useSelectBase<OptionType>(props, emit, slots, { closeDialog });
-
-    const {
-      onFocus, onInput,
-    } = useSelect<OptionType>(props, emit, { emitFocus, showDialog });
-
+      useSelectBase<OptionType>(props, emit, slots);
 
     initInputValue();
-
 
     watch(() => props.modelValue, () => { initInputValue(); });
 
     return () => {
 
-      const selectInput = h(MInput, {
-        modelValue: inputValue.value,
-        onClick: props.disabled ? undefined : toggleDialog,
-        onInput,
-        onFocus,
-        placeholder: props.placeholder,
-        disabled: props.disabled,
-        readonly: props.inputReadonly
-      });
+      const options = propsOptions.value
+      .map(option => h('div', {
+        class: ['m-option', { 'm-option-selected': optionMatchValue(option) }],
+        onClick: () => onClickOption(option)
+      }, getOptionDisplayInfo(option)));
 
-      const options = props.options
-        .map(option => h('div', {
-          class: ['m-option', { 'm-option-selected': optionMatchValue(option) }],
-          onClick: () => onClickOption(option)
-        }, getOptionDisplayInfo(option)));
-
-      return h(MPopover,
-        {
-          class: 'm-select',
-          show: visible.value,
-          'onUpdate:show': newValue => (visible.value = newValue)
-        },
-        {
-          default: () => selectInput,
-          content: () => h('div', { class: 'm-select-options' }, options)
-        }
-      );
-    };
+    return h(MPopover,
+      {
+        class: 'm-select',
+        show: visible.value,
+        'onUpdate:show': newValue => (visible.value = newValue)
+      },
+      {
+        default: () => selectInputRender(),
+        content: () => h('div', { class: 'm-select-options' }, options)
+      }
+    );
+  };
   }
 });

@@ -10,11 +10,12 @@ import { SelectProps } from "../index";
 import useDebounceFn from "../../../dependents/_composables/useDebounceFn";
 
 
-export default function useSelect<T>(props: Required<SelectProps>,
+export default function useSelect(props: Required<SelectProps>,
                                      emit: (event: ("update:modelValue" | "input" | "select" | "focus"), ...args: any[]) => void,
                                      handler: {
                                        emitFocus: (value: FocusEvent) => void,
-                                       showDialog: () => void
+                                       showDialog: () => void,
+                                       input?:(value:InputEvent)=>void
                                      }) {
 
 
@@ -35,6 +36,10 @@ export default function useSelect<T>(props: Required<SelectProps>,
   }
   const onInput = (value: InputEvent) => {
     debounceShowSelectDialog();
+    if(handler.input){
+      handler.input(value)
+     
+    }
     emit('input', value);
   }
 

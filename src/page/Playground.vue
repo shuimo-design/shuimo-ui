@@ -1,5 +1,29 @@
 <template>
-  <m-pagination :total="122" v-model:current="current"></m-pagination>
+  <div>多选(options为object[]):{{ value1 }}</div>
+  <MSelect v-model="value1" :options="options1" input-param="after" option-param="before" value-param="number" multiple>
+    <template #option>
+      <div>这是一个插槽</div>
+    </template>
+  </MSelect>
+  <div>多选(options为[]):{{ value2 }}</div>
+  <MSelect v-model="value2" :options="options2" multiple>
+    <template #option>
+      <div>这是一个插槽</div>
+    </template>
+  </MSelect>
+  ________________________________________________________________________
+  <div>单选(options为object[]):{{ value3 }}</div>
+  <MSelect v-model="value3" input-param="after" option-param="before" value-param="number" :options="options3">
+    <template #option>
+      <div>123</div>
+    </template>
+  </MSelect>
+  <div>单选(options为[]){{ value4 }}</div>
+  <MSelect v-model="value4" :options="options4">
+    <template #option>
+      <div>123</div>
+    </template>
+  </MSelect>
 </template>
 
 <script lang="ts" setup>
@@ -11,9 +35,28 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from "vue";
+import { reactive, ref } from "vue";
+import MSelect from "../../lib/base/select/MSelect";
+const value1 = ref(['1111']);
+const options1 = reactive([
+  { before: "乾", after: "坎坎坎坎坎坎坎坎", number: "1111" },
+  { before: "兑", after: "坤坤坤坤坤坤", number: "2222" },
+  { before: "离", after: "震震震震震", number: "3333" },
+  { before: "震", after: "巽巽巽巽", number: "4444" },
+]);
 
-const current = ref(1);
+const value2 = ref(['1111']);
+const options2 = reactive(["1111", "2222", "3333", "4444"]);
+// 单选
+const value3 = ref('1');
+const options3 = reactive([
+  { before: "乾", after: "坎", number: "1" },
+  { before: "兑", after: "坤", number: "2" },
+  { before: "离", after: "震", number: "3" },
+  { before: "震", after: "巽", number: "4" },
+]);
+const value4 = ref('1');
+const options4 = reactive(["1", "2", "3", "4"]);
 </script>
 
 <style lang="scss" scoped>
