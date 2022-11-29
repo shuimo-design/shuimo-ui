@@ -7,16 +7,20 @@ export default defineComponent({
   emits: ['update:modelValue','change'],
   props,
   setup(props,{emit,slots}){
-    const { placeholder,disabled } = props;
-    const currentValue = ref<InputNumber>('');
+    const { placeholder,disabled,modelValue } = props;
+    const currentValue = ref<InputNumber>(modelValue);
    
-    const handleInputChange = (e:any)=>{
-      const value  = e.target.value ;
-      if (!isNaN(value) || value === '') {
+    const handleInputChange = (e:any,value?:InputNumber)=>{
+      const val  = e.target.value ?? value ;
+      validate(val,e)
+   
+    }
+    const validate = (value:InputNumber,e?:any)=>{
+      if (!isNaN(+value) || value === '') {
         setCurrentValue(value,e);
       }
     }
-    const setCurrentValue = (newVal: number | string,e?:any) => {
+    const setCurrentValue = (newVal: InputNumber,e?:any) => {
       const oldVal = currentValue.value;
       const { min,max,precision  } = props;
       if (+newVal >= max){
@@ -34,6 +38,9 @@ export default defineComponent({
       emit('update:modelValue', currentValue.value );
       emit('change', currentValue.value , oldVal);
     };
+    watch(()=>props.modelValue,(val)=>{
+      validate(val)
+    })
     return ()=>{
         return h(MBorder, { class: 'm-input-number' }, () => (
           <input type="number"  disabled={disabled}  placeholder={placeholder} class="m-input-number-inner"  onInput={handleInputChange} value={currentValue.value} />

@@ -27,7 +27,7 @@
  
    test('修改默认值', async () => {
      const wrapper = mount(MInputNumber, {
-       props: { modelValue: 8 }
+       props: { modelValue: 5 }
      });
      await wrapper.setProps({ modelValue: 8 });
      expect(wrapper.element.querySelector('input')!.value).toBe('8');
@@ -52,5 +52,15 @@
  
      expect(wrapper.element.querySelector('input')!.value).toBe('4');
    });
+   test('保留2位小数', async () => {
+    const wrapper = mount(MInputNumber, {
+      props: { modelValue: 5.545, precision: 2 }
+    });
+
+    await wrapper.find('input').setValue(5.545);
+
+    expect(wrapper.element.querySelector('input')!.value).toBe('5.54');
+  });
+
  });
  
