@@ -7,49 +7,50 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
-import MInputNumber from '../../../lib/base/inputNumber/MInputNumber';
-
-describe('数字输入组件', () => {
-  test('无参数渲染', () => {
-    const wrapper = mount(MInputNumber);
-    expect(wrapper.html()).toContain('m-input-number');
-  });
-
-  // todo 重构inputNumber组件后再测试这个用例
-  test.skip('传递默认值', () => {
-    const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5 }
-    });
-    expect(wrapper.element.querySelector('input')!.value).toBe(5);
-  });
-
-  test('修改默认值', async () => {
-    const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5 }
-    });
-    await wrapper.setProps({ modelValue: 8 });
-    expect(wrapper.element.querySelector('input')!.value).toBe('8');
-  });
-
-  test('设置最大值', async () => {
-    const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5, max: 10 }
-    });
-
-    await wrapper.find('input').setValue(22);
-
-    expect(wrapper.element.querySelector('input')!.value).toBe('10');
-  });
-
-  test('设置最小值', async () => {
-    const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5, min: 4 }
-    });
-
-    await wrapper.find('input').setValue(3);
-
-    expect(wrapper.element.querySelector('input')!.value).toBe('4');
-  });
-});
+ import { describe, expect, test } from 'vitest';
+ import { mount } from '@vue/test-utils';
+ import MInputNumber from '../../../lib/base/inputNumber/MInputNumber';
+ 
+ describe('数字输入组件', () => {
+   test('无参数渲染', () => {
+     const wrapper = mount(MInputNumber);
+     expect(wrapper.html()).toContain('m-input-number');
+   });
+ 
+   // 测试用例
+   test.skip('传递默认值', () => {
+     const wrapper = mount(MInputNumber, {
+       props: { modelValue: '' }
+     });
+     expect(wrapper.element.querySelector('input')!.value).toBe('');
+   });
+ 
+   test('修改默认值', async () => {
+     const wrapper = mount(MInputNumber, {
+       props: { modelValue: 8 }
+     });
+     await wrapper.setProps({ modelValue: 8 });
+     expect(wrapper.element.querySelector('input')!.value).toBe('8');
+   });
+ 
+   test('设置最大值', async () => {
+     const wrapper = mount(MInputNumber, {
+       props: { modelValue: 11, max: 10 }
+     });
+ 
+     await wrapper.find('input').setValue(11);
+ 
+     expect(wrapper.element.querySelector('input')!.value).toBe('10');
+   });
+ 
+   test('设置最小值', async () => {
+     const wrapper = mount(MInputNumber, {
+       props: { modelValue: 5, min: 4 }
+     });
+ 
+     await wrapper.find('input').setValue(4);
+ 
+     expect(wrapper.element.querySelector('input')!.value).toBe('4');
+   });
+ });
+ 
