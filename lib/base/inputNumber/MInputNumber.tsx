@@ -13,15 +13,31 @@ export default defineComponent({
     const currentValue = ref<InputNumber>(modelValue.value);
 
     const handleInputChange = (e: HTMLElementEvent<HTMLInputElement>, value?: InputNumber) => {
-      const val = e.target.value ?? value;
+      let val = e.target.value ?? value;
+      if(val.indexOf('.') === 0){
+        val = val.replace(/^\./g,'0.');
+      }
+      if(/^-?\d+$/.test(val) && val.indexOf('0') === 0){
+        val = `${Number(val)}`;
+        e.target.value = val;
+      }
       validate(val, e);
-
     };
+
+    const handleInputBlur = () => {
+      const oldVal = currentValue.value;
+      currentValue.value = String(currentValue.value).indexOf('.') === String(currentValue.value).length -1 ? String(currentValue.value).replace(/\.$/g,'') : currentValue.value ;
+      updateInput(oldVal)
+    }
+
     const validate = (value: InputNumber, e?: HTMLElementEvent<HTMLInputElement>) => {
       if (!isNaN(+value) || value === '') {
         setCurrentValue(value, e);
+      }else {
+        if(e) e.target.value = String(currentValue.value)
       }
     };
+   
     const setCurrentValue = (newVal: InputNumber, e?: HTMLElementEvent<HTMLInputElement>) => {
       const oldVal = currentValue.value;
       const { min, max, precision } = props;
@@ -32,14 +48,17 @@ export default defineComponent({
         newVal = min;
       } else if (oldVal === newVal) {
         return;
-      } else if (precision !== 0 && (`${newVal}`.length - (`${newVal}`.indexOf('.') + 1) >= precision)) {
+      } else if (precision !== 0 && String(newVal).includes('.') && (`${newVal}`.length - (`${newVal}`.indexOf('.') + 1) >= precision)) {
         newVal = Number(`${newVal}`.substring(0, `${newVal}`.indexOf('.') + (precision + 1)));
         if (e) {e.target.value = String(newVal);}
       }
-      currentValue.value = newVal;
+      currentValue.value =  newVal;
+      updateInput(oldVal)
+    };
+    const updateInput = (oldVal:InputNumber) => {
       emit('update:modelValue', currentValue.value);
       emit('change', currentValue.value, oldVal);
-    };
+    }
     watch(() => props.modelValue, (val) => {
       validate(val);
     });
@@ -51,6 +70,7 @@ export default defineComponent({
         placeholder: placeholder.value,
         class: 'm-input-number-inner',
         onInput: handleInputChange,
+        onBlur: handleInputBlur,
         value: currentValue.value
       }));
     };

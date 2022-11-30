@@ -63,24 +63,17 @@ describe('数字输入组件', () => {
     expect(wrapper.element.querySelector('input')!.value).toBe('5.54');
   });
 
-  test.skip('输入两个点', async () => {
-    const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5.545, precision: 2 }
-    });
-    await wrapper.find('input').setValue('5.545.123');
-    expect(wrapper.element.querySelector('input')!.value).toBe('5.54');
-  });
 
-  test.skip('输入负值', async () => {
+
+  test('输入负值', async () => {
     const wrapper = mount(MInputNumber, {
       props: { modelValue: 5, precision: 2 }
     });
-    await wrapper.find('input').setValue('-1');
-    await wrapper.find('input').setValue('-12');
+    await wrapper.find('input').setValue(-12);
     expect(wrapper.element.querySelector('input')!.value).toBe('-12');
   });
 
-  test.skip('输入小数开头的值', async () => {
+  test('输入小数开头的值', async () => {
     const wrapper = mount(MInputNumber, {
       props: { modelValue: 5, precision: 2 }
     });
