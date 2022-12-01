@@ -14,10 +14,10 @@ export default defineComponent({
 
     const handleInputChange = (e: HTMLElementEvent<HTMLInputElement>, value?: InputNumber) => {
       let val = e.target.value ?? value;
-      if(val.indexOf('.') === 0){
-        val = val.replace(/^\./g,'0.');
+      if (val.indexOf('.') === 0) {
+        val = val.replace(/^\./g, '0.');
       }
-      if(/^-?\d+$/.test(val) && val.indexOf('0') === 0){
+      if (/^-?\d+$/.test(val) && val.indexOf('0') === 0) {
         val = `${Number(val)}`;
         e.target.value = val;
       }
@@ -26,18 +26,18 @@ export default defineComponent({
 
     const handleInputBlur = () => {
       const oldVal = currentValue.value;
-      currentValue.value = String(currentValue.value).indexOf('.') === String(currentValue.value).length -1 ? String(currentValue.value).replace(/\.$/g,'') : currentValue.value ;
-      updateInput(oldVal)
-    }
+      currentValue.value = String(currentValue.value).indexOf('.') === String(currentValue.value).length - 1 ? String(currentValue.value).replace(/\.$/g, '') : currentValue.value;
+      updateInput(oldVal);
+    };
 
     const validate = (value: InputNumber, e?: HTMLElementEvent<HTMLInputElement>) => {
       if (!isNaN(+value) || value === '') {
         setCurrentValue(value, e);
-      }else {
-        if(e) e.target.value = String(currentValue.value)
+      } else {
+        if (e) e.target.value = String(currentValue.value);
       }
     };
-   
+
     const setCurrentValue = (newVal: InputNumber, e?: HTMLElementEvent<HTMLInputElement>) => {
       const oldVal = currentValue.value;
       const { min, max, precision } = props;
@@ -52,13 +52,13 @@ export default defineComponent({
         newVal = Number(`${newVal}`.substring(0, `${newVal}`.indexOf('.') + (precision + 1)));
         if (e) {e.target.value = String(newVal);}
       }
-      currentValue.value =  newVal;
-      updateInput(oldVal)
+      currentValue.value = newVal;
+      updateInput(oldVal);
     };
-    const updateInput = (oldVal:InputNumber) => {
+    const updateInput = (oldVal: InputNumber) => {
       emit('update:modelValue', currentValue.value);
       emit('change', currentValue.value, oldVal);
-    }
+    };
     watch(() => props.modelValue, (val) => {
       validate(val);
     });
