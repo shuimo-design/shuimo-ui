@@ -5,9 +5,9 @@
  * @version v1.0.0
  */
 import { SelectProps } from '../index';
-import { ref, Slots, h, Ref } from 'vue';
+import { computed, h, Slots, toRefs } from 'vue';
 import useSelectTools, { type IsSelectOption } from './useSelectTools';
-import { notEmpty, isFunction } from '../../../dependents/_utils/tools';
+import { isEmpty, notEmpty } from '../../../dependents/_utils/tools';
 import useSelect from './useSelect';
 import useDialog from '../../../message/dialog/useDialog';
 import MInput from '../../input/MInput';
@@ -22,11 +22,12 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
   type SelectOption = IsSelectOption<T>;
 
   const tools = useSelectTools<T>(props);
-  /**
-   * @description 视图上input应该显示的值
-   *              区别`inputValue`是为了在遇到input值一致时，导致视图不更新的问题
-   */
-  const viewInputValue = ref<string>('');
+
+  const { placeholder } = toRefs(props);
+
+  const selectedValue = computed(() => selectOptions.value.find(el => el.isSelected));
+  const displayPlaceholder = computed(() => selectedValue.value ?
+    tools.getInputValue(selectedValue.value.value) : placeholder.value);
 
   const optionMatchValue = (option: T) => {
     const value = tools.getModelValue(option);
@@ -36,16 +37,50 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
     return props.modelValue === tools.getModelValue(option);
   };
 
-  const emitFocus = (value: FocusEvent) => {
-    emit('focus', value, inputValue);
-  };
+  const emitFocus = (value: FocusEvent) => {emit('focus', value, inputValue);};
   const emitBlur = () => {
-    if (!viewInputValue.value) {
-      emit('update:modelValue', null);
+    if (selectedValue.value && inputValue.value === tools.getInputValue(selectedValue.value.value)) {
+      // 如果已经选择过 且输入内容和选择内容一致
+      return;
     }
-    const filterValueArr = selectOptions.value.filter(el => el.isSelected);
-    viewInputValue.value = filterValueArr.length ? tools.getInputValue(filterValueArr[0].value) : '';
-    inputValue.value = '';
+    if (isEmpty(inputValue.value)) {
+      // 如果为空
+      emit('update:modelValue', undefined);
+      return;
+    }
+
+    // 查找是否存在能匹配的
+    let foundOption: SelectOption | undefined;
+    let selectedOptionIndex: number = -1;
+    selectOptions.value.forEach((option, index) => {
+      if (option.isSelected) {
+        selectedOptionIndex = index;
+      }
+
+      if (tools.getInputValue(option.value) === inputValue.value) {
+        foundOption = option;
+        option.isSelected = true;
+        return;
+      }
+      option.isSelected = false;
+    });
+    // 如果无法匹配
+    if (!foundOption) {
+      // 回退上轮结果
+      if (selectedOptionIndex > -1) {
+        const option = selectOptions.value[selectedOptionIndex];
+        option.isSelected = true;
+        inputValue.value = tools.getInputValue(option.value);
+      } else {
+        inputValue.value = '';
+        emit('update:modelValue', undefined);
+        return;
+      }
+    } else {
+      emit('update:modelValue', foundOption.value);
+    }
+
+
   };
 
   const { visible, closeDialog, toggleDialog, showDialog } = useDialog();
@@ -56,8 +91,7 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
     });
     option.isSelected = true;
     closeDialog();
-    inputValue.value = '';
-    viewInputValue.value = tools.getInputValue(option.value);
+    inputValue.value = tools.getInputValue(option.value);
     emit('update:modelValue', tools.getModelValue(option.value));
     emit('select', option.value);
   };
@@ -72,7 +106,6 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
     showDialog,
     input(inputEvent: HTMLElementEvent<HTMLInputElement>) {
       inputValue.value = inputEvent.target.value;
-      viewInputValue.value = inputEvent.target.value;
     },
     onClickOption,
     getOptionDisplayInfo: option => {
@@ -95,18 +128,17 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
       });
     }
     const baseOptionsFilter = selectOptions.value.filter(el => el.isSelected);
-    viewInputValue.value = baseOptionsFilter.length ?
-      tools.getInputValue(baseOptionsFilter[0].value) : '';
+    inputValue.value = baseOptionsFilter.length ? tools.getInputValue(baseOptionsFilter[0].value) : '';
   };
 
 
   const selectInputRender = () => h(MInput, {
-    modelValue: viewInputValue.value,
+    modelValue: inputValue.value,
     onClick: props.disabled ? undefined : toggleDialog,
     onBlur,
     onInput,
     onFocus,
-    placeholder: props.placeholder,
+    placeholder: String(displayPlaceholder.value), // todo 优化这个交互
     disabled: props.disabled,
     readonly: props.inputReadonly
   });

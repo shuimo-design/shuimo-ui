@@ -50,10 +50,10 @@ describe('选择框组件', () => {
    */
   const customFilter = (options: any, inputValue: string) => {
     if (inputValue) {
-      return options.toString() == inputValue
+      return options.toString() == inputValue;
     }
-    return true
-  }
+    return true;
+  };
 
   describe('参数相关测试用例', () => {
     test('仅modelValue和options参数渲染（即最佳实践）', async () => {
@@ -88,9 +88,6 @@ describe('选择框组件', () => {
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
         [
           "option1",
-          "option2",
-          "option3",
-          "option4",
         ]
       `);
     });
@@ -140,6 +137,7 @@ describe('选择框组件', () => {
       const placeholder = 'here is placeholder';
       const wrapper = getWrapper({
         ...baseProps,
+        modelValue: undefined,
         placeholder
       });
       expect(wrapper.find('input').attributes().placeholder).toBe(placeholder);
@@ -164,34 +162,31 @@ describe('选择框组件', () => {
       `);
     });
 
-    test("filter方法测试,原始渲染", () => {
+    test('filter方法测试,原始渲染', () => {
       const wrapper = getWrapper({
         modelValue: 1,
         options: [1, 2, 3, 4],
         filter: customFilter
       });
       expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
-      [
-        "1",
-        "2",
-        "3",
-        "4",
-      ]
+        [
+          "1",
+        ]
       `);
-    })
-    test("filter方法测试,基础值查询", async () => {
+    });
+    test('filter方法测试,基础值查询', async () => {
       const wrapper = getWrapper({
         modelValue: 1,
         options: [1, 2, 3, 4],
         filter: customFilter
       });
-      await wrapper.find('input').setValue(3)
+      await wrapper.find('input').setValue(3);
       expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
       [
         "3",
       ]
       `);
-    })
+    });
   });
 
   describe('slot测试', () => {
@@ -211,9 +206,6 @@ describe('选择框组件', () => {
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
         [
           "<span>4</span>",
-          "<span>5</span>",
-          "<span>6</span>",
-          "<span>7</span>",
         ]
       `);
     });
@@ -272,10 +264,10 @@ describe('选择框组件', () => {
       expect(wrapper.emitted()['select'][0]).toMatchInlineSnapshot(`
         [
           {
-            "inputParam": "input1",
-            "title": "option1",
-            "value": 1,
-            "value2": 4,
+            "inputParam": "input2",
+            "title": "option2",
+            "value": 2,
+            "value2": 5,
           },
         ]
       `);
@@ -292,7 +284,7 @@ describe('选择框组件', () => {
     const multiplePropsBase = {
       modelValue: ['111'],
       multiple: true,
-      options: ['111', '222', '333', '444'],
+      options: ['111', '222', '333', '444']
     };
     /**
      * @desc 基础数据，`modelValue`为空
@@ -300,7 +292,7 @@ describe('选择框组件', () => {
     const multiplePropsBaseNoValue = {
       modelValue: [],
       multiple: true,
-      options: ['111', '222', '333', '444'],
+      options: ['111', '222', '333', '444']
     };
     /**
      * @desc 对象数据
@@ -319,8 +311,8 @@ describe('选择框组件', () => {
       ]
     };
     /**
-      * @desc 对象数据，`modelValue`为空
-      */
+     * @desc 对象数据，`modelValue`为空
+     */
     const multiplePropsObjNoValue = {
       modelValue: [],
       multiple: true,
@@ -352,9 +344,9 @@ describe('选择框组件', () => {
     };
 
 
-    describe("多选基础测试", () => {
+    describe('多选基础测试', () => {
       test('多选模式,输入框placeholder', () => {
-        const placeholder = '默认值'
+        const placeholder = '默认值';
         const wrapper = getWrapper({
           placeholder: placeholder,
           ...multiplePropsBaseNoValue
@@ -366,11 +358,11 @@ describe('选择框组件', () => {
         const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => { });
         getWrapper({
           ...baseProps,
-          multiple: true,
+          multiple: true
         });
         expect(infoSpy).toHaveBeenCalled();
       });
-      test("多选模式,filter方法测试,常规值渲染", () => {
+      test('多选模式,filter方法测试,常规值渲染', () => {
         const wrapper = getWrapper({
           modelValue: [1],
           options: [1, 2, 3, 4],
@@ -385,8 +377,8 @@ describe('选择框组件', () => {
           "4",
         ]
         `);
-      })
-      test("多选模式,filter方法测试,常规值查询", async () => {
+      });
+      test('多选模式,filter方法测试,常规值查询', async () => {
 
         const wrapper = getWrapper({
           modelValue: [1],
@@ -394,26 +386,26 @@ describe('选择框组件', () => {
           multiple: true,
           filter: customFilter
         });
-        await wrapper.find('input').setValue(1)
+        await wrapper.find('input').setValue(1);
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
         [
           "1",
         ]
         `);
-      })
-    })
+      });
+    });
 
-    describe("多选基础事件", () => {
-      test("多选模式,下拉框渲染", async () => {
+    describe('多选基础事件', () => {
+      test('多选模式,下拉框渲染', async () => {
         const wrapper = getWrapper(multiplePropsBase);
         expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
         await wrapper.find('.m-border').trigger('click');
         expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
-      })
-      test("多选模式,下拉框渲染，插槽渲染", async () => {
+      });
+      test('多选模式,下拉框渲染，插槽渲染', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase,
-        },
+            ...multiplePropsBase
+          },
           {
             option: ({ option }) => h('span', option)
           });
@@ -429,9 +421,9 @@ describe('选择框组件', () => {
         ]
         `
         );
-      })
+      });
 
-      test("多选模式,可输入时下拉框渲染", async () => {
+      test('多选模式,可输入时下拉框渲染', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBase,
           inputReadonly: false
@@ -440,13 +432,13 @@ describe('选择框组件', () => {
         await wrapper.find('input').trigger('click');
         expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
 
-      })
-    })
+      });
+    });
 
-    describe("多选常规值测试", () => {
+    describe('多选常规值测试', () => {
       test('多选模式,常规值渲染tag', () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase,
+          ...multiplePropsBase
         });
         expect(wrapper.html()).toContain('m-tag');
         expect(wrapper.find('.m-tag').text()).toMatchInlineSnapshot('"111"');
@@ -454,26 +446,26 @@ describe('选择框组件', () => {
 
       test('多选模式,常规值选中(点击border)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBaseNoValue,
+          ...multiplePropsBaseNoValue
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-option').trigger('click');
-        expect(wrapper.emitted('update:modelValue')).toMatchObject([[["111"]]]);
+        expect(wrapper.emitted('update:modelValue')).toMatchObject([[['111']]]);
       });
 
       test('多选模式,常规值选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBaseNoValue,
+          ...multiplePropsBaseNoValue
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-checkbox').trigger('click');
-        expect(wrapper.emitted('update:modelValue')).toMatchObject([[["111"]]]);
+        expect(wrapper.emitted('update:modelValue')).toMatchObject([[['111']]]);
       });
 
 
       test('多选模式,常规值取消选中(点击delete-icon)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase,
+          ...multiplePropsBase
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-delete-icon').trigger('click');
@@ -482,7 +474,7 @@ describe('选择框组件', () => {
 
       test('多选模式,常规值取消选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase,
+          ...multiplePropsBase
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-checkbox').trigger('click');
@@ -494,7 +486,7 @@ describe('选择框组件', () => {
           ...multiplePropsBaseNoValue,
           inputReadonly: false
         });
-        await wrapper.find('input').setValue("111");
+        await wrapper.find('input').setValue('111');
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
         [
           "111",
@@ -522,12 +514,12 @@ describe('选择框组件', () => {
           expect(wrapper.emitted('focus')!.length).toBe(1);
         });
       });
-    })
+    });
 
-    describe("多选对象值测试", () => {
+    describe('多选对象值测试', () => {
       test('多选模式,对象值渲染tag', () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj,
+          ...multiplePropsObj
         });
         expect(wrapper.html()).toContain('m-tag');
         expect(wrapper.find('.m-tag').text()).toMatchInlineSnapshot('"input1"');
@@ -535,7 +527,7 @@ describe('选择框组件', () => {
 
       test('多选模式,对象值选中(点击border)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObjNoValue,
+          ...multiplePropsObjNoValue
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-option').trigger('click');
@@ -544,7 +536,7 @@ describe('选择框组件', () => {
 
       test('多选模式,对象值选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObjNoValue,
+          ...multiplePropsObjNoValue
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-checkbox').trigger('click');
@@ -553,7 +545,7 @@ describe('选择框组件', () => {
 
       test('多选模式,对象值取消选中(点击delete-icon)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj,
+          ...multiplePropsObj
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-delete-icon').trigger('click');
@@ -562,7 +554,7 @@ describe('选择框组件', () => {
 
       test('多选模式,对象值取消选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj,
+          ...multiplePropsObj
         });
         await wrapper.find('input').trigger('click');
         await wrapper.find('.m-checkbox').trigger('click');
@@ -573,7 +565,7 @@ describe('选择框组件', () => {
           ...multiplePropsObjNoValue,
           inputReadonly: false
         });
-        await wrapper.find('input').setValue("input1");
+        await wrapper.find('input').setValue('input1');
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
         [
           "option1",
@@ -601,18 +593,18 @@ describe('选择框组件', () => {
           expect(wrapper.emitted('focus')!.length).toBe(1);
         });
       });
-      describe("多选模式,重复数据问题", () => {
+      describe('多选模式,重复数据问题', () => {
         test('多选模式,重复数据渲染问题', async () => {
           const wrapper = getWrapper(multiplePropsObjRepeat);
           expect(wrapper.findAll('.m-option-selected').length).toBe(2);
-        })
+        });
         test('多选模式,重复数据选择问题', async () => {
           const wrapper = getWrapper(multiplePropsObjRepeat);
           await wrapper.find('input').trigger('click');
           await wrapper.find('.m-option').trigger('click');
           expect(wrapper.emitted('update:modelValue')).toMatchObject([[[1]]]);
-        })
-      })
-    })
-  })
+        });
+      });
+    });
+  });
 });

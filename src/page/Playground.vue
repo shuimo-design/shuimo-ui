@@ -1,23 +1,4 @@
 <template>
-  <div>多选(options为object[]):{{ value1 }}</div>
-  <MSelect v-model="value1" :options="options1" :input-readonly="false" input-param="after" option-param="before" value-param="number" multiple>
-    <template #option>
-      <div>这是一个插槽</div>
-    </template>
-  </MSelect>
-  <div>多选(options为[]):{{ value2 }}</div>
-  <MSelect v-model="value2" :options="options2" multiple>
-    <template #option>
-      <div>插槽</div>
-    </template>
-  </MSelect>
-  ________________________________________________________________________
-  <div>单选(options为object[]):{{ value3 }}</div>
-  <MSelect v-model="value3" input-param="after" option-param="before" value-param="number" :options="options3">
-    <template #option>
-      <div>插槽</div>
-    </template>
-  </MSelect>
   <div>单选(options为[]){{ value4 }}</div>
   <MSelect v-model="value4" :input-readonly="false" :options="options4" >
   </MSelect>
@@ -47,13 +28,13 @@ const options2 = reactive(["1111", "2222", "3333", "4444"]);
 // 单选
 const value3 = ref('1');
 const options3 = reactive([
-  { before: "乾", after: "坎", number: "1" },
-  { before: "兑", after: "坤", number: "2" },
-  { before: "离", after: "震", number: "3" },
-  { before: "震", after: "巽", number: "4" },
+  { before: "乾", after: "坎", number: "111" },
+  { before: "兑", after: "坤", number: "221" },
+  { before: "离", after: "震", number: "3331" },
+  { before: "震", after: "巽", number: "44441" },
 ]);
 const value4 = ref(undefined);
-const options4 = reactive(["1", "2", "3", "4"]);
+const options4 = reactive(["1111", "2222", "3313", "4441"]);
 </script>
 
 <style lang="scss" scoped>
