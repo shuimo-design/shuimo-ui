@@ -1,7 +1,7 @@
 {
   "name": "shuimo-ui",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "files": [
     "dist",
     "icons",
