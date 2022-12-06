@@ -3,10 +3,8 @@
  * @author Jimmy
  * @date 2022/12/06 17:46
  * @version v1.0.0
- *
- * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { SelectProps } from "../index";
+import { SelectProps } from '../index';
 
 export type IsSelectOption<T> = {
   value: T,
@@ -22,7 +20,7 @@ export default function useSelectTools<T>(props: Required<SelectProps>) {
       return option;
     }
     return option[props[key] as keyof T] as unknown;
-  }
+  };
 
   const getInputValue = (option: T) => getInfoWithKey(option, 'inputParam') as string;
 
@@ -30,13 +28,13 @@ export default function useSelectTools<T>(props: Required<SelectProps>) {
 
   const selectFilter = (option: SelectOption, query: string) => {
     if (query) {
-      return getInputValue(option.value) === query
+      return getInputValue(option.value) === query;
     }
-    return true
-  }
+    return true;
+  };
 
 
   return {
     getInfoWithKey, getInputValue, getModelValue, selectFilter
-  }
+  };
 }

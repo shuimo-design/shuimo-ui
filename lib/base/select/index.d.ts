@@ -1,8 +1,8 @@
 /**
  * @description select api type
- * @author Jimmy
- * @date 2022/12/06 17:46
- * @version v1.0.0
+ * @author 阿怪
+ * @date 2022/4/16 21:10
+ * @version v1.0.1
  *
  * @name m-select
  * @docDescription Select component with shuimo-ui style.
@@ -10,6 +10,8 @@
  * @docUrl https://shuimo.janghood.com/select
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * v1.0.1 新增多选和filter配置 Jimmy
  */
 
 export declare type SelectProps = {
@@ -90,5 +92,5 @@ export declare type SelectProps = {
    * @type function  (options:any, inputValue: string) =>boolean
    * @default undefined
    */
-   filter?: (options: any, inputValue: string) => boolean
+  filter?: (options: any, inputValue: string) => boolean
 };

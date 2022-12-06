@@ -40,16 +40,6 @@
 
 有需要可以邮件 <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a> 联系我 _（以及加入微信小群）_。 
 
-## 贡献(contribution)
-
-### 安装
-
-因为依赖了[@janghood/lint](https://github.com/janghood/lint) _(一款封装了`eslint`和`commitlint`的小工具)_
-因此建议使用这种方式安装依赖：
-```bash
-pnpm i --shamefully-hoist
-```
-
 ## TODO
 
 我们计划在完成以下组件或任务后发布第一个稳定版本。

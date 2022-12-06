@@ -1,7 +1,7 @@
 /**
  * @description 选择框组件
- * @author Jimmy
- * @date 2022/12/06 17:46
+ * @author 阿怪
+ * @date 2021/8/27 11:05 上午
  * @version v2.1.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
@@ -15,7 +15,7 @@
  * v2.0.0 重构
  * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
  * v2.0.2 修复inputValue在找不到时不更新数据的问题
- * v2.1.0 hook化并添加multiple属性
+ * v2.1.0 hook化并添加multiple属性 Jimmy
  */
 import { defineComponent, h, watch } from 'vue';
 import MPopover from '../../message/popover/MPopover';
@@ -35,9 +35,9 @@ export default defineComponent({
       visible,
       selectInputRender,
       selectOptionsRender,
-      initInputValue,
+      initInputValue
     } = props.multiple ?
-        useSelectMultiple<OptionType>(props, emit, slots) : useSelectBase<OptionType>(props, emit, slots);
+      useSelectMultiple<OptionType>(props, emit, slots) : useSelectBase<OptionType>(props, emit, slots);
 
     initInputValue();
 

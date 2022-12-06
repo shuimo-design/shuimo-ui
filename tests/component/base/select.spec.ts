@@ -7,7 +7,7 @@
  * Hello, humor
  *
  * v1.0.1 升级为vitest版本测试用例 阿怪
- * v1.0.1 select多选测试用例 jimmy
+ * v1.0.1 select多选测试用例 Jimmy
  */
 
 import { mount } from '@vue/test-utils';
@@ -44,9 +44,9 @@ describe('选择框组件', () => {
   ];
   /**
    * @desc 自定义查询方法
-   * @param options 
-   * @param inputValue 
-   * @returns 
+   * @param options
+   * @param inputValue
+   * @returns
    */
   const customFilter = (options: any, inputValue: string) => {
     if (inputValue) {
