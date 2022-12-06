@@ -1,7 +1,7 @@
 /**
  * @description select api type
- * @author 阿怪
- * @date 2022/4/16 21:10
+ * @author Jimmy
+ * @date 2022/12/06 17:46
  * @version v1.0.0
  *
  * @name m-select
@@ -16,10 +16,10 @@ export declare type SelectProps = {
   /**
    * @description select value
    *              选择框的值
-   * @type any
+   * @type any | any[]
    * @default ''
    */
-  modelValue?: any,
+  modelValue?: any | any[],
   /**
    * @description select options
    *              选择框的数组
@@ -76,5 +76,19 @@ export declare type SelectProps = {
    * @type function
    * @default undefined
    */
-  toMatch?: (option: any, value: any) => boolean
+  toMatch?: (option: any, value: any) => boolean,
+  /**
+   * @description multiple choice
+   *              是否为多选
+   * @type boolean
+   * @default false
+   */
+  multiple?: boolean,
+  /**
+   * @description defined input box filter query method
+   *              自定义输入框filter查询方法
+   * @type function  (options:any, inputValue: string) =>boolean
+   * @default undefined
+   */
+   filter?: (options: any, inputValue: string) => boolean
 };

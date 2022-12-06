@@ -128,3 +128,11 @@ export const getStyle = (selectStyle: CSSStyleDeclaration, type: string) => {
 export function resolveUnref<T>(r: MaybeComputedRef<T>): T {
   return typeof r === 'function' ? (r as any)() : unref(r);
 }
+
+/**
+ * @desc 判断一个参数是不是方法
+ * @param Function
+ */
+ export const isFunction = (fn:Function):boolean => {
+  return typeof fn === 'function'
+}
