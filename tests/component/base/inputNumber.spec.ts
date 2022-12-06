@@ -13,7 +13,7 @@ import MInputNumber from '../../../lib/base/inputNumber/MInputNumber';
 
 describe('数字输入组件', () => {
   test('无参数渲染', () => {
-    const wrapper = mount(MInputNumber);
+    const wrapper = mount(MInputNumber, { modelValue: null });
     expect(wrapper.html()).toContain('m-input-number');
   });
 
