@@ -70,4 +70,9 @@ describe('输入组件', () => {
     await wrapper.find('input').trigger('focus');
     expect(wrapper.emitted('focus')!.length).toBe(1);
   });
+  test('blur冒泡', async () => {
+    const wrapper = mount(MInput, { props: { modelValue: 'test' } });
+    await wrapper.find('input').trigger('blur');
+    expect(wrapper.emitted('blur')!.length).toBe(1);
+  });
 });

@@ -9,6 +9,7 @@
  * v1.1.0 阿怪 升级为tsx版本
  * v1.1.1 阿怪 新增disabled和readonly属性
  * v1.1.2 阿怪 添加focus事件冒泡
+ * v1.1.2 阿怪 添加blur事件冒泡
  */
 import { defineComponent, h, toRefs } from 'vue';
 import MBorder from '../../other/border/MBorder';
@@ -17,7 +18,7 @@ import type { HTMLElementEvent } from '../../dependents/_types';
 
 export default defineComponent({
   name: 'MInput',
-  emits: ['update:modelValue', 'focus'],
+  emits: ['update:modelValue', 'focus', 'blur'],
   props,
   setup(props, { emit }) {
     const { type, disabled } = toRefs(props);
@@ -36,6 +37,9 @@ export default defineComponent({
         },
         onFocus: (e: FocusEvent) => {
           emit('focus', e);
+        },
+        onBlur: (e: FocusEvent) => {
+          emit('blur', e);
         }
       };
 
