@@ -8,13 +8,14 @@ import { SelectProps } from '../index';
 import useDebounceFn from '../../../dependents/_composables/useDebounceFn';
 import { HTMLElementEvent } from '../../../dependents/_types';
 import { isFunction } from '../../../dependents/_utils/tools';
-import { h, ref, Ref, VNode } from 'vue';
+import { h, ref, Ref, Slots, VNode } from 'vue';
 import useSelectTools, { IsSelectOption } from './useSelectTools';
 
 
 export default function useSelect<T>(
   props: Required<SelectProps>,
   emit: (event: ('update:modelValue' | 'input' | 'select' | 'focus'), ...args: any[]) => void,
+  slots: Readonly<Slots>,
   handler: {
     emitFocus: (value: FocusEvent) => void,
     emitBlur?: (value: FocusEvent) => void,
@@ -36,7 +37,7 @@ export default function useSelect<T>(
   const debounceShowSelectDialog = useDebounceFn(showSelectDialog, 200);
 
   const onFocus = (value: FocusEvent) => {
-    if (props.inputReadonly) {
+    if (props.readonly) {
       return;
     }
     debounceShowSelectDialog();
@@ -44,7 +45,7 @@ export default function useSelect<T>(
   };
 
   const onBlur = (value: FocusEvent) => {
-    if (!props.inputReadonly && handler.emitBlur) {
+    if (!props.readonly && handler.emitBlur) {
       handler.emitBlur(value);
     }
   };
@@ -68,17 +69,30 @@ export default function useSelect<T>(
    */
   const selectOptions: Ref<SelectOption[]> = ref([]);
 
-  const renderOptions = () => selectOptions.value.filter(option =>
-    isFunction(props.filter) ?
-      props.filter(option.value, inputValue.value) : selectFilter(option, inputValue.value)
+  const emptyRender = () => h(
+    'div',
+    { class: 'm-select-empty' },
+    slots && slots.empty ? slots.empty() :
+      h('span', { class: 'm-select-empty-span' }, '暂无数据...')
   );
 
-  const selectOptionsRender = () => h('div', { class: 'm-select-options' },
-    renderOptions()
-      .map(option => h('div', {
-        class: ['m-option', { 'm-option-selected': option.isSelected }],
-        onClick: () => handler.onClickOption(option)
-      }, handler.getOptionDisplayInfo(option))));
+  const renderOptions = () => props.readonly ?
+    selectOptions.value :
+    selectOptions.value.filter(option => isFunction(props.filter) ?
+      props.filter(option.value, inputValue.value) : selectFilter(option, inputValue.value)
+    );
+
+  const selectOptionsRender = () => {
+    const options = renderOptions();
+    return h('div', { class: 'm-select-options' },
+      options.length > 0 ?
+        options.map(option => h('div', {
+          class: ['m-option', { 'm-option-selected': option.isSelected }],
+          onClick: () => handler.onClickOption(option)
+        }, handler.getOptionDisplayInfo(option))) :
+        emptyRender()
+    );
+  };
 
   return {
     onFocus, onInput, onBlur,

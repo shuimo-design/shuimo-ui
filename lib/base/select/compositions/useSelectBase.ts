@@ -3,6 +3,8 @@
  * @author Jimmy
  * @date 2022/12/06 17:46
  * @version v1.0.0
+ *
+ * todo 这里的逻辑是不合理的，不应该使用isSelected，后续需要修复
  */
 import { SelectProps } from '../index';
 import { computed, h, Slots, toRefs } from 'vue';
@@ -51,7 +53,7 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
 
     // 查找是否存在能匹配的
     let foundOption: SelectOption | undefined;
-    let selectedOptionIndex: number = -1;
+    let selectedOptionIndex = -1;
     selectOptions.value.forEach((option, index) => {
       if (option.isSelected) {
         selectedOptionIndex = index;
@@ -100,7 +102,7 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
   const {
     onFocus, onInput, onBlur,
     selectOptions, inputValue, selectOptionsRender
-  } = useSelect<T>(props, emit, {
+  } = useSelect<T>(props, emit, slots, {
     emitFocus,
     emitBlur,
     showDialog,
@@ -119,6 +121,11 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
 
   // 初始化数据
   const initInputValue = () => {
+    if (selectedValue.value && props.modelValue === selectedValue.value.value) {
+      return false;
+    }
+
+
     if (notEmpty(props.options)) {
       selectOptions.value = props.options.map(item => {
         return {
@@ -140,7 +147,7 @@ export default function useSelectBase<T>(props: Required<SelectProps>,
     onFocus,
     placeholder: String(displayPlaceholder.value), // todo 优化这个交互
     disabled: props.disabled,
-    readonly: props.inputReadonly
+    readonly: props.readonly
   });
 
   return {

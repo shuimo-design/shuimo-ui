@@ -15,10 +15,11 @@ export const props: WCOPO<SelectProps> = {
   inputParam: { type: String, default: undefined },
   optionParam: { type: String, default: undefined },
   valueParam: { type: String, default: undefined },
-  inputReadonly: { type: Boolean, default: true },
+  readonly: { type: Boolean, default: true },
   disabled: { type: Boolean, default: false },
   placeholder: { type: String, default: '请选择...' },
   toMatch: { type: Function as WPropType<(option: any, value: any) => boolean>, default: undefined },
   multiple: { type: Boolean, default: false },
+  checkbox: { type: Boolean, default: true },
   filter: { type: Function as WPropType<(option: any, inputValue: string) => boolean>, default: undefined }
 };

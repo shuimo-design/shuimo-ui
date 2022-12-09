@@ -959,7 +959,7 @@
               }
             },
             {
-              "name": "inputReadonly",
+              "name": "readonly",
               "description": "used to disable input event\n用于禁止输入事件",
               "value": {
                 "type": "boolean",
@@ -1000,6 +1000,15 @@
               "value": {
                 "type": "boolean",
                 "default": "false",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "checkbox",
+              "description": "in multiple, whether to show checkbox\n多选模式下是否启用checkbox",
+              "value": {
+                "type": "boolean",
+                "default": "true",
                 "kind": "expression"
               }
             },

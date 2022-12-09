@@ -56,7 +56,7 @@ export declare type SelectProps = {
    * @type boolean
    * @default true
    */
-  inputReadonly?: boolean,
+  readonly?: boolean,
   /**
    * @description used to disable select
    *              是否禁用
@@ -86,6 +86,13 @@ export declare type SelectProps = {
    * @default false
    */
   multiple?: boolean,
+  /**
+   * @description in multiple, whether to show checkbox
+   *              多选模式下是否启用checkbox
+   * @type boolean
+   * @default true
+   */
+  checkbox?: boolean,
   /**
    * @description defined input box filter query method
    *              自定义输入框filter查询方法

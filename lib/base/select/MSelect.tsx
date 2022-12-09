@@ -2,7 +2,7 @@
  * @description 选择框组件
  * @author 阿怪
  * @date 2021/8/27 11:05 上午
- * @version v2.1.0
+ * @version v2.1.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
@@ -16,6 +16,11 @@
  * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
  * v2.0.2 修复inputValue在找不到时不更新数据的问题
  * v2.1.0 hook化并添加multiple属性 Jimmy
+ * v2.1.1 修复readonly场景下的筛选问题，修复重复数据问题
+ *        优化部分UI，
+ *        添加数组为空支持，
+ *        inputReadonly改为readonly
+ *        multiple支持undefined modelValue 阿怪
  */
 import { defineComponent, h, watch } from 'vue';
 import MPopover from '../../message/popover/MPopover';
@@ -37,7 +42,8 @@ export default defineComponent({
       selectOptionsRender,
       initInputValue
     } = props.multiple ?
-      useSelectMultiple<OptionType>(props, emit, slots) : useSelectBase<OptionType>(props, emit, slots);
+      useSelectMultiple<OptionType>(props, emit, slots) :
+      useSelectBase<OptionType>(props, emit, slots);
 
     initInputValue();
 
