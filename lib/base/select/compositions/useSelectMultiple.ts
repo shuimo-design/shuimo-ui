@@ -8,7 +8,7 @@ import { h, Slots, toRefs, withModifiers } from 'vue';
 import Printer from '../../../other/printer/Printer';
 import { SelectProps } from '../index';
 import useSelectTools, { type IsSelectOption } from './useSelectTools';
-import { isEmpty, notEmpty } from '../../../dependents/_utils/tools';
+import { notEmpty } from '../../../dependents/_utils/tools';
 import MDeleteIcon from '../../../other/icons/deleteIcon/MDeleteIcon';
 import MTag from '../../tag/MTag';
 import MBorder from '../../../other/border/MBorder';
@@ -27,18 +27,21 @@ export default function useSelectMultiple<T>(
   const { modelValue } = toRefs(props);
 
   const { getModelValue, getInputValue, getInfoWithKey } = useSelectTools<T>(props);
-  const needWarn = notEmpty(props.modelValue) && !Array.isArray(props.modelValue);
+  const modelValueIsEmpty = () => {
+    return modelValue.value === undefined || modelValue.value === null;
+  };
+  const needWarn = !modelValueIsEmpty() && !Array.isArray(props.modelValue);
   if (needWarn) {
     Printer('水墨选择组件').error('multiple开启时必须传入数组！');
   }
-  if (needWarn || props.modelValue === undefined || props.modelValue === null) {
+  if (needWarn || modelValueIsEmpty()) {
     emit('update:modelValue', []);
   }
 
   const { visible, showDialog, toggleDialog } = useDialog();
 
   const optionMatchValue = (option: T) => {
-    if (needWarn || isEmpty(props.modelValue)) {
+    if (needWarn || modelValueIsEmpty()) {
       return false;
     }
 
