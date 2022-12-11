@@ -1,0 +1,12 @@
+:host .m-button {
+  filter: url(#m-line-filter);
+  padding: 0 15px;
+  height: 32px;
+  outline: unset;
+  line-height: 24px;
+  min-width: 70px;
+  border: 2px solid black;
+  border-radius: 2px;
+  /*color: white;*/
+  text-align: center;
+}

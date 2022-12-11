@@ -1,0 +1,12 @@
+{
+  "name": "shuimo-design",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "dependencies": {
+    "turbo": "^1.6.3"
+  },
+  "scripts": {
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "packageManager": "pnpm@7.17.1"
+}
