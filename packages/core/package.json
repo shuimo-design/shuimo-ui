@@ -7,6 +7,10 @@
     "style"
   ],
   "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.ts"
+    },
     "./*": "./*"
   }
 }

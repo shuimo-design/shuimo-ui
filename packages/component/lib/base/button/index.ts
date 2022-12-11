@@ -9,8 +9,7 @@
 import ShuimoElement from '../../../module/elements/ShuimoElement';
 import { customElement } from '../../../module';
 import { LineSvgFilter } from '@shuimo-design/core';
-//@ts-ignore  fix this error
-import buttonStyle from '@shuimo-design/core/lib/base/button/button.css';
+import buttonStyle from '@shuimo-design/core/lib/base/button/button.module.css';
 
 
 @customElement({
