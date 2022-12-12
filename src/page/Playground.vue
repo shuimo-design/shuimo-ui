@@ -1,8 +1,8 @@
 <template>
-  <div>单选(options为[]){{ value4 }}</div>
-  <MSelect v-model="value3" :options="options4" :readonly="false" @focus="onFocus"/>
-  <MSelect multiple v-model="value4" :options="options4" :readonly="false" @focus="onFocus"/>
+  <div>当前页：{{ current }}</div>
+  <m-pagination :total="110" v-model:current="current"></m-pagination>
 </template>
+
 
 <script lang="ts" setup>
 /**
@@ -14,16 +14,9 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { reactive, ref } from 'vue';
-import MSelect from '../../lib/base/select/MSelect';
 
-const value3 = ref('1111');
-const value4 = ref(['1111']);
-const options4 = reactive(['1111','1111', '2222', '3313', '4441']);
+const current = ref(1);
 
-
-const onFocus = ()=>{
-  console.log('hi');
-}
 </script>
 
 <style lang="scss" scoped>
