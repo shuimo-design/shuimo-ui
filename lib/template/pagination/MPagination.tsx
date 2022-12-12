@@ -110,12 +110,14 @@ export default defineComponent({
           disabled={disPrev.value}
         />
         <ul class="m-pages">
-          <li
-            class={['m-pager m-cursor-pointer', {'m-current-page': MIN === innerCurrent.value}]}
-            onClick={() => toPage(MIN)}
-          >
-            {MIN}
-          </li>
+          {isFolded.value ? (
+            <li
+              class={['m-pager m-cursor-pointer', { 'm-current-page': MIN === innerCurrent.value }]}
+              onClick={() => toPage(MIN)}
+            >
+              {MIN}
+            </li>
+          ) : null}
           {isFolded.value && isPrevMoreShow.value ? (
             <li
               class={['m-pager m-cursor-pointer m-pager_more']}
@@ -140,12 +142,14 @@ export default defineComponent({
               ···
             </li>
           ) : null}
-          <li
-            class={['m-pager m-cursor-pointer', {'m-current-page': pageCount.value === innerCurrent.value}]}
-            onClick={() => toPage(pageCount.value)}
-          >
-            {pageCount.value}
-          </li>
+          {isFolded.value ? (
+            <li
+              class={['m-pager m-cursor-pointer', { 'm-current-page': pageCount.value === innerCurrent.value }]}
+              onClick={() => toPage(pageCount.value)}
+            >
+              {pageCount.value}
+            </li>
+          ): null}
         </ul>
         <button
           class={['m-cursor-pointer m-page-next', { 'm-page-next-disabled': disNext.value }]}
