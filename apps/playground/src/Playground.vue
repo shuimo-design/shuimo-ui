@@ -1,7 +1,6 @@
 <template>
-  <m-button>按钮</m-button>
+  <m-button :disabled="disabled" type="error">按钮</m-button>
   <m-button>按钮2</m-button>
-  <button class="line">按钮</button>
 </template>
 
 <script setup lang="ts">
@@ -13,24 +12,16 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { ref } from 'vue';
 
+const disabled = ref(true);
 
 </script>
 
 <style scoped>
 
-.line{
-  filter: url(#m-line-filter);
-
-  padding: 0 15px;
-  height: 32px;
-  outline: unset;
-  line-height: 24px;
-  min-width: 70px;
-  border-radius: 2px;
-  /*color: white;*/
-  text-align: center;
-  border: 2px solid black;
+m-button {
+  margin: 4px;
 }
 
 </style>

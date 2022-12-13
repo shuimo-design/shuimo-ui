@@ -6,14 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
-
 export default class ShuimoElement extends HTMLElement {
+
   constructor() {
     super();
   }
 
-  public render(): Node | undefined {
+
+  public render(dom?: HTMLElement): Node | undefined {
     return;
   }
 }

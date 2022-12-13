@@ -6,7 +6,10 @@
     "turbo": "^1.6.3"
   },
   "scripts": {
-    "clean": "turbo run clean && rm -rf node_modules"
+    "dev": "turbo run dev",
+    "playground": "turbo run playground",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "re-install": "pnpm run clean && pnpm i"
   },
   "packageManager": "pnpm@7.17.1"
 }

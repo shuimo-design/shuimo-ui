@@ -8,9 +8,11 @@
  */
 
 import Button from './lib/base/button';
+import Border from './lib/template/border';
 
 export * from './module';
 
 export {
+  Border,
   Button
 };

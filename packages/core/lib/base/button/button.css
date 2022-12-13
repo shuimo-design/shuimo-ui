@@ -1,0 +1,67 @@
+.m-button {
+  padding: 0 15px;
+  height: 32px;
+  outline: unset;
+  line-height: 24px;
+  min-width: 70px;
+  border: 5px double transparent;
+  border-radius: 2px;
+  border-image: url(./assets/border/base.png) 8;
+  color: white;
+  text-align: center;
+}
+
+.m-button-default {
+  background: url(./assets/bg/default.png);
+  background-size: 20.8px 9.8px;
+}
+.m-button-default:hover {
+  background: url(./assets/bg/hover/default.png);
+  background-size: 20.8px 9.8px;
+}
+
+.m-button-primary {
+  background: url(./assets/bg/primary.png);
+  background-size: 20.8px 9.8px;
+}
+.m-button-primary:hover {
+  background: url(./assets/bg/hover/primary.png);
+  background-size: 20.8px 9.8px;
+}
+
+.m-button-error {
+  background: url(./assets/bg/error.png);
+  background-size: 20.8px 9.8px;
+}
+.m-button-error:hover {
+  background: url(./assets/bg/hover/error.png);
+  background-size: 20.8px 9.8px;
+}
+
+.m-button-confirm {
+  background: url(./assets/bg/confirm.png);
+  background-size: 20.8px 9.8px;
+}
+.m-button-confirm:hover {
+  background: url(./assets/bg/hover/confirm.png);
+  background-size: 20.8px 9.8px;
+}
+
+.m-button-warning {
+  background: url(./assets/bg/warning.png);
+  background-size: 20.8px 9.8px;
+}
+.m-button-warning:hover {
+  background: url(./assets/bg/hover/warning.png);
+  background-size: 20.8px 9.8px;
+}
+
+a.m-button {
+  text-decoration: unset;
+}
+
+.m-button-disabled, .m-button-disabled:hover {
+  background: url(./assets/bg/disabled.png);
+  background-size: 20.8px 9.8px;
+  color: #74787A;
+}

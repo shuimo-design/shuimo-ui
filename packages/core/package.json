@@ -4,8 +4,10 @@
   "version": "0.0.1",
   "files": [
     "lib",
-    "style"
+    "style",
+    "types"
   ],
+  "types": "types/index.d.ts",
   "exports": {
     ".": {
       "import": "./index.ts",

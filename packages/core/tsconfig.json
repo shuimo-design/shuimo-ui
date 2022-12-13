@@ -8,7 +8,11 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
   },
   "exclude": [
     "node_modules"
