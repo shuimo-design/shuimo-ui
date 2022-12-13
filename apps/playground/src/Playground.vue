@@ -1,6 +1,6 @@
 <template>
-  <m-button :disabled="disabled" type="error">按钮</m-button>
-  <m-button>按钮2</m-button>
+  <m-button :disabled="disabled" :type="type" @click="toggleType">按钮</m-button>
+  <!--  <m-button>按钮2</m-button>-->
 </template>
 
 <script setup lang="ts">
@@ -15,6 +15,10 @@
 import { ref } from 'vue';
 
 const disabled = ref(true);
+const type = ref('confirm');
+const toggleType = () => {
+  type.value = type.value === 'confirm' ? 'error' : 'confirm';
+};
 
 </script>
 

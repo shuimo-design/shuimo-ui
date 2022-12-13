@@ -12,6 +12,23 @@ export default class ShuimoElement extends HTMLElement {
     super();
   }
 
+  public update(shadow?: ShadowRoot) {
+
+  }
+
+  defineProperty(name: string, from: string) {
+    console.log(this.constructor, from);
+    Object.defineProperty(this, name, {
+      get() {
+        console.log(name);
+        return this.getAttribute(name);
+      },
+      set(value: any) {
+        this.setAttribute(name, value);
+      }
+    });
+  }
+
 
   public render(dom?: HTMLElement): Node | undefined {
     return;

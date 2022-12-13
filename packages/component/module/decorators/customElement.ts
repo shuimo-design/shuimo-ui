@@ -23,43 +23,41 @@ export const customElement = (
   const { name, style, template, props } = params;
 
   return (target: typeof ShuimoElement) => {
-    if (customElements.get(name)) {
-      return;
-    }
 
-
-    // new a custom element
     class NewShuimoElement extends target {
-
+      shadow: ShadowRoot = this.attachShadow({ mode: 'open' });
 
       constructor() {
         super();
 
-        const shadow = this.attachShadow({ mode: 'open' });
-
-        if (!shadow) {return;}
-        // create component
-        const node = this.render();
-        if (!node) {return;}
-        // mount to shadow root
-        shadow.appendChild(node);
+        this.mount();
 
         if (style) {
           const styleTag = document.createElement('style');
           styleTag.innerHTML = style;
-          shadow.appendChild(styleTag);
+          this.shadow.appendChild(styleTag);
         }
       }
 
-      render() {
-        let dom: HTMLElement | undefined;
-        if (template) {
-          dom = templateRender(template);
-        }
+      mount() {
+        if (!this.shadow) {return;}
+        // create component
+        const node = this.render();
+        if (!node) {return;}
+        // mount to shadow root
+        this.shadow.appendChild(node);
+      }
 
-        return super.render(dom);
+      update(){
+        super.update(this.shadow);
       }
     }
+
+    if (customElements.get(name)) {
+      return;
+    }
+
+    console.log(NewShuimoElement.prototype);
 
     customElements.define(name, NewShuimoElement);
   };
