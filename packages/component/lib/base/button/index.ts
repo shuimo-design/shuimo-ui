@@ -11,7 +11,6 @@ import { customElement } from '../../../module';
 import style from '@shuimo-design/core/lib/base/button/button.css?inline';
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
-import { templateRender } from '../../../tools/tools';
 
 const { template, props } = useButton();
 @customElement({
@@ -22,16 +21,10 @@ const { template, props } = useButton();
 })
 export default class MButton extends ShuimoElement implements ButtonProps {
 
-
-
-  set type(value: string) {
-    this.setAttribute('type', value);
-    this.update();
-  }
-
-  get type() {
-    return this.getAttribute('type') ?? 'default';
-  }
+  public disabled: boolean = false;
+  public link: boolean = false;
+  public text: string | undefined;
+  public type: string = 'default';
 
 
   static get observedAttributes() {
@@ -50,22 +43,22 @@ export default class MButton extends ShuimoElement implements ButtonProps {
     shadow.children[0].classList.remove('m-button-confirm');
     shadow.children[0].classList.remove('m-button-error');
     shadow.children[0].classList.add(`m-button-${this.type ?? 'default'}`);
+
+    if (this.disabled) {
+      shadow?.children[0].classList.add('m-button-disabled');
+    }
   }
 
-  render() {
-    let dom: HTMLElement | undefined;
-    if (template) {
-      dom = templateRender(template);
-    }
+  render(dom: HTMLElement): Node | undefined {
 
     if (!dom) return;
     dom.classList.add('m-button-default');
     dom.classList.add(`m-button-${this.type}`);
 
 
-    // if (this.disabled) {
-    //   dom?.classList.add('m-button-disabled');
-    // }
+    if (this.disabled) {
+      dom?.classList.add('m-button-disabled');
+    }
 
     return dom;
   }

@@ -8,8 +8,8 @@
  */
 import ShuimoElement from '../elements/ShuimoElement';
 import { type MNodeTemplate } from '@shuimo-design/core/types';
-import { templateRender } from '../../tools/tools';
 import { MCOPO } from '@shuimo-design/core/types/template/props';
+import { templateRender } from '../../tools/tools';
 
 
 export const customElement = (
@@ -37,6 +37,22 @@ export const customElement = (
           styleTag.innerHTML = style;
           this.shadow.appendChild(styleTag);
         }
+
+        if (props) {
+          Object.keys(props).forEach((key) => {
+            Object.defineProperty(this, key, {
+              enumerable: true,
+              configurable: true,
+              get() {
+                return this.getAttribute(key);
+              },
+              set(v: any) {
+                this.setAttribute(key, v);
+                this.update();
+              }
+            });
+          });
+        }
       }
 
       mount() {
@@ -48,16 +64,22 @@ export const customElement = (
         this.shadow.appendChild(node);
       }
 
-      update(){
+      update() {
         super.update(this.shadow);
+      }
+
+      render() {
+        let dom: HTMLElement | undefined;
+        if (template) {
+          dom = templateRender(template);
+        }
+        return super.render(dom);
       }
     }
 
     if (customElements.get(name)) {
       return;
     }
-
-    console.log(NewShuimoElement.prototype);
 
     customElements.define(name, NewShuimoElement);
   };

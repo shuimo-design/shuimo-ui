@@ -13,6 +13,6 @@ import Border from './lib/template/border';
 export * from './module';
 
 export {
-  Border,
+  // Border,
   Button
 };
