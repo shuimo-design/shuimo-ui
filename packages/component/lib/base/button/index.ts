@@ -27,10 +27,6 @@ export default class MButton extends ShuimoElement implements ButtonProps {
   public type: string = 'default';
 
 
-  static get observedAttributes() {
-    return Object.keys(props);
-  }
-
 
   constructor() {
     super();
@@ -46,6 +42,8 @@ export default class MButton extends ShuimoElement implements ButtonProps {
 
     if (this.disabled) {
       shadow?.children[0].classList.add('m-button-disabled');
+    }else{
+      shadow?.children[0].classList.remove('m-button-disabled');
     }
   }
 

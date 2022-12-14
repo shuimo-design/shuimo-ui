@@ -17,10 +17,8 @@ export default class ShuimoElement extends HTMLElement {
   }
 
   defineProperty(name: string, from: string) {
-    console.log(this.constructor, from);
     Object.defineProperty(this, name, {
       get() {
-        console.log(name);
         return this.getAttribute(name);
       },
       set(value: any) {

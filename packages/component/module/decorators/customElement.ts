@@ -10,6 +10,7 @@ import ShuimoElement from '../elements/ShuimoElement';
 import { type MNodeTemplate } from '@shuimo-design/core/types';
 import { MCOPO } from '@shuimo-design/core/types/template/props';
 import { templateRender } from '../../tools/tools';
+import { attributeTransform } from './property';
 
 
 export const customElement = (
@@ -44,7 +45,9 @@ export const customElement = (
               enumerable: true,
               configurable: true,
               get() {
-                return this.getAttribute(key);
+
+
+                return attributeTransform(props[key].type, this.getAttribute(key));
               },
               set(v: any) {
                 this.setAttribute(key, v);
@@ -53,6 +56,11 @@ export const customElement = (
             });
           });
         }
+      }
+
+      static get observedAttributes() {
+        if (!props) {return [];}
+        return Object.keys(props);
       }
 
       mount() {
