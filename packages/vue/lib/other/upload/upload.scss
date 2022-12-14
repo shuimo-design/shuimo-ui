@@ -1,0 +1,33 @@
+.m-upload {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  line-height: 30px;
+  font-size: 14px;
+  border: 3px double transparent;
+  border-image: url('/packages/vue/libkages/vue/lib/assets/input/input244.png') 3;
+  width: 120px;
+  height: 120px;
+  background-image: url('/packages/vue/libkages/vue/lib/assets/upload/upload.png');
+  background-repeat: no-repeat;
+  background-size: 40px 80px;
+  background-position: 40px 20px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.m-upload input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background: unset;
+}

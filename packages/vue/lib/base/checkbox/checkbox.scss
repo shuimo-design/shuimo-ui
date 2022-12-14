@@ -1,0 +1,53 @@
+.m-checkbox {
+  color: #606266;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin: 2px;
+  cursor: not-allowed;
+
+  &__former {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    outline: 0;
+    appearance: none;
+  }
+
+  &__inner {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-is-checked {
+    .m-checkbox__inner_checked {
+      position: absolute;
+      width: 12px;
+      height: 10px;
+      background: url(/packages/vue/lib/assets/checkbox/checkbox-checked.png) no-repeat;
+      background-size: 100% 100%;
+      top: 7px;
+      left: 6px;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    padding-left: 5px;
+    line-height: 19px;
+    font-size: 14px;
+  }
+}

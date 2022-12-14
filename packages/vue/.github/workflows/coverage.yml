@@ -1,0 +1,21 @@
+name: Coverage
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.0'
+      - run: npm install -g pnpm && pnpm install --shamefully-hoist && npm run coverage
+      - uses: codecov/codecov-action@v3.1.0
+        with:
+          token: ${{ secrets.CODECOVTOKEN }}
+          directory: ./coverage/
+          dry_run: ./coverage/tmp

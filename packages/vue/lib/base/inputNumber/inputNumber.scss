@@ -1,0 +1,19 @@
+.m-input-number {
+  width: 244px;
+  height: 31px;
+}
+
+.m-input-number-inner {
+  background-color: unset !important;
+  background-repeat: no-repeat !important;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+  height: 100%;
+  border: none !important;
+  outline: none !important;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+.m-confirm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  background: white;
+}
+
+.m-confirm_inner {
+  margin: 5px 10px;
+}

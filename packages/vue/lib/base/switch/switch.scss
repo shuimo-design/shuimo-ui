@@ -1,0 +1,108 @@
+.m-switch {
+  --m-switch-scale: 1;
+
+  // 组件尺寸
+  --m-switch-w: calc(var(--m-switch-scale) * 67px);
+  --m-switch-h: calc(var(--m-switch-scale) * 33px);
+  // 组件背景图尺寸，要留出一些margin以让core看起来更舒服
+  --m-switch-bg-w: calc(var(--m-switch-scale) * 57px);
+  --m-switch-bg-h: calc(var(--m-switch-scale) * 16px);
+  // 这是一个魔法值，看心情调整吧
+  --m-switch-margin: 0 calc(var(--m-switch-scale) * 10px);
+
+  // 背景图的position，目标是居中，但也可调整
+  --m-switch-inside-margin-x: calc(var(--m-switch-w) - var(--m-switch-bg-w));
+  --m-swicth-bg-position-x: calc(var(--m-switch-inside-margin-x) / 2);
+  --m-swicth-bg-position-y: calc((var(--m-switch-h) - var(--m-switch-bg-h)) / 2);
+
+  // core的基础值，核心尺寸和外边框尺寸，由于基于这个的计算较多所以提出来了。
+  --m-switch-core-w-base: 19.5px;
+  --m-switch-core-h-base: 19.5px;
+  --m-switch-core-border-w-base: 25px;
+  --m-switch-core-border-h-base: 27px;
+
+  // core的尺寸（那个背景色的尺寸）
+  --m-switch-core-w: calc(var(--m-switch-scale) * var(--m-switch-core-w-base));
+  --m-switch-core-h: calc(var(--m-switch-scale) * var(--m-switch-core-h-base));
+  --m-switch-core-bg: var(--m-color-error);
+  --m-swicth-core-margin: calc((var(--m-switch-h) - var(--m-switch-core-h)) / 2);
+  // core边框尺寸
+  --m-switch-core-border-w: calc(var(--m-switch-scale) * var(--m-switch-core-border-w-base));
+  --m-switch-core-border-h: calc(var(--m-switch-scale) * var(--m-switch-core-border-h-base));
+  --m-swicth-core-bg-marigh: calc(var(--m-switch-scale) * (var(--m-switch-core-w-base) - var(--m-switch-core-border-w-base)) / 2) calc(var(--m-switch-scale) * (var(--m-switch-core-h-base) - var(--m-switch-core-border-h-base)) / 2);
+
+
+  .m-switch-main {
+    display: inline-flex;
+
+    width: var(--m-switch-w);
+    height: var(--m-switch-h);
+    margin: var(--m-switch-margin);
+    background: url(/packages/vue/lib/base/switch/assets/bg.png) no-repeat var(--m-swicth-bg-position-x) var(--m-swicth-bg-position-y);
+    background-size: var(--m-switch-bg-w) var(--m-switch-bg-h);
+  }
+
+  .m-switch-core {
+    display: inline-block;
+    margin: var(--m-swicth-core-margin) 0;
+    width: var(--m-switch-core-w);
+    height: var(--m-switch-core-h);
+    background: var(--m-switch-core-bg);
+
+    transform: rotate(45deg);
+    transition: all 1s;
+
+    .m-switch-core-border {
+      @extend .m-cursor-pointer;
+      width: var(--m-switch-core-border-w);
+      height: var(--m-switch-core-border-h);
+      background: url(/packages/vue/lib/base/switch/assets/core.png) no-repeat;
+      margin: var(--m-swicth-core-bg-marigh);
+      background-size: 100% 100%;
+    }
+  }
+
+  // 组件宽度 - core宽度 - margin右边
+  --m-switch-core-inacitve-margin-left: calc(var(--m-switch-w) - var(--m-switch-core-w) - var(--m-swicth-core-margin));
+
+  &.m-switch-active {
+    --m-switch-core-bg: var(--m-color-main);
+  }
+
+  &.m-switch-inactive {
+    --m-switch-core-bg: var(--m-color-text-disabled);
+
+    .m-switch-core {
+      margin-left: var(--m-switch-core-inacitve-margin-left);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(45deg);
+    }
+    to {
+      transform: rotate(405deg);
+    }
+  }
+
+  &.m-switch-loading {
+    .m-switch-core-border {
+      @extend .m-cursor-disabled;
+    }
+
+    .m-switch-core {
+      animation: spin 5s linear infinite;
+    }
+  }
+
+  &.m-switch-disabled {
+    .m-switch-core-border {
+      @extend .m-cursor-disabled;
+    }
+
+    --m-switch-core-bg-disabled: white;
+    --m-switch-core-bg: var(--m-switch-core-bg-disabled);
+    opacity: 0.3;
+  }
+}

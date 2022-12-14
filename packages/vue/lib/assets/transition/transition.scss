@@ -1,0 +1,22 @@
+.m-liner-enter-active,
+.m-linear-leave-active {
+  transition: all 0.2s;
+  transform: scale(1);
+}
+.m-linear-enter,
+.m-linear-leave-to {
+  transform: scale(0);
+}
+
+.m-opacity-enter-active,
+.m-opacity-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center top;
+}
+.m-opacity-enter,
+.m-opacity-leave-to {
+  opacity: 0;
+  transform: scaleY(0);
+}

@@ -1,0 +1,71 @@
+.m-menu {
+  display: inline-block;
+}
+
+.m-menu-left-line {
+  display: inline-block;
+  margin-top: 25px;
+  height: calc(100% - 25px);
+  width: 11px;
+  background: url(/packages/vue/lib/assets/menu/menu_line.png) 0 0 repeat;
+  position: relative;
+  top: 0;
+}
+
+.m-menu-items {
+  padding-left: 22px;
+  margin-top: 55px;
+  color: #333;
+  position: relative;
+  top: -100%;
+
+  span {
+    display: inline-block;
+  }
+
+  .m-menu-item {
+    font-size: 20px;
+    line-height: 28px;
+    padding: 18px 0 0;
+
+    .m-menu-item-icon {
+      position: fixed;
+      margin: 8px 0 0 -21px;
+      display: inline-block;
+      height: 11px;
+      width: 11px;
+      background: url(/packages/vue/lib/assets/base/icon/base_icon.png);
+    }
+
+    &.active {
+      color: #000;
+
+      .m-menu-item-icon {
+        position: fixed;
+        margin: 2px 0 0 -29px;
+        display: inline-block;
+        height: 27px;
+        width: 27px;
+        background: url(/packages/vue/lib/assets/base/icon/active_icon.png);
+      }
+    }
+  }
+
+  .m-menu-item-children {
+    line-height: 14px;
+
+    .m-menu-item-child {
+      &:last-child {
+        padding: 12px 0 0;
+      }
+
+      font-size: 14px;
+      padding: 12px 0;
+      color: #333;
+
+      &.active {
+        color: #760000;
+      }
+    }
+  }
+}

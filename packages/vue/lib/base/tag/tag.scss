@@ -1,0 +1,38 @@
+.m-tag {
+  display: flex;
+  --m-tag-h: 45px;
+  --m-tag-w: calc(var(--m-tag-h) / 4.5);
+  height: var(--m-tag-h);
+}
+
+$types: default, primary, error, confirm, warning;
+
+.m-tag-left, .m-tag-right {
+  height: var(--m-tag-h);
+  width: var(--m-tag-w);
+}
+
+.m-tag-main {
+  height: var(--m-tag-h);
+  line-height: var(--m-tag-h);
+  color: white;
+}
+
+@each $type in $types {
+  .m-tag-#{$type} {
+    .m-tag-main {
+      background: url('/lib/base/tag/assets/#{$type}/main.png') repeat-x;
+      background-size: 100% 100%;
+    }
+
+    .m-tag-left {
+      background: url('/lib/base/tag/assets/#{$type}/left.png') no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .m-tag-right {
+      background: url('/lib/base/tag/assets/#{$type}/right.png') no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}

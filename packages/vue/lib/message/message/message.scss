@@ -1,0 +1,48 @@
+.m-message-list {
+  position: fixed;
+  z-index: 9999;
+
+  &_top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(0%);
+  }
+  &_top-right {
+    top: 0px;
+    right: 0px;
+  }
+  &_top-left {
+    top: 0px;
+    left: 0px;
+  }
+  &_bottom-right {
+    bottom: 0px;
+    right: 0px;
+  }
+  &_bottom-left {
+    bottom: 0px;
+    left: 0px;
+  }
+}
+.m-message {
+  min-height: 80px;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background: url('/packages/vue/libkages/vue/lib/assets/message/message-box.png') no-repeat;
+  background-size: 100% 100%;
+
+  &-icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    z-index: -1;
+  }
+
+  &-content {
+    max-width: 250px;
+    margin-left: 10px;
+  }
+}

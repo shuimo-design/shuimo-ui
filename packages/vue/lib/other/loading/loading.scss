@@ -1,0 +1,70 @@
+@keyframes scale1 {
+  from {
+    transform: scale(0.8);
+    background-position: 0 0;
+  }
+  to {
+    transform: scale(1);
+    background-position: 0 0;
+  }
+}
+
+.m-loading {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.m-loading-directive {
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.m-loading-mask {
+  background: var(--m-color-background);
+  backdrop-filter: blur(20px);
+}
+
+.m-loading-parent-relative {
+  position: relative;
+}
+
+.m-loading-wrapper {
+  display: grid;
+  grid-template-areas: 'main';
+
+  $types: shua1, shua2, shua3, shua4;
+
+  .m-loading-item {
+    grid-area: main;
+    height: 50px;
+    width: 50px;
+    animation: scale1 2s infinite;
+  }
+
+  @each $type in $types {
+    .m-loading-#{$type} {
+      background: url('/lib/other/loading/assets/#{$type}.png') no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+
+}
+
+
+.m-loading-list-enter-active,
+.m-loading-list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.m-loading-list-enter-from,
+.m-loading-list-leave-to {
+  opacity: 0;
+}

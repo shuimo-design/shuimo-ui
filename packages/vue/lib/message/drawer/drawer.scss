@@ -1,0 +1,12 @@
+.m-drawer {
+  float: right;
+  margin: 30px 20px;
+
+  & > .m-border-main {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.m-drawer-main {
+  height: calc(100vh - 60px);
+}

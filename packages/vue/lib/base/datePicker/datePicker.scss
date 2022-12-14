@@ -1,0 +1,220 @@
+.m-date-picker {
+  width: 230px;
+  border: 3px double transparent;
+}
+
+.m-date-picker-div {
+  display: inline-block;
+  height: calc(100% - 6px);
+
+  span {
+    line-height: 31px;
+  }
+
+  .m-calendar-icon {
+    background: transparent;
+    position: relative;
+    bottom: -3px;
+    float: right;
+
+    &:before {
+      content: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar.png');
+    }
+  }
+}
+
+.m-calendar-dropdown {
+  position: absolute;
+  background: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar_border.png') no-repeat;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 208px;
+  margin: 3px 4px;
+  padding: 2px 0 5px;
+  z-index: 9999;
+
+  .m-calendar-content {
+    font-size: 14px;
+  }
+
+  .m-calendar-dropdown-header {
+    height: 21px;
+    margin-top: 6px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .m-year,
+    .m-month,
+    .m-block-between {
+      font-size: 20px;
+      text-align: left;
+      color: #333333;
+      line-height: 21px;
+      height: 21px;
+      letter-spacing: -1px;
+      font-weight: 500;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+      position: relative;
+      bottom: -2px;
+    }
+
+    .m-calendar-year-prev:before {
+      content: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar_year_prev.png');
+    }
+
+    .m-calendar-month-prev:before {
+      content: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar_month_prev.png');
+    }
+
+    .m-calendar-year-next:before {
+      content: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar_year_next.png');
+    }
+
+    .m-calendar-month-next:before {
+      content: url('/packages/vue/libkages/vue/lib/assets/date-picker/calendar_month_next.png');
+    }
+
+    .m-calendar-year-prev:active,
+    .m-calendar-month-prev:active {
+      left: -2px;
+    }
+
+    .m-calendar-year-next:active,
+    .m-calendar-month-next:active {
+      right: -2px;
+    }
+  }
+
+  .m-calendar-dropdown-week {
+    height: 21px;
+    width: 240px;
+
+    span {
+      margin: 0 10px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 17px;
+      letter-spacing: -1px;
+    }
+  }
+}
+
+.m-date-table {
+  margin-top: 5px;
+
+  th {
+    padding: 0 10px;
+  }
+
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    width: 26px;
+    margin: auto;
+  }
+
+  .m-date-current {
+    background: url('/packages/vue/libkages/vue/lib/assets/date-picker/circle.png') no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-date-today {
+    font-weight: 700;
+    color: #1a336d;
+  }
+
+  .m-date-prev-month,
+  .m-date-next-month {
+    color: #a3a3a3;
+  }
+
+  td {
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.m-month-table {
+  margin-top: 14px;
+
+  td {
+    padding: 8px 8px;
+
+    div {
+      height: 40px;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+
+      .m-cell {
+        width: 40px;
+        height: 40px;
+        display: block;
+        line-height: 40px;
+        color: #606266;
+        margin: 0 auto;
+        border-radius: 18px;
+        transition: all 0.4s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      .m-month-today {
+        font-weight: 700;
+        color: #1a336d;
+      }
+
+      .m-month-current {
+        background: url('/packages/vue/libkages/vue/lib/assets/date-picker/circle.png') no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+.m-year-table {
+  margin-top: 10px;
+
+  td {
+    text-align: center;
+    padding: 15px 3px;
+
+    .m-cell {
+      width: 48px;
+      height: 30px;
+      display: block;
+      line-height: 30px;
+      color: #606266;
+      margin: 0 auto;
+      transition: all 0.4s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .m-year-today .m-cell {
+    font-weight: 700;
+    color: #1a336d;
+  }
+
+  .m-year-current {
+    background: url('/packages/vue/libkages/vue/lib/assets/date-picker/circle.png') no-repeat;
+    background-size: 100% 100%;
+  }
+}

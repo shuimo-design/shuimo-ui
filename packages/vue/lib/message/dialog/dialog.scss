@@ -1,0 +1,69 @@
+.mask {
+  position: fixed;
+  z-index: 9999;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.mask-bg {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.m-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('/packages/vue/libkages/vue/lib/assets/dialog/bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+// close button
+
+@keyframes Wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.m-dialog-close-btn {
+  display: inline-block;
+  background: url('/packages/vue/libkages/vue/lib/assets/dialog/close.png') no-repeat;
+  background-size: 100% 100%;
+  width: 46px;
+  height: 75px;
+  transform-origin: 50% 0;
+  animation: Wave 8s linear both infinite;
+  position: absolute;
+}
