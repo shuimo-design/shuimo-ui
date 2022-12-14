@@ -14,7 +14,7 @@
   }
 
   & .m-list-icon {
-    background: url(/packages/vue/lib/assets/base/icon/base_icon.png) no-repeat;
+    background: url(/lib/assets/base/icon/base_icon.png) no-repeat;
   }
 
   &.m-active {
@@ -23,7 +23,7 @@
     }
 
     & .m-list-icon {
-      background: url(/packages/vue/lib/assets/base/icon/active_icon.png) no-repeat;
+      background: url(/lib/assets/base/icon/active_icon.png) no-repeat;
       margin: 0;
       height: 27px;
       width: 27px;

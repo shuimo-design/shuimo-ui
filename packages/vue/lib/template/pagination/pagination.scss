@@ -47,19 +47,19 @@
 }
 
 .m-page-prev:before {
-  content: url('/packages/vue/libkages/vue/lib/assets/pagination/page_prev.png');
+  content: url('/.//lib/assets/pagination/page_prev.png');
 }
 
 .m-page-next:before {
-  content: url('/packages/vue/libkages/vue/lib/assets/pagination/page_next.png');
+  content: url('/.//lib/assets/pagination/page_next.png');
 }
 
 .m-page-prev-disabled:before {
-  content: url('/packages/vue/libkages/vue/lib/assets/pagination/page_prev_disabled.png');
+  content: url('/.//lib/assets/pagination/page_prev_disabled.png');
 }
 
 .m-page-next-disabled:before {
-  content: url('/packages/vue/libkages/vue/lib/assets/pagination/page_next_disabled.png');
+  content: url('/.//lib/assets/pagination/page_next_disabled.png');
 }
 
 .m-page-prev:not(.m-page-prev-disabled):active {

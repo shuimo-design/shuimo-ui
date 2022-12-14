@@ -7,7 +7,7 @@
   min-width: 70px;
   border: 5px double transparent;
   border-radius: 2px;
-  border-image: url(/packages/vue/lib/base/button/assets/border/base.png) 8;
+  border-image: url(/lib/base/button/assets/border/base.png) 8;
   color: white;
   text-align: center;
 }
@@ -31,7 +31,7 @@ a.m-button {
 }
 
 .m-button-disabled, .m-button-disabled:hover {
-  background: url('/packages/vue/libkages/vue/lib/base/button/assets/bg/disabled.png');
+  background: url('/.//lib/base/button/assets/bg/disabled.png');
   background-size: 20.8px 9.8px;
   color: var(--m-color-text-disabled);
 }

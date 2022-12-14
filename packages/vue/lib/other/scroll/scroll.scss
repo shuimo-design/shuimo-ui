@@ -8,13 +8,13 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: url('/packages/vue/libkages/vue/lib/assets/scroll/scrollbar.png') repeat-y;
+    background: url('/.//lib/assets/scroll/scrollbar.png') repeat-y;
     background-size: var(--scrollbar-w) var(--scrollbar-h);
     border-radius: 20px;
   }
 
   &::-webkit-scrollbar-thumb:horizontal {
-    background: url('/packages/vue/libkages/vue/lib/assets/scroll/scrollbar-h.png') repeat-x;
+    background: url('/.//lib/assets/scroll/scrollbar-h.png') repeat-x;
     background-size: var(--scrollbar-h) var(--scrollbar-w);
     border-radius: 20px;
   }

@@ -1,18 +1,18 @@
 [class^='m-'],
 .m-cursor {
-  cursor: url('/packages/vue/libkages/vue/lib/assets/cursor/auto.png'), auto;
+  cursor: url('/.//lib/assets/cursor/auto.png'), auto;
 
   &:disabled {
-    cursor: url('/packages/vue/libkages/vue/lib/assets/cursor/disabled.png'), auto;
+    cursor: url('/.//lib/assets/cursor/disabled.png'), auto;
   }
 }
 
 .m-cursor-pointer {
-  cursor: url('/packages/vue/libkages/vue/lib/assets/cursor/pointer.png'), auto;
+  cursor: url('/.//lib/assets/cursor/pointer.png'), auto;
 }
 
 .m-cursor-disabled {
-  cursor: url('/packages/vue/libkages/vue/lib/assets/cursor/disabled.png'), auto;
+  cursor: url('/.//lib/assets/cursor/disabled.png'), auto;
 }
 
 body {

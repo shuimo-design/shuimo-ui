@@ -39,13 +39,13 @@ $per-font-size: var(--m-progress-per-font-size, 16px);
 
   //全部进度
   &::-webkit-progress-bar {
-    background: url('/packages/vue/libkages/vue/lib/assets/progress/bamboo_bg.png') repeat-x;
+    background: url('/.//lib/assets/progress/bamboo_bg.png') repeat-x;
     background-size: $bg-size;
   }
 
   //已完成进度
   &::-webkit-progress-value {
-    background: url('/packages/vue/libkages/vue/lib/assets/progress/bamboo.png') repeat-x;
+    background: url('/.//lib/assets/progress/bamboo.png') repeat-x;
     background-size: $bg-size;
   }
 }
