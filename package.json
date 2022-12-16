@@ -8,6 +8,7 @@
     "turbo": "^1.6.3"
   },
   "scripts": {
+    "pre-dev": "turbo run pre-dev",
     "dev": "turbo run dev",
     "playground": "turbo run playground",
     "clean": "turbo run clean && rm -rf node_modules",

@@ -6,8 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
 
 export default defineConfig({
   plugins: [
@@ -15,9 +16,14 @@ export default defineConfig({
       // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
       template: {
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith("m-"), //web-components 添加配置识别 ‘m-’开头标签
-        },
-      },
-    }),
+          isCustomElement: tag => tag.startsWith('m-') //web-components 添加配置识别 ‘m-’开头标签
+        }
+      }
+    })
   ],
-})
+  css: {
+    postcss: {
+      plugins: require('@shuimo-design/postcss').MPostcss
+    }
+  }
+});

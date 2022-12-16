@@ -1,0 +1,18 @@
+{
+  "name": "@shuimo-design/postcss",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "pre-dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^5.0.2",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "postcss": "^8.4.20",
+    "postcss-nested": "^6.0.0",
+    "postcss-url": "^10.1.3",
+    "rollup": "^3.7.4",
+    "tsx": "^3.12.1"
+  }
+}

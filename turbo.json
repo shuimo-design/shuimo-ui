@@ -1,8 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "dev": {
+    "pre-dev": {
       "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": ["pre-dev"]
     },
     "playground": {
       "cache": false,
