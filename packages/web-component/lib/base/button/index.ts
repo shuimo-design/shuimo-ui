@@ -8,11 +8,10 @@
  */
 import ShuimoElement from '../../../module/elements/ShuimoElement';
 import { customElement } from '../../../module';
-import style from '@shuimo-design/core/lib/base/button/button.css?inline';
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
 
-const { template, props } = useButton();
+const { template, props, style } = useButton();
 @customElement({
   name: 'm-button',
   style,
@@ -25,7 +24,6 @@ export default class MButton extends ShuimoElement implements ButtonProps {
   public link: boolean = false;
   public text: string | undefined;
   public type: string = 'default';
-
 
 
   constructor() {
@@ -42,7 +40,7 @@ export default class MButton extends ShuimoElement implements ButtonProps {
 
     if (this.disabled) {
       shadow?.children[0].classList.add('m-button-disabled');
-    }else{
+    } else {
       shadow?.children[0].classList.remove('m-button-disabled');
     }
   }
