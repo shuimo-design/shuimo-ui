@@ -1,6 +1,7 @@
 <template>
-  <m-rice-paper class="main-paper">
+  <m-rice-paper class="main-paper" cold="false" :mountain="mountain">
     <div class="base">
+      <m-button @click="togglePaper">设置paper</m-button>
       <h1>这里是playground</h1>
       <Playground/>
     </div>
@@ -19,10 +20,16 @@
 
 
 import Playground from './Playground.vue';
+import { ref } from 'vue';
+
+const mountain = ref(false);
+const togglePaper = () => {
+  mountain.value = !mountain.value;
+};
+
 </script>
 
 <style scoped>
-
 .main-paper {
   height: 100vh;
   width: 100vw;
