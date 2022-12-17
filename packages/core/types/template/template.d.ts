@@ -6,11 +6,33 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { MCOPO } from './props';
 
 
+type MVNodeRenderParams = {
+  if?: boolean,
+  show?: boolean,
+}
 export declare type MNodeTemplate = {
   type: string,
   props?: Record<string, WithArray<string | number | boolean>>,
-  children?: MNodeTemplate[],
+  children?: Record<string, MNodeTemplate>,
   slots?: string[],
+} & MVNodeRenderParams
+
+
+export declare type MVNode = {
+  name: string,
+  template?: MNodeTemplate,
+  dom?: HTMLElement,
+  props?: MNodeTemplate['props'],
+  children?: Record<string, MVNode>,
+  slots?: MNodeTemplate['slots']
+}
+
+export declare type CustomElementParams = {
+  name: string,
+  style?: string,
+  template?: MNodeTemplate,
+  props?: MCOPO<any>
 }

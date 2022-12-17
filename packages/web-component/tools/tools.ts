@@ -26,14 +26,19 @@ export const h = (name: string, props?: MNodeTemplate['props']) => {
 };
 
 
-export const templateRender = (template: MNodeTemplate) => {
+export const templateRender = (template: MNodeTemplate): HTMLElement => {
 
   const { type, props, children, slots } = template;
   const dom = h(type, props);
 
   if (children) {
-    children.forEach(child => {
-      dom.appendChild(templateRender(child));
+    Object.keys(children).forEach(k => {
+      const opts = children[k];
+      if (opts.if === false) {return;}
+      const cDom = templateRender(opts);
+      if (cDom) {
+        dom.appendChild(cDom);
+      }
     });
   }
 
@@ -44,6 +49,5 @@ export const templateRender = (template: MNodeTemplate) => {
       dom.appendChild(slotDom);
     });
   }
-
   return dom;
 };

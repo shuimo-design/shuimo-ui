@@ -11,6 +11,9 @@ import { MPropOptionsBase } from '@shuimo-design/core/types/template/props';
 export const attributeTransform = (type: MPropOptionsBase['type'], value: string) => {
 
   if (type.prototype === Boolean.prototype) {
+    if (value === null || value === undefined) {
+      return value;
+    }
     return value === 'true';
   }
   if (type.prototype === Number.prototype) {

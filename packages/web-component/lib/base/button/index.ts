@@ -31,31 +31,48 @@ export default class MButton extends ShuimoElement implements ButtonProps {
   }
 
 
-  update(shadow?: ShadowRoot) {
-    if (!shadow) {return;}
-    shadow.children[0].classList.remove('m-button-default');
-    shadow.children[0].classList.remove('m-button-confirm');
-    shadow.children[0].classList.remove('m-button-error');
-    shadow.children[0].classList.add(`m-button-${this.type ?? 'default'}`);
+  beforeUpdate() {
 
-    if (this.disabled) {
-      shadow?.children[0].classList.add('m-button-disabled');
-    } else {
-      shadow?.children[0].classList.remove('m-button-disabled');
-    }
+
+    // if (!shadow) {return;}
+    // shadow.children[0].classList.remove('m-button-default');
+    // shadow.children[0].classList.remove('m-button-confirm');
+    // shadow.children[0].classList.remove('m-button-error');
+    // shadow.children[0].classList.add(`m-button-${this.type ?? 'default'}`);
+    //
+    // if (this.disabled) {
+    //   shadow?.children[0].classList.add('m-button-disabled');
+    // } else {
+    //   shadow?.children[0].classList.remove('m-button-disabled');
+    // }
   }
 
-  render(dom: HTMLElement): Node | undefined {
+  beforeMount() {
+    const template = this.VNode.template;
+    if (!template) {return;}
+    const { props: templateProps } = template;
+    if (!templateProps) {return;}
 
-    if (!dom) return;
-    dom.classList.add('m-button-default');
-    dom.classList.add(`m-button-${this.type}`);
+    // todo 不太好处理下面的那个清除样式，所以先写死
 
+    // if (typeof templateProps.class === 'string') {
+    //   templateProps.class = [templateProps.class];
+    // }
 
-    if (this.disabled) {
-      dom?.classList.add('m-button-disabled');
+    templateProps.class = ['m-button'];
+
+    templateProps.class.push('m-button-default');
+    if (this.type) {
+      templateProps.class.push(`m-button-${this.type}`);
     }
 
-    return dom;
+    if (this.disabled) {
+      templateProps.disabled = this.disabled;
+    }else{
+      delete templateProps.disabled;
+    }
+
+    templateProps.class = [...new Set(templateProps.class)];
+    this.VNode.template!.props = templateProps;
   }
 }
