@@ -16,18 +16,6 @@ export default class ShuimoElement extends HTMLElement {
 
   }
 
-  defineProperty(name: string, from: string) {
-    Object.defineProperty(this, name, {
-      get() {
-        return this.getAttribute(name);
-      },
-      set(value: any) {
-        this.setAttribute(name, value);
-      }
-    });
-  }
-
-
   public render(dom?: HTMLElement): Node | undefined {
     return;
   }
