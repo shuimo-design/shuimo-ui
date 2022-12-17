@@ -10,10 +10,10 @@
 
 import useButton from './base/button/useButton';
 import useBorder from './template/border/useBorder';
-import { LineSvgFilter } from './common/LineSvgFilter';
+import useRicePaper from './template/ricePaper/useRicePaper';
 
 export {
   useButton,
   useBorder,
-  LineSvgFilter
+  useRicePaper
 };
