@@ -8,6 +8,9 @@
  */
 import { type MNodeTemplate } from '@shuimo-design/core/types';
 
+export const deepClone = (obj: any) => {
+  return JSON.parse(JSON.stringify(obj));
+}
 
 export const h = (name: string, props?: MNodeTemplate['props']) => {
   const dom = document.createElement(name);

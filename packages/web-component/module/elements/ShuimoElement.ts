@@ -34,7 +34,6 @@ export default class ShuimoElement extends HTMLElement {
     }
   }
 
-
   public beforeMount() {}
 
   public mount() {}
@@ -50,7 +49,5 @@ export default class ShuimoElement extends HTMLElement {
 
   public render() {}
 
-  public afterRender() {
-
-  }
+  public afterRender() {}
 }
