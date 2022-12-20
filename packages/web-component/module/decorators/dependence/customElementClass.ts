@@ -44,7 +44,11 @@ export default function customElementClass(target: typeof ShuimoElement, params:
         this.VNode.template = template;
       }
       super.beforeRender();
-      this.VNode.dom = templateRender(this.VNode.template!);
+      if (!this.VNode.dom) {
+        this.VNode.dom = templateRender(this.VNode.template!);
+      } else {
+        this.patch();
+      }
     }
 
     private mountTemplate: MNodeTemplate | undefined = undefined;
@@ -68,41 +72,37 @@ export default function customElementClass(target: typeof ShuimoElement, params:
     }
 
     patch() {
-      this.render();
-      if (!this.mountTemplate || !this.VNode.template) {return;}
-      const res = patch(this.mountTemplate, this.VNode.template);
-
-
-      if (Object.keys(res).length > 0) {
-        if (res.props) {
-          if (res.props.update) {
-            const updateProps = res.props.update;
-            Object.keys(updateProps).forEach(key => {
-              if (key === 'class') {
-                this.shadow.children[0]?.setAttribute('class', typeof updateProps.class === 'string' ?
-                  updateProps.class : updateProps.class.join(' '));
-                return;
-              }
-              this.shadow.children[0].setAttribute(key, updateProps![key]);
-            });
-          }
-
-          if (res.props.remove) {
-            const removeProps = res.props.remove;
-            removeProps.forEach(key => {
-              this.shadow.children[0].removeAttribute(key);
-            });
-          }
-        }
-      }
-      this.mountTemplate = deepClone(this.VNode.template);
+      // if (!this.mountTemplate || !this.VNode.template) {return;}
+      // const res = patch(this.mountTemplate, this.VNode.template);
+      // if (Object.keys(res).length > 0) {
+      //   if (res.props) {
+      //     if (res.props.update) {
+      //       const updateProps = res.props.update;
+      //       Object.keys(updateProps).forEach(key => {
+      //         if (key === 'class') {
+      //           this.VNode.dom!.setAttribute('class', typeof updateProps.class === 'string' ?
+      //             updateProps.class : updateProps.class.join(' '));
+      //           return;
+      //         }
+      //         this.VNode.dom!.setAttribute(key, updateProps![key]);
+      //       });
+      //     }
+      //
+      //     if (res.props.remove) {
+      //       const removeProps = res.props.remove;
+      //       removeProps.forEach(key => {
+      //         this.VNode.dom!.removeAttribute(key);
+      //       });
+      //     }
+      //   }
+      //   if (res.children) {
+      //   }
+      // }
+      // this.mountTemplate = deepClone(this.VNode.template);
     }
 
     update() {
-      // todo: regardless of the patch, redraw directly
-      this.patch();
-      // this.mount();
-
+      this.render();
       super.update();
     }
   }

@@ -7,18 +7,19 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import ShuimoElement from '../../../module/elements/ShuimoElement';
-import { customElement } from '../../../module';
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
+import { createMElement } from '../../../m-element';
+import MElement from '../../../m-element/lib/MElement';
 
 const { template, props, style } = useButton();
-@customElement({
+@createMElement({
   name: 'm-button',
   style,
   template,
   props
 })
-export default class MButton extends ShuimoElement implements ButtonProps {
+export default class MButton extends MElement implements ButtonProps {
 
   public disabled: boolean = false;
   public link: boolean = false;
@@ -28,6 +29,10 @@ export default class MButton extends ShuimoElement implements ButtonProps {
 
   constructor() {
     super();
+  }
+
+  afterInit(){
+    console.log('button after init');
   }
 
 
@@ -47,7 +52,7 @@ export default class MButton extends ShuimoElement implements ButtonProps {
     // }
   }
 
-  beforeMount() {
+  beforeRender() {
     const template = this.VNode.template;
     if (!template) {return;}
     const { props: templateProps } = template;
@@ -68,7 +73,7 @@ export default class MButton extends ShuimoElement implements ButtonProps {
 
     if (this.disabled) {
       templateProps.disabled = this.disabled;
-    }else{
+    } else {
       delete templateProps.disabled;
     }
 
