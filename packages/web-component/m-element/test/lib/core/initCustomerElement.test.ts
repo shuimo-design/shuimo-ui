@@ -29,38 +29,45 @@ describe('initCustomerElement', () => {
     return document.createElement('m-test') as MElement & T;
   };
 
-
   test('should be defined', () => {
     const element = createElement(TestElement);
     expect(element instanceof HTMLElement).toBeTruthy();
     expect(element.outerHTML).toBe('<m-test></m-test>');
   });
 
-  test('init props(string)', () => {
-    const element = createElement<ElementAttribute>(TestElementWithProps, {
-      testAttribute: {
-        type: String,
-        default: 'hi'
-      }
+  describe('props', () => {
+    test('init props', () => {
+      const element = createElement<ElementAttribute>(TestElementWithProps, {
+        testAttribute: {
+          type: String,
+          default: 'hi'
+        }
+      });
+      /**
+       * just constructor, attribute not set yet.
+       * in browser, when use web component in pure html environment, attribute will be set.
+       * but in some framework, like vue, element will be created by document.createElement, like this test.
+       */
+      expect(element.testAttribute).toBe(null);
     });
 
-    expect(element.testAttribute).toBe('hi');
+    test('set props', () => {
+      const element = createElement<ElementAttribute>(TestElement, { testAttribute: { type: String, default: 'hi' } });
+      element.setAttribute('testAttribute', 'hello');
+      expect(element.testAttribute).toMatch('hello');
+      expect(element.outerHTML).toBe('<m-test testattribute="hello"></m-test>');
+    });
   });
-  test('init props', () => {
-    const element = createElement<ElementAttribute>(TestElementWithProps, {
-      testAttribute: {
-        type: String,
-        default: 'hi'
-      }
+
+
+  describe('shadow', () => {
+
+    test('auto add shadow root', () => {
+      const element = createElement(TestElement);
+      expect(element.shadowRoot).toBeDefined();
     });
 
-    expect(element.testAttribute).toBe('hi');
-  });
 
-  test('set props', () => {
-    const element = createElement<ElementAttribute>(TestElement, { testAttribute: { type: String, default: 'hi' } });
-    element.setAttribute('testAttribute', 'hello');
-    expect(element.testAttribute).toMatch('hello');
   });
 
 });

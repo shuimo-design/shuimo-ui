@@ -6,7 +6,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import ShuimoElement from '../../../module/elements/ShuimoElement';
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
 import { createMElement } from '../../../m-element';
@@ -29,28 +28,25 @@ export default class MButton extends MElement implements ButtonProps {
 
   constructor() {
     super();
+    console.log(this.getAttribute('type'));
   }
 
   afterInit(){
-    console.log('button after init');
+    console.log('%c button after init','color:#861717');
   }
 
+  afterMount() {
+    console.log('%c button after mount','color:#E8B004');
+  }
 
   beforeUpdate() {
-
-
-    // if (!shadow) {return;}
-    // shadow.children[0].classList.remove('m-button-default');
-    // shadow.children[0].classList.remove('m-button-confirm');
-    // shadow.children[0].classList.remove('m-button-error');
-    // shadow.children[0].classList.add(`m-button-${this.type ?? 'default'}`);
-    //
-    // if (this.disabled) {
-    //   shadow?.children[0].classList.add('m-button-disabled');
-    // } else {
-    //   shadow?.children[0].classList.remove('m-button-disabled');
-    // }
+    console.log('%c button before update','color:#4A9992');
   }
+
+  afterUpdate() {
+    console.log(this.getAttribute('type'));
+  }
+
 
   beforeRender() {
     const template = this.VNode.template;

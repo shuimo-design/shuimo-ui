@@ -22,4 +22,8 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
 
   public afterMount() {}
 
+  public beforeUpdate() {}
+
+  public afterUpdate() {}
+
 }

@@ -8,7 +8,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import MElement from '@/lib/MElement';
+import MElement from '../../lib/MElement';
 
 describe('MElement', () => {
   it('should be defined', () => {

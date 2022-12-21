@@ -1,7 +1,7 @@
 <template>
   <m-rice-paper class="main-paper" cold="false" :mountain="mountain">
     <div class="base">
-      <m-button @click="togglePaper">设置paper</m-button>
+      <m-button @click="togglePaper" type="primary">设置paper</m-button>
       <h1>这里是playground</h1>
       <Playground/>
     </div>

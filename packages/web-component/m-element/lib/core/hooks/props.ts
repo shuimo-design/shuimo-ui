@@ -40,10 +40,11 @@ export const initElementProps = function (
       enumerable: true,
       configurable: true,
       get() {
-        console.log(this.getAttribute(key));
+        console.warn('get:', key, this.getAttribute(key));
         return attributeTransform(props[key].type, this.getAttribute(key));
       },
       set(v: any) {
+        console.warn('set:', key, v);
         this.setAttribute(key, v);
         this.update();
       }

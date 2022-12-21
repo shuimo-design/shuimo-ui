@@ -15,11 +15,14 @@ export default function initCustomerElement(target: typeof MElement, options: ME
   const { name, style, template, props } = options;
 
   class CustomMElement extends target {
+
+    shadow: ShadowRoot = this.attachShadow({ mode: 'open' });
+
     constructor() {
       super();
-      super.beforeInit();
-      initElementProps.call(this, props);
-      super.afterInit();
+      this.init();
+      this.mount();
+      this.initStyle();
     }
 
     static get observedAttributes() {
@@ -27,19 +30,33 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       return Object.keys(props);
     }
 
-    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-      console.log(name, oldValue, newValue);
-      // super.attributeChangedCallback(name, oldValue, newValue);
+    init() {
+      super.beforeInit();
+      initElementProps.call(this, props);
+      super.afterInit();
+    }
+
+    initStyle() {
+      if (style) {
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = style;
+        this.shadow.appendChild(styleTag);
+      }
+    }
+
+    private callMount() {
+      if (!this.shadow) {return;}
     }
 
     mount() {
       super.beforeMount();
-
+      this.callMount();
       super.afterMount();
     }
 
-    update(){
-      console.log('update',this.getAttribute('type'));
+    update() {
+      super.beforeUpdate();
+      super.afterUpdate();
     }
   }
 
