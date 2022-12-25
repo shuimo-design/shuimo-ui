@@ -7,11 +7,18 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
+import { isEqual } from './tools';
+
+
+const compareObject = (oldObj: Record<string, any>, newObj: Record<string, any>) => {
+  // deep compare object
+
+};
 
 type MProps = MNodeTemplate['props'];
 export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
   const res: PatchMVNodeTemplate = {};
-  if (oldNode === newNode) {return res;}
+  if (isEqual(oldNode, newNode)) {return res;}
   // different type
   if (oldNode.type !== newNode.type) {
     Object.assign(res, newNode);
@@ -20,7 +27,7 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
 
   // same type
   // different props
-  if (oldNode.props !== newNode.props) { // this is always true
+  if (!isEqual(oldNode.props, newNode.props)) {
     res.props = patchProps(oldNode.props, newNode.props);
   }
 
@@ -32,13 +39,19 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
     res.children = {};
     const newChildren = newNode.children;
     for (const key in newChildren) {
-      if (oldChildren[key] === newChildren[key]) {
+      if (!isEqual(oldChildren[key], newChildren[key])) {
         res.children[key] = patch(oldChildren[key], newChildren[key]);
-        continue;
       }
-      res.children[key] = newChildren[key];
     }
   }
+
+  if(oldNode.if !== newNode.if) {
+    res.if = newNode.if;
+  }
+  if(oldNode.show !== newNode.show) {
+    res.show = newNode.show;
+  }
+
   return res;
 };
 

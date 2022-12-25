@@ -8,10 +8,6 @@
  */
 import { MNodeTemplate } from '../../../types/template/template';
 
-export const deepClone = (obj: any) => {
-  return JSON.parse(JSON.stringify(obj));
-}
-
 export const h = (name: string, props?: MNodeTemplate['props']) => {
   const dom = document.createElement(name);
   if (props) {
@@ -23,33 +19,6 @@ export const h = (name: string, props?: MNodeTemplate['props']) => {
 
 
       dom.setAttribute(key, props[key] as string);
-    });
-  }
-  return dom;
-};
-
-
-export const templateRender = (template: MNodeTemplate): HTMLElement => {
-
-  const { type, props, children, slots } = template;
-  const dom = h(type, props);
-
-  if (children) {
-    Object.keys(children).forEach(k => {
-      const opts = children[k];
-      if (opts.if === false) {return;}
-      const cDom = templateRender(opts);
-      if (cDom) {
-        dom.appendChild(cDom);
-      }
-    });
-  }
-
-  // todo 看看咋写好
-  if (slots) {
-    slots.forEach(slot => {
-      const slotDom = document.createElement('slot');
-      dom.appendChild(slotDom);
     });
   }
   return dom;

@@ -9,8 +9,9 @@
 import MElement from '../MElement';
 import { MElementOptions, VNodeType } from '../../types/template';
 import { initElementProps } from './hooks/props';
-import { deepClone, templateRender } from './hooks/render';
+import { h } from './hooks/render';
 import { patch } from './hooks/patch';
+import { MNodeTemplate, PatchMVNodeTemplate } from '../../types/template/template';
 
 
 export default function initCustomerElement(target: typeof MElement, options: MElementOptions) {
@@ -19,6 +20,8 @@ export default function initCustomerElement(target: typeof MElement, options: ME
   class CustomMElement extends target {
 
     shadow: ShadowRoot = this.attachShadow({ mode: 'open' });
+
+    currentTemplate: MNodeTemplate | null = null;
 
     constructor() {
       super();
@@ -43,6 +46,9 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       initElementProps.call(this, props);
       this.VNode.options = options;
       this.VNode.name = name;
+      if (template) {
+        this.template = template;
+      }
       super.afterInit();
     }
 
@@ -59,34 +65,53 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       this.render();
     }
 
-    private setCurrent(current: NonNullable<VNodeType['current']>) {
-      if (!this.VNode.current) {
-        this.VNode.current = {};
-      }
-      this.VNode.current.template = deepClone(current.template);
+    private setCurrent(current: { template?: MNodeTemplate, dom?: HTMLElement }) {
+      if (!current.template) {return;}
+      this.currentTemplate = structuredClone(current.template);
       if (current.dom) {
-        this.VNode.current.dom = current.dom;
+        this.refMap.set(name, current.dom);
       }
     }
 
-    private callRender() {
-      if (!this.VNode.options || !this.VNode.options.template) {
-        console.warn('template is empty.');
-        return;
-      }
-      if (!this.VNode.current || !this.VNode.current.template) {
-        // first render
-        const dom = templateRender(this.VNode.options.template);
-        this.setCurrent({ template, dom });
-        this.shadow.insertBefore(dom, this.shadow.firstChild);
-        return;
+
+    private templateRender(template: MNodeTemplate): HTMLElement {
+
+      const { type, props, children, slots } = template;
+      const dom = h(type, props);
+
+      if (children) {
+        Object.keys(children).forEach(k => {
+          const opts = children[k];
+          if (opts.if === false) {return;}
+          const cDom = this.templateRender(opts);
+          this.refMap.set(k, cDom);
+          if (cDom) {
+            dom.appendChild(cDom);
+          }
+        });
       }
 
-      // update
-      const res = patch(this.VNode.current.template, this.VNode.options.template);
-      console.log(res);
+      // todo 看看咋写好
+      if (slots) {
+        slots.forEach(slot => {
+          const slotDom = document.createElement('slot');
+          dom.appendChild(slotDom);
+        });
+      }
+      return dom;
+    };
+
+    private renderPatch(dom: HTMLElement, res: PatchMVNodeTemplate, domName: string) {
+      if (res.children) {
+        Object.keys(res.children).forEach((k, i) => {
+          const d = this.refMap.get(k);
+          const needInsertDom = this.renderPatch(d!, res.children![k], k);
+          if (needInsertDom) {
+            dom.insertBefore(needInsertDom, dom.childNodes[i]);
+          }
+        });
+      }
       if (res.props) {
-        const { dom } = this.VNode.current;
         if (!dom) {
           // todo do something here.
           return;
@@ -102,6 +127,32 @@ export default function initCustomerElement(target: typeof MElement, options: ME
           });
         }
       }
+
+      if (res.if !== undefined) {
+        if (res.if) {
+          return this.refMap.get(domName);
+        }
+        dom.remove();
+      }
+    }
+
+    private callRender() {
+      if (!this.template) {
+        console.warn('template is empty.');
+        return;
+      }
+      if (!this.currentTemplate) {
+        // first render
+        const dom = this.templateRender(this.template);
+        this.setCurrent({ template, dom });
+        this.shadow.insertBefore(dom, this.shadow.firstChild);
+        return;
+      }
+
+      // update
+      const res = patch(this.currentTemplate, this.template);
+      const dom = this.refMap.get(name)!;
+      this.renderPatch(dom, res, name);
 
       // finally set new template
       this.setCurrent({ template });

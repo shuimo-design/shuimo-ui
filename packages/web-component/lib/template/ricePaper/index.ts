@@ -29,9 +29,9 @@ export default class MRicePaper extends MElement implements RicePaperProps {
   }
 
   beforeRender() {
-    if (this.VNode.options.template && this.VNode.options.template.children) {
-      this.VNode.options.template.children.mountain.if = this.mountain;
-      this.VNode.options.template.children.crane.if = this.crane;
+    if (this.template && this.template.children) {
+      this.template.children.mountain.if = this.mountain;
+      this.template.children.crane.if = this.crane;
     }
   }
 }

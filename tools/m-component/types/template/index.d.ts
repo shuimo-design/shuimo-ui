@@ -12,16 +12,17 @@ import { MNodeTemplate } from './template';
 
 export declare type VNodeType = {
   name?: string,
-  options: MElementOptions,
-  current?: {
-    template?: MNodeTemplate,
-    dom?: HTMLElement,
-  }
+  options: MElementOptions
 }
 
 
 export interface IMElement extends HTMLElement {
   VNode: VNodeType;
+  /**
+   * @description current template
+   */
+  template: MNodeTemplate;
+  refMap: Map<string, HTMLElement>;
 
   /**
    * @description before element constructor called

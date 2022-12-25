@@ -7,10 +7,15 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { IMElement, VNodeType } from '../types/template';
+import { MNodeTemplate } from '../types/template/template';
 
 
 export default class MElement<T = any> extends HTMLElement implements IMElement {
   public VNode: VNodeType = { options: { name: '' } };
+
+  public template: MNodeTemplate = { type: '' };
+
+  public refMap: Map<string, HTMLElement> = new Map();
 
   constructor() {super();}
 
