@@ -5,6 +5,7 @@
   "main": "./index.ts",
   "devDependencies": {
     "@shuimo-design/core": "*",
+    "melement": "*",
     "typescript": "^4.9.4"
   }
 }

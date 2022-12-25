@@ -6,20 +6,19 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MVNode, useRicePaper } from '@shuimo-design/core';
-import { customElement } from '../../../module';
+import { useRicePaper } from '@shuimo-design/core';
 import { RicePaperProps } from '@shuimo-design/core/lib/template/ricePaper';
-import ShuimoElement from '../../../module/elements/ShuimoElement';
+import { createMElement,MElement } from 'melement';
 
 const { template, props, style } = useRicePaper();
 
-@customElement({
+@createMElement({
   name: 'm-rice-paper',
   style,
   template,
   props
 })
-export default class MRicePaper extends ShuimoElement implements RicePaperProps {
+export default class MRicePaper extends MElement implements RicePaperProps {
 
   public cold: boolean = true;
   public mountain: boolean = true;
@@ -30,9 +29,9 @@ export default class MRicePaper extends ShuimoElement implements RicePaperProps 
   }
 
   beforeRender() {
-    if (this.VNode.template && this.VNode.template.children) {
-      this.VNode.template.children.mountain.if = this.mountain;
-      this.VNode.template.children.crane.if = this.crane;
+    if (this.VNode.options.template && this.VNode.options.template.children) {
+      this.VNode.options.template.children.mountain.if = this.mountain;
+      this.VNode.options.template.children.crane.if = this.crane;
     }
   }
 }

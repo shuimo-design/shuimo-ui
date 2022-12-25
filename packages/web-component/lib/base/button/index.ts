@@ -8,8 +8,7 @@
  */
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
-import { createMElement } from '../../../m-element';
-import MElement from '../../../m-element/lib/MElement';
+import { createMElement, MElement } from 'melement';
 
 const { template, props, style } = useButton();
 @createMElement({
@@ -28,52 +27,25 @@ export default class MButton extends MElement implements ButtonProps {
 
   constructor() {
     super();
-    console.log(this.getAttribute('type'));
   }
 
   afterInit(){
-    console.log('%c button after init','color:#861717');
+    // console.log('%c button after init','color:#861717');
   }
 
   afterMount() {
-    console.log('%c button after mount','color:#E8B004');
+    // console.log('%c button after mount','color:#E8B004');
   }
 
   beforeUpdate() {
-    console.log('%c button before update','color:#4A9992');
+    // console.log('%c button before update','color:#4A9992');
   }
 
   afterUpdate() {
-    console.log(this.getAttribute('type'));
   }
 
 
   beforeRender() {
-    const template = this.VNode.template;
-    if (!template) {return;}
-    const { props: templateProps } = template;
-    if (!templateProps) {return;}
-
-    // todo 不太好处理下面的那个清除样式，所以先写死
-
-    // if (typeof templateProps.class === 'string') {
-    //   templateProps.class = [templateProps.class];
-    // }
-
-    templateProps.class = ['m-button'];
-
-    templateProps.class.push('m-button-default');
-    if (this.type) {
-      templateProps.class.push(`m-button-${this.type}`);
-    }
-
-    if (this.disabled) {
-      templateProps.disabled = this.disabled;
-    } else {
-      delete templateProps.disabled;
-    }
-
-    templateProps.class = [...new Set(templateProps.class)];
-    this.VNode.template!.props = templateProps;
+    this.VNode.options.template!.props!.class = `m-button m-button-${this.type??'default'}`;
   }
 }

@@ -6,19 +6,23 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from '../template/props';
-import { MNodeTemplate } from '../template/template';
+import { MCOPO } from './props';
+import { MNodeTemplate } from './template';
 
 
 export declare type VNodeType = {
   name?: string,
-  options?: MNodeTemplate,
-  dom?: HTMLElement,
+  options: MElementOptions,
+  current?: {
+    template?: MNodeTemplate,
+    dom?: HTMLElement,
+  }
 }
 
 
 export interface IMElement extends HTMLElement {
   VNode: VNodeType;
+
   /**
    * @description before element constructor called
    */

@@ -8,19 +8,18 @@
  */
 
 
-import { customElement } from '../../../module';
-import ShuimoElement from '../../../module/elements/ShuimoElement';
 import { useBorder } from '@shuimo-design/core';
 import style from '@shuimo-design/core/lib/template/border/border.css?inline';
+import { createMElement, MElement } from 'melement';
 
 const { template } = useBorder();
 
-@customElement({
+@createMElement({
   name: 'm-border',
   style,
   template
 })
-export default class MBorder extends ShuimoElement {
+export default class MBorder extends MElement {
   constructor() {super();}
 
   render(dom?: HTMLElement) {

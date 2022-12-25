@@ -10,13 +10,17 @@ import { IMElement, VNodeType } from '../types/template';
 
 
 export default class MElement<T = any> extends HTMLElement implements IMElement {
-  public VNode: VNodeType = {};
+  public VNode: VNodeType = { options: { name: '' } };
 
   constructor() {super();}
 
   public beforeInit() {}
 
   public afterInit() {}
+
+  public beforeRender() {}
+
+  public afterRender() {}
 
   public beforeMount() {}
 

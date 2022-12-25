@@ -6,8 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '@shuimo-design/core';
-import { PatchMVNodeTemplate } from '../types/types';
+import { MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
 
 type MProps = MNodeTemplate['props'];
 export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {

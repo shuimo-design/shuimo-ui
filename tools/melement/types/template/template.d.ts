@@ -6,9 +6,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from './props';
-
-
 type MVNodeRenderParams = {
   if?: boolean,
   show?: boolean,
@@ -28,4 +25,12 @@ export declare type MVNode = {
   props?: MNodeTemplate['props'],
   children?: Record<string, MVNode>,
   slots?: MNodeTemplate['slots']
+}
+
+type PatchMVNodeTemplate = Partial<Omit<MNodeTemplate, 'children' | 'props'>> & {
+  props?: {
+    update?: MNodeTemplate['props'],
+    remove?: string[]
+  },
+  children?: Record<string, PatchMVNodeTemplate>,
 }

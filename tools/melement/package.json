@@ -1,9 +1,9 @@
 {
-  "name": "m-element",
-  "description": "Easy to create custom elements",
+  "name": "melement",
+  "description": "Easy to create custom elements.",
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.0-1",
   "packageManager": "pnpm@7.17.1",
   "files": [
     "dist",

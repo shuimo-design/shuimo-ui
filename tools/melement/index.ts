@@ -14,7 +14,16 @@ import { createMElement } from './lib/core/createMElement';
 
 
 @createMElement({
-  name: 'w-button'
+  name: 'w-button',
+  template: {
+    type: 'button',
+    props: { class: 'm-button' },
+    slots: ['default']
+  },
+  props: {
+    type: { type: String, default: 'primary' }
+  },
+  style: ``
 })
 class MButton extends MElement {
   public type: string = 'default';

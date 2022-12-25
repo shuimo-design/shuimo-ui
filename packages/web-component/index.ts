@@ -11,8 +11,6 @@ import Button from './lib/base/button';
 import Border from './lib/template/border';
 import RicePaper from './lib/template/ricePaper';
 
-export * from './module';
-
 export {
   // Border,
   Button,
