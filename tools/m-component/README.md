@@ -1,4 +1,4 @@
-# Melement
+# moelement
 
 A simple way to create web components.
 

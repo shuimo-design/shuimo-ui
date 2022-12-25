@@ -8,7 +8,7 @@
  */
 import { useButton } from '@shuimo-design/core';
 import { ButtonProps } from '@shuimo-design/core/lib/base/button';
-import { createMElement, MElement } from 'melement';
+import { createMElement, MElement } from 'moelement';
 
 const { template, props, style } = useButton();
 @createMElement({
@@ -24,26 +24,9 @@ export default class MButton extends MElement implements ButtonProps {
   public text: string | undefined;
   public type: string = 'default';
 
-
   constructor() {
     super();
   }
-
-  afterInit(){
-    // console.log('%c button after init','color:#861717');
-  }
-
-  afterMount() {
-    // console.log('%c button after mount','color:#E8B004');
-  }
-
-  beforeUpdate() {
-    // console.log('%c button before update','color:#4A9992');
-  }
-
-  afterUpdate() {
-  }
-
 
   beforeRender() {
     this.VNode.options.template!.props!.class = `m-button m-button-${this.type??'default'}`;

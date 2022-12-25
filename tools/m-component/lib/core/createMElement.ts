@@ -1,5 +1,5 @@
 /**
- * @description create m-element decorator
+ * @description create moelement decorator
  * @author 阿怪
  * @date 2022/12/20 15:20
  * @version v1.0.0

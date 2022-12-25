@@ -10,7 +10,7 @@
 
 import { useBorder } from '@shuimo-design/core';
 import style from '@shuimo-design/core/lib/template/border/border.css?inline';
-import { createMElement, MElement } from 'melement';
+import { createMElement, MElement } from 'moelement';
 
 const { template } = useBorder();
 

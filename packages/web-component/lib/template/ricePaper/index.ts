@@ -8,7 +8,7 @@
  */
 import { useRicePaper } from '@shuimo-design/core';
 import { RicePaperProps } from '@shuimo-design/core/lib/template/ricePaper';
-import { createMElement,MElement } from 'melement';
+import { createMElement,MElement } from 'moelement';
 
 const { template, props, style } = useRicePaper();
 
