@@ -14,8 +14,12 @@ export default ({
   plugins: [typescript()],
   output: [{
     sourcemap: true,
-    file: 'dist/index.js',
+    file: 'dist/index.mjs',
     format: 'esm',
+  },{
+    sourcemap: true,
+    file: 'dist/index.cjs',
+    format: 'cjs',
   }],
   external: ['typescript'],
 });

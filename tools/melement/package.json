@@ -4,6 +4,14 @@
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "license": "MIT",
   "version": "0.0.0-1",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "packageManager": "pnpm@7.17.1",
   "files": [
     "dist",
@@ -11,7 +19,7 @@
     "types"
   ],
   "scripts": {
-    "pre-dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "vitest"
   },
   "devDependencies": {
