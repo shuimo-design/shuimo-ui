@@ -33,7 +33,6 @@
     "test:update": "vitest -u",
     "test:unit-gui": "vitest --config vite.config.ts --ui",
     "coverage": "vitest --coverage",
-    "prepare": "jhlint install",
     "lint": "jhlint"
   },
   "peerDependencies": {
