@@ -1,7 +1,6 @@
 <template>
-  <m-rice-paper class="main-paper" cold="false" :mountain="mountain">
+  <m-rice-paper class="main-paper">
     <div class="base">
-      <m-button @click="togglePaper" type="primary">设置paper</m-button>
       <h1>这里是playground</h1>
       <Playground/>
     </div>
@@ -17,15 +16,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
-
 import Playground from './Playground.vue';
-import { ref } from 'vue';
-
-const mountain = ref(false);
-const togglePaper = () => {
-  mountain.value = !mountain.value;
-};
 
 </script>
 

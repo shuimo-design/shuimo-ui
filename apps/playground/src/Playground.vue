@@ -1,8 +1,3 @@
-<template>
-  <m-button :disabled="disabled" :type="type" @click="toggleType">按钮</m-button>
-  <m-button @click="toggleDisabled">按钮2</m-button>
-</template>
-
 <script setup lang="ts">
 /**
  * @description
@@ -14,21 +9,35 @@
  */
 import { ref } from 'vue';
 
-const disabled = ref(false);
-const type = ref('confirm');
-const toggleType = () => {
-  type.value = type.value === 'confirm' ? 'error' : 'confirm';
-};
-const toggleDisabled = () => {
-  disabled.value = !disabled.value;
+const onFocusEvent = (value: any) => {
+  console.log(value);
 };
 
+const value = ref('');
+
 </script>
+
+<template>
+
+  <span>{{ value }}</span>
+  <m-input :value="value" placeholder="请输入..." @focus="onFocusEvent"/>
+  <input type="text" :value="value">
+  <m-border>
+    <div class="test"></div>
+  </m-border>
+
+</template>
 
 <style scoped>
 
 m-button {
   margin: 4px;
+}
+
+.test{
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
 
 </style>
