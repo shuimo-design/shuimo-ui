@@ -8,14 +8,22 @@
  */
 import { MCOPO } from './props';
 
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};
 
 type MVNodeRenderParams = {
   if?: boolean,
   show?: boolean,
 }
+
+interface ElementEventListener {
+  (event: HTMLElementEvent<any>): void;
+}
+
 export declare type MNodeTemplate = {
   type: string,
-  props?: Record<string, WithArray<string | number | boolean>>,
+  props?: Record<string, WithArray<string | number | boolean> | ElementEventListener>,
   children?: Record<string, MNodeTemplate>,
   slots?: string[],
 } & MVNodeRenderParams
