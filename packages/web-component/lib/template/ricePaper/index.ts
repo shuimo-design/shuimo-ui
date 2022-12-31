@@ -29,7 +29,7 @@ export default class MRicePaper extends MElement implements RicePaperProps {
   }
 
   beforeRender() {
-    if (this.template && this.template.children) {
+    if (this.template.children) {
       this.template.children.mountain.if = this.mountain;
       this.template.children.crane.if = this.crane;
     }
