@@ -7,11 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import MElement from '../MElement';
-import { MElementOptions, VNodeType } from '../../types/template';
+import { MElementOptions } from '../../types/template';
 import { initElementProps } from './hooks/props';
 import { h } from './hooks/render';
 import { patch } from './hooks/patch';
 import { MNodeTemplate, PatchMVNodeTemplate } from '../../types/template/template';
+import { cloneDeep } from 'lodash';
 
 
 export default function initCustomerElement(target: typeof MElement, options: MElementOptions) {
@@ -67,7 +68,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
 
     private setCurrent(current: { template?: MNodeTemplate, dom?: HTMLElement }) {
       if (!current.template) {return;}
-      this.currentTemplate = structuredClone(current.template);
+      this.currentTemplate = cloneDeep(current.template);
       if (current.dom) {
         this.refMap.set(name, current.dom);
       }
@@ -141,6 +142,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
         console.warn('template is empty.');
         return;
       }
+      this.initTemplate(this);
       if (!this.currentTemplate) {
         // first render
         const dom = this.templateRender(this.template);

@@ -25,6 +25,12 @@ export interface IMElement extends HTMLElement {
   refMap: Map<string, HTMLElement>;
 
   /**
+   * @description init template
+   * @param t this instance
+   */
+  initTemplate(t: IMElement): void;
+
+  /**
    * @description before element constructor called
    */
   beforeInit(): void;
@@ -34,9 +40,17 @@ export interface IMElement extends HTMLElement {
    */
   afterInit(): void;
 
+  beforeRender(): void;
+
+  afterRender(): void;
+
   beforeMount(): void;
 
   afterMount(): void;
+
+  beforeUpdate(): void;
+
+  afterUpdate(): void;
 }
 
 export declare type MElementOptions = {

@@ -12,7 +12,7 @@ type MVNodeRenderParams = {
 }
 export declare type MNodeTemplate = {
   type: string,
-  props?: Record<string, WithArray<string | number | boolean>>,
+  props?: Record<string, WithArray<string | number | boolean> | EventListenerOrEventListenerObject>,
   children?: Record<string, MNodeTemplate>,
   slots?: string[],
 } & MVNodeRenderParams

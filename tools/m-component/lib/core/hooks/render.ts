@@ -8,12 +8,20 @@
  */
 import { MNodeTemplate } from '../../../types/template/template';
 
+export const firstLetterLower = (str: string) => {
+  return str.replace(/^\S/, (s) => s.toLowerCase());
+}
+
 export const h = (name: string, props?: MNodeTemplate['props']) => {
   const dom = document.createElement(name);
   if (props) {
     Object.keys(props).forEach(key => {
       if (key === 'class' && Array.isArray(props[key])) {
         dom.classList.add(...props[key] as string[]);
+        return;
+      }
+      if(key.startsWith('on')){
+        dom.addEventListener(firstLetterLower(key.slice(2)), props[key] as EventListenerOrEventListenerObject);
         return;
       }
 
