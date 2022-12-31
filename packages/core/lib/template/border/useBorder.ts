@@ -6,11 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { MNodeTemplate } from '../../../types';
+import style from './border.pcss?inline';
 
-export default function useBorder() {
+export default function useBorder(children?: Record<string, MNodeTemplate>) {
+
 
   const baseLineClass = 'm-border-line';
-
 
   enum lineType {
     top = 'top',
@@ -19,18 +21,29 @@ export default function useBorder() {
     bottom = 'bottom'
   }
 
-  const template: NodeTemplate = {
+  const main: MNodeTemplate = { type: 'div', props: { class: 'm-border-main' } };
+  if (!children) {
+    main.slots = ['default'];
+  } else {
+    main.children = children;
+  }
+
+  const template: MNodeTemplate = {
     type: 'div',
     props: { class: 'm-border' },
-    children: [
-      { type: 'div', props: { class: 'm-border-main' }, slots: ['default'] },
-      ...Object.keys(lineType)
-        .map(key => ({ type: 'div', props: { class: [baseLineClass, `m-border-${key}-line`] } }))
-    ]
+    children: {
+      main
+    }
   };
 
+  Object.keys(lineType).forEach(type => {
+    template.children![type] = {
+      type: 'div', props: { class: [baseLineClass, `m-border-${type}-line`] }
+    };
+  });
 
   return {
-    template
+    template,
+    style
   };
 }
