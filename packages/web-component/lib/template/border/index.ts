@@ -9,21 +9,15 @@
 
 
 import { useBorder } from '@shuimo-design/core';
-import style from '@shuimo-design/core/lib/template/border/border.css?inline';
 import { createMElement, MElement } from 'moelement';
 
-const { template } = useBorder();
+const { template, style } = useBorder();
 
 @createMElement({
   name: 'm-border',
   style,
   template
 })
-export default class MBorder extends MElement {
+export default class MBorder extends MElement{
   constructor() {super();}
-
-  render(dom?: HTMLElement) {
-    return dom;
-  }
-
 }

@@ -12,7 +12,7 @@ import Border from './lib/template/border';
 import RicePaper from './lib/template/ricePaper';
 
 export {
-  // Border,
+  Border,
   Button,
   RicePaper
 };
