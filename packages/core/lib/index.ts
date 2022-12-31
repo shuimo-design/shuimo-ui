@@ -9,11 +9,13 @@
 
 
 import useButton from './base/button/useButton';
+import useInput from './base/input/useInput';
 import useBorder from './template/border/useBorder';
 import useRicePaper from './template/ricePaper/useRicePaper';
 
 export {
   useButton,
+  useInput,
   useBorder,
   useRicePaper
 };
