@@ -8,9 +8,11 @@
  */
 import postcssNested from 'postcss-nested';
 import { postcssEach } from './plugins/each';
+import { postcssHost } from './plugins/host';
 
 export const MPostcss = [
   postcssNested(),
   postcssEach(),
-  require('postcss-url')({ url: 'inline' })
+  postcssHost(),
+  require('postcss-url')({ url: 'inline' }),
 ];
