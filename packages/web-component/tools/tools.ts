@@ -6,6 +6,3 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-export const deepClone = (obj: any) => {
-  return JSON.parse(JSON.stringify(obj));
-}

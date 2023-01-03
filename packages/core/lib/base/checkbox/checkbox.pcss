@@ -1,0 +1,31 @@
+.m-checkbox {
+  display: grid;
+  grid-template-areas: 'checkbox slot';
+
+  input {
+    display: none;
+  }
+}
+
+.m-checkbox-checkbox {
+  grid-area: checkbox;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  background: url(./assets/border.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.m-checkbox-slot {
+  grid-area: slot;
+  display: inline-block;
+}
+
+.m-checkbox-checkbox-inner {
+  grid-area: checkbox;
+  margin: 7px 0 0 6px;
+  width: 12px;
+  height: 10px;
+  background: url(./assets/checkbox-checked.png) no-repeat;
+  background-size: 100% 100%;
+}

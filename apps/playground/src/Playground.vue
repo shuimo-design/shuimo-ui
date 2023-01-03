@@ -20,12 +20,8 @@ const value = ref('');
 <template>
 
   <span>{{ value }}</span>
-  <m-input :value="value" placeholder="请输入..." @focus="onFocusEvent"/>
-  <input type="text" :value="value">
-  <m-border>
-    <div class="test"></div>
-  </m-border>
-
+<!--  <m-checkbox>hi</m-checkbox>-->
+  <m-checkbox checked>checked</m-checkbox>
 </template>
 
 <style scoped>
