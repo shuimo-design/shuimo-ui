@@ -33,6 +33,7 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
 
   // different children
   const oldChildren = oldNode.children;
+  // todo fix object no index error
   if (!oldChildren) {
     res.children = newNode.children;
   } else {
@@ -45,10 +46,10 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
     }
   }
 
-  if(oldNode.if !== newNode.if) {
+  if (oldNode.if !== newNode.if) {
     res.if = newNode.if;
   }
-  if(oldNode.show !== newNode.show) {
+  if (oldNode.show !== newNode.show) {
     res.show = newNode.show;
   }
 

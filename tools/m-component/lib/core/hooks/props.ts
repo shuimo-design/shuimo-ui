@@ -18,6 +18,9 @@ export const attributeTransform = (type: MPropOptionsBase['type'], value: string
   }
 
   if (type.prototype === Boolean.prototype) {
+    if (value === '') {
+      return true;
+    }
     if (value === null || value === undefined) {
       return value;
     }

@@ -102,11 +102,11 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       return dom;
     };
 
-    private renderPatch(dom: HTMLElement, res: PatchMVNodeTemplate, domName: string) {
+    private renderPatch(dom: HTMLElement, res: PatchMVNodeTemplate, domName: string, t: MNodeTemplate) {
       if (res.children) {
         Object.keys(res.children).forEach((k, i) => {
           const d = this.refMap.get(k);
-          const needInsertDom = this.renderPatch(d!, res.children![k], k);
+          const needInsertDom = this.renderPatch(d!, res.children![k], k, t.children![k]);
           if (needInsertDom) {
             dom.insertBefore(needInsertDom, dom.childNodes[i]);
           }
@@ -131,9 +131,19 @@ export default function initCustomerElement(target: typeof MElement, options: ME
 
       if (res.if !== undefined) {
         if (res.if) {
-          return this.refMap.get(domName);
+          let refMapDom = this.refMap.get(domName);
+          if (refMapDom) {
+            return refMapDom;
+          }
+          if (t) {
+            refMapDom = this.templateRender(t);
+            this.refMap.set(domName, refMapDom);
+            return refMapDom;
+          }
         }
-        dom.remove();
+        if (dom) {
+          dom.remove();
+        }
       }
     }
 
@@ -154,7 +164,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       // update
       const res = patch(this.currentTemplate, this.template);
       const dom = this.refMap.get(name)!;
-      this.renderPatch(dom, res, name);
+      this.renderPatch(dom, res, name, this.template);
 
       // finally set new template
       this.setCurrent({ template });
