@@ -32,11 +32,13 @@ export default function useInput() {
 
   const initProps = (_props: InputProps, _events: InputEvents) => {
     if (!template.props) {return;}
-    if (_props.value) {template.props.value = _props.value;}
-    if (_props.type) {template.props.type = _props.type;}
-    if (_props.placeholder) {template.props.placeholder = _props.placeholder;}
-    if (_props.readonly) {template.props.readonly = _props.readonly;}
-    if (_props.disabled) {template.props.disabled = _props.disabled;}
+    Object.keys(props).forEach(key => {
+      if (_props.hasOwnProperty(key) &&
+        _props[key as keyof InputProps] !== undefined &&
+        _props[key as keyof InputProps] !== null) {
+        template.props![key] = _props[key as keyof InputProps]!;
+      }
+    });
 
     template.props.onInput = _events.onInput;
   };
