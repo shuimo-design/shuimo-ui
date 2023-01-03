@@ -16,7 +16,9 @@ export const postcssHost: PluginCreator<{}> = opts => {
       const { file } = styles.source!.input;
       if (file && file.includes('.pcss')) {
         styles.walkRules((rule, helper) => {
-          rule.selectors = rule.selectors.map(selector => `:host ${selector}`);
+          if (rule.parent && rule.parent.type === 'root') {
+            rule.selectors = rule.selectors.map(selector => `:host ${selector}`);
+          }
         });
       }
     }
