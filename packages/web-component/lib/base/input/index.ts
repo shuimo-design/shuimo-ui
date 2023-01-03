@@ -8,7 +8,7 @@
  */
 import { HTMLElementEvent, useInput } from '@shuimo-design/core';
 import { InputProps } from '@shuimo-design/core/lib/base/input';
-import { createMElement, MElement } from '../../../../../tools/m-component/index';
+import { createMElement, MElement } from 'moelement';
 
 const { template, props, initProps, style } = useInput();
 @createMElement({
