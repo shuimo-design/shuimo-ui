@@ -10,13 +10,17 @@
 import Button from './lib/base/button';
 import Input from './lib/base/input';
 import Checkbox from './lib/base/checkbox';
+import Li from './lib/base/list/li';
+
 import Border from './lib/template/border';
 import RicePaper from './lib/template/ricePaper';
 
 export {
-  Border,
   Button,
   Input,
   Checkbox,
+  Li,
+
+  Border,
   RicePaper
 };

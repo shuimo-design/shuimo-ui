@@ -11,6 +11,8 @@
 import useButton from './base/button/useButton';
 import useInput from './base/input/useInput';
 import useCheckbox from './base/checkbox/useCheckbox';
+import useLi from './base/list/li/useLi';
+
 import useBorder from './template/border/useBorder';
 import useRicePaper from './template/ricePaper/useRicePaper';
 
@@ -18,6 +20,8 @@ export {
   useButton,
   useInput,
   useCheckbox,
+  useLi,
+
   useBorder,
   useRicePaper
 };
