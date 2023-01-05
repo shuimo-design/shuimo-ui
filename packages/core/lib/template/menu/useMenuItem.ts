@@ -24,7 +24,7 @@ export default function useMenuItem() {
     ])
   };
 
-  const initProps = (_props: MenuItemProps) => {
+  const initProps = (_props: MenuItemProps & HTMLElement) => {
     if (!template.props) {return;}
     const slots = template.slots as Map<string, MNodeSlot> | undefined;
     if (slots) {
@@ -32,6 +32,7 @@ export default function useMenuItem() {
       slots.get('default')!.props = {
         onClick: () => {
           _props.active = !_props.active;
+          _props.dispatchEvent(new CustomEvent('toggled-active', { detail: _props.active }));
         }
       };
     }

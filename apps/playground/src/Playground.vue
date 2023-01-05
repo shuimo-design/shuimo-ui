@@ -27,8 +27,8 @@ const toggleActive2 = () => {
 
 <template>
   <m-button @click="toggleActive" primary>toggle</m-button>
-  <span>{{active}}</span>
-  <m-menu inline>
+  <span>{{ active }}</span>
+  <m-menu>
     <m-menu-item>测试</m-menu-item>
     <m-menu-item>
       测试2
@@ -53,8 +53,8 @@ m-button {
   margin: 4px;
 }
 
-m-menu{
-  //width: 200px;
+m-menu {
+  width: 200px;
 }
 
 .test {
