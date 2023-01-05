@@ -23,7 +23,7 @@ interface ElementEventListener {
 
 export declare type MNodeTemplate = {
   type: string,
-  props?: Record<string, WithArray<string | number | boolean> | ElementEventListener>,
+  props?: Record<string, WithArray<string | number | boolean> | ElementEventListener | Record<string, any>>,
   children?: Record<string, MNodeTemplate>,
   slots?: string[],
 } & MVNodeRenderParams

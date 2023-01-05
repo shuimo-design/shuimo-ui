@@ -7,9 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate } from '../../../../types';
-import style from './li.pcss?inline';
 import { MCOPO } from '../../../../types/template/props';
 import { LiProps } from './li';
+import style from './li.pcss?inline';
 
 export default function useLi() {
 
