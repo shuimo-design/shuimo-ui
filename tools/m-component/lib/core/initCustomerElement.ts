@@ -183,9 +183,9 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       this.initTemplate(this);
       if (!this.currentTemplate) {
         // first render
+        super.beforeRender();
         const dom = this.templateRender(this.template);
         this.ref = dom;
-        super.beforeRender();
         this.setCurrent({ template, dom });
         this.shadow.insertBefore(dom, this.shadow.firstChild);
         return;
