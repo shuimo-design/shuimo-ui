@@ -21,11 +21,17 @@ interface ElementEventListener {
   (event: HTMLElementEvent<any>): void;
 }
 
+export type MNodeProps = Record<string, WithArray<string | number | boolean> | ElementEventListener | Record<string, any>>;
+
+export declare type MNodeSlot = MVNodeRenderParams & {
+  props?: MNodeProps,
+}
+
 export declare type MNodeTemplate = {
   type: string,
-  props?: Record<string, WithArray<string | number | boolean> | ElementEventListener | Record<string, any>>,
+  props?: MNodeProps,
   children?: Record<string, MNodeTemplate>,
-  slots?: string[],
+  slots?: Map<string, MNodeSlot> | string[],
 } & MVNodeRenderParams
 
 
