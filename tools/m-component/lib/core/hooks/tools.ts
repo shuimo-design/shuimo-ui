@@ -6,6 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { MNodeSlot, MNodeTemplate } from '../../../types/template/template';
 
 export const isEqual = (obj1: any, obj2: any) => {
   if (obj1 === null || obj2 === null) {
@@ -13,7 +14,7 @@ export const isEqual = (obj1: any, obj2: any) => {
   }
   let _obj1 = obj1;
   let _obj2 = obj2;
-  if (typeof _obj1 !== "object" || typeof _obj2 !== "object") {
+  if (typeof _obj1 !== 'object' || typeof _obj2 !== 'object') {
     return _obj1 === _obj2;
   }
 
@@ -28,7 +29,7 @@ export const isEqual = (obj1: any, obj2: any) => {
     const val1 = obj1[prop];
     const val2 = obj2[prop];
 
-    if (typeof val1 === "object" && typeof val2 === "object") {
+    if (typeof val1 === 'object' && typeof val2 === 'object') {
       if (isEqual(val1, val2)) {
         continue;
       } else {
@@ -40,4 +41,18 @@ export const isEqual = (obj1: any, obj2: any) => {
     }
   }
   return true;
+};
+
+export const getSlot = (slot: MNodeTemplate['slots']): Map<string, MNodeSlot> => {
+  // todo add index
+  if (slot && !Array.isArray(slot)) {
+    return slot;
+  }
+  const slotMap: Map<string, MNodeSlot> = new Map();
+  if (slot) {
+    slot.forEach((name) => {
+      slotMap.set(name, {});
+    });
+  }
+  return slotMap;
 };

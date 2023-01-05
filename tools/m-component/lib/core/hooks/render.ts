@@ -20,7 +20,8 @@ export const h = (name: string, props?: MNodeTemplate['props']) => {
         dom.classList.add(...props[key] as string[]);
         return;
       }
-      if(key.startsWith('on')){
+
+      if (key.startsWith('on')) {
         dom.addEventListener(firstLetterLower(key.slice(2)), props[key] as EventListenerOrEventListenerObject);
         return;
       }

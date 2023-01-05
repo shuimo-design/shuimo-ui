@@ -6,15 +6,31 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};
+
 type MVNodeRenderParams = {
   if?: boolean,
   show?: boolean,
 }
+
+interface ElementEventListener {
+  (event: HTMLElementEvent<any>): void;
+}
+
+export declare type MNodeProps = Record<string, WithArray<string | number | boolean> | ElementEventListener | Record<string, any>>;
+
+export declare type MNodeSlot = MVNodeRenderParams & {
+  props?: MNodeProps,
+}
+
 export declare type MNodeTemplate = {
   type: string,
-  props?: Record<string, WithArray<string | number | boolean> | EventListenerOrEventListenerObject>,
+  props?: MNodeProps,
   children?: Record<string, MNodeTemplate>,
-  slots?: string[],
+  slots?: Map<string, MNodeSlot> | string[],
 } & MVNodeRenderParams
 
 
@@ -34,7 +50,8 @@ type PatchMVNodeTemplate = Partial<Omit<MNodeTemplate, 'children' | 'props' | 's
   },
   children?: Record<string, PatchMVNodeTemplate>,
   slots?: {
-    add?: MNodeTemplate['slots'],
-    remove?: MNodeTemplate['slots']
+    add?: Map<string, MNodeSlot>,
+    remove?: Map<string, MNodeSlot>,
+    update?: Map<string, MNodeSlot>
   }
 }

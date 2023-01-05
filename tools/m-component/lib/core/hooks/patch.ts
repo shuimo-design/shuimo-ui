@@ -6,8 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
-import { isEqual } from './tools';
+import { MNodeSlot, MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
+import { getSlot } from './tools';
+import { isEqual } from 'lodash';
 
 
 const compareObject = (oldObj: Record<string, any>, newObj: Record<string, any>) => {
@@ -49,24 +50,12 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
 
   // different slots
   if (!isEqual(oldNode.slots, newNode.slots)) {
-    let add: string[] | undefined, remove: string[] | undefined;
-    if (!newNode.slots) {
-      remove = oldNode.slots;
-    } else if (!oldNode.slots) {
-      add = newNode.slots;
-    } else {
-      add = newNode.slots.filter((slot) => !oldNode.slots!.includes(slot));
-      remove = oldNode.slots.filter((slot) => !newNode.slots!.includes(slot));
-    }
-    res.slots = { add, remove };
+    const { add, remove, update } = patchSlots(oldNode.slots, newNode.slots);
+    res.slots = { add, remove, update };
   }
 
-  if (oldNode.if !== newNode.if) {
-    res.if = newNode.if;
-  }
-  if (oldNode.show !== newNode.show) {
-    res.show = newNode.show;
-  }
+  if (oldNode.if !== newNode.if) {res.if = newNode.if;}
+  if (oldNode.show !== newNode.show) {res.show = newNode.show;}
 
   return res;
 };
@@ -101,4 +90,36 @@ const patchProps = (oldProps: MProps | undefined, newProps: MProps | undefined) 
     update: updateProps,
     remove: removeProps
   };
+};
+
+
+const patchSlots = (oldSlots: MNodeTemplate['slots'], newSlots: MNodeTemplate['slots']) => {
+  const oldSlotsMap = getSlot(oldSlots), newSlotsMap = getSlot(newSlots);
+  let add: Map<string, MNodeSlot> | undefined,
+    remove: Map<string, MNodeSlot> | undefined,
+    update: Map<string, MNodeSlot> | undefined;
+  if (!newSlots) {
+    remove = oldSlotsMap;
+  } else if (!oldSlots) {
+    add = newSlotsMap;
+  } else {
+    for (const [key, value] of newSlotsMap) {
+      if (oldSlotsMap.has(key)) {
+        if (!isEqual(oldSlotsMap.get(key), newSlotsMap.get(key))) {
+          update = update || new Map<string, MNodeSlot>();
+          update.set(key, value);
+        }
+      } else {
+        add = add || new Map<string, MNodeSlot>();
+        add.set(key, value);
+      }
+    }
+    for (const [key, value] of oldSlotsMap) {
+      if (!newSlotsMap.has(key)) {
+        remove = remove || new Map<string, MNodeSlot>();
+        remove.set(key, value);
+      }
+    }
+  }
+  return { add, remove, update };
 };

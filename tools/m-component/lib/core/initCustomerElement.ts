@@ -9,10 +9,11 @@
 import MElement from '../MElement';
 import { MElementOptions } from '../../types/template';
 import { initElementProps } from './hooks/props';
-import { h } from './hooks/render';
+import { firstLetterLower, h } from './hooks/render';
 import { patch } from './hooks/patch';
-import { MNodeTemplate, PatchMVNodeTemplate } from '../../types/template/template';
+import { MNodeProps, MNodeTemplate, PatchMVNodeTemplate } from '../../types/template/template';
 import { cloneDeep } from 'lodash';
+import { getSlot } from './hooks/tools';
 
 
 export default function initCustomerElement(target: typeof MElement, options: MElementOptions) {
@@ -74,7 +75,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       }
     }
 
-    private getSlotDom(slotName: string) {
+    private getSlotDom(slotName: string, props?: MNodeProps) {
       if (this.slotMap.has(slotName)) {
         return this.slotMap.get(slotName)!;
       }
@@ -83,8 +84,29 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       if (slotName !== 'default') {
         slotDom.setAttribute('name', slotName);
       }
+      if (props) {
+        // todo fix remove some props?
+        Object.keys(props).forEach(k => {
+          if (k.startsWith('on')) {
+            slotDom.addEventListener(firstLetterLower(k.slice(2)), props[k] as EventListenerOrEventListenerObject);
+          }
+        });
+      }
       this.slotMap.set(slotName, slotDom);
       return slotDom;
+    }
+
+    private getSlotDomList(slots: MNodeTemplate['slots']) {
+      const slotsMap = getSlot(slots);
+      const slotNames = slotsMap.keys();
+      const slotList: HTMLSlotElement[] = [];
+      Array.from(slotNames).forEach(slotName => {
+        const slotDom = slotsMap.get(slotName);
+        if (slotDom && slotDom.if !== false) {
+          slotList.push(this.getSlotDom(slotName, slotDom.props));
+        }
+      });
+      return slotList;
     }
 
     private callSlotRender(dom: HTMLElement, slotDomList: HTMLSlotElement[]) {
@@ -109,7 +131,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       }
 
       if (slots) {
-        const slotDomList = slots.map(slotName => this.getSlotDom(slotName));
+        const slotDomList = this.getSlotDomList(slots);
         this.callSlotRender(dom, slotDomList);
       }
       return dom;
@@ -143,9 +165,19 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       }
       if (res.slots) {
         if (res.slots.add) {
-          const slotDomList = res.slots.add.map(slotName => this.getSlotDom(slotName));
+          const slotDomList = this.getSlotDomList(res.slots.add);
           this.callSlotRender(dom, slotDomList);
-
+        }
+        if (res.slots.update) {
+          Array.from(res.slots.update.keys()).forEach(slotName => {
+            const slotDom = this.getSlotDom(slotName);
+            const slot = res.slots!.update!.get(slotName);
+            if (slot!.if === false) {
+              dom.removeChild(slotDom);
+            } else {
+              dom.appendChild(slotDom);
+            }
+          });
         }
         if (res.slots.remove) {
           res.slots.remove.forEach(slot => {
