@@ -74,6 +74,22 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       }
     }
 
+    private getSlotDom(slotName: string) {
+      if (this.slotMap.has(slotName)) {
+        return this.slotMap.get(slotName)!;
+      }
+
+      const slotDom = document.createElement('slot');
+      if (slotName !== 'default') {
+        slotDom.setAttribute('name', slotName);
+      }
+      this.slotMap.set(slotName, slotDom);
+      return slotDom;
+    }
+
+    private callSlotRender(dom: HTMLElement, slotDomList: HTMLSlotElement[]) {
+      slotDomList.forEach(slotDom => dom.appendChild(slotDom));
+    }
 
     private templateRender(template: MNodeTemplate): HTMLElement {
 
@@ -92,12 +108,9 @@ export default function initCustomerElement(target: typeof MElement, options: ME
         });
       }
 
-      // todo 看看咋写好
       if (slots) {
-        slots.forEach(slot => {
-          const slotDom = document.createElement('slot');
-          dom.appendChild(slotDom);
-        });
+        const slotDomList = slots.map(slotName => this.getSlotDom(slotName));
+        this.callSlotRender(dom, slotDomList);
       }
       return dom;
     };
@@ -125,6 +138,21 @@ export default function initCustomerElement(target: typeof MElement, options: ME
         if (res.props.remove) {
           res.props.remove.forEach(key => {
             dom.removeAttribute(key);
+          });
+        }
+      }
+      if (res.slots) {
+        if (res.slots.add) {
+          const slotDomList = res.slots.add.map(slotName => this.getSlotDom(slotName));
+          this.callSlotRender(dom, slotDomList);
+
+        }
+        if (res.slots.remove) {
+          res.slots.remove.forEach(slot => {
+            const slotDom = dom.querySelector(`slot[name=${slot}]`);
+            if (slotDom) {
+              dom.removeChild(slotDom);
+            }
           });
         }
       }
@@ -156,6 +184,8 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       if (!this.currentTemplate) {
         // first render
         const dom = this.templateRender(this.template);
+        this.ref = dom;
+        super.beforeRender();
         this.setCurrent({ template, dom });
         this.shadow.insertBefore(dom, this.shadow.firstChild);
         return;
@@ -164,6 +194,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
       // update
       const res = patch(this.currentTemplate, this.template);
       const dom = this.refMap.get(name)!;
+      super.beforeRender();
       this.renderPatch(dom, res, name, this.template);
 
       // finally set new template
@@ -172,7 +203,6 @@ export default function initCustomerElement(target: typeof MElement, options: ME
     }
 
     render() {
-      super.beforeRender();
       this.callRender();
       super.afterRender();
     }

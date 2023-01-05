@@ -17,6 +17,10 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
 
   public refMap: Map<string, HTMLElement> = new Map();
 
+  public slotMap: Map<string, HTMLSlotElement> = new Map();
+
+  public ref?: HTMLElement;
+
   constructor() {super();}
 
   public initTemplate(t: MElement) {}

@@ -27,10 +27,14 @@ export declare type MVNode = {
   slots?: MNodeTemplate['slots']
 }
 
-type PatchMVNodeTemplate = Partial<Omit<MNodeTemplate, 'children' | 'props'>> & {
+type PatchMVNodeTemplate = Partial<Omit<MNodeTemplate, 'children' | 'props' | 'slots'>> & {
   props?: {
     update?: MNodeTemplate['props'],
     remove?: string[]
   },
   children?: Record<string, PatchMVNodeTemplate>,
+  slots?: {
+    add?: MNodeTemplate['slots'],
+    remove?: MNodeTemplate['slots']
+  }
 }

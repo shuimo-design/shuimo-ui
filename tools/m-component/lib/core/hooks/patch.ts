@@ -35,6 +35,7 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
   const oldChildren = oldNode.children;
   // todo fix object no index error
   if (!oldChildren) {
+    // @ts-ignore  fix type error
     res.children = newNode.children;
   } else {
     res.children = {};
@@ -44,6 +45,20 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
         res.children[key] = patch(oldChildren[key], newChildren[key]);
       }
     }
+  }
+
+  // different slots
+  if (!isEqual(oldNode.slots, newNode.slots)) {
+    let add: string[] | undefined, remove: string[] | undefined;
+    if (!newNode.slots) {
+      remove = oldNode.slots;
+    } else if (!oldNode.slots) {
+      add = newNode.slots;
+    } else {
+      add = newNode.slots.filter((slot) => !oldNode.slots!.includes(slot));
+      remove = oldNode.slots.filter((slot) => !newNode.slots!.includes(slot));
+    }
+    res.slots = { add, remove };
   }
 
   if (oldNode.if !== newNode.if) {
