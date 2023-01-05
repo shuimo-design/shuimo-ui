@@ -29,6 +29,6 @@ export default class MButton extends MElement implements ButtonProps {
   }
 
   beforeRender() {
-    this.VNode.options.template!.props!.class = `m-button m-button-${this.type??'default'}`;
+    this.template!.props!.class = `m-button m-button-${this.type??'default'}`;
   }
 }
