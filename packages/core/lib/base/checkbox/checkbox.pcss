@@ -1,4 +1,7 @@
+@import "../../style/cursor.pcss";
+
 .m-checkbox {
+
   display: grid;
   grid-template-areas: 'checkbox slot';
 
@@ -8,6 +11,7 @@
 }
 
 .m-checkbox-checkbox {
+  @extend .m-cursor-pointer;
   grid-area: checkbox;
   display: inline-block;
   height: 24px;
