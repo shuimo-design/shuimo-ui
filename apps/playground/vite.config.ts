@@ -25,5 +25,13 @@ export default defineConfig({
     postcss: {
       plugins: require('@shuimo-design/postcss').MPostcss
     }
+  },
+  optimizeDeps: {
+    include: ['@shuimo-design/postcss', 'moelement']
+  },
+  build: {
+    commonjsOptions: {
+      include: [/@shuimo-design/, 'moelement', /node_modules/]
+    }
   }
 });
