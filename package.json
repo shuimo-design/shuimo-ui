@@ -4,15 +4,15 @@
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "license": "MIT",
   "version": "0.0.1",
-  "dependencies": {
-    "turbo": "^1.6.3"
-  },
   "scripts": {
     "pre-dev": "turbo run pre-dev",
     "dev": "turbo run dev",
     "playground": "turbo run playground",
     "clean": "turbo run clean && rm -rf node_modules",
-    "re-install": "pnpm run clean && pnpm i"
+    "re-install": "pnpm run clean && pnpm i",
+    "build:postcss": "tsx build/script/build.ts --target tools/postcss",
+    "build:web-component": "tsx build/script/build.ts --target packages/web-component",
+    "build:test": "tsx build/script/web-componet.build.ts"
   },
   "packageManager": "pnpm@7.17.1",
   "repository": {
@@ -22,5 +22,19 @@
   "bugs": {
     "url": "https://github.com/janghood/shuimo-ui/issues"
   },
-  "homepage": "https://shuimo.janghood.com"
+  "homepage": "https://shuimo.janghood.com",
+  "dependencies": {
+    "turbo": "^1.6.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@rollup/pluginutils": "^5.0.2",
+    "execa": "^6.1.0",
+    "postcss": "^8.4.20",
+    "rollup": "^3.7.4",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
+  }
 }
