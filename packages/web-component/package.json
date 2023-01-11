@@ -2,10 +2,15 @@
   "name": "@shuimo-design/web-component",
   "author": "阿怪",
   "version": "0.0.1",
-  "main": "./index.ts",
+  "main": "./dist/index.mjs",
   "devDependencies": {
     "@shuimo-design/core": "*",
-    "moelement": "*",
     "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "moelement": "*"
+  },
+  "dependencies": {
+    "moelement": "*"
   }
 }
