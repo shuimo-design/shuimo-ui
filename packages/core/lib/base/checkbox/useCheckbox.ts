@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate } from '../../../types';
-import style from './checkbox.pcss?inline';
+import style from './checkbox.pcss';
 import { MCOPO } from '../../../types/template/props';
 import { CheckboxProps } from './index';
 

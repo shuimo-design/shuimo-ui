@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate } from '../../../types';
-import style from './border.pcss?inline';
+import style from './border.pcss';
 
 export default function useBorder(children?: Record<string, MNodeTemplate>) {
 

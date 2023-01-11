@@ -8,7 +8,7 @@
  */
 import useLi from '../../base/list/li/useLi';
 import { MNodeSlot, MNodeTemplate } from '../../../types';
-import style from './menuItem.pcss?inline';
+import style from './menuItem.pcss';
 import { MenuItemProps } from './index';
 
 export default function useMenuItem() {

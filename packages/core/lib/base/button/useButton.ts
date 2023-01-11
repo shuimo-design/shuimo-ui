@@ -9,8 +9,7 @@
 import { ButtonProps } from './index';
 import { MNodeTemplate } from '../../../types';
 import { MCOPO } from '../../../types/template/props';
-import style from './button.pcss?inline';
-
+import style from './button.pcss';
 export default function useButton() {
 
 

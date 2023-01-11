@@ -9,7 +9,7 @@
 import { MNodeTemplate } from '../../../../types';
 import { MCOPO } from '../../../../types/template/props';
 import { LiProps } from './li';
-import style from './li.pcss?inline';
+import style from './li.pcss';
 
 export default function useLi() {
 

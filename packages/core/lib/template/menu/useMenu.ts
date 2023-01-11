@@ -9,7 +9,7 @@
 import { MNodeTemplate } from '../../../types';
 import { MCOPO } from '../../../types/template/props';
 import { MenuProps } from './index';
-import style from './menu.pcss?inline';
+import style from './menu.pcss';
 
 export default function useMenu() {
 

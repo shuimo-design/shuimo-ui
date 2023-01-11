@@ -9,7 +9,7 @@
 import { MNodeTemplate } from '../../../types';
 import { RicePaperProps } from './index';
 import { MCOPO } from '../../../types/template/props';
-import style from './ricePaper.pcss?inline';
+import style from './ricePaper.pcss';
 
 export default function useRicePaper() {
 

@@ -10,7 +10,7 @@ import { MNodeTemplate } from '../../../types';
 import { MCOPO } from '../../../types/template/props';
 import { InputEvents, InputProps } from './index';
 import useBorder from '../../template/border/useBorder';
-import style from './input.pcss?inline';
+import style from './input.pcss';
 
 export default function useInput() {
 

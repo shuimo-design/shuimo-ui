@@ -8,4 +8,4 @@
  */
 
 
-declare module "*.pcss?inline";
+declare module "*.pcss";
