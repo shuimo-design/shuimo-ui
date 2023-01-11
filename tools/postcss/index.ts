@@ -14,7 +14,29 @@ import { postcssExtend } from './plugins/extend';
 export const MPostcss = [
   postcssNested(),
   postcssEach(),
-  postcssExtend(),
   postcssHost(),
-  require('postcss-url')({ url: 'inline' })
+  require('postcss-import')(),
+  require('postcss-url')({ url: 'inline' }),
+  postcssExtend(),
 ];
+
+
+export const defineMPostcss = (opt: {
+  import: {
+    root: string,
+    resolve?: (id: string, basedir: string, importOptions: any) => string,
+    load?: (filename: string, importOptions: any) => Promise<string>
+  },
+  url: { basePath: string, }
+}) => {
+  const importOption = { ...opt.import };
+  const urlOption = { url: 'inline', basePath: opt.url.basePath };
+  return [
+    postcssNested(),
+    postcssEach(),
+    postcssHost(),
+    require('postcss-import')(importOption),
+    require('postcss-url')(urlOption),
+    postcssExtend(),
+  ];
+};
