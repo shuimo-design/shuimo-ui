@@ -2,6 +2,7 @@
   "name": "@shuimo-design/core",
   "author": "阿怪",
   "version": "0.0.1",
+  "type": "module",
   "files": [
     "lib",
     "style",
