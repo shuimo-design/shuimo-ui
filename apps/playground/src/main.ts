@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import '@shuimo-design/web-component';
+import '@shuimo-design/web-component/index.ts';
 import './assets/style.css';
 
 
