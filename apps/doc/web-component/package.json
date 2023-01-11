@@ -1,0 +1,13 @@
+{
+  "name": "@shuimo-design/web-component-doc",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "scripts": {
+    "web-component-dov:dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4",
+    "@shuimo-design/postcss": "*",
+    "@shuimo-design/web-component": "*"
+  }
+}
