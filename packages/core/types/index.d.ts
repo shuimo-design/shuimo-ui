@@ -8,7 +8,14 @@
  */
 
 
-
-
 export * from '../lib/index';
 export * from './template/template';
+
+
+export * from '../lib/base/button';
+export * from '../lib/base/checkbox';
+export * from '../lib/base/input';
+export * from '../lib/base/list/li/li';
+
+export * from '../lib/template/menu';
+export * from '../lib/template/ricePaper';
