@@ -8,8 +8,7 @@
  */
 
 import { createMElement, MElement } from 'moelement';
-import { useCheckbox } from '@shuimo-design/core';
-import { CheckboxProps } from '@shuimo-design/core/lib/base/checkbox';
+import { useCheckbox, type CheckboxProps } from '@shuimo-design/core';
 
 const { template, props, style, initProps } = useCheckbox();
 @createMElement({

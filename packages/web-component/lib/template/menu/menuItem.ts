@@ -6,9 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useMenuItem } from '@shuimo-design/core';
+import { useMenuItem, type MenuItemProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
-import { MenuItemProps } from '@shuimo-design/core/lib/template/menu';
 
 const { template, props, style, initProps } = useMenuItem();
 

@@ -6,8 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useButton } from '@shuimo-design/core';
-import { ButtonProps } from '@shuimo-design/core/lib/base/button';
+import { useButton, type ButtonProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
 const { template, props, style } = useButton();
@@ -29,6 +28,6 @@ export default class MButton extends MElement implements ButtonProps {
   }
 
   beforeRender() {
-    this.template!.props!.class = `m-button m-button-${this.type??'default'}`;
+    this.template!.props!.class = `m-button m-button-${this.type ?? 'default'}`;
   }
 }

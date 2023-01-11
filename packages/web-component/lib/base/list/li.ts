@@ -7,8 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { createMElement, MElement } from 'moelement';
-import { useLi } from '@shuimo-design/core';
-import { LiProps } from '@shuimo-design/core/lib/base/list/li/li';
+import { useLi, type LiProps } from '@shuimo-design/core';
 
 
 const { template, style, props } = useLi();

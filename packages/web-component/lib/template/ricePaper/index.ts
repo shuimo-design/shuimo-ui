@@ -6,9 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useRicePaper } from '@shuimo-design/core';
-import { RicePaperProps } from '@shuimo-design/core/lib/template/ricePaper';
-import { createMElement,MElement } from 'moelement';
+import { useRicePaper, type RicePaperProps } from '@shuimo-design/core';
+import { createMElement, MElement } from 'moelement';
 
 const { template, props, style } = useRicePaper();
 
