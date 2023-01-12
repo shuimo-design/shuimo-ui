@@ -12,6 +12,7 @@ import { OutputOptions, rollup } from 'rollup';
 import { resolvePackage } from './resolvePackage';
 import console from 'console';
 import { resolveRollupConfig } from './resolveRollupConfig';
+import fs from 'fs';
 
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
 
@@ -33,7 +34,7 @@ const getTarget = () => {
 const target = getTarget();
 if (!target) {console.warn('you should provide target');}
 
-const pkgDir = path.resolve(pathJoin(['.', target]));
+const pkgDir = path.resolve(pathJoin(['../../', target]));
 const packageJson = require(pathJoin([pkgDir, 'package.json']));
 
 
@@ -49,7 +50,7 @@ const run = async () => {
       ...rollupConfig,
       onwarn: (warning, warn) => {
         // todo
-        console.log(warning);
+        warn(warning);
       }
     });
 
@@ -61,6 +62,9 @@ const run = async () => {
   if (bundle) {
     const outputOptionList: OutputOptions[] = Array.isArray(pkgOption.output) ? pkgOption.output : [pkgOption.output];
     for (const option of outputOptionList) {
+      if (option.file && fs.existsSync(option.file)) {
+        fs.unlinkSync(option.file);
+      }
       await bundle.write(option);
     }
     await bundle.close();

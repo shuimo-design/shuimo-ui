@@ -19,10 +19,26 @@ import { rollupPostcss, shuimoRollupPostcssConfig } from '../common/rollup.postc
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
 const getFilterRoot = (val: string | boolean) => {
   if (val === false) {return undefined;}
-  if (val === true) {return path.resolve(__dirname, '../..');}
+  if (val === true) {return path.resolve(__dirname, '../../..');}
   return val;
 };
 
+const mergeConfig = (config: RequiredShuimoBuildConfig, userConfig: ShuimoBuildConfig) => {
+  if (userConfig.plugins) {
+    const { plugins } = userConfig;
+    if (plugins.resolve !== undefined) {config.plugins.resolve = plugins.resolve;}
+    if (plugins.commonjs !== undefined) {config.plugins.commonjs = plugins.commonjs;}
+    if (plugins.postcss !== undefined) {config.plugins.postcss = plugins.postcss;}
+    if (plugins.typescript !== undefined) {
+      const { typescript: tsConfig } = plugins;
+      if (tsConfig.filterRoot !== undefined) {config.plugins.typescript.filterRoot = tsConfig.filterRoot;}
+      if (tsConfig.tsconfig !== undefined) {config.plugins.typescript.tsconfig = tsConfig.tsconfig;}
+      if (tsConfig.include !== undefined) {config.plugins.typescript.include = tsConfig.include;}
+      if (tsConfig.exclude !== undefined) {config.plugins.typescript.exclude = tsConfig.exclude;}
+    }
+  }
+  return config;
+};
 
 export const resolveRollupConfig = async (pkgDir: string, target: string) => {
 
@@ -34,16 +50,15 @@ export const resolveRollupConfig = async (pkgDir: string, target: string) => {
     external: []
   };
 
-  const url = path.resolve(pathJoin(['./build/config', target, 'shuimo.build.config.ts']));
+  const url = path.resolve(pathJoin(['.', 'config', target, 'shuimo.build.config.ts']));
 
   if (fs.existsSync(url)) {
     let { config: userConfig } = await import(url) as { config: ShuimoBuildConfig };
-    config = Object.assign(config, userConfig);
+    config = mergeConfig(config, userConfig);
   }
 
   const { resolve, commonjs: c, postcss: p, typescript: t } = config.plugins!;
   const { filterRoot, tsconfig } = config.plugins?.typescript!;
-
 
   const rollupConfig: RollupOptions = {
     plugins: [
@@ -53,11 +68,9 @@ export const resolveRollupConfig = async (pkgDir: string, target: string) => {
       typescript({
         filterRoot: getFilterRoot(filterRoot!),
         tsconfig: tsconfig !== false ? pathJoin([
-          tsconfig === true ? pkgDir : tsconfig,
-          'tsconfig.json'
-        ]) : undefined,
-        include: t.include,
-        exclude: t.exclude
+          tsconfig === true ? pkgDir : tsconfig, './tsconfig.json'
+        ]) : '../../tsconfig.json',
+        exclude: ['**/vue/**', '**/react/**', '**/apps/**']
       })
     ].filter(e => e),
     external: config.external

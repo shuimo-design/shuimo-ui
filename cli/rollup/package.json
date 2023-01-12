@@ -1,0 +1,19 @@
+{
+  "name": "@shuimo-desing/build",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "scripts": {
+    "build:postcss": "tsx script/build.ts --target tools/postcss",
+    "build:web-component": "tsx script/build.ts --target packages/web-component"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@rollup/pluginutils": "^5.0.2",
+    "postcss": "^8.4.20",
+    "rollup": "^3.7.4",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
+  }
+}

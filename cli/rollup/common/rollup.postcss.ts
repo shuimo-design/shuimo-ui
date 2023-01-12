@@ -41,7 +41,7 @@ export const rollupPostcss = (opts: {
 
 
 export const shuimoRollupPostcssConfig = async () => {
-  const postcssPlugin = await import(path.resolve(__dirname, '../../tools/postcss/index.ts'));
+  const postcssPlugin = await import(path.resolve(__dirname, '../../../tools/postcss/index.ts'));
 
   return {
     include: ['**/*.pcss'],

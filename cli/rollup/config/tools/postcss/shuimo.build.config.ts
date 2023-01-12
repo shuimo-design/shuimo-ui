@@ -11,8 +11,10 @@ import { ShuimoBuildConfig } from '../../../index';
 
 export const config: ShuimoBuildConfig = {
   plugins: {
+    resolve: true,
+    commonjs: true,
     typescript: {
-      tsconfig: true
+      filterRoot: true
     }
   },
   external: ['moelement']
