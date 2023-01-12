@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description to build package
  * @author 阿怪
  * @date 2023/1/7 04:12
  * @version v1.0.0
@@ -9,9 +9,9 @@
 
 import * as path from 'path';
 import { OutputOptions, rollup } from 'rollup';
-import typescript from '@rollup/plugin-typescript';
-import rollupResolve from '@rollup/plugin-node-resolve';
 import { resolvePackage } from './resolvePackage';
+import console from 'console';
+import { resolveRollupConfig } from './resolveRollupConfig';
 
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
 
@@ -31,9 +31,7 @@ const getTarget = () => {
 };
 
 const target = getTarget();
-if (!target) {
-  console.warn('you should provide target');
-}
+if (!target) {console.warn('you should provide target');}
 
 const pkgDir = path.resolve(pathJoin(['.', target]));
 const packageJson = require(pathJoin([pkgDir, 'package.json']));
@@ -43,21 +41,15 @@ const run = async () => {
   let bundle;
   let buildField = false;
   const pkgOption = resolvePackage(pkgDir, packageJson);
+  const rollupConfig = await resolveRollupConfig(pkgDir, target!);
   if (!pkgOption.output) {return;}
   try {
     bundle = await rollup({
       input: pathJoin([pkgDir, pkgOption.input as string]),
-      plugins: [
-        // rollupResolve(), // todo 不一定需要这个
-        typescript({
-          // filterRoot: pkgDir,
-          filterRoot: './packages',
-          tsconfig: pathJoin([pkgDir, 'tsconfig.json'])
-        })
-      ],
-      external: ['moelement'], // todo 参数化
+      ...rollupConfig,
       onwarn: (warning, warn) => {
         // todo
+        console.log(warning);
       }
     });
 
@@ -72,6 +64,7 @@ const run = async () => {
       await bundle.write(option);
     }
     await bundle.close();
+    console.log('%c build success', 'color:#4A9992');
   }
 
   process.exit(buildField ? 1 : 0);

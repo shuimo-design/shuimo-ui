@@ -12,7 +12,6 @@
     "re-install": "pnpm run clean && pnpm i",
     "build:postcss": "tsx build/script/build.ts --target tools/postcss",
     "build:web-component": "tsx build/script/build.ts --target packages/web-component",
-    "build:test": "tsx build/script/web-componet.build.ts"
   },
   "packageManager": "pnpm@7.17.1",
   "repository": {
