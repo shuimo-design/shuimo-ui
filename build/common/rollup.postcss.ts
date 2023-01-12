@@ -46,7 +46,7 @@ export const shuimoRollupPostcssConfig = async () => {
   return {
     include: ['**/*.pcss'],
     transform: async (code: string, id: string) => {
-      // 根据id获取文件夹地址
+      // get folder address based on id
       const dir = path.dirname(id);
       const result = await postcss(postcssPlugin.defineMPostcss({
         import: {
@@ -61,7 +61,7 @@ export const shuimoRollupPostcssConfig = async () => {
             // maybe not support some url grammar
             const reg = /url\((.+?)\)/g;
 
-            // 比较dir 和 resourceDir的相对路径
+            // compare the relative paths of dir and resourceDir
             const relativePath = path.relative(dir, resourceDir);
 
 
