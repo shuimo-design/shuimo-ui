@@ -6,11 +6,31 @@
     },
     "dev": {
       "cache": false,
-      "dependsOn": ["pre-dev"]
+      "dependsOn": [
+        "pre-dev"
+      ]
     },
+    "dev:doc": {
+      "cache": false,
+      "dependsOn": [
+        "build:postcss",
+        "web-component-doc:dev"
+      ]
+    },
+    "web-component-doc:dev": {
+      "cache": false,
+      "dependsOn": [
+        "build:postcss",
+        "build:web-component"
+      ]
+    },
+    "build:postcss": {},
+    "build:web-component": {},
     "playground": {
       "cache": false,
-      "dependsOn": ["dev"]
+      "dependsOn": [
+        "dev"
+      ]
     },
     "clean": {
       "cache": false

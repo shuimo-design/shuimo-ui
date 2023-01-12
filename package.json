@@ -8,10 +8,11 @@
     "pre-dev": "turbo run pre-dev",
     "dev": "turbo run dev",
     "playground": "turbo run playground",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "re-install": "pnpm run clean && pnpm i",
-    "build:postcss": "tsx build/script/build.ts --target tools/postcss",
-    "build:web-component": "tsx build/script/build.ts --target packages/web-component",
+    "dev:doc": "turbo run dev:doc",
+    "dev:web-component-doc": "turbo run web-component-doc:dev",
+    "clean:build": "trubo run clean && rimraf dist",
+    "clean:node_modules": "turbo run clean && rimraf **/node_modules",
+    "re-install": "pnpm run clean:node_modules && pnpm i"
   },
   "packageManager": "pnpm@7.17.1",
   "repository": {

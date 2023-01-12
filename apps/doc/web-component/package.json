@@ -3,7 +3,7 @@
   "author": "阿怪",
   "version": "0.0.1",
   "scripts": {
-    "web-component-dov:dev": "vite"
+    "web-component-doc:dev": "vite"
   },
   "devDependencies": {
     "vite": "^4.0.4",

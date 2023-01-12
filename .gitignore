@@ -30,3 +30,4 @@ yarn.lock
 
 pnpm-lock.yaml
 .husky
+.turbo

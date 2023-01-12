@@ -1,6 +1,5 @@
 packages:
-  - 'packages/*'
-  - 'apps/doc/*'
-  - 'apps/*'
-  - 'tools/*'
-  - 'moelement/*'
+  - 'packages/**'
+  - 'cli/rollup/**'
+  - 'apps/**'
+  - 'tools/**'
