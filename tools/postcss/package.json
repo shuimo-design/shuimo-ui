@@ -3,9 +3,6 @@
   "author": "阿怪",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "scripts": {
-    "pre-dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
-  },
   "devDependencies": {
     "postcss": "^8.4.20",
     "postcss-import": "^15.1.0",
