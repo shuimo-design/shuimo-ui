@@ -1,0 +1,69 @@
+{
+  "name": "shuimo-ui",
+  "description": "一款粗暴的水墨风UI组件",
+  "version": "0.2.8",
+  "files": [
+    "dist",
+    "icons",
+    "types",
+    "lib",
+    "public",
+    "web-types.json"
+  ],
+  "types": "types/shuimo-ui.d.ts",
+  "main": "./dist/shuimo-ui.umd.js",
+  "module": "./dist/shuimo-ui.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/shuimo-ui.mjs",
+      "require": "./dist/shuimo-ui.umd.js"
+    },
+    "./*": "./*"
+  },
+  "style": "dist/style.css",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "tsx-build": "vuedx-typecheck . && vite build",
+    "build": "vite build --mode npm",
+    "api": "jh-api",
+    "publish": "npm publish --access public",
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "test:unit-gui": "vitest --config vite.config.ts --ui",
+    "coverage": "vitest --coverage",
+    "lint": "jhlint"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.44"
+  },
+  "devDependencies": {
+    "@janghood/api-extractor": "^0.0.1-alpha.8",
+    "@janghood/config": "0.0.1-0",
+    "@janghood/lint": "0.0.1-5",
+    "@popperjs/core": "^2.11.6",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vitest/coverage-c8": "^0.22.1",
+    "@vitest/ui": "^0.22.1",
+    "@vue/compiler-dom": "^3.2.44",
+    "@vue/runtime-core": "^3.2.44",
+    "@vue/test-utils": "^2.2.1",
+    "jsdom": "^19.0.0",
+    "sass": "^1.56.1",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3",
+    "vitest": "^0.22.1",
+    "vue": "^3.2.44"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janghood/shuimo-ui.git"
+  },
+  "web-types": "web-types.json",
+  "bugs": {
+    "url": "https://github.com/janghood/shuimo-ui/issues"
+  },
+  "homepage": "https://shuimo.janghood.com"
+}
