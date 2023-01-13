@@ -17,7 +17,7 @@ import Menu from './lib/template/menu/menu';
 import MenuItem from './lib/template/menu/menuItem';
 import RicePaper from './lib/template/ricePaper';
 
-export {
+const ShuimoWebComponent =  {
   Button,
   Input,
   Checkbox,
