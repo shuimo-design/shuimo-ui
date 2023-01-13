@@ -20,7 +20,9 @@ export default function useInput() {
     props: { class: 'm-input' }
   };
 
-  const { template: borderTemplate, style: borderStyle } = useBorder({ input: template });
+  const { options:{
+    template: borderTemplate, style: borderStyle
+  } } = useBorder({ input: template });
 
   const props: MCOPO<InputProps> = {
     type: { type: String, default: 'text' },
