@@ -16,6 +16,7 @@ import Border from './lib/template/border';
 import Menu from './lib/template/menu/menu';
 import MenuItem from './lib/template/menu/menuItem';
 import RicePaper from './lib/template/ricePaper';
+import { webComponentStyleInstall } from './lib/style';
 
 const ShuimoWebComponent =  {
   Button,
@@ -27,3 +28,5 @@ const ShuimoWebComponent =  {
   Menu, MenuItem,
   RicePaper
 };
+
+webComponentStyleInstall();
