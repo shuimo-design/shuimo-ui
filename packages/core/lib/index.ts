@@ -7,6 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
+import useGlobal from './useGlobal';
 
 import useButton from './base/button/useButton';
 import useInput from './base/input/useInput';
@@ -19,6 +20,8 @@ import useMenuItem from './template/menu/useMenuItem';
 import useRicePaper from './template/ricePaper/useRicePaper';
 
 export {
+  useGlobal,
+
   useButton,
   useInput,
   useCheckbox,
