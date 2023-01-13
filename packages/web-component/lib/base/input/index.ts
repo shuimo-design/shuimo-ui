@@ -9,12 +9,10 @@
 import { useInput, type HTMLElementEvent, type InputProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { template, props, initProps, style } = useInput();
+const { options , initProps } = useInput();
 @createMElement({
   name: 'm-input',
-  template,
-  props,
-  style
+  ...options
 })
 export default class MInput extends MElement implements InputProps {
   public disabled: boolean = false;

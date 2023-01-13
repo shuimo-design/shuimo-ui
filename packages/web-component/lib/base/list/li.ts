@@ -10,12 +10,10 @@ import { createMElement, MElement } from 'moelement';
 import { useLi, type LiProps } from '@shuimo-design/core';
 
 
-const { template, style, props } = useLi();
+const { options } = useLi();
 @createMElement({
   name: 'm-li',
-  template,
-  style,
-  props
+  ...options
 })
 export default class MLi extends MElement implements LiProps {
   active?: boolean;

@@ -29,6 +29,9 @@ export default function useMenu() {
     template.props.class = _props.inline ? 'm-menu m-menu-inline' : 'm-menu';
   };
 
-  return { template, props, style, initProps };
+  return {
+    options: { template, props, style },
+    initProps
+  };
 
 }

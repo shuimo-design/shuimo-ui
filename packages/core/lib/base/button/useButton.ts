@@ -10,6 +10,7 @@ import { ButtonProps } from './index';
 import { MNodeTemplate } from '../../../types';
 import { MCOPO } from '../../../types/template/props';
 import style from './button.pcss';
+
 export default function useButton() {
 
 
@@ -27,8 +28,6 @@ export default function useButton() {
   };
 
   return {
-    template,
-    props,
-    style
+    options: { template, props, style }
   };
 }

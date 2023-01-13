@@ -29,5 +29,7 @@ export default function useRicePaper() {
     crane: { type: Boolean, default: true }
   };
 
-  return { template, props, style };
+  return {
+    options: { template, props, style }
+  };
 }

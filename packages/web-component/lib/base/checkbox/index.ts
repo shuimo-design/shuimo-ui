@@ -10,12 +10,10 @@
 import { createMElement, MElement } from 'moelement';
 import { useCheckbox, type CheckboxProps } from '@shuimo-design/core';
 
-const { template, props, style, initProps } = useCheckbox();
+const { options, initProps } = useCheckbox();
 @createMElement({
   name: 'm-checkbox',
-  template,
-  style,
-  props
+  ...options
 })
 export default class MCheckBox extends MElement implements CheckboxProps {
 

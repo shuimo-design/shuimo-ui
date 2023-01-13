@@ -9,13 +9,11 @@
 import { useMenuItem, type MenuItemProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { template, props, style, initProps } = useMenuItem();
+const { options, initProps } = useMenuItem();
 
 @createMElement({
   name: 'm-menu-item',
-  template,
-  props,
-  style
+  ...options
 })
 export default class MMenuItem extends MElement implements MenuItemProps {
   active?: boolean;

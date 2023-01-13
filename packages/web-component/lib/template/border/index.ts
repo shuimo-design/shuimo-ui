@@ -11,13 +11,12 @@
 import { useBorder } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { template, style } = useBorder();
+const { options } = useBorder();
 
 @createMElement({
   name: 'm-border',
-  style,
-  template
+  ...options
 })
-export default class MBorder extends MElement{
+export default class MBorder extends MElement {
   constructor() {super();}
 }

@@ -43,6 +43,9 @@ export default function useInput() {
     template.props.onInput = _events.onInput;
   };
 
-  return { template: borderTemplate, props, initProps, style: borderStyle + style };
+  return {
+    options: { template: borderTemplate, props, style: borderStyle + style },
+    initProps
+  };
 
 }

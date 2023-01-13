@@ -9,12 +9,10 @@
 import { useButton, type ButtonProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { template, props, style } = useButton();
+const { options } = useButton();
 @createMElement({
   name: 'm-button',
-  style,
-  template,
-  props
+  ...options
 })
 export default class MButton extends MElement implements ButtonProps {
 

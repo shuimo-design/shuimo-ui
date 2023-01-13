@@ -9,13 +9,11 @@
 import { useRicePaper, type RicePaperProps } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { template, props, style } = useRicePaper();
+const { options } = useRicePaper();
 
 @createMElement({
   name: 'm-rice-paper',
-  style,
-  template,
-  props
+  ...options
 })
 export default class MRicePaper extends MElement implements RicePaperProps {
 

@@ -23,5 +23,5 @@ export default function useLi() {
     active: { type: Boolean, default: false }
   };
 
-  return { template, props, style };
+  return { options: { template, props, style } };
 }

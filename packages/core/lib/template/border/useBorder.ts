@@ -42,8 +42,5 @@ export default function useBorder(children?: Record<string, MNodeTemplate>) {
     };
   });
 
-  return {
-    template,
-    style
-  };
+  return { options: { template, style } };
 }

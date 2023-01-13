@@ -51,6 +51,9 @@ export default function useCheckbox() {
     template.props.onClick = _events.onClick;
   };
 
-  return { template, style, props, initProps };
+  return {
+    options: { template, props, style },
+    initProps
+  };
 
 }

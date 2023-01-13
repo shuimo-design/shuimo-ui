@@ -40,9 +40,11 @@ export default function useMenuItem() {
   };
 
   return {
-    template,
-    props: li.props,
-    style: li.style + style,
+    options: {
+      template,
+      props: li.options.props,
+      style: li.options.style + style
+    },
     initProps
   };
 
