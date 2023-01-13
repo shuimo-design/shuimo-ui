@@ -12,7 +12,7 @@ import { initElementProps } from './hooks/props';
 import { firstLetterLower, h } from './hooks/render';
 import { patch } from './hooks/patch';
 import { MNodeProps, MNodeTemplate, PatchMVNodeTemplate } from '../../types/template/template';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash-es/cloneDeep';
 import { getSlot } from './hooks/tools';
 
 

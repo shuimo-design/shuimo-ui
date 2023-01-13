@@ -8,7 +8,7 @@
  */
 import { MNodeSlot, MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
 import { getSlot } from './tools';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash-es/isEqual';
 
 
 const compareObject = (oldObj: Record<string, any>, newObj: Record<string, any>) => {
