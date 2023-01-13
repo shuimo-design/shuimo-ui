@@ -14,14 +14,20 @@ import { postcssExtend } from './plugins/extend';
 export const MPostcss = [
   postcssNested(),
   postcssEach(),
-  postcssHost(),
   require('postcss-import')(),
   require('postcss-url')({ url: 'inline' }),
   postcssExtend(),
+  postcssHost({
+    includes: ['**/packages/core/**/*.pcss','*.pcss'],
+    excludes: ['**/global.pcss']
+  }),
 ];
 
 
 export const defineMPostcss = (opt: {
+  plugins?: {
+    host: boolean | {};
+  },
   import: {
     root: string,
     resolve?: (id: string, basedir: string, importOptions: any) => string,
@@ -31,12 +37,15 @@ export const defineMPostcss = (opt: {
 }) => {
   const importOption = { ...opt.import };
   const urlOption = { url: 'inline', basePath: opt.url.basePath };
+  const hosts = opt.plugins && opt.plugins.host ? [postcssHost(
+    typeof opt.plugins.host === 'object' ? opt.plugins.host : {}
+  )] : [];
   return [
     postcssNested(),
     postcssEach(),
-    postcssHost(),
     require('postcss-import')(importOption),
     require('postcss-url')(urlOption),
     postcssExtend(),
+    ...hosts,
   ];
 };

@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "devDependencies": {
+    "@types/minimatch": "^5.1.2",
     "postcss": "^8.4.20",
     "postcss-import": "^15.1.0",
     "postcss-nested": "^6.0.0",
@@ -11,6 +12,7 @@
     "tsx": "^3.12.1"
   },
   "dependencies": {
+    "minimatch": "^5.1.2",
     "vitest": "^0.22.1"
   }
 }
