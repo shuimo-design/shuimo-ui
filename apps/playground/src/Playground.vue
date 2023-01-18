@@ -28,6 +28,7 @@ const toggleActive2 = () => {
 <template>
 
   <m-button :disabled="disabled">测试</m-button>
+  <m-checkbox></m-checkbox>
   <!--  <span>{{ active }}</span>-->
   <!--  <m-menu>-->
   <!--    <m-menu-item>测试</m-menu-item>-->

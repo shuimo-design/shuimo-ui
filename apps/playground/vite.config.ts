@@ -10,6 +10,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { defineMPostcss } from '@shuimo-design/postcss';
 import shuimoCoreTsx from './plugins/shuimoCoreTsx';
+import { MODE_TYPE } from './enums';
+
 
 export default defineConfig(env => {
   const { mode } = env;
@@ -29,7 +31,7 @@ export default defineConfig(env => {
     commonjsOptions: { include: [/@shuimo-design/, 'moelement', /node_modules/] }
   };
 
-  let vuePluginOption = mode === 'web-component' ? {
+  let vuePluginOption = mode === MODE_TYPE.WEB_COMPONENT ? {
     // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
     template: {
       compilerOptions: {
@@ -37,7 +39,7 @@ export default defineConfig(env => {
       }
     }
   } : {};
-  const plugins = [vue(vuePluginOption), shuimoCoreTsx()];
+  const plugins = [vue(vuePluginOption), shuimoCoreTsx(mode)];
 
   return {
     plugins,

@@ -1,11 +1,17 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// import '@shuimo-design/web-component/index.ts';
+
 import './assets/style.css';
 import { createMUI } from 'shuimo-ui/lib';
-import style from 'shuimo-ui/lib/style.pcss';
-
 const app = createApp(App);
-app
-  .use(createMUI())
-  .mount('#app');
+
+const { MODE } = import.meta.env;
+if (MODE === 'web-component') {
+  import('../loader/web-component');
+}
+
+if (MODE === 'vue') {
+  app.use(createMUI())
+}
+
+app.mount('#app');

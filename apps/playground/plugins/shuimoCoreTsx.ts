@@ -6,21 +6,23 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { type Plugin } from 'vite';
 import * as esbuild from 'esbuild';
+import { MODE_TYPE } from '../enums';
 
 
-export default function shuimoCoreTsx() {
+export default function shuimoCoreTsx(MODE?: string): Plugin {
+  const jsxFactory = MODE === MODE_TYPE.VUE ? 'mWC' : 'm';
   return {
     name: 'shuimo:core-tsx',
     enforce: 'pre',
     async transform(code: string, id: string) {
 
-
       if (id.endsWith('.tsx') && id.includes('packages/core')) {
         const result = await esbuild.transform(
-          `import { mWC, shuimoJsxFragment} from '../../../tools/jsxTools';${code}`,
+          `import { ${jsxFactory}, shuimoJsxFragment} from '../../../tools/jsxTools';${code}`,
           {
-            jsxFactory: 'mWC',
+            jsxFactory,
             jsxFragment: 'shuimoJsxFragment',
             loader: 'tsx'
           });
