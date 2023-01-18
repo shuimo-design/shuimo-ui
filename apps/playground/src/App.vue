@@ -1,7 +1,7 @@
 <template>
   <m-rice-paper class="main-paper">
     <div class="base">
-      <h1>这里是playground</h1>
+      <h1>这里是{{MODE}}的playground</h1>
       <Playground/>
     </div>
   </m-rice-paper>
@@ -17,6 +17,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import Playground from './Playground.vue';
+
+const { MODE } = import.meta.env;
+
 
 </script>
 
