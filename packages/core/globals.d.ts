@@ -8,4 +8,10 @@
  */
 
 
-declare module "*.pcss";
+declare module '*.pcss';
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: string]: any;
+  }
+}

@@ -13,15 +13,14 @@ import style from './ricePaper.pcss';
 
 export default function useRicePaper() {
 
-  const mountain: MNodeTemplate = { type: 'div', props: { class: 'm-rice-paper-mountain' } };
-  const crane: MNodeTemplate = { type: 'div', props: { class: 'm-rice-paper-crane' } };
-  const main: MNodeTemplate = { type: 'div', props: { class: 'm-rice-paper-main' }, slots: ['default'] };
+  const template: MNodeTemplate = <div class="m-rice-paper">
+    <div class="m-rice-paper-mountain" m-name="mountain"></div>
+    <div class="m-rice-paper-crane" m-name="crane"></div>
+    <div class="m-rice-paper-main" m-name="main">
+      <slot></slot>
+    </div>
+  </div>;
 
-  const template: MNodeTemplate = {
-    type: 'div',
-    props: { class: 'm-rice-paper' },
-    children: { mountain, crane, main }
-  };
 
   const props: MCOPO<RicePaperProps> = {
     cold: { type: Boolean, default: true },

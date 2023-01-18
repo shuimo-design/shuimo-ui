@@ -14,11 +14,9 @@ import style from './button.pcss';
 export default function useButton() {
 
 
-  const template: MNodeTemplate = {
-    type: 'button',
-    props: { class: 'm-button' },
-    slots: ['default']
-  };
+  const template: MNodeTemplate = <button class="m-button">
+    <slot/>
+  </button>;
 
   const props: MCOPO<ButtonProps> = {
     text: { type: String, default: '' },
