@@ -2,7 +2,6 @@ import { App, Component } from 'vue';
 
 import MInput from './base/input/MInput';
 import MInputNumber from './base/inputNumber/MInputNumber';
-import MButton from './base/button/MButton';
 import MSelect from './base/select/MSelect';
 import MDatePicker from './base/datePicker/MDatePicker';
 import MRadio from './base/radio/MRadio';
@@ -44,7 +43,6 @@ import { loadingDirective } from './other/loading/directive';
 
 const components: Record<any, Component> = {
   MInput,
-  MButton,
   MDialog,
   MTooltip,
   MSelect,
@@ -76,7 +74,6 @@ const components: Record<any, Component> = {
 
 export {
   MInput,
-  MButton,
   MDialog,
   MTooltip,
   MSelect,

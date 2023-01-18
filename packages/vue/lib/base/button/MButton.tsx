@@ -2,7 +2,7 @@
  * @description 按钮组件
  * @author 阿怪
  * @date 2021/8/10 4:59 下午
- * @version v2.1.0
+ * @version v3.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 新增slot文本形式
@@ -10,9 +10,12 @@
  * v1.0.3 添加link属性
  * v2.0.0 升级交互
  * v2.1.0 使用border方式实现边框模块
+ * v3.0.0 props从core导出
  */
-import { h, defineComponent, toRefs } from 'vue';
-import { props } from './api';
+import { defineComponent, h, toRefs } from 'vue';
+import { useButton } from '@shuimo-design/core';
+
+const { options: { props } } = useButton();
 
 export default defineComponent({
   name: 'MButton',
@@ -26,6 +29,6 @@ export default defineComponent({
         class: ['m-button', { 'm-button-disabled': disabled.value }, `m-button-${type.value}`],
         disabled: disabled.value
       }, buttonText);
-    }
+    };
   }
 });

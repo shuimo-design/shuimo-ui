@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue",
+    "lib/**/*.ts", "lib/**/*.d.ts", "lib/**/*.tsx", "lib/**/*.vue"
+  ]
+}

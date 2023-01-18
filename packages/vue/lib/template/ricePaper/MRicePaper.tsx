@@ -9,7 +9,11 @@
  */
 import { defineComponent } from 'vue';
 import Printer from '../../other/printer/Printer';
-import { props } from './api';
+import { useRicePaper } from '@shuimo-design/core';
+import { cr } from '../../../tools/coreRender';
+
+const { options: { props, template } } = useRicePaper();
+
 
 export default defineComponent({
   name: 'MRicePaper',
@@ -19,16 +23,6 @@ export default defineComponent({
       Printer('水墨宣纸组件').error('必须传入default slot');
       return () => null;
     }
-
-    const mountain = props.mountain ? <div class="m-rice-paper-mountain"></div> : undefined;
-    const crane = props.crane ? <div class="m-rice-paper-crane"></div> : undefined;
-
-    return () => (
-      <div class={['m-rice-paper', props.cold ? undefined : 'm-rice-paper-warm']}>
-        {mountain}
-        {crane}
-        <div class="m-rice-paper-main">{slots.default!()}</div>
-      </div>
-    );
+    return () => cr(template, slots);
   }
 });
