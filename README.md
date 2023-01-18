@@ -37,6 +37,10 @@ We have sorted out a set of shuimo component library with traditional Chinese st
 I hope that this traditional Chinese-style component library can be used for some niche needs, and can satisfy some
 users who have an artistic pursuit of the page and hope to build it quickly.
 
+It looks like this:
+<img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
+
+
 ## discussion
 
 [discord](https://discord.gg/xy3BenWvYj)，but maybe the last time login was ten thousand years ago 😂.
