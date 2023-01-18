@@ -14,7 +14,7 @@
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "esbuild": "^0.17.0",
     "shuimo-ui": "*",
-    "vite": "^4.0.0",
+    "vite": "*",
     "vue": "^3.2.45"
   }
 }
