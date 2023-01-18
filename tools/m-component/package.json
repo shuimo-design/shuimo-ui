@@ -10,7 +10,8 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./index": "./index.ts"
   },
   "packageManager": "pnpm@7.17.1",
   "files": [
