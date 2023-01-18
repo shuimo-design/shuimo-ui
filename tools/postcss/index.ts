@@ -11,16 +11,18 @@ import { postcssEach } from './plugins/each';
 import { postcssHost } from './plugins/host';
 import { postcssExtend } from './plugins/extend';
 
+const hostConfig = {
+  includes: ['**/packages/core/**/*.pcss','*.pcss'],
+  excludes: ['**/global.pcss']
+}
+
 export const MPostcss = [
   postcssNested(),
   postcssEach(),
   require('postcss-import')(),
   require('postcss-url')({ url: 'inline' }),
   postcssExtend(),
-  postcssHost({
-    includes: ['**/packages/core/**/*.pcss','*.pcss'],
-    excludes: ['**/global.pcss']
-  }),
+  postcssHost(hostConfig),
 ];
 
 
@@ -38,7 +40,7 @@ export const defineMPostcss = (opt: {
   const importOption = { ...opt.import };
   const urlOption = { url: 'inline', basePath: opt.url.basePath };
   const hosts = opt.plugins && opt.plugins.host ? [postcssHost(
-    typeof opt.plugins.host === 'object' ? opt.plugins.host : {}
+    typeof opt.plugins.host === 'object' ? opt.plugins.host : hostConfig
   )] : [];
   return [
     postcssNested(),
