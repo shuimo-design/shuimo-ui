@@ -14,10 +14,10 @@ const value = ref([
   { title: '标题2' }
 ]);
 
-const active = ref(false);
+const disabled = ref(false);
 const active2 = ref(false);
 const toggleActive = () => {
-  active.value = !active.value;
+  disabled.value = !disabled.value;
 };
 const toggleActive2 = () => {
   active2.value = !active2.value;
@@ -26,24 +26,25 @@ const toggleActive2 = () => {
 </script>
 
 <template>
-  <m-button @click="toggleActive" primary>toggle</m-button>
-  <span>{{ active }}</span>
-  <m-menu>
-    <m-menu-item>测试</m-menu-item>
-    <m-menu-item>
-      测试2
-      <m-menu-item slot="sub">测试2-1</m-menu-item>
-      <m-menu-item slot="sub">测试2-2</m-menu-item>
-    </m-menu-item>
-    <m-menu-item :active="active">
-      测试3
-      <m-menu-item slot="sub">测试3-2</m-menu-item>
-      <m-menu-item slot="sub" :active="active2">
-        测试3-1
-        <m-menu-item slot="sub">测试3-1-1</m-menu-item>
-      </m-menu-item>
-    </m-menu-item>
-  </m-menu>
+
+  <m-button :disabled="disabled">测试</m-button>
+  <!--  <span>{{ active }}</span>-->
+  <!--  <m-menu>-->
+  <!--    <m-menu-item>测试</m-menu-item>-->
+  <!--    <m-menu-item>-->
+  <!--      测试2-->
+  <!--      <m-menu-item slot="sub">测试2-1</m-menu-item>-->
+  <!--      <m-menu-item slot="sub">测试2-2</m-menu-item>-->
+  <!--    </m-menu-item>-->
+  <!--    <m-menu-item :active="active">-->
+  <!--      测试3-->
+  <!--      <m-menu-item slot="sub">测试3-2</m-menu-item>-->
+  <!--      <m-menu-item slot="sub" :active="active2">-->
+  <!--        测试3-1-->
+  <!--        <m-menu-item slot="sub">测试3-1-1</m-menu-item>-->
+  <!--      </m-menu-item>-->
+  <!--    </m-menu-item>-->
+  <!--  </m-menu>-->
 
 </template>
 

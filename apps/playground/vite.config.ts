@@ -8,30 +8,41 @@
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { defineMPostcss } from '@shuimo-design/postcss';
+import shuimoCoreTsx from './plugins/shuimoCoreTsx';
 
+export default defineConfig(env => {
+  const { mode } = env;
 
-export default defineConfig({
-  plugins: [
-    vue({
-      // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
-      template: {
-        compilerOptions: {
-          isCustomElement: tag => tag.startsWith('m-') //web-components 添加配置识别 ‘m-’开头标签
-        }
-      }
-    })
-  ],
-  css: {
+  const css = {
     postcss: {
-      plugins: require('@shuimo-design/postcss').MPostcss
+      plugins: defineMPostcss({
+        plugins: { host: false }, // if you are not playing with web-component
+        import: { root: './' },
+        url: { basePath: './' }
+      })
     }
-  },
-  optimizeDeps: {
-    include: ['@shuimo-design/postcss', 'moelement']
-  },
-  build: {
-    commonjsOptions: {
-      include: [/@shuimo-design/, 'moelement', /node_modules/]
+  };
+  const optimizeDeps = { include: ['@shuimo-design/postcss', 'moelement'] };
+
+  const build = {
+    commonjsOptions: { include: [/@shuimo-design/, 'moelement', /node_modules/] }
+  };
+
+  let vuePluginOption = mode === 'web-component' ? {
+    // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag: string) => tag.startsWith('m-') //web-components 添加配置识别 ‘m-’开头标签
+      }
     }
-  }
+  } : {};
+  const plugins = [vue(vuePluginOption), shuimoCoreTsx()];
+
+  return {
+    plugins,
+    css,
+    optimizeDeps,
+    build
+  };
 });

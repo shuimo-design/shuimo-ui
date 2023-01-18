@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import '@shuimo-design/web-component/index.ts';
+// import '@shuimo-design/web-component/index.ts';
 import './assets/style.css';
-
+import { createMUI } from 'shuimo-ui/lib';
+import style from 'shuimo-ui/lib/style.pcss';
 
 const app = createApp(App);
-app.mount('#app');
+app
+  .use(createMUI())
+  .mount('#app');

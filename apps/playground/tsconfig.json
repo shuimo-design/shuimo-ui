@@ -5,9 +5,11 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "mWC",
+    "jsxFragmentFactory": "shuimoJsxFragment",
     "sourceMap": true,
     "esModuleInterop": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "exclude": ["node_modules"]
 }
