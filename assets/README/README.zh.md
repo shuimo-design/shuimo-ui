@@ -4,47 +4,45 @@
         alt="shuimo logo">
   </a>
 </p>
-<h1 align="center">Shuimo-UI</h1>
-
-<p align="center">A vary coarse Chinese ink style UI</p>
+<h1 align="center">水墨UI</h1>
 <p align="center">一款很粗暴的水墨UI</p>
 
-[中文文档](https://github.com/janghood/shuimo-ui/blob/main/assets/README/README.zh.md)
+[英文文档](https://github.com/janghood/shuimo-ui)
 
-## Introduction
+## 简介（Introduction）
 
-This is an out-of-the-box **水墨(shuimo)** component library.
+这是一款开箱即用的**水墨化**组件库。
 
-We noticed that there are many excellent enterprise-level UI design languages and component libraries.
+我们注意到有许多优秀的企业级UI设计语言和组件库。
 
-As a Chinese, we highly respect the unique Chinese art style: shuimo.
+作为炎黄子孙，我们十分推崇中国独有的美术风格：水墨。
 
-We have sorted out a set of shuimo component library with traditional Chinese style.
+我们整理出了一套具有中国传统风格的水墨风组件库。
 
-I hope that this traditional Chinese-style component library can be used for some niche needs, and can satisfy some
-users who have an artistic pursuit of the page and hope to build it quickly.
+希望这款中国传统风格的组件库，能用于一些小众的需求，能满足于一些对页面有美术追求，又希望能快速搭建的用户。
 
-It looks like this:
+它的实践看起来是这样的：
 <img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
 
-## 🚧 About this branch
+## 🚧 关于这个分支
 
-In the past we only wrote the `Vue3` version.
+过去我们只编写了`Vue3`版本。
 
-Now we are trying to support `Web Componet` and `React` version.
+现在我们正尝试支持 `Web Componet` 和 `React` 版本。
 
-And we also hope to provide a `Assets free, Only code` version and a `Don't care about package size` version,
-but it must take a lot of time, please wait.
+当然我们也希望支持`去资源，纯代码`的版本和`不在乎包大小`的版本,
+但这必须花费很多时间，请耐心等待。
 
-You can check old `Vue3` version on this [branch](https://github.com/janghood/shuimo-ui/tree/vue).
+你可以在这条[分支](https://github.com/janghood/shuimo-ui/tree/vue)上查看老的`Vue3`版本的代码。
 
-You can check our current support status [here](https://github.com/janghood/shuimo-ui/tree/main#TODO).
+你可以在[这里](https://github.com/janghood/shuimo-ui/blob/main/assets/README/README.zh.md#TODO)查看我们现在对组件的支持状态。
 
-## discussion
+## 讨论(discussion)
 
-[discord](https://discord.gg/xy3BenWvYj)，but maybe the last time login was ten thousand years ago 😂.
+[discord](https://discord.gg/xy3BenWvYj)，万年上一次😂。
 
-You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a>  _（join Wechat group or something..）_。
+有需要可以邮件 <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a> 联系我 _（以及加入微信小群）_。
+
 
 ## Vue3
 
@@ -52,14 +50,15 @@ You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
-### Install
+### 安装
 
 ```bash
-pnpm install shuimo-ui
+npm install shuimo-ui
 ```
-### document
 
-[click here](https://shuimo.janghood.com)
+### 文档
+
+[点击这里](https://shuimo.janghood.com)
 
 ## TODO
 
@@ -98,4 +97,4 @@ pnpm install shuimo-ui
 | RicePaper     | ✅             | ❌                               | ❌     |
 | DeleteIcon    | ✅             | ❌                               | ❌     |
 
-### This migration is very time consuming, We are doing our best. If possible, please star or submit a contribution. Thanks.
+### 这种迁移极度耗时和耗费精力，我们正在尽我们所能。如果可以的话，请star一下，或者提交一些贡献。非常感谢！
