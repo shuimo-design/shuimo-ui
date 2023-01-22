@@ -15,7 +15,8 @@ const value = ref([
 ]);
 
 const disabled = ref(false);
-const active2 = ref(false);
+const active2 = ref(true);
+const input = ref('hi');
 const toggleActive = () => {
   disabled.value = !disabled.value;
 };
@@ -26,9 +27,10 @@ const toggleActive2 = () => {
 </script>
 
 <template>
-
-  <m-button :disabled="disabled">测试</m-button>
-  <m-checkbox></m-checkbox>
+  <span>{{input}}</span>
+  <m-input v-model="input" placeholder="测试"/>
+<!--  <m-button :disabled="disabled">测试</m-button>-->
+<!--  <m-checkbox v-model="active2"></m-checkbox>-->
   <!--  <span>{{ active }}</span>-->
   <!--  <m-menu>-->
   <!--    <m-menu-item>测试</m-menu-item>-->

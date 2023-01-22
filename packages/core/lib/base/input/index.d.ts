@@ -31,8 +31,16 @@ export declare type InputProps = {
    * @description input value. 输入框绑定值
    * @type string|number
    * @default ''
+   * @web-component
    */
   value?: string | number,
+  /**
+   * @description input value. 输入框绑定值
+   * @type string|number
+   * @default ''
+   * @vue
+   */
+  modelValue?: string | number,
   /**
    * @description input readonly. 是否只读
    * @type boolean
@@ -49,4 +57,6 @@ export declare type InputProps = {
 
 export declare type InputEvents = {
   onInput: (e: HTMLElementEvent<HTMLInputElement>) => void
+  onFocus: (e: FocusEvent) => void
+  onBlur: (e: FocusEvent) => void
 }

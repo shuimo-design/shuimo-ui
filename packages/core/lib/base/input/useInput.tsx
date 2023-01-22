@@ -15,19 +15,19 @@ import style from './input.pcss';
 export default function useInput() {
 
 
-  const template: MNodeTemplate = {
-    type: 'input',
-    props: { class: 'm-input' }
-  };
+  const template: MNodeTemplate = <input class="m-input"/>;
 
-  const { options:{
-    template: borderTemplate, style: borderStyle
-  } } = useBorder({ input: template });
+  const {
+    options: {
+      template: borderTemplate, style: borderStyle
+    }
+  } = useBorder({ input: template });
 
   const props: MCOPO<InputProps> = {
     type: { type: String, default: 'text' },
     placeholder: { type: String, default: '' },
     value: { type: [String, Number], default: '' },
+    modelValue: { type: [String, Number], default: '' },
     readonly: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   };
@@ -41,8 +41,9 @@ export default function useInput() {
         template.props![key] = _props[key as keyof InputProps]!;
       }
     });
-
     template.props.onInput = _events.onInput;
+    template.props.onFocus = _events.onFocus;
+    template.props.onBlur = _events.onBlur;
   };
 
   return {
