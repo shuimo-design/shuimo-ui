@@ -8,12 +8,14 @@
  */
 import { App, Component } from 'vue';
 import MButton from './base/button/MButton';
+import MInput from './base/input/MInput';
 import MCheckbox from './base/checkbox/MCheckbox';
 
 import MRicePaper from './template/ricePaper/MRicePaper';
 
 const components: Record<string, Component> = {
   MButton,
+  MInput,
   MCheckbox,
 
   MRicePaper,
@@ -21,6 +23,7 @@ const components: Record<string, Component> = {
 
 export {
   MButton,
+  MInput,
   MCheckbox,
 
   MRicePaper
