@@ -15,14 +15,14 @@
 
 This is an out-of-the-box **水墨(shuimo)** component library.
 
-We noticed that there are many excellent enterprise-level UI design languages and component libraries.
+We have found that there are many excellent enterprise-level UI design languages and component libraries.
 
 As a Chinese, we highly respect the unique Chinese art style: shuimo.
 
-We have sorted out a set of shuimo component library with traditional Chinese style.
+We have sorted out a set of Shuimo component library with traditional Chinese style.
 
 I hope that this traditional Chinese-style component library can be used for some niche needs, and can satisfy some
-users who have an artistic pursuit of the page and hope to build it quickly.
+users who have an artistic pursuit of the site and hope to build it quickly.
 
 It looks like this:
 <img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
@@ -34,7 +34,7 @@ In the past we only wrote the `Vue3` version.
 Now we are trying to support `Web Componet` and `React` version.
 
 And we also hope to provide a `Assets free, Only code` version and a `Don't care about package size` version,
-but it must take a lot of time, please wait.
+but this will take a long time, so please wait.
 
 You can check old `Vue3` version on this [branch](https://github.com/janghood/shuimo-ui/tree/vue).
 
@@ -98,4 +98,4 @@ pnpm install shuimo-ui
 | RicePaper     | ✅             | ❌                               | ❌     |
 | DeleteIcon    | ✅             | ❌                               | ❌     |
 
-### This migration is very time consuming, We are doing our best. If possible, please star or submit a contribution. Thanks.
+This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
