@@ -7,14 +7,22 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { h, Slots, VNode } from 'vue';
-import { MNodeTemplate } from '@shuimo-design/core';
+import { MCOPO, MNodeTemplate } from '@shuimo-design/core';
 
 
-export const cr = (template: MNodeTemplate, userSlots?: Readonly<Slots>) => {
+export const cr = <T>(
+  template: MNodeTemplate,
+  user?: { props?: MCOPO<T>, slots?: Slots, }
+) => {
   if (template.if === false) {
     return undefined;
   }
   const { type, props, children, slots: templateSlots } = template;
+  let userSlots: Slots | undefined, userProps: MCOPO<T> | undefined;
+  if (user) {
+    if (user.slots) {userSlots = user.slots;}
+    if (user.props) {userProps = user.props;}
+  }
 
   let slots: VNode[] = [];
   if (type === 'slot') {
@@ -29,8 +37,8 @@ export const cr = (template: MNodeTemplate, userSlots?: Readonly<Slots>) => {
   // merge children
   if (children) {
     slots = slots.concat(...Object.values(children)
-      .filter(e => e.if)
-      .map(s => cr(s, userSlots)!));
+      .filter(e => e.if !== false)
+      .map(s => cr(s, { slots: userSlots, props: userProps })!));
   }
   if (templateSlots) {
     if (Array.isArray(templateSlots)) {
@@ -38,8 +46,8 @@ export const cr = (template: MNodeTemplate, userSlots?: Readonly<Slots>) => {
     } else if (templateSlots && templateSlots.size > 0) {
       // means record
       slots = slots.concat(...Array.from(templateSlots.values())
-        .filter(e => e.if)
-        .map(s => cr(s as MNodeTemplate, userSlots)!));
+        .filter(e => e.if !== false)
+        .map(s => cr(s as MNodeTemplate, { slots: userSlots, props: userProps })!));
     }
   }
 

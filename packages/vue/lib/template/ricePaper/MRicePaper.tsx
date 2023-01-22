@@ -23,6 +23,6 @@ export default defineComponent({
       Printer('水墨宣纸组件').error('必须传入default slot');
       return () => null;
     }
-    return () => cr(template, slots);
+    return () => cr(template, { props, slots });
   }
 });
