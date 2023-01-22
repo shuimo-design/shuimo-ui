@@ -6,22 +6,21 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../../../types';
-import { MCOPO } from '../../../types/template/props';
+import { MCOPO, MNodeTemplate } from '../../../types';
 import { MenuProps } from './index';
 import style from './menu.pcss';
 
-export default function useMenu() {
+export const menuProps: MCOPO<MenuProps> = {
+  menu: { type: Array, default: [] },
+  inline: { type: Boolean, default: false }
+};
+
+export function useMenu() {
 
   const template: MNodeTemplate = {
     type: 'ul',
     props: { class: 'm-menu' },
     slots: ['default']
-  };
-
-  const props: MCOPO<MenuProps> = {
-    menu: { type: Array, default: [] },
-    inline: { type: Boolean, default: false }
   };
 
   const initProps = (_props: MenuProps) => {
@@ -30,7 +29,7 @@ export default function useMenu() {
   };
 
   return {
-    options: { template, props, style },
+    options: { template, props: menuProps, style },
     initProps
   };
 

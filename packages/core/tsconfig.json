@@ -1,20 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "allowJs": true,
-    "experimentalDecorators": true,
     "typeRoots": [
       "node_modules/@types",
+      "global.d.ts",
       "types"
-    ],
-  },
-  "exclude": [
-    "node_modules"
-  ]
+    ]
+  }
 }

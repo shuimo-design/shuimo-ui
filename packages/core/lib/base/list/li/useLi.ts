@@ -6,12 +6,16 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../../../../types';
-import { MCOPO } from '../../../../types/template/props';
+import { MCOPO, MNodeTemplate } from '../../../../types';
 import { LiProps } from './li';
 import style from './li.pcss';
 
-export default function useLi() {
+
+export const liProps: MCOPO<LiProps> = {
+  active: { type: Boolean, default: false }
+};
+
+export function useLi() {
 
   const template: MNodeTemplate = {
     type: 'li',
@@ -19,9 +23,5 @@ export default function useLi() {
     slots: ['default']
   };
 
-  const props: MCOPO<LiProps> = {
-    active: { type: Boolean, default: false }
-  };
-
-  return { options: { template, props, style } };
+  return { options: { template, props:liProps, style } };
 }

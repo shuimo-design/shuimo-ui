@@ -6,12 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import useLi from '../../base/list/li/useLi';
+import { useLi } from '../../base/list/li/useLi';
 import { MNodeSlot, MNodeTemplate } from '../../../types';
-import style from './menuItem.pcss';
 import { MenuItemProps } from './index';
+import style from './menuItem.pcss';
 
-export default function useMenuItem() {
+export function useMenuItem() {
 
   const li = useLi();
 

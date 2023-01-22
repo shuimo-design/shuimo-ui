@@ -6,12 +6,18 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../../../types';
+import { MCOPO, MNodeTemplate } from '../../../types';
 import { RicePaperProps } from './index';
-import { MCOPO } from '../../../types/template/props';
 import style from './ricePaper.pcss';
 
-export default function useRicePaper() {
+
+const ricePaperProps: MCOPO<RicePaperProps> = {
+  cold: { type: Boolean, default: true },
+  mountain: { type: Boolean, default: true },
+  crane: { type: Boolean, default: true }
+};
+
+export function useRicePaper() {
 
   const template: MNodeTemplate = <div class="m-rice-paper">
     <div class="m-rice-paper-mountain" m-name="mountain"></div>
@@ -21,14 +27,7 @@ export default function useRicePaper() {
     </div>
   </div>;
 
-
-  const props: MCOPO<RicePaperProps> = {
-    cold: { type: Boolean, default: true },
-    mountain: { type: Boolean, default: true },
-    crane: { type: Boolean, default: true }
-  };
-
   return {
-    options: { template, props, style }
+    options: { template, props: ricePaperProps, style }
   };
 }

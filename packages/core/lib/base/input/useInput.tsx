@@ -6,14 +6,22 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../../../types';
-import { MCOPO } from '../../../types/template/props';
+import { MCOPO, MNodeTemplate } from '../../../types';
 import { InputEvents, InputProps } from './index';
-import useBorder from '../../template/border/useBorder';
+import { useBorder } from '../../template/border/useBorder';
 import style from './input.pcss';
 
-export default function useInput() {
 
+export const inputProps: MCOPO<InputProps> = {
+  type: { type: String, default: 'text' },
+  placeholder: { type: String, default: '' },
+  value: { type: [String, Number], default: '' },
+  modelValue: { type: [String, Number], default: '' },
+  readonly: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false }
+};
+
+export function useInput() {
 
   const template: MNodeTemplate = <input class="m-input"/>;
 
@@ -23,18 +31,10 @@ export default function useInput() {
     }
   } = useBorder({ input: template });
 
-  const props: MCOPO<InputProps> = {
-    type: { type: String, default: 'text' },
-    placeholder: { type: String, default: '' },
-    value: { type: [String, Number], default: '' },
-    modelValue: { type: [String, Number], default: '' },
-    readonly: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false }
-  };
 
   const initProps = (_props: InputProps, _events: InputEvents) => {
     if (!template.props) {return;}
-    Object.keys(props).forEach(key => {
+    Object.keys(inputProps).forEach(key => {
       if (_props.hasOwnProperty(key) &&
         _props[key as keyof InputProps] !== undefined &&
         _props[key as keyof InputProps] !== null) {
@@ -47,7 +47,7 @@ export default function useInput() {
   };
 
   return {
-    options: { template: borderTemplate, props, style: borderStyle + style },
+    options: { template: borderTemplate, props: inputProps, style: borderStyle + style },
     initProps
   };
 

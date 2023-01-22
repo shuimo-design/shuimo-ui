@@ -9,7 +9,7 @@
 import { MNodeTemplate } from '../../../types';
 import style from './border.pcss';
 
-export default function useBorder(children?: Record<string, MNodeTemplate>) {
+export function useBorder(children?: Record<string, MNodeTemplate>) {
 
 
   const baseLineClass = 'm-border-line';
