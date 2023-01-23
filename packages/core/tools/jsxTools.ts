@@ -12,20 +12,31 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   // for vue
   const children: MNodeTemplate['children'] = {};
   const slots: MNodeTemplate['slots'] = new Map();
-  for (let c of childList) {
-    if (c.props === null) {
-      if (c.type === 'slot') {
-        slots.set('default', c);
+
+  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[]>) => {
+    for (let c of childList) {
+      if (Array.isArray(c)) {
+        handlerChildren(c);
+      } else {
+        if (c.props === null) {
+          if (c.type === 'slot') {
+            slots.set('default', c);
+          }
+          continue;
+        }
+        const name = c.props!['m-name'] as string;
+        if (!name) {continue;}
+        if (c.type === 'slot') {
+          slots.set(name, c);
+        } else {
+          children[name] = c;
+        }
       }
-      continue;
     }
-    const name = c.props!['m-name'] as string;
-    if (!name) {continue;}
-    if (c.type === 'slot') {
-      slots.set(name, c);
-    } else {
-      children[name] = c;
-    }
+  };
+
+  if (childList) {
+    handlerChildren(childList);
   }
   const propsIf = props && props['m-if'];
   const propsShow = props && props['m-show'];
@@ -44,18 +55,30 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
 
   const slots = new Map();
   const children: MNodeTemplate['children'] = {};
-  if (childList) {
+
+  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[]>) => {
+
     for (let c of childList) {
-      if (c.type === 'slot') {
-        slots.set(c.props!.name, c);
+      if (Array.isArray(c)) {
+        handlerChildren(c);
       } else {
-        const name = c.props!['m-name'] as string;
-        if (!name) {
-          console.warn('m-name is required for child of web-component');
+        if (c.type === 'slot') {
+          slots.set(c.props!.name, c);
+        } else {
+          const name = c.props!['m-name'] as string;
+          if (!name) {
+            console.warn('m-name is required for child of web-component');
+          }
+          children[name] = c;
         }
-        children[name] = c;
       }
     }
+
+
+  };
+
+  if (childList) {
+    handlerChildren(childList);
   }
   return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow) };
 };
