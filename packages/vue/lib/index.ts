@@ -12,6 +12,7 @@ import MInput from './base/input/MInput';
 import MCheckbox from './base/checkbox/MCheckbox';
 
 import MRicePaper from './template/ricePaper/MRicePaper';
+import MBorder from './template/border/MBorder';
 
 const components: Record<string, Component> = {
   MButton,
@@ -19,6 +20,7 @@ const components: Record<string, Component> = {
   MCheckbox,
 
   MRicePaper,
+  MBorder
 };
 
 export {
@@ -26,7 +28,8 @@ export {
   MInput,
   MCheckbox,
 
-  MRicePaper
+  MRicePaper,
+  MBorder
 };
 
 export function createMUI() {
