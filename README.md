@@ -77,6 +77,7 @@ pnpm install shuimo-ui
 | CheckBox      | ✅             | ✅               | ✅                  | ❌     |
 | CheckBoxGroup | ✅             | ❌               | ❌                  | ❌     |
 | List          | ✅             | ❌               | ✅                  | ❌     |
+| Li            | ❌             | ❌               | ✅                  | ❌     |
 | Tag           | ✅             | ❌               | ❌                  | ❌     |
 | Switch        | ✅             | ❌               | ❌                  | ❌     |
 | Confirm       | ✅             | ❌               | ❌                  | ❌     |
@@ -85,7 +86,7 @@ pnpm install shuimo-ui
 | Message       | ✅             | ❌               | ❌                  | ❌     |
 | Popover       | ✅             | ❌               | ❌                  | ❌     |
 | Tooltip       | ✅             | ❌               | ❌                  | ❌     |
-| Border        | ✅             | ❌               | ✅                  | ❌     |
+| Border        | ✅             | ✅               | ✅                  | ❌     |
 | Menu          | ⚗️            | ❌               | 🚧️                | ❌     |
 | Divider       | ✅             | ❌               | ❌                  | ❌     |
 | Loading       | ✅             | ❌               | ❌                  | ❌     |
