@@ -13,6 +13,7 @@
     "dev:doc": {
       "cache": false,
       "dependsOn": [
+        "build:vite-jsx",
         "build:postcss",
         "web-component-doc:dev"
       ]
@@ -20,11 +21,13 @@
     "web-component-doc:dev": {
       "cache": false,
       "dependsOn": [
+        "build:vite-jsx",
         "build:postcss",
         "build:web-component"
       ]
     },
     "build:postcss": {},
+    "build:vite-jsx": {},
     "build:web-component": {},
     "playground": {
       "cache": false,

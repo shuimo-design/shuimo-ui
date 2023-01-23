@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description shuimo core tsx plugin for vite
  * @author 阿怪
  * @date 2023/1/16 13:59
  * @version v1.0.0
@@ -8,10 +8,10 @@
  */
 import { type Plugin } from 'vite';
 import * as esbuild from 'esbuild';
-import { MODE_TYPE } from '../enums';
+import { MODE_TYPE } from './enums';
 
 
-export default function shuimoCoreTsx(MODE?: string): Plugin {
+export function shuimoCoreTsx(MODE?: string): Plugin {
   const jsxFactory = MODE === MODE_TYPE.VUE ? 'm' : 'mWC';
   return {
     name: 'shuimo:core-tsx',

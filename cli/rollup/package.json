@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build:postcss": "tsx script/build.ts --target tools/postcss",
+    "build:vite-jsx": "tsx script/build.ts --target tools/vite-jsx",
     "build:web-component": "tsx script/build.ts --target packages/web-component"
   },
   "devDependencies": {

@@ -9,8 +9,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { defineMPostcss } from '@shuimo-design/postcss';
-import shuimoCoreTsx from './plugins/shuimoCoreTsx';
-import { MODE_TYPE } from './enums';
+import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/vite-jsx';
 
 
 export default defineConfig(env => {
