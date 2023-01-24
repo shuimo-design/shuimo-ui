@@ -38,8 +38,9 @@ export const cr = <T>(
   if (children) {
     slots = slots.concat(...Object.values(children)
       .filter(e => e.if !== false)
-      .map(s => cr(s, { slots: userSlots, props: userProps })!));
+      .map(s => cr(s, user)!));
   }
+  // <slot>
   if (templateSlots) {
     if (Array.isArray(templateSlots)) {
       // slots = templateSlots.map(s => );
@@ -47,10 +48,9 @@ export const cr = <T>(
       // means record
       slots = slots.concat(...Array.from(templateSlots.values())
         .filter(e => e.if !== false)
-        .map(s => cr(s as MNodeTemplate, { slots: userSlots, props: userProps })!));
+        .map(s => cr(s as MNodeTemplate, user)!));
     }
   }
-
 
   return h(type, props, slots);
 };
