@@ -23,7 +23,7 @@ export const inputProps: MCOPO<InputProps> = {
 
 export function useInput() {
 
-  const template: MNodeTemplate = <input class="m-input"/>;
+  const template: MNodeTemplate = <input class="m-input-inner"/>;
 
   const {
     options: {
@@ -41,13 +41,29 @@ export function useInput() {
         template.props![key] = _props[key as keyof InputProps]!;
       }
     });
+    if (_props.type === 'textarea') {
+      template.type = 'textarea';
+      template.props.class = 'm-textarea-inner';
+      template.props.rows = 10;
+    } else {
+      template.type = 'input';
+      template.props.class = 'm-input-inner';
+      delete template.props.rows;
+    }
+
+
     template.props.onInput = _events.onInput;
     template.props.onFocus = _events.onFocus;
     template.props.onBlur = _events.onBlur;
   };
 
   return {
-    options: { template: borderTemplate, props: inputProps, style: borderStyle + style },
+    options: {
+      template: borderTemplate, props: {
+        ...inputProps,
+        class: 'm-input'
+      }, style: borderStyle + style
+    },
     initProps
   };
 
