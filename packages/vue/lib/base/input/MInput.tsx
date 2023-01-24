@@ -13,19 +13,19 @@
  * v2.0.0 阿怪 upgrade to core version
  */
 import { defineComponent } from 'vue';
-import { HTMLElementEvent, useInput } from '@shuimo-design/core';
+import { HTMLElementEvent, inputProps, useInput } from '@shuimo-design/core';
 import { cr } from '../../../tools/coreRender';
 
 
-const { options: { template, props }, initProps } = useInput();
 
 export default defineComponent({
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur'],
-  props,
+  props: inputProps,
   setup(p, { emit }) {
 
     return () => {
+      const { options: { template }, initProps } = useInput();
       initProps({
         ...p,
         value: p.modelValue
