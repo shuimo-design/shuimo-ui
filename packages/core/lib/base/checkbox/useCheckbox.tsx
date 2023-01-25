@@ -6,9 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO, MNodeTemplate } from '../../../types';
-import style from './checkbox.pcss';
+import { MNodeTemplate } from '../../../types';
 import { CheckboxProps } from './index';
+import { MCOPO } from '@shuimo-design/types';
+import style from './checkbox.pcss';
 
 export const checkboxProps: MCOPO<CheckboxProps> = {
   checked: { type: Boolean, default: undefined },

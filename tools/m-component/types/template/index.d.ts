@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from './props';
+import { MCOPO } from '@shuimo-design/types';
 import { MNodeTemplate } from './template';
 
 
@@ -53,9 +53,9 @@ export interface IMElement extends HTMLElement {
   afterUpdate(): void;
 }
 
-export declare type MElementOptions = {
+export declare type MElementOptions<T=any> = {
   name: string,
   style?: string,
   template?: MNodeTemplate,
-  props?: MCOPO<any>
+  props?: MCOPO<T>
 }

@@ -6,8 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO, MNodeTemplate } from '../../../../types';
+import { MNodeTemplate } from '../../../../types';
 import { LiProps } from './li';
+import { MCOPO } from '@shuimo-design/types';
 import style from './li.pcss';
 
 

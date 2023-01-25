@@ -11,7 +11,7 @@ import initCustomerElement from './initCustomerElement';
 import { MElementOptions } from '../../types/template';
 
 
-export const createMElement = (options: MElementOptions) => {
+export const createMElement = <T>(options: MElementOptions<T>) => {
   const { name } = options;
   return (target: typeof MElement) => {
     const CustomMElement = initCustomerElement(target, options);

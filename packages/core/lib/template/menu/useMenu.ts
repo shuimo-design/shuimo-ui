@@ -6,8 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO, MNodeTemplate } from '../../../types';
+import { MNodeTemplate } from '../../../types';
 import { MenuProps } from './index';
+import { MCOPO } from '@shuimo-design/types';
 import style from './menu.pcss';
 
 export const menuProps: MCOPO<MenuProps> = {

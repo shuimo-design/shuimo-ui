@@ -7,10 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import MElement from '../../MElement';
-import { MCOPO, MPropOptionsBase } from '../../../types/template/props';
+import { MCOPO, MPropType } from '@shuimo-design/types';
 
 
-export const attributeTransform = (type: MPropOptionsBase['type'], value: string) => {
+export const attributeTransform = (type: MPropType<any> | true | null, value: string) => {
   if (type === true || type === null) {return value;}
 
   if (Array.isArray(type)) { // array type not support yet.
