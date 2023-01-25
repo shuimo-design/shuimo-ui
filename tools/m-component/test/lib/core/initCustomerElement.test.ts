@@ -8,10 +8,10 @@
  */
 
 
-import { beforeEach, describe, expect, test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import MElement from '../../../lib/MElement';
 import { createMElement } from '../../../lib/core/createMElement';
-import { MCOPO } from '../../../types/template/props';
+import { MCOPO } from '@shuimo-design/types';
 
 const TestElement = class extends MElement {};
 type ElementAttribute = {
