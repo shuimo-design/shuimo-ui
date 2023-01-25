@@ -11,7 +11,6 @@ import { InputEvents, InputProps } from './index';
 import { useBorder } from '../../template/border/useBorder';
 import style from './input.pcss';
 
-
 export const inputProps: MCOPO<InputProps> = {
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
@@ -53,8 +52,12 @@ export function useInput() {
 
 
     template.props.onInput = _events.onInput;
-    template.props.onFocus = _events.onFocus;
-    template.props.onBlur = _events.onBlur;
+    if(_events.onFocus){
+      template.props.onFocus = _events.onFocus;
+    }
+    if(_events.onBlur){
+      template.props.onBlur = _events.onBlur;
+    }
   };
 
   return {
