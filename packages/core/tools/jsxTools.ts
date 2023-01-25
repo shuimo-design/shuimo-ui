@@ -7,6 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate } from '../types';
+import { MCOPO } from '@shuimo-design/types';
 
 export const m = (type: string, props?: Record<string, any> | null, ...childList: MNodeTemplate[]) => {
   // for vue
@@ -40,7 +41,17 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   }
   const propsIf = props && props['m-if'];
   const propsShow = props && props['m-show'];
-  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow) };
+
+  const initProps = (templateProps: MCOPO<any>, _props: Record<string, any>) => {
+    if (!props || !_props) return;
+    Object.keys(templateProps).forEach(key => {
+      if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
+        props![key] = _props[key]!;
+      }
+    });
+  };
+
+  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
 };
 
 export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...childList: MNodeTemplate[]) => {
@@ -80,7 +91,17 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
   if (childList) {
     handlerChildren(childList);
   }
-  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow) };
+
+  const initProps = <T = any>(templateProps: MCOPO<any>, _props: Record<string, any>) => {
+    if (!props) return;
+    Object.keys(templateProps).forEach(key => {
+      if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
+        props![key] = _props[key]!;
+      }
+    });
+  };
+
+  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
 };
 
 

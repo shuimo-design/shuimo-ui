@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from './props';
+import { MCOPO } from '@shuimo-design/types';
 
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
   target: T;
@@ -32,6 +32,7 @@ export declare type MNodeTemplate = {
   props?: MNodeProps,
   children?: Record<string, MNodeTemplate>,
   slots?: Map<string, MNodeSlot> | string[],
+  initProps?: (templateProps: MCOPO<any>, props: MNodeProps) => void,
 } & MVNodeRenderParams
 
 
