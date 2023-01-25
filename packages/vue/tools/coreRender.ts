@@ -7,7 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { h, Slots, VNode } from 'vue';
-import { MCOPO, MNodeTemplate } from '@shuimo-design/core';
+import { MNodeTemplate } from '@shuimo-design/core';
+import { MCOPO } from '@shuimo-design/types';
 
 
 export const cr = <T>(
@@ -34,6 +35,8 @@ export const cr = <T>(
       return userSlots[name]!();
     }
   }
+
+
   // merge children
   if (children) {
     slots = slots.concat(...Object.values(children)
