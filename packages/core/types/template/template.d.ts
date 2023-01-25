@@ -32,7 +32,7 @@ export declare type MNodeTemplate = {
   props?: MNodeProps,
   children?: Record<string, MNodeTemplate>,
   slots?: Map<string, MNodeSlot> | string[],
-  initProps?: (templateProps: MCOPO<any>, props: MNodeProps) => void,
+  initProps?: (templateProps: MCOPO<any>, props: MNodeProps, filter?: string[]) => void,
 } & MVNodeRenderParams
 
 

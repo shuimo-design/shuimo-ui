@@ -42,13 +42,15 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   const propsIf = props && props['m-if'];
   const propsShow = props && props['m-show'];
 
-  const initProps = (templateProps: MCOPO<any>, _props: Record<string, any>) => {
+  const initProps = (templateProps: MCOPO<any>, _props: Record<string, any>, filter?: string[]) => {
     if (!props || !_props) return;
-    Object.keys(templateProps).forEach(key => {
-      if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
-        props![key] = _props[key]!;
-      }
-    });
+    Object.keys(templateProps)
+      .filter(e => !filter || !filter.includes(e))
+      .forEach(key => {
+        if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
+          props![key] = _props[key]!;
+        }
+      });
   };
 
   return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
@@ -92,13 +94,15 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
     handlerChildren(childList);
   }
 
-  const initProps = <T = any>(templateProps: MCOPO<any>, _props: Record<string, any>) => {
+  const initProps = <T = any>(templateProps: MCOPO<any>, _props: Record<string, any>, filter: string[]) => {
     if (!props) return;
-    Object.keys(templateProps).forEach(key => {
-      if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
-        props![key] = _props[key]!;
-      }
-    });
+    Object.keys(templateProps)
+      .filter(e => !filter || !filter.includes(e))
+      .forEach(key => {
+        if (_props.hasOwnProperty(key) && _props[key] !== undefined && _props[key] !== null) {
+          props![key] = _props[key]!;
+        }
+      });
   };
 
   return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
