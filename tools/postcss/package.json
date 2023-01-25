@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "minimatch": "^5.1.2",
-    "vitest": "^0.22.1"
+    "vitest": "*"
   }
 }

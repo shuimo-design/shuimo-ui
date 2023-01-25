@@ -54,7 +54,7 @@
     "sass": "^1.56.1",
     "typescript": "^4.8.4",
     "vite": "^3.2.3",
-    "vitest": "^0.22.1",
+    "vitest": "*",
     "vue": "^3.2.44"
   },
   "repository": {
