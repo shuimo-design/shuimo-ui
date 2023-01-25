@@ -26,7 +26,19 @@ export function useButton() {
     <slot/>
   </button>;
 
+  const initProps = (_props: ButtonProps) => {
+    if (!template.props) {return;}
+    template.initProps!(buttonProps, _props, ['text']);
+    if (_props.link) {
+      template.type = 'a';
+    } else {
+      template.type = 'button';
+    }
+    template.props.class = `m-button m-button-${_props.type ?? 'default'}`; // todo use classList
+  };
+
   return {
-    options: { template, props: buttonProps, style }
+    options: { template, props: buttonProps, style },
+    initProps
   };
 }

@@ -6,10 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useButton, type ButtonProps } from '@shuimo-design/core';
+import { type ButtonProps, useButton } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
 
-const { options } = useButton();
+const { options, initProps } = useButton();
 @createMElement({
   name: 'm-button',
   ...options
@@ -25,7 +25,8 @@ export default class MButton extends MElement implements ButtonProps {
     super();
   }
 
-  beforeRender() {
-    this.template!.props!.class = `m-button m-button-${this.type ?? 'default'}`;
+  initTemplate(props: MButton) {
+    super.initTemplate(props);
+    initProps(props);
   }
 }
