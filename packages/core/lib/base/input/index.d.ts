@@ -57,6 +57,6 @@ export declare type InputProps = {
 
 export declare type InputEvents = {
   onInput: (e: HTMLElementEvent<HTMLInputElement>) => void
-  onFocus: (e: FocusEvent) => void
-  onBlur: (e: FocusEvent) => void
+  onFocus?: (e: FocusEvent) => void
+  onBlur?: (e: FocusEvent) => void
 }
