@@ -34,13 +34,7 @@ export function useInput() {
 
   const initProps = (_props: InputProps, _events: InputEvents) => {
     if (!template.props) {return;}
-    Object.keys(inputProps).forEach(key => {
-      if (_props.hasOwnProperty(key) &&
-        _props[key as keyof InputProps] !== undefined &&
-        _props[key as keyof InputProps] !== null) {
-        template.props![key] = _props[key as keyof InputProps]!;
-      }
-    });
+    template.initProps!(inputProps, _props);
     if (_props.type === 'textarea') {
       template.type = 'textarea';
       template.props.class = 'm-textarea-inner';
@@ -53,10 +47,10 @@ export function useInput() {
 
 
     template.props.onInput = _events.onInput;
-    if(_events.onFocus){
+    if (_events.onFocus) {
       template.props.onFocus = _events.onFocus;
     }
-    if(_events.onBlur){
+    if (_events.onBlur) {
       template.props.onBlur = _events.onBlur;
     }
   };
