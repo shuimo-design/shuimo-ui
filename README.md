@@ -63,8 +63,7 @@ pnpm install shuimo-ui
 
 ## TODO
 
-🚧: not publish yet
-
+🚧: not yet published
 
 | Component     | Vue3 (v0.2.8) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React |
 |---------------|---------------|-----------------|--------------------|-------|
@@ -99,7 +98,7 @@ pnpm install shuimo-ui
 | FormItem      | ✅             | ❌               | ❌                  | ❌     |
 | Table         | ✅             | ❌               | ❌                  | ❌     |
 | TableColumn   | ✅             | ❌               | ❌                  | ❌     |
-| RicePaper     | ✅             | ✅               | ❌                  | ❌     |
+| RicePaper     | ✅             | ✅               | ✅                  | ❌     |
 | DeleteIcon    | ✅             | ❌               | ❌                  | ❌     |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
