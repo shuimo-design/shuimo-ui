@@ -13,10 +13,14 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   // for vue
   const children: MNodeTemplate['children'] = {};
   const slots: MNodeTemplate['slots'] = new Map();
+  const innerText: MNodeTemplate['innerText'] = [];
 
-  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[]>) => {
+  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[] | string>) => {
+
     for (let c of childList) {
-      if (Array.isArray(c)) {
+      if (typeof c === 'string') {
+        innerText.push(c);
+      } else if (Array.isArray(c)) {
         handlerChildren(c);
       } else {
         if (c.props === null) {
@@ -25,6 +29,7 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
           }
           continue;
         }
+
         const name = c.props!['m-name'] as string;
         if (!name) {continue;}
         if (c.type === 'slot') {
@@ -53,7 +58,7 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
       });
   };
 
-  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
+  return { type, props, children, slots, innerText, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
 };
 
 export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...childList: MNodeTemplate[]) => {
@@ -66,13 +71,16 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
   const propsShow = props && props['m-show'];
 
 
-  const slots = new Map();
   const children: MNodeTemplate['children'] = {};
+  const slots = new Map();
+  const innerText: MNodeTemplate['innerText'] = [];
 
-  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[]>) => {
+  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[] | string>) => {
 
     for (let c of childList) {
-      if (Array.isArray(c)) {
+      if (typeof c === 'string') {
+        innerText.push(c);
+      } else if (Array.isArray(c)) {
         handlerChildren(c);
       } else {
         if (c.type === 'slot') {
@@ -104,8 +112,7 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
         }
       });
   };
-
-  return { type, props, children, slots, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
+  return { type, props, children, slots, innerText, if: mBoolean(propsIf), show: mBoolean(propsShow), initProps };
 };
 
 
