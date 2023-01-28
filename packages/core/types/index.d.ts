@@ -11,7 +11,6 @@ export * from '../tools/jsxTools';
 
 export * from '../lib/index';
 export * from './template/template';
-export * from './template/props';
 
 
 export * from '../lib/base/button';
