@@ -8,7 +8,7 @@
  */
 
 import { createMElement, MElement } from 'moelement';
-import { useCheckbox, type CheckboxProps } from '@shuimo-design/core';
+import { useCheckbox, type CheckboxProps, HTMLElementEvent } from '@shuimo-design/core';
 
 const { options, initProps } = useCheckbox();
 @createMElement({
@@ -31,7 +31,7 @@ export default class MCheckBox extends MElement implements CheckboxProps {
   initTemplate(props: MCheckBox) {
     super.initTemplate(props);
     initProps(props, {
-      onClick: (e: MouseEvent) => {
+      onClick: (e: HTMLElementEvent<HTMLInputElement>) => {
         this.checked = !this.checked;
       }
     });
