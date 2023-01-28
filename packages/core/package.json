@@ -16,7 +16,13 @@
     },
     "./*": "./*"
   },
+  "scripts": {
+    "core:test-update": "vitest --update"
+  },
   "devDependencies": {
-    "@shuimo-design/types": "*"
+    "@shuimo-design/vite-jsx": "*",
+    "@shuimo-design/types": "*",
+    "esbuild": "*",
+    "vitest": "*"
   }
 }

@@ -31,3 +31,4 @@ yarn.lock
 pnpm-lock.yaml
 .husky
 .turbo
+__snapshots__
