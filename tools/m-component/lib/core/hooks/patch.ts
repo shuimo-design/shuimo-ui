@@ -9,17 +9,27 @@
 import { MNodeSlot, MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
 import { getSlot } from './tools';
 import isEqual from 'lodash-es/isEqual';
+import { isEmpty } from 'lodash-es';
 
-
-const compareObject = (oldObj: Record<string, any>, newObj: Record<string, any>) => {
-  // deep compare object
-
-};
 
 type MProps = MNodeTemplate['props'];
 export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
+  if (isEmpty(oldNode) && !isEmpty(newNode)) {
+    // copy is a better way
+    return {
+      if: true,
+      show: true,
+      type: newNode.type,
+      props: { update: newNode.props },
+      children: newNode.children,
+      slots: { add: getSlot(newNode.slots) },
+      innerText: newNode.innerText
+    } as PatchMVNodeTemplate;
+  }
+
   const res: PatchMVNodeTemplate = {};
   if (isEqual(oldNode, newNode)) {return res;}
+
   // different type
   if (oldNode.type !== newNode.type) {
     Object.assign(res, newNode);
@@ -46,12 +56,25 @@ export const patch = (oldNode: MNodeTemplate, newNode: MNodeTemplate) => {
         res.children[key] = patch(oldChildren[key], newChildren[key]);
       }
     }
+    if (newChildren) {
+      for (const key in oldChildren) {
+        if (!newChildren[key]) {
+          if (!res.removeChildren) res.removeChildren = [];
+          res.removeChildren?.push(oldChildren[key]);
+        }
+      }
+    }
   }
 
   // different slots
   if (!isEqual(oldNode.slots, newNode.slots)) {
     const { add, remove, update } = patchSlots(oldNode.slots, newNode.slots);
     res.slots = { add, remove, update };
+  }
+
+  // diff innerText
+  if (!isEqual(oldNode.innerText, newNode.innerText)) {
+    res.innerText = newNode.innerText;
   }
 
   if (oldNode.if !== newNode.if) {res.if = newNode.if;}
@@ -98,9 +121,9 @@ const patchSlots = (oldSlots: MNodeTemplate['slots'], newSlots: MNodeTemplate['s
   let add: Map<string, MNodeSlot> | undefined,
     remove: Map<string, MNodeSlot> | undefined,
     update: Map<string, MNodeSlot> | undefined;
-  if (!newSlots) {
+  if (!newSlots?.size) {
     remove = oldSlotsMap;
-  } else if (!oldSlots) {
+  } else if (!oldSlots?.size) {
     add = newSlotsMap;
   } else {
     for (const [key, value] of newSlotsMap) {

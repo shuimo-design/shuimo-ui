@@ -30,7 +30,8 @@ export declare type MNodeTemplate = {
   type: string,
   props?: MNodeProps,
   children?: Record<string, MNodeTemplate>,
-  slots?: Map<string, MNodeSlot> | string[],
+  slots?: Map<string, MNodeSlot>,
+  innerText?: string[]
 } & MVNodeRenderParams
 
 
@@ -49,6 +50,7 @@ type PatchMVNodeTemplate = Partial<Omit<MNodeTemplate, 'children' | 'props' | 's
     remove?: string[]
   },
   children?: Record<string, PatchMVNodeTemplate>,
+  removeChildren?: MNodeTemplate[], // feel like something is wrong
   slots?: {
     add?: Map<string, MNodeSlot>,
     remove?: Map<string, MNodeSlot>,

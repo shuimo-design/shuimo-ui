@@ -115,7 +115,7 @@ export default function initCustomerElement(target: typeof MElement, options: ME
 
     private templateRender(template: MNodeTemplate): HTMLElement {
 
-      const { type, props, children, slots } = template;
+      const { type, props, children, slots, innerText } = template;
       const dom = h(type, props);
 
       if (children) {
@@ -134,18 +134,44 @@ export default function initCustomerElement(target: typeof MElement, options: ME
         const slotDomList = this.getSlotDomList(slots);
         this.callSlotRender(dom, slotDomList);
       }
+
+      if (innerText && innerText.length > 0) {
+        if (innerText.length !== 1) {
+          console.warn('innerText length not be 1');
+          console.trace(template);
+          return dom;
+        }
+        if (slots && slots.size > 0) {
+          console.warn('this is a new situation!');
+          console.trace(template);
+          return dom;
+        }
+        dom.innerText = innerText[0];
+      }
+
       return dom;
     };
 
     private renderPatch(dom: HTMLElement, res: PatchMVNodeTemplate, domName: string, t: MNodeTemplate) {
       if (res.children) {
-        Object.keys(res.children).forEach((k, i) => {
-          const d = this.refMap.get(k);
-          const needInsertDom = this.renderPatch(d!, res.children![k], k, t.children![k]);
-          if (needInsertDom) {
-            dom.insertBefore(needInsertDom, dom.childNodes[i]);
-          }
-        });
+        if (Object.keys(res.children).length > 0) {
+          Object.keys(res.children).forEach((k, i) => {
+            const d = this.refMap.get(k);
+            const needInsertDom = this.renderPatch(d!, res.children![k], k, t.children![k]);
+            if (needInsertDom) {
+              dom.insertBefore(needInsertDom, dom.childNodes[i]);
+            }
+          });
+        } else if (dom && res.removeChildren) {
+
+          res.removeChildren.forEach(c=>{
+            if(c.type){
+              dom.querySelector(c.type)?.remove();
+            }
+          })
+
+          // dom.innerHTML = '';
+        }
       }
       if (res.props) {
         if (!dom) {
@@ -163,6 +189,11 @@ export default function initCustomerElement(target: typeof MElement, options: ME
           });
         }
       }
+
+      if (res.innerText) {
+        dom.innerText = res.innerText[0];
+      }
+
       if (res.slots) {
         if (res.slots.add) {
           const slotDomList = this.getSlotDomList(res.slots.add);
@@ -180,8 +211,16 @@ export default function initCustomerElement(target: typeof MElement, options: ME
           });
         }
         if (res.slots.remove) {
+
           res.slots.remove.forEach(slot => {
-            const slotDom = dom.querySelector(`slot[name=${slot}]`);
+            const name = slot.props?.name;
+            let slotDom;
+            if (name === 'default') {
+              //  how to select default slot?
+              slotDom = Array.from(dom.querySelectorAll('slot')).filter(e => !e.hasAttribute('name'))[0];
+            } else {
+              slotDom = dom.querySelector(`slot[name=${slot.props?.name}]`);
+            }
             if (slotDom) {
               dom.removeChild(slotDom);
             }
