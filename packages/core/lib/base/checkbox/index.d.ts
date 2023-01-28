@@ -11,6 +11,7 @@
  *
  * Hello, humor
  */
+import { HTMLElementEvent } from '../../../types';
 
 export declare type CheckboxProps = {
   /**
@@ -22,7 +23,7 @@ export declare type CheckboxProps = {
   label?: string,
   /**
    * @description checkbox value
-   *              复选框值
+   *              复选框值，优先级高于slot
    * @type string | number
    * @default ''
    */
@@ -54,3 +55,7 @@ export declare type CheckboxProps = {
   modelValue?: boolean | undefined
 }
 
+
+export declare type CheckboxEvents = {
+  onClick: (e: HTMLElementEvent<HTMLInputElement>) => void
+}
