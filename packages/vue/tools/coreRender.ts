@@ -18,7 +18,7 @@ export const cr = <T>(
   if (template.if === false) {
     return undefined;
   }
-  const { type, props, children, slots: templateSlots } = template;
+  const { type, props, children, slots: templateSlots, innerText } = template;
   let userSlots: Slots | undefined, userProps: MCOPO<T> | undefined;
   if (user) {
     if (user.slots) {userSlots = user.slots;}
@@ -44,15 +44,19 @@ export const cr = <T>(
       .map(s => cr(s, user)!));
   }
   // <slot>
-  if (templateSlots) {
-    if (Array.isArray(templateSlots)) {
-      // slots = templateSlots.map(s => );
-    } else if (templateSlots && templateSlots.size > 0) {
-      // means record
-      slots = slots.concat(...Array.from(templateSlots.values())
-        .filter(e => e.if !== false)
-        .map(s => cr(s as MNodeTemplate, user)!));
+  if (templateSlots && templateSlots.size > 0) {
+    slots = slots.concat(...Array.from(templateSlots.values())
+      .filter(e => e.if !== false)
+      .map(s => cr(s as MNodeTemplate, user)!));
+  }
+  // innerText
+  if (innerText && innerText.length > 0) {
+    if (slots.length > 0) {
+      console.warn('this is a new situation!');
+      console.trace(template);
+      return;
     }
+    slots = slots.concat(innerText.map(e => h('span', e)));
   }
 
   return h(type, props, slots);
