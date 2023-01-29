@@ -10,8 +10,6 @@
 export * from '../tools/jsxTools';
 
 export * from '../lib/index';
-export * from './template/template';
-
 
 export * from '../lib/base/button';
 export * from '../lib/base/checkbox';

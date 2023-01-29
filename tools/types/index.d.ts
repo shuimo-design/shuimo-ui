@@ -8,3 +8,4 @@
  */
 
 export * from './props/props';
+export * from './template/template';

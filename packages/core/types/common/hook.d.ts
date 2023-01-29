@@ -6,8 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../template/template';
-import { MCOPO } from '../template/props';
+import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 
 
 export interface Hook<T, E = any> {

@@ -6,9 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MNodeTemplate } from '../../../types';
 import { RicePaperProps } from './index';
-import { MCOPO } from '@shuimo-design/types';
+import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './ricePaper.pcss';
 
 

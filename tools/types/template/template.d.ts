@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from '@shuimo-design/types';
+import { MCOPO } from '../props/props';
 
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
   target: T;
