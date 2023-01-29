@@ -20,7 +20,7 @@ export function shuimoCoreTsx(MODE?: string): Plugin {
 
       if (id.endsWith('.tsx') && id.includes('packages/core')) {
         const result = await esbuild.transform(
-          `import { ${jsxFactory}, shuimoJsxFragment} from '../../../tools/jsxTools';${code}`,
+          `import { ${jsxFactory}, shuimoJsxFragment} from '@shuimo-design/jsx/jsxTools';${code}`,
           {
             jsxFactory,
             jsxFragment: 'shuimoJsxFragment',

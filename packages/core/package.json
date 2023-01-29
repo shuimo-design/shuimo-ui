@@ -20,8 +20,9 @@
     "core:test-update": "vitest --update"
   },
   "devDependencies": {
-    "@shuimo-design/vite-jsx": "*",
+    "@popperjs/core": "^2.11.6",
     "@shuimo-design/types": "*",
+    "@shuimo-design/jsx": "*",
     "esbuild": "*",
     "vitest": "*"
   }

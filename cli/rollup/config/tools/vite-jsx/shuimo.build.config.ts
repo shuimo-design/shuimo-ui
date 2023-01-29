@@ -1,6 +1,6 @@
 
 /**
- * @description vite-jsx build config
+ * @description jsx build config
  * @author 阿怪
  * @date 2023/1/24 02:17
  * @version v1.0.0
@@ -15,7 +15,7 @@ export const config: ShuimoBuildConfig = {
     // resolve: true,
     // commonjs: true,
     typescript: {
-      filterRoot: path.resolve(__dirname,'../../../../../tools/vite-jsx'),
+      filterRoot: path.resolve(__dirname,'../../../../../tools/jsx'),
       exclude: ['**/vue/**', '**/react/**', '**/apps/**']
     }
   }

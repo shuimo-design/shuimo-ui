@@ -6,7 +6,7 @@
   "devDependencies": {
     "@shuimo-design/core": "*",
     "@shuimo-design/web-component": "*",
-    "@shuimo-design/vite-jsx": "*",
+    "@shuimo-design/jsx": "*",
     "@shuimo-design/types": "*",
     "jsdom": "^19.0.0",
     "typescript": "*",

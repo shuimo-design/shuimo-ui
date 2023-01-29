@@ -9,7 +9,7 @@
   "devDependencies": {
     "@shuimo-design/core": "*",
     "@shuimo-design/postcss": "*",
-    "@shuimo-design/vite-jsx": "*",
+    "@shuimo-design/jsx": "*",
     "@shuimo-design/web-component": "*",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^1.3.10",

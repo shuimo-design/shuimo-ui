@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineConfig } from 'vitest/config';
-import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/vite-jsx';
+import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/jsx';
 
 export default defineConfig({
   plugins: [shuimoCoreTsx(MODE_TYPE.VUE)],
