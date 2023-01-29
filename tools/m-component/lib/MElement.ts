@@ -14,6 +14,7 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
   public VNode: VNodeType = { options: { name: '' } };
 
   public template: MNodeTemplate = { type: '' };
+  public baseTemplate: MNodeTemplate = { type: '' };
 
   public refMap: Map<string, HTMLElement> = new Map();
 

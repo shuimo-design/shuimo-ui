@@ -43,7 +43,12 @@ export const initElementProps = function (
       enumerable: true,
       configurable: true,
       get() {
-        return attributeTransform(props[key].type, this.getAttribute(key));
+        if (props[key].type === undefined) {
+          // return this.getAttribute(key);
+          console.warn('trace this props');
+          console.trace(props);
+        }
+        return attributeTransform(props[key].type!, this.getAttribute(key));
       },
       set(v: any) {
         this.setAttribute(key, v);

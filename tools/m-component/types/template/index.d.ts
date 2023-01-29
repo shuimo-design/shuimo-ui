@@ -22,6 +22,7 @@ export interface IMElement extends HTMLElement {
    * @description current template
    */
   template: MNodeTemplate;
+  baseTemplate: MNodeTemplate;
   refMap: Map<string, HTMLElement>;
 
   /**

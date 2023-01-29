@@ -20,6 +20,7 @@ type ElementAttribute = {
 const TestElementWithProps = class extends MElement implements ElementAttribute {
   public testAttribute = 'hi';
 
+  constructor() {super();}
 };
 
 describe('initCustomerElement', () => {
@@ -39,10 +40,7 @@ describe('initCustomerElement', () => {
   describe('props', () => {
     test('init props', () => {
       const element = createElement<ElementAttribute>(TestElementWithProps, {
-        testAttribute: {
-          type: String,
-          default: 'hi'
-        }
+        testAttribute: { type: String, default: 'hi' }
       });
       /**
        * just constructor, attribute not set yet.
