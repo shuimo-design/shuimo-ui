@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "devDependencies": {
+    "@shuimo-design/types": "*",
     "esbuild": "^0.17.0",
     "vite": "*"
   }
