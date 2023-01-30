@@ -8,11 +8,11 @@
  */
 import { type ButtonProps, useButton } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
+import { MInitProps } from 'moelement/types/template';
 
-const { options, initProps } = useButton();
 @createMElement({
   name: 'm-button',
-  ...options
+  hookFunc: useButton
 })
 export default class MButton extends MElement implements ButtonProps {
 
@@ -21,11 +21,10 @@ export default class MButton extends MElement implements ButtonProps {
   public text: string | undefined;
   public type: string = 'default';
 
-  constructor() {
-    super();
-  }
 
-  initTemplate(props: MButton) {
+  constructor() {super();}
+
+  initTemplate(props: MButton, initProps: MInitProps<MButton>) {
     super.initTemplate(props);
     initProps(props);
   }

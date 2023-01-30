@@ -6,15 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useMenu, type MenuProps } from '@shuimo-design/core';
+import { type MenuProps, useMenu } from '@shuimo-design/core';
 import { createMElement, MElement } from 'moelement';
+import { MInitProps } from 'moelement/types/template';
 
-
-const {options, initProps } = useMenu();
 
 @createMElement({
   name: 'm-menu',
-  ...options
+  hookFunc: useMenu
 })
 export default class MMenu extends MElement implements MenuProps {
 
@@ -26,9 +25,9 @@ export default class MMenu extends MElement implements MenuProps {
     super();
   }
 
-  initTemplate(t: MMenu) {
-    super.initTemplate(t);
-    initProps(t);
+  initTemplate(props: MMenu, initProps: MInitProps<MMenu>) {
+    super.initTemplate(props);
+    initProps(props);
   }
 
 }

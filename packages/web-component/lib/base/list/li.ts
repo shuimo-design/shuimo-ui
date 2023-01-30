@@ -7,13 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { createMElement, MElement } from 'moelement';
-import { useLi, type LiProps } from '@shuimo-design/core';
+import { type LiProps, useLi } from '@shuimo-design/core';
 
 
-const { options } = useLi();
 @createMElement({
   name: 'm-li',
-  ...options
+  hookFunc: useLi
 })
 export default class MLi extends MElement implements LiProps {
   active?: boolean;
