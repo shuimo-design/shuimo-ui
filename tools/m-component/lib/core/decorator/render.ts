@@ -93,7 +93,13 @@ export const renderDecorator = (options: Readonly<MElementOptions>) => {
           }
           if (res.props.update) {
             Object.keys(res.props.update).forEach(key => {
-              dom.setAttribute(key, String(res.props!.update![key]));
+              if (res.props!.update![key] === false) {
+                // maybe should check props type
+                dom.removeAttribute(key);
+              } else {
+                dom.setAttribute(key, String(res.props!.update![key]));
+              }
+
             });
           }
           if (res.props.remove) {

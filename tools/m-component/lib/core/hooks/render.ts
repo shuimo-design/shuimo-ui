@@ -10,7 +10,7 @@ import { MNodeTemplate } from '../../../types/template/template';
 
 export const firstLetterLower = (str: string) => {
   return str.replace(/^\S/, (s) => s.toLowerCase());
-}
+};
 
 export const h = (name: string, props?: MNodeTemplate['props']) => {
   const dom = document.createElement(name);
@@ -23,6 +23,9 @@ export const h = (name: string, props?: MNodeTemplate['props']) => {
 
       if (key.startsWith('on')) {
         dom.addEventListener(firstLetterLower(key.slice(2)), props[key] as EventListenerOrEventListenerObject);
+        return;
+      }
+      if (props[key] === false) {
         return;
       }
 
