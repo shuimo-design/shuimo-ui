@@ -6,15 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import MElement from '../MElement';
 import initCustomerElement from './initCustomerElement';
-import { MElementOptions } from '../../types/template';
+import { MCreateMelement } from '../../types/template';
 
 
-export const createMElement = <T>(options: MElementOptions<T>) => {
-  const { name } = options;
-  return (target: typeof MElement) => {
-    const CustomMElement = initCustomerElement(target, options);
+export const createMElement = <T>(component: MCreateMelement<T>) => {
+  const { name } = component;
+  return (target: any) => {
+    const CustomMElement = initCustomerElement(target, component);
     if (customElements.get(name)) {return;}
     customElements.define(name, CustomMElement);
   };

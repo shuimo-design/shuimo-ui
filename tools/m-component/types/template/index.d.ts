@@ -15,15 +15,16 @@ export declare type VNodeType = {
   options: MElementOptions
 }
 
-
 export interface IMElement extends HTMLElement {
   VNode: VNodeType;
   /**
    * @description current template
    */
   template: MNodeTemplate;
-  baseTemplate: MNodeTemplate;
+  componentOptions: MComponentOptions;
   refMap: Map<string, HTMLElement>;
+  ref?: HTMLElement;
+  initProps?: (props?: any, events?: any) => void;
 
   /**
    * @description init template
@@ -54,9 +55,19 @@ export interface IMElement extends HTMLElement {
   afterUpdate(): void;
 }
 
-export declare type MElementOptions<T=any> = {
-  name: string,
+export declare type MElementOptions<T = any> = {
   style?: string,
   template?: MNodeTemplate,
   props?: MCOPO<T>
+}
+
+// todo  fix this: usually props is T but sometimes include HTMLElement...
+export declare type MInitProps<T = any> = (props: any, events?: any) => void;
+export declare type MComponentOptions<T = any> = {
+  options: MElementOptions<T>,
+  initProps?: MInitProps<T>
+}
+export declare type MCreateMelement<T> = {
+  name: string,
+  hookFunc: (args?: any) => MComponentOptions<T>
 }

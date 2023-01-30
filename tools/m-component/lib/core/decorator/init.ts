@@ -6,17 +6,15 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MElementOptions } from '../../../types/template';
 import { InitCustomerElementType } from '../../types/CustomerElement';
 import { MNodeProps, MNodeTemplate } from '../../../types/template/template';
 import { firstLetterLower } from '../hooks/render';
 import { getSlot } from '../hooks/tools';
 import cloneDeep from 'lodash-es/cloneDeep';
 
-export const initDecorator = (options: MElementOptions) => {
+export const initDecorator = () => {
   return (target: InitCustomerElementType) => {
-    const { name } = options;
-    class InitElement extends target{
+    class InitElement extends target {
       constructor() {
         super();
         this.init();
@@ -24,11 +22,12 @@ export const initDecorator = (options: MElementOptions) => {
 
       init() {
         super.beforeInit();
-        super.initProps();
-        this.VNode.options = options;
-        this.VNode.name = name;
-        if (this.baseTemplate) {
-          this.template = this.baseTemplate;
+        super.bindingProps();
+        this.VNode.options = this.componentOptions.options;
+        this.VNode.name = this.name;
+        const { template } = this.componentOptions.options;
+        if (template) {
+          this.template = template;
         }
         super.afterInit();
       }
@@ -71,11 +70,12 @@ export const initDecorator = (options: MElementOptions) => {
         if (!current.template) {return;}
         this.currentTemplate = cloneDeep(current.template);
         if (current.dom) {
-          this.refMap.set(name, current.dom);
+          this.refMap.set(this.name, current.dom);
         }
       }
 
     }
+
     return InitElement;
   };
-}
+};

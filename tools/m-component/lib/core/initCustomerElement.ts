@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import MElement from '../MElement';
-import { MElementOptions } from '../../types/template';
+import { MCreateMelement } from '../../types/template';
 import { MNodeTemplate } from '../../types/template/template';
 import { renderDecorator } from './decorator/render';
 import { initDecorator } from './decorator/init';
@@ -15,12 +15,12 @@ import { lifecycleDecorator } from './decorator/mount';
 import { initElementProps } from './hooks/props';
 
 
-export default function initCustomerElement(target: typeof MElement, options: Readonly<MElementOptions>) {
-  const { style, props } = options;
+export default function initCustomerElement(target: typeof MElement, hook: MCreateMelement<any>) {
+  const { options: { props } } = hook.hookFunc();
 
   @lifecycleDecorator()
-  @renderDecorator(options)
-  @initDecorator(options)
+  @renderDecorator()
+  @initDecorator()
   class CustomMElement extends target {
 
     shadow: ShadowRoot = this.attachShadow({ mode: 'open' });
@@ -29,6 +29,8 @@ export default function initCustomerElement(target: typeof MElement, options: Re
 
     constructor() {
       super();
+      this.componentOptions = hook.hookFunc();
+      this.name = hook.name;
     }
 
     static get observedAttributes() {
@@ -36,7 +38,7 @@ export default function initCustomerElement(target: typeof MElement, options: Re
       return Object.keys(props);
     }
 
-    protected initProps(){
+    protected bindingProps() {
       initElementProps.call(this, props);
     }
 
@@ -51,6 +53,7 @@ export default function initCustomerElement(target: typeof MElement, options: Re
     }
 
     private initStyle() {
+      const { style } = this.componentOptions.options;
       if (style) {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = style;

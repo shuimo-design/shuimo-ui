@@ -13,6 +13,7 @@ export const firstLetterLower = (str: string) => {
 };
 
 export const h = (name: string, props?: MNodeTemplate['props']) => {
+
   const dom = document.createElement(name);
   if (props) {
     Object.keys(props).forEach(key => {

@@ -10,11 +10,9 @@ import { InitCustomerElementType, InitElementType } from '../../types/CustomerEl
 import { patch } from '../hooks/patch';
 import { MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
 import { h } from '../hooks/render';
-import { MElementOptions } from '../../../types/template';
 
-export const renderDecorator = (options: Readonly<MElementOptions>) => {
+export const renderDecorator = () => {
   return (target: InitCustomerElementType) => {
-    const { name } = options;
 
     class renderElement extends (target as InitElementType) {
 
@@ -170,25 +168,28 @@ export const renderDecorator = (options: Readonly<MElementOptions>) => {
           console.warn('template is empty.');
           return;
         }
-        this.initTemplate(this);
+        const { options: { template }, initProps } = this.componentOptions;
+        this.initTemplate(this, initProps ? initProps : () => {});
+
+
         if (!this.currentTemplate) {
           // first render
           super.beforeRender();
           const dom = this.templateRender(this.template);
           this.ref = dom;
-          this.setCurrent({ template: this.baseTemplate, dom });
+          this.setCurrent({ template, dom });
           this.shadow.insertBefore(dom, this.shadow.firstChild);
           return;
         }
 
         // update
         const res = patch(this.currentTemplate, this.template);
-        const dom = this.refMap.get(name)!;
+        const dom = this.refMap.get(this.name)!;
         super.beforeRender();
-        this.renderPatch(dom, res, name, this.template);
+        this.renderPatch(dom, res, this.name, this.template);
 
         // finally set new template
-        this.setCurrent({ template: this.baseTemplate });
+        this.setCurrent({ template });
       }
 
     }

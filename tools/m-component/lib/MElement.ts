@@ -6,15 +6,17 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { IMElement, VNodeType } from '../types/template';
+import { IMElement, MComponentOptions, MInitProps, VNodeType } from '../types/template';
 import { MNodeTemplate } from '../types/template/template';
 
 
 export default class MElement<T = any> extends HTMLElement implements IMElement {
-  public VNode: VNodeType = { options: { name: '' } };
+  public name: string = '';
+  public VNode: VNodeType = { name: '', options: {} };
 
   public template: MNodeTemplate = { type: '' };
-  public baseTemplate: MNodeTemplate = { type: '' };
+
+  public componentOptions: MComponentOptions = { options: {} };
 
   public refMap: Map<string, HTMLElement> = new Map();
 
@@ -24,7 +26,7 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
 
   constructor() {super();}
 
-  public initTemplate(t: MElement) {}
+  public initTemplate(t: MElement, initProps?: MInitProps<T>) {}
 
   public beforeInit() {}
 
