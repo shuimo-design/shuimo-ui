@@ -14,6 +14,19 @@
   border-image: url(./assets/border/base.png) 8;
   color: white;
   text-align: center;
+
+
+
+  &:disabled, &:disabled:hover{
+    background: url(./assets/bg/disabled.png);
+    background-size: 20.8px 9.8px;
+    color: var(--m-color-text-disabled);
+
+    & > slot {
+      pointer-events: none;
+    }
+  }
+
 }
 
 
@@ -34,10 +47,4 @@ a.m-button {
   text-decoration: unset;
   height: 22px;
   padding: unset;
-}
-
-.m-button:disabled, .m-button:disabled:hover {
-  background: url(./assets/bg/disabled.png);
-  background-size: 20.8px 9.8px;
-  color: var(--m-color-text-disabled);
 }
