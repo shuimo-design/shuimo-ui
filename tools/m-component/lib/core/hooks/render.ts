@@ -12,9 +12,18 @@ export const firstLetterLower = (str: string) => {
   return str.replace(/^\S/, (s) => s.toLowerCase());
 };
 
+const svgTagList = ['svg', 'g', 'path', 'circle', 'filter', 'feDropShadow'];
+
+const createDom = (name: string) => {
+  if (svgTagList.includes(name)) {
+    return document.createElementNS('http://www.w3.org/2000/svg', name);
+  }
+  return document.createElement(name);
+};
+
 export const h = (name: string, props?: MNodeTemplate['props']) => {
 
-  const dom = document.createElement(name);
+  const dom = createDom(name);
   if (props) {
     Object.keys(props).forEach(key => {
       if (key === 'class' && Array.isArray(props[key])) {
