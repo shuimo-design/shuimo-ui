@@ -67,7 +67,8 @@ export declare type MElementOptions<T = any> = {
 export declare type MInitProps<T = any> = (props: any, events?: any) => void;
 export declare type MComponentOptions<T = any> = {
   options: MElementOptions<T>,
-  initProps?: MInitProps<T>
+  initProps?: MInitProps<T>,
+  renderHook?: (ref: Map<string, HTMLElement | SVGElement>) => void
 }
 export declare type MCreateMelement<T> = {
   name: string,

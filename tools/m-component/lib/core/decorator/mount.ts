@@ -21,6 +21,9 @@ export const lifecycleDecorator = () => {
 
       private render() {
         this.callRender();
+        if(this.componentOptions.renderHook){
+          this.componentOptions.renderHook(this.refMap);
+        }
         super.afterRender();
       }
 
