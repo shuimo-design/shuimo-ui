@@ -26,7 +26,7 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
 
   constructor() {super();}
 
-  public initTemplate(t: MElement, initProps?: MInitProps<T>) {}
+  public initTemplate(props: MElement, initProps?: MInitProps<T>) {}
 
   public beforeInit() {}
 
