@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { type InputProps, useInput } from '@shuimo-design/core';
-import { createMElement, MElement } from 'moelement/index';
+import { createMElement, MElement } from 'moelement';
 import { HTMLElementEvent } from 'moelement/types/template/template';
 import { MInitProps } from 'moelement/types/template';
 

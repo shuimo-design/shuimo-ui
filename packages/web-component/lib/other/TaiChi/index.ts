@@ -8,7 +8,7 @@
  */
 
 
-import { createMElement, MElement } from 'moelement/index';
+import { createMElement, MElement } from 'moelement';
 import { useTaiChi } from '@shuimo-design/core';
 import { MInitProps } from 'moelement/types/template';
 import { TaiChiProps } from '@shuimo-design/core/lib/other/TaiChi';
