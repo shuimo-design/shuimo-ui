@@ -11,9 +11,10 @@
  *
  * Hello, humor
  */
-import type { Placement } from '../../dependents/_composables/usePopper';
+import { Placement } from '../../../composition/popper/usePopper';
 
-export type MPopoverProps = {
+
+export type PopoverProps = {
   /**
    * @description popover display placement
    * @type Placement

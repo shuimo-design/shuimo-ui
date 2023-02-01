@@ -16,38 +16,43 @@ const value = ref([
 
 const disabled = ref(false);
 const active2 = ref(true);
-const input = ref('hi');
+const input = ref('hello');
+const type = ref('default');
 const toggleActive = () => {
-  disabled.value = !disabled.value;
+  input.value = input.value === 'hello' ? '' : 'hello';
 };
 const toggleActive2 = () => {
   active2.value = !active2.value;
 };
 
+const blurEvent = (e: FocusEvent) => {
+  console.log(e);
+};
+
+const toggleDisabled = () => {
+  console.log('hi');
+  disabled.value = !disabled.value;
+};
+
+const toggleType = (e: any) => {
+  // console.log(e);
+  type.value = type.value === 'default' ? 'primary' : 'default';
+  toggleDisabled();
+};
+
 </script>
 
 <template>
-  <span>{{input}}</span>
-  <m-input v-model="input" placeholder="测试"/>
-<!--  <m-button :disabled="disabled">测试</m-button>-->
-<!--  <m-checkbox v-model="active2"></m-checkbox>-->
-  <!--  <span>{{ active }}</span>-->
-  <!--  <m-menu>-->
-  <!--    <m-menu-item>测试</m-menu-item>-->
-  <!--    <m-menu-item>-->
-  <!--      测试2-->
-  <!--      <m-menu-item slot="sub">测试2-1</m-menu-item>-->
-  <!--      <m-menu-item slot="sub">测试2-2</m-menu-item>-->
-  <!--    </m-menu-item>-->
-  <!--    <m-menu-item :active="active">-->
-  <!--      测试3-->
-  <!--      <m-menu-item slot="sub">测试3-2</m-menu-item>-->
-  <!--      <m-menu-item slot="sub" :active="active2">-->
-  <!--        测试3-1-->
-  <!--        <m-menu-item slot="sub">测试3-1-1</m-menu-item>-->
-  <!--      </m-menu-item>-->
-  <!--    </m-menu-item>-->
-  <!--  </m-menu>-->
+
+  <m-popover>
+    <m-button>点击显示popover</m-button>
+    <div class="border-inner" slot="content">
+      <div class="test">测试</div>
+    </div>
+  </m-popover>
+
+
+  <div class="hello" show="true">hi</div>
 
 </template>
 
@@ -61,10 +66,21 @@ m-menu {
   width: 200px;
 }
 
+.border-inner {
+  width: 200px;
+  height: 200px;
+  background-color: var(--m-color-main);
+  color: white;
+}
+
 .test {
   height: 100px;
   line-height: 100px;
   font-size: 40px;
+}
+
+.hello[show]{
+  display: none;
 }
 
 </style>

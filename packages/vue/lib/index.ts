@@ -11,6 +11,8 @@ import MButton from './base/button/MButton';
 import MInput from './base/input/MInput';
 import MCheckbox from './base/checkbox/MCheckbox';
 
+import MPopover from './message/popover/MPopover';
+
 import MRicePaper from './template/ricePaper/MRicePaper';
 import MBorder from './template/border/MBorder';
 
@@ -18,6 +20,8 @@ const components: Record<string, Component> = {
   MButton,
   MInput,
   MCheckbox,
+
+  MPopover,
 
   MRicePaper,
   MBorder
@@ -27,6 +31,8 @@ export {
   MButton,
   MInput,
   MCheckbox,
+
+  MPopover,
 
   MRicePaper,
   MBorder

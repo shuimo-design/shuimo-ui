@@ -10,7 +10,7 @@ import { defineConfig } from 'vitest/config';
 import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/jsx';
 
 export default defineConfig({
-  plugins: [shuimoCoreTsx(MODE_TYPE.VUE)],
+  plugins: [shuimoCoreTsx(MODE_TYPE.WEB_COMPONENT)],
   test: {
     transformMode: {
       web: [/\.[jt]sx$/]
