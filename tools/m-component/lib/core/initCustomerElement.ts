@@ -46,20 +46,6 @@ export default function initCustomerElement(target: typeof MElement, hook: MCrea
     // attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     //   this.update();
     // }
-
-    afterMount() {
-      super.afterMount();
-      this.initStyle();
-    }
-
-    private initStyle() {
-      const { style } = this.componentOptions.options;
-      if (style) {
-        const styleTag = document.createElement('style');
-        styleTag.innerHTML = style;
-        this.shadow.appendChild(styleTag);
-      }
-    }
   }
 
   return CustomMElement;

@@ -29,6 +29,7 @@ export const initDecorator = () => {
         if (template) {
           this.template = template;
         }
+        this.initStyle();
         super.afterInit();
       }
 
@@ -71,6 +72,15 @@ export const initDecorator = () => {
         this.currentTemplate = cloneDeep(current.template);
         if (current.dom) {
           this.refMap.set(this.name, current.dom);
+        }
+      }
+
+      private initStyle() {
+        const { style } = this.componentOptions.options;
+        if (style) {
+          const styleTag = document.createElement('style');
+          styleTag.innerHTML = style;
+          this.shadow.appendChild(styleTag);
         }
       }
 
