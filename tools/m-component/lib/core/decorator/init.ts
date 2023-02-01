@@ -11,6 +11,7 @@ import { MNodeProps, MNodeTemplate } from '../../../types/template/template';
 import { firstLetterLower } from '../hooks/render';
 import { getSlot } from '../hooks/tools';
 import cloneDeep from 'lodash-es/cloneDeep';
+import { SupportElement } from '../../../types/template';
 
 export const initDecorator = () => {
   return (target: InitCustomerElementType) => {
@@ -67,7 +68,7 @@ export const initDecorator = () => {
         return slotList;
       }
 
-      protected setCurrent(current: { template?: MNodeTemplate, dom?: HTMLElement }) {
+      protected setCurrent(current: { template?: MNodeTemplate, dom?: SupportElement }) {
         if (!current.template) {return;}
         this.currentTemplate = cloneDeep(current.template);
         if (current.dom) {

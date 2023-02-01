@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { IMElement, MComponentOptions, MInitProps, VNodeType } from '../types/template';
+import { IMElement, MComponentOptions, MInitProps, SupportElement, VNodeType } from '../types/template';
 import { MNodeTemplate } from '../types/template/template';
 
 
@@ -18,11 +18,11 @@ export default class MElement<T = any> extends HTMLElement implements IMElement 
 
   public componentOptions: MComponentOptions = { options: {} };
 
-  public refMap: Map<string, HTMLElement> = new Map();
+  public refMap: Map<string, SupportElement> = new Map();
 
   public slotMap: Map<string, HTMLSlotElement> = new Map();
 
-  public ref?: HTMLElement;
+  public ref?: SupportElement;
 
   constructor() {super();}
 

@@ -15,6 +15,8 @@ export declare type VNodeType = {
   options: MElementOptions
 }
 
+export declare type SupportElement = HTMLElement | SVGElement;
+
 export interface IMElement extends HTMLElement {
   VNode: VNodeType;
   /**
@@ -22,8 +24,8 @@ export interface IMElement extends HTMLElement {
    */
   template: MNodeTemplate;
   componentOptions: MComponentOptions;
-  refMap: Map<string, HTMLElement>;
-  ref?: HTMLElement;
+  refMap: Map<string, SupportElement>;
+  ref?: SupportElement;
   initProps?: (props?: any, events?: any) => void;
 
   /**

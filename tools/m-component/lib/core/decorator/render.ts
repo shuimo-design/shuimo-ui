@@ -10,6 +10,7 @@ import { InitCustomerElementType, InitElementType } from '../../types/CustomerEl
 import { patch } from '../hooks/patch';
 import { MNodeTemplate, PatchMVNodeTemplate } from '../../../types/template/template';
 import { h } from '../hooks/render';
+import { SupportElement } from '../../../types/template';
 
 export const renderDecorator = () => {
   return (target: InitCustomerElementType) => {
@@ -20,11 +21,11 @@ export const renderDecorator = () => {
         super();
       }
 
-      protected callSlotRender(dom: HTMLElement, slotDomList: HTMLSlotElement[]) {
+      protected callSlotRender(dom: SupportElement, slotDomList: HTMLSlotElement[]) {
         slotDomList.forEach(slotDom => dom.appendChild(slotDom));
       }
 
-      protected templateRender(template: MNodeTemplate): HTMLElement {
+      protected templateRender(template: MNodeTemplate): SupportElement {
 
         const { type, props, children, slots, innerText } = template;
         const dom = h(type, props);
@@ -57,13 +58,15 @@ export const renderDecorator = () => {
             console.trace(template);
             return dom;
           }
-          dom.innerText = innerText[0];
+          if (dom instanceof HTMLElement) {
+            dom.innerText = innerText[0];
+          }
         }
 
         return dom;
       };
 
-      protected renderPatch(dom: HTMLElement, res: PatchMVNodeTemplate, domName: string, t: MNodeTemplate) {
+      protected renderPatch(dom: SupportElement, res: PatchMVNodeTemplate, domName: string, t: MNodeTemplate) {
         if (res.children) {
           if (Object.keys(res.children).length > 0) {
             Object.keys(res.children).forEach((k, i) => {
@@ -107,7 +110,7 @@ export const renderDecorator = () => {
           }
         }
 
-        if (res.innerText) {
+        if (res.innerText && dom instanceof HTMLElement) {
           dom.innerText = res.innerText[0];
         }
 
