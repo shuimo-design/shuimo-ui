@@ -100,5 +100,6 @@ pnpm install shuimo-ui
 | TableColumn   | ✅             | ❌               | ❌                  | ❌     |
 | RicePaper     | ✅             | ✅               | ✅                  | ❌     |
 | DeleteIcon    | ✅             | ❌               | ❌                  | ❌     |
+| TaiChi        | ❌             | ❌               | ✅                  | ❌     |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.

@@ -99,5 +99,6 @@ npm install shuimo-ui
 | TableColumn   | ✅             | ❌               | ❌                  | ❌     |
 | RicePaper     | ✅             | ✅               | ✅                  | ❌     |
 | DeleteIcon    | ✅             | ❌               | ❌                  | ❌     |
+| TaiChi        | ❌             | ❌               | ✅                  | ❌     |
 
 ### 这种迁移极度耗时和耗费精力，我们正在尽我们所能。如果可以的话，请star一下，或者提交一些贡献。非常感谢！

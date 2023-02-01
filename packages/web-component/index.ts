@@ -16,9 +16,12 @@ import Border from './lib/template/border';
 import Menu from './lib/template/menu/menu';
 import MenuItem from './lib/template/menu/menuItem';
 import RicePaper from './lib/template/ricePaper';
+
+import TaiChi from './lib/other/TaiChi';
+
 import { webComponentStyleInstall } from './lib/style';
 
-const ShuimoWebComponent =  {
+const ShuimoWebComponent = {
   Button,
   Input,
   Checkbox,
@@ -26,7 +29,9 @@ const ShuimoWebComponent =  {
 
   Border,
   Menu, MenuItem,
-  RicePaper
+  RicePaper,
+
+  TaiChi,
 };
 
 webComponentStyleInstall();

@@ -1,0 +1,94 @@
+.m-tai-chi {
+
+  --svg-black: unset;
+  --svg-white: url("#outset-shadow-white");
+  --tai-chi-h: 30px;
+  --tai-chi-w: 30px;
+
+  --tai-chi-path-hidden: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 231.297 -0.195 153.475 21.505 146.972 22.216 l 0 0 Z M 262.036 0.592 C 323.278 2.238 399.478 89.694 363.11 171.089 C 331.072 229.538 297.301 239.928 250 250 Z M 263.002 249.319 C 235.667 246.565 227.134 251.414 197.722 258.546 C 178.554 271.126 185.049 264.23 166.677 281.75 C 185.0363 264.7037 206.7037 253.2403 228.371 241.777 Z");
+  --tai-chi-path-fish: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 234.044 -6.76 -27.14 -4.041 146.972 22.216 l 0 0 Z M 262.036 0.592 C 390.632 6.576 466.271 139.781 443.493 196.589 C 423.962 238.255 391.291 242.718 250 250 Z M 263.002 249.319 C 236.969 251.194 240.718 266.4 186.246 312.986 C 161.263 321.41 198.351 261.265 166.677 281.75 C 180.377 264.749 206.7037 253.2403 228.371 241.777 Z");
+  --tai-chi-path-black: var(--tai-chi-path-hidden);
+  --tai-chi-path-white: var(--tai-chi-path-fish);
+
+  svg {
+    height: var(--tai-chi-h);
+    width: var(--tai-chi-w);
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .m-tai-chi-filter {
+    width: 0;
+    height: 0;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes hidden_to_fish {
+    from {
+      d: var(--tai-chi-path-hidden)
+    }
+    to {
+      d: var(--tai-chi-path-fish);
+    }
+  }
+  @keyframes fish_to_hidden {
+    from {
+      d: var(--tai-chi-path-fish)
+    }
+    to {
+      d: var(--tai-chi-path-hidden);
+    }
+  }
+
+  .m-tai-chi-svg:hover {
+  }
+
+  path.svg-black {
+    d: var(--tai-chi-path-black);
+  }
+
+  path.svg-white {
+    d: var(--tai-chi-path-white);
+    animation: hidden_to_fish 1s;
+  }
+
+  svg .svg-black {
+    filter: var(--svg-black);
+  }
+
+  svg .svg-white {
+    filter: var(--svg-white)
+  }
+
+  .dark-hidden {
+    visibility: hidden;
+  }
+}
+
+.dark svg .svg-black {
+  animation: hidden_to_fish 1s;
+}
+
+.dark svg .svg-white {
+  animation: fish_to_hidden 1s;
+}
+
+.dark svg .dark-hidden {
+  visibility: visible;
+}
+
+
+.m-tai-chi.dark {
+  --svg-black: url("#outset-shadow");
+  --svg-white: unset;
+  --tai-chi-path-black: var(--tai-chi-path-fish);
+  --tai-chi-path-white: var(--tai-chi-path-hidden);
+}
