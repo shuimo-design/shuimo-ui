@@ -13,7 +13,8 @@
  * v2.0.0 阿怪 upgrade to core version
  */
 import { defineComponent } from 'vue';
-import { HTMLElementEvent, inputProps, useInput } from '@shuimo-design/core';
+import { inputProps, useInput } from '@shuimo-design/core';
+import { HTMLElementEvent } from '@shuimo-design/types';
 import { cr } from '../../../tools/coreRender';
 
 
