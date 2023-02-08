@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { MButton, MCheckbox } from '@shuimo-design/react/index';
+import { MButton, MCheckbox, MBorder } from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Playground() {
@@ -42,6 +42,9 @@ export default function Playground() {
       <MButton disabled={disabled} onClick={clickButton2}>hi</MButton>
       <MButton type="primary" onClick={clickButton}>hi</MButton>
       <MCheckbox checked={checked} onChange={clickCheckbox}>开关</MCheckbox>
+      <MBorder>
+        <div className="border-inner"></div>
+      </MBorder>
     </>
   );
 }

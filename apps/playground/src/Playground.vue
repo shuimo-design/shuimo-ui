@@ -69,6 +69,10 @@ const checkbox = (e: any) => {
 
   <m-checkbox v-if="isVUE" v-model="active2" @change="checkbox">开关</m-checkbox>
   <m-checkbox v-else :value="active2" @change="checkbox">开关</m-checkbox>
+
+  <m-border>
+    <div class="border-inner"></div>
+  </m-border>
 </template>
 
 <style scoped>

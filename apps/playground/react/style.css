@@ -19,3 +19,11 @@ body{
   align-items: center;
   flex-direction: column;
 }
+
+
+.border-inner {
+  width: 200px;
+  height: 200px;
+  background-color: var(--m-color-main);
+  color: white;
+}

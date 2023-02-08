@@ -12,3 +12,4 @@ export { default as MButton } from './lib/base/MButton';
 export { default as MCheckbox } from './lib/base/MCheckbox';
 
 export { default as MRicePaper } from './lib/template/MRicePaper';
+export { default as MBorder } from './lib/template/MBorder';
