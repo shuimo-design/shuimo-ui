@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description react version rice paper component
  * @author 阿怪
  * @date 2023/2/7 02:18
  * @version v1.0.0
