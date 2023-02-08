@@ -7,7 +7,17 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+
+const pConsole = (str: any) => {
+  console.group(`%c playground print`, 'color:#4A9992');
+  console.log(str);
+  console.groupEnd();
+};
+
+const isVUE = computed(() => {
+  return import.meta.env.MODE === 'vue';
+});
 
 const value = ref([
   { title: '标题1', children: [{ title: '标题1-1' }] },
@@ -26,31 +36,39 @@ const toggleActive2 = () => {
 };
 
 const blurEvent = (e: FocusEvent) => {
-  console.log(e);
+  pConsole(e);
 };
 
 const toggleDisabled = () => {
-  console.log('hi');
+  pConsole('hi');
   disabled.value = !disabled.value;
 };
 
 const toggleType = (e: any) => {
   type.value = type.value === 'default' ? 'primary' : 'default';
-  console.log(type.value);
+  pConsole(type.value);
   toggleDisabled();
 };
 
-const print = ()=>{
-  console.log('hello');
-}
+const print = () => {
+  pConsole('hello');
+};
+
+const checkbox = (e: any) => {
+  pConsole(e.target);
+};
 
 </script>
 
 <template>
   <div class="hello">hi</div>
+  <div class="hello">{{ active2 }}</div>
   <m-button :disabled="disabled" @click="print">hi</m-button>
   <m-button :type="type" @click="toggleType">hi</m-button>
 
+
+  <m-checkbox v-if="isVUE" v-model="active2" @change="checkbox">开关</m-checkbox>
+  <m-checkbox v-else :value="active2" @change="checkbox">开关</m-checkbox>
 </template>
 
 <style scoped>
@@ -76,7 +94,7 @@ m-menu {
   font-size: 40px;
 }
 
-.hello[show]{
+.hello[show] {
   display: none;
 }
 

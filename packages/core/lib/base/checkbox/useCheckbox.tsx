@@ -5,11 +5,12 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ * todo 检查props
  */
-import { CheckboxEvents } from '../../../types';
-import { CheckboxProps } from './index';
-import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
+import { CheckboxProps, CheckboxEvents } from './index';
+import { HTMLElementEvent, MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './checkbox.pcss';
+import useDefaultProps from '../../../composition/useDefaultProps';
 
 export const checkboxProps: MCOPO<CheckboxProps> = {
   checked: { type: Boolean, default: undefined },
@@ -20,47 +21,53 @@ export const checkboxProps: MCOPO<CheckboxProps> = {
   value: { type: String, default: '' }
 };
 
+const notEmptyStr = (str: string | undefined | null) => {
+  return !(str === undefined || str === null || str === '');
+};
+
 export function useCheckbox() {
 
-
-  const input: MNodeTemplate = <input type="checkbox" m-name="input"/>;
-  const checkbox: MNodeTemplate = <div class="m-checkbox-checkbox" m-name="checkbox"/>;
-  const checkboxInner: MNodeTemplate = <div class="m-checkbox-checkbox-inner" m-if="false" m-name="checkboxInner"/>;
-  const labelSlot = <slot></slot>;
-  const label = <label class="m-checkbox-slot" m-name="label">
-    {labelSlot}
-  </label>;
-
-  const template: MNodeTemplate = <div class="m-checkbox">
-    {input}
-    {checkbox}
-    {checkboxInner}
-    {label}
-  </div>;
+  const getTemplate = (options?: {
+    props?: CheckboxProps,
+    events?: CheckboxEvents
+  }): MNodeTemplate => {
+    const { props: _props, events: _events } = options ?? {};
+    const props = useDefaultProps<CheckboxProps>(checkboxProps, _props);
+    const events = _events ?? { onChange: undefined };
 
 
-  const initProps = (_props: CheckboxProps, _events: CheckboxEvents) => {
-    if (!template.props) {return;}
+    const input: MNodeTemplate = <input type="checkbox" defaultChecked={props.checked}/>;
+    const checkbox: MNodeTemplate = <div class="m-checkbox-checkbox"/>;
+    const checkboxInner: MNodeTemplate = <div class="m-checkbox-checkbox-inner"/>;
+    const labelSlot = <slot></slot>;
+    const label = <label class="m-checkbox-slot">
+      {notEmptyStr(props.label) ? <span>{props.label}</span> : labelSlot}
+    </label>;
 
-    if (input.props) {
-      if (_props.checked !== null && _props.checked !== undefined) {
-        input.props.checked = _props.checked;
-        checkboxInner.if = _props.checked;
-      }
-      if (_props.label !== null && _props.label !== undefined && _props.label !== '') {
-        label.slots.delete('default');
-        label.children = { span: <span>{_props.label}</span> };
-      } else {
-        label.slots.set('default', labelSlot);
-        label.children = {};
-      }
+    const onClick = (e: HTMLElementEvent<HTMLInputElement>) => {
+      onChange(e);
+      e.target.dispatchEvent(new Event('change'));
+    };
+
+    const onChange = (e: HTMLElementEvent<HTMLInputElement>) => {
+      events.onChange?.(e);
     }
-    template.props.onClick = _events.onClick;
+
+    return <div class="m-checkbox"
+                onClick={onClick}
+                onChange={onChange}>
+      {input}
+      {checkbox}
+      {props.checked ? checkboxInner : null}
+      {label}
+    </div>;
+
   };
 
+
   return {
-    options: { template, props: checkboxProps, style },
-    initProps
+    options: { props: checkboxProps, style },
+    getTemplate
   };
 
 }

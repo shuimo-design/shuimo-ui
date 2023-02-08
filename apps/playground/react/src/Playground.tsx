@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { MButton } from '@shuimo-design/react/index';
+import { MButton, MCheckbox } from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Playground() {
@@ -16,7 +16,7 @@ export default function Playground() {
   const [disabled, setDisabled] = useState(false);
 
   const clickButton = () => {
-    console.log('hi',disabled);
+    console.log('hi', disabled);
     if (type === 'primary') {
       setType('warn');
       setDisabled(true);
@@ -24,17 +24,24 @@ export default function Playground() {
       setType('primary');
       setDisabled(false);
     }
-  }
+  };
+
+  const [checked, setChecked] = useState(true);
+  const clickCheckbox = (e: Event) => {
+    console.log('click', e.target, checked);
+    setChecked(!checked);
+  };
 
   const clickButton2 = () => {
     console.log('hello');
-  }
+  };
 
 
   return (
     <>
       <MButton disabled={disabled} onClick={clickButton2}>hi</MButton>
       <MButton type="primary" onClick={clickButton}>hi</MButton>
+      <MCheckbox checked={checked} onChange={clickCheckbox}>开关</MCheckbox>
     </>
   );
 }
