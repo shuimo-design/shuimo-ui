@@ -42,10 +42,14 @@ export const createMElement = <T>(component: any, options?: {
         // handle values
         for (let i = 0; i < values.length; i++) {
           const value = values[i];
-          if (typeof value === 'string' && value.startsWith('_m_event_')) {
-            const funcName = value.replace('_m_event_', '') as keyof MElement;
-            if (funcName in this && typeof this[funcName] === 'function') {
-              values[i] = this[funcName]
+          if (typeof value === 'object') {
+            const { func,name:funcName } = value;
+            // 首字母大写且前面加on
+            const name = `on${funcName[0].toUpperCase()}${funcName.slice(1)}`  as keyof MElement;;
+            if (name in this && typeof this[name] === 'function') {
+              values[i] = this[name];
+            } else {
+              values[i] = func;
             }
           }
         }

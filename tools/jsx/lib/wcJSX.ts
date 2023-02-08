@@ -22,7 +22,7 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
 
   const strings = new TemplateArr();
   const templateList: string[] = [];
-  const values: Array<string | boolean> = [];
+  const values: Array<string | boolean | object> = [];
   let index = 0;
   templateList[index] = `<${type} `;
 
@@ -41,12 +41,15 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
         nextTemplate();
         return;
       }
-      if (key.startsWith('on')) {
+      if (key.startsWith('on') && key[2].match(/[A-Z]/)) {
         // event
         const eventName = key.slice(2).toLowerCase();
         templateList[index] += ` @${eventName}=`;
-        // this is a magic prefix, in createElement should replace it,inject Component Class function
-        values.push(`_m_event_${eventName}`);
+        // this is a magic value, in createElement should replace it,inject Component Class function
+        values.push({
+          name: eventName,
+          func: propsRecord[key]
+        });
         nextTemplate();
         return;
       }
