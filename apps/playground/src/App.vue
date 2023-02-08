@@ -1,5 +1,5 @@
 <template>
-  <m-rice-paper class="main-paper">
+  <m-rice-paper class="main-paper" :mountain="false">
     <div class="base">
       <h1>这里是{{MODE}}的playground</h1>
       <Playground/>
@@ -27,6 +27,7 @@ const { MODE } = import.meta.env;
 .main-paper {
   height: 100vh;
   width: 100vw;
+  font-size: 14px;
 }
 
 .base {

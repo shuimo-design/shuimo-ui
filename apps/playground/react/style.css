@@ -1,0 +1,21 @@
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-paper {
+  height: 100vh;
+  width: 100vw;
+  font-size: 14px;
+}
+
+.base {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

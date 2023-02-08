@@ -35,24 +35,21 @@ const toggleDisabled = () => {
 };
 
 const toggleType = (e: any) => {
-  // console.log(e);
   type.value = type.value === 'default' ? 'primary' : 'default';
+  console.log(type.value);
   toggleDisabled();
 };
+
+const print = ()=>{
+  console.log('hello');
+}
 
 </script>
 
 <template>
-
-  <m-popover>
-    <m-button>点击显示popover</m-button>
-    <div class="border-inner" slot="content">
-      <div class="test">测试</div>
-    </div>
-  </m-popover>
-
-
-  <div class="hello" show="true">hi</div>
+  <div class="hello">hi</div>
+  <m-button :disabled="disabled" @click="print">hi</m-button>
+  <m-button :type="type" @click="toggleType">hi</m-button>
 
 </template>
 
