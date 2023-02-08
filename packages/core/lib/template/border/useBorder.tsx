@@ -36,17 +36,20 @@ export function useBorder(children?: Record<string, MNodeTemplate>) {
     bottom = 'bottom'
   }
 
-  const main: MNodeTemplate = <div class="m-border-main" m-name="main">
+  const main: MNodeTemplate = <div class="m-border-main">
     {!children ? <slot/> : handlerChildren(children)}
   </div>;
 
   const template: MNodeTemplate = <div class="m-border">
     {main}
+    {
+      Object.keys(lineType).map(type => {
+        return <div class={[baseLineClass, `m-border-${type}-line`]}></div>;
+      })
+    }
     </div>
 
-  Object.keys(lineType).forEach(type => {
-    template.children![type] = <div m-name={type} class={[baseLineClass, `m-border-${type}-line`]}></div>;
-  });
+
 
   return { options: { template, style } };
 }
