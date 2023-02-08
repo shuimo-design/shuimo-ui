@@ -1,0 +1,9 @@
+{
+  "name": "@shuimo-design/react",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "dependencies": {
+    "@shuimo-design/core": "*",
+    "@shuimo-design/types": "*"
+  }
+}
