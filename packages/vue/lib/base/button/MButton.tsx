@@ -22,9 +22,8 @@ export default defineComponent({
   props: buttonProps,
   setup(props, { slots }) {
     return () => {
-      const { options: { template },initProps } = useButton();
-      initProps(props);
-      return cr(template, { props, slots });
+      const { getTemplate } = useButton();
+      return cr(getTemplate({props}), { props, slots });
     };
   }
 });

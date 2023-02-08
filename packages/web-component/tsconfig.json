@@ -8,7 +8,8 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
   },
   "exclude": ["node_modules"]
 }
