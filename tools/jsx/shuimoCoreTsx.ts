@@ -12,7 +12,7 @@ import { MODE_TYPE } from './enums';
 
 
 export function shuimoCoreTsx(MODE?: string): Plugin {
-  const jsxFactory = MODE === MODE_TYPE.VUE ? 'm' : 'mWC';
+  const jsxFactory = MODE === MODE_TYPE.WEB_COMPONENT ? 'mWC' : 'm';
   return {
     name: 'shuimo:core-tsx',
     enforce: 'pre',
@@ -28,7 +28,6 @@ export function shuimoCoreTsx(MODE?: string): Plugin {
           });
         code = result.code;
       }
-
 
       return {
         code, id
