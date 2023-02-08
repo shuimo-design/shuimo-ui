@@ -21,38 +21,37 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
   // for web-component
 
   const strings = new TemplateArr();
-  const templateList:string[] = [];
+  const templateList: string[] = [];
   const values: Array<string | boolean> = [];
   let index = 0;
   templateList[index] = `<${type} `;
 
-  const nextTemplate = ()=>{
+  const nextTemplate = () => {
     strings.push(templateList[index]);
     index++;
     templateList[index] = '';
-  }
+  };
 
-  if(propsRecord) {
+  if (propsRecord) {
     Object.keys(propsRecord).forEach(key => {
-      if(typeof propsRecord[key]==='boolean'){
+      if (typeof propsRecord[key] === 'boolean') {
         // support boolean props
-        templateList[index]+= `?${key}=`;
+        templateList[index] += `?${key}=`;
         values.push(propsRecord[key]);
         nextTemplate();
         return;
       }
-      if(key.startsWith('on')){
+      if (key.startsWith('on')) {
         // event
-
-        // const eventName = key.slice(2).toLowerCase();
-        // templateList[index]+= `@${eventName}=`;
-        // console.log(propsRecord[key]);
-        // values.push(`_m_event_${eventName}`);
-        // nextTemplate();
+        const eventName = key.slice(2).toLowerCase();
+        templateList[index] += ` @${eventName}=`;
+        // this is a magic prefix, in createElement should replace it,inject Component Class function
+        values.push(`_m_event_${eventName}`);
+        nextTemplate();
         return;
       }
-      templateList[index]+= `${key}="${propsRecord[key]}" `;
-    })
+      templateList[index] += `${key}="${propsRecord[key]}" `;
+    });
   }
   templateList[index] += `>${joinChildren(childList)}</${type}>`;
   strings.push(templateList[index]);

@@ -17,7 +17,7 @@ export const createMElement = <T>(component: any, options?: {
   const { hookFunc } = component;
 
   return (target: typeof LitElement) => {
-    const { options: { props, template, style }, getTemplate } = hookFunc();
+    const { options: { props, style }, getTemplate } = hookFunc();
 
     initProps(props, target);
 
@@ -31,20 +31,31 @@ export const createMElement = <T>(component: any, options?: {
 
       constructor() {
         super();
-        this.template = { strings: this.getTemplate().strings, values: [] };
+        const { strings, values } = this.getTemplate();
+        this.template = { strings, values };
       }
 
       getTemplate() {
-        if (getTemplate) {
-          return getTemplate({ props: this });
+        if (!getTemplate) {return { strings: undefined, values: [] };}
+        const { strings, values } = getTemplate({ props: this, events: this });
+
+        // handle values
+        for (let i = 0; i < values.length; i++) {
+          const value = values[i];
+          if (typeof value === 'string' && value.startsWith('_m_event_')) {
+            const funcName = value.replace('_m_event_', '') as keyof MElement;
+            if (funcName in this && typeof this[funcName] === 'function') {
+              values[i] = this[funcName]
+            }
+          }
         }
-        return template;
+        return { strings, values };
       }
 
       render() {
+        const { strings, values } = this.getTemplate();
         if (options?.defaultRender === false) {return super.render();}
-
-        return html(this.getTemplate().strings, ...this.getTemplate().values);
+        return html(strings, ...values);
       }
     }
 
