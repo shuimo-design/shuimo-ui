@@ -9,17 +9,21 @@
 
 
 type Result = { strings: TemplateStringsArray, values: any[] }
-const joinChildren = (children: Result[]) => {
-  return children.filter(e => e).map((child) => {
-    return child.strings;
-  }).join('');
+const preJoinChildren = (children: Result[]) => {
+  const list: TemplateStringsArray[] = [];
+  children.filter(e => e).forEach((child) => {
+    if (Array.isArray(child)) {
+      list.push(...preJoinChildren(child));
+    }
+    list.push(child.strings);
+  });
+  return list;
 };
 
 class TemplateArr extends Array {raw: string[] = [];}
 
 export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...childList: Result[]): Result => {
   // for web-component
-
   const strings = new TemplateArr();
   const templateList: string[] = [];
   const values: Array<string | boolean | object> = [];
@@ -56,7 +60,7 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
       templateList[index] += `${key}="${propsRecord[key]}" `;
     });
   }
-  templateList[index] += `>${joinChildren(childList)}</${type}>`;
+  templateList[index] += `>${preJoinChildren(childList).join('')}</${type}>`;
   strings.push(templateList[index]);
 
   strings.raw = templateList;
