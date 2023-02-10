@@ -22,7 +22,8 @@ export const checkboxProps: MCOPO<CheckboxProps> = {
 };
 
 const notEmptyStr = (str: string | undefined | null) => {
-  return !(str === undefined || str === null || str === '');
+  // str.toString() is a magic code for web-component
+  return !(str === undefined || str === null || str === '' || str.toString() === undefined);
 };
 
 export function useCheckbox() {
@@ -51,7 +52,7 @@ export function useCheckbox() {
 
     const onChange = (e: HTMLElementEvent<HTMLInputElement>) => {
       events.onChange?.(e);
-    }
+    };
 
     return <div class="m-checkbox"
                 onClick={onClick}
