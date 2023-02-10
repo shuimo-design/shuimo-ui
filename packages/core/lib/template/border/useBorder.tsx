@@ -10,21 +10,7 @@ import { MNodeTemplate } from '@shuimo-design/types';
 import style from './border.pcss';
 
 
-const handlerChildren = (children: Record<string, MNodeTemplate>) => {
-  const arr: MNodeTemplate[] = [];
-  Object.keys(children).forEach(k => {
-    const child = children[k];
-    if (child.props) {
-      child.props['m-name'] = k;
-    } else {
-      child.props = { 'm-name': k };
-    }
-    arr.push(child);
-  });
-  return arr;
-};
-
-export function useBorder(children?: Record<string, MNodeTemplate>) {
+export function useBorder(children?: MNodeTemplate[]) {
 
 
   const baseLineClass = 'm-border-line';
@@ -39,7 +25,7 @@ export function useBorder(children?: Record<string, MNodeTemplate>) {
 
   const getTemplate = (): MNodeTemplate => {
     const main: MNodeTemplate = <div class="m-border-main">
-      {!children ? <slot/> : handlerChildren(children)}
+      {!children ? <slot/> : (children.map(child => { return child; }))}
     </div>;
 
     return <div class="m-border">
