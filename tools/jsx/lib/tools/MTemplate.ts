@@ -7,14 +7,15 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * web component jsxTools will return this
  */
-import { MStrings } from './MStrings';
+import { createMStrings, MStrings } from './MStrings';
 import { ValueResult } from '../../types';
+import { MProps } from './MProps';
 
 export class MTemplate {
   strings: MStrings = new MStrings();
   values: ValueResult[] = [];
 
-  children?: MTemplate[];
+  children?: Array<MTemplate | MProps>;
 
   private tagName: string = '';
 
@@ -48,13 +49,13 @@ export class MTemplate {
     this.strings.add(`</${this.tagName}>`);
   }
 
-  private commonAddProp(addString: string, prop: string, value: string | boolean | Function) {
+  private commonAddProp(addString: string, prop: string, value: string | boolean | Function | MProps) {
     this.strings.addition(addString);
     this.values.push({ name: prop, value });
     this.strings.add('"');
   }
 
-  addProp(prop: string, value: string | boolean | Function) {
+  addProp(prop: string, value: string | boolean | Function | MProps) {
     switch (typeof value) {
       case 'boolean':
         /**
@@ -83,12 +84,19 @@ export class MTemplate {
          * Due to the underlying characteristics of js, the props.id here will be directly compiled into a value when it enters the method
          * And there are some uncertainties, so we will not proceed with this for the time being.
          */
-        this.strings.addition(` ${prop}="${value}"`);
+
+        if (value instanceof MProps) {
+          this.commonAddProp(` .${prop}="`, prop, value);
+          break;
+        }
+
+        this.commonAddProp(` ${prop}="`, prop, value);
+
         break;
     }
   }
 
-  addChildren(children: MTemplate[]) {
+  addChildren(children: MTemplate['children']) {
     if (this.isClosed) {
       console.error('closed template can not add children, please check your code.');
       return;
@@ -99,7 +107,16 @@ export class MTemplate {
   flatChildren() {
     if (!this.children || this.children.length === 0) {return;}
     // should after close
-    this.children.filter(e=>e).map(c => {
+    this.children.filter(e => e).map(c => {
+      if (!(c instanceof MTemplate)) {
+        if (c instanceof MProps) {
+          this.strings.insert(this.strings.length - 1, createMStrings(['']));
+          this.values.push({ name: c.type!, value: c.value });
+        }else{
+          console.warn(c);
+        }
+        return;
+      }
       c.flatChildren();
       this.strings.insert(this.strings.length - 1, c.strings);
       this.values.push(...c.values);

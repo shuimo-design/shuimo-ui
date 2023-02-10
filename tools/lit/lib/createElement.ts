@@ -12,6 +12,7 @@ import { css, html, LitElement, unsafeCSS } from 'lit';
 import { Result } from '@shuimo-design/jsx';
 import { MStrings } from '@shuimo-design/jsx/lib/tools/MStrings';
 import { MTemplate } from '@shuimo-design/jsx/lib/tools/MTemplate';
+import { MProps } from '@shuimo-design/jsx/lib/tools/MProps';
 
 export const createMElement = <T>(component: {
   name: string,
@@ -46,22 +47,38 @@ export const createMElement = <T>(component: {
         return t;
       }
 
+      magicReplaceProps() {
+        const proxy: Record<string, MProps> = {};
+        Object.keys(props).forEach(key => {
+          proxy[key] = new MProps({ type: key,value: this[key as keyof this] });
+        });
+
+        return proxy;
+      }
 
       getTemplate() {
         if (!getTemplate) {
           const strings = new MStrings();
           return { strings, values: [] };
         }
-        const t = getTemplate({ props: this, events: this });
+        const t = getTemplate({ props: this.magicReplaceProps(), events: this });
 
 
-        return this.renderTemplate(t);
+        const { strings, values } = this.renderTemplate(t);
+
+        values.forEach(e => {
+          if (e.value instanceof MProps) {
+            e.value = this[e.value.type as keyof this];
+          }
+        });
+
+        return { strings, values };
       }
 
       render() {
         const { strings, values } = this.getTemplate();
         if (options?.defaultRender === false) {return super.render();}
-        return html(strings, ...values.map(e=>e.value));
+        return html(strings, ...values.map(e => e.value));
       }
     }
 
