@@ -15,7 +15,7 @@ export class MTemplate {
   strings: MStrings = new MStrings();
   values: ValueResult[] = [];
 
-  children?: Array<MTemplate | MProps>;
+  children?: Array<MTemplate | MProps | MTemplate[]>;
 
   private tagName: string = '';
 
@@ -109,14 +109,23 @@ export class MTemplate {
     // should after close
     this.children.filter(e => e).map(c => {
       if (!(c instanceof MTemplate)) {
+
         if (c instanceof MProps) {
           this.strings.insert(this.strings.length - 1, createMStrings(['']));
           this.values.push({ name: c.type!, value: c.value });
-        }else{
-          console.warn(c);
+        } else {
+          if(Array.isArray(c)){
+            c.forEach(e=>{
+              // optimize code  (...zZZ from higuaifan)
+              this.strings.insert(this.strings.length - 1, e.strings);
+              this.values.push(...e.values);
+            })
+          }
         }
         return;
       }
+
+
       c.flatChildren();
       this.strings.insert(this.strings.length - 1, c.strings);
       this.values.push(...c.values);
