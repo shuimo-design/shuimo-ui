@@ -9,8 +9,14 @@
 
 import { customElement, property } from 'lit/decorators.js';
 import { css, html, LitElement, unsafeCSS } from 'lit';
+import { Result } from '@shuimo-design/jsx';
+import { MStrings } from '@shuimo-design/jsx/lib/tools/MStrings';
+import { MTemplate } from '@shuimo-design/jsx/lib/tools/MTemplate';
 
-export const createMElement = <T>(component: any, options?: {
+export const createMElement = <T>(component: {
+  name: string,
+  hookFunc: any // todo fix this
+}, options?: {
   defaultRender: boolean;
 }) => {
   const { name } = component;
@@ -24,10 +30,7 @@ export const createMElement = <T>(component: any, options?: {
     class MElement extends target {
 
       static styles = css`${unsafeCSS(style)}`;
-      template: {
-        strings: TemplateStringsArray;
-        values: any[];
-      };
+      template: { strings: TemplateStringsArray; values: any[]; };
 
       constructor() {
         super();
@@ -35,31 +38,30 @@ export const createMElement = <T>(component: any, options?: {
         this.template = { strings, values };
       }
 
-      getTemplate() {
-        if (!getTemplate) {return { strings: undefined, values: [] };}
-        const { strings, values } = getTemplate({ props: this, events: this });
 
+      private renderTemplate(result: Result) {
         // handle values
-        for (let i = 0; i < values.length; i++) {
-          const value = values[i];
-          if (typeof value === 'object') {
-            const { func,name:funcName } = value;
-            // 首字母大写且前面加on
-            const name = `on${funcName[0].toUpperCase()}${funcName.slice(1)}`  as keyof MElement;;
-            if (name in this && typeof this[name] === 'function') {
-              values[i] = this[name];
-            } else {
-              values[i] = func;
-            }
-          }
+        const t = result as MTemplate;
+        t.flatChildren();
+        return t;
+      }
+
+
+      getTemplate() {
+        if (!getTemplate) {
+          const strings = new MStrings();
+          return { strings, values: [] };
         }
-        return { strings, values };
+        const t = getTemplate({ props: this, events: this });
+
+
+        return this.renderTemplate(t);
       }
 
       render() {
         const { strings, values } = this.getTemplate();
         if (options?.defaultRender === false) {return super.render();}
-        return html(strings, ...values);
+        return html(strings, ...values.map(e=>e.value));
       }
     }
 
