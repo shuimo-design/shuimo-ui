@@ -18,25 +18,22 @@ import { HTMLElementEvent } from '@shuimo-design/types';
 import { cr } from '../../../tools/coreRender';
 
 
-
 export default defineComponent({
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur'],
   props: inputProps,
-  setup(p, { emit }) {
+  setup(props, { emit }) {
 
     return () => {
-      const { options: { template }, initProps } = useInput();
-      initProps({
-        ...p,
-        value: p.modelValue
-      }, {
-        onInput: (e: HTMLElementEvent<HTMLInputElement>) => {emit('update:modelValue', e.target.value);},
-        onFocus: (e: FocusEvent) => {emit('focus', e);},
-        onBlur: (e: FocusEvent) => {emit('blur', e);}
-      });
-
-      return cr(template, { props: p });
+      const { getTemplate } = useInput();
+      return cr(getTemplate({
+        props: { ...props, value: props.modelValue },
+        events: {
+          onInput: (e: HTMLElementEvent<HTMLInputElement>) => {emit('update:modelValue', e.target.value);},
+          onFocus: (e: FocusEvent) => {emit('focus', e);},
+          onBlur: (e: FocusEvent) => {emit('blur', e);}
+        }
+      }), { props });
     };
   }
 });

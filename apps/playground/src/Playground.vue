@@ -61,18 +61,22 @@ const checkbox = (e: any) => {
 </script>
 
 <template>
-  <div class="hello">hi</div>
+  <div class="hello">{{ input }}</div>
   <div class="hello">{{ active2 }}</div>
   <m-button :disabled="disabled" @click="print">hi</m-button>
   <m-button :type="type" @click="toggleType">hi</m-button>
 
 
-  <m-checkbox v-if="isVUE" v-model="active2" @change="checkbox">开关</m-checkbox>
-  <m-checkbox v-else :value="active2" @change="checkbox">开关</m-checkbox>
+  <m-checkbox v-if="isVUE" v-model="active2" @change="checkbox">vue开关</m-checkbox>
+  <m-checkbox v-else :value="active2" @change="checkbox">wc开关</m-checkbox>
 
-  <m-border>
-    <div class="border-inner"></div>
-  </m-border>
+<!--  <m-border>-->
+<!--    <div class="border-inner"></div>-->
+<!--  </m-border>-->
+  <m-input v-if="isVUE" v-model="input"></m-input>
+  <m-input v-else v-model="input"></m-input>
+  <input type="text" v-model="input">
+
 </template>
 
 <style scoped>

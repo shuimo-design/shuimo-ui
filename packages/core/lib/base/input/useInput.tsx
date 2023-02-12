@@ -10,6 +10,7 @@ import { InputEvents, InputProps } from './index';
 import { useBorder } from '../../template/border/useBorder';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './input.pcss';
+import useDefaultProps from '../../../composition/useDefaultProps';
 
 export const inputProps: MCOPO<InputProps> = {
   type: { type: String, default: 'text' },
@@ -19,49 +20,39 @@ export const inputProps: MCOPO<InputProps> = {
   readonly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false }
 };
+const { options: { style: borderStyle } } = useBorder();
 
 export function useInput() {
 
-  const template: MNodeTemplate = <input class="m-input-inner"/>;
-
-  const {
-    options: {
-      template: borderTemplate, style: borderStyle
-    }
-  } = useBorder({ input: template });
-
-
-  const initProps = (_props: InputProps, _events: InputEvents) => {
-    if (!template.props) {return;}
-    template.initProps!(inputProps, _props);
-    if (_props.type === 'textarea') {
-      template.type = 'textarea';
-      template.props.class = 'm-textarea-inner';
-      template.props.rows = 10;
-    } else {
-      template.type = 'input';
-      template.props.class = 'm-input-inner';
-      delete template.props.rows;
-    }
-
-
-    template.props.onInput = _events.onInput;
-    if (_events.onFocus) {
-      template.props.onFocus = _events.onFocus;
-    }
-    if (_events.onBlur) {
-      template.props.onBlur = _events.onBlur;
-    }
+  const getTemplate = (options?: {
+    props?: InputProps, events?: InputEvents
+  }) => {
+    const { props: _props, events: _events } = options ?? {};
+    const props = useDefaultProps(inputProps, _props);
+    const events = {
+      onInput: _events?.onInput ?? undefined,
+      onFocus: _events?.onFocus ?? undefined,
+      onBlur: _events?.onBlur ?? undefined
+    };
+    const input: MNodeTemplate = <input {...props} {...events} class="m-input m-input-inner"/>;
+    const textarea: MNodeTemplate = <textarea {...props} {...events} rows="10" class="m-input m-textarea-inner"/>;
+    const { getTemplate: getBorderTemplate } = useBorder(
+      [props.type === 'textarea' ? textarea : input]
+    );
+    return getBorderTemplate();
   };
+
+
 
   return {
     options: {
-      template: borderTemplate, props: {
+      props: {
         ...inputProps,
         class: 'm-input'
-      }, style: borderStyle + style
+      },
+      style: borderStyle + style
     },
-    initProps
+    getTemplate
   };
 
 }
