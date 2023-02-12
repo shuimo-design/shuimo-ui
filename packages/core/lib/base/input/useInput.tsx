@@ -16,8 +16,7 @@ export const inputProps: MCOPO<InputProps> = {
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
   value: { type: [String, Number], default: '' },
-  modelValue: { type: [String, Number], default: '' },
-  readonly: { type: Boolean, default: false },
+  readOnly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false }
 };
 const { options: { style: borderStyle } } = useBorder();
