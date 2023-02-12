@@ -6,16 +6,20 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { DefaultFactory } from '@shuimo-design/types';
 
 
 export class MProps {
-  type?: string;
+  type?: DefaultFactory<any>;
+  key?: string;
   value?: any;
 
   constructor(options: {
-    type: string,
+    type: DefaultFactory<any>,
+    key: string,
     value: any
   }) {
+    this.key = options.key;
     this.type = options.type;
     this.value = options.value;
   }

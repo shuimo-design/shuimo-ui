@@ -86,7 +86,12 @@ export class MTemplate {
          */
 
         if (value instanceof MProps) {
-          this.commonAddProp(` .${prop}="`, prop, value);
+          if (value.type === Boolean) {
+            this.commonAddProp(` ?${prop}="`, prop, value);
+            break;
+          }
+
+          this.commonAddProp(` ${prop}="`, prop, value);
           break;
         }
 
@@ -112,14 +117,14 @@ export class MTemplate {
 
         if (c instanceof MProps) {
           this.strings.insert(this.strings.length - 1, createMStrings(['']));
-          this.values.push({ name: c.type!, value: c.value });
+          this.values.push({ name: c.key!, value: c.value });
         } else {
-          if(Array.isArray(c)){
-            c.forEach(e=>{
+          if (Array.isArray(c)) {
+            c.forEach(e => {
               // optimize code  (...zZZ from higuaifan)
               this.strings.insert(this.strings.length - 1, e.strings);
               this.values.push(...e.values);
-            })
+            });
           }
         }
         return;

@@ -50,11 +50,17 @@ export const createMElement = <T>(component: {
       magicReplaceProps() {
         const proxy: Record<string, MProps> = {};
         Object.keys(props).forEach(key => {
-          proxy[key] = new MProps({ type: key,value: this[key as keyof this] });
+          proxy[key] = new MProps({
+            key: key,
+            type: props[key].type,
+            value: this[key as keyof this]
+          });
         });
 
         return proxy;
       }
+
+      private strings?: MStrings;
 
       getTemplate() {
         if (!getTemplate) {
@@ -68,7 +74,10 @@ export const createMElement = <T>(component: {
 
         values.forEach(e => {
           if (e.value instanceof MProps) {
-            e.value = this[e.value.type as keyof this];
+            e.value = this[e.value.key as keyof this];
+          }
+          if (e.name.startsWith('on')) {
+            e.value = this[e.name as keyof this];
           }
         });
 
@@ -77,8 +86,11 @@ export const createMElement = <T>(component: {
 
       render() {
         const { strings, values } = this.getTemplate();
+        if (!this.strings || !this.strings.compare(strings)) {
+          this.strings = strings;
+        }
         if (options?.defaultRender === false) {return super.render();}
-        return html(strings, ...values.map(e => e.value));
+        return html(this.strings, ...values.map(e => e.value));
       }
     }
 

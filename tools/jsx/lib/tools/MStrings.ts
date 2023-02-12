@@ -54,6 +54,10 @@ export class MStrings extends Array implements TemplateStringsArray {
       }
     });
   }
+
+  compare(s: MStrings) {
+    return this.raw.join('') === s.raw.join('');
+  }
 }
 
 export const createMStrings = (s?: string[]) => {
