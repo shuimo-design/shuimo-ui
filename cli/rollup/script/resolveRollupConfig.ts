@@ -10,7 +10,7 @@ import { RequiredShuimoBuildConfig, ShuimoBuildConfig } from '../index';
 import fs from 'fs';
 import path from 'path';
 import { RollupOptions } from 'rollup';
-
+import { importAbs, __dirname } from '../common/common';
 import rollupResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
@@ -51,15 +51,12 @@ export const resolveRollupConfig = async (pkgDir: string, target: string) => {
   };
 
   const url = path.resolve(pathJoin(['.', 'config', target, 'shuimo.build.config.ts']));
-
   if (fs.existsSync(url)) {
-    let { config: userConfig } = await import(url) as { config: ShuimoBuildConfig };
+    let { config: userConfig } = await importAbs(url) as { config: ShuimoBuildConfig };
     config = mergeConfig(config, userConfig);
   }
-
   const { resolve, commonjs: c, postcss: p, typescript: t } = config.plugins!;
   const { filterRoot, tsconfig } = config.plugins?.typescript!;
-
   const rollupConfig: RollupOptions = {
     plugins: [
       resolve ? rollupResolve() : undefined,
