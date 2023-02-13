@@ -4,7 +4,7 @@
  * @date 2020/11/17 22:03
  * @version v2.0.0
  *
- * 公司的业务千篇一律，复杂的代码好几百行。
+ * 江湖的业务千篇一律，复杂的代码好几百行。
  *
  * v1.1.0 阿怪 升级为tsx版本
  * v1.1.1 阿怪 新增disabled和readonly属性
@@ -21,7 +21,10 @@ import { cr } from '../../../tools/coreRender';
 export default defineComponent({
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur'],
-  props: inputProps,
+  props: {
+    ...inputProps,
+    modelValue: { type: String, default: '' } // todo universalization
+  },
   setup(props, { emit }) {
 
     return () => {
