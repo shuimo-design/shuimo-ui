@@ -37,12 +37,10 @@ if (!target) {console.warn('you should provide target');}
 const pkgDir = path.resolve(pathJoin(['../../', target]));
 const packagePath = pathJoin([pkgDir, 'package.json']);
 
-const packageJson = await importAbs(packagePath);
-
 const run = async () => {
   let bundle;
   let buildField = false;
-  const pkgOption = resolvePackage(pkgDir, packageJson);
+  const pkgOption = resolvePackage(pkgDir, await importAbs(packagePath));
   const rollupConfig = await resolveRollupConfig(pkgDir, target!);
   if (!pkgOption.output) {return;}
   try {

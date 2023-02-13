@@ -2,7 +2,6 @@
   "name": "@shuimo-desing/build",
   "author": "阿怪",
   "version": "0.0.1",
-   "type": "module",
   "scripts": {
     "build:postcss": "tsx script/build.ts --target tools/postcss",
     "build:jsx": "tsx script/build.ts --target tools/jsx",
