@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { MButton, MCheckbox, MBorder,MInput } from '@shuimo-design/react/index';
+import { MButton, MCheckbox, MBorder,MInput, MLi } from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Playground() {
@@ -48,6 +48,8 @@ export default function Playground() {
         <div className="border-inner"></div>
       </MBorder>
       <MInput value={value} />
+      <MLi>你好</MLi>
+      <MLi active>你好</MLi>
     </>
   );
 }
