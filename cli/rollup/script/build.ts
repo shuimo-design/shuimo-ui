@@ -6,13 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
 import * as path from 'path';
 import { OutputOptions, rollup } from 'rollup';
 import { resolvePackage } from './resolvePackage';
 import console from 'console';
 import { resolveRollupConfig } from './resolveRollupConfig';
 import fs from 'fs';
+import { importAbs } from 'common/common';
 
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
 
@@ -35,13 +35,12 @@ const target = getTarget();
 if (!target) {console.warn('you should provide target');}
 
 const pkgDir = path.resolve(pathJoin(['../../', target]));
-const packageJson = require(pathJoin([pkgDir, 'package.json']));
-
+const packagePath = pathJoin([pkgDir, 'package.json']);
 
 const run = async () => {
   let bundle;
   let buildField = false;
-  const pkgOption = resolvePackage(pkgDir, packageJson);
+  const pkgOption = resolvePackage(pkgDir, await importAbs(packagePath));
   const rollupConfig = await resolveRollupConfig(pkgDir, target!);
   if (!pkgOption.output) {return;}
   try {
@@ -58,6 +57,7 @@ const run = async () => {
     console.error(e);
     buildField = true;
   }
+
 
   if (bundle) {
     const outputOptionList: OutputOptions[] = Array.isArray(pkgOption.output) ? pkgOption.output : [pkgOption.output];

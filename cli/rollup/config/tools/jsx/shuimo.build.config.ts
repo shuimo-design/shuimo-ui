@@ -10,12 +10,14 @@
 import { ShuimoBuildConfig } from '../../../index';
 import path from 'path';
 
+import {  __dirname } from '../../../common/common';
+
 export const config: ShuimoBuildConfig = {
   plugins: {
     // resolve: true,
     // commonjs: true,
     typescript: {
-      filterRoot: path.resolve(__dirname,'../../../../../tools/jsx'),
+      filterRoot: path.resolve(__dirname, '../../../tools/jsx'),
       exclude: ['**/vue/**', '**/react/**', '**/apps/**']
     }
   }
