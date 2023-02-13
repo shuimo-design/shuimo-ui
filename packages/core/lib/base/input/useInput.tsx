@@ -15,7 +15,7 @@ import useDefaultProps from '../../../composition/useDefaultProps';
 export const inputProps: MCOPO<InputProps> = {
   type: { type: String, default: 'text' },
   placeholder: { type: String, default: '' },
-  value: { type: [String, Number], default: '' },
+  value: { type: [String, Number], default: '', needWrap: true },
   readOnly: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false }
 };
@@ -40,7 +40,6 @@ export function useInput() {
     );
     return getBorderTemplate();
   };
-
 
 
   return {

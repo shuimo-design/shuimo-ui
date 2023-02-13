@@ -13,6 +13,7 @@ export declare type MPropOptions<T = any, D = T> = {
   default?: D | DefaultFactory<D> | null | undefined | object,
   enum?: T[],
 
+  needWrap?: boolean,
 }
 
 export declare type MPropOptionsWithDefault<T = any, D = T> = {
@@ -20,6 +21,8 @@ export declare type MPropOptionsWithDefault<T = any, D = T> = {
   required?: false,
   default: D | DefaultFactory<D> | null | undefined | object,
   enum?: T[],
+
+  needWrap?: boolean,
 }
 
 /**
