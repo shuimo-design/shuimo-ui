@@ -20,7 +20,6 @@ export function useLi() {
   const getTemplate = (options?: { props: LiProps }): MNodeTemplate => {
     const { props: _props } = options ?? {};
     const props = useDefaultProps(liProps, _props);
-    console.log(props.active,Boolean(props.active));
     return <li class={`m-li ${props.active ? 'm-li-active' : ''}`}>
       <slot/>
     </li>;
