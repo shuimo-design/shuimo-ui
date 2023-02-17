@@ -9,6 +9,7 @@
 import { MenuProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './menu.pcss';
+import useDefaultProps from '../../../composition/useDefaultProps';
 
 export const menuProps: MCOPO<MenuProps> = {
   menu: { type: Array, default: [] },
@@ -17,20 +18,19 @@ export const menuProps: MCOPO<MenuProps> = {
 
 export function useMenu() {
 
-  const template: MNodeTemplate = {
-    type: 'ul',
-    props: { class: 'm-menu' },
-    slots: ['default']
-  };
-
-  const initProps = (_props: MenuProps) => {
-    if (!template.props) {return;}
-    template.props.class = _props.inline ? 'm-menu m-menu-inline' : 'm-menu';
+  const getTemplate = (options?: {
+    props?: MenuProps
+  }): MNodeTemplate => {
+    const { props: _props } = options ?? {};
+    const props = useDefaultProps(menuProps, _props);
+    return <ul class={['m-menu', props.inline ? 'm-menu-inline' : undefined].join('')}>
+      <slot/>
+    </ul>;
   };
 
   return {
-    options: { template, props: menuProps, style },
-    initProps
+    options: { props: menuProps, style },
+    getTemplate
   };
 
 }
