@@ -25,10 +25,10 @@ export default defineConfig(env => {
       })
     }
   };
-  const optimizeDeps = { include: ['@shuimo-design/postcss', 'moelement'] };
+  const optimizeDeps = { include: ['@shuimo-design/postcss'] };
 
   const build = {
-    commonjsOptions: { include: [/@shuimo-design/, 'moelement', /node_modules/] }
+    commonjsOptions: { include: [/@shuimo-design/, /node_modules/] }
   };
 
   let vuePluginOption = mode === MODE_TYPE.WEB_COMPONENT ? {

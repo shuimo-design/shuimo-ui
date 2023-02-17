@@ -8,7 +8,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "moelement": "*",
     "@shuimo-design/lit": "*",
     "@shuimo-design/types": "*",
     "lit": "*"
