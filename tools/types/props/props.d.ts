@@ -8,7 +8,7 @@
  * M means Shuimo
  */
 export declare type MPropOptions<T = any, D = T> = {
-  type: MPropType<T> | true | null,
+  type?: MPropType<T> | true | null,
   required: true,
   default?: D | DefaultFactory<D> | null | undefined | object,
   enum?: T[],
@@ -16,7 +16,7 @@ export declare type MPropOptions<T = any, D = T> = {
 }
 
 export declare type MPropOptionsWithDefault<T = any, D = T> = {
-  type: MPropType<T>,
+  type?: MPropType<T>,
   required?: false,
   default: D | DefaultFactory<D> | null | undefined | object,
   enum?: T[],
@@ -49,4 +49,4 @@ type MPropMethod<T, TConstructor = any> = [T] extends [
   ? { new(): TConstructor; (): T; readonly prototype: TConstructor } // Create Function like constructor
   : never
 
-type MPropType<T> = MPropConstructor<T> | MPropConstructor<T>[];
+export type MPropType<T> = MPropConstructor<T> | MPropConstructor<T>[];
