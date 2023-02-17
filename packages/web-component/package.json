@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "moelement": "*",
-    "lit": "*",
-    "@shuimo-design/lit": "*"
+    "@shuimo-design/lit": "*",
+    "@shuimo-design/types": "*",
+    "lit": "*"
   }
 }
