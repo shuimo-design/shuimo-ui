@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ButtonProps } from './index';
+import { ButtonEvents, ButtonProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './button.pcss';
 
@@ -25,19 +25,38 @@ export function useButton() {
     <slot/>
   </button>;
 
-  const initProps = (_props: ButtonProps) => {
-    if (!template.props) {return;}
-    template.initProps!(buttonProps, _props, ['text']);
-    if (_props.link) {
-      template.type = 'a';
-    } else {
-      template.type = 'button';
+  const getDefaultProps = (props?: ButtonProps) => {
+    return {
+      text: props?.text ?? '',
+      link: props?.link ?? false,
+      disabled: props?.disabled ?? false,
+      type: props?.type ?? 'default'
+    };
+  };
+
+  const clickHandler = (e: MouseEvent, props: ButtonProps, event: ButtonEvents) => {
+    if (props.disabled) {
+      e.preventDefault();
     }
-    template.props.class = `m-button m-button-${_props.type ?? 'default'}`; // todo use classList
+    event.onClick?.(e);
+  };
+
+  const getTemplate = (options?: {
+    props?: ButtonProps,
+    events?: ButtonEvents
+  }): MNodeTemplate => {
+    const { props: _props, events: _events } = options ?? {};
+    const props = getDefaultProps(_props);
+    const events = _events ?? {};
+    return <button class={['m-button', `m-button-${props.type ?? 'default'}`].join(' ')}
+                   disabled={props.disabled}
+                   onClick={(e: MouseEvent) => clickHandler(e, props, events)}>
+      <slot/>
+    </button>;
   };
 
   return {
     options: { template, props: buttonProps, style },
-    initProps
+    getTemplate
   };
 }

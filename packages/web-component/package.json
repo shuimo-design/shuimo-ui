@@ -7,10 +7,9 @@
     "@shuimo-design/core": "*",
     "typescript": "^4.9.4"
   },
-  "peerDependencies": {
-    "moelement": "*"
-  },
   "dependencies": {
-    "moelement": "*"
+    "@shuimo-design/lit": "*",
+    "@shuimo-design/types": "*",
+    "lit": "*"
   }
 }

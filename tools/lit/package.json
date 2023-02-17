@@ -1,0 +1,12 @@
+{
+  "name": "@shuimo-design/lit",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "vitest -u"
+  },
+  "dependencies": {
+    "@shuimo-design/jsx": "*",
+    "lit": "*",
+    "vitest": "*"
+  }
+}

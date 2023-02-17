@@ -7,7 +7,17 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+
+const pConsole = (str: any) => {
+  console.group(`%c playground print`, 'color:#4A9992');
+  console.log(str);
+  console.groupEnd();
+};
+
+const isVUE = computed(() => {
+  return import.meta.env.MODE === 'vue';
+});
 
 const value = ref([
   { title: '标题1', children: [{ title: '标题1-1' }] },
@@ -26,33 +36,50 @@ const toggleActive2 = () => {
 };
 
 const blurEvent = (e: FocusEvent) => {
-  console.log(e);
+  pConsole(e);
 };
 
 const toggleDisabled = () => {
-  console.log('hi');
+  pConsole('hi');
   disabled.value = !disabled.value;
 };
 
 const toggleType = (e: any) => {
-  // console.log(e);
   type.value = type.value === 'default' ? 'primary' : 'default';
+  pConsole(type.value);
   toggleDisabled();
+};
+
+const print = () => {
+  pConsole('hello');
+};
+
+const checkbox = (e: any) => {
+  pConsole(e.target);
 };
 
 </script>
 
 <template>
-
-  <m-popover>
-    <m-button>点击显示popover</m-button>
-    <div class="border-inner" slot="content">
-      <div class="test">测试</div>
-    </div>
-  </m-popover>
+  <div class="hello">{{ input }}</div>
+  <div class="hello">{{ active2 }}</div>
+  <span> todo wc 环境中下面这个disabled bug需要修复</span>
+  <m-button :disabled="disabled" @click="print">hi</m-button>
+  <m-button :type="type" @click="toggleType">hi</m-button>
 
 
-  <div class="hello" show="true">hi</div>
+  <m-checkbox v-if="isVUE" v-model="active2" @change="checkbox">vue开关</m-checkbox>
+  <m-checkbox v-else :value="active2" @change="checkbox">wc开关</m-checkbox>
+
+<!--  <m-border>-->
+<!--    <div class="border-inner"></div>-->
+<!--  </m-border>-->
+  <m-input v-if="isVUE" v-model="input"></m-input>
+  <m-input v-else v-model="input"></m-input>
+  <input type="text" v-model="input">
+
+  <m-li active>你好</m-li>
+  <m-li>你好</m-li>
 
 </template>
 
@@ -79,7 +106,7 @@ m-menu {
   font-size: 40px;
 }
 
-.hello[show]{
+.hello[show] {
   display: none;
 }
 

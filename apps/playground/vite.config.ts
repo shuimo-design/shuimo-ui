@@ -8,6 +8,7 @@
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import react from '@vitejs/plugin-react';
 import { defineMPostcss } from '@shuimo-design/postcss';
 import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/jsx';
 
@@ -24,10 +25,10 @@ export default defineConfig(env => {
       })
     }
   };
-  const optimizeDeps = { include: ['@shuimo-design/postcss', 'moelement'] };
+  const optimizeDeps = { include: ['@shuimo-design/postcss'] };
 
   const build = {
-    commonjsOptions: { include: [/@shuimo-design/, 'moelement', /node_modules/] }
+    commonjsOptions: { include: [/@shuimo-design/, /node_modules/] }
   };
 
   let vuePluginOption = mode === MODE_TYPE.WEB_COMPONENT ? {
@@ -38,7 +39,12 @@ export default defineConfig(env => {
       }
     }
   } : {};
-  const plugins = [vue(vuePluginOption), shuimoCoreTsx(mode)];
+
+
+  const plugins = [
+    mode === MODE_TYPE.REACT ? react() : vue(vuePluginOption),
+    shuimoCoreTsx(mode)
+  ];
 
   return {
     plugins,

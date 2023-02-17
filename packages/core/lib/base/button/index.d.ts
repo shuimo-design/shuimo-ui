@@ -40,3 +40,7 @@ export declare type ButtonProps = {
    */
   type?: string
 };
+
+export declare type ButtonEvents = {
+  onClick?: (e: MouseEvent) => void
+};

@@ -4,7 +4,7 @@
  * @date 2020/11/17 22:03
  * @version v2.0.0
  *
- * 公司的业务千篇一律，复杂的代码好几百行。
+ * 江湖的业务千篇一律，复杂的代码好几百行。
  *
  * v1.1.0 阿怪 升级为tsx版本
  * v1.1.1 阿怪 新增disabled和readonly属性
@@ -18,25 +18,25 @@ import { HTMLElementEvent } from '@shuimo-design/types';
 import { cr } from '../../../tools/coreRender';
 
 
-
 export default defineComponent({
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur'],
-  props: inputProps,
-  setup(p, { emit }) {
+  props: {
+    ...inputProps,
+    modelValue: { type: String, default: '' } // todo universalization
+  },
+  setup(props, { emit }) {
 
     return () => {
-      const { options: { template }, initProps } = useInput();
-      initProps({
-        ...p,
-        value: p.modelValue
-      }, {
-        onInput: (e: HTMLElementEvent<HTMLInputElement>) => {emit('update:modelValue', e.target.value);},
-        onFocus: (e: FocusEvent) => {emit('focus', e);},
-        onBlur: (e: FocusEvent) => {emit('blur', e);}
-      });
-
-      return cr(template, { props: p });
+      const { getTemplate } = useInput();
+      return cr(getTemplate({
+        props: { ...props, value: props.modelValue },
+        events: {
+          onInput: (e: HTMLElementEvent<HTMLInputElement>) => {emit('update:modelValue', e.target.value);},
+          onFocus: (e: FocusEvent) => {emit('focus', e);},
+          onBlur: (e: FocusEvent) => {emit('blur', e);}
+        }
+      }), { props });
     };
   }
 });

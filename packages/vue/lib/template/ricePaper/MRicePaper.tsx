@@ -9,20 +9,24 @@
  */
 import { defineComponent } from 'vue';
 import Printer from '../../other/printer/Printer';
-import { useRicePaper } from '@shuimo-design/core';
+import { useRicePaper, ricePaperProps } from '@shuimo-design/core';
 import { cr } from '../../../tools/coreRender';
-
-const { options: { props, template } } = useRicePaper();
+import { MNodeTemplate } from '@shuimo-design/types';
 
 
 export default defineComponent({
   name: 'MRicePaper',
-  props,
+  props: ricePaperProps,
   setup: (props, { slots }) => {
     if (!slots || !slots.default) {
       Printer('水墨宣纸组件').error('必须传入default slot');
       return () => null;
     }
-    return () => cr(template, { props, slots });
+
+    return () => {
+      const { getTemplate } = useRicePaper();
+      const template = getTemplate(props) as MNodeTemplate;
+      return cr(template, { props, slots });
+    };
   }
 });

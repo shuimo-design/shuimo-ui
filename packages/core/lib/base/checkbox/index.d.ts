@@ -11,7 +11,7 @@
  *
  * Hello, humor
  */
-import { HTMLElementEvent } from '../../../types';
+import { HTMLElementEvent } from '@shuimo-design/types';
 
 export declare type CheckboxProps = {
   /**
@@ -57,5 +57,5 @@ export declare type CheckboxProps = {
 
 
 export declare type CheckboxEvents = {
-  onClick: (e: HTMLElementEvent<HTMLInputElement>) => void
+  onChange: (e: HTMLElementEvent<HTMLInputElement>) => void
 }

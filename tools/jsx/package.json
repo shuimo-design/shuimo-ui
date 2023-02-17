@@ -3,9 +3,14 @@
   "author": "阿怪",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "vitest -u"
+  },
   "devDependencies": {
     "@shuimo-design/types": "*",
     "esbuild": "^0.17.0",
-    "vite": "*"
+    "vite": "*",
+    "vitest": "*"
   }
 }

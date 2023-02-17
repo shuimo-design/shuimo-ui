@@ -11,7 +11,7 @@ import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import style from './ricePaper.pcss';
 
 
-const ricePaperProps: MCOPO<RicePaperProps> = {
+export const ricePaperProps: MCOPO<RicePaperProps> = {
   cold: { type: Boolean, default: true },
   mountain: { type: Boolean, default: true },
   crane: { type: Boolean, default: true }
@@ -20,14 +20,34 @@ const ricePaperProps: MCOPO<RicePaperProps> = {
 export function useRicePaper() {
 
   const template: MNodeTemplate = <div class="m-rice-paper">
-    <div class="m-rice-paper-mountain" m-name="mountain"></div>
-    <div class="m-rice-paper-crane" m-name="crane"></div>
-    <div class="m-rice-paper-main" m-name="main">
+    <div class="m-rice-paper-mountain"></div>
+    <div class="m-rice-paper-crane"></div>
+    <div class="m-rice-paper-main">
       <slot></slot>
     </div>
   </div>;
 
+  const getDefaultProps = (props?: RicePaperProps) => {
+    return {
+      cold: props?.cold ?? true,
+      mountain: props?.mountain ?? true,
+      crane: props?.crane ?? true
+    };
+  };
+
+  const getTemplate = (_props?: RicePaperProps):MNodeTemplate => {
+    const props = getDefaultProps(_props);
+    return <div class="m-rice-paper">
+      {Boolean(props.mountain) ? <div class="m-rice-paper-mountain"></div> : null}
+      <div class="m-rice-paper-crane"></div>
+      <div class="m-rice-paper-main">
+        <slot></slot>
+      </div>
+    </div>;
+  };
+
   return {
-    options: { template, props: ricePaperProps, style }
+    options: { template, props: ricePaperProps, style },
+    getTemplate
   };
 }

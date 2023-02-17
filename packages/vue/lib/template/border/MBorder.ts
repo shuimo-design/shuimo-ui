@@ -12,11 +12,14 @@ import { defineComponent } from 'vue';
 import { useBorder } from '@shuimo-design/core';
 import { cr } from '../../../tools/coreRender';
 
-const { options: { template } } = useBorder();
+
 
 export default defineComponent({
   name: 'MBorder',
   setup(props, { slots }) {
-    return () => cr(template, { slots });
+    return () => {
+      const { getTemplate } = useBorder();
+      return cr(getTemplate(), { slots })
+    };
   }
 });

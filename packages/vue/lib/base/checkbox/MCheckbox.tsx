@@ -10,29 +10,26 @@
  * v2.0.0 阿怪 upgrade to core version
  */
 import { defineComponent } from 'vue';
-import { checkboxProps, HTMLElementEvent, useCheckbox } from '@shuimo-design/core';
+import { checkboxProps, useCheckbox } from '@shuimo-design/core';
+import { HTMLElementEvent } from '@shuimo-design/types';
 import { cr } from '../../../tools/coreRender';
 
 export default defineComponent({
   name: 'MCheckbox',
   props: checkboxProps,
   emits: ['change', 'update:modelValue'],
-  setup(p, { emit, slots }) {
+  setup(props, { emit, slots }) {
     return () => {
-      const { options: { template }, initProps } = useCheckbox();
-      initProps({
-        ...p,
-        checked: p.modelValue
-      }, {
-        onClick: (e: HTMLElementEvent<HTMLInputElement>) => {
-          emit('change', e);
-          emit('update:modelValue', !p.modelValue);
+      const { getTemplate } = useCheckbox();
+      return cr(getTemplate({
+        props: { ...props, checked: props.modelValue },
+        events: {
+          onChange: (e: HTMLElementEvent<HTMLInputElement>) => {
+            emit('change', e);
+            emit('update:modelValue', !props.modelValue);
+          }
         }
-      });
-
-      return cr(template, {
-        props: p, slots
-      });
-    }
+      }), { props, slots });
+    };
   }
 });

@@ -11,7 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { HTMLElementEvent } from '../../../types';
+import { HTMLElementEvent } from '@shuimo-design/types';
 
 export declare type InputProps = {
   /**
@@ -35,18 +35,11 @@ export declare type InputProps = {
    */
   value?: string | number,
   /**
-   * @description input value. 输入框绑定值
-   * @type string|number
-   * @default ''
-   * @vue
-   */
-  modelValue?: string | number,
-  /**
    * @description input readonly. 是否只读
    * @type boolean
    * @default false
    */
-  readonly?: boolean,
+  readOnly?: boolean,
   /**
    * @description input disabled. 是否禁用
    * @type boolean
@@ -56,7 +49,7 @@ export declare type InputProps = {
 }
 
 export declare type InputEvents = {
-  onInput: (e: HTMLElementEvent<HTMLInputElement>) => void
+  onInput?: (e: HTMLElementEvent<HTMLInputElement>) => void
   onFocus?: (e: FocusEvent) => void
   onBlur?: (e: FocusEvent) => void
 }

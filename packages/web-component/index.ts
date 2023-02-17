@@ -11,7 +11,7 @@ import Button from './lib/base/button';
 import Input from './lib/base/input';
 import Checkbox from './lib/base/checkbox';
 import Li from './lib/base/list/li';
-import Select from './lib/base/select';
+// import Select from './lib/base/select';
 
 import Popover from './lib/message/popover';
 
@@ -30,7 +30,7 @@ const ShuimoWebComponent = {
   Input,
   Checkbox,
   Li,
-  Select,
+  // Select,
 
   Popover,
 

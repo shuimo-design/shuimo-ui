@@ -7,9 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { Placement, PopoverProps, usePopover } from '@shuimo-design/core';
-import { createMElement, MElement } from 'moelement';
-import { MInitProps } from 'moelement/types/template';
-
+import { createMElement, MElement } from '@shuimo-design/lit';
 
 @createMElement({
   name: 'm-popover',
@@ -33,13 +31,13 @@ export default class MPopover extends MElement implements PopoverProps {
     super();
   }
 
-  initTemplate(props: MPopover, initProps: MInitProps<MPopover>) {
-    super.initTemplate(props, initProps);
-    initProps(props, {
-      onClick: (e: MouseEvent) => {
-        this.show = !this.show;
-      }
-    });
-  }
+  // initTemplate(props: MPopover, initProps: MInitProps<MPopover>) {
+  //   super.initTemplate(props, initProps);
+  //   initProps(props, {
+  //     onClick: (e: MouseEvent) => {
+  //       this.show = !this.show;
+  //     }
+  //   });
+  // }
 
 }

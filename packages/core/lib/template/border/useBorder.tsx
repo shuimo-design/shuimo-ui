@@ -10,21 +10,7 @@ import { MNodeTemplate } from '@shuimo-design/types';
 import style from './border.pcss';
 
 
-const handlerChildren = (children: Record<string, MNodeTemplate>)=>{
-  const arr:MNodeTemplate[] = [];
-  Object.keys(children).forEach(k=>{
-    const child = children[k];
-    if (child.props) {
-      child.props['m-name'] = k;
-    }else{
-      child.props = {'m-name': k};
-    }
-    arr.push(child);
-  })
-  return arr;
-}
-
-export function useBorder(children?: Record<string, MNodeTemplate>) {
+export function useBorder(children?: MNodeTemplate[]) {
 
 
   const baseLineClass = 'm-border-line';
@@ -36,17 +22,23 @@ export function useBorder(children?: Record<string, MNodeTemplate>) {
     bottom = 'bottom'
   }
 
-  const main: MNodeTemplate = <div class="m-border-main" m-name="main">
-    {!children ? <slot/> : handlerChildren(children)}
-  </div>;
 
-  const template: MNodeTemplate = <div class="m-border">
-    {main}
-    </div>
+  const getTemplate = (): MNodeTemplate => {
+    const main: MNodeTemplate = <div class="m-border-main">
+      {!children ? <slot/> : (children.map(child => { return child; }))}
+    </div>;
 
-  Object.keys(lineType).forEach(type => {
-    template.children![type] = <div m-name={type} class={[baseLineClass, `m-border-${type}-line`]}></div>;
-  });
+    return <div class="m-border">
+      {main}
+      {
+        ...Object.keys(lineType).map(type => {
+          return <div class={[baseLineClass, `m-border-${type}-line`].join(' ')}></div>;
+        })
+      }
+    </div>;
 
-  return { options: { template, style } };
+  };
+
+
+  return { options: { style }, getTemplate };
 }

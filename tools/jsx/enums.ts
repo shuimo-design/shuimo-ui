@@ -12,5 +12,5 @@
 export enum MODE_TYPE {
   WEB_COMPONENT = 'web-component',
   VUE = 'vue',
-  // REACT = 'react',
+  REACT = 'react',
 }

@@ -17,5 +17,4 @@ export const config: ShuimoBuildConfig = {
       filterRoot: true
     }
   },
-  external: ['moelement']
 };

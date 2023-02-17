@@ -10,6 +10,7 @@ import { App, Component } from 'vue';
 import MButton from './base/button/MButton';
 import MInput from './base/input/MInput';
 import MCheckbox from './base/checkbox/MCheckbox';
+import MLi from './base/list/MLi';
 
 import MPopover from './message/popover/MPopover';
 
@@ -20,6 +21,7 @@ const components: Record<string, Component> = {
   MButton,
   MInput,
   MCheckbox,
+  MLi,
 
   MPopover,
 
@@ -31,6 +33,7 @@ export {
   MButton,
   MInput,
   MCheckbox,
+  MLi,
 
   MPopover,
 

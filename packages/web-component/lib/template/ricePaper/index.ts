@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { type RicePaperProps, useRicePaper } from '@shuimo-design/core';
-import { createMElement, MElement } from 'moelement';
+import { createMElement, MElement } from '@shuimo-design/lit';
 
 
 @createMElement({
@@ -16,18 +16,9 @@ import { createMElement, MElement } from 'moelement';
 })
 export default class MRicePaper extends MElement implements RicePaperProps {
 
-  public cold: boolean = true;
-  public mountain: boolean = true;
-  public crane: boolean = true;
+  cold: boolean = true;
+  mountain: boolean = true;
+  crane: boolean = true;
 
-  constructor() {
-    super();
-  }
 
-  beforeRender() {
-    if (this.template.children) {
-      this.template.children.mountain.if = this.mountain;
-      this.template.children.crane.if = this.crane;
-    }
-  }
 }
