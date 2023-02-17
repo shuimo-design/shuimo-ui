@@ -16,6 +16,8 @@ export * from '../lib/base/checkbox';
 export * from '../lib/base/input';
 export * from '../lib/base/list/li/li';
 
+export * from '../lib/other/TaiChi';
+
 export * from '../lib/message/popover';
 
 export * from '../lib/template/menu';

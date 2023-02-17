@@ -33,6 +33,10 @@ export {
   checkboxProps, useCheckbox,
   liProps, useLi,
 
+  useTaiChi,
+
+  usePopover,
+
   useBorder,
   menuProps, useMenu, useMenuItem,
   ricePaperProps, useRicePaper
