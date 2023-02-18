@@ -77,9 +77,10 @@ export const createMElement = <T>(component: {
           if (e.value instanceof MProps) {
             e.value = this[e.value.key as keyof this];
           }
-          if (e.name.startsWith('on')) {
-            e.value = this[e.name as keyof this];
-          }
+          // maybe we should call events in core hook function.
+          // if (e.name.startsWith('on')) {
+            // e.value = this[e.name as keyof this];
+          // }
         });
 
         return { strings, values };
