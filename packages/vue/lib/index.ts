@@ -11,6 +11,7 @@ import MButton from './base/button/MButton';
 import MInput from './base/input/MInput';
 import MCheckbox from './base/checkbox/MCheckbox';
 import MLi from './base/list/MLi';
+import MSwitch from './base/switch/MSwitch';
 
 import MPopover from './message/popover/MPopover';
 
@@ -22,6 +23,7 @@ const components: Record<string, Component> = {
   MInput,
   MCheckbox,
   MLi,
+  MSwitch,
 
   MPopover,
 
@@ -34,6 +36,7 @@ export {
   MInput,
   MCheckbox,
   MLi,
+  MSwitch,
 
   MPopover,
 

@@ -18,7 +18,7 @@ export declare type SwitchProps = {
    * @description switch value. 开关绑定值
    * @type any
    */
-  modelValue: any,
+  value: any,
   /**
    * @description switch disabled
    *              是否禁用
@@ -58,3 +58,9 @@ export declare type SwitchProps = {
    */
   onControl?: boolean
 }
+
+
+export declare type SwitchEvents = {
+  onClick?: (e: MouseEvent) => void
+};
+
