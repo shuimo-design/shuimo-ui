@@ -51,3 +51,5 @@ export const defineMPostcss = (opt: {
     ...hosts,
   ];
 };
+
+export * from './syntax/annotate';
