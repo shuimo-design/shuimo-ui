@@ -9,7 +9,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import react from '@vitejs/plugin-react';
-import { defineMPostcss } from '@shuimo-design/postcss';
+import { defineMPostcss, postcssAnnotate } from '@shuimo-design/postcss';
 import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/jsx';
 
 
@@ -22,7 +22,8 @@ export default defineConfig(env => {
         plugins: { host: false }, // if you are not playing with web-component
         import: { root: './' },
         url: { basePath: './' }
-      })
+      }),
+      syntax: postcssAnnotate
     }
   };
   const optimizeDeps = { include: ['@shuimo-design/postcss'] };
