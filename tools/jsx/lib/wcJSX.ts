@@ -22,11 +22,11 @@ export const mWC = (type: string, propsRecord?: Record<string, any> | null, ...c
    * But we don't know if the props was default value or from component.
    * So we hand over this processing to `createElement`, and what we have to do is to collect it and put it in values.
    */
-  if(propsRecord){
+  if (propsRecord) {
     Object.keys(propsRecord).forEach(key => {
       const value = propsRecord[key];
       template.addProp(key, value);
-    })
+    });
   }
 
   template.addChildren(childList);
