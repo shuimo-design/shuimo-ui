@@ -8,8 +8,8 @@
  * v1.0.1 simple support includes option
  */
 import { type Plugin } from 'vite';
-import * as esbuild from 'esbuild';
 import { MODE_TYPE } from '../../enums';
+import { esbuildTransform } from './esbuildTransform';
 
 
 export function shuimoCoreTsx(
@@ -24,19 +24,10 @@ export function shuimoCoreTsx(
     enforce: 'pre',
     async transform(code: string, id: string) {
       if (id.endsWith('.tsx') && id.includes(options?.includes ?? 'packages/core')) {
-        const result = await esbuild.transform(
-          `import { ${jsxFactory}, shuimoJsxFragment} from '@shuimo-design/jsx/jsxTools';${code}`,
-          {
-            jsxFactory,
-            jsxFragment: 'shuimoJsxFragment',
-            loader: 'tsx'
-          });
-        code = result.code;
+        code = await esbuildTransform(code, jsxFactory);
       }
 
-      return {
-        code, id
-      };
+      return { code, id };
     }
   };
 }
