@@ -50,53 +50,44 @@ export const popoverProps: MCOPO<PopoverProps> = {
 export function usePopover() {
 
 
-  const content: MNodeTemplate = <div m-name="div" class="m-popover-content">
-    <slot m-name="content"/>
-  </div>;
-
-  const slot: MNodeTemplate = <slot/>;
-
-
-  const template: MNodeTemplate = <div class="m-popover">
-    {slot}
-    {content}
-  </div>;
-
-  // template.props!.onClick = () => {
-  // todo 得想个办法触发绘制，更优雅一点
-  // };
-
-  const initProps = (_props: PopoverProps, _events: any) => {
-    if (!template.props || !content.props) {return;}
-
-    if (_props.show !== undefined && _props.show !== null) {
-      content.props.show = _props.show;
+  const renderHook = (ref: Record<string, { value: HTMLElement | undefined }>) => {
+    const slot = ref.popoverRef.value;
+    const content = ref.contentRef.value;
+    if (!slot || !content) {
+      console.error('slot or content is undefined', slot, content);
+      return;
     }
-    if (slot.props) {
-      slot.props.onClick = _events.onClick;
+    usePopper(slot, content);
+  };
+
+  const handleClick = (e: MouseEvent, options: any) => {
+    const ref = options.ref.popoverRef.value;
+    if (ref.hasAttribute('show')) {
+      ref.removeAttribute('show');
+    } else {
+      ref.setAttribute('show', 'true');
     }
   };
 
-  // todo 移除SVGElement
-  const renderHook = (ref: Map<string, HTMLElement | SVGElement>) => {
-    const base = ref.get('m-popover');
-    if (!base) {return;}
-    let slot: HTMLElement | undefined, content: HTMLElement | undefined;
-    base.childNodes.forEach(node => {
-      if (node instanceof HTMLSlotElement) {
-        slot = node.assignedElements()[0] as HTMLElement;
-      } else {
-        content = node as HTMLElement;
-      }
-    });
-    if (!slot || !content) {return;}
-    usePopper(slot, content);
+
+  const getTemplate = (options: {
+    ref: Record<string, { value: HTMLElement | undefined }>;
+  }) => {
+    return <div class="m-popover" ref={options.ref.popoverRef}>
+      <div class="m-popover-default-wrapper"
+           onClick={(e: MouseEvent) => handleClick(e, options)}>
+        <slot/>
+      </div>
+      <div class="m-popover-content" ref={options.ref.contentRef}>
+        <slot name="content"/>
+      </div>
+    </div> as MNodeTemplate;
   };
 
 
   return {
-    options: { template, props: popoverProps, style },
-    initProps,
+    options: { props: popoverProps, style },
+    getTemplate,
     renderHook
   };
 }

@@ -8,6 +8,7 @@
  */
 import { Placement, PopoverProps, usePopover } from '@shuimo-design/core';
 import { createMElement, MElement } from '@shuimo-design/lit';
+import { createRef, Ref } from 'lit/directives/ref.js';
 
 @createMElement({
   name: 'm-popover',
@@ -27,17 +28,8 @@ export default class MPopover extends MElement implements PopoverProps {
   placement?: Placement;
   show?: boolean | null;
 
-  constructor() {
-    super();
-  }
+  popoverRef: Ref<HTMLElement> = createRef();
 
-  // initTemplate(props: MPopover, initProps: MInitProps<MPopover>) {
-  //   super.initTemplate(props, initProps);
-  //   initProps(props, {
-  //     onClick: (e: MouseEvent) => {
-  //       this.show = !this.show;
-  //     }
-  //   });
-  // }
+  contentRef: Ref<HTMLElement> = createRef();
 
 }
