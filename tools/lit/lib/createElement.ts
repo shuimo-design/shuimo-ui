@@ -7,8 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { customElement, property } from 'lit/decorators.js';
 import { css, html, LitElement, unsafeCSS } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ref } from 'lit/directives/ref.js';
 import { Result } from '@shuimo-design/jsx';
 import { MStrings } from '@shuimo-design/jsx/lib/tools/MStrings';
 import { MTemplate } from '@shuimo-design/jsx/lib/tools/MTemplate';
@@ -24,7 +25,7 @@ export const createMElement = <T>(component: {
   const { hookFunc } = component;
 
   return (target: typeof LitElement) => {
-    const { options: { props, style }, getTemplate } = hookFunc();
+    const { options: { props, style }, getTemplate, renderHook } = hookFunc();
 
     initProps(props, target);
 
@@ -68,7 +69,7 @@ export const createMElement = <T>(component: {
           const strings = new MStrings();
           return { strings, values: [] };
         }
-        const t = getTemplate({ props: this.magicReplaceProps(), events: this });
+        const t = getTemplate({ props: this.magicReplaceProps(), events: this, ref: this });
 
 
         const { strings, values } = this.renderTemplate(t);
@@ -77,9 +78,14 @@ export const createMElement = <T>(component: {
           if (e.value instanceof MProps) {
             e.value = this[e.value.key as keyof this];
           }
+
+          if (e.name === 'ref') {
+            e.value = ref(e.value);
+          }
+
           // maybe we should call events in core hook function.
           // if (e.name.startsWith('on')) {
-            // e.value = this[e.name as keyof this];
+          // e.value = this[e.name as keyof this];
           // }
         });
 
@@ -93,6 +99,12 @@ export const createMElement = <T>(component: {
         }
         if (options?.defaultRender === false) {return super.render();}
         return html(this.strings, ...values.map(e => e.value));
+      }
+
+      updated() {
+        if (renderHook) {
+          renderHook(this);
+        }
       }
     }
 
