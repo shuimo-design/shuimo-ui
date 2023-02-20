@@ -8,5 +8,5 @@
  */
 
 
-export * from './shuimoCoreTsx';
+export * from './plugins/vite/shuimoCoreTsx';
 export * from './enums';

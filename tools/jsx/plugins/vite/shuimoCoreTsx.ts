@@ -9,7 +9,7 @@
  */
 import { type Plugin } from 'vite';
 import * as esbuild from 'esbuild';
-import { MODE_TYPE } from './enums';
+import { MODE_TYPE } from '../../enums';
 
 
 export function shuimoCoreTsx(
