@@ -47,12 +47,15 @@ export const popoverProps: MCOPO<PopoverProps> = {
   content: { type: String, default: '' }
 };
 
+const unref = (value: any) => (value && (value.value || value.current)) || value;
+type RefRecord = Record<string, { value: HTMLElement | undefined } | { current: HTMLElement | undefined }>;
+
 export function usePopover() {
 
 
-  const renderHook = (ref: Record<string, { value: HTMLElement | undefined }>) => {
-    const slot = ref.popoverRef.value;
-    const content = ref.contentRef.value;
+  const renderHook = (ref: RefRecord) => {
+    const slot = unref(ref.popoverRef);
+    const content = unref(ref.contentRef);
     if (!slot || !content) {
       console.error('slot or content is undefined', slot, content);
       return;
@@ -61,7 +64,7 @@ export function usePopover() {
   };
 
   const handleClick = (e: MouseEvent, options: any) => {
-    const ref = options.ref.popoverRef.value;
+    const ref = unref(options.ref.popoverRef);
     if (ref.hasAttribute('show')) {
       ref.removeAttribute('show');
     } else {
@@ -70,9 +73,7 @@ export function usePopover() {
   };
 
 
-  const getTemplate = (options: {
-    ref: Record<string, { value: HTMLElement | undefined }>;
-  }) => {
+  const getTemplate = (options: { ref: RefRecord }) => {
     return <div class="m-popover" ref={options.ref.popoverRef}>
       <div class="m-popover-default-wrapper"
            onClick={(e: MouseEvent) => handleClick(e, options)}>

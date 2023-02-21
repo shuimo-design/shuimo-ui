@@ -83,8 +83,8 @@ export type PopoverProps = {
   locked?: boolean,
   /**
    * @description If the content is just a simple string, it can be passed in as a prop
-   * @type string
+   * @type any
    * @default ''
    */
-  content?: string
+  content?: any
 }
