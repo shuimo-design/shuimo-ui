@@ -35,8 +35,7 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
           }
           continue;
         }
-
-        const name = `${c.type}-${i}`;
+        const name = `${c.type}-${c.props?.name || i}`;
         if (!name) {continue;}
         if (c.type === 'slot') {
           slots.set(name, c);
