@@ -70,7 +70,7 @@ pnpm install shuimo-ui
 | Input         | ✅             | ✅               | ✅                  | ✅          |
 | InputNumber   | ✅             | ❌               | ❌                  | ❌          |
 | Button        | ✅             | ✅               | ✅                  | ✅          |
-| Select        | ✅             | ❌               | ❌                  | ❌          |
+| Select        | ✅             | 🚧️             | 🚧️                | 🚧️        |
 | DatePicker    | ✅             | ❌               | ❌                  | ❌          |
 | Radio         | ✅             | ❌               | ❌                  | ❌          |
 | CheckBox      | ✅             | ✅               | ✅                  | ✅          |
@@ -78,12 +78,12 @@ pnpm install shuimo-ui
 | List          | ✅             | ❌               | 🚧️                | ❌          |
 | Li            | ❌             | ✅               | ✅                  | ✅          |
 | Tag           | ✅             | ❌               | ❌                  | ❌          |
-| Switch        | ✅             | ❌               | ❌                  | ❌          |
+| Switch        | ✅             | 🚧️             | 🚧️                | 🚧️        |
 | Confirm       | ✅             | ❌               | ❌                  | ❌          |
 | Dialog        | ✅             | ❌               | ❌                  | ❌          |
 | Drawer        | ✅             | ❌               | ❌                  | ❌          |
 | Message       | ✅             | ❌               | ❌                  | ❌          |
-| Popover       | ✅             | ❌               | ❌                  | ❌          |
+| Popover       | ✅             | 🚧              | 🚧                 | 🚧         |
 | Tooltip       | ✅             | ❌               | ❌                  | ❌          |
 | Border        | ✅             | ✅               | ✅                  | ✅          |
 | Menu          | ⚗️            | ❌               | 🚧️                | ❌          |
@@ -100,6 +100,6 @@ pnpm install shuimo-ui
 | TableColumn   | ✅             | ❌               | ❌                  | ❌          |
 | RicePaper     | ✅             | ✅               | ✅                  | ✅          |
 | DeleteIcon    | ✅             | ❌               | ❌                  | ❌          |
-| TaiChi        | ❌             | ❌               | 🚧️                | ❌          |
+| TaiChi        | ❌             | ❌               | ✅                  | ❌          |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
