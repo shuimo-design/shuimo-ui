@@ -11,8 +11,8 @@ import { MNodeTemplate } from '@shuimo-design/types';
 
 export const cr = <T>(
   template: MNodeTemplate,
-  user?: { children?: React.ReactNode }
-):any => {
+  user?: Record<string, React.ReactNode>
+): any => {
   const { type, props, children, slots: templateSlots, innerText } = template;
 
   let userChildren: React.ReactNode | undefined;
@@ -39,9 +39,21 @@ export const cr = <T>(
   }
 
   if (templateSlots && templateSlots.size > 0) {
-    childrenList.push(...Array.from(templateSlots.values())
-      .filter(e => e.if !== false)
-      .map(s => cr(s as MNodeTemplate, user)));
+    childrenList.push(...Array.from(templateSlots.keys())
+      .filter(e => templateSlots.get(e) && templateSlots.get(e)!.if !== false)
+      .map(e => {
+        const s = templateSlots.get(e) as MNodeTemplate;
+        if (e.startsWith('slot-')) {
+          // find named slot in user
+          const name = e.slice(5);
+          if (user && user[name]) {
+            return user[name];
+          }
+          console.warn('slot not found in user', name);
+        } else {
+          return cr(s, user);
+        }
+      }));
   }
 
   if (innerText && innerText.length > 0) {
