@@ -9,21 +9,14 @@
 import { PopoverProps, usePopover } from '@shuimo-design/core';
 import { Slot } from '../types';
 import { cr } from '../../tools/coreRender';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 
 export default function MPopover(props: PopoverProps & Slot) {
-  const { getTemplate, renderHook } = usePopover();
+  const { getTemplate } = usePopover();
 
   const popoverRef = useRef<HTMLElement>();
   const contentRef = useRef<HTMLElement>();
-
-
-  useEffect(() => {
-    renderHook({ popoverRef, contentRef });
-  });
-
-  console.log(props.children);
 
   return cr(getTemplate({
     ref: { popoverRef, contentRef }

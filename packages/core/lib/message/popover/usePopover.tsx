@@ -52,31 +52,34 @@ type RefRecord = Record<string, { value: HTMLElement | undefined } | { current: 
 
 export function usePopover() {
 
+  let isInit = false;
 
-  const renderHook = (ref: RefRecord) => {
+  const handleClick = (e: MouseEvent, ref: RefRecord) => {
+
     const slot = unref(ref.popoverRef);
     const content = unref(ref.contentRef);
-    if (!slot || !content) {
-      console.error('slot or content is undefined', slot, content);
-      return;
+    if(!isInit){
+      isInit = true;
+      if (!slot || !content) {
+        console.error('slot or content is undefined', slot, content);
+        return;
+      }
+      usePopper(slot, content);
     }
-    usePopper(slot, content);
-  };
 
-  const handleClick = (e: MouseEvent, options: any) => {
-    const ref = unref(options.ref.popoverRef);
-    if (ref.hasAttribute('show')) {
-      ref.removeAttribute('show');
+    if (content.hasAttribute('show')) {
+      content.removeAttribute('show');
     } else {
-      ref.setAttribute('show', 'true');
+      content.setAttribute('show', 'true');
     }
   };
 
 
   const getTemplate = (options: { ref: RefRecord }) => {
-    return <div class="m-popover" ref={options.ref.popoverRef}>
+    return <div class="m-popover">
       <div class="m-popover-default-wrapper"
-           onClick={(e: MouseEvent) => handleClick(e, options)}>
+           ref={options.ref.popoverRef}
+           onClick={(e: MouseEvent) => handleClick(e, options.ref)}>
         <slot/>
       </div>
       <div class="m-popover-content" ref={options.ref.contentRef}>
@@ -89,6 +92,5 @@ export function usePopover() {
   return {
     options: { props: popoverProps, style },
     getTemplate,
-    renderHook
   };
 }

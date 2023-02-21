@@ -15,6 +15,8 @@ export type Placement = 'auto' | 'auto-start' | 'auto-end'
   | 'left' | 'left-start' | 'left-end'
 
 export const usePopper = (triggerNode: HTMLElement, popperNode: HTMLElement, placement: Placement = 'auto') => {
-  const res = createPopper(triggerNode, popperNode, {});
+  const res = createPopper(triggerNode, popperNode, {
+    placement
+  });
   return res;
 };
