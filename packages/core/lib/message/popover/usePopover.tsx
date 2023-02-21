@@ -10,6 +10,7 @@ import { MCOPO, MNodeTemplate, MPropType } from '@shuimo-design/types';
 import { PopoverProps } from './index';
 import { Placement, usePopper } from '../../../composition';
 import style from './popover.pcss';
+import { RefRecord } from '../../../types/common/hook';
 
 export const popoverProps: MCOPO<PopoverProps> = {
   placement: {
@@ -50,7 +51,11 @@ export const popoverProps: MCOPO<PopoverProps> = {
 const unref = (value: any) => (value && (value.value || value.current)) || value;
 type RefRecord = Record<string, { value: HTMLElement | undefined } | { current: HTMLElement | undefined }>;
 
-export function usePopover() {
+
+export function usePopover(children?: {
+  trigger?: MNodeTemplate,
+  content?: MNodeTemplate
+}) {
 
   let isInit = false;
 
@@ -58,7 +63,7 @@ export function usePopover() {
 
     const slot = unref(ref.popoverRef);
     const content = unref(ref.contentRef);
-    if(!isInit){
+    if (!isInit) {
       isInit = true;
       if (!slot || !content) {
         console.error('slot or content is undefined', slot, content);
@@ -74,16 +79,23 @@ export function usePopover() {
     }
   };
 
+  const getTrigger = () => {
+    return children && children.trigger ? children.trigger : <slot/>;
+  };
+  const getContent = () => {
+    return children && children.content ? children.content : <slot name="content"/>;
+  };
+
 
   const getTemplate = (options: { ref: RefRecord }) => {
     return <div class="m-popover">
       <div class="m-popover-default-wrapper"
            ref={options.ref.popoverRef}
            onClick={(e: MouseEvent) => handleClick(e, options.ref)}>
-        <slot/>
+        {getTrigger()}
       </div>
       <div class="m-popover-content" ref={options.ref.contentRef}>
-        <slot name="content"/>
+        {getContent()}
       </div>
     </div> as MNodeTemplate;
   };
@@ -91,6 +103,6 @@ export function usePopover() {
 
   return {
     options: { props: popoverProps, style },
-    getTemplate,
+    getTemplate
   };
 }
