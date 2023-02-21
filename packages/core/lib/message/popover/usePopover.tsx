@@ -49,7 +49,6 @@ export const popoverProps: MCOPO<PopoverProps> = {
 };
 
 const unref = (value: any) => (value && (value.value || value.current)) || value;
-type RefRecord = Record<string, { value: HTMLElement | undefined } | { current: HTMLElement | undefined }>;
 
 
 export function usePopover(children?: {
