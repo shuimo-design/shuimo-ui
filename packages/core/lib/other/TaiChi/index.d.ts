@@ -30,5 +30,5 @@ export declare type TaiChiProps = {
 }
 
 export declare type TaiChiEvents = {
-  onClick: (e: MouseEvent) => void
+  onClick?: (e: MouseEvent) => void
 }

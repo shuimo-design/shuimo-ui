@@ -8,9 +8,8 @@
  */
 
 
-import { createMElement, MElement } from 'moelement';
+import { createMElement, MElement } from '@shuimo-design/lit';
 import { useTaiChi } from '@shuimo-design/core';
-import { MInitProps } from 'moelement/types/template';
 import { TaiChiProps } from '@shuimo-design/core/lib/other/TaiChi';
 
 @createMElement({
@@ -23,14 +22,14 @@ export default class MTaiChi extends MElement implements TaiChiProps {
 
   constructor() {super();}
 
-  initTemplate(props: MTaiChi, initProps: MInitProps<MTaiChi>) {
-    super.initTemplate(props, initProps);
-    initProps(props, {
-      onClick: (e: MouseEvent) => {
-        this.value = !this.value;
-        // this.modelValue = !this.modelValue;
-      }
-    });
+
+  onClick() {
+    this.value = !this.value;
+    this.dispatchEvent(new InputEvent('input'));
+  }
+
+  updated(){
+
   }
 
 }

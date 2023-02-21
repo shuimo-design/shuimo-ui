@@ -12,7 +12,8 @@
 import { TaiChiSvg } from './TaiChiSvg';
 import style from './TaiChi.pcss';
 import { TaiChiEvents, TaiChiProps } from './index';
-import { MCOPO } from '@shuimo-design/types';
+import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
+import useDefaultProps from '../../../composition/useDefaultProps';
 
 
 export const taiChiProps: MCOPO<TaiChiProps> = {
@@ -21,32 +22,42 @@ export const taiChiProps: MCOPO<TaiChiProps> = {
 };
 
 export function useTaiChi() {
-
-
   const svg = TaiChiSvg;
 
-  const template = <div class="m-tai-chi">
-    {svg}
-  </div>;
-
-
-  const initProps = (props: TaiChiProps, event: TaiChiEvents) => {
-
-    if (!template.props) {return;}
-    template.initProps!(taiChiProps, props);
-    if (template.props.value) {
-      template.props.class = 'm-tai-chi';
-    } else {
-      template.props.class = 'm-tai-chi dark';
+  const renderHook = (props: TaiChiProps) => {
+    // set or remove dark to html
+    const htmlTag = document.querySelector('html');
+    if (htmlTag) {
+      if (props.value) {
+        htmlTag.setAttribute('dark', '');
+      } else {
+        htmlTag.removeAttribute('dark');
+      }
     }
-    template.props.onClick = (e: MouseEvent) => {
-      event.onClick(e);
-    };
+  };
+
+  const clickHandler = (e: MouseEvent, props: TaiChiProps, event: TaiChiEvents) => {
+    event.onClick?.(e);
+    renderHook(props);
+  };
+
+  const getTemplate = (options?: {
+    props?: TaiChiProps,
+    events?: TaiChiEvents
+  }): MNodeTemplate => {
+    const { props: _props, events: _events } = options ?? {};
+    const props = useDefaultProps(taiChiProps, _props);
+    const events = _events ?? {};
+    return <div class="m-tai-chi"
+                onClick={(e: MouseEvent) => clickHandler(e, props, events)}>
+      {svg}
+    </div>;
   };
 
   return {
-    options: { template, props: taiChiProps, style },
-    initProps
+    options: { props: taiChiProps, style },
+    getTemplate,
+    renderHook // todo rename
   };
 
 }
