@@ -15,6 +15,7 @@ export * from '../lib/base/button';
 export * from '../lib/base/checkbox';
 export * from '../lib/base/input';
 export * from '../lib/base/list/li/li';
+export * from '../lib/base/select';
 
 export * from '../lib/other/TaiChi';
 

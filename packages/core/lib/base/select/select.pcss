@@ -1,3 +1,18 @@
+:root{
+  --m-select-h: 31px;
+  --m-input-w: 244px;
+  --m-select-dropdown-w: var(--m-input-w);
+}
+
+.m-select{
+
+
+  width: var(--m-input-w);
+  height: var(--m-select-h);
+  line-height: var(--m-select-h);
+
+}
+
 .m-select-options {
   --m-option-bg-hover: #e6e6e6a6;
   --m-option-bg-active: #c9c9c9a6;
@@ -32,15 +47,6 @@
   }
 }
 
-
-
-.m-select{
-  --m-select-h: 31px;
-
-  .m-border {
-    width: 240px;
-  }
-}
 
 .m-select-options-teleport {
   min-height: var(--m-select-h);

@@ -11,7 +11,8 @@ import Button from './lib/base/button';
 import Input from './lib/base/input';
 import Checkbox from './lib/base/checkbox';
 import Li from './lib/base/list/li';
-// import Select from './lib/base/select';
+import Select from './lib/base/select';
+import Option from './lib/base/option';
 
 import Popover from './lib/message/popover';
 
@@ -24,23 +25,25 @@ import RicePaper from './lib/template/ricePaper';
 import TaiChi from './lib/other/TaiChi';
 
 import { webComponentStyleInstall } from './lib/style';
+// import MSwitch from './lib/base/switch';
 
 const ShuimoWebComponent = {
   Button,
   Input,
   Checkbox,
   Li,
-  // Select,
+  // MSwitch,
+  Select,
+  Option,
 
   Popover,
-
 
 
   Border,
   Menu, MenuItem,
   RicePaper,
 
-  TaiChi,
+  TaiChi
 };
 
 webComponentStyleInstall();

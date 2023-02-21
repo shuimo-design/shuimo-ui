@@ -14,6 +14,8 @@ import { inputProps, useInput } from './base/input/useInput';
 import { checkboxProps, useCheckbox } from './base/checkbox/useCheckbox';
 import { liProps, useLi } from './base/list/li/useLi';
 import { selectProps, useSelect } from './base/select/useSelect';
+import { useOption } from './base/option/useOption';
+import { switchProps, useSwitch } from './base/switch/useSwitch';
 
 import { usePopover } from './message/popover/usePopover';
 
@@ -32,6 +34,9 @@ export {
   inputProps, useInput,
   checkboxProps, useCheckbox,
   liProps, useLi,
+  // switchProps, useSwitch,
+  selectProps, useSelect,
+  useOption,
 
   useTaiChi,
 
