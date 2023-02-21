@@ -43,7 +43,9 @@ describe('Template', () => {
       t.initTag('div');
       t.addProp('id', 'test');
       t.endTag();
-      expect(t.strings.raw).toEqual(['<div id="test"></div>']);
+      expect(t.strings.raw).toEqual(['<div id="','"></div>']);
+      expect(t.strings.length).toBe(2);
+      expect(t.values).toEqual([{ name: 'id', value: 'test' }]);
     });
 
     test('boolean prop', () => {
@@ -116,7 +118,19 @@ describe('Template', () => {
     });
 
 
-
+    test('flat children include string', () => {
+      const t = new MTemplate();
+      t.initTag('div');
+      const child = new MTemplate();
+      child.initTag('span');
+      child.addChildren(['test']);
+      child.endTag();
+      t.addChildren([child]);
+      t.endTag();
+      t.flatChildren();
+      expect(t.children).toBeUndefined();
+      expect(t.strings.raw).toEqual(['<div><span>test</span></div>']);
+    })
   });
 
 

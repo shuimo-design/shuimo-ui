@@ -112,28 +112,34 @@ export class MTemplate {
   flatChildren() {
     if (!this.children || this.children.length === 0) {return;}
     // should after close
-    this.children.filter(e => e).map(c => {
-      if (!(c instanceof MTemplate)) {
-
-        if (c instanceof MProps) {
-          this.strings.insert(this.strings.length - 1, createMStrings(['']));
-          this.values.push({ name: c.key!, value: c.value });
-        } else {
-          if (Array.isArray(c)) {
-            c.forEach(e => {
-              // optimize code  (...zZZ from higuaifan)
-              this.strings.insert(this.strings.length - 1, e.strings);
-              this.values.push(...e.values);
-            });
-          }
-        }
+    this.children.filter(e => e).map((c: any, index) => {
+      if (c instanceof MTemplate) {
+        c.flatChildren();
+        this.strings.insert(this.strings.length - 1, c.strings);
+        this.values.push(...c.values);
+        return;
+      }
+      if (c instanceof MProps) {
+        this.strings.insert(this.strings.length - 1, createMStrings(['']));
+        this.values.push({ name: c.key!, value: c.value });
         return;
       }
 
+      if (Array.isArray(c)) {
+        c.forEach(e => {
+          // optimize code  (...zZZ from higuaifan)
+          this.strings.insert(this.strings.length - 1, e.strings);
+          this.values.push(...e.values);
+        });
+        return;
+      }
 
-      c.flatChildren();
-      this.strings.insert(this.strings.length - 1, c.strings);
-      this.values.push(...c.values);
+      if (typeof c === 'string') {
+        // is string
+        // append last strings
+        this.strings.modify(this.strings.length - 1, c+this.strings[this.strings.length - 1]);
+        return;
+      }
     });
     // after flat child, we always should concat end tag
 
