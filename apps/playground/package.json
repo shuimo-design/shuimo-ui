@@ -20,7 +20,7 @@
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "shuimo-ui": "*",
     "vite": "*",
-    "vue": "^3.2.45",
+    "vue": "*",
     "react": "*",
     "react-dom": "^18.2.0"
   }
