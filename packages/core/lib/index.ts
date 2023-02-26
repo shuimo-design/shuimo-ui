@@ -34,7 +34,7 @@ export {
   inputProps, useInput,
   checkboxProps, useCheckbox,
   liProps, useLi,
-  // switchProps, useSwitch,
+  switchProps, useSwitch,
   selectProps, useSelect,
   useOption,
 
