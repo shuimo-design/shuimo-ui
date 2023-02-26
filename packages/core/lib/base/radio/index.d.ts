@@ -19,12 +19,16 @@ export declare type RadioProps = {
    * @type string | number
    * @default ''
    */
-  modelValue?: string| number,
+  value?: string | number,
   /**
    * @description radio label
    *              单选框的标签值
    * @type string
    * @default ''
    */
-  label?: string| number
+  label?: string | number
 }
+
+export declare type RadioEvents = {
+  onClick?: (e: MouseEvent, value?: string | number) => void
+};

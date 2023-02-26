@@ -13,9 +13,10 @@ import { buttonProps, useButton } from './base/button/useButton';
 import { inputProps, useInput } from './base/input/useInput';
 import { checkboxProps, useCheckbox } from './base/checkbox/useCheckbox';
 import { liProps, useLi } from './base/list/li/useLi';
+import { switchProps, useSwitch } from './base/switch/useSwitch';
 import { selectProps, useSelect } from './base/select/useSelect';
 import { useOption } from './base/option/useOption';
-import { switchProps, useSwitch } from './base/switch/useSwitch';
+import { radioProps, useRadio } from './base/radio/useRadio';
 
 import { usePopover } from './message/popover/usePopover';
 
@@ -37,6 +38,7 @@ export {
   switchProps, useSwitch,
   selectProps, useSelect,
   useOption,
+  radioProps, useRadio,
 
   useTaiChi,
 

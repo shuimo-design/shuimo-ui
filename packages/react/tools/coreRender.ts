@@ -57,7 +57,7 @@ export const cr = <T>(
   }
 
   if (innerText && innerText.length > 0) {
-    console.log(innerText);
+    return innerText;
   }
 
 

@@ -57,9 +57,19 @@ const print = () => {
 const checkbox = (e: any) => {
   pConsole(e.target);
 };
+
+const valueRef= ref('');
+const labelRef= ref('极客江湖');
+
+
 </script>
 
 <template>
+
+
+  <span>valueRef:{{valueRef}}</span>
+  <span>labelRef:{{labelRef}}</span>
+  <m-radio v-model="valueRef" :label="labelRef"/>
 
 </template>
 

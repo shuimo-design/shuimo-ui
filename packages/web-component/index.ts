@@ -14,6 +14,7 @@ import Li from './lib/base/list/li';
 import Select from './lib/base/select';
 import Option from './lib/base/option';
 import MSwitch from './lib/base/switch';
+import MRadio from './lib/base/radio';
 
 import Popover from './lib/message/popover';
 
@@ -35,6 +36,7 @@ const ShuimoWebComponent = {
   MSwitch,
   Select,
   Option,
+  MRadio,
 
   Popover,
 
