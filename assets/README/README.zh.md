@@ -71,7 +71,7 @@ npm install shuimo-ui
 | Button        | ✅             | ✅               | ✅                  | ✅          |
 | Select        | ✅             | 🚧️             | 🚧️                | 🚧️        |
 | DatePicker    | ✅             | ❌               | ❌                  | ❌          |
-| Radio         | ✅             | ❌               | ❌                  | ❌          |
+| Radio         | ✅             | ✅               | ✅                  | ✅          |
 | CheckBox      | ✅             | ✅               | ✅                  | ✅          |
 | CheckBoxGroup | ✅             | ❌               | ❌                  | ❌          |
 | List          | ✅             | ❌               | 🚧️                | ❌          |
@@ -88,7 +88,6 @@ npm install shuimo-ui
 | Menu          | ⚗️            | ❌               | 🚧️                | ❌          |
 | Divider       | ✅             | ❌               | ❌                  | ❌          |
 | Loading       | ✅             | ❌               | ❌                  | ❌          |
-| Menu          | ✅             | ❌               | ❌                  | ❌          |
 | Printer       | ✅             | ❌               | ❌                  | ❌          |
 | Progress      | ✅             | ❌               | ❌                  | ❌          |
 | Upload        | ✅             | ❌               | ❌                  | ❌          |
