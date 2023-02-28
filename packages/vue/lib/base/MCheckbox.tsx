@@ -12,7 +12,7 @@
 import { defineComponent } from 'vue';
 import { checkboxProps, useCheckbox } from '@shuimo-design/core';
 import { HTMLElementEvent } from '@shuimo-design/types';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MCheckbox',

@@ -8,7 +8,7 @@
  */
 import { defineComponent } from 'vue';
 import { liProps, useLi } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MLi',

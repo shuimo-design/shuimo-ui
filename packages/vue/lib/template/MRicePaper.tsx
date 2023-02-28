@@ -8,9 +8,9 @@
  * v1.0.1 默认改为冷色调，添加色调选项
  */
 import { defineComponent } from 'vue';
-import Printer from '../../other/printer/Printer';
+import Printer from '../other/Printer';
 import { useRicePaper, ricePaperProps } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 import { MNodeTemplate } from '@shuimo-design/types';
 
 

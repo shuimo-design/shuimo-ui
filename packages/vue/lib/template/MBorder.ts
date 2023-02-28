@@ -10,7 +10,7 @@
 
 import { defineComponent } from 'vue';
 import { useBorder } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 
 

@@ -7,17 +7,17 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { App, Component } from 'vue';
-import MButton from './base/button/MButton';
-import MInput from './base/input/MInput';
-import MCheckbox from './base/checkbox/MCheckbox';
-import MLi from './base/list/MLi';
-import MSwitch from './base/switch/MSwitch';
-import MRadio from './base/radio/MRadio';
+import MButton from './base/MButton';
+import MInput from './base/MInput';
+import MCheckbox from './base/MCheckbox';
+import MLi from './base/MLi';
+import MSwitch from './base/MSwitch';
+import MRadio from './base/MRadio';
 
-import MPopover from './message/popover/MPopover';
+import MPopover from './message/MPopover';
 
-import MRicePaper from './template/ricePaper/MRicePaper';
-import MBorder from './template/border/MBorder';
+import MRicePaper from './template/MRicePaper';
+import MBorder from './template/MBorder';
 
 const components: Record<string, Component> = {
   MButton,

@@ -15,7 +15,7 @@
 import { defineComponent } from 'vue';
 import { inputProps, useInput } from '@shuimo-design/core';
 import { HTMLElementEvent } from '@shuimo-design/types';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 
 export default defineComponent({

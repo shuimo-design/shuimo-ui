@@ -10,7 +10,7 @@
 
 import { defineComponent, ref } from 'vue';
 import { usePopover } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MPopover',

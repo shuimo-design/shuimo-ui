@@ -7,7 +7,7 @@
 
 import { defineComponent } from 'vue';
 import { radioProps, useRadio } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MRadio',

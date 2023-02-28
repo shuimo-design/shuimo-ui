@@ -10,7 +10,7 @@
  */
 import { defineComponent } from 'vue';
 import { switchProps, useSwitch } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MSwitch',

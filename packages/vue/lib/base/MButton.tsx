@@ -14,7 +14,7 @@
  */
 import { defineComponent } from 'vue';
 import { buttonProps, useButton } from '@shuimo-design/core';
-import { cr } from '../../../tools/coreRender';
+import { cr } from '../../tools/coreRender';
 
 
 export default defineComponent({
