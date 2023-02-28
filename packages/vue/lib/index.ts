@@ -13,6 +13,7 @@ import MCheckbox from './base/MCheckbox';
 import MLi from './base/MLi';
 import MSwitch from './base/MSwitch';
 import MRadio from './base/MRadio';
+import MTag from './base/MTag';
 
 import MPopover from './message/MPopover';
 
@@ -26,6 +27,7 @@ const components: Record<string, Component> = {
   MLi,
   MSwitch,
   MRadio,
+  MTag,
 
   MPopover,
 

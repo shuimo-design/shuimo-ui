@@ -17,6 +17,7 @@ export * from '../lib/base/input';
 export * from '../lib/base/list/li/li';
 export * from '../lib/base/select';
 export * from '../lib/base/radio';
+export * from '../lib/base/tag';
 
 export * from '../lib/other/TaiChi';
 

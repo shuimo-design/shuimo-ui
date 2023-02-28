@@ -15,6 +15,7 @@ import Select from './lib/base/MSelect';
 import Option from './lib/base/MOption';
 import MSwitch from './lib/base/MSwitch';
 import MRadio from './lib/base/MRadio';
+import MTag from './lib/base/MTag';
 
 import Popover from './lib/message/MPopover';
 
@@ -37,6 +38,7 @@ const ShuimoWebComponent = {
   Select,
   Option,
   MRadio,
+  MTag,
 
   Popover,
 

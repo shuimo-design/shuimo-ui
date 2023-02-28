@@ -27,6 +27,7 @@ import { useMenuItem } from './template/menu/useMenuItem';
 import { ricePaperProps, useRicePaper } from './template/ricePaper/useRicePaper';
 
 import { useTaiChi } from './other/TaiChi/useTaiChi';
+import { tagProps, useTag } from './base/tag/useTag';
 
 export {
   useGlobal,
@@ -39,6 +40,7 @@ export {
   selectProps, useSelect,
   useOption,
   radioProps, useRadio,
+  tagProps, useTag,
 
   useTaiChi,
 

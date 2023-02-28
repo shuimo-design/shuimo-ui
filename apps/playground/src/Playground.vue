@@ -71,6 +71,12 @@ const labelRef= ref('极客江湖');
   <span>labelRef:{{labelRef}}</span>
   <m-radio v-model="valueRef" :label="labelRef"/>
 
+  <m-tag>极客江湖</m-tag>
+  <m-tag type="primary">极客江湖</m-tag>
+  <m-tag type="error">极客江湖</m-tag>
+  <m-tag type="confirm">极客江湖</m-tag>
+  <m-tag type="warning">极客江湖</m-tag>
+
 </template>
 
 <style scoped>
