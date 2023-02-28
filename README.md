@@ -65,40 +65,40 @@ pnpm install shuimo-ui
 
 🚧: not yet published
 
-| Component     | Vue3 (v0.2.8) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
-|---------------|---------------|-----------------|--------------------|------------|
-| Input         | ✅             | ✅               | ✅                  | ✅          |
-| InputNumber   | ✅             | ❌               | ❌                  | ❌          |
-| Button        | ✅             | ✅               | ✅                  | ✅          |
-| Select        | ✅             | 🚧️             | 🚧️                | 🚧️        |
-| DatePicker    | ✅             | ❌               | ❌                  | ❌          |
-| Radio         | ✅             | ✅               | ✅                  | ✅          |
-| CheckBox      | ✅             | ✅               | ✅                  | ✅          |
-| CheckBoxGroup | ✅             | ❌               | ❌                  | ❌          |
-| List          | ✅             | ❌               | 🚧️                | ❌          |
-| Li            | ❌             | ✅               | ✅                  | ✅          |
-| Tag           | ✅             | ❌               | ❌                  | ❌          |
-| Switch        | ✅             | 🚧️             | 🚧️                | 🚧️        |
-| Confirm       | ✅             | ❌               | ❌                  | ❌          |
-| Dialog        | ✅             | ❌               | ❌                  | ❌          |
-| Drawer        | ✅             | ❌               | ❌                  | ❌          |
-| Message       | ✅             | ❌               | ❌                  | ❌          |
-| Popover       | ✅             | 🚧              | 🚧                 | 🚧         |
-| Tooltip       | ✅             | ❌               | ❌                  | ❌          |
-| Border        | ✅             | ✅               | ✅                  | ✅          |
-| Menu          | ⚗️            | ❌               | 🚧️                | ❌          |
-| Divider       | ✅             | ❌               | ❌                  | ❌          |
-| Loading       | ✅             | ❌               | ❌                  | ❌          |
-| Printer       | ✅             | ❌               | ❌                  | ❌          |
-| Progress      | ✅             | ❌               | ❌                  | ❌          |
-| Upload        | ✅             | ❌               | ❌                  | ❌          |
-| Pagination    | ✅             | ❌               | ❌                  | ❌          |
-| Form          | ✅             | ❌               | ❌                  | ❌          |
-| FormItem      | ✅             | ❌               | ❌                  | ❌          |
-| Table         | ✅             | ❌               | ❌                  | ❌          |
-| TableColumn   | ✅             | ❌               | ❌                  | ❌          |
-| RicePaper     | ✅             | ✅               | ✅                  | ✅          |
-| DeleteIcon    | ✅             | ❌               | ❌                  | ❌          |
-| TaiChi        | ❌             | ❌               | ✅                  | ❌          |
+| Component     | Vue3 (v0.2.9-1) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
+|---------------|-----------------|-----------------|--------------------|------------|
+| Input         | ✅               | ✅               | ✅                  | ✅          |
+| InputNumber   | ✅               | ❌               | ❌                  | ❌          |
+| Button        | ✅               | ✅               | ✅                  | ✅          |
+| Select        | ✅               | 🚧️             | 🚧️                | 🚧️        |
+| DatePicker    | ✅               | ❌               | ❌                  | ❌          |
+| Radio         | ✅               | ✅               | ✅                  | ✅          |
+| CheckBox      | ✅               | ✅               | ✅                  | ✅          |
+| CheckBoxGroup | ✅               | ❌               | ❌                  | ❌          |
+| List          | ✅               | ❌               | 🚧️                | ❌          |
+| Li            | ❌               | ✅               | ✅                  | ✅          |
+| Tag           | ✅               | ✅               | ✅                  | ✅          |
+| Switch        | ✅               | 🚧️             | 🚧️                | 🚧️        |
+| Confirm       | ✅               | ❌               | ❌                  | ❌          |
+| Dialog        | ✅               | ❌               | ❌                  | ❌          |
+| Drawer        | ✅               | ❌               | ❌                  | ❌          |
+| Message       | ✅               | ❌               | ❌                  | ❌          |
+| Popover       | ✅               | 🚧              | 🚧                 | 🚧         |
+| Tooltip       | ✅               | ❌               | ❌                  | ❌          |
+| Border        | ✅               | ✅               | ✅                  | ✅          |
+| Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
+| Divider       | ✅               | ❌               | ❌                  | ❌          |
+| Loading       | ✅               | ❌               | ❌                  | ❌          |
+| Printer       | ✅               | ❌               | ❌                  | ❌          |
+| Progress      | ✅               | ❌               | ❌                  | ❌          |
+| Upload        | ✅               | ❌               | ❌                  | ❌          |
+| Pagination    | ✅               | ❌               | ❌                  | ❌          |
+| Form          | ✅               | ❌               | ❌                  | ❌          |
+| FormItem      | ✅               | ❌               | ❌                  | ❌          |
+| Table         | ✅               | ❌               | ❌                  | ❌          |
+| TableColumn   | ✅               | ❌               | ❌                  | ❌          |
+| RicePaper     | ✅               | ✅               | ✅                  | ✅          |
+| DeleteIcon    | ✅               | ❌               | ❌                  | ❌          |
+| TaiChi        | ❌               | ❌               | ✅                  | ❌          |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
