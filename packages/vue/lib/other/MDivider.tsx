@@ -8,18 +8,16 @@
  * v1.1.0  优化分割线素材，并新增分割线类型，暂时去除strong类型
  */
 import { h, defineComponent } from 'vue';
-import { props } from './api';
+import { dividerProps, useDivider } from '@shuimo-design/core';
+import { cr } from '../../tools/coreRender';
 
 export default defineComponent({
   name: 'MDivider',
-  props,
-  render() {
-    return h('div', {
-      class: {
-        'm-divider': true,
-        'm-divider-vertical': this.vertical
-        // 'm-divider-strong': this.type === 'strong',
-      }
-    });
+  props: dividerProps,
+  setup: (props) => {
+    return () => {
+      const { getTemplate } = useDivider();
+      return cr(getTemplate({ props }));
+    };
   }
 });

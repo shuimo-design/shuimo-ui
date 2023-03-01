@@ -77,6 +77,12 @@ const labelRef= ref('极客江湖');
   <m-tag type="confirm">极客江湖</m-tag>
   <m-tag type="warning">极客江湖</m-tag>
 
+
+  <div class="m-divider-wrapper">
+    <m-divider/>
+    <m-divider vertical/>
+  </div>
+
 </template>
 
 <style scoped>
@@ -87,6 +93,11 @@ m-button {
 
 m-menu {
   width: 200px;
+}
+
+.m-divider-wrapper{
+  width: 500px;
+  height: 50px;
 }
 
 .border-inner {

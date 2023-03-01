@@ -27,3 +27,9 @@ body{
   background-color: var(--m-color-main);
   color: white;
 }
+
+
+.m-divider-wrapper{
+  width: 500px;
+  height: 50px;
+}

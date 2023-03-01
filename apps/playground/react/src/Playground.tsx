@@ -16,9 +16,9 @@ export default function Playground() {
   const [value, setValue] = useState('hello');
   const [disabled, setDisabled] = useState(false);
 
-  const inputValue = (e:MouseEvent,value?:string|number)=>{
+  const inputValue = (e: MouseEvent, value?: string | number) => {
     setValue(value as string);
-  }
+  };
 
   const clickButton = () => {
     console.log('hi', disabled);

@@ -18,5 +18,7 @@ export { default as MTag } from './lib/base/MTag';
 
 export { default as MPopover } from './lib/message/MPopover';
 
+export { default as MDivider } from './lib/other/MDivider';
+
 export { default as MRicePaper } from './lib/template/MRicePaper';
 export { default as MBorder } from './lib/template/MBorder';

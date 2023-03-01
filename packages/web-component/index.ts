@@ -17,8 +17,9 @@ import MSwitch from './lib/base/MSwitch';
 import MRadio from './lib/base/MRadio';
 import MTag from './lib/base/MTag';
 
-import Popover from './lib/message/MPopover';
+import Divider from './lib/other/MDivider';
 
+import Popover from './lib/message/MPopover';
 
 import Border from './lib/template/MBorder';
 import Menu from './lib/template/MMenu';
@@ -40,8 +41,9 @@ const ShuimoWebComponent = {
   MRadio,
   MTag,
 
-  Popover,
+  Divider,
 
+  Popover,
 
   Border,
   Menu, MenuItem,

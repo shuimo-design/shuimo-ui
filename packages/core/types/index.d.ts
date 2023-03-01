@@ -20,6 +20,7 @@ export * from '../lib/base/radio';
 export * from '../lib/base/tag';
 
 export * from '../lib/other/TaiChi';
+export * from '../lib/other/Divider';
 
 export * from '../lib/message/popover';
 

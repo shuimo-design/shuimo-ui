@@ -17,6 +17,7 @@ import { switchProps, useSwitch } from './base/switch/useSwitch';
 import { selectProps, useSelect } from './base/select/useSelect';
 import { useOption } from './base/option/useOption';
 import { radioProps, useRadio } from './base/radio/useRadio';
+import { tagProps, useTag } from './base/tag/useTag';
 
 import { usePopover } from './message/popover/usePopover';
 
@@ -27,7 +28,7 @@ import { useMenuItem } from './template/menu/useMenuItem';
 import { ricePaperProps, useRicePaper } from './template/ricePaper/useRicePaper';
 
 import { useTaiChi } from './other/TaiChi/useTaiChi';
-import { tagProps, useTag } from './base/tag/useTag';
+import { dividerProps, useDivider } from './other/divider/useDivider';
 
 export {
   useGlobal,
@@ -43,6 +44,7 @@ export {
   tagProps, useTag,
 
   useTaiChi,
+  dividerProps, useDivider,
 
   usePopover,
 

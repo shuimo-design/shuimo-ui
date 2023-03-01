@@ -12,7 +12,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export declare type DividerType = {
+export declare type DividerProps = {
   /**
    * @description divider is vertical or not
    * @default false

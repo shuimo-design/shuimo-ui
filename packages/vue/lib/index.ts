@@ -15,6 +15,8 @@ import MSwitch from './base/MSwitch';
 import MRadio from './base/MRadio';
 import MTag from './base/MTag';
 
+import MDivider from './other/MDivider';
+
 import MPopover from './message/MPopover';
 
 import MRicePaper from './template/MRicePaper';
@@ -29,6 +31,8 @@ const components: Record<string, Component> = {
   MRadio,
   MTag,
 
+  MDivider,
+
   MPopover,
 
   MRicePaper,
@@ -42,6 +46,8 @@ export {
   MLi,
   MSwitch,
   MRadio,
+
+  MDivider,
 
   MPopover,
 
