@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-
+// [base]
 export { default as MButton } from './lib/base/MButton';
 export { default as MCheckbox } from './lib/base/MCheckbox';
 export { default as MInput } from './lib/base/MInput';
@@ -16,9 +16,12 @@ export { default as MSwitch } from './lib/base/MSwitch';
 export { default as MRadio } from './lib/base/MRadio';
 export { default as MTag } from './lib/base/MTag';
 
+// [message]
 export { default as MPopover } from './lib/message/MPopover';
 
+// [other]
 export { default as MDivider } from './lib/other/MDivider';
 
+// [template]
 export { default as MRicePaper } from './lib/template/MRicePaper';
 export { default as MBorder } from './lib/template/MBorder';

@@ -7,6 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { App, Component } from 'vue';
+// [base]
 import MButton from './base/MButton';
 import MInput from './base/MInput';
 import MCheckbox from './base/MCheckbox';
@@ -15,14 +16,18 @@ import MSwitch from './base/MSwitch';
 import MRadio from './base/MRadio';
 import MTag from './base/MTag';
 
+// [other]
 import MDivider from './other/MDivider';
 
+// [message]
 import MPopover from './message/MPopover';
 
+// [template]
 import MRicePaper from './template/MRicePaper';
 import MBorder from './template/MBorder';
 
 const components: Record<string, Component> = {
+  // [base]
   MButton,
   MInput,
   MCheckbox,
@@ -31,28 +36,36 @@ const components: Record<string, Component> = {
   MRadio,
   MTag,
 
+  // [other]
   MDivider,
 
+  // [message]
   MPopover,
 
+  // [template]
   MRicePaper,
-  MBorder
+  MBorder,
 };
 
 export {
+  // [base]
   MButton,
   MInput,
   MCheckbox,
   MLi,
   MSwitch,
   MRadio,
+  MTag,
 
+  // [other]
   MDivider,
 
+  // [message]
   MPopover,
 
+  // [template]
   MRicePaper,
-  MBorder
+  MBorder,
 };
 
 export function createMUI() {

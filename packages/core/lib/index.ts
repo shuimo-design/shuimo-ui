@@ -8,7 +8,7 @@
  */
 
 import useGlobal from './useGlobal';
-
+// [base]
 import { buttonProps, useButton } from './base/button/useButton';
 import { inputProps, useInput } from './base/input/useInput';
 import { checkboxProps, useCheckbox } from './base/checkbox/useCheckbox';
@@ -19,20 +19,22 @@ import { useOption } from './base/option/useOption';
 import { radioProps, useRadio } from './base/radio/useRadio';
 import { tagProps, useTag } from './base/tag/useTag';
 
+// [message]
 import { usePopover } from './message/popover/usePopover';
 
-
+// [template]
 import { useBorder } from './template/border/useBorder';
 import { menuProps, useMenu } from './template/menu/useMenu';
 import { useMenuItem } from './template/menu/useMenuItem';
 import { ricePaperProps, useRicePaper } from './template/ricePaper/useRicePaper';
 
+// [other]
 import { useTaiChi } from './other/TaiChi/useTaiChi';
 import { dividerProps, useDivider } from './other/divider/useDivider';
 
 export {
   useGlobal,
-
+  // [base]
   buttonProps, useButton,
   inputProps, useInput,
   checkboxProps, useCheckbox,
@@ -43,12 +45,15 @@ export {
   radioProps, useRadio,
   tagProps, useTag,
 
-  useTaiChi,
-  dividerProps, useDivider,
-
+  // [message]
   usePopover,
 
+  // [template]
   useBorder,
   menuProps, useMenu, useMenuItem,
-  ricePaperProps, useRicePaper
+  ricePaperProps, useRicePaper,
+
+  // [other]
+  useTaiChi,
+  dividerProps, useDivider,
 };
