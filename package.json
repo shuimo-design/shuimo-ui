@@ -11,7 +11,7 @@
     "dev:doc": "turbo run dev:doc",
     "dev:web-component-doc": "turbo run web-component-doc:dev",
     "clean:build": "trubo run clean && rimraf dist",
-    "clean:node_modules": "turbo run clean && rimraf **/node_modules",
+    "clean:node_modules": "turbo run clean && rimraf node_modules **/*/node_modules",
     "re-install": "pnpm run clean:node_modules && pnpm i"
   },
   "packageManager": "pnpm@7.17.1",
