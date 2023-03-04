@@ -1,5 +1,5 @@
 packages:
   - 'packages/**'
-  - 'cli/rollup/**'
+  - 'cli/**'
   - 'apps/**'
   - 'tools/**'
