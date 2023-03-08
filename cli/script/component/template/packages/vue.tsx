@@ -6,7 +6,7 @@
  *
  * {{slogan}}
  */
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import { {{hook}}, {{name}}Props } from '@shuimo-design/core';
 import { cr } from '../../tools/coreRender';
 
