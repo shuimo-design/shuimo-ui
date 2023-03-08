@@ -10,11 +10,11 @@
  * This component was just created suddenly. The svg and animation are not in place, and the code has many flaws. It will be optimized and iterated someday.
  */
 import { TaiChiSvg } from './TaiChiSvg';
-import style from './TaiChi.pcss';
 import { TaiChiEvents, TaiChiProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import useDefaultProps from '../../../composition/useDefaultProps';
 
+const style = await import('./TaiChi.pcss');
 
 export const taiChiProps: MCOPO<TaiChiProps> = {
   modelValue: { type: Boolean, required: true },

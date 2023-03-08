@@ -9,8 +9,9 @@
 import { InputEvents, InputProps } from './index';
 import { useBorder } from '../../template/border/useBorder';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './input.pcss';
 import useDefaultProps from '../../../composition/useDefaultProps';
+
+const style = await import('./input.pcss');
 
 export const inputProps: MCOPO<InputProps> = {
   type: { type: String, default: 'text' },

@@ -8,8 +8,8 @@
  */
 import { RicePaperProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './ricePaper.pcss';
 
+const style = await import('./ricePaper.pcss');
 
 export const ricePaperProps: MCOPO<RicePaperProps> = {
   cold: { type: Boolean, default: true },

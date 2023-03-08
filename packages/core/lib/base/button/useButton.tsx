@@ -8,7 +8,8 @@
  */
 import { ButtonEvents, ButtonProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './button.pcss';
+
+const style = await import('./button.pcss');
 
 
 export const buttonProps: MCOPO<ButtonProps> = {

@@ -9,9 +9,9 @@
 import { MCOPO, MNodeTemplate, MPropType } from '@shuimo-design/types';
 import { PopoverProps } from './index';
 import { Placement, usePopper } from '../../../composition';
-import style from './popover.pcss';
 import { RefRecord } from '../../../types/common/hook';
 
+const style = await import('./popover.pcss');
 export const popoverProps: MCOPO<PopoverProps> = {
   placement: {
     type: String as MPropType<Placement>,

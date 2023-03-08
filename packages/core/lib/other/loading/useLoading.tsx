@@ -11,8 +11,9 @@
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 import { LoadingProps, LoadingRef } from './index';
-import style from './loading.pcss';
 import { unref } from '../../../composition/common/tools';
+
+const style = await import('./loading.pcss');
 
 const defaultSpeed = 2000;
 export const loadingProps: MCOPO<LoadingProps> = {

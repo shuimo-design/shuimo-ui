@@ -9,7 +9,8 @@
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import { TagProps } from './index';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
-import style from './tag.pcss';
+
+const style = await import('./tag.pcss');
 
 export const tagProps: MCOPO<TagProps> = {
   type: { type: String, default: 'default' }

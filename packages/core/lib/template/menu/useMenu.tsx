@@ -8,9 +8,10 @@
  */
 import { MenuProps } from './index';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './menu.pcss';
 import useDefaultProps from '../../../composition/useDefaultProps';
 
+
+const style = await import('./menu.pcss');
 export const menuProps: MCOPO<MenuProps> = {
   menu: { type: Array, default: [] },
   inline: { type: Boolean, default: false }

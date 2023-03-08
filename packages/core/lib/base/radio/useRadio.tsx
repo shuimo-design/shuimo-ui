@@ -8,8 +8,9 @@
  */
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import { RadioEvents, RadioProps } from './index';
-import style from './radio.pcss';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
+
+const style = await import('./radio.pcss');
 
 export const radioProps: MCOPO<RadioProps> = {
   value: { type: [String, Number], default: '' },

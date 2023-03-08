@@ -9,8 +9,9 @@
  */
 import { CheckboxProps, CheckboxEvents } from './index';
 import { HTMLElementEvent, MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './checkbox.pcss';
 import useDefaultProps from '../../../composition/useDefaultProps';
+
+const style = await import('./checkbox.pcss');
 
 export const checkboxProps: MCOPO<CheckboxProps> = {
   checked: { type: Boolean, default: undefined },

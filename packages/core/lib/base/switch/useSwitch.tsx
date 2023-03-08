@@ -8,9 +8,9 @@
  */
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import { SwitchEvents, SwitchProps } from './index';
-import style from './switch.pcss';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 
+const style = await import('./switch.pcss');
 export const switchProps: MCOPO<SwitchProps> = {
   value: { type: undefined, required: true },
   disabled: { type: Boolean, default: false },

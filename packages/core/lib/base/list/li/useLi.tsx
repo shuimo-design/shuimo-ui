@@ -8,9 +8,9 @@
  */
 import { LiProps } from './li';
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
-import style from './li.pcss';
 import useDefaultProps from '../../../../composition/useDefaultProps';
 
+const style = await import('./li.pcss');
 
 export const liProps: MCOPO<LiProps> = {
   active: { type: Boolean, default: false }

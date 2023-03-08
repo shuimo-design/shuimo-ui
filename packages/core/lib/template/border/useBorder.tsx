@@ -7,9 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MNodeTemplate } from '@shuimo-design/types';
-import style from './border.pcss';
 
-
+const style = await import('./border.pcss');
 export function useBorder(children?: MNodeTemplate | MNodeTemplate[]) {
 
 

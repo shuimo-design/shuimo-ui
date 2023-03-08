@@ -6,9 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
-import globalStyle from './style/global.pcss';
-
+const globalStyle = await import('./style/global.pcss');
 export default function useGlobal() {
 
 

@@ -9,8 +9,8 @@
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import { DividerProps } from './index';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
-import style from './divider.pcss';
 
+const style = await import('./divider.pcss');
 export const dividerProps: MCOPO<DividerProps> = {
   vertical: { type: Boolean, default: false }
 };

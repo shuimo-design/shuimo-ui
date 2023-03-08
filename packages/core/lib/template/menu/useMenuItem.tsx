@@ -9,9 +9,9 @@
 import { liProps, useLi } from '../../base/list/li/useLi';
 import { MNodeSlot, MNodeTemplate } from '@shuimo-design/types';
 import { MenuItemProps } from './index';
-import style from './menuItem.pcss';
 import useDefaultProps from '../../../composition/useDefaultProps';
 
+const style = await import('./menuItem.pcss');
 export function useMenuItem() {
 
   const li = useLi();

@@ -9,9 +9,10 @@
 import { MCOPO, MPropType } from '@shuimo-design/types';
 import { SelectProps } from './index';
 import { useBorder, usePopover } from '../../../index';
-import style from './select.pcss';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 import { RefRecord } from '../../../types/common/hook';
+
+const style = await import('./select.pcss');
 
 export const selectProps: MCOPO<SelectProps> = {
   modelValue: { type: undefined, default: '' },
