@@ -8,11 +8,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "lib": ["esnext"],
-    "baseUrl": "./",
-    "types": [
-      "node",
-      "../../node_modules/@types"
-    ]
+    "baseUrl": "./"
   },
-  "exclude": ["./template"]
+  "exclude": ["**/template/**/*"]
 }
