@@ -16,5 +16,5 @@ export interface Hook<T, E = any> {
 
 export declare type HookOptions<T> = Hook<T>['options'];
 
-
-export declare type RefRecord = Record<string, { value: HTMLElement | undefined } | { current: HTMLElement | undefined }>;
+export declare type RefValue = { value: HTMLElement | undefined } | { current: HTMLElement | undefined }
+export declare type RefRecord = Record<string, RefValue>;

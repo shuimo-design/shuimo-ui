@@ -7,7 +7,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 const pConsole = (str: any) => {
   console.group(`%c playground print`, 'color:#4A9992');
@@ -25,7 +25,7 @@ const value = ref([
 ]);
 
 const disabled = ref(false);
-const active2 = ref(true);
+const active2 = ref(false);
 const input = ref('hello');
 const type = ref('default');
 const toggleActive = () => {
@@ -69,19 +69,8 @@ const labelRef= ref('极客江湖');
 
   <span>valueRef:{{valueRef}}</span>
   <span>labelRef:{{labelRef}}</span>
-  <m-radio v-model="valueRef" :label="labelRef"/>
 
-  <m-tag>极客江湖</m-tag>
-  <m-tag type="primary">极客江湖</m-tag>
-  <m-tag type="error">极客江湖</m-tag>
-  <m-tag type="confirm">极客江湖</m-tag>
-  <m-tag type="warning">极客江湖</m-tag>
-
-
-  <div class="m-divider-wrapper">
-    <m-divider/>
-    <m-divider vertical/>
-  </div>
+  <m-loading/>
 
 </template>
 
@@ -117,4 +106,9 @@ m-menu {
   display: none;
 }
 
+
+.m-tai-chi{
+  width: 100px;
+  height: 100px;
+}
 </style>

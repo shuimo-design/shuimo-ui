@@ -21,6 +21,7 @@ export { default as MPopover } from './lib/message/MPopover';
 
 // [other]
 export { default as MDivider } from './lib/other/MDivider';
+export { default as MLoading } from './lib/other/MLoading';
 
 // [template]
 export { default as MRicePaper } from './lib/template/MRicePaper';

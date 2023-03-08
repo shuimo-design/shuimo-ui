@@ -12,14 +12,16 @@ import useDefaultProps from '../useDefaultProps';
 
 type Option<P, E> = {
   props: P;
-  events?: E
+  events?: E;
+  ref?: Record<any, any>
 }
 
 export default function useDefaultOptions<P, E>(options: Option<P, E>, setting: Option<MCOPO<P>, E>) {
 
   const props = useDefaultProps<P>(setting.props, options.props);
   const events = options.events ?? (setting.events ?? {});
+  const ref = options.ref ?? {};
 
-  return { props, events };
+  return { props, events, ref };
 
 }

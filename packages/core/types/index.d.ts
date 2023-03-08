@@ -30,3 +30,4 @@ export * from '../lib/template/ricePaper';
 // [other]
 export * from '../lib/other/TaiChi';
 export * from '../lib/other/divider';
+export * from '../lib/other/loading';

@@ -31,6 +31,7 @@ import { ricePaperProps, useRicePaper } from './template/ricePaper/useRicePaper'
 // [other]
 import { useTaiChi } from './other/TaiChi/useTaiChi';
 import { dividerProps, useDivider } from './other/divider/useDivider';
+import { loadingProps, useLoading } from './other/loading/useLoading';
 
 export {
   useGlobal,
@@ -56,4 +57,5 @@ export {
   // [other]
   useTaiChi,
   dividerProps, useDivider,
+  loadingProps, useLoading,
 };

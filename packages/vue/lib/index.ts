@@ -18,6 +18,7 @@ import MTag from './base/MTag';
 
 // [other]
 import MDivider from './other/MDivider';
+import MLoading from './other/MLoading';
 
 // [message]
 import MPopover from './message/MPopover';
@@ -38,6 +39,7 @@ const components: Record<string, Component> = {
 
   // [other]
   MDivider,
+  MLoading,
 
   // [message]
   MPopover,
@@ -59,6 +61,7 @@ export {
 
   // [other]
   MDivider,
+  MLoading,
 
   // [message]
   MPopover,

@@ -29,6 +29,7 @@ import RicePaper from './lib/template/MRicePaper';
 // [other]
 import Divider from './lib/other/MDivider';
 import TaiChi from './lib/other/MTaiChi';
+import MLoading from './lib/other/MLoading';
 
 import { webComponentStyleInstall } from './lib/style';
 
@@ -55,6 +56,7 @@ const ShuimoWebComponent = {
   // [other]
   TaiChi,
   Divider,
+  MLoading,
 };
 
 webComponentStyleInstall();
