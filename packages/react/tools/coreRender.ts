@@ -57,7 +57,7 @@ export const cr = <T>(
   }
 
   if (innerText && innerText.length > 0) {
-    return innerText;
+    return React.createElement(type, props, innerText);
   }
 
 
