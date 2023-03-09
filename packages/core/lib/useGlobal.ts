@@ -6,12 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-const globalStyle = await import('./style/global.pcss');
+import globalStyle from './style/global.pcss';
 export default function useGlobal() {
-
-
   return {
     globalStyle
   };
-
 }

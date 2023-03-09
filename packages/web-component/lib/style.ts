@@ -12,6 +12,6 @@ const { globalStyle } = useGlobal();
 
 export const webComponentStyleInstall = () => {
   const style = document.createElement('style');
-  style.innerHTML = globalStyle.default;
+  style.innerHTML = globalStyle;
   document.head.appendChild(style);
 };
