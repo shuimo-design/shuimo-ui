@@ -91,9 +91,11 @@ export const createMElement = <T>(component: {
           if (e.value instanceof MProps) {
             e.value = this[e.value.key as keyof this];
           }
-
           if (e.name === 'ref') {
             e.value = ref(e.value);
+          }
+          if(e.name==='style'){
+            e.value = Object.entries(e.value).map(([key,value])=>`${key}:${value}`).join(';');
           }
 
           // maybe we should call events in core hook function.
