@@ -10,7 +10,7 @@ import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 import { {{propsName}} } from './index';
 
-const style = await import('./{{name}}.pcss'));
+const style = await import('./{{name}}.pcss');
 export const {{name}}Props: MCOPO<{{propsName}}> = {
 
 };
