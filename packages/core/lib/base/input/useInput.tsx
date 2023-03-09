@@ -49,7 +49,7 @@ export function useInput() {
         ...inputProps,
         class: 'm-input'
       },
-      style: borderStyle + style
+      style: [borderStyle, style]
     },
     getTemplate
   };

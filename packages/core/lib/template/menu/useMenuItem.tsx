@@ -12,6 +12,7 @@ import { MenuItemProps } from './index';
 import useDefaultProps from '../../../composition/useDefaultProps';
 
 const style = await import('./menuItem.pcss');
+
 export function useMenuItem() {
 
   const li = useLi();
@@ -48,7 +49,7 @@ export function useMenuItem() {
   return {
     options: {
       props: li.options.props,
-      style: li.options.style + style
+      style: [li.options.style, style]
     },
     getTemplate
   };

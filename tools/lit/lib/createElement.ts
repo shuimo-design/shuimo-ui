@@ -15,6 +15,19 @@ import { MStrings } from '@shuimo-design/jsx/lib/tools/MStrings';
 import { MTemplate } from '@shuimo-design/jsx/lib/tools/MTemplate';
 import { MProps } from '@shuimo-design/jsx/lib/tools/MProps';
 
+const unpackStyle = (style: any): string => {
+  if(style=== undefined) {
+    return '';
+  }
+  if (Array.isArray(style)) {
+    return style.map(e => unpackStyle(e)).join('\n');
+  }
+  if (style.default) {
+    return style.default;
+  }
+  return '';
+};
+
 export const createMElement = <T>(component: {
   name: string,
   hookFunc: any // todo fix this
@@ -31,7 +44,7 @@ export const createMElement = <T>(component: {
 
     class MElement extends target {
 
-      static styles = css`${unsafeCSS(style)}`;
+      static styles = css`${unsafeCSS(unpackStyle(style))}`;
       template: { strings: TemplateStringsArray; values: any[]; };
 
       constructor() {

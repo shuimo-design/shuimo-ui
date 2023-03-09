@@ -66,7 +66,7 @@ export function useSelect() {
 
 
   return {
-    options: { props: selectProps, style: style + borderStyle + popoverStyle },
+    options: { props: selectProps, style: [style , borderStyle , popoverStyle] },
     getTemplate
   };
 }
