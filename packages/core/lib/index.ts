@@ -18,6 +18,7 @@ import { selectProps, useSelect } from './base/select/useSelect';
 import { useOption } from './base/option/useOption';
 import { radioProps, useRadio } from './base/radio/useRadio';
 import { tagProps, useTag } from './base/tag/useTag';
+import { progressProps, useProgress } from './base/progress/useProgress';
 
 // [message]
 import { usePopover } from './message/popover/usePopover';
@@ -45,6 +46,7 @@ export {
   useOption,
   radioProps, useRadio,
   tagProps, useTag,
+  progressProps, useProgress,
 
   // [message]
   usePopover,

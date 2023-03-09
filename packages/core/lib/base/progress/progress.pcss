@@ -1,0 +1,55 @@
+.m-progress,.m-progress-border{
+  --m-progress-real-width: unset;
+  --m-progress-real-height: unset;
+  --m-progress-width: calc(var(--m-progress-real-width, 556px));
+  --m-progress-height: var(--m-progress-real-height, 37px);
+  --m-progress-bg-width: var(--m-progress-real-width, 556px);
+  --m-progress-bg-size: calc(var(--m-progress-bg-width) / 2) var(--m-progress-real-height);
+  --m-progress-leaf-height: var(--m-progress-leaf-height, 28px);
+  --m-progress-per-width: var(--m-progress-per-width, 80px);
+  --m-progress-per-height: max(var(--m-progress-per-height, 20px), var(--m-progress-leaf-height));
+  --m-progress-per-font-size: var(--m-progress-per-font-size, 16px);
+}
+
+
+.m-progress-border {
+  display: inline-block;
+  width: var(--m-progress-width);
+}
+
+.m-progress-per {
+  position: relative;
+  display: inline-block;
+  width: var(--m-progress-per-width);
+  height: var(--m-progress-per-height);
+  line-height: var(--m-progress-per-height);
+  top: calc(var(--m-progress-per-height) * 0.4);
+  font-size: var(--m-progress-per-font-size);
+  font-weight: bold;
+
+  img, span {
+    float: right;
+  }
+}
+
+.m-progress-leaf {
+  height: var(--m-progress-leaf-height);
+}
+
+.m-progress {
+  width: var(--m-progress-width);
+  height: var(--m-progress-height);
+  -webkit-appearance: none;
+
+  //全部进度
+  &::-webkit-progress-bar {
+    background: url('./assets/bamboo_bg.png') repeat-x;
+    background-size: var(--m-progress-bg-size);
+  }
+
+  //已完成进度
+  &::-webkit-progress-value {
+    background: url('./assets/bamboo.png') repeat-x;
+    background-size: var(--m-progress-bg-size);
+  }
+}

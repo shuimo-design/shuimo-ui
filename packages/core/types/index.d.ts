@@ -19,6 +19,7 @@ export * from '../lib/base/list/li/li';
 export * from '../lib/base/select';
 export * from '../lib/base/radio';
 export * from '../lib/base/tag';
+export * from '../lib/base/progress';
 
 // [message]
 export * from '../lib/message/popover';
