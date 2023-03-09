@@ -9,13 +9,13 @@
 import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 import { {{propsName}} } from './index';
-import style from './{{name}}.pcss';
 
-export const loadingProps: MCOPO<{{propsName}}> = {
+const style = await import('./{{name}}.pcss'));
+export const {{name}}Props: MCOPO<{{propsName}}> = {
 
 };
 
-export function useLoading() {
+export function use{{upperCaseFirstName}}() {
 
   const getTemplate = (options?: {}) => {
     const {} = useDefaultOptions(options!, { props: {{name}}Props });

@@ -52,6 +52,7 @@ export const build = async (options: { name: string, group: string, author: stri
       {
         description: `core ${name} hook`,
         ...common,
+        upperCaseFirstName,
         propsName
       });
     // props
