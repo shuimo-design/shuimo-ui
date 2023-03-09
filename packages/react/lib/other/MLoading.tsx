@@ -11,7 +11,7 @@ import { cr } from '../../tools/coreRender';
 import { useRef, useEffect } from 'react';
 
 export default function MLoading(props: LoadingProps) {
-  const { getTemplate, renderHook } = useLoading();
+  const { getTemplate, onMountedHook } = useLoading();
 
 
   const loadingRef = useRef<HTMLElement>();
@@ -30,7 +30,7 @@ export default function MLoading(props: LoadingProps) {
   };
 
   useEffect(() => {
-    renderHook({ ...props, ...ref })
+    onMountedHook({ ...props, ...ref })
   });
 
   return cr(getTemplate({

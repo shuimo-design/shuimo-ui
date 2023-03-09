@@ -24,7 +24,7 @@ export const taiChiProps: MCOPO<TaiChiProps> = {
 export function useTaiChi() {
   const svg = TaiChiSvg;
 
-  const renderHook = (props: TaiChiProps) => {
+  const onMountedHook = (props: TaiChiProps) => {
     // set or remove dark to html
     const htmlTag = document.querySelector('html');
     if (htmlTag) {
@@ -38,7 +38,7 @@ export function useTaiChi() {
 
   const clickHandler = (e: MouseEvent, props: TaiChiProps, event: TaiChiEvents) => {
     event.onClick?.(e);
-    renderHook(props);
+    onMountedHook(props);
   };
 
   const getTemplate = (options?: {
@@ -57,7 +57,7 @@ export function useTaiChi() {
   return {
     options: { props: taiChiProps, style },
     getTemplate,
-    renderHook // todo rename
+    onMountedHook
   };
 
 }

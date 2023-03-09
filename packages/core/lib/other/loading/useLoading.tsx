@@ -66,7 +66,7 @@ export function useLoading() {
     }, speed);
   };
 
-  const renderHook = (options: LoadingProps & LoadingRef) => {
+  const onMountedHook = (options: LoadingProps & LoadingRef) => {
     const speed = options.speed??defaultSpeed;
     const randomSpeed = speed / shuaLength + baseTimout;
     const { pushRandomNum } = useRandomNum(randomSpeed, shuaIndex => {
@@ -96,6 +96,6 @@ export function useLoading() {
       style
     },
     getTemplate,
-    renderHook
+    onMountedHook
   };
 }

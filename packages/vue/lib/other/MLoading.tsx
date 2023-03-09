@@ -28,9 +28,9 @@ export default defineComponent({
       loadingRef,
       shua0Ref, shua1Ref, shua2Ref, shua3Ref, shua4Ref, shua5Ref, shua6Ref, shua7Ref
     }
-    const { getTemplate, renderHook } = useLoading();
+    const { getTemplate, onMountedHook } = useLoading();
     onMounted(async () => {
-      await renderHook({ ...props, ...refs });
+      await onMountedHook({ ...props, ...refs });
     });
 
     return () => {

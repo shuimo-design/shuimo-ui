@@ -25,7 +25,7 @@ export const createMElement = <T>(component: {
   const { hookFunc } = component;
 
   return (target: typeof LitElement) => {
-    const { options: { props, style }, getTemplate, renderHook } = hookFunc();
+    const { options: { props, style }, getTemplate, onMountedHook } = hookFunc();
 
     initProps(props, target);
 
@@ -102,8 +102,8 @@ export const createMElement = <T>(component: {
       }
 
       updated() {
-        if (renderHook) {
-          renderHook(this);
+        if (onMountedHook) {
+          onMountedHook(this);
         }
       }
     }
