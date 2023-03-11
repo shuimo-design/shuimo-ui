@@ -63,7 +63,7 @@ pnpm install shuimo-ui
 
 ## TODO
 
-🚧: not yet published
+🚧: not yet released
 
 | Component     | Vue3 (v0.2.9-1) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
 |---------------|-----------------|-----------------|--------------------|------------|
@@ -87,14 +87,14 @@ pnpm install shuimo-ui
 | Tooltip       | ✅               | ❌               | ❌                  | ❌          |
 | Border        | ✅               | ✅               | ✅                  | ✅          |
 | Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
-| Divider       | ✅               | ❌               | ❌                  | ❌          |
-| Loading       | ✅               | ❌               | ❌                  | ❌          |
+| Divider       | ✅               | ✅               | 🚧                 | ✅          |
+| Loading       | ✅               | 🚧              | 🚧                 | 🚧         |
 | Printer       | ✅               | ❌               | ❌                  | ❌          |
-| Progress      | ✅               | ❌               | ❌                  | ❌          |
-| Upload        | ✅               | ❌               | ❌                  | ❌          |
+| Progress      | ✅               | ✅               | ✅                  | ✅          |
+| Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
 | Pagination    | ✅               | ❌               | ❌                  | ❌          |
-| Form          | ✅               | ❌               | ❌                  | ❌          |
-| FormItem      | ✅               | ❌               | ❌                  | ❌          |
+| Form          | ✅               | ✅               | ✅                  | ✅          |
+| FormItem      | ✅               | ✅               | ✅                  | ✅          |
 | Table         | ✅               | ❌               | ❌                  | ❌          |
 | TableColumn   | ✅               | ❌               | ❌                  | ❌          |
 | RicePaper     | ✅               | ✅               | ✅                  | ✅          |
