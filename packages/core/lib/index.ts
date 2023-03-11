@@ -28,6 +28,8 @@ import { useBorder } from './template/border/useBorder';
 import { menuProps, useMenu } from './template/menu/useMenu';
 import { useMenuItem } from './template/menu/useMenuItem';
 import { ricePaperProps, useRicePaper } from './template/ricePaper/useRicePaper';
+import { formProps, useForm } from './template/form/useForm';
+import { formItemProps, useFormItem } from './template/form/useFormItem';
 
 // [other]
 import { useTaiChi } from './other/TaiChi/useTaiChi';
@@ -55,6 +57,8 @@ export {
   useBorder,
   menuProps, useMenu, useMenuItem,
   ricePaperProps, useRicePaper,
+  formProps, useForm,
+  formItemProps, useFormItem,
 
   // [other]
   useTaiChi,

@@ -27,6 +27,8 @@ import MPopover from './message/MPopover';
 // [template]
 import MRicePaper from './template/MRicePaper';
 import MBorder from './template/MBorder';
+import MForm from './template/MForm';
+import MFormItem from './template/MFormItem';
 
 const components: Record<string, Component> = {
   // [base]
@@ -49,6 +51,8 @@ const components: Record<string, Component> = {
   // [template]
   MRicePaper,
   MBorder,
+  MForm,
+  MFormItem,
 };
 
 export {
@@ -72,6 +76,8 @@ export {
   // [template]
   MRicePaper,
   MBorder,
+  MForm,
+  MFormItem,
 };
 
 export function createMUI() {

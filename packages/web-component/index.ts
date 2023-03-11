@@ -26,6 +26,8 @@ import Border from './lib/template/MBorder';
 import Menu from './lib/template/MMenu';
 import MenuItem from './lib/template/MMenuItem';
 import RicePaper from './lib/template/MRicePaper';
+import MForm from './lib/template/MForm';
+import MFormItem from './lib/template/MFormItem';
 
 // [other]
 import Divider from './lib/other/MDivider';
@@ -54,6 +56,8 @@ const ShuimoWebComponent = {
   Border,
   Menu, MenuItem,
   RicePaper,
+  MForm,
+  MFormItem,
 
   // [other]
   TaiChi,

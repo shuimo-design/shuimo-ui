@@ -11,8 +11,6 @@ import { FormItemProps } from './formItem';
 import { FormProps } from './form';
 
 export const props: WCOPO<FormProps> = {
-  inline: { type: Boolean, default: false },
-  submit: { type: Boolean, default: false }
 };
 
 export const itemProps: WCOPO<FormItemProps> = {

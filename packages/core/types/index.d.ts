@@ -27,6 +27,8 @@ export * from '../lib/message/popover';
 // [template]
 export * from '../lib/template/menu';
 export * from '../lib/template/ricePaper';
+export * from '../lib/template/form/form';
+export * from '../lib/template/form/formItem';
 
 // [other]
 export * from '../lib/other/TaiChi';
