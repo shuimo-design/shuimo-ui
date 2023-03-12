@@ -31,7 +31,7 @@ It looks like this:
 
 In the past we only wrote the `Vue3` version.
 
-Now we are trying to support `Web Componet` and `React` version.
+Now we are trying to support `Web Component` and `React` version.
 
 And we also hope to provide a `Assets free, Only code` version and a `Don't care about package size` version,
 but this will take a long time, so please wait.
