@@ -29,6 +29,8 @@ export * from '../lib/template/menu';
 export * from '../lib/template/ricePaper';
 export * from '../lib/template/form/form';
 export * from '../lib/template/form/formItem';
+export * from '../lib/template/table';
+export * from '../lib/template/tableColumn';
 
 // [other]
 export * from '../lib/other/TaiChi';

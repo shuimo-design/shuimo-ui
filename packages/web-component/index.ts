@@ -28,6 +28,8 @@ import MenuItem from './lib/template/MMenuItem';
 import RicePaper from './lib/template/MRicePaper';
 import MForm from './lib/template/MForm';
 import MFormItem from './lib/template/MFormItem';
+import MTable from './lib/template/MTable';
+import MTableColumn from './lib/template/MTableColumn';
 
 // [other]
 import Divider from './lib/other/MDivider';
@@ -58,6 +60,8 @@ const ShuimoWebComponent = {
   RicePaper,
   MForm,
   MFormItem,
+  MTable,
+  MTableColumn,
 
   // [other]
   TaiChi,

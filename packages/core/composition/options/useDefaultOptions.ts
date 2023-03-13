@@ -13,7 +13,8 @@ import useDefaultProps from '../useDefaultProps';
 type Option<P, E> = {
   props: P;
   events?: E;
-  ref?: Record<any, any>
+  ref?: Record<any, any>,
+  slots?: any
 }
 
 export default function useDefaultOptions<P, E>(options: Option<P, E>, setting: Option<MCOPO<P>, E>) {
@@ -21,7 +22,8 @@ export default function useDefaultOptions<P, E>(options: Option<P, E>, setting: 
   const props = useDefaultProps<P>(setting.props, options.props);
   const events = options.events ?? (setting.events ?? {});
   const ref = options.ref ?? {};
+  const slots = options.slots;
 
-  return { props, events, ref };
+  return { props, events, ref, slots };
 
 }

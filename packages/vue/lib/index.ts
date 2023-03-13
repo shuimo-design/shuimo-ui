@@ -29,6 +29,8 @@ import MRicePaper from './template/MRicePaper';
 import MBorder from './template/MBorder';
 import MForm from './template/MForm';
 import MFormItem from './template/MFormItem';
+import MTable from './template/MTable';
+import MTableColumn from './template/MTableColumn';
 
 const components: Record<string, Component> = {
   // [base]
@@ -53,6 +55,8 @@ const components: Record<string, Component> = {
   MBorder,
   MForm,
   MFormItem,
+  MTable,
+  MTableColumn,
 };
 
 export {
@@ -78,6 +82,8 @@ export {
   MBorder,
   MForm,
   MFormItem,
+  MTable,
+  MTableColumn,
 };
 
 export function createMUI() {

@@ -29,3 +29,5 @@ export { default as MRicePaper } from './lib/template/MRicePaper';
 export { default as MBorder } from './lib/template/MBorder';
 export { default as MForm } from './lib/template/MForm';
 export { default as MFormItem } from './lib/template/MFormItem';
+export { default as MTable } from './lib/template/MTable';
+export { default as MTableColumn } from './lib/template/MTableColumn';

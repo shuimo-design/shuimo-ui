@@ -16,7 +16,7 @@ import { MTemplate } from '@shuimo-design/jsx/lib/tools/MTemplate';
 import { MProps } from '@shuimo-design/jsx/lib/tools/MProps';
 
 const unpackStyle = (style: any): string => {
-  if(style=== undefined) {
+  if (style === undefined) {
     return '';
   }
   if (Array.isArray(style)) {
@@ -94,8 +94,8 @@ export const createMElement = <T>(component: {
           if (e.name === 'ref') {
             e.value = ref(e.value);
           }
-          if(e.name==='style'){
-            e.value = Object.entries(e.value).map(([key,value])=>`${key}:${value}`).join(';');
+          if (e.name === 'style') {
+            e.value = Object.entries(e.value).map(([key, value]) => `${key}:${value}`).join(';');
           }
 
           // maybe we should call events in core hook function.
@@ -131,6 +131,13 @@ export const createMElement = <T>(component: {
 // const initProps = (props: MCOPO<T>, target: any) => {
 const initProps = (props: any, target: any) => {
   for (const key in props) {
-    property({ type: props[key].type })(target.prototype, key);
+    const prop = props[key];
+    if(prop.converter){
+      property({
+        converter: props[key].converter
+      })(target.prototype, key);
+      return;
+    }
+    property({ type: props[key].type, })(target.prototype, key);
   }
 };
