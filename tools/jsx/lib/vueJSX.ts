@@ -17,10 +17,9 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   const innerText: MNodeTemplate['innerText'] = [];
 
 
-  const handlerChildren = (childList: Array<MNodeTemplate | MNodeTemplate[] | string>) => {
-
-    for (let i in childList) {
-      const c = childList[i];
+  const handlerChildren = (childArr: Array<MNodeTemplate | MNodeTemplate[] | string>) => {
+    for (let i in childArr) {
+      const c = childArr[i];
       if (typeof c === 'string') {
         innerText.push(c);
       } else if (Array.isArray(c)) {
@@ -29,10 +28,8 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
         if (c === null) {
           continue;
         }
-        if (c.props === null) {
-          if (c.type === 'slot') {
-            slots.set('default', c);
-          }
+        if (c.type === 'slot') {
+          slots.set('default', c);
           continue;
         }
         const name = `${c.type}-${c.props?.name || i}`;
