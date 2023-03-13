@@ -32,7 +32,25 @@
     "playground": {
       "cache": false,
       "dependsOn": [
-        "dev"
+        "playground:web-component", "playground:vue", "playground:react"
+      ]
+    },
+    "playground:web-component": {
+      "cache": false,
+      "dependsOn": [
+        "^playground:web-component"
+      ]
+    },
+    "playground:vue": {
+      "cache": false,
+      "dependsOn": [
+        "^playground:vue"
+      ]
+    },
+    "playground:react": {
+      "cache": false,
+      "dependsOn": [
+        "^playground:react"
       ]
     },
     "clean": {
