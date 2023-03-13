@@ -17,11 +17,11 @@ export const m = (type: string, props?: Record<string, any> | null, ...childList
   const innerText: MNodeTemplate['innerText'] = [];
 
 
-  const handlerChildren = (childArr: Array<MNodeTemplate | MNodeTemplate[] | string>) => {
+  const handlerChildren = (childArr: Array<MNodeTemplate | MNodeTemplate[] | string | number>) => {
     for (let i in childArr) {
       const c = childArr[i];
-      if (typeof c === 'string') {
-        innerText.push(c);
+      if (typeof c === 'string' || typeof c === 'number') {
+        innerText.push(String(c));
       } else if (Array.isArray(c)) {
         handlerChildren(c);
       } else {
