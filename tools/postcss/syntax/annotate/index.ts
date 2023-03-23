@@ -11,6 +11,9 @@ import { Syntax, parse, stringify } from 'postcss';
 
 export const postcssAnnotate: Syntax = {
   parse: (css, opts) => {
+    if(!opts!.from!.includes('shuimo-design/packages')){
+      return parse(css, opts);
+    }
     const newCss = css.toString().replace(/\/\/[^\n]*\n/g,'');
     return parse(newCss, opts);
   },
