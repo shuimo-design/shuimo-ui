@@ -6,12 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import react from '@vitejs/plugin-react';
+import { defineConfig, Plugin } from 'vite';
 import { defineMPostcss, postcssAnnotate } from '@shuimo-design/postcss';
-import { MODE_TYPE, shuimoCoreTsx } from '@shuimo-design/jsx';
-
+import { shuimoCoreTsx } from '@shuimo-design/jsx';
 
 export default defineConfig(env => {
   const { mode } = env;
@@ -32,19 +29,8 @@ export default defineConfig(env => {
     commonjsOptions: { include: [/@shuimo-design/, /node_modules/] }
   };
 
-  let vuePluginOption = mode === MODE_TYPE.WEB_COMPONENT ? {
-    // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag: string) => tag.startsWith('m-') //web-components 添加配置识别 ‘m-’开头标签
-      }
-    }
-  } : {};
-
-
   const plugins = [
-    mode === MODE_TYPE.REACT ? react() : vue(vuePluginOption),
-    shuimoCoreTsx(mode)
+    shuimoCoreTsx()
   ];
 
   return {

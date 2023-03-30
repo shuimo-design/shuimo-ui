@@ -2,15 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="./src/assets/favicon.ico"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="shuimo-ui">
-  <meta name="description" content="一款粗暴的水墨UI">
-  <meta name="keywords" content="shuimo-ui,wash-painting,水墨UI,水墨,UI,vue-ui,vue3,vite">
-  <title>水墨UI</title>
+  <title>水墨UI-playground</title>
+  <link rel="stylesheet" href="src/style/index.css">
+  <script type="module" src="index.ts"></script>
+  <script>
+    const editorType = 'vue';
+  </script>
 </head>
 <body>
-<div id="app"></div>
-<script type="module" src="src/main.ts"></script>
+
+<sp-rice-paper>
+  <div class="playground">
+    <div id="container">
+      <div class="radios">
+        <sp-radio label="web-component"></sp-radio>
+        <sp-radio label="vue"></sp-radio>
+        <sp-radio label="react"></sp-radio>
+      </div>
+      <div class="windows">
+        <sp-border>
+          <div class="windows-div" id="html"></div>
+        </sp-border>
+        <sp-border>
+          <div class="windows-div" id="css"></div>
+        </sp-border>
+        <sp-border>
+          <div class="windows-div" id="script"></div>
+        </sp-border>
+      </div>
+      <!--    <div id="vue"></div>-->
+    </div>
+    <iframe class="viewer"></iframe>
+  </div>
+</sp-rice-paper>
+
 </body>
 </html>
