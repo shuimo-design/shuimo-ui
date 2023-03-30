@@ -11,7 +11,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { type CheckboxProps, useCheckbox } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-checkbox',
+  name: 'checkbox',
   hookFunc: useCheckbox
 })
 export default class MCheckBox extends MElement implements CheckboxProps {

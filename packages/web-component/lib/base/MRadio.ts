@@ -12,7 +12,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { RadioProps, useRadio } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-radio',
+  name: 'radio',
   hookFunc: useRadio
 })
 export default class MRadio extends MElement implements RadioProps {

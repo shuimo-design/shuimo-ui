@@ -6,67 +6,45 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-// [base]
-import Button from './lib/base/MButton';
-import Input from './lib/base/MInput';
-import Checkbox from './lib/base/MCheckBox';
-import Li from './lib/base/Mli';
-import Select from './lib/base/MSelect';
-import Option from './lib/base/MOption';
-import MSwitch from './lib/base/MSwitch';
-import MRadio from './lib/base/MRadio';
-import MTag from './lib/base/MTag';
-import MProgress from './lib/base/MProgress';
-
-// [message]
-import Popover from './lib/message/MPopover';
-
-// [template]
-import Border from './lib/template/MBorder';
-import Menu from './lib/template/MMenu';
-import MenuItem from './lib/template/MMenuItem';
-import RicePaper from './lib/template/MRicePaper';
-import MForm from './lib/template/MForm';
-import MFormItem from './lib/template/MFormItem';
-import MTable from './lib/template/MTable';
-import MTableColumn from './lib/template/MTableColumn';
-
-// [other]
-import Divider from './lib/other/MDivider';
-import TaiChi from './lib/other/MTaiChi';
-import MLoading from './lib/other/MLoading';
 
 import { webComponentStyleInstall } from './lib/style';
 
-const ShuimoWebComponent = {
-  // [base]
-  Button,
-  Input,
-  Checkbox,
-  Li,
-  MSwitch,
-  Select,
-  Option,
-  MRadio,
-  MTag,
-  MProgress,
 
-  // [message]
-  Popover,
+export const initWebComponent = async (prev = 'm') => {
+  window.shuimo = { wc: { prev } };
+  await Promise.all([
+    // [base]
+    import('./lib/base/MButton'),
+    import('./lib/base/MInput'),
+    import('./lib/base/MCheckBox'),
+    import('./lib/base/Mli'),
+    import('./lib/base/MSelect'),
+    import('./lib/base/MOption'),
+    import('./lib/base/MSwitch'),
+    import('./lib/base/MRadio'),
+    import('./lib/base/MTag'),
+    import('./lib/base/MProgress'),
 
-  // [template]
-  Border,
-  Menu, MenuItem,
-  RicePaper,
-  MForm,
-  MFormItem,
-  MTable,
-  MTableColumn,
+    // [message]
+    import('./lib/message/MPopover'),
 
-  // [other]
-  TaiChi,
-  Divider,
-  MLoading,
+    // [template]
+    import('./lib/template/MBorder'),
+    import('./lib/template/MMenu'),
+    import('./lib/template/MMenuItem'),
+    import('./lib/template/MRicePaper'),
+    import('./lib/template/MForm'),
+    import('./lib/template/MFormItem'),
+    import('./lib/template/MTable'),
+    import('./lib/template/MTableColumn'),
+
+    // [other]
+    import('./lib/other/MDivider'),
+    import('./lib/other/MTaiChi'),
+    import('./lib/other/MLoading'),
+  ])
+
+  window.shuimo = undefined;
 };
 
 webComponentStyleInstall();

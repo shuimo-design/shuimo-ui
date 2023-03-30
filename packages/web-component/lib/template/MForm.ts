@@ -10,7 +10,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { useForm, FormProps } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-form',
+  name: 'form',
   hookFunc: useForm
 })
 export default class  extends MElement implements FormProps {

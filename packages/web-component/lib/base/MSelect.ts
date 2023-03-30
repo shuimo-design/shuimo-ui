@@ -11,7 +11,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { createRef, Ref } from 'lit/directives/ref.js';
 
 @createMElement({
-  name: 'm-select',
+  name: 'select',
   hookFunc: useSelect
 })
 export default class MSelect extends MElement implements SelectProps {

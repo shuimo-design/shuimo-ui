@@ -10,7 +10,7 @@ import { type ButtonProps, useButton } from '@shuimo-design/core';
 import { createMElement, MElement } from '@shuimo-design/lit';
 
 @createMElement({
-  name: 'm-button',
+  name: 'button',
   hookFunc: useButton
 })
 export default class MButton extends MElement implements ButtonProps {

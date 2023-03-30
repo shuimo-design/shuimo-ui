@@ -10,7 +10,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { useProgress, ProgressProps } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-progress',
+  name: 'progress',
   hookFunc: useProgress
 })
 export default class  extends MElement implements ProgressProps {

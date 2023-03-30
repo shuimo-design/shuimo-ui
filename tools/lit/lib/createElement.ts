@@ -34,6 +34,8 @@ export const createMElement = <T>(component: {
 }, options?: {
   defaultRender: boolean;
 }) => {
+
+
   const { name } = component;
   const { hookFunc } = component;
 
@@ -123,7 +125,8 @@ export const createMElement = <T>(component: {
       }
     }
 
-    return customElement(name)(MElement as typeof LitElement);
+    // @ts-ignore todo find a better way to replace window.shuimo.wc.prev
+    return customElement(`${window.shuimo.wc.prev}-${name}`)(MElement as typeof LitElement);
   };
 };
 
@@ -132,12 +135,12 @@ export const createMElement = <T>(component: {
 const initProps = (props: any, target: any) => {
   for (const key in props) {
     const prop = props[key];
-    if(prop.converter){
+    if (prop.converter) {
       property({
         converter: props[key].converter
       })(target.prototype, key);
       return;
     }
-    property({ type: props[key].type, })(target.prototype, key);
+    property({ type: props[key].type })(target.prototype, key);
   }
 };

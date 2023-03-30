@@ -11,7 +11,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { createRef, Ref } from 'lit/directives/ref.js';
 
 @createMElement({
-  name: 'm-popover',
+  name: 'popover',
   hookFunc: usePopover
 })
 export default class MPopover extends MElement implements PopoverProps {

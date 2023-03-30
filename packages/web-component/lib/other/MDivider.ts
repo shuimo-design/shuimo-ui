@@ -11,7 +11,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { DividerProps, useDivider } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-divider',
+  name: 'divider',
   hookFunc: useDivider
 })
 export default class MDivider extends MElement implements DividerProps {

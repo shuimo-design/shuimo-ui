@@ -13,7 +13,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { SwitchProps } from '@shuimo-design/core/lib/base/switch';
 
 @createMElement({
-  name: 'm-switch',
+  name: 'switch',
   hookFunc: useSwitch
 })
 export default class MSwitch extends MElement implements SwitchProps {

@@ -11,7 +11,7 @@ import { useLoading, LoadingProps } from '@shuimo-design/core';
 import { createRef, Ref } from 'lit/directives/ref.js';
 
 @createMElement({
-  name: 'm-loading',
+  name: 'loading',
   hookFunc: useLoading
 })
 export default class extends MElement implements LoadingProps {

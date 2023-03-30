@@ -11,7 +11,7 @@ import { HTMLElementEvent } from '@shuimo-design/types';
 import { createMElement, MElement } from '@shuimo-design/lit';
 
 @createMElement({
-  name: 'm-input',
+  name: 'input',
   hookFunc: useInput
 },{defaultRender:true})
 export default class MInput extends MElement implements InputProps {

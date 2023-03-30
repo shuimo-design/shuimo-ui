@@ -10,7 +10,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { useTableColumn, TableColumnProps } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-table-column',
+  name: 'table-column',
   hookFunc: useTableColumn
 })
 export default class  extends MElement implements TableColumnProps {

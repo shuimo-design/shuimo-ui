@@ -9,7 +9,7 @@
 import { type MenuItemProps, useMenuItem } from '@shuimo-design/core';
 import { createMElement, MElement } from '@shuimo-design/lit';
 @createMElement({
-  name: 'm-menu-item',
+  name: 'menu-item',
   hookFunc: useMenuItem
 })
 export default class MMenuItem extends MElement implements MenuItemProps {

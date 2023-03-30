@@ -150,10 +150,7 @@ export const build = async (options: { name: string, group: string, author: stri
       group,
       list: [{
         checkFn: line => line.trim() === '',
-        data: `import ${MName} from './lib/${group}/${MName}';`
-      }, {
-        checkFn: line => line.trim() === '' || line.trim() === '};',
-        data: `  ${MName},`
+        data: `import ('./lib/${group}/${MName}'),`
       }]
     });
   };

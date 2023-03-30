@@ -11,7 +11,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 
 
 @createMElement({
-  name: 'm-rice-paper',
+  name: 'rice-paper',
   hookFunc: useRicePaper
 })
 export default class MRicePaper extends MElement implements RicePaperProps {

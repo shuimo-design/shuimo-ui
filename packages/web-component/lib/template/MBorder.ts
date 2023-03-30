@@ -12,7 +12,7 @@ import { useBorder } from '@shuimo-design/core';
 import { createMElement, MElement } from '@shuimo-design/lit';
 
 @createMElement({
-  name: 'm-border',
+  name: 'border',
   hookFunc: useBorder
 })
 export default class MBorder extends MElement {

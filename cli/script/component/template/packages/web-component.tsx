@@ -10,7 +10,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { {{hook}}, {{propsName}} } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-{{name}}',
+  name: '{{name}}',
   hookFunc: {{hook}}
 })
 export default class {{Mname}} extends MElement implements {{propsName}} {

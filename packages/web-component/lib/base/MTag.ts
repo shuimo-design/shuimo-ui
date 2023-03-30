@@ -12,7 +12,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { useTag, TagProps } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-tag',
+  name: 'tag',
   hookFunc: useTag
 })
 export default class MTag extends MElement implements TagProps {

@@ -12,7 +12,7 @@ import { createMElement, MElement } from '@shuimo-design/lit';
 import { useOption } from '@shuimo-design/core';
 
 @createMElement({
-  name: 'm-option',
+  name: 'option',
   hookFunc: useOption
 })
 export default class MOption extends MElement {

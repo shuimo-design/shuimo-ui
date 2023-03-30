@@ -23,7 +23,7 @@ describe('createElement', () => {
 
   describe.skip('base component', () => {
     @createMElement({
-      name: 'm-test',
+      name: 'test',
       hookFunc: useBaseComponent
     })
     class c extends MElement {}
@@ -42,7 +42,7 @@ describe('createElement', () => {
 
   describe('value prop component', () => {
     @createMElement({
-      name: 'm-test-value',
+      name: 'test-value',
       hookFunc: useValuePropComponent
     })
     class cValue extends MElement {
@@ -59,7 +59,7 @@ describe('createElement', () => {
 
   describe('event props component', function () {
     @createMElement({
-      name: 'm-test-event',
+      name: 'test-event',
       hookFunc: useEventPropComponent
     })
     class cEvent extends MElement {
@@ -82,7 +82,7 @@ describe('createElement', () => {
     test('with simple children', () => {
 
       @createMElement({
-        name: 'm-test-children',
+        name: 'test-children',
         hookFunc: useChildrenComponent
       })
       class cChildren extends MElement {}

@@ -13,7 +13,7 @@ import { useTaiChi } from '@shuimo-design/core';
 import { TaiChiProps } from '@shuimo-design/core/lib/other/TaiChi';
 
 @createMElement({
-  name: 'm-tai-chi',
+  name: 'tai-chi',
   hookFunc: useTaiChi
 })
 export default class MTaiChi extends MElement implements TaiChiProps {

@@ -1,6 +1,7 @@
 {
   "name": "@shuimo-design/lit",
   "version": "0.0.1",
+  "main": "index.ts",
   "scripts": {
     "test": "vitest -u"
   },

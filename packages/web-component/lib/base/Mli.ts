@@ -11,7 +11,7 @@ import { type LiProps, useLi } from '@shuimo-design/core';
 
 
 @createMElement({
-  name: 'm-li',
+  name: 'li',
   hookFunc: useLi
 })
 export default class MLi extends MElement implements LiProps {
