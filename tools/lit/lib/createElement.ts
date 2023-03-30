@@ -63,15 +63,15 @@ export const createMElement = <T>(component: {
 
       magicReplaceProps() {
         const proxy: Record<string, MProps | any> = {};
-        Object.keys(props).forEach(key => {
-
-          proxy[key] = props[key].needWrap ? new MProps({
-            key: key,
-            type: props[key].type,
-            value: this[key as keyof this]
-          }) : this[key as keyof this];
-        });
-
+        if (props) {
+          Object.keys(props).forEach(key => {
+            proxy[key] = props[key].needWrap ? new MProps({
+              key: key,
+              type: props[key].type,
+              value: this[key as keyof this]
+            }) : this[key as keyof this];
+          });
+        }
         return proxy;
       }
 
