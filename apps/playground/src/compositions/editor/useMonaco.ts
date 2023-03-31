@@ -42,27 +42,41 @@ const getDom = (id: string) => {
   return document.getElementById(id)!;
 };
 
-export default function useEditor(code: TemplateCode) {
-  const { templateHTML, templateCss, templateScript } = code;
-  monaco.editor.setTheme('vs-dark');
+monaco.editor.setTheme('vs-dark');
+loadMonacoEnv();
 
-  Promise.all([loadMonacoEnv()]).then(([]) => {
-    monaco.editor.create(getDom('html'), {
-      value: templateHTML,
-      language: 'html'
-    });
-    monaco.editor.create(getDom('css'), {
-      value: templateCss,
-      language: 'css'
-    });
-    monaco.editor.create(getDom('script'), {
-      value: templateScript,
-      language: 'javascript'
+export default function useMonaco() {
+
+
+  const createMonaco = (data: {
+    value: string,
+    dom: HTMLElement,
+    language: string,
+    event?:{
+      onDidBlurEditorText?: (value: string) => void
+    }
+  })=>{
+    const { value, dom, language } = data;
+
+    const m = monaco.editor.create(dom, {
+      value,
+      language
     });
 
-    // loadGrammars(editorInstance).then(()=>{
-    //
-    // });
-  });
+    m.onDidBlurEditorText((e) => {
+      data.event?.onDidBlurEditorText?.(m.getValue());
+    });
+
+
+    return {
+      monaco: m
+    }
+  }
+
+  return {
+    createMonaco
+
+  };
+
 
 }

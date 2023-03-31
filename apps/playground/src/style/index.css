@@ -16,7 +16,7 @@ body {
   grid-template-rows: 50px 1fr;
 }
 
-.windows-div {
+.editor {
   height: calc((100vh - 50px) / 3 - 5px);
   width: 100%;
 }

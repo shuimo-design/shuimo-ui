@@ -9,10 +9,24 @@
 
 
 export default function useIFrame() {
-  const iframe = document.querySelector('iframe')!;
-  const doc = iframe.contentDocument!;
-  const div = doc.createElement('div');
-  doc.body.appendChild(div);
+  let div: HTMLElement;
+  let doc: Document;
+  let iframe: HTMLIFrameElement;
+
+  const initIFrame = () => {
+    iframe = document.querySelector('iframe')!;
+    doc = iframe.contentDocument!;
+    div = doc.createElement('div');
+    doc.body.appendChild(div);
+
+    return div;
+  };
+
+
+  const clear = () => {
+    doc.body.removeChild(div);
+    // todo clear style
+  };
 
   const appendStyle = (styleInfo: string) => {
     const style = doc.createElement('style');
@@ -22,7 +36,8 @@ export default function useIFrame() {
 
 
   return {
-    div,
+    initIFrame,
+    clear,
     appendStyle
   };
 }

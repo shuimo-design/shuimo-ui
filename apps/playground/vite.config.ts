@@ -6,9 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig, Plugin } from 'vite';
+import { defineConfig } from 'vite';
 import { defineMPostcss, postcssAnnotate } from '@shuimo-design/postcss';
 import { shuimoCoreTsx } from '@shuimo-design/jsx';
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(env => {
   const { mode } = env;
@@ -30,7 +31,14 @@ export default defineConfig(env => {
   };
 
   const plugins = [
-    shuimoCoreTsx()
+    shuimoCoreTsx(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag: string) => tag.startsWith('sp-') //web-components 添加配置识别 ‘m-’开头标签
+        }
+      }
+    })
   ];
 
   return {
