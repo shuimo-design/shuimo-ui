@@ -25,7 +25,11 @@ export default function useIFrame() {
 
   const clear = () => {
     doc.body.removeChild(div);
-    // todo clear style
+    // remove all style
+    const styles = doc.querySelectorAll('style');
+    styles.forEach((style) => {
+      doc.head.removeChild(style);
+    });
   };
 
   const appendStyle = (styleInfo: string) => {
