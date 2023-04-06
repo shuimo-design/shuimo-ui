@@ -12,8 +12,8 @@ import { resolveRealPath } from './tools';
 const lodeIndexCode = (id: string) => {
   let code = fs.readFileSync(id, 'utf-8');
   const path = resolveRealPath('../../../packages/web-component/lib');
-  code = code.replaceAll('import(\'./lib', `import('${path}`)
-    .replaceAll('\'),', '.ts?tag=wc\'),');
+  code = code.replaceAll('import(\'./lib', `import(\`${path}`)
+    .replaceAll('\'),', `.ts?tag=wc-\${prev}\`),`);
   return code;
 };
 
