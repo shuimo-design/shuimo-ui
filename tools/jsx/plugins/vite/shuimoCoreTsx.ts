@@ -33,6 +33,10 @@ const load: Plugin['load'] = id => {
   if (id.includes('packages/core/lib/index.ts')) {
     return core.loadLib(id);
   }
+  // 5. handle core hook file load
+  if (id.includes('packages/core/lib')&&id.includes('use')&&id.includes('.tsx')) {
+    return core.loadHook(id);
+  }
 };
 
 export function shuimoCoreTsx(MODE?: string, options?: { includes?: string, }): Plugin {

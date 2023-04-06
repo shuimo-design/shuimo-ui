@@ -38,6 +38,12 @@ const transformPath = (id: string, tag: string) => {
   return `${files.join('/')}.tsx?tag=${tag}`;
 };
 
+const transformPathWithFilter = (id: string, tag: string) => {
+  const files = id.split('/').filter((f) => f !== '..');
+  files.unshift(REAL_PKG_LIB);
+  return `${files.join('/')}.tsx?tag=${tag}`;
+};
+
 const loadLib = (id: string) => {
   const res = getCodeAndTag(id);
   if (!res) {return;}
@@ -57,8 +63,22 @@ const loadLib = (id: string) => {
   return code;
 };
 
+const loadHook = (id: string) => {
+  const res = getCodeAndTag(id);
+  if (!res) {return;}
+  let { code, tag } = res;
+  const matchRes = code.match(/import { use[^}]*} from '([^']*)';/g);
+  if (!matchRes) {return;}
+  for (let m of matchRes) {
+    m = m.replace(/import { use[^}]*} from '([^']*)';/, '$1');
+    code = code.replace(m, `${transformPathWithFilter(m, tag)}`);
+  }
+  return code;
+};
+
 
 export default {
   loadIndex,
-  loadLib
+  loadLib,
+  loadHook
 };
