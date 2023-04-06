@@ -143,6 +143,16 @@ export const build = async (options: { name: string, group: string, author: stri
       }]
     });
   };
+  const insertVueStyle = async () => {
+    await updateFile({
+      path: `${PRE}/vue/lib/style.pcss`,
+      group,
+      list: [{
+        checkFn: line => line.trim() === '',
+        data: `import "@shuimo-design/core/lib/${group}/${name}/${name}.pcss'),`
+      }]
+    });
+  };
 
   const insertWebComponent = async () => {
     await updateFile({
@@ -166,6 +176,7 @@ export const build = async (options: { name: string, group: string, author: stri
   };
 
   await insertVue();
+  await insertVueStyle();
   await insertWebComponent();
   await insertReact();
 
