@@ -13,4 +13,5 @@ declare module '*.js?raw';
 declare module '*.vue?raw';
 declare module '*.pcss';
 declare module '*?worker';
+declare module '*?sharedworker';
 declare module 'vue/dist/vue.esm-bundler.js';

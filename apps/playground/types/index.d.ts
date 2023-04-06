@@ -13,3 +13,11 @@ type TemplateCode = {
   templateCss: string,
   templateScript: string
 }
+
+type TemplateType = 'vue' | 'react' | 'web-component';
+
+interface IRender {
+  init: (code: TemplateCode) => Promise<void>;
+  clear: () => void;
+  update: (code: TemplateCode) => Promise<void>;
+}

@@ -12,6 +12,7 @@ export {}
 
 declare global {
   interface Window {
-    vue: any
+    vue: any,
+    iframeLoaded: boolean,
   }
 }

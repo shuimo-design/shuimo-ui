@@ -8,7 +8,17 @@
  */
 
 import app from './App.vue';
-import {createApp} from 'vue';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: () => import('./Home.vue') },
+    { path: '/view', component: () => import('./View.vue') }
+  ]
+});
 
-createApp(app).mount('#app');
+createApp(app)
+  .use(router)
+  .mount('#app');

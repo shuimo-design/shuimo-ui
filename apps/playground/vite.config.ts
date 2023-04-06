@@ -35,7 +35,7 @@ export default defineConfig(env => {
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: (tag: string) => tag.startsWith('sp-') //web-components 添加配置识别 ‘m-’开头标签
+          isCustomElement: (tag: string) => tag.startsWith('sp-')||tag.startsWith('m-') //web-components 添加配置识别 ‘m-’开头标签
         }
       }
     })

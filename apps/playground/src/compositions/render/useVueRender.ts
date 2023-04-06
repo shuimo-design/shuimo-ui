@@ -7,50 +7,53 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { createApp } from 'vue/dist/vue.esm-bundler.js';
-import useIFrame from './useIFrame';
 import { createMUI } from 'shuimo-ui/lib';
-import style from 'shuimo-ui/lib/style.pcss';
 
-export default function useVueRender() {
-  const { appendStyle, clear, initIFrame } = useIFrame();
-
+export default function useVueRender(): IRender {
+  let app: ReturnType<typeof createApp> | undefined;
   const init = async (code: TemplateCode) => {
-    const div = initIFrame();
-    appendStyle(style);
-    appendStyle(code.templateCss);
+    unmount();
+    const div = document.querySelector('.render');
+    // appendStyle(style);
+    // appendStyle(code.templateCss);
 
-    const appendScript = async (scriptInfo: string) => {
-      // const script = doc.createElement('script');
-      // script.type = 'module';
-      //
-      // doc.body.appendChild(script);
-
-      const vue = await import('vue');
-      window.vue = vue;
+    const initVue = async (scriptInfo: string) => {
+      if (window.vue) {return;}
+      window.vue = await import('vue');
     };
 
-    await appendScript(code.templateScript);
-
-
-    const app = createApp({
+    await initVue(code.templateScript);
+    // console.log(app,window.vue);
+    app = createApp({
       template: code.templateHTML,
       setup() {
-        const res = new Function(code.templateScript)();
-        return res;
+        return new Function(code.templateScript)();
       }
     });
-    console.log(app, div);
     app.use(createMUI());
     app.mount(div);
   };
 
-  const update = (code: TemplateCode) => {
-    clear();
-    init(code);
+
+  const unmount = () => {
+    if (app) {
+      app.unmount();
+    }
+  };
+
+  const clear = () => {
+    unmount();
+    app = undefined;
+  }
+
+  const update = async (code: TemplateCode) => {
+    unmount();
+    await init(code);
   };
 
   return {
     init,
+    clear,
     update
   };
 }
