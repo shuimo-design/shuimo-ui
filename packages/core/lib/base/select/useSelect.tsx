@@ -8,7 +8,8 @@
  */
 import { MCOPO, MPropType } from '@shuimo-design/types';
 import { SelectProps } from './index';
-import { useBorder, usePopover } from '../../../index';
+import { useBorder } from '../../template/border/useBorder';
+import { usePopover } from '../../message/popover/usePopover';
 import useDefaultOptions from '../../../composition/options/useDefaultOptions';
 import { RefRecord } from '../../../types/common/hook';
 
