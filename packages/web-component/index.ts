@@ -37,13 +37,11 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/template/MFormItem'),
     import('./lib/template/MTable'),
     import('./lib/template/MTableColumn'),
-
     // [other]
     import('./lib/other/MDivider'),
     import('./lib/other/MTaiChi'),
     import('./lib/other/MLoading'),
-  ])
-
+  ]);
   window.shuimo = undefined;
 };
 

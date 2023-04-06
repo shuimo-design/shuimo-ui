@@ -41,12 +41,14 @@ export const createMElement = <T>(component: {
 
   return (target: typeof LitElement) => {
     const { options: { props, style }, getTemplate, onMountedHook } = hookFunc();
+    const cssMString = new MStrings();
+    cssMString.add(unpackStyle(style));
 
     initProps(props, target);
 
     class MElement extends target {
 
-      static styles = css`${unsafeCSS(unpackStyle(style))}`;
+      static styles = css(cssMString);
       template: { strings: TemplateStringsArray; values: any[]; };
 
       constructor() {
@@ -124,9 +126,15 @@ export const createMElement = <T>(component: {
         }
       }
     }
-
     // @ts-ignore todo find a better way to replace window.shuimo.wc.prev
-    return customElement(`${window.shuimo.wc.prev}-${name}`)(MElement as typeof LitElement);
+    const wcName =`${window.shuimo.wc.prev}-${name}`;
+
+    if(window.customElements.get(wcName)){
+      console.warn(`${wcName} is already defined, please check your code.`);
+      return;
+    }
+
+    return customElement(wcName)(MElement as typeof LitElement);
   };
 };
 
