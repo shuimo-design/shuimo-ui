@@ -58,6 +58,7 @@ export function useLoading() {
 
   const animationHook = (refValue: any, speed: number) => {
     const ref = unref(refValue);
+    if (!ref || !ref.classList) return;
     ref.classList.add(showClassName);
     ref.style.setProperty(ROTATE_VAR_NAME, `rotate(${0.1 * Math.random()}turn)`);
     setTimeout(() => {
@@ -67,7 +68,7 @@ export function useLoading() {
   };
 
   const onMountedHook = (options: LoadingProps & LoadingRef) => {
-    const speed = options.speed??defaultSpeed;
+    const speed = options.speed ?? defaultSpeed;
     const randomSpeed = speed / shuaLength + baseTimout;
     const { pushRandomNum } = useRandomNum(randomSpeed, shuaIndex => {
       animationHook(options[`shua${shuaIndex}Ref` as keyof LoadingRef], speed);
@@ -83,11 +84,11 @@ export function useLoading() {
       return <div class={`m-loading-item m-loading-shua${i % 4}`} ref={ref[`shua${i}Ref`]}/>;
     });
 
-    return <div class="m-loading" style={{'--m-loading-speed':`${animationSpeed}s`}} ref={ref.loadingRef}>
+    return <div class="m-loading" style={{ '--m-loading-speed': `${animationSpeed}s` }} ref={ref.loadingRef}>
       <div class="m-loading-shua-wrapper">
         {shuaList}
       </div>
-    </div> as MNodeTemplate
+    </div> as MNodeTemplate;
   };
 
   return {
