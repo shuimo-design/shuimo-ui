@@ -30,17 +30,12 @@
  */
 import { initWebComponent } from '@shuimo-design/web-component/index';
 import useHome from './compositions/editor/useHome';
-import { onMounted } from 'vue';
 import Editor from './components/Editor.vue';
 
 initWebComponent('sp');
 const {
   templateType, templateHTML, templateCss, templateScript,
 } = useHome();
-
-onMounted(async () => {
-
-});
 
 
 </script>
