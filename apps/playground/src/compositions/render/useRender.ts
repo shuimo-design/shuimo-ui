@@ -9,6 +9,7 @@
 import useVueRender from './useVueRender';
 import { Ref } from 'vue';
 import useWebComponentRender from './useWebComponentRender';
+import useReactRender from './useReactRender';
 
 
 export default function useRender(type: Ref<TemplateType>) {
@@ -25,6 +26,11 @@ export default function useRender(type: Ref<TemplateType>) {
       const vueRender = await useVueRender();
       handler = vueRender;
       registerHandler.set('vue', vueRender);
+    }
+    if (type.value === 'react') {
+      const vueRender = await useReactRender();
+      handler = vueRender;
+      registerHandler.set('react', vueRender);
     }
     if (type.value === 'web-component') {
       const wcRender = await useWebComponentRender();

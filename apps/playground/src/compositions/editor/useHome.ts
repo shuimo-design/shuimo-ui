@@ -14,7 +14,7 @@ import useIframeParent from '../../iframe/useIframeParent';
 
 export default function useHome() {
   const { register } = useIframeParent();
-  const templateType = register<TemplateType>('type', 'web-component');
+  const templateType = register<TemplateType>('type', 'vue');
   const templateHTML = register('html', tHTML);
   const templateCss = register('css', tCss);
   const templateScript = register('script', tScript);

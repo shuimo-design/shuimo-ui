@@ -3,17 +3,21 @@
   "author": "阿怪",
   "version": "0.0.1",
   "scripts": {
-    "playground:dev": "vite"
+    "playground:dev": "vite",
+    "test": "vitest -u"
   },
   "dependencies": {
     "@shuimo-design/jsx": "*",
     "@shuimo-design/postcss": "*",
+    "@shuimo-design/react": "*",
     "@shuimo-design/web-component": "*",
     "monaco-editor": "^0.36.1",
     "monaco-editor-core": "^0.36.1",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "shuimo-ui": "*",
     "vite": "^4.2.1",
+    "vitest": "*",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },

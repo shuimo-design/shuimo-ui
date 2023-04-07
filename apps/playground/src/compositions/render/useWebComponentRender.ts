@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description web component render
  * @author 阿怪
  * @date 2023/4/3 16:34
  * @version v1.0.0
@@ -17,7 +17,10 @@ export default function useWebComponentRender(): IRender {
   };
 
   const update = async (code: TemplateCode) => {
-
+    const div = document.querySelector('.render');
+    if (div) {
+      div.innerHTML = code.templateHTML;
+    }
   };
 
   const clear = () => {
