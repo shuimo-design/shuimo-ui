@@ -7,47 +7,57 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import useHTMLAst from '../ast/useHTMLAST';
-import { createElement, ReactElement } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createElement } from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import * as MReact from '@shuimo-design/react/index';
+
+
+function toPascalCase(str: string) {
+  const words = str.split('-');
+  const upperCaseWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  return upperCaseWords.join('');
+}
 
 export default function useReactRender(): IRender {
 
   const { parse } = useHTMLAst();
-  let root: ReactElement = null;
+  let root: Root | undefined;
   const getElement = (code: TemplateCode) => {
     const ast = parse(code.templateHTML);
     return createElement('div', {}, ...ast
-      .filter(item => /^[A-Z]/.test(item.name))
       .map((item) => {
+        // only for shuimo
+        if (item.name.startsWith('m-')) {
+          item.name = toPascalCase(item.name);
+        }
         // @ts-ignore need help
         return createElement(MReact[item.name], item.attrs, item.innerHTML);
       }));
   };
 
 
-  const initRoot = ()=>{
+  const initRoot = () => {
     if (!root) {
       root = createRoot(document.querySelector('.render')!);
     }
-  }
+  };
 
   const init = async (code: TemplateCode) => {
     initRoot();
     const element = getElement(code);
-    root.render(element);
+    root!.render(element);
   };
 
   const update = async (code: TemplateCode) => {
     initRoot();
     const element = getElement(code);
-    root.render(element);
+    root!.render(element);
   };
 
   const clear = () => {
-    if(root){
+    if (root) {
       root.unmount();
-      root = null;
+      root = undefined;
     }
   };
 
