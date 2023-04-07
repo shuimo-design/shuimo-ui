@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@shuimo-design/core": "*",
-    "@shuimo-design/types": "*"
+    "@shuimo-design/types": "*",
+    "react": "^18.2.0"
   }
 }
