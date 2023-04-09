@@ -11,6 +11,7 @@
     "@shuimo-design/postcss": "*",
     "@shuimo-design/react": "*",
     "@shuimo-design/web-component": "*",
+    "acorn": "^8.8.2",
     "monaco-editor": "^0.36.1",
     "monaco-editor-core": "^0.36.1",
     "react": "^18.2.0",

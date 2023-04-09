@@ -14,7 +14,7 @@ describe('html ast test', () => {
 
   const { parse } = useHTMLAst();
 
-  describe('ast', () => {
+  describe('only dom', () => {
 
     test('empty dom', () => {
       expect(parse('<div></div>')).toEqual([{ name: 'div' }]);
@@ -85,6 +85,5 @@ describe('html ast test', () => {
                           `);
     });
   });
-
 
 });

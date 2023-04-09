@@ -8,14 +8,20 @@
  */
 import { createApp } from 'vue/dist/vue.esm-bundler.js';
 import { createMUI } from 'shuimo-ui/lib';
+import useJavascriptAST from '../ast/useJavascriptAST';
 
 export default function useVueRender(): IRender {
+
+  const { injectVue } = useJavascriptAST();
+
+
   let app: ReturnType<typeof createApp> | undefined;
   const init = async (code: TemplateCode) => {
     unmount();
     const div = document.querySelector('.render');
     // appendStyle(style);
     // appendStyle(code.templateCss);
+
 
     const initVue = async (scriptInfo: string) => {
       if (window.vue) {return;}
@@ -27,7 +33,7 @@ export default function useVueRender(): IRender {
     app = createApp({
       template: code.templateHTML,
       setup() {
-        return new Function(code.templateScript)();
+        return new Function(injectVue(code.templateScript))();
       }
     });
     app.use(createMUI());
@@ -44,7 +50,7 @@ export default function useVueRender(): IRender {
   const clear = () => {
     unmount();
     app = undefined;
-  }
+  };
 
   const update = async (code: TemplateCode) => {
     unmount();

@@ -6,9 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-const { ref } = window.vue;
-
 const val = ref('hi');
+const click = () => {
+  val.value = 'hello';
+}
 
 
-return { val };

@@ -1,5 +1,5 @@
 /**
- * @description a simple ast hook.
+ * @description a simple html ast hook.
  * @author 阿怪
  * @date 2023/4/7 14:53
  * @version v1.0.0
