@@ -39,24 +39,41 @@ export default function useRender(type: Ref<TemplateType>) {
     }
   };
 
+  const handlerError = (e?: unknown) => {
+    console.log('some error', e);
+    // todo use dialog to show error
+  };
+
   const updateRender = async (code: TemplateCode) => {
-    await clear();
-    await initRender();
-    await init(code);
+    try {
+      await clear();
+      await initRender();
+      await init(code);
+    } catch (e) {
+      handlerError(e);
+    }
   };
 
 
   const init = async (code: TemplateCode) => {
-    await handler?.init(code);
+    try {
+      await handler?.init(code);
+    } catch (e) {
+      handlerError(e);
+    }
   };
 
   const clear = async () => {
     await handler?.clear();
-  }
+  };
 
   const update = async (code: TemplateCode) => {
     if (handler && handler.update) {
-      await handler.update(code);
+      try {
+        await handler.update(code);
+      } catch (e) {
+        handlerError(e);
+      }
     }
   };
 
