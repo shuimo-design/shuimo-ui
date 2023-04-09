@@ -44,7 +44,8 @@ class Walker {
     this._type = type;
   }
 
-  constructor(code: string) {
+  constructor(code?: string) {
+    if (!code) {code = '';}
     this.code = code;
     this.length = code.length;
     this.index = -1;
@@ -225,8 +226,11 @@ export default function useHTMLAst() {
           walk = res.walk;
           ast.push(res.dom);
         } else {
+          if (char.charCodeAt(0) === 10) {
+            continue;
+          }
           // to empty tag
-          MError('not support empty tag right now');
+          MError(`not support empty tag right now, char:${char},ascii:${char.charCodeAt(0)}`);
         }
         continue;
       }
