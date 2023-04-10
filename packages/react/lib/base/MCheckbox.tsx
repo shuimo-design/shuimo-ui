@@ -21,6 +21,6 @@ export default function MCheckbox(props: CheckboxProps & CheckboxEvents & Slot) 
     events: {
       onChange: props.onChange
     }
-  }),props);
+  }), props);
 
 }

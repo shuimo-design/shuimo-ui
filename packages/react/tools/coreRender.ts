@@ -9,13 +9,15 @@
 import React from 'react';
 import { MNodeTemplate } from '@shuimo-design/types';
 
+type EventFun = (e: any) => void;
+
 export const cr = <T>(
   template: MNodeTemplate,
-  user?: Record<string, React.ReactNode>
+  user?: Record<string, React.ReactNode | EventFun>
 ): any => {
   const { type, props, children, slots: templateSlots, innerText } = template;
 
-  let userChildren: React.ReactNode | undefined;
+  let userChildren: React.ReactNode | EventFun | undefined;
   if (user) {
     if (user.children) {userChildren = user.children;}
   }
