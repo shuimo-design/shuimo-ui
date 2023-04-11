@@ -40,7 +40,8 @@ export default function useRender(type: Ref<TemplateType>) {
   };
 
   const handlerError = (e?: unknown) => {
-    console.log('some error', e);
+    console.log('some error');
+    console.error(e);
     // todo use dialog to show error
   };
 
