@@ -13,7 +13,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import useMonaco from '../compositions/editor/useMonaco';
 
 const props = defineProps<{ modelValue: string, language: string }>();
@@ -21,9 +21,9 @@ const emits = defineEmits(['update:modelValue']);
 const dom = ref();
 
 const { createMonaco } = useMonaco();
-const m = ref();
+let m: any;
 const initEditor = () => {
-  m.value = createMonaco({
+  m = createMonaco({
     value: props.modelValue,
     dom: dom.value,
     language: props.language,
@@ -34,6 +34,12 @@ const initEditor = () => {
     }
   });
 };
+
+watch(() => props.modelValue, (value) => {
+  if (m) {
+    m.monaco.setValue(props.modelValue);
+  }
+});
 
 onMounted(() => {
   initEditor();

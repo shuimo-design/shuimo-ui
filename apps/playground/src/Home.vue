@@ -34,10 +34,22 @@ import Editor from './components/Editor.vue';
 
 initWebComponent('sp');
 const {
-  templateType, templateHTML, templateCss, templateScript,
+  templateType, templateHTML, templateCss, templateScript
 } = useHome();
 
 
+if (import.meta.hot) {
+  import.meta.hot.accept('./compositions/editor/useHome', mod => {
+    if (!mod)
+      return;
+    const { default: updated } = mod;
+    const newT = updated();
+    templateType.value = newT.templateType.value;
+    templateHTML.value = newT.templateHTML.value;
+    templateCss.value = newT.templateCss.value;
+    templateScript.value = newT.templateScript.value;
+  });
+}
 </script>
 
 <style lang="scss" scoped>

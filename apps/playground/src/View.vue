@@ -55,6 +55,16 @@ onMounted(() => {
   isMounted.value = true;
 });
 
+
+
+
+if (import.meta.hot) {
+  import.meta.hot.on('update-core', () => {
+    console.log('update-core');
+    playRender.value.updateRender(code.value);
+  });
+}
+
 </script>
 
 <style lang="scss" scoped>

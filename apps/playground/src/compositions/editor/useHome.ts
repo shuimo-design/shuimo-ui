@@ -20,6 +20,8 @@ export default function useHome() {
   const templateScript = register('script', tScript);
 
   return {
-    templateType, templateHTML, templateCss, templateScript,
+    templateType, templateHTML, templateCss, templateScript
   };
 }
+
+

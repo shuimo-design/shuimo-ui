@@ -6,6 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+/// <reference types="vite/client" />
 
 declare module '*.html?raw';
 declare module '*.css?raw';
