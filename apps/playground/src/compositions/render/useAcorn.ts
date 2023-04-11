@@ -43,8 +43,8 @@ export default function useAcorn() {
 
 
   const acornParse = (code: string) => {
-    const variableList: string[] = [];
-    const vueImportList: string[] = [];
+    const variableSet = new Set<string>();
+    const vueImportSet = new Set<string>();
     const root = getRoot(code)!;
     const body = root.body;
 
@@ -52,7 +52,7 @@ export default function useAcorn() {
       if (init.type === 'CallExpression') {
         const { callee } = init;
         if (NEED_IMPORT_FROM_VUE.includes(callee.name) && callee.type === 'Identifier') {
-          vueImportList.push(callee.name);
+          vueImportSet.add(callee.name);
         } else {
           MError(`unknown init type: ${init}`);
         }
@@ -61,7 +61,7 @@ export default function useAcorn() {
 
     const initId = (declaration: AcornIdentifier) => {
       const { id, init } = declaration;
-      variableList.push(id.name);
+      variableSet.add(id.name);
       handleInit(init);
     };
     const getVariableInfo = (node: AcornVariableDeclaration) => {
@@ -87,8 +87,8 @@ export default function useAcorn() {
     }
 
     return {
-      variableList,
-      vueImportList
+      variableList: [...variableSet],
+      vueImportList: [...vueImportSet]
     };
   };
 
