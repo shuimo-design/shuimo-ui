@@ -1,5 +1,5 @@
 /**
- * @description a simple html ast hook.
+ * @description a simple html ast hook. ** only for react **
  * @author 阿怪
  * @date 2023/4/7 14:53
  * @version v1.0.0
@@ -134,6 +134,20 @@ export default function useHTMLAst() {
           walk.type = STATE.ATTR_VALUE;
           return;
         }
+        if (char === '>') {
+          attrs[attrName] = '';
+          walk.type = STATE.INNER_HTML;
+          return;
+        }
+        if (char === '/') {
+          attrs[attrName] = '';
+          walk.type = STATE.CLOSE_TAG;
+          return;
+        }
+        if (char === ' ') {
+          attrs[attrName] = '';
+          return;
+        }
         getAttrName();
       };
       getAttrName();
@@ -162,11 +176,19 @@ export default function useHTMLAst() {
 
       let char = walk.next();
       while (true) {
+        // child dom
         if (char === '<') {
+          if (walk.getNext() === ' ' || walk.getNext().charCodeAt(10)) {
+            walk.next();
+            continue;
+          }
           if (walk.getNext() !== '/') {
+            walk.type = STATE.DEFAULT;
             const res = parseDom(walk);
             walk = res.walk;
             children.push(res.dom);
+            walk.type = STATE.INNER_HTML;
+            char = walk.next();
             continue;
           }
           walk.type = STATE.END_TAG;

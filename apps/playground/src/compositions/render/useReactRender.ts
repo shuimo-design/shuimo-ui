@@ -10,6 +10,7 @@ import useHTMLAst from '../ast/useHTMLAST';
 import { createElement } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import * as MReact from '@shuimo-design/react/index';
+import { MError } from '../../plugins/console';
 
 
 function toPascalCase(str: string) {
@@ -24,15 +25,23 @@ export default function useReactRender(): IRender {
   let root: Root | undefined;
   const getElement = (code: TemplateCode) => {
     const ast = parse(code.templateHTML);
-    return createElement('div', {}, ...ast
-      .map((item) => {
-        // only for shuimo
-        if (item.name.startsWith('m-')) {
-          item.name = toPascalCase(item.name);
-        }
-        // @ts-ignore need help
-        return createElement(MReact[item.name], item.attrs, item.innerHTML);
-      }));
+    let res;
+    try {
+      res = createElement('div', {}, ...ast
+        .map((item) => {
+          // only for shuimo
+          if (item.name.startsWith('m-')) {
+            item.name = toPascalCase(item.name);
+          }
+          // @ts-ignore need help
+          const c = MReact[item.name];
+          return createElement(c ?? item.name, item.attrs, item.innerHTML);
+        }));
+    } catch (e) {
+      console.warn('render error');
+      MError(e);
+    }
+    return res;
   };
 
 

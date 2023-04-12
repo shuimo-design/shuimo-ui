@@ -20,13 +20,52 @@ describe('html ast test', () => {
       expect(parse('<div></div>')).toEqual([{ name: 'div' }]);
     });
 
-    test('with attr', () => {
-      expect(parse('<div class="hi"></div>')).toEqual([{
-        name: 'div',
-        attrs: {
-          class: 'hi'
-        }
-      }]);
+    describe('with attr', () => {
+      test('single attr', () => {
+        expect(parse('<div class="hi"></div>')).toEqual([{
+          name: 'div',
+          attrs: {
+            class: 'hi'
+          }
+        }]);
+      });
+
+      test('with v-model', () => {
+        expect(parse('<div v-model="hi"></div>')).toEqual([{
+          name: 'div',
+          attrs: {
+            'v-model': 'hi'
+          }
+        }]);
+      });
+
+      test('with v-model:visible', () => {
+        expect(parse('<div v-model:visible="hi"></div>')).toEqual([{
+          name: 'div',
+          attrs: {
+            'v-model:visible': 'hi'
+          }
+        }]);
+      });
+
+      test('with v-model:active without equal character', () => {
+        expect(parse('<div v-slot:active></div>')).toEqual([{
+          name: 'div',
+          attrs: {
+            'v-slot:active': ''
+          }
+        }]);
+      });
+
+      test('with @click', () => {
+        expect(parse('<div @click="hi"></div>')).toEqual([{
+          name: 'div',
+          attrs: {
+            '@click': 'hi'
+          }
+        }]);
+      });
+
     });
 
     test('with innerHTML', () => {
