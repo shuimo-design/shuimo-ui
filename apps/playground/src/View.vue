@@ -48,6 +48,7 @@ watch([templateHTML, templateCss, templateScript], () => {
   }
 });
 watch(() => templateType.value, () => {
+  localStorage.setItem('playground-template-type', templateType.value);
   playRender.value.updateRender(code.value);
 });
 

@@ -14,7 +14,9 @@ import useIframeParent from '../../iframe/useIframeParent';
 
 export default function useHome() {
   const { register } = useIframeParent();
-  const templateType = register<TemplateType>('type', 'vue');
+
+  const storageType = localStorage.getItem('playground-template-type') as TemplateType || 'vue';
+  const templateType = register<TemplateType>('type', storageType);
   const templateHTML = register('html', tHTML);
   const templateCss = register('css', tCss);
   const templateScript = register('script', tScript);
