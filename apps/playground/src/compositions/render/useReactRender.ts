@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import useHTMLAst from '../ast/useHTMLAST';
-import { createElement } from 'react';
+import useHTMLAst, { DOMAst } from '../ast/useHTMLAST';
+import { createElement, ReactNode } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import * as MReact from '@shuimo-design/react/index';
 import { MError } from '../../plugins/console';
@@ -23,20 +23,33 @@ export default function useReactRender(): IRender {
 
   const { parse } = useHTMLAst();
   let root: Root | undefined;
+
+  const _createElement = (item: DOMAst) => {
+
+    // only for shuimo
+    if (item.name.startsWith('m-')) {
+      item.name = toPascalCase(item.name);
+    }
+
+    const children: ReactNode[] = [];
+    // handle children
+    if (item.children && item.children.length > 0) {
+      item.children.forEach((child) => {
+        children.push(_createElement(child));
+      });
+    }
+
+    // @ts-ignore need help
+    const c = MReact[item.name];
+    return createElement(c ?? item.name, item.attrs, item.innerHTML, ...children);
+  };
+
   const getElement = (code: TemplateCode) => {
     const ast = parse(code.templateHTML);
     let res;
     try {
       res = createElement('div', {}, ...ast
-        .map((item) => {
-          // only for shuimo
-          if (item.name.startsWith('m-')) {
-            item.name = toPascalCase(item.name);
-          }
-          // @ts-ignore need help
-          const c = MReact[item.name];
-          return createElement(c ?? item.name, item.attrs, item.innerHTML);
-        }));
+        .map((item) => _createElement(item)));
     } catch (e) {
       console.warn('render error');
       MError(e);

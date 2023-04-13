@@ -11,7 +11,7 @@
 import { MError } from '../../plugins/console';
 
 type Attrs = Record<string, string>;
-type DOMAst = {
+export type DOMAst = {
   name: string,
   attrs?: Attrs,
   innerHTML?: string,
