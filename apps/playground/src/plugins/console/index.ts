@@ -8,6 +8,6 @@
  */
 
 
-export const MError = (msg:any)=>{
+export const MError = (msg: any) => {
   throw new Error(msg);
 }

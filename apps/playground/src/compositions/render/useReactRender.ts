@@ -6,11 +6,11 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import useHTMLAst, { DOMAst } from '../ast/useHTMLAST';
 import { createElement, ReactNode } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import * as MReact from '@shuimo-design/react/index';
 import { MError } from '../../plugins/console';
+import { parse } from '../ast/html/HTMLAST';
 
 
 function toPascalCase(str: string) {
@@ -21,7 +21,6 @@ function toPascalCase(str: string) {
 
 export default function useReactRender(): IRender {
 
-  const { parse } = useHTMLAst();
   let root: Root | undefined;
 
   const _createElement = (item: DOMAst) => {
@@ -32,16 +31,26 @@ export default function useReactRender(): IRender {
     }
 
     const children: ReactNode[] = [];
+    const attrs: Record<string, string | ReactNode> = item.attrs ?? {};
     // handle children
     if (item.children && item.children.length > 0) {
       item.children.forEach((child) => {
+        // handle <template v-slot> => todo find a better way
+        if (child.name === 'template' && child.attrs) {
+          const nameSlot = Object.keys(child.attrs).find(key => key.includes('v-slot'));
+          if (nameSlot) {
+            const slotName = nameSlot.replace('v-slot:', '');
+            attrs[slotName] = _createElement(child);
+            return;
+          }
+        }
         children.push(_createElement(child));
       });
     }
 
     // @ts-ignore need help
     const c = MReact[item.name];
-    return createElement(c ?? item.name, item.attrs, item.innerHTML, ...children);
+    return createElement(c ?? item.name, attrs, item.innerHTML, ...children);
   };
 
   const getElement = (code: TemplateCode) => {
