@@ -94,13 +94,14 @@ export const getDom = (walker: HTMLWalker): DOMAst => {
         throw new Error(`innerHTML error, next code is ${next}`);
       }
     }
+    innerHTML = innerHTML.trim().replaceAll(HTMLDelimiter.NEW_LINE, '');
 
     // innerHTML next must include '<' => means dom must close.
     // but when next is '<', the possible situation is a dom or end tag
     next = walker.next();
     while (next !== HTMLDelimiter.SLASH) {
 
-      if (innerHTML.trim() !== '') {
+      if (innerHTML !== '') {
         children.push({ name: 'p_text', innerHTML });
         innerHTML = '';
       }
@@ -115,7 +116,6 @@ export const getDom = (walker: HTMLWalker): DOMAst => {
         next = walker.nextWord();
       }
     }
-
 
     return {
       innerHTML,
@@ -147,25 +147,38 @@ export const getDom = (walker: HTMLWalker): DOMAst => {
         innerHTML = innerHTMLInfo.innerHTML;
       }
       if (innerHTMLInfo.children.length) {
-        innerHTMLInfo.children.forEach((child) => {
+        // ** is shuimo component ** This code is too cohesive
+        const isM = name.startsWith('m-');
+        if (isM) {
 
-          // for react slot
-          if (child.name === 'template' && child.attrs) {
-            const V_SLOT_STR = 'v-slot:';
-            const slotAttrNameIndex = Object.keys(child.attrs).findIndex(a => a.startsWith(V_SLOT_STR));
-            const slotAttrNameStr = Object.keys(child.attrs)[slotAttrNameIndex];
-            if (slotAttrNameStr) {
-              const slotAttr = slotAttrNameStr.replace(V_SLOT_STR, '');
-              if (!child.children || child.children.length !== 1) {
-                throw new Error('slot must have one child');
+          const defaultList: DOMAst[] = [];
+          innerHTMLInfo.children.forEach((child) => {
+
+            // for react slot
+            if (child.name === 'template' && child.attrs) {
+              const V_SLOT_STR = 'v-slot:';
+              const slotAttrNameIndex = Object.keys(child.attrs).findIndex(a => a.startsWith(V_SLOT_STR));
+              const slotAttrNameStr = Object.keys(child.attrs)[slotAttrNameIndex];
+              if (slotAttrNameStr) {
+                const slotAttr = slotAttrNameStr.replace(V_SLOT_STR, '');
+                if (!child.children || child.children.length !== 1) {
+                  throw new Error('slot must have one child');
+                }
+                children.push(child);
               }
-              // only support one child
-              attribute[slotAttr] = child.children[0];
+            } else {
+              defaultList.push(child);
             }
-          } else {
-            children.push(child);
-          }
-        });
+
+            if (defaultList.length > 0) {
+              children.push(...defaultList)
+            }
+          });
+        } else {
+          children.push(...innerHTMLInfo.children);
+        }
+
+
       }
     }
 

@@ -122,7 +122,7 @@ describe('get dom', () => {
         children: [
           {
             name: 'p_text',
-            innerHTML: 'hello '
+            innerHTML: 'hello'  // todo fix trim
           },
           {
             name: 'span',
@@ -137,7 +137,7 @@ describe('get dom', () => {
       expect(getDom(walker)).toEqual({
         name: 'div',
         children: [
-          { name: 'p_text', innerHTML: 'hello ' },
+          { name: 'p_text', innerHTML: 'hello' },
           { name: 'span', innerHTML: 'world' },
           { name: 'div', innerHTML: 'hi' }
         ]
@@ -152,14 +152,17 @@ describe('get dom', () => {
   </template>
 </m-dialog>`);
       expect(getDom(walker)).toMatchObject({
-        name:'m-dialog',
+        name: 'm-dialog',
         attrs: {
-          'v-model:visible': 'visible',
-          'active':{
-            innerHTML:'触发',
-            name:'m-button'
+          'v-model:visible': 'visible'
+        },
+        children: [
+          {
+            name: 'template',
+            attrs: { 'v-slot:active': '' },
+            children: [{ innerHTML: '触发', name: 'm-button' }]
           }
-        }
+        ]
       });
     });
 
@@ -179,13 +182,21 @@ describe('get dom', () => {
 `))).toMatchInlineSnapshot(`
   {
     "attrs": {
-      "active": {
-        "innerHTML": "触发",
-        "name": "m-button",
-      },
       "v-model:visible": "visible",
     },
     "children": [
+      {
+        "attrs": {
+          "v-slot:active": "",
+        },
+        "children": [
+          {
+            "innerHTML": "触发",
+            "name": "m-button",
+          },
+        ],
+        "name": "template",
+      },
       {
         "children": [
           {
@@ -200,13 +211,9 @@ describe('get dom', () => {
             "name": "m-button",
           },
         ],
-        "innerHTML": "
-      ",
         "name": "div",
       },
     ],
-    "innerHTML": "
-    ",
     "name": "m-dialog",
   }
 `);

@@ -40,7 +40,8 @@ export default function useReactRender(): IRender {
           const nameSlot = Object.keys(child.attrs).find(key => key.includes('v-slot'));
           if (nameSlot) {
             const slotName = nameSlot.replace('v-slot:', '');
-            attrs[slotName] = _createElement(child);
+            // only support one child
+            attrs[slotName] = _createElement(child.children![0]);
             return;
           }
         }
@@ -57,8 +58,7 @@ export default function useReactRender(): IRender {
     const ast = parse(code.templateHTML);
     let res;
     try {
-      res = createElement('div', {}, ...ast
-        .map((item) => _createElement(item)));
+      res = createElement('div', {}, ...ast.map((item) => _createElement(item)));
     } catch (e) {
       console.warn('render error');
       MError(e);
