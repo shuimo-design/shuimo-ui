@@ -23,6 +23,7 @@ export * from '../lib/base/progress';
 
 // [message]
 export * from '../lib/message/popover';
+export * from '../lib/message/dialog';
 
 // [template]
 export * from '../lib/template/menu';

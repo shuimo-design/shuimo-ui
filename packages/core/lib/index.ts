@@ -22,6 +22,7 @@ import { progressProps, useProgress } from './base/progress/useProgress';
 
 // [message]
 import { usePopover } from './message/popover/usePopover';
+import { dialogProps, useDialog } from './message/dialog/useDialog';
 
 // [template]
 import { useBorder } from './template/border/useBorder';
@@ -54,6 +55,7 @@ export {
 
   // [message]
   usePopover,
+  dialogProps, useDialog,
 
   // [template]
   useBorder,

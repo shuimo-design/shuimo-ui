@@ -7,8 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 const val = ref('hi');
+const visible = ref(false);
 const click = () => {
   val.value = 'hello';
-}
-
-
+  visible.value = !visible.value;
+};

@@ -17,7 +17,7 @@ body {
 
 .editor {
   height: calc((100vh - 50px) / 3 - 5px);
-  width: 100%;
+  width: 50vw;
 }
 
 #vue {

@@ -14,7 +14,11 @@
           <Editor v-model="templateScript.value" language="javascript"/>
         </div>
       </div>
-      <iframe class="viewer" src="/view" frameborder="0"/>
+      <div class="viewer-wrapper">
+        <sp-border>
+          <iframe class="viewer" src="/view" frameborder="0"/>
+        </sp-border>
+      </div>
     </div>
   </sp-rice-paper>
 </template>
@@ -53,5 +57,14 @@ if (import.meta.hot) {
 </script>
 
 <style lang="scss" scoped>
+
+.viewer-wrapper {
+  margin: 20px 10px;
+}
+
+.viewer {
+  width: calc(50vw - 20px);
+  height: calc(100vh - 80px);
+}
 
 </style>

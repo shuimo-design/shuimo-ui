@@ -1,6 +1,6 @@
 <template>
-  <div>
-    here is Playground
+  <div class="view">
+    <h1>here is Playground</h1>
     <div class="render"></div>
   </div>
 </template>
@@ -57,8 +57,6 @@ onMounted(() => {
 });
 
 
-
-
 if (import.meta.hot) {
   import.meta.hot.on('update-core', () => {
     console.log('update-core');
@@ -69,5 +67,10 @@ if (import.meta.hot) {
 </script>
 
 <style lang="scss" scoped>
-
+.view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 </style>

@@ -23,6 +23,7 @@ import MLoading from './other/MLoading';
 
 // [message]
 import MPopover from './message/MPopover';
+import MDialog from './message/MDialog';
 
 // [template]
 import MRicePaper from './template/MRicePaper';
@@ -49,6 +50,7 @@ const components: Record<string, Component> = {
 
   // [message]
   MPopover,
+  MDialog,
 
   // [template]
   MRicePaper,
@@ -76,6 +78,7 @@ export {
 
   // [message]
   MPopover,
+  MDialog,
 
   // [template]
   MRicePaper,
