@@ -8,25 +8,24 @@
  * v1.0.1 默认改为冷色调，添加色调选项
  */
 import { defineComponent } from 'vue';
-import Printer from '../other/Printer';
-import { useRicePaper, ricePaperProps } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
-import { MNodeTemplate } from '@shuimo-design/types';
+import { props } from '@shuimo-design/core/lib/template/ricePaper/api';
 
 
 export default defineComponent({
   name: 'MRicePaper',
-  props: ricePaperProps,
-  setup: (props, { slots }) => {
-    if (!slots || !slots.default) {
-      Printer('水墨宣纸组件').error('必须传入default slot');
-      return () => null;
-    }
-
+  props,
+  setup(props,{slots}) {
     return () => {
-      const { getTemplate } = useRicePaper();
-      const template = getTemplate(props) as MNodeTemplate;
-      return cr(template, { props, slots });
+      const mountainTemplate = props.mountain ? <div class="m-rice-paper-mountain"></div> : null;
+      const craneTemplate = props.crane ? <div class="m-rice-paper-crane"></div> : null;
+
+      return <div class={['m-rice-paper', !props.cold ? 'm-rice-paper-warn' : undefined].join(' ')}>
+        {mountainTemplate}
+        {craneTemplate}
+        <div class="m-rice-paper-main">
+          {slots.default?.()}
+        </div>
+      </div>;
     };
   }
 });

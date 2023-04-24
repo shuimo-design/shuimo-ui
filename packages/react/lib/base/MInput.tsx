@@ -6,26 +6,44 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { InputEvents, InputProps, useInput } from '@shuimo-design/core';
-import { useState } from 'react';
-import { cr } from '../../tools/coreRender';
-
+import React from 'react';
+import '@shuimo-design/core/lib/base/input/input.css';
+import { InputEvents, InputProps } from '@shuimo-design/core/lib/base/input';
+import MBorder from '../template/MBorder';
+import { HTMLElementEvent } from '@shuimo-design/types';
 
 export default function MInput(props: InputProps & InputEvents) {
-  const { getTemplate } = useInput();
 
-  const [value, setValue] = useState(props.value);
+  const isInput = props.type !== 'textarea';
+  const domType = isInput ? 'input' : 'textarea';
+  const borderClass = [
+    'm-input',
+    !isInput ? 'm-textarea' : '',
+    props.disabled ? 'm-input-disabled' : ''
+  ].join(' ');
 
-  return cr(getTemplate({
-    props: {
-      ...props,
-      value
+  const dom = React.createElement(domType, {
+    value: props.value,
+    placeholder: props.placeholder,
+    disabled: props.disabled,
+    readOnly: props.readonly,
+    className: isInput ? 'm-input-inner' : 'm-textarea-inner',
+    onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
+      if (props.disabled) {e.preventDefault();}
+      props.onInput?.(e);
     },
-    events: {
-      onInput: (e: any) => {
-        setValue(e.target.value);
-        props.onInput && props.onInput(e.target.value);
-      }
-    }
-  }));
+    onFocus: (e: FocusEvent) => {
+      if (props.disabled) {e.preventDefault();}
+      props.onFocus?.(e);
+    },
+    onBlur: (e: FocusEvent) => {
+      if (props.disabled) {e.preventDefault();}
+      props.onBlur?.(e);
+    },
+    ...(isInput ? {} : { rows: 10 })
+  });
+
+  return <MBorder className={borderClass}>
+    {dom}
+  </MBorder>;
 }

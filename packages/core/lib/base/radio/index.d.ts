@@ -14,19 +14,38 @@
 
 export declare type RadioProps = {
   /**
-   * @description radio value
-   *              单选框的值
+   * @description radio label
+   *              单选框的标签值
    * @type string | number
    * @default ''
    */
-  value?: string | number,
+  label?: string | number,
   /**
-   * @description radio label
-   *              单选框的标签值
-   * @type string
+   * @description radio name
+   *              单选框的name值
+   * @type string | undefined
+   * @default undefined
+   */
+  name?: string,
+  /**
+   * @description radio checked
+   *              是否选中
+   * @default undefined
+   */
+  checked?: boolean | undefined | null,
+  /**
+   * @description radio value
+   *              单选框的值
+   * @default undefined
+   */
+  value?: any,
+  /**
+   * @description value
+   *              绑定值
+   * @type any
    * @default ''
    */
-  label?: string | number
+  modelValue?: any,
 }
 
 export declare type RadioEvents = {

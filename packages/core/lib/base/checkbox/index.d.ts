@@ -15,26 +15,12 @@ import { HTMLElementEvent } from '@shuimo-design/types';
 
 export declare type CheckboxProps = {
   /**
-   * @description checkbox label text, will replace by slot
-   *              按钮文本 会被slot覆盖
+   * @description checkbox label text, will replace slot
+   *              文本 会覆盖slot
    * @type string
    * @default ''
    */
   label?: string,
-  /**
-   * @description checkbox value
-   *              复选框值，优先级高于slot
-   * @type string | number
-   * @default ''
-   */
-  value?: string | number,
-  /**
-   * @description checkbox disabled
-   *              是否禁用
-   * @type boolean
-   * @default false
-   */
-  disabled?: boolean,
   /**
    * @description checkbox checked
    *              是否选中
@@ -42,20 +28,34 @@ export declare type CheckboxProps = {
    */
   checked?: boolean | undefined | null,
   /**
-   * @description checkbox default value
-   *              checkbox默认值
+   * @description checkbox value
+   * @default undefined
+   */
+  value?: any,
+  /**
+   * @description value
+   *              绑定值
+   * @type any
+   * @default ''
+   */
+  modelValue?: any,
+  /**
+   * @description checkbox indeterminate
+   *              是否为不确定状态  todo 暂未支持
+   * @default undefined
+   */
+  indeterminate?: boolean,
+  /**
+   * @description checkbox disabled
+   *              是否禁用 todo 暂未支持
    * @type boolean
    * @default false
    */
-  defaultChecked?: boolean,
-  /**
-   * @description checkbox modelValue
-   * @default undefined
-   */
-  modelValue?: boolean | undefined
+  disabled?: boolean
 }
 
 
 export declare type CheckboxEvents = {
-  onChange: (e: HTMLElementEvent<HTMLInputElement>) => void
+  onChange?: (e: HTMLElementEvent<HTMLInputElement>) => void,
+  onInput?: (value: any) => void
 }

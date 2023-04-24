@@ -10,7 +10,7 @@ import { MNodeTemplate } from '../template/template';
 import { MCOPO } from '../props/props';
 
 
-export declare type RefValue = { value: HTMLElement | undefined } | { current: HTMLElement | undefined }
+export declare type RefValue = { value: HTMLElement | undefined } | { current: any }
 export declare type RefRecord = Record<string, RefValue>;
 export interface ICoreHookFunc<Props, Events> {
   options: {

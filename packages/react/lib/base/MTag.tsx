@@ -6,14 +6,18 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { TagProps, useTag } from '@shuimo-design/core';
-import { Slot } from '../types';
-import { cr } from '../../tools/coreRender';
+import React from 'react';
+import '@shuimo-design/core/lib/base/tag/tag.css';
+import { TagProps } from '@shuimo-design/core/lib/base/tag';
+import { Slot } from '../../types';
 
 export default function MTag(props: TagProps & Slot) {
-  const { getTemplate } = useTag();
 
-  return cr(getTemplate({
-    props
-  }),props)
+  return <div className={['m-tag', `m-tag-${props.type ?? 'default'}`].join(' ')}>
+    <div className="m-tag-left"/>
+    <div className="m-tag-main">
+      {props.children}
+    </div>
+    <div className="m-tag-right"/>
+  </div>;
 }

@@ -7,12 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, ref, watch } from 'vue';
-import { useDialog, dialogProps } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { props } from '@shuimo-design/core/lib/message/dialog/api';
 
 export default defineComponent({
   name: 'MDialog',
-  props: dialogProps,
+  props,
   emits: ['update:visible'],
   setup: (props, { emit, slots }) => {
 
@@ -31,14 +30,28 @@ export default defineComponent({
     });
 
     return () => {
-      const { getTemplate } = useDialog({
-        props: { visible },
-        events: {
-          handleClick,
-          closeDialog
-        }
-      });
-      return cr(getTemplate({ props }), { slots });
+      const getCloseDialog = () => {
+        return <div onClick={(e: MouseEvent) => closeDialog()} class="m-dialog-close-btn m-cursor-pointer"/>;
+      };
+      const getActive = () => {
+        return <div class="m-dialog-active" onClick={(e: MouseEvent) => handleClick()}>
+          {slots.active?.()}
+        </div>;
+      };
+
+      const getDialog = () => {
+        return <div class={['m-dialog-mask', props.mask.show ? 'm-dialog-mask-bg' : '']}>
+          <div class="m-dialog">
+            {getCloseDialog()}
+            {slots.default?.()}
+          </div>
+        </div>;
+      };
+
+      return <div class="m-dialog-wrapper">
+        {getActive()}
+        {visible.value ? getDialog() : ''}
+      </div>;
     };
   }
 });

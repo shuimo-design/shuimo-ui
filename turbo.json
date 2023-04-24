@@ -1,58 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "pre-dev": {
-      "cache": false
-    },
-    "dev": {
-      "cache": false,
-      "dependsOn": [
-        "pre-dev"
-      ]
-    },
-    "dev:doc": {
-      "cache": false,
-      "dependsOn": [
-        "build:jsx",
-        "build:postcss",
-        "web-component-doc:dev"
-      ]
-    },
-    "web-component-doc:dev": {
-      "cache": false,
-      "dependsOn": [
-        "build:jsx",
-        "build:postcss",
-        "build:web-component"
-      ]
-    },
-    "build:postcss": {},
-    "build:jsx": {},
-    "build:web-component": {},
-    "playground": {
-      "cache": false,
-      "dependsOn": [
-        "playground:web-component", "playground:vue", "playground:react"
-      ]
-    },
-    "playground:web-component": {
-      "cache": false,
-      "dependsOn": [
-        "^playground:web-component"
-      ]
-    },
-    "playground:vue": {
-      "cache": false,
-      "dependsOn": [
-        "^playground:vue"
-      ]
-    },
-    "playground:react": {
-      "cache": false,
-      "dependsOn": [
-        "^playground:react"
-      ]
-    },
     "clean": {
       "cache": false
     }

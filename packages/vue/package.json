@@ -3,14 +3,15 @@
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "description": "一款粗暴的水墨风UI组件",
   "version": "0.3.0-0",
-  "devDependencies": {
-    "@shuimo-design/core": "*",
-    "@shuimo-design/web-component": "*",
-    "@shuimo-design/jsx": "*",
-    "@shuimo-design/types": "*",
-    "jsdom": "^19.0.0",
-    "typescript": "*",
-    "vitest": "^0.28.1",
+  "main": "index.ts",
+  "exports": {
+    "./*": "./*"
+  },
+  "dependencies": {
+    "@shuimo-design/core": "workspace:*",
+    "@shuimo-design/tools": "workspace:*",
+    "@shuimo-design/types": "workspace:*",
+    "vitest": "^0.30.1",
     "vue": "^3.2.47"
   }
 }

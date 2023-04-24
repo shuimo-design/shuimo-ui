@@ -24,9 +24,11 @@
   },
   "homepage": "https://shuimo.janghood.com",
   "dependencies": {
-    "turbo": "^1.6.3"
+    "turbo": "^1.6.3",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
-  }
+  },
+  "web-types": "web-types.json"
 }

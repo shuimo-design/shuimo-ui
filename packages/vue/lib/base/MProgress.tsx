@@ -9,17 +9,38 @@
  * v1.0.2 修复绝对定位造成竹叶及数字渲染位置错误的问题
  * v1.0.3 百分比模块改为slot模式（为支持nuxt ssr ）
  */
-import { defineComponent } from 'vue';
-import { useProgress, progressProps } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { defineComponent, computed } from 'vue';
+import { props } from '@shuimo-design/core/lib/base/progress/api';
+import { getProgressInfo, getProgressWrapperStyle, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
 
 export default defineComponent({
   name: 'MProgress',
-  props: progressProps,
+  props,
   setup: (props, { slots }) => {
+    const progressInfo = computed(() => getProgressInfo(props));
+    const progressWrapperInfo = computed(() => {
+      if (props.showInfo) {
+        return getProgressWrapperStyle(props, progressInfo.value);
+      }
+    });
+
+
     return () => {
-      const { getTemplate } = useProgress();
-      return cr(getTemplate({ props }), { slots });
+
+      const progress = <progress class="m-progress"
+                                 value={props.value} max={props.max} style={progressInfo.value.style}/>;
+      if (!props.showInfo) {
+        return progress;
+      }
+
+
+      return <div class="m-progress-border" style={progressWrapperInfo.value.baseStyle}>
+        <div class="m-progress-per" style={progressWrapperInfo.value.textStyle}>
+          <img class="m-progress-leaf" src={leaf.default} alt=""/>
+          {slots.default?.()}
+        </div>
+        {progress}
+      </div>;
     };
   }
 });

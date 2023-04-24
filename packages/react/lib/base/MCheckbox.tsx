@@ -6,21 +6,47 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { CheckboxEvents, CheckboxProps, useCheckbox } from '@shuimo-design/core';
-import { Slot } from '../types';
-import { cr } from '../../tools/coreRender';
+import React, { memo, SyntheticEvent, useEffect, useState } from 'react';
+import '@shuimo-design/core/lib/base/checkbox/checkbox.css';
+import { CheckboxEvents, CheckboxProps } from '@shuimo-design/core/lib/base/checkbox';
+import { initChecked, getNewModelValue } from '@shuimo-design/core/lib/base/checkbox/useCheckbox';
+import { Slot } from '../../types';
+import { notEmpty } from '@shuimo-design/tools/empty';
 
 
-export default function MCheckbox(props: CheckboxProps & CheckboxEvents & Slot) {
+export default memo(function MCheckbox(props: CheckboxProps & CheckboxEvents & Slot) {
 
+  const [checked, setChecked] = useState(false);
+  useEffect(() => {
+    const res = initChecked(props);
+    setChecked(res);
+  }, [
+    props.checked,
+    props.modelValue,
+    props.value
+  ]);
 
-  const { getTemplate } = useCheckbox();
+  const onClick = (e: SyntheticEvent) => {
+    setChecked(!checked);
+    const obj = getNewModelValue(props, !checked);
+    props.onInput?.(obj);
+  };
 
-  return cr(getTemplate({
-    props,
-    events: {
-      onChange: props.onChange
-    }
-  }), props);
+  const onChange = () => {
 
-}
+  };
+
+  const label = <label className="m-checkbox-slot">
+    {notEmpty(props.label) ? <span>{props.label}</span> : props.children}
+  </label>;
+
+  return <div className="m-checkbox"
+              onClick={onClick}
+              onChange={onChange}>
+    <input type="checkbox" defaultChecked={checked}/>
+    <div className="m-checkbox-checkbox"/>
+    {checked ? <div className="m-checkbox-checkbox-inner"/> : null}
+    {label}
+  </div>;
+
+});

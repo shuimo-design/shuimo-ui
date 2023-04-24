@@ -17,8 +17,8 @@ export declare type InputProps = {
   /**
    * @description input type. 输入框类型
    * @type string
-   * @default text
-   * @enum text|textarea
+   * @default input
+   * @enum input|textarea
    */
   type?: string,
   /**
@@ -31,7 +31,7 @@ export declare type InputProps = {
    * @description input value. 输入框绑定值
    * @type string|number
    * @default ''
-   * @web-component
+   * @component
    */
   value?: string | number,
   /**
@@ -39,7 +39,7 @@ export declare type InputProps = {
    * @type boolean
    * @default false
    */
-  readOnly?: boolean,
+  readonly?: boolean,
   /**
    * @description input disabled. 是否禁用
    * @type boolean

@@ -6,19 +6,42 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { PopoverProps, usePopover } from '@shuimo-design/core';
-import { Slot } from '../types';
-import { cr } from '../../tools/coreRender';
-import { useRef } from 'react';
 
+import React, { useRef } from 'react';
+import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
+import { Slot } from '../../types';
+import { usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
+import '@shuimo-design/core/lib/message/popover/popover.css';
+import { getSlot } from '../../base/tools';
 
 export default function MPopover(props: PopoverProps & Slot) {
-  const { getTemplate } = usePopover();
+  const { init, trigger } = usePopover();
 
-  const popoverRef = useRef<HTMLElement>();
-  const contentRef = useRef<HTMLElement>();
+  const popoverRef = useRef(null);
+  const contentRef = useRef(null);
 
-  return cr(getTemplate({
-    ref: { popoverRef, contentRef }
-  }), props);
+
+  const [content, active] = getSlot(props, 'content');
+
+  let isFirstClick = false;
+  const handleClick = () => {
+    if (!isFirstClick) {
+      isFirstClick = true;
+      init(popoverRef.current!, contentRef.current!);
+    }
+    trigger();
+  };
+
+  return <div className="m-popover">
+    <div className="m-popover-default-wrapper"
+         ref={popoverRef}
+         onClick={() => handleClick()}>
+      {active}
+    </div>
+    <div className="m-popover-content" ref={contentRef}>
+      {content}
+    </div>
+  </div>;
+
+
 }

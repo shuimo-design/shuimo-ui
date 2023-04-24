@@ -7,16 +7,26 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import React from 'react';
-import { ButtonEvents, ButtonProps, useButton } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
-import '@shuimo-design/core/lib/base/button/button.pcss';
+import '@shuimo-design/core/lib/base/button/button.css';
+import { ButtonEvents, ButtonProps } from '@shuimo-design/core/lib/base/button';
+import { Slot } from '../../types';
 
 
-export default function MButton(props: ButtonProps & ButtonEvents & { children?: React.ReactNode }) {
+export default function MButton(props: ButtonProps & ButtonEvents & Slot) {
 
-  const { getTemplate } = useButton();
-
-  return cr(getTemplate({
-    props, events: { onClick: props.onClick }
-  }), props);
+  const domType = props.link ? 'a' : 'button';
+  return React.createElement(domType, {
+    className: [
+      'm-button',
+      props.disabled ? 'm-button-disabled' : undefined,
+      `m-button-${props.type ?? 'default'}`
+    ].filter(e => e).join(' '),
+    disabled: props.disabled,
+    onClick: (e:MouseEvent)=>{
+      if(props.disabled){
+        e.preventDefault();
+      }
+      props.onClick?.(e);
+    }
+  }, props.children ?? props.text);
 }

@@ -9,27 +9,45 @@
  * v1.0.1 修复checkbox的slot支持
  * v2.0.0 阿怪 upgrade to core version
  */
-import { defineComponent } from 'vue';
-import { checkboxProps, useCheckbox } from '@shuimo-design/core';
-import { HTMLElementEvent } from '@shuimo-design/types';
-import { cr } from '../../tools/coreRender';
+import { defineComponent, ref, watch } from 'vue';
+import { props } from '@shuimo-design/core/lib/base/checkbox/api';
+import { initChecked, getNewModelValue } from '@shuimo-design/core/lib/base/checkbox/useCheckbox';
+import { notEmpty } from '@shuimo-design/tools/empty';
 
 export default defineComponent({
   name: 'MCheckbox',
-  props: checkboxProps,
+  props,
   emits: ['change', 'update:modelValue'],
   setup(props, { emit, slots }) {
+
+    const checked = ref(initChecked(props));
+
+    watch(() => [props.modelValue, props.checked, props.value], () => {
+      checked.value = initChecked(props);
+    });
+
+    const onClick = () => {
+      checked.value = !checked.value;
+      emit('update:modelValue', getNewModelValue(props, checked.value));
+    };
+
+    const onChange = () => {
+      emit('change', checked.value);
+    };
+
     return () => {
-      const { getTemplate } = useCheckbox();
-      return cr(getTemplate({
-        props: { ...props, checked: props.modelValue },
-        events: {
-          onChange: (e: HTMLElementEvent<HTMLInputElement>) => {
-            emit('change', e);
-            emit('update:modelValue', !props.modelValue);
-          }
-        }
-      }), { props, slots });
+      const label = <label class="m-checkbox-slot">
+        {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
+      </label>;
+
+      return <div class="m-checkbox"
+                  onClick={onClick}
+                  onChange={onChange}>
+        <input type="checkbox" checked={checked.value}/>
+        <div class="m-checkbox-checkbox"/>
+        {checked.value ? <div class="m-checkbox-checkbox-inner"/> : null}
+        {label}
+      </div>;
     };
   }
 });

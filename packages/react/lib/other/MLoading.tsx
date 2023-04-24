@@ -6,36 +6,49 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { useLoading, LoadingProps } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
-import { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import '@shuimo-design/core/lib/other/loading/loading.css';
+import { LoadingProps } from '@shuimo-design/core/lib/other/loading';
+import { useLoading } from '@shuimo-design/core/lib/other/loading/useLoading';
+import { props as loadingProps } from '@shuimo-design/core/lib/other/loading/api';
+import { withDefault } from '../../base/tools';
 
-export default function MLoading(props: LoadingProps) {
-  const { getTemplate, onMountedHook } = useLoading();
+export default function MLoading(baseProps: LoadingProps) {
+  const props = withDefault(baseProps, loadingProps);
+  const { onMountedHook, shuaIndexList } = useLoading();
+  const animationSpeed = props.speed / 1000;
 
+  const loadingRef = useRef(null);
+  const shua0Ref = useRef(null);
+  const shua1Ref = useRef(null);
+  const shua2Ref = useRef(null);
+  const shua3Ref = useRef(null);
+  const shua4Ref = useRef(null);
+  const shua5Ref = useRef(null);
+  const shua6Ref = useRef(null);
+  const shua7Ref = useRef(null);
 
-  const loadingRef = useRef<HTMLElement>();
-  const shua0Ref = useRef<HTMLElement>();
-  const shua1Ref = useRef<HTMLElement>();
-  const shua2Ref = useRef<HTMLElement>();
-  const shua3Ref = useRef<HTMLElement>();
-  const shua4Ref = useRef<HTMLElement>();
-  const shua5Ref = useRef<HTMLElement>();
-  const shua6Ref = useRef<HTMLElement>();
-  const shua7Ref = useRef<HTMLElement>();
-
-  const ref = {
+  const refs = {
     loadingRef,
     shua0Ref, shua1Ref, shua2Ref, shua3Ref, shua4Ref, shua5Ref, shua6Ref, shua7Ref
   };
 
   useEffect(() => {
-    onMountedHook({ ...props, ...ref })
+    onMountedHook({ ...props, ...refs });
   });
 
-  return cr(getTemplate({
-    props,
-    ref
-  }), props);
+  const shuaList = shuaIndexList.map((_, i) => {
+    return <div className={`m-loading-item m-loading-shua${i % 4}`}
+                key={`m-loading-shua-${i}`}
+                ref={refs[`shua${i}Ref` as keyof typeof refs]}/>;
+  });
+
+  const style = { '--m-loading-speed': `${animationSpeed}s` } as React.CSSProperties;
+
+  return <div className="m-loading" style={style} ref={loadingRef}>
+    <div className="m-loading-shua-wrapper">
+      {shuaList}
+    </div>
+  </div>;
 }
 

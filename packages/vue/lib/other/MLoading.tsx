@@ -7,12 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, ref, onMounted } from 'vue';
-import { useLoading, loadingProps } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { props } from '@shuimo-design/core/lib/other/loading/api';
+import { useLoading } from '@shuimo-design/core/lib/other/loading/useLoading';
 
 export default defineComponent({
   name: 'MLoading',
-  props: loadingProps,
+  props,
   setup: (props, { slots }) => {
     const loadingRef = ref<HTMLElement>();
     const shua0Ref = ref<HTMLElement>();
@@ -27,17 +27,24 @@ export default defineComponent({
     const refs = {
       loadingRef,
       shua0Ref, shua1Ref, shua2Ref, shua3Ref, shua4Ref, shua5Ref, shua6Ref, shua7Ref
-    }
-    const { getTemplate, onMountedHook } = useLoading();
-    onMounted(async () => {
-      await onMountedHook({ ...props, ...refs });
+    };
+    const { onMountedHook, shuaIndexList } = useLoading();
+    onMounted(() => {
+      onMountedHook({ ...props, ...refs });
     });
 
     return () => {
-      return cr(getTemplate({
-        props,
-        ref: refs
-      }), { slots });
+      const animationSpeed = props.speed / 1000;
+
+      const shuaList = shuaIndexList.map((_, i) => {
+        return <div class={`m-loading-item m-loading-shua${i % 4}`} ref={refs[`shua${i}Ref`]}/>;
+      });
+
+      return <div class="m-loading" style={{ '--m-loading-speed': `${animationSpeed}s` }} ref={loadingRef}>
+        <div class="m-loading-shua-wrapper">
+          {shuaList}
+        </div>
+      </div>;
     };
   }
 });

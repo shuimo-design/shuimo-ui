@@ -1,0 +1,60 @@
+.m-border {
+  display: inline-grid;
+  grid-template-columns: 6px auto 6px;
+  grid-template-rows: 5px auto 5px;
+  grid-template-areas: "topleft top topright"
+                       "left main right"
+                       "bottomleft bottom bottomright";
+
+}
+
+.m-border-main{
+  grid-area: main;
+}
+
+
+.m-border-line, .m-border-main {
+  display: inline-block;
+}
+
+.m-border-line {
+  position: relative;
+}
+
+.m-border-top-line, .m-border-bottom-line {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+}
+
+.m-border-left-line, .m-border-right-line {
+  background: url(../../assets/line/vertical.png) repeat-y;
+  width: 6px;
+}
+
+.m-border-top-line {
+  grid-area: topleft / topleft / topright / topright;
+  top: -2.5px;
+}
+
+.m-border-right-line {
+  grid-area: topright / topright / bottomright / bottomright;
+  right: -3px;
+}
+
+.m-border-bottom-line {
+  grid-area: bottomleft / bottomleft / bottomright / bottomright;
+  bottom: -2.5px;
+}
+
+.m-border-left-line {
+  grid-area: topleft / topleft / bottomleft / bottomleft;
+  left: -3px;
+}
+
+.m-border-main {
+  box-sizing: border-box;
+  grid-area: topleft / topleft / bottomright / bottomright;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+}

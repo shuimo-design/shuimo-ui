@@ -12,31 +12,43 @@
  * v1.1.2 阿怪 添加blur事件冒泡
  * v2.0.0 阿怪 upgrade to core version
  */
-import { defineComponent } from 'vue';
-import { inputProps, useInput } from '@shuimo-design/core';
+import { defineComponent, h, computed } from 'vue';
+import { props } from '@shuimo-design/core/lib/base/input/api';
 import { HTMLElementEvent } from '@shuimo-design/types';
-import { cr } from '../../tools/coreRender';
-
+import MBorder from '../template/MBorder';
 
 export default defineComponent({
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur'],
   props: {
-    ...inputProps,
-    modelValue: { type: String, default: '' } // todo universalization
+    ...props,
+    modelValue: { type: String, default: '' }
   },
   setup(props, { emit }) {
 
+    const borderClass = computed(() => ({
+      class: ['m-input', { 'm-textarea': props.type === 'textarea' }, { 'm-input-disabled': props.disabled }]
+    }));
     return () => {
-      const { getTemplate } = useInput();
-      return cr(getTemplate({
-        props: { ...props, value: props.modelValue },
-        events: {
-          onInput: (e: HTMLElementEvent<HTMLInputElement>) => {emit('update:modelValue', e.target.value);},
-          onFocus: (e: FocusEvent) => {emit('focus', e);},
-          onBlur: (e: FocusEvent) => {emit('blur', e);}
-        }
-      }), { props });
+      const isInput = props.type !== 'textarea';
+
+      return h(MBorder,borderClass.value,()=>h(!isInput? 'textarea':'input', {
+        value: props.modelValue,
+        placeholder: props.placeholder,
+        disabled: props.disabled,
+        readOnly: props.readonly,
+        onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
+          emit('update:modelValue', e.target.value);
+        },
+        onFocus: (e: FocusEvent) => {
+          emit('focus', e);
+        },
+        onBlur: (e: FocusEvent) => {
+          emit('blur', e);
+        },
+        class: isInput ? 'm-input-inner' : 'm-textarea-inner',
+        ...(isInput ? {} : { rows: 10 })
+      }));
     };
   }
 });

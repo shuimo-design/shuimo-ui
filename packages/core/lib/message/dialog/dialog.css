@@ -1,0 +1,82 @@
+.m-dialog-mask {
+  position: fixed;
+  z-index: 9999;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.m-dialog-mask-bg {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.m-dialog {
+  width: var(--m-dialog-w);
+  height: var(--m-dialog-h);
+  padding: calc(var(--m-dialog-h) * 140 / 698) calc(var(--m-dialog-w) * 50 / 996) 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(./assets/bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+
+.m-dialog-wrapper, .m-dialog-active {
+  display: inline-block;
+}
+
+/** close button */
+@keyframes Wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.m-dialog-close-btn {
+  --m-close-btn-w: calc(var(--m-dialog-w) * 92 / 996);
+  --m-close-btn-h: calc(var(--m-dialog-w) * 150 / 996);
+
+
+  top: calc(var(--m-dialog-h) * 95 / 698 + var(--m-close-btn-h) * 16 / 75);
+  left: calc(var(--m-dialog-w) * 975 / 996 + var(--m-close-btn-w) * 24 / 46);
+  display: inline-block;
+  background: url(./assets/close.png) no-repeat;
+  background-size: 100% 100%;
+  width: var(--m-close-btn-w);
+  height: var(--m-close-btn-h);
+  transform-origin: 50% 0;
+  animation: Wave 8s linear both infinite;
+  position: absolute;
+}

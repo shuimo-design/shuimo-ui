@@ -5,28 +5,29 @@
  * @description radio单选框
  */
 
-import { defineComponent } from 'vue';
-import { radioProps, useRadio } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { defineComponent, ref } from 'vue';
+import { props } from '@shuimo-design/core/lib/base/radio/api';
+import { createRadioId, getNewModelValue, initChecked } from '@shuimo-design/core/lib/base/radio/useRadio';
 
 export default defineComponent({
   name: 'MRadio',
-  props: {
-    ...radioProps,
-    value: { type: null, default: '' },
-    modelValue: { type: null, default: '' }
-  },
+  props,
   setup(props, { emit, slots }) {
+    const checked = ref(initChecked(props));
+    const slotsDefault = slots.default ? slots.default() : props.label;
+    const onClick = () => {
+      checked.value = !checked.value;
+      emit('update:modelValue', getNewModelValue(props, checked.value));
+    };
+    const id = createRadioId();
+
     return () => {
-      const { getTemplate } = useRadio();
-      return cr(getTemplate({
-        props: { ...props, value: props.modelValue },
-        events: {
-          onClick: () => {
-            emit('update:modelValue', props.modelValue === props.label ? null : props.label);
-          }
-        }
-      }), { props });
+      return <label class="m-radio" for={id}>
+        <input type="radio" class="m-radio-input" id={id}
+               name={props.name} checked={checked.value} value={props.value}
+               onClick={onClick}/>
+        {slotsDefault}
+      </label>;
     };
   }
 });

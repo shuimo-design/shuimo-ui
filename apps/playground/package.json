@@ -1,31 +1,24 @@
 {
   "name": "@shuimo-design/playground",
-  "author": "阿怪",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
   "version": "0.0.1",
   "scripts": {
-    "playground:dev": "vite",
-    "test": "vitest -u",
-    "coverage": "vitest --coverage"
-  },
-  "dependencies": {
-    "@shuimo-design/jsx": "*",
-    "@shuimo-design/postcss": "*",
-    "@shuimo-design/react": "*",
-    "@shuimo-design/web-component": "*",
-    "acorn": "^8.8.2",
-    "monaco-editor": "^0.36.1",
-    "monaco-editor-core": "^0.36.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "shuimo-ui": "*",
-    "vite": "^4.2.1",
-    "vitest": "*",
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "dev": "vite"
   },
   "devDependencies": {
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-vue": "^3.2.0"
-  }
+    "@shuimo-design/core": "workspace:*",
+    "@shuimo-design/react": "workspace:*",
+    "@shuimo-design/web-component": "workspace:*",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "react": "^18.2.0",
+    "shuimo-ui": "*",
+    "vite": "^4.2.2",
+    "vite-plugin-lightningcss": "^0.0.5",
+    "vue": "^3.2.47"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "react-dom": "^18.2.0"
+  },
+  "web-types": "../../web-types.json"
 }

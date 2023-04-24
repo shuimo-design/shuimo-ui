@@ -1,0 +1,13 @@
+{
+  "name": "@shuimo-design/tools",
+  "description": "一款粗暴的水墨风UI组件",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "exports": {
+    "./*": "./*"
+  },
+  "dependencies": {
+  }
+}

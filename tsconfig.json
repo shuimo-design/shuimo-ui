@@ -4,13 +4,13 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
-    "jsx": "preserve",
     "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": true,
     "experimentalDecorators": true,
+    "useDefineForClassFields": false,
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

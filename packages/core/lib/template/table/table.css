@@ -1,0 +1,142 @@
+.m-table {
+  width: 100%;
+  display: grid;
+  grid-template-areas:  'head-img-top'
+                        'head-img-bottom'
+                        'table'
+                        'table-img-bottom';
+}
+
+.m-table-inner {
+  border-spacing: 0;
+  width: calc(100% - 2px);
+}
+
+.m-table-wrap {
+  position: relative;
+  grid-area: table;
+  top: -8px;
+  width: 100%;
+  overflow: auto;
+}
+
+.m-thead {
+  background: rgba(63, 74, 85, 0.3);
+  height: 37px;
+  font-size: 14px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  &.m-thead-overflow {
+    background: #b7bec4;
+  }
+}
+
+.m-tbody {
+  backdrop-filter: blur(10px);
+}
+
+.m-tr {
+  width: 200px;
+
+  &:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .m-table-tbody-img {
+    left: 0;
+    margin-top: -2px;
+  }
+}
+
+.m-td {
+  padding: 9px 5px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.m-table-empty {
+  text-align: center;
+  line-height: 40px;
+  color: var(--m-color-text-disabled);
+}
+
+
+.m-table-img {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+}
+
+/* first is keep running... todo fix extend
+.m-table-thead-img {
+  @extend .m-table-img;
+  position: relative;
+}
+
+.m-table-tbody-img {
+  @extend .m-table-img;
+  position: absolute;
+}
+
+.m-table-header-img-top {
+  @extend .m-table-thead-img;
+  grid-area: head-img-top;
+  top: -2px;
+}
+
+.m-table-header-img-bottom {
+  @extend .m-table-thead-img;
+  grid-area: head-img-bottom;
+  top: 32px;
+}
+
+.m-table-border-img-bottom {
+  @extend .m-table-thead-img;
+  grid-area: table-img-bottom;
+  top: -13px;
+}
+*/
+
+.m-table-thead-img {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+  position: relative;
+}
+
+.m-table-tbody-img {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+  position: absolute;
+}
+
+.m-table-header-img-top {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+  position: relative;
+  grid-area: head-img-top;
+  top: -2px;
+}
+
+.m-table-header-img-bottom {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+  position: relative;
+  grid-area: head-img-bottom;
+  top: 32px;
+}
+
+.m-table-border-img-bottom {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: calc(100% - 2px);
+  position: relative;
+  grid-area: table-img-bottom;
+  top: -13px;
+}

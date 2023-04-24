@@ -1,0 +1,121 @@
+.m-tag {
+  display: flex;
+  height: var(--m-tag-h);
+}
+
+.m-tag-left, .m-tag-right {
+  height: var(--m-tag-h);
+  width: var(--m-tag-w);
+}
+
+.m-tag-main {
+  height: var(--m-tag-h);
+  line-height: var(--m-tag-h);
+  color: white;
+}
+
+/**
+@each $type in default, primary, error, confirm, warning {
+  .m-tag-$(type) {
+    .m-tag-main {
+      background: url(./assets/#{$type}/main.png) repeat-x;
+      background-size: 100% 100%;
+    }
+
+    .m-tag-left {
+      background: url(./assets/#{$type}/left.png) no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .m-tag-right {
+      background: url(./assets/#{$type}/right.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+**/
+
+.m-tag-default {
+  .m-tag-main {
+    background: url(./assets/default/main.png) repeat-x;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-left {
+    background: url(./assets/default/left.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-right {
+    background: url(./assets/default/right.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.m-tag-primary {
+  .m-tag-main {
+    background: url(./assets/primary/main.png) repeat-x;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-left {
+    background: url(./assets/primary/left.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-right {
+    background: url(./assets/primary/right.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.m-tag-error {
+  .m-tag-main {
+    background: url(./assets/error/main.png) repeat-x;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-left {
+    background: url(./assets/error/left.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-right {
+    background: url(./assets/error/right.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.m-tag-confirm {
+  .m-tag-main {
+    background: url(./assets/confirm/main.png) repeat-x;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-left {
+    background: url(./assets/confirm/left.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-right {
+    background: url(./assets/confirm/right.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.m-tag-warning {
+  .m-tag-main {
+    background: url(./assets/warning/main.png) repeat-x;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-left {
+    background: url(./assets/warning/left.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .m-tag-right {
+    background: url(./assets/warning/right.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}

@@ -11,7 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { RefValue } from '../../../types/common/hook';
+import { RefValue } from '@shuimo-design/types';
 
 export declare type LoadingProps = {
   /**
@@ -47,5 +47,4 @@ export declare type LoadingRef = {
   shua5Ref: RefValue,
   shua6Ref: RefValue,
   shua7Ref: RefValue,
-
 };

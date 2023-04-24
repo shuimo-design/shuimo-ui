@@ -12,18 +12,23 @@
  * v2.1.0 使用border方式实现边框模块
  * v3.0.0 props从core导出
  */
-import { defineComponent } from 'vue';
-import { buttonProps, useButton } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { defineComponent, h } from 'vue';
+import { props } from '@shuimo-design/core/lib/base/button/api';
 
 
 export default defineComponent({
   name: 'MButton',
-  props: buttonProps,
+  props,
   setup(props, { slots }) {
     return () => {
-      const { getTemplate } = useButton();
-      return cr(getTemplate({props}), { props, slots });
+
+      const domType = props.link ? 'a' : 'button';
+      const slot = slots.default?.() ?? props.text;
+      return h(domType, {
+        class: ['m-button', { 'm-button-disabled': props.disabled }, `m-button-${props.type}`],
+        disabled: props.disabled
+      },slot);
+
     };
   }
 });

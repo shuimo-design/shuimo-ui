@@ -1,0 +1,46 @@
+.m-rice-paper {
+
+  --m-rice-paper-mountain-w: 100%;
+  --m-rice-paper-mountain-bg-size-w: var(--m-rice-paper-mountain-w);
+  --m-rice-paper-mountain-bg-position-y: 80%;
+
+  --m-rice-paper-crane-w: 322px;
+  --m-rice-paper-crane-h: 100%;
+  --m-rice-paper-crane-bg-position-y: bottom;
+  --m-rice-paper-crane-bg-w: 322px;
+  --m-rice-paper-crane-bg-h: 364px;
+
+
+  background: url(./assets/rice_paper.png) repeat;
+  display: grid;
+  grid-template-areas: 'main';
+  overflow: hidden;
+
+  &.m-rice-paper-warm {
+     background: url(./assets/rice_paper_warm.png) repeat;
+     display: grid;
+   }
+}
+
+.m-rice-paper-mountain {
+  width: var(--m-rice-paper-mountain-w);
+  background: url(./assets/mountain.png) no-repeat;
+  background-size: var(--m-rice-paper-mountain-bg-size-w) auto;
+  background-position-y: var(--m-rice-paper-mountain-bg-position-y);
+  grid-area: main;
+}
+
+.m-rice-paper-crane {
+  width: var(--m-rice-paper-crane-w);
+  height: var(--m-rice-paper-crane-h);
+  background: url(./assets/crane.png) no-repeat;
+  background-size: var(--m-rice-paper-crane-bg-w) var(--m-rice-paper-crane-bg-h);
+  background-position-y: var(--m-rice-paper-crane-bg-position-y);
+  grid-area: main;
+}
+
+.m-rice-paper-main {
+  grid-area: main;
+  width: 100%;
+  height: 100%;
+}

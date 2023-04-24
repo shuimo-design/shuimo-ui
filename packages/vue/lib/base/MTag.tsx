@@ -7,18 +7,20 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, h } from 'vue';
-import { tagProps, useTag } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { props } from '@shuimo-design/core/lib/base/tag/api';
 
 export default defineComponent({
   name: 'MTag',
-  props: tagProps,
+  props,
   setup: (props, { slots }) => {
     return () => {
-      const { getTemplate } = useTag();
-      return cr(getTemplate({
-        props
-      }), { slots });
+      return <div class={['m-tag', `m-tag-${props.type}`]}>
+        <div class="m-tag-left"/>
+        <div class="m-tag-main">
+          {slots.default?.() ?? ''}
+        </div>
+        <div class="m-tag-right"/>
+      </div>
     };
   }
 });
