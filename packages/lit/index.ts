@@ -40,7 +40,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/template/MTableColumn'),
     // [other]
     import('./lib/other/MDivider'),
-    // import('./lib/other/MTaiChi'),
+    import('./lib/other/MDarkMode'),
     import('./lib/other/MLoading')
   ]);
   window.shuimo = undefined;

@@ -24,6 +24,7 @@ export { default as MDialog } from './lib/message/MDialog';
 // [other]
 export { default as MDivider } from './lib/other/MDivider';
 export { default as MLoading } from './lib/other/MLoading';
+export { default as MDarkMode } from './lib/other/MDarkMode';
 
 // [template]
 export { default as MRicePaper } from './lib/template/MRicePaper';

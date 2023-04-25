@@ -6,6 +6,7 @@
     <div style="height: 200px">
       <m-divider vertical/>
     </div>
+    <m-dark-mode/>
   </div>
 </template>
 

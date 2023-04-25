@@ -10,7 +10,7 @@ import { MRicePaper, MBorder } from '@shuimo-design/react/index';
 import Base from './Base';
 import { useState } from 'react';
 import Other from './Other';
-// import Template from './Template';
+import Template from './Template';
 import Message from './Message';
 
 export default function Playground() {
@@ -20,7 +20,7 @@ export default function Playground() {
       <MRicePaper mountain crane>
         <div className="m-rice-paper-inside">
           <h1>这里是React的playground</h1>
-          {Message()}
+          {Other()}
         </div>
       </MRicePaper>
     </MBorder>

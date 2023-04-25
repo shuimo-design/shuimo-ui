@@ -11,15 +11,18 @@
   --m-rice-paper-crane-bg-h: 364px;
 
 
-  background: url(./assets/rice_paper.png) repeat;
+  background-image: url(./assets/rice_paper.png);
+  background-repeat: repeat;
+  background-color: var(--m-rice-paper-bg-color);
   display: grid;
   grid-template-areas: 'main';
   overflow: hidden;
 
   &.m-rice-paper-warm {
-     background: url(./assets/rice_paper_warm.png) repeat;
-     display: grid;
-   }
+    background-image: url(./assets/rice_paper_warm.png);
+    background-repeat: repeat;
+    display: grid;
+  }
 }
 
 .m-rice-paper-mountain {

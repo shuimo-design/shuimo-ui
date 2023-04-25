@@ -21,17 +21,17 @@
   --m-cursor-pointer: url(../assets/cursor/pointer.png), auto;
   --m-cursor-disabled: url(../assets/cursor/disabled.png), auto;
 
-  --tai-chi-path-hidden: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 231.297 -0.195 153.475 21.505 146.972 22.216 l 0 0 Z M 262.036 0.592 C 323.278 2.238 399.478 89.694 363.11 171.089 C 331.072 229.538 297.301 239.928 250 250 Z M 263.002 249.319 C 235.667 246.565 227.134 251.414 197.722 258.546 C 178.554 271.126 185.049 264.23 166.677 281.75 C 185.0363 264.7037 206.7037 253.2403 228.371 241.777 Z");
-  --tai-chi-path-fish: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 234.044 -6.76 -27.14 -4.041 146.972 22.216 l 0 0 Z M 262.036 0.592 C 390.632 6.576 466.271 139.781 443.493 196.589 C 423.962 238.255 391.291 242.718 250 250 Z M 263.002 249.319 C 236.969 251.194 240.718 266.4 186.246 312.986 C 161.263 321.41 198.351 261.265 166.677 281.75 C 180.377 264.749 206.7037 253.2403 228.371 241.777 Z");
-  --tai-chi-path-black: var(--tai-chi-path-hidden);
-  --tai-chi-path-white: var(--tai-chi-path-fish);
+  --dark-mode-path-hidden: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 231.297 -0.195 153.475 21.505 146.972 22.216 l 0 0 Z M 262.036 0.592 C 323.278 2.238 399.478 89.694 363.11 171.089 C 331.072 229.538 297.301 239.928 250 250 Z M 263.002 249.319 C 235.667 246.565 227.134 251.414 197.722 258.546 C 178.554 271.126 185.049 264.23 166.677 281.75 C 185.0363 264.7037 206.7037 253.2403 228.371 241.777 Z");
+  --dark-mode-path-fish: path("M 250 0 A 125 125 0 0 1 250 250 A 125 125 0 0 0 250 500 A 250 250 0 0 1 250 0 Z M 262.036 0.592 C 234.044 -6.76 -27.14 -4.041 146.972 22.216 l 0 0 Z M 262.036 0.592 C 390.632 6.576 466.271 139.781 443.493 196.589 C 423.962 238.255 391.291 242.718 250 250 Z M 263.002 249.319 C 236.969 251.194 240.718 266.4 186.246 312.986 C 161.263 321.41 198.351 261.265 166.677 281.75 C 180.377 264.749 206.7037 253.2403 228.371 241.777 Z");
+  --dark-mode-path-black: var(--dark-mode-path-hidden);
+  --dark-mode-path-white: var(--dark-mode-path-fish);
 
-  --tai-chi-visible: hidden;
+  --dark-mode-visible: hidden;
 
-  --tai-chi-svg-black-animation: unset;
-  --tai-chi-svg-white-animation: unset;
-  --tai-chi-d-white-animation: hidden_to_fish 1s;
-  --tai-chi-d-black-animation: fish_to_hidden 1s;
+  --dark-mode-svg-black-animation: unset;
+  --dark-mode-svg-white-animation: unset;
+  --dark-mode-d-white-animation: hidden_to_fish 1s;
+  --dark-mode-d-black-animation: fish_to_hidden 1s;
 
   --m-tag-h: 45px;
   --m-tag-w-min: 80px;
@@ -42,18 +42,20 @@
 
   --m-dialog-w: 498px;
   --m-dialog-h: 349px;
+
+  --m-rice-paper-bg-color: unset;
 }
 
 html[dark] {
+  --m-rice-paper-bg-color: black;
 
   --svg-black: url("#outset-shadow");
   --svg-white: unset;
-  --tai-chi-path-black: var(--tai-chi-path-fish);
-  --tai-chi-path-white: var(--tai-chi-path-hidden);
-  --tai-chi-visible: visible;
+  --dark-mode-path-black: var(--dark-mode-path-fish);
+  --dark-mode-path-white: var(--dark-mode-path-hidden);
+  --dark-mode-visible: visible;
 
-  --tai-chi-d-white-animation: fish_to_hidden 1s;
-  --tai-chi-d-black-animation: hidden_to_fish 1s;
+  --dark-mode-d-white-animation: fish_to_hidden 1s;
+  --dark-mode-d-black-animation: hidden_to_fish 1s;
 }
-
 

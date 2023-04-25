@@ -1,0 +1,62 @@
+@keyframes hidden_to_fish {
+  from {
+    d: var(--dark-mode-path-hidden)
+  }
+  to {
+    d: var(--dark-mode-path-fish);
+  }
+}
+@keyframes fish_to_hidden {
+  from {
+    d: var(--dark-mode-path-fish)
+  }
+  to {
+    d: var(--dark-mode-path-hidden);
+  }
+}
+
+
+.m-dark-mode {
+  display: inline-block;
+  --svg-black: unset;
+  --svg-white: url("#outset-shadow-white");
+  --dark-mode-h: 30px;
+  --dark-mode-w: 30px;
+
+  & svg {
+    height: var(--dark-mode-h);
+    width: var(--dark-mode-w);
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .m-dark-mode-filter {
+    width: 0;
+    height: 0;
+  }
+
+  .m-dark-mode-svg:hover {
+  }
+
+  & path.svg-black {
+    d: var(--dark-mode-path-black);
+    animation: var(--dark-mode-d-black-animation);
+  }
+
+  & path.svg-white {
+    d: var(--dark-mode-path-white);
+    animation: var(--dark-mode-d-white-animation);
+  }
+
+  & svg .svg-black {
+    filter: var(--svg-black);
+  }
+
+  & svg .svg-white {
+    filter: var(--svg-white);
+  }
+
+  .dark-hidden {
+    visibility: var(--dark-mode-visible);
+  }
+}

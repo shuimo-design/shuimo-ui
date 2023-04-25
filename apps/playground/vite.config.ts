@@ -14,7 +14,7 @@ import { reactTsx } from './base/plugin/reactTsx';
 
 export default defineConfig({
   plugins: [
-    lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%', }),
+    lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%' }),
     vue({ include: [/\.vue$/], exclude: ['**/react/*.tsx'] }),
     vueJSX({
       exclude: ['**/react/*.tsx']

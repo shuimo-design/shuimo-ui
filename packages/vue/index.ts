@@ -21,6 +21,7 @@ import MProgress from './lib/base/MProgress';
 // [other]
 import MDivider from './lib/other/MDivider';
 import MLoading from './lib/other/MLoading';
+import MDarkMode from './lib/other/MDarkMode';
 
 // [message]
 import MPopover from './lib/message/MPopover';
@@ -48,6 +49,7 @@ const components: Record<string, Component> = {
   // [other]
   MDivider,
   MLoading,
+  MDarkMode,
 
   // [message]
   MPopover,
@@ -76,6 +78,7 @@ export {
   // [other]
   MDivider,
   MLoading,
+  MDarkMode,
 
   // [message]
   MPopover,

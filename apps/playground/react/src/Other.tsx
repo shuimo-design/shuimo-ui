@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { MDivider, MLoading } from '@shuimo-design/react/index';
+import { MDivider, MLoading,MDarkMode } from '@shuimo-design/react/index';
 export default function Other(){
 
   const loading = <div className="loading">
@@ -16,6 +16,7 @@ export default function Other(){
     <div style={{height:'200px'}}>
       <MDivider vertical></MDivider>
     </div>
+    <MDarkMode></MDarkMode>
   </div>
 
   return <div className="flex">

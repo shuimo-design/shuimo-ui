@@ -1,34 +1,28 @@
 /**
- * @description TaiChi api type
+ * @description dark mode api type
  * @author 阿怪
  * @date 2023/2/1 00:10
  * @version v1.0.0
  *
- * @name m-tai-chi
- * @docDescription TaiChi component with shuimo-ui style.
+ * @name m-dark-mode
+ * @docDescription dark mode component with shuimo-ui style.
  *                 For switching between day and night mode.
  *                 水墨组件的太极组件。
  *                 用于切换日夜间模式。
- * @docUrl https://shuimo.janghood.com/tai-chi
+ * @docUrl https://shuimo.janghood.com/dark-mode
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export declare type TaiChiProps = {
+export declare type DarkModeProps = {
   /**
    * @description switch value. 开关绑定值
    * @type boolean
-   * @vue
+   * @component
    */
-  modelValue: boolean,
-  /**
-   * @description switch value. 开关绑定值
-   * @type boolean
-   * @web
-   */
-  value: boolean
+  value?: boolean
 }
 
-export declare type TaiChiEvents = {
+export declare type DarkModeEvents = {
   onClick?: (e: MouseEvent) => void
 }
