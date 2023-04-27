@@ -20,8 +20,8 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup: (props, { emit }) => {
 
-    const value = ref(props.modelValue ?? false);
-    const { onMountedHook, toggleDarkMode } = useDarkMode();
+    const { onMountedHook, toggleDarkMode, getBrowserDarkMode } = useDarkMode();
+    const value = ref(props.modelValue ?? getBrowserDarkMode());
 
     const clickHandler = () => {
       value.value = !value.value;

@@ -14,11 +14,13 @@ import '@shuimo-design/core/lib/other/darkMode/darkMode.css';
 export default function MDarkMode(props: DarkModeProps) {
   const { onMountedHook, toggleDarkMode } = useDarkMode();
 
-  const [isDarkMode, setIsDarkMode] = useState(props.value ?? false);
+  let isDarkMode = props.value;
   const clickHandler = () => {
-    setIsDarkMode(!isDarkMode);
+    isDarkMode = !isDarkMode;
     toggleDarkMode({ value: !isDarkMode });
   };
+
+  onMountedHook();
 
   const svg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" className="m-dark-mode-svg"
                    strokeWidth="1">
@@ -45,7 +47,6 @@ export default function MDarkMode(props: DarkModeProps) {
     <circle className="svg-white" cx="250" cy="125" r="40" fill="#fff"/>
   </svg>;
 
-  onMountedHook();
 
   return <div className="m-dark-mode"
               onClick={() => clickHandler()}>

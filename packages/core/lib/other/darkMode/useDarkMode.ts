@@ -13,14 +13,15 @@ import { DarkModeProps } from './index';
 
 export function useDarkMode() {
 
+  const getBrowserDarkMode =()=> window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const onMountedHook = () => {
     // todo ssr support, add event remove
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      console.log(event.matches ? 'dark' : 'light', event.matches);
+      toggleDarkMode({ value: event.matches });
     });
 
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    toggleDarkMode({ value: getBrowserDarkMode() });
   };
 
   const toggleDarkMode = (props: DarkModeProps) => {
@@ -33,9 +34,10 @@ export function useDarkMode() {
         htmlTag.removeAttribute('dark');
       }
     }
-  }
+  };
 
   return {
+    getBrowserDarkMode,
     onMountedHook,
     toggleDarkMode
   };
