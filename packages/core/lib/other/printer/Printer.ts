@@ -10,8 +10,8 @@
  * V1.0.1 添加console底层打印分类
  * V1.0.2 优化ts支持，修改type颜色
  */
+import { IPrinter, PrinterType, printInterface } from '../../../types/MPrint';
 
-import { PrinterType, printInterface, IPrinter } from '../../types/components/MPrint';
 
 enum PrinterEnum {
   suggest = 'suggest',
