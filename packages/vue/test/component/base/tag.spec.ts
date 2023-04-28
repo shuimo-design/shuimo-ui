@@ -9,7 +9,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MTag from '../../../lib/base/tag/MTag';
+import MTag from '../../../lib/base/MTag';
 
 describe('标签组件', () => {
   test('无参数渲染', () => {

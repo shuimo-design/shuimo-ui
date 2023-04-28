@@ -9,7 +9,7 @@
 
 import { describe, expect, test, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MSwitch from '../../../lib/base/switch/MSwitch';
+import MSwitch from '../../../lib/base/MSwitch';
 
 describe('开关组件', () => {
   describe('参数测试', () => {

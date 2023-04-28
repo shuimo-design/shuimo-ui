@@ -4,13 +4,23 @@
   "description": "一款粗暴的水墨风UI组件",
   "version": "0.3.0-0",
   "main": "index.ts",
+  "scripts": {
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "coverage": "vitest --coverage"
+  },
   "exports": {
     "./*": "./*"
   },
-  "dependencies": {
+  "devDependencies": {
     "@shuimo-design/core": "workspace:*",
     "@shuimo-design/tools": "workspace:*",
     "@shuimo-design/types": "workspace:*",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vue/test-utils": "^2.3.2",
+    "jsdom": "^21.1.1",
     "vitest": "^0.30.1",
     "vue": "^3.2.47"
   }
