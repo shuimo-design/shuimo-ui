@@ -31,18 +31,12 @@ export default defineComponent({
       emit('update:modelValue', getNewModelValue(props, checked.value));
     };
 
-    const onChange = () => {
-      emit('change', checked.value);
-    };
-
     return () => {
       const label = <label class="m-checkbox-slot">
         {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
       </label>;
 
-      return <div class="m-checkbox"
-                  onClick={onClick}
-                  onChange={onChange}>
+      return <div class="m-checkbox" onClick={onClick}>
         <input type="checkbox" checked={checked.value}/>
         <div class="m-checkbox-checkbox"/>
         {checked.value ? <div class="m-checkbox-checkbox-inner"/> : null}
