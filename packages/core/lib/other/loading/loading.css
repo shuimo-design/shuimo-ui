@@ -82,3 +82,21 @@
   transform: scale(0.8) var(--m-loading-show-rotate);
   animation: scale1 var(--m-loading-speed);
 }
+
+
+.m-loading-directive {
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.m-loading-mask {
+  background: var(--m-color-background);
+  backdrop-filter: blur(20px);
+}
+
+.m-loading-parent-relative {
+  position: relative;
+}

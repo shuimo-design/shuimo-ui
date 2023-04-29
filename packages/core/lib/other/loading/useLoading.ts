@@ -73,10 +73,17 @@ export function useLoading() {
     pushRandomNum();
   };
 
+  const getStyle = (props: Pick<LoadingProps, 'speed' | 'sideLength'>) => {
+    const animationSpeed = (props.speed ?? 1500) / 1000;
+    const isNumber = !isNaN(Number(props.sideLength));
+    const fixedSideLength = isNumber ? `${props.sideLength}px` : props.sideLength;
+    return { '--m-loading-speed': `${animationSpeed}s`, height: fixedSideLength, width: fixedSideLength };
+  };
 
 
   return {
     shuaIndexList,
-    onMountedHook
+    onMountedHook,
+    getStyle
   };
 }

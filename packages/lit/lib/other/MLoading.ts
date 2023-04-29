@@ -40,12 +40,14 @@ export default class extends LitElement implements LoadingProps {
 
   private shuaIndexList: number[] = [];
   private readonly onMountedHook: ReturnType<typeof useLoading>['onMountedHook'];
+  private readonly getStyle: ReturnType<typeof useLoading>['getStyle'];
 
   constructor() {
     super();
     const loading = useLoading();
     this.shuaIndexList = loading.shuaIndexList;
     this.onMountedHook = loading.onMountedHook;
+    this.getStyle = loading.getStyle;
 
   }
 
@@ -58,9 +60,6 @@ export default class extends LitElement implements LoadingProps {
     });
   }
 
-  get animationSpeed() {
-    return this.speed / 1000;
-  }
 
   updated() {
     this.onMountedHook(this as LoadingProps & LoadingRef);
@@ -68,7 +67,7 @@ export default class extends LitElement implements LoadingProps {
 
   render() {
     return html`
-      <div class="m-loading" style=${styleParse({ '--m-loading-speed': `${this.animationSpeed}s` })}
+      <div class=${['m-loading',this.mask?'m-loading-mask':''].join(' ')} style=${styleParse(this.getStyle(this))}
            ref=${ref(this.loadingRef)}>
         <div class="m-loading-shua-wrapper">
           ${this.shuaList}

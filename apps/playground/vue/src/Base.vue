@@ -20,9 +20,9 @@
       <span>radio:{{radioVal}}</span>
       <br/>
 
-      <m-radio v-model="radioVal" :label="radioLabel" name="hi"/>
-      <m-radio label="2" name="hi"/>
-      <m-radio label="3" name="hi"/>
+      <m-radio v-model="radioVal" :label="radioLabel" name="hi" :value="radioLabel"/>
+      <m-radio label="2" name="hi" value="2"/>
+      <m-radio label="3" name="hi" value="2"/>
     </div>
     <div class="checkbox">
       <m-progress :value="20"/>

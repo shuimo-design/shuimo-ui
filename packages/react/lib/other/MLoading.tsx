@@ -15,8 +15,7 @@ import { withDefault } from '../../base/tools';
 
 export default function MLoading(baseProps: LoadingProps) {
   const props = withDefault(baseProps, loadingProps);
-  const { onMountedHook, shuaIndexList } = useLoading();
-  const animationSpeed = props.speed / 1000;
+  const { onMountedHook, shuaIndexList, getStyle } = useLoading();
 
   const loadingRef = useRef(null);
   const shua0Ref = useRef(null);
@@ -43,9 +42,9 @@ export default function MLoading(baseProps: LoadingProps) {
                 ref={refs[`shua${i}Ref` as keyof typeof refs]}/>;
   });
 
-  const style = { '--m-loading-speed': `${animationSpeed}s` } as React.CSSProperties;
+  const style = getStyle(props) as React.CSSProperties;
 
-  return <div className="m-loading" style={style} ref={loadingRef}>
+  return <div className={['m-loading', props.mask ? 'm-loading-mask' : ''].join(' ')} style={style} ref={loadingRef}>
     <div className="m-loading-shua-wrapper">
       {shuaList}
     </div>

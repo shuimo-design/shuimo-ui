@@ -2,6 +2,8 @@
   <div class="flex">
 
     <m-loading/>
+    <m-loading mask/>
+    <m-loading mask :side-length="200"/>
     <m-divider/>
     <div style="height: 200px">
       <m-divider vertical/>

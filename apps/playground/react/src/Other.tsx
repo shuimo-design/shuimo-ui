@@ -12,6 +12,8 @@ export default function Other(){
 
   const loading = <div className="loading">
     <MLoading></MLoading>
+    <MLoading mask></MLoading>
+    <MLoading mask sideLength={200}></MLoading>
     <MDivider></MDivider>
     <div style={{height:'200px'}}>
       <MDivider vertical></MDivider>
