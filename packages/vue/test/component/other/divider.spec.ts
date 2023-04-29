@@ -11,11 +11,20 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from 'vitest';
-import MDivider from '../../../lib/other/divider/MDivider';
+import MDivider from '../../../lib/other/MDivider';
 
-describe('分割线组件', function () {
-  test('无参数渲染', () => {
+describe('divider', function () {
+  test('render', () => {
     const wrapper = mount(MDivider);
     expect(wrapper.html()).toContain('m-divider');
+  });
+
+  test('vertical', () => {
+    const wrapper = mount(MDivider, {
+      props: {
+        vertical: true
+      }
+    });
+    expect(wrapper.html()).toContain('m-divider-vertical');
   });
 });

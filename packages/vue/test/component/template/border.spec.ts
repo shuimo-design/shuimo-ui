@@ -8,19 +8,19 @@
  */
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MBorder from '../../../lib/other/border/MBorder';
+import MBorder from '../../../lib/template/MBorder';
 
-describe('边框组件', () => {
-  test('无参数渲染', () => {
+describe('border', () => {
+  test('render', () => {
     const wrapper = mount(MBorder, {
       slots: {
-        default: '<div>测试</div>'
+        default: '<div>test</div>'
       }
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-border\\">
         <div class=\\"m-border-main\\">
-          <div>测试</div>
+          <div>test</div>
         </div>
         <div class=\\"m-border-line m-border-top-line\\"></div>
         <div class=\\"m-border-line m-border-left-line\\"></div>

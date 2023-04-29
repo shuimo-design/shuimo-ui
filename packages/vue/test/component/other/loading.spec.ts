@@ -9,45 +9,45 @@
 
 import { describe, test, expect, vi } from 'vitest';
 import { mount, VueWrapper } from '@vue/test-utils';
-import MLoading from '../../../lib/other/loading/MLoading';
-import { LoadingProps } from '../../../lib/other/loading';
+import MLoading from '../../../lib/other/MLoading';
+import { LoadingProps } from '@shuimo-design/core/lib/other/loading';
 
-describe('加载组件', function () {
+describe('loading', function () {
   const getWrapper = (props?: LoadingProps) => {
     return mount(MLoading, { props });
   };
 
-  test('无参数渲染', () => {
+  test('render', () => {
     const wrapper = getWrapper();
     expect(wrapper.html()).toContain('m-loading');
     wrapper.unmount();
   });
 
-  describe('参数测试', () => {
-    test('显示mask', () => {
+  describe('props', () => {
+    test('mask', () => {
       const wrapper = getWrapper({ mask: true });
       expect(wrapper.find('.m-loading-mask')).not.toBeNull();
       wrapper.unmount();
     });
 
-    test('设置sideLength为200', () => {
+    test('sideLength:200', () => {
       const wrapper = getWrapper({ sideLength: 200 });
-      expect(wrapper.find('.m-loading-item').element.getAttribute('style')).toBe('height: 200px; width: 200px;');
+      expect(wrapper.find('.m-loading').element.getAttribute('style')).toContain('height: 200px; width: 200px;');
       wrapper.unmount();
     });
 
-    test('设置sideLength为10vh', () => {
+    test('sideLength:10vh', () => {
       const wrapper = getWrapper({ sideLength: '10vh' });
-      expect(wrapper.find('.m-loading-item').element.getAttribute('style')).toBe('height: 10vh; width: 10vh;');
+      expect(wrapper.find('.m-loading').element.getAttribute('style')).toContain('height: 10vh; width: 10vh;');
       wrapper.unmount();
     });
   });
 
-  describe('动画循环', () => {
+  describe('animation', () => {
     const getItemClass = (wrapper: VueWrapper) =>
       wrapper.findAll('.m-loading-item').map(item => item.element.className.replace('m-loading-item ', ''));
 
-    test('动画循环校验', async () => {
+    test('animation loop', async () => {
       vi.useFakeTimers();
       const wrapper = getWrapper();
       const classStr = getItemClass(wrapper);
@@ -57,7 +57,7 @@ describe('加载组件', function () {
       wrapper.unmount();
     });
 
-    test('动画4次不重复', async () => {
+    test('animation classList array size check', async () => {
       vi.useFakeTimers();
       const wrapper = getWrapper();
 
@@ -73,12 +73,12 @@ describe('加载组件', function () {
       await vi.runOnlyPendingTimers();
       classListArray.push(...getItemClass(wrapper));
 
-      expect(new Set(classListArray).size).toBe(4);
+      expect(new Set(classListArray).size).toBe(8);
 
       wrapper.unmount();
     });
 
-    test('第5次与第4次不同', async () => {
+    test('The 5th time is different from the 4th time', async () => {
       vi.useFakeTimers();
       const wrapper = getWrapper();
       await vi.runOnlyPendingTimers();
