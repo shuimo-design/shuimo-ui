@@ -17,7 +17,7 @@ export default defineComponent({
     return () => {
 
       const lineTemplate = Object.keys(lineType).map(type => {
-        return <div class={[baseLineClass, `m-border-${type}-line`].join(' ')}></div>;
+        return <div class={[baseLineClass,`m-border-${type}-line`]}></div>;
       });
 
       return <div class="m-border">

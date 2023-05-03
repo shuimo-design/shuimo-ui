@@ -40,7 +40,7 @@ export default defineComponent({
       };
 
       const getDialog = () => {
-        return <div class={['m-dialog-mask', props.mask.show ? 'm-dialog-mask-bg' : '']}>
+        return <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}>
           <div class="m-dialog">
             {getCloseDialog()}
             {slots.default?.()}

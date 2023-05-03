@@ -66,8 +66,8 @@ export default defineComponent({
       return <div class={[
         'm-switch',
         isActive.value ? 'm-switch-active' : 'm-switch-inactive',
-        props.loading ? 'm-switch-loading' : '',
-        props.disabled ? 'm-switch-disabled' : ''
+        { 'm-switch-loading': props.loading },
+        { 'm-switch-disabled': props.disabled }
       ]}>
         {getInfo('activeInfo')}
         <div class="m-switch-main">

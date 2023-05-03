@@ -10,16 +10,15 @@
 import { defineComponent } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/ricePaper/api';
 
-
 export default defineComponent({
   name: 'MRicePaper',
   props,
-  setup(props,{slots}) {
+  setup(props, { slots }) {
     return () => {
       const mountainTemplate = props.mountain ? <div class="m-rice-paper-mountain"></div> : null;
       const craneTemplate = props.crane ? <div class="m-rice-paper-crane"></div> : null;
 
-      return <div class={['m-rice-paper', !props.cold ? 'm-rice-paper-warn' : undefined].join(' ')}>
+      return <div class={['m-rice-paper', { 'm-rice-paper-warm': !props.cold }]}>
         {mountainTemplate}
         {craneTemplate}
         <div class="m-rice-paper-main">
