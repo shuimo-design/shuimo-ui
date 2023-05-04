@@ -11,12 +11,11 @@
 export { default as MButton } from './lib/base/MButton';
 export { default as MCheckbox } from './lib/base/MCheckbox';
 export { default as MInput } from './lib/base/MInput';
-// export { default as MLi } from './lib/base/MLi';
+export { default as MLi } from './lib/base/MLi';
 export { default as MSwitch } from './lib/base/MSwitch';
 export { default as MRadio } from './lib/base/MRadio';
 export { default as MTag } from './lib/base/MTag';
 export { default as MProgress } from './lib/base/MProgress';
-export { default as MLi } from './lib/base/MLi';
 
 // [message]
 export { default as MPopover } from './lib/message/MPopover';
@@ -30,7 +29,7 @@ export { default as MDarkMode } from './lib/other/MDarkMode';
 // [template]
 export { default as MRicePaper } from './lib/template/MRicePaper';
 export { default as MBorder } from './lib/template/MBorder';
-// export { default as MForm } from './lib/template/MForm';
-// export { default as MFormItem } from './lib/template/MFormItem';
+export { default as MForm } from './lib/template/MForm';
+export { default as MFormItem } from './lib/template/MFormItem';
 export { default as MTable } from './lib/template/MTable';
 export { default as MTableColumn } from './lib/template/MTableColumn';

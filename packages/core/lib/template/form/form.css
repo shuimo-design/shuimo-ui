@@ -7,7 +7,7 @@
 .m-form-inline {
   width: auto;
 
-  // todo fix slotted m-form-item
+  /* todo fix slotted m-form-item */
   .m-form-item, ::slotted(m-form-item),
   .m-form-item-label,
   .m-form-item-content {

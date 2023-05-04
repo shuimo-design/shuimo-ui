@@ -14,8 +14,26 @@
       <div class="m-rice-paper-inside">
         <h1>这里是web-component的playground</h1>
         <div class="flex">
-          <m-li>hi</m-li>
-          <m-li active>hi active</m-li>
+
+
+          <m-form>
+            <m-form-item label="姓名">
+              <m-button>你好</m-button>
+            </m-form-item>
+          </m-form>
+          <m-form inline>
+            <m-form-item label="姓名">
+              <m-button>你好</m-button>
+            </m-form-item>
+            <m-form-item>
+              <div slot="label">
+                <span>这自定义的</span>
+              </div>
+              hi
+            </m-form-item>
+          </m-form>
+
+
         </div>
       </div>
     </m-rice-paper>

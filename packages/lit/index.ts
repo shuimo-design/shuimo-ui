@@ -34,16 +34,19 @@ export const initWebComponent = async (prev = 'm') => {
     // import('./lib/template/MMenu'),
     // import('./lib/template/MMenuItem'),
     import('./lib/template/MRicePaper'),
-    // import('./lib/template/MForm'),
-    // import('./lib/template/MFormItem'),
+    import('./lib/template/MForm'),
+    import('./lib/template/MFormItem'),
     import('./lib/template/MTable'),
     import('./lib/template/MTableColumn'),
+
     // [other]
     import('./lib/other/MDivider'),
     import('./lib/other/MDarkMode'),
-    import('./lib/other/MLoading')
+    import('./lib/other/MLoading'),
+
   ]);
   window.shuimo = undefined;
 };
+
 
 webComponentStyleInstall();

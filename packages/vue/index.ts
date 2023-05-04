@@ -11,12 +11,11 @@ import { App, Component } from 'vue';
 import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
 import MCheckbox from './lib/base/MCheckbox';
-// import MLi from './base/MLi';
+import MLi from './lib/base/MLi';
 import MSwitch from './lib/base/MSwitch';
 import MRadio from './lib/base/MRadio';
 import MTag from './lib/base/MTag';
 import MProgress from './lib/base/MProgress';
-import MLi from './lib/base/MLi';
 
 
 // [other]
@@ -31,8 +30,8 @@ import MDialog from './lib/message/MDialog';
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
 import MBorder from './lib/template/MBorder';
-// import MForm from './lib/template/MForm';
-// import MFormItem from './lib/template/MFormItem';
+import MForm from './lib/template/MForm';
+import MFormItem from './lib/template/MFormItem';
 import MTable from './lib/template/MTable';
 import MTableColumn from './lib/template/MTableColumn';
 
@@ -41,12 +40,11 @@ const components: Record<string, Component> = {
   MButton,
   MInput,
   MCheckbox,
-  // MLi,
+  MLi,
   MSwitch,
   MRadio,
   MTag,
   MProgress,
-  MLi,
 
   // [other]
   MDivider,
@@ -60,8 +58,8 @@ const components: Record<string, Component> = {
   // [template]
   MRicePaper,
   MBorder,
-  // MForm,
-  // MFormItem,
+  MForm,
+  MFormItem,
   MTable,
   MTableColumn,
 };
@@ -71,12 +69,11 @@ export {
   MButton,
   MInput,
   MCheckbox,
-  // MLi,
+  MLi,
   MSwitch,
   MRadio,
   MTag,
   MProgress,
-  MLi,
 
   // [other]
   MDivider,
@@ -90,8 +87,8 @@ export {
   // [template]
   MRicePaper,
   MBorder,
-  // MForm,
-  // MFormItem,
+  MForm,
+  MFormItem,
   MTable,
   MTableColumn,
 };
