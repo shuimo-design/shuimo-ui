@@ -36,7 +36,7 @@ export default class MRicePaper extends LitElement implements RicePaperProps {
 
   render() {
     return html`
-      <div class="${['m-rice-paper', !this.cold ? 'm-rice-paper-warn' : undefined].join(' ')}">
+      <div class="${['m-rice-paper', !this.cold ? 'm-rice-paper-warm' : undefined].join(' ')}">
         ${this.mountainTemplate()}
         ${this.carneTemplate()}
         <div class="m-rice-paper-main">

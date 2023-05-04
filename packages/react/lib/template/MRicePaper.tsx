@@ -16,7 +16,7 @@ export default function MRicePaper(props: RicePaperProps & Slot) {
   const craneTemplate = props.crane ? <div className="m-rice-paper-crane"></div> : null;
 
 
-  return <div className={['m-rice-paper', !props.cold ? 'm-rice-paper-warn' : undefined].join(' ')}>
+  return <div className={['m-rice-paper', !props.cold ? 'm-rice-paper-warm' : undefined].join(' ')}>
     {mountainTemplate}
     {craneTemplate}
     <div className="m-rice-paper-main">
