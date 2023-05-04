@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MButton, MCheckbox, MInput, MProgress,MRadio,MSwitch,MTag } from '@shuimo-design/react/index';
+import { MButton, MCheckbox, MInput, MProgress,MRadio,MSwitch,MTag,MLi } from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Base() {
@@ -93,8 +93,14 @@ export default function Base() {
     <MTag type="warning">warning</MTag>
   </div>
 
+  const li = <div className="li">
+    <MLi>hi</MLi>
+    <MLi active>active li</MLi>
+  </div>
+
 
   return <div className="flex">
+    {li}
     {tagDom}
     {switchDom}
     {radio}

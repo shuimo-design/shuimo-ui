@@ -16,6 +16,7 @@ import MSwitch from './lib/base/MSwitch';
 import MRadio from './lib/base/MRadio';
 import MTag from './lib/base/MTag';
 import MProgress from './lib/base/MProgress';
+import MLi from './lib/base/MLi';
 
 
 // [other]
@@ -45,6 +46,7 @@ const components: Record<string, Component> = {
   MRadio,
   MTag,
   MProgress,
+  MLi,
 
   // [other]
   MDivider,
@@ -74,6 +76,7 @@ export {
   MRadio,
   MTag,
   MProgress,
+  MLi,
 
   // [other]
   MDivider,

@@ -16,6 +16,7 @@ export { default as MSwitch } from './lib/base/MSwitch';
 export { default as MRadio } from './lib/base/MRadio';
 export { default as MTag } from './lib/base/MTag';
 export { default as MProgress } from './lib/base/MProgress';
+export { default as MLi } from './lib/base/MLi';
 
 // [message]
 export { default as MPopover } from './lib/message/MPopover';

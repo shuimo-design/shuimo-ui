@@ -1,5 +1,10 @@
 <template>
   <div class="flex">
+    <div class="li">
+      <m-li>hi</m-li>
+      <m-li active>active li</m-li>
+    </div>
+
     <div class="tag">
       <m-tag>hi</m-tag>
       <m-tag>primary</m-tag>
