@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MButton, MCheckbox, MInput, MProgress,MRadio,MSwitch,MTag,MLi } from '@shuimo-design/react/index';
+import { MButton, MCheckbox, MInput, MProgress, MRadio, MSwitch, MTag, MLi, MList } from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Base() {
@@ -98,15 +98,25 @@ export default function Base() {
     <MLi active>active li</MLi>
   </div>
 
+  const dataList = [
+    { title: '轩辕剑', active: true },
+    { title: '湛卢' },
+    { title: '赤霄' }
+  ];
+
+  const stringList = ['轩辕剑', '湛卢', '赤霄'];
+
+  const listData = (data:{data:{title:string}})=>{
+    return <span>{data.data.title}</span>
+  }
+
+  const list = <div className="list">
+    <MList data={stringList}/>
+    <MList data={dataList} children={listData}/>
+  </div>
+
 
   return <div className="flex">
-    {li}
-    {tagDom}
-    {switchDom}
-    {radio}
-    {progress}
-    {checkbox}
-    {input}
-    {button}
+    {list}
   </div>;
 }

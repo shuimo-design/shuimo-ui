@@ -18,6 +18,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MInput'),
     import('./lib/base/MCheckBox'),
     import('./lib/base/MLi'),
+    import('./lib/base/MList'),
     // import('./lib/base/MSelect'),
     // import('./lib/base/MOption'),
     import('./lib/base/MSwitch'),

@@ -11,6 +11,7 @@
 @import "base/switch/switch.css";
 @import "base/tag/tag.css";
 @import "base/li/li.css";
+@import "base/list/list.css";
 
 /* [message] */
 @import "message/popover/popover.css";

@@ -12,6 +12,7 @@ import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
 import MCheckbox from './lib/base/MCheckbox';
 import MLi from './lib/base/MLi';
+import MList from './lib/base/MList';
 import MSwitch from './lib/base/MSwitch';
 import MRadio from './lib/base/MRadio';
 import MTag from './lib/base/MTag';
@@ -41,6 +42,7 @@ const components: Record<string, Component> = {
   MInput,
   MCheckbox,
   MLi,
+  MList,
   MSwitch,
   MRadio,
   MTag,
@@ -70,6 +72,7 @@ export {
   MInput,
   MCheckbox,
   MLi,
+  MList,
   MSwitch,
   MRadio,
   MTag,
