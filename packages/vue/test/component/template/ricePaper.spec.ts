@@ -9,13 +9,13 @@
 
 import { describe, test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MRicePaper from '../../../lib/template/ricePaper/MRicePaper';
+import { MRicePaper } from '../../../index';
 
-describe('宣纸组件', () => {
-  test('无参数渲染', () => {
+describe('rice paper', () => {
+  test('render', () => {
     const wrapper = mount(MRicePaper, {
       slots: {
-        default: '<div>测试</div>'
+        default: '<div>test</div>'
       }
     });
 
@@ -24,20 +24,20 @@ describe('宣纸组件', () => {
         <div class=\\"m-rice-paper-mountain\\"></div>
         <div class=\\"m-rice-paper-crane\\"></div>
         <div class=\\"m-rice-paper-main\\">
-          <div>测试</div>
+          <div>test</div>
         </div>
       </div>"
     `);
   });
 
-  test('隐藏山脉和仙鹤', () => {
+  test('hidden mountains and cranes', () => {
     const wrapper = mount(MRicePaper, {
       props: {
         mountain: false,
         crane: false
       },
       slots: {
-        default: '<div>测试</div>'
+        default: '<div>test</div>'
       }
     });
 
@@ -46,19 +46,19 @@ describe('宣纸组件', () => {
         <!---->
         <!---->
         <div class=\\"m-rice-paper-main\\">
-          <div>测试</div>
+          <div>test</div>
         </div>
       </div>"
     `);
   });
 
-  test('使用暖色调', () => {
+  test('use warn', () => {
     const wrapper = mount(MRicePaper, {
       props: {
         cold: false
       },
       slots: {
-        default: '<div>测试</div>'
+        default: '<div>test</div>'
       }
     });
 
@@ -67,7 +67,7 @@ describe('宣纸组件', () => {
         <div class=\\"m-rice-paper-mountain\\"></div>
         <div class=\\"m-rice-paper-crane\\"></div>
         <div class=\\"m-rice-paper-main\\">
-          <div>测试</div>
+          <div>test</div>
         </div>
       </div>"
     `);
