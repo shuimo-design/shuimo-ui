@@ -10,18 +10,16 @@
 import { describe, expect, test, vi } from 'vitest';
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import MTable from '../../../../lib/template/table/MTable';
-import MTableColumn from '../../../../lib/template/table/MTableColumn';
-import { TableProps } from '../../../../lib/template/table';
 import { Slot } from '@vue/test-utils/dist/types';
-import VForTableColumn from './demo/VForTableColumn.vue';
+import { MTable, MTableColumn } from '../../../index';
+import { TableProps } from '@shuimo-design/core/lib/template/table';
 
-describe('列表组件', function () {
+describe('table', function () {
   const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
     return mount(MTable, { props, slots });
   };
 
-  test('普通渲染', () => {
+  test('render', () => {
     const wrapper = getWrapper(
       { data: [{ param: 'hi' }] },
       { default: [h(MTableColumn, { param: 'param', label: 'label' })] }
@@ -44,14 +42,13 @@ describe('列表组件', function () {
               </tr>
             </tbody>
           </table>
-          <!---->
         </div>
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
   });
 
-  test('列表slot', () => {
+  test('list slot', () => {
     const wrapper = getWrapper(
       { data: [{ param: 'hi' }] },
       {
@@ -88,14 +85,51 @@ describe('列表组件', function () {
               </tr>
             </tbody>
           </table>
-          <!---->
         </div>
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
   });
 
-  test('slot传递参数', () => {
+  test('head slot', () => {
+    const wrapper = getWrapper(
+      { data: [{ param: 'hi' }] },
+      {
+        default: [
+          h(MTableColumn,
+            { param: 'param', label: 'label' },
+            { head: () => {return h('div', {}, `head slot`);} }
+          )
+        ]
+      }
+    );
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div class=\\"m-table\\">
+        <div class=\\"m-table-header-img-top\\"></div>
+        <div class=\\"m-table-header-img-bottom\\"></div>
+        <div class=\\"m-table-wrap\\">
+          <table class=\\"m-table-inner\\">
+            <thead class=\\"m-thead\\">
+              <tr class=\\"m-tr\\">
+                <th class=\\"m-th\\">
+                  <div>head slot</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class=\\"m-tbody\\">
+              <tr class=\\"m-tr\\">
+                <td class=\\"m-td\\">hi</td>
+                <td class=\\"m-table-tbody-img\\"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class=\\"m-table-border-img-bottom\\"></div>
+      </div>"
+    `);
+  });
+
+  test('slot use data', () => {
     const wrapper = getWrapper(
       {
         data: [{ slotInfo: 'hi' }, { slotInfo: 'hello' }]
@@ -138,49 +172,77 @@ describe('列表组件', function () {
               </tr>
             </tbody>
           </table>
-          <!---->
         </div>
         <div class=\\"m-table-border-img-bottom\\"></div>
       </div>"
     `);
   });
 
-  test('v-for渲染column', () => {
-    const wrapper = mount(VForTableColumn);
+  test('v-for column', () => {
+    const wrapper = mount({
+      components: { MTable, MTableColumn },
+      setup() {
+        const columns = [
+          { param: 'id', label: 'id' },
+          { param: 'param', label: 'param' }
+        ];
+        const data = [
+          { id: 1, param: '立春' },
+          { id: 2, param: '雨水' }
+        ];
+        return { columns, data };
+      },
+      template: `
+        <MTable :data="data">
+          <MTableColumn v-for="column in columns" :key="column.param" :param="column.param" :label="column.label"/>
+        </MTable>
+      `
+    });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-    "<div class=\\"m-table\\">
-      <div class=\\"m-table-header-img-top\\"></div>
-      <div class=\\"m-table-header-img-bottom\\"></div>
-      <div class=\\"m-table-wrap\\">
-        <table class=\\"m-table-inner\\">
-          <thead class=\\"m-thead\\">
-            <tr class=\\"m-tr\\">
-              <th class=\\"m-th\\">id</th>
-              <th class=\\"m-th\\">param</th>
-            </tr>
-          </thead>
-          <tbody class=\\"m-tbody\\">
-            <tr class=\\"m-tr\\">
-              <td class=\\"m-td\\">1</td>
-              <td class=\\"m-td\\">立春</td>
-              <td class=\\"m-table-tbody-img\\"></td>
-            </tr>
-            <tr class=\\"m-tr\\">
-              <td class=\\"m-td\\">2</td>
-              <td class=\\"m-td\\">雨水</td>
-              <td class=\\"m-table-tbody-img\\"></td>
-            </tr>
-          </tbody>
-        </table>
-        <!---->
-      </div>
-      <div class=\\"m-table-border-img-bottom\\"></div>
-    </div>"
-  `);
+      "<div class=\\"m-table\\">
+        <div class=\\"m-table-header-img-top\\"></div>
+        <div class=\\"m-table-header-img-bottom\\"></div>
+        <div class=\\"m-table-wrap\\">
+          <table class=\\"m-table-inner\\">
+            <thead class=\\"m-thead\\">
+              <tr class=\\"m-tr\\">
+                <th class=\\"m-th\\">id</th>
+                <th class=\\"m-th\\">param</th>
+              </tr>
+            </thead>
+            <tbody class=\\"m-tbody\\">
+              <tr class=\\"m-tr\\">
+                <td class=\\"m-td\\">1</td>
+                <td class=\\"m-td\\">立春</td>
+                <td class=\\"m-table-tbody-img\\"></td>
+              </tr>
+              <tr class=\\"m-tr\\">
+                <td class=\\"m-td\\">2</td>
+                <td class=\\"m-td\\">雨水</td>
+                <td class=\\"m-table-tbody-img\\"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class=\\"m-table-border-img-bottom\\"></div>
+      </div>"
+    `);
   });
 
-  describe('无数据状态', function () {
-    test('无slot', () => {
+  test('skip comment', () => {
+    const wrapper = mount({
+      components: { MTable, MTableColumn },
+      template: `
+        <MTable>
+        <MTableColumn param="param" label="label"></MTableColumn>
+        <!-- <MTableColumn param="id" label="id"></MTableColumn> -->
+        </MTable>`
+    });
+    expect(wrapper.html()).not.contains('id');
+  });
+
+  describe('no data', function () {
+    test('default', () => {
       const wrapper = getWrapper({ data: [] }, { default: [h(MTableColumn, { param: 'param', label: 'label' })] });
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class=\\"m-table\\">
@@ -193,16 +255,19 @@ describe('列表组件', function () {
                   <th class=\\"m-th\\">label</th>
                 </tr>
               </thead>
-              <tbody class=\\"m-tbody\\"></tbody>
+              <tbody class=\\"m-table-empty\\">
+                <tr>
+                  <th colspan=\\"1\\">暂无数据</th>
+                </tr>
+              </tbody>
             </table>
-            <div class=\\"m-table-empty\\">暂无数据</div>
           </div>
           <div class=\\"m-table-border-img-bottom\\"></div>
         </div>"
       `);
     });
 
-    test('提供slot', () => {
+    test('use empty slot', () => {
       const wrapper = getWrapper(
         { data: [] },
         {
@@ -221,9 +286,37 @@ describe('列表组件', function () {
                   <th class=\\"m-th\\">label</th>
                 </tr>
               </thead>
-              <tbody class=\\"m-tbody\\"></tbody>
+              <tbody class=\\"m-table-empty\\">
+                <tr>
+                  <th colspan=\\"1\\">
+                    <div>无数据slot</div>
+                  </th>
+                </tr>
+              </tbody>
             </table>
-            <div>无数据slot</div>
+          </div>
+          <div class=\\"m-table-border-img-bottom\\"></div>
+        </div>"
+      `);
+    });
+
+    test('without data', () => {
+      const wrapper = getWrapper();
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<div class=\\"m-table\\">
+          <div class=\\"m-table-header-img-top\\"></div>
+          <div class=\\"m-table-header-img-bottom\\"></div>
+          <div class=\\"m-table-wrap\\">
+            <table class=\\"m-table-inner\\">
+              <thead class=\\"m-thead\\">
+                <tr class=\\"m-tr\\"></tr>
+              </thead>
+              <tbody class=\\"m-table-empty\\">
+                <tr>
+                  <th colspan=\\"0\\">暂无数据</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class=\\"m-table-border-img-bottom\\"></div>
         </div>"
@@ -231,20 +324,16 @@ describe('列表组件', function () {
     });
   });
 
-  describe('异常状态', function () {
-    test('未传列表', () => {
-      const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      getWrapper();
-      expect(infoSpy).toHaveBeenCalled();
-    });
+  describe('error', function () {
 
-    test('列表中子节点不是m-table-column', () => {
+
+    test('The child node in the list is not m-table-column', () => {
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       getWrapper({ data: [] }, { default: () => h('div', 'hello') });
       expect(infoSpy).toHaveBeenCalled();
     });
 
-    test('列表中子节点不是m-table-column但是是undefined', () => {
+    test('The child node in the list is not m-table-column but undefined', () => {
       const wrapper = getWrapper({ data: [] }, { default: () => undefined });
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class=\\"m-table\\">
@@ -255,19 +344,36 @@ describe('列表组件', function () {
               <thead class=\\"m-thead\\">
                 <tr class=\\"m-tr\\"></tr>
               </thead>
-              <tbody class=\\"m-tbody\\"></tbody>
+              <tbody class=\\"m-table-empty\\">
+                <tr>
+                  <th colspan=\\"0\\">暂无数据</th>
+                </tr>
+              </tbody>
             </table>
-            <div class=\\"m-table-empty\\">暂无数据</div>
           </div>
           <div class=\\"m-table-border-img-bottom\\"></div>
         </div>"
       `);
     });
 
-    test('列表中子节点缺少props属性', () => {
+    test('The child node in the list lacks the props attribute', () => {
       const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       getWrapper({ data: [] }, { default: [h(MTableColumn)] });
       expect(infoSpy).toHaveBeenCalled();
     });
+
+
+    test('table column children is array', () => {
+      const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      mount(MTable, {
+        slots: {
+          default: [
+            h(MTableColumn, { param: 'param' }, [h('div')])
+          ]
+        }
+      });
+      expect(infoSpy).toHaveBeenCalled();
+    });
+
   });
 });

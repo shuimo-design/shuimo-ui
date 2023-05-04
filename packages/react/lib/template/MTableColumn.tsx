@@ -10,7 +10,7 @@ import React from 'react';
 import { TableColumnProps } from '@shuimo-design/core/lib/template/tableColumn';
 import { Slot } from '../../types';
 
-export default function MTableColumn(props: TableColumnProps & Slot) {
-  return  <></>;
+export default function MTableColumn(props: TableColumnProps & Slot & { body?: React.ReactNode | React.ReactNode[] }) {
+  return <></>;
 }
 

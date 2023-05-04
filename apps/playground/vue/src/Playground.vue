@@ -1,9 +1,7 @@
 <template>
   <div class="m-rice-paper-inside">
     <h1>这里是vue的playground</h1>
-    <Base></Base>
-    <Other></Other>
-
+    <Template></Template>
   </div>
 </template>
 

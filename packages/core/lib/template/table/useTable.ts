@@ -6,50 +6,79 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { TableColumnProps } from '../tableColumn';
+import Printer from '../../other/printer/Printer';
 
 
+const error = Printer('水墨UI表格组件').error;
 export function useTable() {
 
+  type SlotRender = any | undefined;
   const initTable = <T>(renders: {
     empty: T,
-    tbodyTr: (data: any | string) => T,
-    theadTh: (label?: string) => T,
+    tbodyTr: (option: { data: any | string, slot?: SlotRender, slotInfo?: { data: any, index: number } }) => T,
+    theadTh: (option: { label?: string, slot?: SlotRender }) => T,
     thead: (ths: T[]) => T,
     tbody: (trs: T[]) => T,
-    tbodyTrs: (tds: T[], i: number) => T
-  }, slots: Array<any>, data: any[]) => {
+    tbodyTrs: (tds: T[], i: number) => T,
+    initSlot: (tableColumn: any) => { body: SlotRender, head: SlotRender } | undefined,
+  }, columns: Array<any>, data: any[]) => {
     const tbodyTrList: T[][] = [];
     data.forEach(d => {tbodyTrList.push([]);});
 
+
     const getData = (i: number, param: string) => {
-      // todo support slot
       if (data[i] && data[i][param]) {
         return data[i][param];
       }
       return '';
     };
 
-    const pushTd = (param?: string) => {
+    const pushTd = (param: string | undefined, bodySlot: SlotRender) => {
       if (param) {
         tbodyTrList.forEach((t, i) => {
-          t.push(renders.tbodyTr(getData(i, param)));
+          t.push(renders.tbodyTr({
+            data: getData(i, param),
+            slot: bodySlot,
+            slotInfo: {
+              data: data[i],
+              index: i
+            }
+          }));
         });
+      }else{
+        error('param is undefined, column without param will be ignored!');
       }
       // todo if param is undefined
     };
 
+    /**
+     * init thead and push tbody rows to tbodyTrList
+     */
     const initTHead = () => {
-      const ths = slots.map((slot) => {
-        pushTd(slot.props.param);
-        return renders.theadTh(slot.props.label);
+      const ths = (columns ?? []).filter(column => {
+        if(!column.props){
+          error('column.props is undefined, column without param will be ignored!');
+          return false;
+        }
+        return true;
+      }).map((column, index) => {
+        const slots = renders.initSlot(column);
+        let bodySlot: SlotRender | undefined;
+        let headSlot: SlotRender | undefined;
+        if (slots) {
+          bodySlot = slots.body;
+          headSlot = slots.head;
+        }
+        pushTd(column.props.param, bodySlot);
+
+        return renders.theadTh({ label: column.props.label, slot: headSlot });
       });
       return renders.thead(ths);
     };
     const thead = initTHead();
-    const tbody = tbodyTrList.length>0?renders.tbody(
+    const tbody = tbodyTrList.length > 0 ? renders.tbody(
       tbodyTrList.map((tds, i) => renders.tbodyTrs(tds, i))
-    ): renders.empty;
+    ) : renders.empty;
 
     return {
       thead,
@@ -59,7 +88,8 @@ export function useTable() {
 
 
   return {
-    initTable
+    initTable,
+    error
   };
 
 }

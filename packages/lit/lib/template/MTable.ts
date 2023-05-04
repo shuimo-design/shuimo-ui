@@ -5,6 +5,10 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ *
+ * <m-table data="[{&quot;id&quot;:1}]"> too anti-human...
+ * find a better way to pass data, otherwise don't publish
  */
 import { html, LitElement, unsafeCSS } from 'lit';
 import { queryAssignedElements, state } from 'lit/decorators.js';
@@ -50,22 +54,26 @@ export default class extends LitElement {
     const { thead, tbody } = initTable({
       empty: html`
         <div class="m-table-empty">暂无数据</div>`,
-      tbodyTr: data => html`
+      tbodyTr: ({ data, slot, slotInfo }) => html`
         <td class="m-td">${data}</td>`,
-      theadTh: label => html`
+      theadTh: ({ label, slot }) => html`
         <th class="m-th">${label}</th>`,
       thead: ths => html`
         <thead class="m-thead">
-        <tr>${ths}</tr>
+        <tr class="m-tr">${ths}</tr>
         </thead>`,
       tbody: trs => html`
         <tbody class="m-tbody">${trs}</tbody>`,
       tbodyTrs: (tds, i) => html`
         <tr class="m-tr">${tds}
-          ${i === 0 ? undefined : html`
+          ${html`
             <td class="m-table-tbody-img"></td>`}
-        </tr>`
-    }, slots, JSON.parse(this.data??'') ?? []);
+        </tr>`,
+      initSlot: tableColumn => {
+        let body, head;
+        return { body, head };
+      }
+    }, slots, JSON.parse(this.data ?? '') ?? []);
     this.thead = thead;
     this.tbody = tbody;
   }

@@ -16,23 +16,10 @@
         <div class="flex">
 
 
-          <m-popover hover>
-            <m-button text="将毛笔移入试试"></m-button>
-            <div slot="content">君不见，黄河之水天上来</div>
-          </m-popover>
+          <m-table data="[{&quot;id&quot;:1}]">
+            <m-table-column param="id" label="id"></m-table-column>
+          </m-table>
 
-          <m-dialog>
-            <m-button slot="active">你好</m-button>
-            <div>
-              <h1>这里是 dialog</h1>
-            </div>
-          </m-dialog>
-
-          <m-loading></m-loading>
-          <m-loading mask></m-loading>
-          <m-loading side-length="100"></m-loading>
-
-          <m-dark-mode></m-dark-mode>
         </div>
       </div>
     </m-rice-paper>
