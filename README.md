@@ -57,48 +57,52 @@ You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.
 ```bash
 pnpm install shuimo-ui
 ```
+
 ### document
 
 [click here](https://shuimo.janghood.com)
 
 ## TODO
 
-🚧: not yet released
-
 | Component     | Vue3 (v0.2.9-1) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
 |---------------|-----------------|-----------------|--------------------|------------|
-| Input         | ✅               | ✅               | ✅                  | ✅          |
-| InputNumber   | ✅               | ❌               | ❌                  | ❌          |
-| Button        | ✅               | ✅               | ✅                  | ✅          |
-| Select        | ✅               | 🚧️             | 🚧️                | 🚧️        |
-| DatePicker    | ✅               | ❌               | ❌                  | ❌          |
-| Radio         | ✅               | ✅               | ✅                  | ✅          |
-| CheckBox      | ✅               | ✅               | ✅                  | ✅          |
+| **BASE**      |
+| Button        | ✅               | ✅               | ✨                  | ✨          |
+| CheckBox      | ✅               | ✅               | ✨                  | ✨          |
 | CheckBoxGroup | ✅               | ❌               | ❌                  | ❌          |
+| DatePicker    | ✅               | ❌               | ❌                  | ❌          |
+| Li            | ❌               | ❌               | ❌                  | ❌          |
 | List          | ✅               | ❌               | 🚧️                | ❌          |
-| Li            | ❌               | ✅               | ✅                  | ✅          |
-| Tag           | ✅               | ✅               | ✅                  | ✅          |
-| Switch        | ✅               | 🚧️             | 🚧️                | 🚧️        |
+| Input         | ✅               | ✅               | ✨                  | ✨          |
+| InputNumber   | ✅               | ❌               | ❌                  | ❌          |
+| Progress      | ✅               | ✅               | ✨                  | ✨          |
+| Radio         | ✅               | ✅               | ✨                  | ✨          |
+| Switch        | ✅               | ✅               | ✨                  | ✨          |
+| Select        | ✅               | ❌               | ❌                  | ❌          |
+| Tag           | ✅               | ✅               | ✨                  | ✨          |
+| **MESSAGE**   |
+| Dialog        | ✅               | ✅               | ✨                  | ✨          |
+| Popover       | ✅               | ✅               | ✨                  | ✨          |
+| **OTHER**     |
+| DarkMode      | ❌               | ✨               | ✨                  | ✨          |
+| Divider       | ✅               | ✅               | ✨                  | ✨          |
+| Loading       | ✅               | ✅               | ✨                  | ✨          |
+| Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
+| **TEMPLATE**  |
+| Border        | ✅               | ✅               | ✨                  | ✨          |
+| RicePaper     | ✅               | ✅               | ✨                  | ✨          |
+| Table         | ✅               | ✅               | ✨                  | 🚧         |
+| TableColumn   | ✅               | ✅               | ✨                  | 🚧         |
+| **TODO**      |
 | Confirm       | ✅               | ❌               | ❌                  | ❌          |
-| Dialog        | ✅               | ❌               | ❌                  | ❌          |
 | Drawer        | ✅               | ❌               | ❌                  | ❌          |
 | Message       | ✅               | ❌               | ❌                  | ❌          |
-| Popover       | ✅               | 🚧              | 🚧                 | 🚧         |
 | Tooltip       | ✅               | ❌               | ❌                  | ❌          |
-| Border        | ✅               | ✅               | ✅                  | ✅          |
 | Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
-| Divider       | ✅               | ✅               | 🚧                 | ✅          |
-| Loading       | ✅               | 🚧              | 🚧                 | 🚧         |
 | Printer       | ✅               | ❌               | ❌                  | ❌          |
-| Progress      | ✅               | ✅               | ✅                  | ✅          |
-| Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
 | Pagination    | ✅               | ❌               | ❌                  | ❌          |
-| Form          | ✅               | ✅               | ✅                  | ✅          |
-| FormItem      | ✅               | ✅               | ✅                  | ✅          |
-| Table         | ✅               | ❌               | ❌                  | ❌          |
-| TableColumn   | ✅               | ❌               | ❌                  | ❌          |
-| RicePaper     | ✅               | ✅               | ✅                  | ✅          |
+| Form          | ✅               | ❌               | ❌                  | ❌          |
+| FormItem      | ✅               | ❌               | ❌                  | ❌          |
 | DeleteIcon    | ✅               | ❌               | ❌                  | ❌          |
-| DarkMode      | ❌               | ❌               | ✅                  | ❌          |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
