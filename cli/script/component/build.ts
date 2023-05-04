@@ -48,7 +48,7 @@ export const build = async (options: { name: string, group: string, author: stri
     // useComponent
     renderTemplate(
       'core/hook.tsx',
-      `${corePath}/use${upperCaseFirstName}.tsx`,
+      `${corePath}/use${upperCaseFirstName}.ts`,
       {
         description: `core ${name} hook`,
         ...common,
@@ -65,43 +65,22 @@ export const build = async (options: { name: string, group: string, author: stri
         propsName
       }
     );
+    // api
+    renderTemplate(
+      'core/api.ts',
+      `${corePath}/api.ts`,
+      {
+        ...common,
+        propsName
+      }
+    )
     // style
     renderTemplate(
-      'core/style.pcss',
-      `${corePath}/${name}.pcss`,
+      'core/style.css',
+      `${corePath}/${name}.css`,
       {}
     );
 
-
-    const insertIndex = async () => {
-      await updateFile({
-        path: `${PRE}/core/lib/index.ts`,
-        group,
-        list: [
-          {
-            checkFn: line => line.trim() === '',
-            data: `import { ${name}Props, use${upperCaseFirstName} } from './${group}/${name}/use${upperCaseFirstName}';`
-          },
-          {
-            checkFn: line => line.trim() === '' || line.trim() === '};',
-            data: `  ${name}Props, use${upperCaseFirstName},`
-          }
-        ]
-      });
-    };
-    await insertIndex();
-
-    const insertIndexD = async () => {
-      await updateFile({
-        path: `${PRE}/core/types/index.d.ts`,
-        group,
-        list: [{
-          checkFn: line => line.trim() === '',
-          data: `export * from '../lib/${group}/${name}';`
-        }]
-      });
-    };
-    await insertIndexD();
   };
 
   const buildComponent = (options: { version: string, ext: string }) => {
@@ -114,6 +93,7 @@ export const build = async (options: { name: string, group: string, author: stri
       {
         hook: `use${upperCaseFirstName}`,
         ...common,
+        group,
         MName,
         propsName
       }
@@ -123,17 +103,17 @@ export const build = async (options: { name: string, group: string, author: stri
   };
 
   await buildCore(name, group);
-  await buildComponent({ version: 'web-component', ext: 'ts' });
+  await buildComponent({ version: 'lit', ext: 'ts' });
   await buildComponent({ version: 'vue', ext: 'tsx' });
   await buildComponent({ version: 'react', ext: 'tsx' });
 
   const insertVue = async () => {
     await updateFile({
-      path: `${PRE}/vue/lib/index.ts`,
+      path: `${PRE}/vue/index.ts`,
       group,
       list: [{
         checkFn: line => line.trim() === '',
-        data: `import ${MName} from './${group}/${MName}';`
+        data: `import ${MName} from './lib/${group}/${MName}';`
       }, {
         checkFn: line => line.trim() === '' || line.trim() === '};',
         data: `  ${MName},`
@@ -143,24 +123,24 @@ export const build = async (options: { name: string, group: string, author: stri
       }]
     });
   };
-  const insertVueStyle = async () => {
+  const insertCoreStyle = async () => {
     await updateFile({
-      path: `${PRE}/vue/lib/style.pcss`,
+      path: `${PRE}/core/lib/index.css`,
       group,
       list: [{
         checkFn: line => line.trim() === '',
-        data: `import "@shuimo-design/core/lib/${group}/${name}/${name}.pcss'),`
+        data: `@import "${group}/${name}/${name}.css";`
       }]
     });
   };
 
   const insertWebComponent = async () => {
     await updateFile({
-      path: `${PRE}/web-component/index.ts`,
+      path: `${PRE}/lit/index.ts`,
       group,
       list: [{
         checkFn: line => line.trim() === '',
-        data: `import('./lib/${group}/${MName}'),`
+        data: `    import('./lib/${group}/${MName}'),`
       }]
     });
   };
@@ -176,7 +156,7 @@ export const build = async (options: { name: string, group: string, author: stri
   };
 
   await insertVue();
-  await insertVueStyle();
+  await insertCoreStyle();
   await insertWebComponent();
   await insertReact();
 

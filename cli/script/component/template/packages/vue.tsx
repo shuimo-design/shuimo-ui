@@ -6,17 +6,15 @@
  *
  * {{slogan}}
  */
-import { defineComponent } from 'vue';
-import { {{hook}}, {{name}}Props } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import { defineComponent, h } from 'vue';
+import { props } from '@shuimo-design/core/lib/{{group}}/{{name}}/api';
 
 export default defineComponent({
   name: '{{MName}}',
-  props: {{name}}Props,
+  props,
   setup: (props, { slots }) => {
     return () => {
-      const { getTemplate } = {{hook}}();
-      return cr(getTemplate({ props }), { slots });
+      return ;
     };
   }
 });

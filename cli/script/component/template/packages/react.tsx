@@ -6,12 +6,13 @@
  *
  * {{slogan}}
  */
-import { {{hook}}, {{propsName}} } from '@shuimo-design/core';
-import { cr } from '../../tools/coreRender';
+import React from 'react';
+import '@shuimo-design/core/lib/{{group}}/{{name}}/{{name}}.css';
+import { {{propsName}} } from '@shuimo-design/core/lib/{{group}}/{{name}}';
 
 export default function {{MName}}(props: {{propsName}} ) {
-  const { getTemplate } = {{hook}}();
 
-  return cr(getTemplate({ props }),props)
+
+  return ;
 }
 
