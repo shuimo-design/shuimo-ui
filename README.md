@@ -66,13 +66,13 @@ pnpm install shuimo-ui
 
 | Component     | Vue3 (v0.2.9-1) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
 |---------------|-----------------|-----------------|--------------------|------------|
-| **BASE**      |
+| **BASE**      |                 |                 |                    |            |
 | Button        | ✅               | ✅               | ✨                  | ✨          |
 | CheckBox      | ✅               | ✅               | ✨                  | ✨          |
 | CheckBoxGroup | ✅               | ❌               | ❌                  | ❌          |
 | DatePicker    | ✅               | ❌               | ❌                  | ❌          |
-| Li            | ❌               | ❌               | ❌                  | ❌          |
-| List          | ✅               | ❌               | 🚧️                | ❌          |
+| Li            | ❌               | ✅               | ✨                  | ✨          |
+| List          | ✅               | ✅               | ✨                  | 🚧         |
 | Input         | ✅               | ✅               | ✨                  | ✨          |
 | InputNumber   | ✅               | ❌               | ❌                  | ❌          |
 | Progress      | ✅               | ✅               | ✨                  | ✨          |
@@ -80,20 +80,22 @@ pnpm install shuimo-ui
 | Switch        | ✅               | ✅               | ✨                  | ✨          |
 | Select        | ✅               | ❌               | ❌                  | ❌          |
 | Tag           | ✅               | ✅               | ✨                  | ✨          |
-| **MESSAGE**   |
+| **MESSAGE**   |                 |                 |                    |            |
 | Dialog        | ✅               | ✅               | ✨                  | ✨          |
 | Popover       | ✅               | ✅               | ✨                  | ✨          |
-| **OTHER**     |
+| **OTHER**     |                 |                 |                    |            |
 | DarkMode      | ❌               | ✨               | ✨                  | ✨          |
 | Divider       | ✅               | ✅               | ✨                  | ✨          |
 | Loading       | ✅               | ✅               | ✨                  | ✨          |
 | Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
-| **TEMPLATE**  |
+| **TEMPLATE**  |                 |                 |                    |            |
 | Border        | ✅               | ✅               | ✨                  | ✨          |
 | RicePaper     | ✅               | ✅               | ✨                  | ✨          |
+| Form          | ✅               | ✅               | ✨                  | 🚧         |
+| FormItem      | ✅               | ✅               | ✨                  | 🚧         |
 | Table         | ✅               | ✅               | ✨                  | 🚧         |
 | TableColumn   | ✅               | ✅               | ✨                  | 🚧         |
-| **TODO**      |
+| **TODO**      |                 |                 |                    |            |
 | Confirm       | ✅               | ❌               | ❌                  | ❌          |
 | Drawer        | ✅               | ❌               | ❌                  | ❌          |
 | Message       | ✅               | ❌               | ❌                  | ❌          |
@@ -101,8 +103,6 @@ pnpm install shuimo-ui
 | Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
 | Printer       | ✅               | ❌               | ❌                  | ❌          |
 | Pagination    | ✅               | ❌               | ❌                  | ❌          |
-| Form          | ✅               | ❌               | ❌                  | ❌          |
-| FormItem      | ✅               | ❌               | ❌                  | ❌          |
 | DeleteIcon    | ✅               | ❌               | ❌                  | ❌          |
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
