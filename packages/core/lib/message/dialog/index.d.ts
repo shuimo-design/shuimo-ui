@@ -11,6 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { MTeleportProps } from '../../../types/common/common';
 
 export declare type DialogProps = {
   /**
@@ -59,15 +60,4 @@ export declare type DialogMask = {
    * @default true
    */
   clickClose?: boolean
-};
-
-export declare type MTeleportProps = {
-  /**
-   * @description teleport to
-   *              传送到的位置
-   * @type string
-   * @default 'body'
-   */
-  to?: string | null | undefined; // support RendererElement
-  // todo support disabled
 };

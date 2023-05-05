@@ -7,10 +7,18 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { h, Teleport, TeleportProps, VNode } from 'vue';
+import { MTeleportProps } from '@shuimo-design/core/types/common/common';
 
 export default function useTeleport(options: {
-  teleportProps: TeleportProps,
-  slot: VNode
+  teleportProps?: MTeleportProps | true,
+  slot: VNode | VNode[]
 }) {
-  return h(Teleport, options.teleportProps, options.slot);
+  return h(Teleport, initTeleportOptions(options.teleportProps as TeleportProps), options.slot);
 }
+
+export const initTeleportOptions = (options: TeleportProps | true) => {
+  if (options === true) {
+    return { to: 'body' };
+  }
+  return options;
+};
