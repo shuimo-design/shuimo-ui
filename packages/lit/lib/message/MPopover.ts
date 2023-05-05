@@ -8,32 +8,28 @@
  */
 import { html, LitElement, unsafeCSS } from 'lit';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
+import { property } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { createMElement } from '../../base/createElement';
-import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
 import { props } from '@shuimo-design/core/lib/message/popover/api';
 import { Placement } from '@shuimo-design/core/composition/popper/usePopper';
 import style from '@shuimo-design/core/lib/message/popover/popover.css?inline';
-import { usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
+import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 
-
-const { init, trigger } = usePopover();
+const { createPopover, getContent } = usePopover();
 @createMElement({
   name: 'popover',
   props
 })
-export default class MPopover extends LitElement implements PopoverProps {
-  closeDelay?: number;
+export default class MPopover extends LitElement {
   content?: string;
   disableClickAway?: boolean;
   disabled?: boolean;
   hover?: boolean;
-  interactive?: boolean;
-  locked?: boolean;
-  offsetDistance?: string;
-  offsetSkid?: string;
-  openDelay?: number;
   placement?: Placement;
   show?: boolean | null;
+
+  protected popperInstance: PopoverImpl | undefined;
 
   static styles = unsafeCSS(style);
 
@@ -43,12 +39,23 @@ export default class MPopover extends LitElement implements PopoverProps {
 
   handleSlotChange() {
     if (this.popoverRef.value && this.contentRef.value) {
-      init(this.popoverRef.value, this.contentRef.value);
+      this.popperInstance = createPopover(this.popoverRef.value, this.contentRef.value);
     }
   }
 
-  handleClick() {
-    trigger();
+  @property()
+  protected contentStyle: any = {};
+
+  protected visible = false;
+  async handleClick() {
+    this.popperInstance?.toggle();
+    if (!this.visible) {
+      this.contentStyle = await this.popperInstance?.popperInstance.getPositionStyle() ?? {};
+      this.visible = true;
+    } else {
+      this.contentStyle = {};
+      this.visible = false;
+    }
   }
 
   render() {
@@ -59,7 +66,7 @@ export default class MPopover extends LitElement implements PopoverProps {
              @click=${() => this.handleClick()}>
           <slot @slotchange=${this.handleSlotChange}></slot>
         </div>
-        <div class="m-popover-content" ref=${ref(this.contentRef)}>
+        <div class="m-popover-content" ref=${ref(this.contentRef)} style=${styleMap(this.contentStyle)}>
           <slot name="content" @slotchange=${this.handleSlotChange}></slot>
         </div>
       </div>

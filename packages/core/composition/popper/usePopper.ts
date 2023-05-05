@@ -6,17 +6,33 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { createPopper } from '@popperjs/core';
+import { autoUpdate, computePosition, ComputePositionConfig } from '@floating-ui/dom';
 
-export type Placement = 'auto' | 'auto-start' | 'auto-end'
+export type Placement =
   | 'top' | 'top-start' | 'top-end'
-  | 'bottom' | 'bottom-start' | 'bottom-end'
   | 'right' | 'right-start' | 'right-end'
-  | 'left' | 'left-start' | 'left-end'
+  | 'bottom' | 'bottom-start' | 'bottom-end'
+  | 'left' | 'left-start' | 'left-end';
+export type PopperConfig = Partial<ComputePositionConfig>;
 
-export const usePopper = (triggerNode: HTMLElement, popperNode: HTMLElement, placement: Placement = 'bottom') => {
-  const res = createPopper(triggerNode, popperNode, {
-    placement
-  });
-  return res;
+export const usePopper = (triggerNode: HTMLElement, popperNode: HTMLElement, config?: PopperConfig) => {
+
+  const getPositionStyle = async () => {
+    const { x, y } = await computePosition(triggerNode, popperNode, config);
+
+    return {
+      left: `${x}px`,
+      top: `${y}px`,
+      display: 'block',
+      position: 'absolute'
+    };
+  };
+
+  const clear = autoUpdate(triggerNode, popperNode, getPositionStyle);
+
+
+  return {
+    getPositionStyle,
+    clear
+  };
 };

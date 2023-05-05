@@ -5,7 +5,3 @@
 .m-popover-default-wrapper{
   display: inline-block;
 }
-
-.m-popover-content[show="true"]{
-  display: block;
-}

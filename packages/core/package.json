@@ -7,7 +7,7 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.7",
+    "@floating-ui/dom": "^1.2.7",
     "@shuimo-design/tools": "workspace:*",
     "@shuimo-design/types": "workspace:*",
     "lit": "^2.7.2",

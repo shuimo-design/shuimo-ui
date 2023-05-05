@@ -33,7 +33,7 @@ export default function Message() {
 
   return <div className="flex">
     {popover}
-    {dialog}
+    {/*{dialog}*/}
   </div>;
 
 }

@@ -34,15 +34,20 @@ export const props: MCOPO<PopoverProps> = {
     //     'left-end'
     //   ].includes(value)
   },
+  mountRender: { type: Boolean, default: false },
   disableClickAway: { type: Boolean, default: false },
-  offsetSkid: { type: String, default: '0' },
-  offsetDistance: { type: String, default: '0' },
-  hover: { type: Boolean, default: false },
-  show: { type: Boolean, default: null },
-  disabled: { type: Boolean, default: false },
-  openDelay: { type: Number, default: 0 },
-  closeDelay: { type: Number, default: 0 },
-  interactive: { type: Boolean, default: true },
-  locked: { type: Boolean, default: false },
-  content: { type: String, default: '' }
+  // offsetSkid: { type: String, default: '0' },
+  // offsetDistance: { type: String, default: '0' },
+  // hover: { type: Boolean, default: false },
+  // show: { type: Boolean, default: null },
+  // disabled: { type: Boolean, default: false },
+  // openDelay: { type: Number, default: 0 },
+  // closeDelay: { type: Number, default: 0 },
+  // interactive: { type: Boolean, default: true },
+  // locked: { type: Boolean, default: false },
+  content: { type: String, default: '' },
+  popper: {
+    type: Object, default: () => ({})
+  },
+  teleport: { type: [Object, Boolean], default: undefined }
 };

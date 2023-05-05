@@ -7,14 +7,14 @@
       </template>
     </m-popover>
 
-    <m-dialog>
-      <template #active>
-        <m-button>点击这里</m-button>
-      </template>
-      <div>
-        <h1>这里是dialog</h1>
-      </div>
-    </m-dialog>
+<!--    <m-dialog>-->
+<!--      <template #active>-->
+<!--        <m-button>点击这里</m-button>-->
+<!--      </template>-->
+<!--      <div>-->
+<!--        <h1>这里是dialog</h1>-->
+<!--      </div>-->
+<!--    </m-dialog>-->
   </div>
 </template>
 
