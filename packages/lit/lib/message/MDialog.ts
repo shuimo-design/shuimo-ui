@@ -43,6 +43,10 @@ export default class extends LitElement implements DialogProps {
     e?.stopPropagation();
   }
 
+  handleDialogClickPropagation(e: MouseEvent) {
+    e.stopPropagation();
+  }
+
   getCloseDialog() {
     return html`
       <div @click=${(e: MouseEvent) => this.closeDialog(e)}
@@ -59,7 +63,7 @@ export default class extends LitElement implements DialogProps {
     return html`
       <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')}
            @click="${this.maskClick}">
-        <div class="m-dialog">
+        <div class="m-dialog" @click=${this.handleDialogClickPropagation}>
           ${this.closeBtn ? this.getCloseDialog() : ''}
           <slot/>
         </div>

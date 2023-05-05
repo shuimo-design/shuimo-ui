@@ -141,6 +141,22 @@ describe('dialog', () => {
       wrapper.unmount();
     });
 
+    test('click m-dialog won\'t close dialog', async () => {
+      const wrapper = mount(MDialog, {
+        props: {
+          visible: true
+        },
+        slots: {
+          default: () => h('div', 'hello')
+        }
+      });
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).toContain('hello');
+      await bodyWrapper.find('.m-dialog').trigger('click');
+      expect(bodyWrapper.html()).toContain('hello');
+      wrapper.unmount();
+    });
+
   });
 
   describe('slot', function () {

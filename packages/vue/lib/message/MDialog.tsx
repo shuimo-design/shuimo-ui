@@ -47,12 +47,14 @@ export default defineComponent({
         }
       };
 
+      const handleDialogClickPropagation = (e: MouseEvent) => {e.stopPropagation();};
+
       const getDialog = () => {
         return useTeleport({
-          teleportProps:{ to: props.teleport.to },
+          teleportProps: { to: props.teleport.to },
           slot: <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}
                      onClick={() => maskClick()}>
-            <div class="m-dialog">
+            <div class="m-dialog" onClick={handleDialogClickPropagation}>
               {props.closeBtn ? getCloseDialog() : null}
               {slots.default?.()}
             </div>

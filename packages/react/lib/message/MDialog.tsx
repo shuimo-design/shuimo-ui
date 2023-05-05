@@ -51,7 +51,7 @@ export default function MDialog(baseProps: DialogProps & Slot) {
   const getDialog = () => {
     return <div className={clsx(['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }])}
                 onClick={() => maskClick()}>
-      <div className="m-dialog">
+      <div className="m-dialog" onClick={e => e.stopPropagation()}>
         {props.closeBtn ? getCloseDialog() : null}
         {dialog}
       </div>
