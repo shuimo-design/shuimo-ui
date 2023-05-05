@@ -8,12 +8,12 @@
  */
 
 import { defineConfig } from 'vitest/config';
-import Vue from '@vitejs/plugin-vue'
-import Jsx from '@vitejs/plugin-vue-jsx'
+import Vue from '@vitejs/plugin-vue';
+import Jsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
   plugins: [Vue(), Jsx()],
-  test:{
+  test: {
     transformMode: {
       web: [/\.[jt]sx$/]
     },
@@ -22,8 +22,8 @@ export default defineConfig({
     coverage: {
       provider: 'c8',
       all: true,
-      include: ['lib/**'],
+      include: ['lib/**', 'composition/**'],
       reporter: ['json', 'html']
     }
   }
-})
+});

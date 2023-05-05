@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  *
- * todo onInput issue...
+ * todo onInput->like v-model issue...
  */
 import { html, LitElement, unsafeCSS } from 'lit';
 import { createMElement } from '../../base/createElement';
@@ -19,7 +19,8 @@ import { DialogProps } from '@shuimo-design/core/lib/message/dialog';
   props: {
     ...props,
     show: { type: Boolean, default: false },
-    clickClose: { type: Boolean, default: false }
+    clickClose: { type: Boolean, default: false },
+    to: { type: String, default: 'body' }
   }
 })
 export default class extends LitElement implements DialogProps {
@@ -28,6 +29,7 @@ export default class extends LitElement implements DialogProps {
   visible?: boolean;
   show?: boolean;
   clickClose?: boolean;
+  to?: string;
 
   static styles = unsafeCSS(style);
 
@@ -36,7 +38,7 @@ export default class extends LitElement implements DialogProps {
     this.visible = !this.visible;
   }
 
-  closeDialog(e?:MouseEvent) {
+  closeDialog(e?: MouseEvent) {
     this.visible = false;
     e?.stopPropagation();
   }
@@ -47,18 +49,18 @@ export default class extends LitElement implements DialogProps {
            class="m-dialog-close-btn m-cursor-pointer"/>`;
   }
 
-  maskClick(){
-    if(this.clickClose){
+  maskClick() {
+    if (this.clickClose) {
       this.closeDialog();
     }
   }
 
   getDialog() {
     return html`
-      <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')} 
+      <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')}
            @click="${this.maskClick}">
         <div class="m-dialog">
-          ${this.closeBtn?this.getCloseDialog():''}
+          ${this.closeBtn ? this.getCloseDialog() : ''}
           <slot/>
         </div>
       </div>`;

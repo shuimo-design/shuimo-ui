@@ -8,6 +8,7 @@
  */
 import { defineComponent, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/message/dialog/api';
+import useTeleport from '../../composition/useTeleport';
 
 export default defineComponent({
   name: 'MDialog',
@@ -47,13 +48,16 @@ export default defineComponent({
       };
 
       const getDialog = () => {
-        return <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}
-                    onClick={() => maskClick()}>
-          <div class="m-dialog">
-            {props.closeBtn ? getCloseDialog() : null}
-            {slots.default?.()}
+        return useTeleport({
+          teleportProps:{ to: props.teleport.to },
+          slot: <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}
+                     onClick={() => maskClick()}>
+            <div class="m-dialog">
+              {props.closeBtn ? getCloseDialog() : null}
+              {slots.default?.()}
+            </div>
           </div>
-        </div>;
+        });
       };
 
       return <div class="m-dialog-wrapper">

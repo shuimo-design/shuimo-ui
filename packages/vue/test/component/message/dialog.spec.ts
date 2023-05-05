@@ -8,19 +8,26 @@
  */
 
 import { describe, expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { DOMWrapper, mount } from '@vue/test-utils';
 import { h } from 'vue';
 import { MDialog } from '../../../index';
 
 describe('dialog', () => {
+  const body = document.body;
+
   test('render', () => {
     const wrapper = mount(MDialog, {
       slots: {
         default: () => h('div', 'hello')
       }
     });
-    expect(wrapper.html()).not.toContain('"m-dialog"');
-    wrapper.unmount();
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div class=\\"m-dialog-wrapper\\">
+        <div class=\\"m-dialog-active\\">
+          <!---->
+        </div>
+      </div>"
+    `);
   });
 
 
@@ -34,7 +41,7 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).toContain('"m-dialog"');
+      expect(body.outerHTML).toContain('"m-dialog"');
       wrapper.unmount();
     });
 
@@ -48,7 +55,8 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.findAll('m-dialog-mask-bg').length).toBe(0);
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.findAll('m-dialog-mask-bg').length).toBe(0);
       wrapper.unmount();
     });
 
@@ -62,7 +70,8 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).not.toContain('m-dialog-close-btn');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).not.toContain('m-dialog-close-btn');
       wrapper.unmount();
     });
 
@@ -76,7 +85,8 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).toContain('m-dialog-close-btn');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).toContain('m-dialog-close-btn');
       wrapper.unmount();
     });
 
@@ -89,11 +99,12 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).not.toContain('"m-dialog"');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).not.toContain('"m-dialog"');
       await wrapper.setProps({ visible: true });
-      expect(wrapper.html()).toContain('"m-dialog"');
+      expect(bodyWrapper.html()).toContain('"m-dialog"');
       wrapper.unmount();
-    })
+    });
   });
 
   describe('close event', function () {
@@ -107,9 +118,10 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).toContain('hello');
-      await wrapper.find('.m-dialog-mask').trigger('click');
-      expect(wrapper.html()).not.toContain('hello');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).toContain('hello');
+      await bodyWrapper.find('.m-dialog-mask').trigger('click');
+      expect(bodyWrapper.html()).not.toContain('hello');
       wrapper.unmount();
     });
 
@@ -122,9 +134,10 @@ describe('dialog', () => {
           default: () => h('div', 'hello')
         }
       });
-      expect(wrapper.html()).toContain('hello');
-      await wrapper.find('.m-dialog-close-btn').trigger('click');
-      expect(wrapper.html()).not.toContain('hello');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).toContain('hello');
+      await bodyWrapper.find('.m-dialog-close-btn').trigger('click');
+      expect(bodyWrapper.html()).not.toContain('hello');
       wrapper.unmount();
     });
 
@@ -134,16 +147,55 @@ describe('dialog', () => {
 
     test('action slot', async () => {
       const wrapper = mount(MDialog, {
-        slots:{
+        slots: {
           default: () => h('div', 'hello'),
           active: () => h('div', 'active')
         }
       });
-      expect(wrapper.html()).not.toContain('hello');
+      const bodyWrapper = new DOMWrapper(body);
+      expect(bodyWrapper.html()).not.toContain('hello');
       expect(wrapper.html()).toContain('active');
       await wrapper.find('.m-dialog-active').trigger('click');
-      expect(wrapper.html()).toContain('hello');
-    })
+      expect(bodyWrapper.html()).toContain('hello');
+      wrapper.unmount();
+    });
+
+  });
+
+  describe('teleport', function () {
+
+    test('default to body', () => {
+      const wrapper = mount(MDialog, {
+        props: {
+          visible: true
+        },
+        slots: {
+          default: () => h('div', 'hello')
+        }
+      });
+      expect(body.outerHTML).toContain('"m-dialog"');
+      wrapper.unmount();
+    });
+
+    test('teleport to div.container', () => {
+      const container = document.createElement('div');
+      container.className = 'container';
+      body.appendChild(container);
+      const wrapper = mount(MDialog, {
+        props: {
+          visible: true,
+          teleport: {
+            to: '.container'
+          }
+        },
+        slots: {
+          default: () => h('div', 'hello')
+        }
+      });
+      expect(container.outerHTML).toContain('"m-dialog"');
+      wrapper.unmount();
+
+    });
 
   });
 

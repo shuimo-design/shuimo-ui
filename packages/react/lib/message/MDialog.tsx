@@ -5,8 +5,10 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * todo support teleport
  */
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { Slot } from '../../types';
 import { DialogProps } from '@shuimo-design/core/lib/message/dialog';
 import { props as dialogProps } from '@shuimo-design/core/lib/message/dialog/api';

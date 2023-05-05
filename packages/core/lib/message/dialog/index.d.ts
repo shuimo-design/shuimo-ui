@@ -19,7 +19,7 @@ export declare type DialogProps = {
    * @type DialogMask
    * @default show:true, clickClose:true
    */
-  mask?: any,
+  mask?: DialogMask,
   /**
    * @description dialog visible value
    *              弹窗是否显示参数
@@ -33,7 +33,14 @@ export declare type DialogProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean
+  closeBtn?: boolean,
+  /**
+   * @description dialog teleport
+   *              弹窗传送
+   * @type teleport props
+   * @default ''
+   */
+  teleport?: MTeleportProps
 };
 
 
@@ -52,4 +59,15 @@ export declare type DialogMask = {
    * @default true
    */
   clickClose?: boolean
+};
+
+export declare type MTeleportProps = {
+  /**
+   * @description teleport to
+   *              传送到的位置
+   * @type string
+   * @default 'body'
+   */
+  to?: string | null | undefined; // support RendererElement
+  // todo support disabled
 };
