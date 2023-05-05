@@ -12,6 +12,7 @@ import { DialogProps } from '@shuimo-design/core/lib/message/dialog';
 import { props as dialogProps } from '@shuimo-design/core/lib/message/dialog/api';
 import '@shuimo-design/core/lib/message/dialog/dialog.css';
 import { getSlot, withDefault } from '../../base/tools';
+import { clsx } from '@shuimo-design/tools/index';
 
 export default function MDialog(baseProps: DialogProps & Slot) {
   const props = withDefault(baseProps, dialogProps);
@@ -28,7 +29,10 @@ export default function MDialog(baseProps: DialogProps & Slot) {
   };
 
   const getCloseDialog = () => {
-    return <div onClick={() => closeDialog()} className="m-dialog-close-btn m-cursor-pointer"/>;
+    return <div onClick={(e) => {
+      closeDialog();
+      e.stopPropagation();
+    }} className="m-dialog-close-btn m-cursor-pointer"/>;
   };
   const getActive = () => {
     return <div className="m-dialog-active" onClick={() => handleClick()}>
@@ -36,10 +40,17 @@ export default function MDialog(baseProps: DialogProps & Slot) {
     </div>;
   };
 
+  const maskClick = () => {
+    if (props.mask.clickClose) {
+      handleClick();
+    }
+  };
+
   const getDialog = () => {
-    return <div className={['m-dialog-mask', props.mask.show ? 'm-dialog-mask-bg' : ''].join(' ')}>
+    return <div className={clsx(['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }])}
+                onClick={() => maskClick()}>
       <div className="m-dialog">
-        {getCloseDialog()}
+        {props.closeBtn ? getCloseDialog() : null}
         {dialog}
       </div>
     </div>;

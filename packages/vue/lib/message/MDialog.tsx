@@ -20,9 +20,10 @@ export default defineComponent({
       visible.value = !visible.value;
       emit('update:visible', visible.value);
     };
-    const closeDialog = () => {
+    const closeDialog = (e: MouseEvent) => {
       visible.value = false;
       emit('update:visible', visible.value);
+      e.stopPropagation();
     };
 
     watch(() => props.visible, (val) => {
@@ -31,7 +32,7 @@ export default defineComponent({
 
     return () => {
       const getCloseDialog = () => {
-        return <div onClick={(e: MouseEvent) => closeDialog()} class="m-dialog-close-btn m-cursor-pointer"/>;
+        return <div onClick={(e: MouseEvent) => closeDialog(e)} class="m-dialog-close-btn m-cursor-pointer"/>;
       };
       const getActive = () => {
         return <div class="m-dialog-active" onClick={(e: MouseEvent) => handleClick()}>
@@ -39,10 +40,17 @@ export default defineComponent({
         </div>;
       };
 
+      const maskClick = () => {
+        if (props.mask.clickClose) {
+          handleClick();
+        }
+      };
+
       const getDialog = () => {
-        return <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}>
+        return <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}
+                    onClick={() => maskClick()}>
           <div class="m-dialog">
-            {getCloseDialog()}
+            {props.closeBtn ? getCloseDialog() : null}
             {slots.default?.()}
           </div>
         </div>;

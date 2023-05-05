@@ -36,21 +36,29 @@ export default class extends LitElement implements DialogProps {
     this.visible = !this.visible;
   }
 
-  closeDialog() {
+  closeDialog(e?:MouseEvent) {
     this.visible = false;
+    e?.stopPropagation();
   }
 
   getCloseDialog() {
     return html`
-      <div @click=${(e: MouseEvent) => this.closeDialog()}
+      <div @click=${(e: MouseEvent) => this.closeDialog(e)}
            class="m-dialog-close-btn m-cursor-pointer"/>`;
+  }
+
+  maskClick(){
+    if(this.clickClose){
+      this.closeDialog();
+    }
   }
 
   getDialog() {
     return html`
-      <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')}>
+      <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')} 
+           @click="${this.maskClick}">
         <div class="m-dialog">
-          ${this.getCloseDialog()}
+          ${this.closeBtn?this.getCloseDialog():''}
           <slot/>
         </div>
       </div>`;
