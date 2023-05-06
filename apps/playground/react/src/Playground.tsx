@@ -6,6 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { StrictMode } from 'react';
 import { MRicePaper, MBorder } from '@shuimo-design/react/index';
 import Base from './Base';
 import { useState } from 'react';
@@ -15,7 +16,7 @@ import Message from './Message';
 
 export default function Playground() {
 
-  return <div>
+  return <StrictMode>
     <MBorder>
       <MRicePaper mountain crane>
         <div className="m-rice-paper-inside">
@@ -24,5 +25,5 @@ export default function Playground() {
         </div>
       </MRicePaper>
     </MBorder>
-  </div>;
+  </StrictMode>;
 }
