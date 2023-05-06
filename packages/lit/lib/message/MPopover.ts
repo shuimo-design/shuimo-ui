@@ -5,6 +5,8 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * todo support teleport
  */
 import { html, LitElement, unsafeCSS } from 'lit';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
@@ -16,12 +18,14 @@ import { Placement } from '@shuimo-design/core/composition/popper/usePopper';
 import style from '@shuimo-design/core/lib/message/popover/popover.css?inline';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 
-const { createPopover, getContent } = usePopover();
+
 @createMElement({
   name: 'popover',
   props
 })
 export default class MPopover extends LitElement {
+  static styles = unsafeCSS(style);
+
   content?: string;
   disableClickAway?: boolean;
   disabled?: boolean;
@@ -30,8 +34,18 @@ export default class MPopover extends LitElement {
   show?: boolean | null;
 
   protected popperInstance: PopoverImpl | undefined;
+  protected createPopover: ReturnType<typeof usePopover>['createPopover'] | undefined;
 
-  static styles = unsafeCSS(style);
+  @property()
+  protected contentStyle: any = {};
+
+  setContentStyle(val: any) {this.contentStyle = val;}
+
+  constructor() {
+    super();
+    const { createPopover, getContent } = usePopover({ style: [this.contentStyle, this.setContentStyle, this] });
+    this.createPopover = createPopover;
+  }
 
   popoverRef: Ref<HTMLElement> = createRef();
 
@@ -39,23 +53,12 @@ export default class MPopover extends LitElement {
 
   handleSlotChange() {
     if (this.popoverRef.value && this.contentRef.value) {
-      this.popperInstance = createPopover(this.popoverRef.value, this.contentRef.value);
+      this.popperInstance = this.createPopover?.(this.popoverRef.value, this.contentRef.value);
     }
   }
 
-  @property()
-  protected contentStyle: any = {};
-
-  protected visible = false;
   async handleClick() {
     this.popperInstance?.toggle();
-    if (!this.visible) {
-      this.contentStyle = await this.popperInstance?.popperInstance.getPositionStyle() ?? {};
-      this.visible = true;
-    } else {
-      this.contentStyle = {};
-      this.visible = false;
-    }
   }
 
   render() {
@@ -66,7 +69,7 @@ export default class MPopover extends LitElement {
              @click=${() => this.handleClick()}>
           <slot @slotchange=${this.handleSlotChange}></slot>
         </div>
-        <div class="m-popover-content" ref=${ref(this.contentRef)} style=${styleMap(this.contentStyle)}>
+        <div class="m-popover-content" ref=${ref(this.contentRef)} style=${styleMap(this.contentStyle ?? {})}>
           <slot name="content" @slotchange=${this.handleSlotChange}></slot>
         </div>
       </div>

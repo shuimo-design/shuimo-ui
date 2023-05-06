@@ -7,17 +7,20 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import React, { ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
 import { Slot } from '../../types';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 import { props as popoverProps } from '@shuimo-design/core/lib/message/popover/api';
 import '@shuimo-design/core/lib/message/popover/popover.css';
 import { getSlot, withDefault } from '../../base/tools';
+import useTeleport from '../../base/useTeleport';
 
 export default function MPopover(baseProps: PopoverProps & Slot) {
   const props = withDefault(baseProps, popoverProps);
-  const { createPopover, getContent } = usePopover();
+
+  const styleState = useState({});
+  const { createPopover, getContent } = usePopover({ style: styleState });
 
   const popoverRef = useRef(null);
   const contentRef = useRef(null);
@@ -34,16 +37,8 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
     }));
   }, [popoverRef, contentRef]);
 
-  const [style, setStyle] = useState<React.CSSProperties>({});
-  useEffect(() => {
-    setStyle(popperInstance?.style || {});
-  }, [popperInstance?.visible]);
-
   const handleClick = async () => {
     popperInstance?.toggle();
-    // todo need help... this way to set style is shit..
-    const _style = await popperInstance?.popperInstance.getPositionStyle();
-    setStyle(_style as React.CSSProperties || {});
   };
 
 
@@ -53,17 +48,9 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
          onClick={() => handleClick()}>
       {active}
     </div>
-    <MPopoverContent ref={contentRef} style={style} content={content}/>
+    <div className="m-popover-content" ref={contentRef} style={styleState[0]}>
+      {getContent(props, content, useTeleport, popperInstance)}
+    </div>
   </div>;
-
 }
-
-const MPopoverContent = forwardRef(function MPopoverContent(
-  props: { style: React.CSSProperties, content: React.ReactNode },
-  ref: ForwardedRef<HTMLDivElement>
-) {
-  return <div className="m-popover-content" ref={ref} style={props.style}>
-    {props.content}
-  </div>;
-});
 

@@ -9,6 +9,7 @@
 import { PopperConfig, usePopper } from '../../../composition/popper/usePopper';
 import MPrinter from '../../other/printer/Printer';
 import { PopoverProps } from './index';
+import { MRef, MRefValue, RMRef } from '../../../composition/common/MRef';
 
 const error = MPrinter('水墨Popover组件').error;
 export type IPopper = ReturnType<typeof usePopper>;
@@ -19,25 +20,31 @@ export class PopoverImpl {
   protected _active: HTMLElement;
   protected _content: HTMLElement;
   popperInstance: IPopper;
-  style: Record<string, string> | undefined;
+  style: RMRef;
   visible: boolean = false;
 
-  constructor(active?: HTMLElement, content?: HTMLElement, config?: PopperConfig) {
+  constructor(
+    val: { style: RMRef },
+    active?: HTMLElement,
+    content?: HTMLElement,
+    config?: PopperConfig
+  ) {
     if (!content) {new Error('MPopover: content is required');}
     if (!active) {new Error('MPopover: active is required');}
 
     this._active = active!;
     this._content = content!;
     this.popperInstance = usePopper(this._active, this._content, config);
+    this.style = val.style;
   }
 
   async show() {
-    this.style = await this.popperInstance.getPositionStyle();
+    this.style.value = await this.popperInstance.getPositionStyle();
     this.visible = true;
   }
 
   hide() {
-    this.style = undefined;
+    this.style.value = undefined;
     this.visible = false;
   }
 
@@ -58,16 +65,23 @@ export class PopoverImpl {
 type ArrayElement<ArrayType> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
-export function usePopover() {
+export function usePopover(config: {
+  style: MRefValue
+}) {
+
+  const style = MRef(config.style);
+  let instance: PopoverImpl | null = null;
+
   const createPopover = (active: HTMLElement, content: HTMLElement, config?: PopperConfig) => {
-    return new PopoverImpl(active, content, config);
+    instance =  new PopoverImpl({ style }, active, content, config);
+    return instance;
   };
 
   const getContent = <T>(
     props: PopoverProps,
-    instance: PopoverImpl|null,
     content: T,
-    useTeleport: (options: any) => ArrayElement<T> | T //todo support react and lit
+    useTeleport: (options: any) => ArrayElement<T> | T,
+    _instance = instance
   ) => {
     const contentTeleportWrapper = () => {
       if (props.teleport) {
@@ -82,7 +96,7 @@ export function usePopover() {
     if (props.mountRender) {
       return contentTeleportWrapper();
     }
-    if (!instance || !instance.visible) {
+    if (!_instance || !_instance.visible) {
       return null;
     }
     return contentTeleportWrapper();

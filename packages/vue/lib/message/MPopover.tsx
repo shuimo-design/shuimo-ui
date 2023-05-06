@@ -7,7 +7,7 @@
  * Hello, humor
  * v2.0.0-process 阿怪 准备重构，搭建模版
  */
-import { computed, defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 import { props } from '@shuimo-design/core/lib/message/popover/api';
 import useTeleport from '../../composition/useTeleport';
@@ -29,16 +29,15 @@ export default defineComponent({
     //   return;
     // }
 
-
     const popoverRef = ref<HTMLElement>();
     const contentRef = ref<HTMLElement>();
     const popperInstance = ref<PopoverImpl>();
-    const { createPopover, getContent } = usePopover();
 
+    const style = ref();
+    const { createPopover, getContent } = usePopover({ style });
 
-    const styleComputed = computed(() => popperInstance.value?.style);
     const handleClick = async () => {
-      popperInstance.value?.toggle();
+      await popperInstance.value?.toggle();
     };
 
     onMounted(() => {
@@ -58,8 +57,8 @@ export default defineComponent({
              onClick={handleClick}>
           {slots.default()}
         </div>
-        <div class="m-popover-content" ref={contentRef} style={styleComputed.value}>
-          {getContent(props, popperInstance.value, content, useTeleport)}
+        <div class="m-popover-content" ref={contentRef} style={style.value}>
+          {getContent(props, content, useTeleport)}
         </div>
       </div>;
     };
