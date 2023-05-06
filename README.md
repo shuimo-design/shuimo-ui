@@ -82,7 +82,7 @@ pnpm install shuimo-ui
 | Tag           | ✅               | ✅               | ✨                  | ✨          |
 | **MESSAGE**   |                 |                 |                    |            |
 | Dialog        | ✅               | ✅               | ✨                  | ✨          |
-| Popover       | ✅               | ✅               | ✨                  | ✨          |
+| Popover       | ✅               | ✅               | ✨                  | 🚧         |
 | **OTHER**     |                 |                 |                    |            |
 | DarkMode      | ❌               | ✨               | ✨                  | ✨          |
 | Divider       | ✅               | ✅               | ✨                  | ✨          |
