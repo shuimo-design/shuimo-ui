@@ -82,6 +82,7 @@ pnpm install shuimo-ui
 | Tag           | ✅               | ✅               | ✨                  | ✨          |
 | **MESSAGE**   |                 |                 |                    |            |
 | Dialog        | ✅               | ✅               | ✨                  | ✨          |
+| Drawer        | ✅               | ✅               | ✨                  | 🚧         |
 | Popover       | ✅               | ✅               | ✨                  | 🚧         |
 | **OTHER**     |                 |                 |                    |            |
 | DarkMode      | ❌               | ✨               | ✨                  | ✨          |
@@ -97,7 +98,6 @@ pnpm install shuimo-ui
 | TableColumn   | ✅               | ✅               | ✨                  | 🚧         |
 | **TODO**      |                 |                 |                    |            |
 | Confirm       | ✅               | ❌               | ❌                  | ❌          |
-| Drawer        | ✅               | ❌               | ❌                  | ❌          |
 | Message       | ✅               | ❌               | ❌                  | ❌          |
 | Tooltip       | ✅               | ❌               | ❌                  | ❌          |
 | Menu          | ⚗️              | ❌               | 🚧️                | ❌          |

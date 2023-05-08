@@ -81,6 +81,7 @@ npm install shuimo-ui
 | Tag           | ✅               | ✅               | ✨                  | ✨          |
 | **MESSAGE**   |                 |                 |                    |            |
 | Dialog        | ✅               | ✅               | ✨                  | ✨          |
+| Drawer        | ✅               | ✅               | ✨                  | 🚧         |
 | Popover       | ✅               | ✅               | ✨                  | 🚧         |
 | **OTHER**     |                 |                 |                    |            |
 | DarkMode      | ❌               | ✨               | ✨                  | ✨          |
@@ -96,7 +97,6 @@ npm install shuimo-ui
 | TableColumn   | ✅               | ✅               | ✨                  | 🚧         |
 | **TODO**      |                 |                 |                    |            |
 | Confirm       | ✅               | ❌               | ❌                  | ❌          |
-| Drawer        | ✅               | ❌               | ❌                  | ❌          |
 | Message       | ✅               | ❌               | ❌                  | ❌          |
 | Tooltip       | ✅               | ❌               | ❌                  | ❌          |
 | Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
