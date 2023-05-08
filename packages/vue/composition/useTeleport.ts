@@ -16,8 +16,8 @@ export default function useTeleport(options: {
   return h(Teleport, initTeleportOptions(options.teleportProps as TeleportProps), options.slot);
 }
 
-export const initTeleportOptions = (options: TeleportProps | true) => {
-  if (options === true) {
+export const initTeleportOptions = (options: TeleportProps | true | undefined ) => {
+  if (options === true || options === undefined ) {
     return { to: 'body' };
   }
   return options;
