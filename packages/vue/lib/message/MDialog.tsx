@@ -6,9 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent } from 'vue';
 import { props } from '@shuimo-design/core/lib/message/dialog/api';
-import useTeleport from '../../composition/useTeleport';
+import useModel from '../../composition/useModel';
 
 export default defineComponent({
   name: 'MDialog',
@@ -16,50 +16,25 @@ export default defineComponent({
   emits: ['update:visible'],
   setup: (props, { emit, slots }) => {
 
-    const visible = ref(props.visible);
-    const handleClick = () => {
-      visible.value = !visible.value;
-      emit('update:visible', visible.value);
-    };
-    const closeDialog = (e: MouseEvent) => {
-      visible.value = false;
-      emit('update:visible', visible.value);
-      e.stopPropagation();
-    };
-
-    watch(() => props.visible, (val) => {
-      visible.value = val;
-    });
-
+    const {
+      visible,
+      getModel,
+      getModelActive,
+      handleModelClickPropagation,
+      getClose
+    } = useModel(props, { emit });
     return () => {
-      const getCloseDialog = () => {
-        return <div onClick={(e: MouseEvent) => closeDialog(e)} class="m-dialog-close-btn m-cursor-pointer"/>;
-      };
+
       const getActive = () => {
-        return <div class="m-dialog-active" onClick={(e: MouseEvent) => handleClick()}>
-          {slots.active?.()}
-        </div>;
+        return getModelActive(slots.active?.());
       };
 
-      const maskClick = () => {
-        if (props.mask.clickClose) {
-          handleClick();
-        }
-      };
-
-      const handleDialogClickPropagation = (e: MouseEvent) => {e.stopPropagation();};
 
       const getDialog = () => {
-        return useTeleport({
-          teleportProps: { to: props.teleport.to },
-          slot: <div class={['m-dialog-mask', { 'm-dialog-mask-bg': props.mask.show }]}
-                     onClick={() => maskClick()}>
-            <div class="m-dialog" onClick={handleDialogClickPropagation}>
-              {props.closeBtn ? getCloseDialog() : null}
-              {slots.default?.()}
-            </div>
-          </div>
-        });
+        return getModel(<div class="m-dialog" onClick={handleModelClickPropagation}>
+          {props.closeBtn ? getClose() : null}
+          {slots.default?.()}
+        </div>);
       };
 
       return <div class="m-dialog-wrapper">

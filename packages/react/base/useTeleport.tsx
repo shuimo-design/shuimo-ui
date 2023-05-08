@@ -8,7 +8,7 @@
  * todo this is only a func struct, not a real teleport hook
  */
 import { MTeleportProps } from '@shuimo-design/core/types/common/common';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 
 export default function useTeleport(options: {

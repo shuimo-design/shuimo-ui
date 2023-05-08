@@ -11,6 +11,7 @@
 import { html, LitElement, unsafeCSS } from 'lit';
 import { createMElement } from '../../base/createElement';
 import style from '@shuimo-design/core/lib/message/dialog/dialog.css?inline';
+import modelStyle from '@shuimo-design/core/lib/style/model.css?inline';
 import { props } from '@shuimo-design/core/lib/message/dialog/api';
 import { DialogProps } from '@shuimo-design/core/lib/message/dialog';
 
@@ -31,7 +32,7 @@ export default class extends LitElement implements DialogProps {
   clickClose?: boolean;
   to?: string;
 
-  static styles = unsafeCSS(style);
+  static styles = unsafeCSS(style+modelStyle);
 
 
   handleClick() {
@@ -50,7 +51,7 @@ export default class extends LitElement implements DialogProps {
   getCloseDialog() {
     return html`
       <div @click=${(e: MouseEvent) => this.closeDialog(e)}
-           class="m-dialog-close-btn m-cursor-pointer"/>`;
+           class="m-model-close-btn m-cursor-pointer"/>`;
   }
 
   maskClick() {
@@ -61,7 +62,7 @@ export default class extends LitElement implements DialogProps {
 
   getDialog() {
     return html`
-      <div class=${['m-dialog-mask', this.show ? 'm-dialog-mask-bg' : ''].join(' ')}
+      <div class=${['m-model-mask', this.show ? 'm-model-mask-bg' : ''].join(' ')}
            @click="${this.maskClick}">
         <div class="m-dialog" @click=${this.handleDialogClickPropagation}>
           ${this.closeBtn ? this.getCloseDialog() : ''}

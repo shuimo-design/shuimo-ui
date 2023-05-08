@@ -12,15 +12,16 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MTeleportProps } from '../../../types/common/common';
+import { ModelMask } from '../../../types/common/model';
 
 export declare type DialogProps = {
   /**
    * @description dialog mask option
    *              弹窗背景配置
-   * @type DialogMask
+   * @type ModelMask
    * @default show:true, clickClose:true
    */
-  mask?: DialogMask,
+  mask?: ModelMask,
   /**
    * @description dialog visible value
    *              弹窗是否显示参数
@@ -42,22 +43,4 @@ export declare type DialogProps = {
    * @default ''
    */
   teleport?: MTeleportProps
-};
-
-
-export declare type DialogMask = {
-  /**
-   * @description dialog mask show
-   *              弹窗背景是否显示
-   * @type boolean
-   * @default true
-   */
-  show?: boolean,
-  /**
-   * @description dialog click mask close
-   *              弹窗背景点击是否关闭
-   * @type boolean
-   * @default true
-   */
-  clickClose?: boolean
 };

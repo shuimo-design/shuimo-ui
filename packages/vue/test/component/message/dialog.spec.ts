@@ -23,7 +23,7 @@ describe('dialog', () => {
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-dialog-wrapper\\">
-        <div class=\\"m-dialog-active\\">
+        <div class=\\"m-model-active\\">
           <!---->
         </div>
       </div>"
@@ -56,7 +56,7 @@ describe('dialog', () => {
         }
       });
       const bodyWrapper = new DOMWrapper(body);
-      expect(bodyWrapper.findAll('m-dialog-mask-bg').length).toBe(0);
+      expect(bodyWrapper.findAll('m-model-mask-bg').length).toBe(0);
       wrapper.unmount();
     });
 
@@ -86,7 +86,7 @@ describe('dialog', () => {
         }
       });
       const bodyWrapper = new DOMWrapper(body);
-      expect(bodyWrapper.html()).toContain('m-dialog-close-btn');
+      expect(bodyWrapper.html()).toContain('m-model-close-btn');
       wrapper.unmount();
     });
 
@@ -120,7 +120,7 @@ describe('dialog', () => {
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('hello');
-      await bodyWrapper.find('.m-dialog-mask').trigger('click');
+      await bodyWrapper.find('.m-model-mask').trigger('click');
       expect(bodyWrapper.html()).not.toContain('hello');
       wrapper.unmount();
     });
@@ -136,7 +136,7 @@ describe('dialog', () => {
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('hello');
-      await bodyWrapper.find('.m-dialog-close-btn').trigger('click');
+      await bodyWrapper.find('.m-model-close-btn').trigger('click');
       expect(bodyWrapper.html()).not.toContain('hello');
       wrapper.unmount();
     });
@@ -171,7 +171,7 @@ describe('dialog', () => {
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).not.toContain('hello');
       expect(wrapper.html()).toContain('active');
-      await wrapper.find('.m-dialog-active').trigger('click');
+      await wrapper.find('.m-model-active').trigger('click');
       expect(bodyWrapper.html()).toContain('hello');
       wrapper.unmount();
     });
