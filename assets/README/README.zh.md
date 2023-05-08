@@ -85,7 +85,7 @@ npm install shuimo-ui
 | Drawer        | ✅               | ✅               | ✨                  | 🚧         |
 | Popover       | ✅               | ✅               | ✨                  | 🚧         |
 | **OTHER**     |                 |                 |                    |            |
-| DarkMode      | ❌               | ✨               | ✨                  | ✨          |
+| DarkMode      | ❌               | ✅               | ✨                  | ✨          |
 | Divider       | ✅               | ✅               | ✨                  | ✨          |
 | Loading       | ✅               | ✅               | ✨                  | ✨          |
 | Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
