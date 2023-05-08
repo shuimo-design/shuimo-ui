@@ -25,6 +25,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MRadio'),
     import('./lib/base/MTag'),
     import('./lib/base/MProgress'),
+    import('./lib/base/MAvatar'),
 
     // [message]
     import('./lib/message/MPopover'),

@@ -6,7 +6,18 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MButton, MCheckbox, MInput, MProgress, MRadio, MSwitch, MTag, MLi, MList } from '@shuimo-design/react/index';
+import {
+  MButton,
+  MCheckbox,
+  MInput,
+  MProgress,
+  MRadio,
+  MSwitch,
+  MTag,
+  MLi,
+  MList,
+  MAvatar
+} from '@shuimo-design/react/index';
 import { useState } from 'react';
 
 export default function Base() {
@@ -115,8 +126,17 @@ export default function Base() {
     <MList data={dataList} children={listData}/>
   </div>
 
+  const avatar = <div className="avatar">
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+  </div>
+
 
   return <div className="flex">
-    {list}
+    {avatar}
   </div>;
 }

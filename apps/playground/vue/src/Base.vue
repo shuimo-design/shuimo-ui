@@ -2,6 +2,14 @@
   <div class="flex">
 
     <div class="hidden">
+      <div class="list">
+        <m-list :data="stringList"/>
+        <m-list :data="dataList">
+          <template #default="{data}">
+            <span>title:{{ data.title }}</span>
+          </template>
+        </m-list>
+      </div>
       <div class="li">
         <m-li>hi</m-li>
         <m-li active>active li</m-li>
@@ -73,15 +81,15 @@
       </div>
     </div>
 
-    <div class="list">
-      <m-list :data="stringList"/>
-      <m-list :data="dataList">
-        <template #default="{data}">
-          <span>title:{{ data.title }}</span>
-        </template>
-      </m-list>
-    </div>
 
+    <div class="avatar">
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
+      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+    </div>
 
   </div>
 </template>
@@ -126,6 +134,10 @@ const stringList = ['轩辕剑', '湛卢', '赤霄'];
 
 .hidden {
   display: none;
+}
+
+.avatar{
+  display: flex;
 }
 
 </style>

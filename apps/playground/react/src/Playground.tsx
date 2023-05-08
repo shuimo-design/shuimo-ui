@@ -21,7 +21,7 @@ export default function Playground() {
       <MRicePaper mountain crane>
         <div className="m-rice-paper-inside">
           <h1>这里是React的playground</h1>
-          {Message()}
+          {Base()}
         </div>
       </MRicePaper>
     </MBorder>

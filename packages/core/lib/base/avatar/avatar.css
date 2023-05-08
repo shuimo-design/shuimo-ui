@@ -1,0 +1,73 @@
+.m-avatar {
+
+  --m-avatar-large: 50px;
+  --m-avatar-default: 40px;
+  --m-avatar-small: 24px;
+
+  --m-avatar-size: var(--m-avatar-default);
+  --m-avatar-w: var(--m-avatar-size);
+  --m-image-size: var(--m-avatar-size);
+
+  display: inline-grid;
+  grid-template-areas: 'avatar';
+
+  &.m-avatar-large {
+    --m-avatar-size: var(--m-avatar-large);
+  }
+
+  &.m-avatar-small {
+    --m-avatar-size: var(--m-avatar-small);
+  }
+
+  width: var(--m-avatar-w);
+  height: var(--m-avatar-size);
+
+  & .m-avatar-mask {
+    grid-area: avatar;
+    width: var(--m-avatar-w);
+    height: var(--m-avatar-size);
+  }
+
+  --m-image-m-t: 0;
+  --m-image-m-l: 0;
+
+  & > img {
+    grid-area: avatar;
+    width: var(--m-image-size);
+    height: var(--m-image-size);
+    margin: var(--m-image-m-t) 0 0 var(--m-image-m-l);
+  }
+
+
+}
+
+
+.m-avatar-circle {
+  --m-avatar-w: calc(var(--m-avatar-size) / 44 * 54);
+  --m-image-size: calc(var(--m-avatar-size) / 54 * 39);
+  --m-image-m-t: calc(var(--m-avatar-w) / 54 * 5);
+  --m-image-m-l: calc(var(--m-avatar-w) / 54 * 9);
+
+  & .m-avatar-mask {
+    background: url(./assets/circle.png);
+    background-size: 100% 100%;
+  }
+
+  & > img {
+    margin: var(--m-image-m-t) 0 0 var(--m-image-m-l);
+    border-radius: 50%;
+  }
+}
+
+.m-avatar-square {
+  --m-image-size: calc(var(--m-avatar-size) / 52 * 45);
+  --m-image-m-t: calc(var(--m-avatar-w) / 52 * 3);
+  --m-image-m-l: calc(var(--m-avatar-w) / 52 * 3);
+
+  & .m-avatar-mask {
+    background: url(./assets/square.png);
+    background-size: 100% 100%;
+  }
+
+}
+

@@ -13,6 +13,7 @@
 @import "base/tag/tag.css";
 @import "base/li/li.css";
 @import "base/list/list.css";
+@import "base/avatar/avatar.css";
 
 /* [message] */
 @import "message/popover/popover.css";
