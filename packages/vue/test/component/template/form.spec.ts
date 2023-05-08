@@ -51,6 +51,14 @@ describe('form', () => {
     expect(wrapper.html()).toContain('m-form');
   });
 
+  test('simple form-item',()=>{
+    const wrapper = mountForm({
+      template: `
+        <m-form inline><m-form-item label="input输入：" prop="hello"/></m-form>`
+    });
+    expect(wrapper.html()).toContain('input输入');
+  })
+
   test('form-item label slot',() => {
     const wrapper = mountForm({
       template: `
