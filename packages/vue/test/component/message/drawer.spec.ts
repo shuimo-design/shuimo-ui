@@ -67,6 +67,24 @@ describe('drawer', () => {
     wrapper.unmount();
   });
 
+  test('with active',async () => {
+    const wrapper = mount(MDrawer, {
+      props: {
+        mask: { show: false },
+        visible: true
+      },
+      slots: {
+        active: () => h('div', 'active'),
+        default: () => h('div', 'hello')
+      }
+    });
+    expect(wrapper.find('.m-model-active').html()).toMatchInlineSnapshot(`
+      "<div class=\\"m-model-active\\">
+        <div>active</div>
+      </div>"
+    `);
+  });
+
   test.skip('no close', async () => {
     const wrapper = mount(MDrawer, {
       props: {
