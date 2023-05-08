@@ -29,6 +29,7 @@ export const initWebComponent = async (prev = 'm') => {
     // [message]
     import('./lib/message/MPopover'),
     import('./lib/message/MDialog'),
+    import('./lib/message/MDrawer'),
 
     // [template]
     import('./lib/template/MBorder'),

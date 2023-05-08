@@ -11,9 +11,17 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { DialogMask } from '../dialog';
+import { ModelMask } from '../../../types/common/model';
+import { MTeleportProps } from '../../../types/common/common';
 
 export declare type DrawerProps = {
+  /**
+   * @description drawer mask option
+   *              抽屉背景配置
+   * @type ModelMask
+   * @default show:true, clickClose:true
+   */
+  mask?: ModelMask,
   /**
    * @description drawer width
    *              drawer的宽度
@@ -21,13 +29,6 @@ export declare type DrawerProps = {
    * @default false
    */
   width?: string,
-  /**
-   * @description drawer mask option
-   *              抽屉背景配置
-   * @type DialogMask
-   * @default show:true, clickClose:true
-   */
-  mask?: DialogMask,
   /**
    * @description drawer visible value
    *              抽屉是否显示参数
@@ -48,5 +49,12 @@ export declare type DrawerProps = {
    * @type boolean
    * @default true
    */
-  closeBtn?: boolean
+  closeBtn?: boolean,
+  /**
+   * @description drawer teleport
+   *              抽屉传送
+   * @type teleport props
+   * @default ''
+   */
+  teleport?: MTeleportProps
 }

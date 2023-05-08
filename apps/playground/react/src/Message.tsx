@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MPopover, MDialog, MButton } from '@shuimo-design/react/index';
+import { MPopover, MDialog, MButton, MDrawer } from '@shuimo-design/react/index';
 
 export default function Message() {
 
@@ -30,10 +30,22 @@ export default function Message() {
     </MDialog>
   </div>;
 
+  const drawer = <div className="drawer">
+    <MDrawer>
+      <div slot="active">
+        <MButton >点击这里</MButton>
+      </div>
+      <div>
+        <div>君不见，黄河之水天上来</div>
+      </div>
+    </MDrawer>
+  </div>;
+
 
   return <div className="flex">
-    {popover}
-    {/*{dialog}*/}
+    {/*{popover}*/}
+    {dialog}
+    {drawer}
   </div>;
 
 }

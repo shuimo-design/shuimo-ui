@@ -27,6 +27,7 @@ import MDarkMode from './lib/other/MDarkMode';
 // [message]
 import MPopover from './lib/message/MPopover';
 import MDialog from './lib/message/MDialog';
+import MDrawer from './lib/message/MDrawer';
 
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
@@ -56,6 +57,7 @@ const components: Record<string, Component> = {
   // [message]
   MPopover,
   MDialog,
+  MDrawer,
 
   // [template]
   MRicePaper,
@@ -86,6 +88,7 @@ export {
   // [message]
   MPopover,
   MDialog,
+  MDrawer,
 
   // [template]
   MRicePaper,

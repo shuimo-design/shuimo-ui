@@ -21,6 +21,7 @@ export { default as MProgress } from './lib/base/MProgress';
 // [message]
 export { default as MPopover } from './lib/message/MPopover';
 export { default as MDialog } from './lib/message/MDialog';
+export { default as MDrawer } from './lib/message/MDrawer';
 
 // [other]
 export { default as MDivider } from './lib/other/MDivider';

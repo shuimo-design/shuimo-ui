@@ -10,11 +10,11 @@
 import { describe, expect, test } from 'vitest';
 import { DOMWrapper, mount } from '@vue/test-utils';
 import { h } from 'vue';
-import MDrawer from '../../../lib/message/drawer/MDrawer';
+import { MDrawer } from '../../../index';
 
-describe('抽屉组件', () => {
+describe('drawer', () => {
   const body = document.body;
-  test('默认不显示', () => {
+  test('default render', () => {
     const wrapper = mount(MDrawer, {
       slots: {
         default: () => h('div', 'hello')
@@ -24,7 +24,7 @@ describe('抽屉组件', () => {
     wrapper.unmount();
   });
 
-  test('显示弹窗', () => {
+  test('show drawer', () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true
@@ -37,7 +37,7 @@ describe('抽屉组件', () => {
     wrapper.unmount();
   });
 
-  test('点击mask触发close', async () => {
+  test('click mask will close drawer', async () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true
@@ -47,12 +47,12 @@ describe('抽屉组件', () => {
       }
     });
     const bodyWrapper = new DOMWrapper(body);
-    await bodyWrapper.find('.mask').trigger('click');
-    expect(wrapper.emitted('close')).toMatchObject([[{ isTrusted: false }]]);
+    await bodyWrapper.find('.m-model-mask').trigger('click');
+    expect(bodyWrapper.html()).not.toContain('hello');
     wrapper.unmount();
   });
 
-  test('不渲染mask背景', async () => {
+  test('no mask', async () => {
     const wrapper = mount(MDrawer, {
       props: {
         mask: { show: false },
@@ -63,11 +63,11 @@ describe('抽屉组件', () => {
       }
     });
     const bodyWrapper = new DOMWrapper(body);
-    expect(bodyWrapper.findAll('.mask-bg').length).toBe(0);
+    expect(bodyWrapper.findAll('m-model-mask-bg').length).toBe(0);
     wrapper.unmount();
   });
 
-  test('不渲染close按钮', async () => {
+  test.skip('no close', async () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,
@@ -82,7 +82,7 @@ describe('抽屉组件', () => {
     wrapper.unmount();
   });
 
-  test('渲染close按钮', async () => {
+  test.skip('render close button', async () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,

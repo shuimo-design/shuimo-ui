@@ -1,0 +1,22 @@
+.m-drawer {
+  --m-drawer-m-column: 30px;
+  --m-drawer-m-row: 20px;
+  --m-drawer-p-column: 5px;
+  --m-drawer-p-row: 4px;
+  float: right;
+  margin: var(--m-drawer-m-column) var(--m-drawer-m-row);
+  background-color: white;
+  height: calc(100% - var(--m-drawer-m-column) * 2);
+
+  & > .m-border {
+    height: 100%;
+
+    & > .m-border-main {
+      padding: var(--m-drawer-p-column) var(--m-drawer-p-row);
+    }
+  }
+}
+
+.m-drawer-main {
+  height: calc(100vh - 60px);
+}
