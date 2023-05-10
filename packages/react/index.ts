@@ -23,6 +23,7 @@ export { default as MAvatar } from './lib/base/MAvatar';
 export { default as MPopover } from './lib/message/MPopover';
 export { default as MDialog } from './lib/message/MDialog';
 export { default as MDrawer } from './lib/message/MDrawer';
+export { default as MConfirm } from './lib/message/MConfirm';
 
 // [other]
 export { default as MDivider } from './lib/other/MDivider';

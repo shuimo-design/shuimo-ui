@@ -29,6 +29,7 @@ import MDarkMode from './lib/other/MDarkMode';
 import MPopover from './lib/message/MPopover';
 import MDialog from './lib/message/MDialog';
 import MDrawer from './lib/message/MDrawer';
+import MConfirm from './lib/message/MConfirm';
 
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
@@ -92,6 +93,7 @@ export {
   MPopover,
   MDialog,
   MDrawer,
+  MConfirm,
 
   // [template]
   MRicePaper,

@@ -8,11 +8,11 @@
  */
 
 import { describe, expect, test } from 'vitest';
-import MConfirm from '../../../lib/message/confirm/MConfirm';
 import { DOMWrapper } from '@vue/test-utils';
+import { MConfirm } from '../../../index';
 
-describe('确认框测试用例', async () => {
-  test('正常渲染', () => {
+describe('confirm', async () => {
+  test('render', () => {
     MConfirm('text');
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);

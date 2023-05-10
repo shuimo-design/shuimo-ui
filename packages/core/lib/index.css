@@ -19,6 +19,7 @@
 @import "message/popover/popover.css";
 @import "message/dialog/dialog.css";
 @import "message/drawer/drawer.css";
+@import "message/confirm/confirm.css";
 
 /* [other] */
 @import "other/divider/divider.css";

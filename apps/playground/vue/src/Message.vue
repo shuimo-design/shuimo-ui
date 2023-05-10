@@ -24,6 +24,8 @@
         <h1>这里是drawer</h1>
       </div>
     </m-drawer>
+
+    <m-button @click="activeConfirm">测试</m-button>
   </div>
 </template>
 
@@ -36,6 +38,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { MConfirm } from 'shuimo-ui/index';
+
+const activeConfirm = async () => {
+  const res = await MConfirm({ content: '测试' });
+  console.log(res);
+}
 
 
 </script>
