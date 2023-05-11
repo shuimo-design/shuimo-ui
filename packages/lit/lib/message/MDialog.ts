@@ -51,6 +51,7 @@ export default class extends LitElement implements DialogProps {
   getCloseDialog() {
     return html`
       <div @click=${(e: MouseEvent) => this.closeDialog(e)}
+      <div @click=${(e: MouseEvent) => this.closeDialog(e)}
            class="m-model-close-btn m-cursor-pointer"/>`;
   }
 

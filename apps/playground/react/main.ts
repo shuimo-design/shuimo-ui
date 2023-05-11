@@ -6,10 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
- import {createElement} from 'react';
- import {createRoot} from 'react-dom/client';
+import { createElement } from 'react';
+import { createRoot } from 'react-dom/client';
 import Playground from './src/Playground';
-
 
 
 const root = createRoot(document.getElementById('app')!);

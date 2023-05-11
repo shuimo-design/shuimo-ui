@@ -6,17 +6,53 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { notEmpty } from '@shuimo-design/tools/index';
+import { notEmpty } from '@shuimo-design/tools/empty';
+import { IConfirm } from './index';
 
-export function useConfirm() {
+export function useConfirm(
+  appendToBody: (
+    data: {
+      bodyDom: Element,
+      confirmDiv: Element,
+      _content: string,
+      confirm: () => void,
+      cancel: () => void,
+    }
+  ) => void
+) {
 
-  // const renderToBody = ()=>{
-  //   const bodyDomList = document.getElementsByTagName('body');
-  //   if(notEmpty(bodyDomList)){
-  //     const body = bodyDomList[0];
-  //     confirmDiv = document.createElement('div');
-  //     body.appendChild(confirmDiv);
-  //   }
-  // }
+  const ConfirmImpl: IConfirm = async config => {
+    let confirmDiv: Element | undefined = undefined;
+    const removeDiv = () => {
+      confirmDiv?.remove();
+    };
+    const _content = typeof config === 'string' ? config : config.content ?? '';
+    return new Promise((resolve, reject) => {
+
+      const confirm = () => {
+        removeDiv();
+        resolve(true);
+      };
+
+      const cancel = () => {
+        removeDiv();
+        resolve(false);
+      };
+
+      const bodyDomList = document.getElementsByTagName('body');
+      if (notEmpty(bodyDomList)) {
+        confirmDiv = document.createElement('div');
+        const bodyDom = bodyDomList[0];
+        appendToBody({ bodyDom, confirmDiv, _content, confirm, cancel });
+      } else {
+        reject('body dom not found');
+      }
+
+    });
+  };
+
+  return {
+    ConfirmImpl
+  };
 
 }

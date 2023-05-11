@@ -44,15 +44,15 @@ export default function useModel(props: {
 
   const handleModelClickPropagation = (e: React.MouseEvent) => {e.stopPropagation();};
 
-  const getModel = (dom:React.ReactNode)=>{
+  const getModel = (dom: React.ReactNode) => {
     return useTeleport({
       teleportProps: { to: props.teleport.to },
       slot: wrapperWithMask(dom)
-    })
-  }
+    });
+  };
 
   return {
-    visible,setVisible,
+    visible, setVisible,
     handleClick,
     getModel,
     closeModel,

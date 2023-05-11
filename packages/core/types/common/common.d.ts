@@ -15,6 +15,6 @@ export declare type MTeleportProps = {
    * @type string
    * @default 'body'
    */
-  to?: string | null | undefined; // support RendererElement
+  to?: string | null | undefined | Element; // support RendererElement
   // todo support disabled
 };

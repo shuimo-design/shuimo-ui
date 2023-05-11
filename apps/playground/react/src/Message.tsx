@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MPopover, MDialog, MButton, MDrawer } from '@shuimo-design/react/index';
+import { MPopover, MDialog, MButton, MDrawer, MConfirm } from '@shuimo-design/react/index';
 
 export default function Message() {
 
@@ -41,11 +41,20 @@ export default function Message() {
     </MDrawer>
   </div>;
 
+  const activeConfirm =async ()=>{
+    const res = await MConfirm({ content: '测试文本' });
+    console.log(res);
+  }
+
+  const confirm = <div className="confirm">
+    <MButton onClick={activeConfirm}>测试</MButton>
+  </div>
 
   return <div className="flex">
     {/*{popover}*/}
     {dialog}
     {drawer}
+    {confirm}
   </div>;
 
 }
