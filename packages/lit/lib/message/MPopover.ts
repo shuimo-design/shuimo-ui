@@ -43,7 +43,10 @@ export default class MPopover extends LitElement {
 
   constructor() {
     super();
-    const { createPopover, getContent } = usePopover({ style: [this.contentStyle, this.setContentStyle, this] });
+    const { createPopover, getContent } = usePopover({
+      style: [this.contentStyle, this.setContentStyle, this],
+      props: this
+    });
     this.createPopover = createPopover;
   }
 

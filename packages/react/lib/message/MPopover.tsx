@@ -20,7 +20,7 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
   const props = withDefault(baseProps, popoverProps);
 
   const styleState = useState({});
-  const { createPopover, getContent } = usePopover({ style: styleState });
+  const { createPopover, getContent } = usePopover({ style: styleState, props });
 
   const popoverRef = useRef(null);
   const contentRef = useRef(null);

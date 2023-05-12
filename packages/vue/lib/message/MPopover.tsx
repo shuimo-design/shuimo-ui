@@ -7,7 +7,7 @@
  * Hello, humor
  * v2.0.0-process 阿怪 准备重构，搭建模版
  */
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 import { props } from '@shuimo-design/core/lib/message/popover/api';
 import useTeleport from '../../composition/useTeleport';
@@ -17,7 +17,7 @@ export default defineComponent({
   name: 'MPopover',
   props,
   emits: ['open:popper', 'close:popper', 'update:show'],
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, expose }) {
     //
     // if (!slots.content) {
     //   console.error('MPopover: content is required');
@@ -34,7 +34,21 @@ export default defineComponent({
     const popperInstance = ref<PopoverImpl>();
 
     const style = ref();
-    const { createPopover, getContent } = usePopover({ style });
+    const {
+      createPopover,
+      getContent,
+      lifecycle
+    } = usePopover({ style, props });
+
+    const show = async () => {
+      await popperInstance.value?.show();
+    };
+    const hide = () => {
+      popperInstance.value?.hide();
+    };
+
+    expose({ show, hide });
+
 
     const handleClick = async () => {
       await popperInstance.value?.toggle();
@@ -45,6 +59,11 @@ export default defineComponent({
         ...props.popper,
         placement: props.placement
       });
+      lifecycle.onMountedEvents.forEach((fn) => fn());
+    });
+    onBeforeUnmount(() => {
+      // todo check it
+      lifecycle.onBeforeDestroyEvents.forEach((fn) => fn());
     });
 
 

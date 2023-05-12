@@ -7,8 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { beforeAll, describe, expect, test,vi } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { beforeAll, describe, expect, test, vi } from 'vitest';
+import { DOMWrapper, mount } from '@vue/test-utils';
 import { MPopover } from '../../../index';
 import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
 
@@ -50,9 +50,26 @@ describe('popover', () => {
     `);
   });
 
+  describe('expose', function () {
+    test('show and hide', async () => {
+      vi.useFakeTimers();
+      const wrapper = getWrapper({}, {
+        default: () => 'hello',
+        content: () => 'world'
+      });
+      const instance = wrapper.vm as any; //  fix any
+      expect(wrapper.find('.m-popover-content').html()).not.toContain('world');
+      await instance.show();
+      expect(wrapper.find('.m-popover-content').html()).toContain('world');
+      instance.hide();
+      await vi.runOnlyPendingTimersAsync();
+      expect(wrapper.find('.m-popover-content').html()).not.toContain('world');
+    })
+  });
 
-  describe('event',()=>{
-    test('click',async () => {
+
+  describe('event', () => {
+    test('click', async () => {
       vi.useFakeTimers();
       const wrapper = getWrapper({}, {
         default: () => 'hello',
@@ -61,7 +78,42 @@ describe('popover', () => {
       wrapper.find('.m-popover-default-wrapper').trigger('click');
       await vi.runOnlyPendingTimersAsync();
       expect(wrapper.find('.m-popover-content').html()).toContain('world');
-    })
-  })
+    });
+
+
+    test('click away', async () => {
+      vi.useFakeTimers();
+      const wrapper = getWrapper({}, {
+        default: () => 'hello',
+        content: () => 'world'
+      });
+      await wrapper.find('.m-popover-default-wrapper').trigger('click');
+      await vi.runAllTimersAsync();
+      expect(wrapper.find('.m-popover-content').html()).toContain('world');
+      const bodyWrapper = new DOMWrapper(document.body);
+      await bodyWrapper.trigger('pointerdown');
+      await vi.runAllTimersAsync();
+      expect(wrapper.find('.m-popover-content').html()).not.toContain('world');
+    });
+
+    test('disabled click away', async () => {
+      vi.useFakeTimers();
+      const wrapper = getWrapper({ disableClickAway: true }, {
+        default: () => 'hello',
+        content: () => 'world'
+      });
+      await wrapper.find('.m-popover-default-wrapper').trigger('click');
+      await vi.runAllTimersAsync();
+      expect(wrapper.find('.m-popover-content').html()).toContain('world');
+      const bodyWrapper = new DOMWrapper(document.body);
+      await bodyWrapper.trigger('pointerdown');
+      await vi.runAllTimersAsync();
+      expect(wrapper.find('.m-popover-content').html()).toContain('world');
+    });
+  });
+
+  describe('', function () {
+
+  });
 
 });

@@ -41,6 +41,12 @@ export type PopoverProps = {
    */
   content?: any,
   /**
+   * @description Trigger the popper on hover
+   * @type boolean
+   * @default false
+   */
+  hover?: boolean,
+  /**
    * @description floating-ui options, look: https://floating-ui.com/
    * @type PopperConfig
    * @default {}

@@ -38,7 +38,7 @@ export const props: MCOPO<PopoverProps> = {
   disableClickAway: { type: Boolean, default: false },
   // offsetSkid: { type: String, default: '0' },
   // offsetDistance: { type: String, default: '0' },
-  // hover: { type: Boolean, default: false },
+  hover: { type: Boolean, default: false },
   // show: { type: Boolean, default: null },
   // disabled: { type: Boolean, default: false },
   // openDelay: { type: Number, default: 0 },
