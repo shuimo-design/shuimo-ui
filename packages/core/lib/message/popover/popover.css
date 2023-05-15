@@ -1,5 +1,6 @@
 .m-popover-content{
   display: none;
+  z-index: 9;
 }
 
 .m-popover-default-wrapper{
