@@ -68,7 +68,6 @@ export default defineComponent({
 
 
     return () => {
-      const content = slots.content();
 
       return <div class="m-popover">
         <div class="m-popover-default-wrapper"
@@ -77,7 +76,7 @@ export default defineComponent({
           {slots.default()}
         </div>
         <div class="m-popover-content" ref={contentRef} style={style.value}>
-          {getContent(props, content, useTeleport)}
+          {getContent(props, () => slots.content(), useTeleport)}
         </div>
       </div>;
     };

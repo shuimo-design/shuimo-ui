@@ -49,7 +49,7 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
       {active}
     </div>
     <div className="m-popover-content" ref={contentRef} style={styleState[0]}>
-      {getContent(props, content, useTeleport, popperInstance)}
+      {getContent(props, () => content, useTeleport, popperInstance)}
     </div>
   </div>;
 }

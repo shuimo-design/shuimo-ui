@@ -117,7 +117,7 @@ export function usePopover(config: {
   const onBeforeDestroyEvents: Function[] = [];
 
   onMountedEvents.push(() => {
-    if(config.props.disableClickAway){
+    if (config.props.disableClickAway) {
       return;
     }
 
@@ -137,7 +137,7 @@ export function usePopover(config: {
 
   const getContent = <T>(
     props: PopoverProps,
-    content: T,
+    getContentSlot: () => T,
     useTeleport: (options: any) => ArrayElement<T> | T,
     _instance = instance
   ) => {
@@ -145,10 +145,10 @@ export function usePopover(config: {
       if (props.teleport) {
         return useTeleport({
           teleportProps: props.teleport,
-          slot: content
+          slot: getContentSlot()
         });
       }
-      return content;
+      return getContentSlot();
     };
 
     if (props.mountRender) {
