@@ -1,5 +1,5 @@
 .m-tag {
-  display: flex;
+  display: inline-flex;
   height: var(--m-tag-h);
 }
 
