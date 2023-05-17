@@ -12,7 +12,7 @@
  * v1.1.2 阿怪 添加blur事件冒泡
  * v2.0.0 阿怪 upgrade to core version
  */
-import { defineComponent, h, computed } from 'vue';
+import { computed, defineComponent, h } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/input/api';
 import { HTMLElementEvent } from '@shuimo-design/types';
 import MBorder from '../template/MBorder';
@@ -22,7 +22,7 @@ export default defineComponent({
   emits: ['update:modelValue', 'focus', 'blur'],
   props: {
     ...props,
-    modelValue: { type: String, default: '' }
+    modelValue: { type: [String, Number], default: '' }
   },
   setup(props, { emit }) {
 
@@ -32,7 +32,7 @@ export default defineComponent({
     return () => {
       const isInput = props.type !== 'textarea';
 
-      return h(MBorder,borderClass.value,()=>h(!isInput? 'textarea':'input', {
+      return h(MBorder, borderClass.value, () => h(!isInput ? 'textarea' : 'input', {
         value: props.modelValue,
         placeholder: props.placeholder,
         disabled: props.disabled,
