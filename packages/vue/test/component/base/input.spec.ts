@@ -79,6 +79,7 @@ describe('input', () => {
       const wrapper = mount(MInput);
       wrapper.find('input').setValue('test');
       expect(wrapper.emitted('update:modelValue')![0]).toEqual(['test']);
+      expect(wrapper.emitted('input')![0]).toEqual(['test']);
     })
 
     test('onFocus', async () => {

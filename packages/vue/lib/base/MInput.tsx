@@ -11,6 +11,7 @@
  * v1.1.2 阿怪 添加focus事件冒泡
  * v1.1.2 阿怪 添加blur事件冒泡
  * v2.0.0 阿怪 upgrade to core version
+ * v2.0.1 阿怪 add input event
  */
 import { computed, defineComponent, h } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/input/api';
@@ -19,7 +20,7 @@ import MBorder from '../template/MBorder';
 
 export default defineComponent({
   name: 'MInput',
-  emits: ['update:modelValue', 'focus', 'blur'],
+  emits: ['update:modelValue', 'focus', 'blur', 'input'],
   props: {
     ...props,
     modelValue: { type: [String, Number], default: '' }
@@ -39,6 +40,7 @@ export default defineComponent({
         readOnly: props.readonly,
         onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
           emit('update:modelValue', e.target.value);
+          emit('input', e.target.value);
         },
         onFocus: (e: FocusEvent) => {
           emit('focus', e);
