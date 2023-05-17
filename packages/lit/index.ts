@@ -26,6 +26,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MTag'),
     import('./lib/base/MProgress'),
     import('./lib/base/MAvatar'),
+    import('./lib/base/MSelect'),
 
     // [message]
     import('./lib/message/MPopover'),

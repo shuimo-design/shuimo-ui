@@ -23,8 +23,14 @@ export default function useSelectTools<T>(props: Required<SelectProps>) {
   };
 
   const getInputValue = (option: T) => getInfoWithKey(option, 'inputParam') as string;
+  const getOptionValue = (option: T) => getInfoWithKey(option, 'optionParam') as string;
 
-  const getModelValue = (option: T) => getInfoWithKey(option, 'valueParam') as T;
+  const getModelValue = (option: T) => {
+    if (props.valueParam) {
+      return getInfoWithKey(option, 'valueParam') as T;
+    }
+    return option;
+  };
 
   const selectFilter = (option: SelectOption, query: string) => {
     if (query) {
@@ -35,6 +41,6 @@ export default function useSelectTools<T>(props: Required<SelectProps>) {
 
 
   return {
-    getInfoWithKey, getInputValue, getModelValue, selectFilter
+    getInfoWithKey, getInputValue, getOptionValue, getModelValue, selectFilter
   };
 }

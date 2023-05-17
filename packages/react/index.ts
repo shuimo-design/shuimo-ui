@@ -18,6 +18,7 @@ export { default as MRadio } from './lib/base/MRadio';
 export { default as MTag } from './lib/base/MTag';
 export { default as MProgress } from './lib/base/MProgress';
 export { default as MAvatar } from './lib/base/MAvatar';
+export { default as MSelect } from './lib/base/MSelect';
 
 // [message]
 export { default as MPopover } from './lib/message/MPopover';

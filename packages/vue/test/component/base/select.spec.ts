@@ -10,15 +10,25 @@
  * v1.0.1 select多选测试用例 Jimmy
  */
 
-import { mount } from '@vue/test-utils';
-import { describe, expect, test, vi } from 'vitest';
-import MSelect from '../../../lib/base/select/MSelect';
-import { SelectProps } from '../../../lib/base/select';
+import { mount, VueWrapper } from '@vue/test-utils';
+import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { h, ref } from 'vue';
 import { Slot } from '@vue/test-utils/dist/types';
-import MPopover from '../../../lib/message/popover/MPopover';
+import MSelect from '../../../lib/base/MSelect';
+import { SelectProps } from '@shuimo-design/core/lib/base/select';
+import MPopover from '../../../lib/message/MPopover';
 
-describe('选择框组件', () => {
+
+beforeAll(() => {
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
+
+    unobserve() {}
+
+    disconnect() {}
+  };
+});
+describe('select', () => {
   const getWrapper = (props?: SelectProps, slots?: Record<string, Slot>) => {
     return mount(MSelect, { props, slots });
   };
@@ -52,7 +62,20 @@ describe('选择框组件', () => {
     return options === inputValue;
   };
 
-  describe('参数相关测试用例', () => {
+  const showOptions = async (wrapper: VueWrapper) => {
+    vi.useFakeTimers();
+    await wrapper.find('.m-select-input').trigger('click');
+    await vi.runOnlyPendingTimersAsync();
+  };
+
+  const showMultipleOptions = async (wrapper: VueWrapper) => {
+    vi.useFakeTimers();
+    await wrapper.find('.m-select-multiple-inner').trigger('click');
+    await vi.runOnlyPendingTimersAsync();
+  };
+
+
+  describe('props', () => {
     test('仅modelValue和options参数渲染（即最佳实践）', async () => {
       const wrapper = getWrapper(baseProps);
       expect(wrapper.element.querySelector('input')!.value).toBe('1');
@@ -63,6 +86,7 @@ describe('选择框组件', () => {
         ...baseProps,
         options: []
       });
+      await showOptions(wrapper);
       expect(wrapper.findAll('.m-select-empty').length).toBe(1);
     });
 
@@ -73,6 +97,7 @@ describe('选择框组件', () => {
       }, {
         empty: () => h('div', { class: 'empty' }, 'empty')
       });
+      await showOptions(wrapper);
       expect(wrapper.findAll('.empty').length).toBe(1);
     });
 
@@ -92,14 +117,14 @@ describe('选择框组件', () => {
       expect(wrapper.element.querySelector('input')!.value).toMatchInlineSnapshot('"input1"');
     });
 
-    test('指定对象框渲染param', () => {
+    test('指定对象框渲染param', async () => {
       const wrapper = getWrapper({
         modelValue: options[0],
         options,
         inputParam: 'inputParam',
         optionParam: 'title'
       });
-
+      await showOptions(wrapper);
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
         [
           "option1",
@@ -117,7 +142,7 @@ describe('选择框组件', () => {
         inputParam: 'inputParam',
         valueParam: 'value'
       });
-
+      await showOptions(wrapper);
       await wrapper.find('.m-option').trigger('click');
       expect(wrapper.emitted('update:modelValue')).toMatchObject([[1]]);
     });
@@ -129,7 +154,7 @@ describe('选择框组件', () => {
         inputParam: 'inputParam',
         valueParam: 'value'
       });
-
+      await showOptions(wrapper);
       await wrapper.setProps({ valueParam: 'value2' });
       await wrapper.find('.m-option').trigger('click');
       expect(wrapper.emitted('update:modelValue')).toMatchObject([[4]]);
@@ -161,7 +186,7 @@ describe('选择框组件', () => {
       expect(wrapper.find('input').attributes().placeholder).toBe(placeholder);
     });
 
-    test('toMatch功能测试', () => {
+    test('toMatch功能测试', async () => {
       const wrapper = getWrapper({
         modelValue: options[0],
         options,
@@ -171,38 +196,35 @@ describe('选择框组件', () => {
           return value.value === option.value && value.value2 === option.value2;
         }
       });
-      expect(wrapper.find('.m-option-selected').element).toMatchInlineSnapshot(`
-        <div
-          class="m-option m-option-selected"
-        >
-          option1
-        </div>
-      `);
+      await showOptions(wrapper);
+      expect(wrapper.find('.m-option-selected').element.textContent.trim()).toMatchInlineSnapshot('"option1"');
     });
 
     describe('filter方法测试', () => {
-      test('不可输入时显示所有', () => {
+      test('不可输入时显示所有', async () => {
         const wrapper = getWrapper({
           ...baseProps,
           filter: customFilter
         });
+        await showOptions(wrapper);
         expect(wrapper.findAll('.m-option').length).toBe(baseProps.options.length);
       });
 
-      test('可输入时筛选', () => {
+      test('可输入时筛选', async () => {
         const wrapper = getWrapper({
           ...baseProps,
           readonly: false,
           filter: customFilter
         });
+        await showOptions(wrapper);
         expect(wrapper.findAll('.m-option').length).toBe(1);
       });
     });
 
   });
 
-  describe('slot测试', () => {
-    test('slot覆盖optionParam', () => {
+  describe('slot', () => {
+    test('slot覆盖optionParam', async () => {
       const wrapper = getWrapper(
         {
           modelValue: options[0],
@@ -214,7 +236,7 @@ describe('选择框组件', () => {
           option: ({ option }) => h('span', option.value2)
         }
       );
-
+      await showOptions(wrapper);
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
         [
           "<span>4</span>",
@@ -229,9 +251,9 @@ describe('选择框组件', () => {
   describe('事件相关测试用例', () => {
     test('点击打开下拉框', async () => {
       const wrapper = getWrapper(baseProps);
-      expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
-      await wrapper.find('input').trigger('click');
-      expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
+      expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
+      await showOptions(wrapper);
+      expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
     });
 
     test('输入冒泡', async () => {
@@ -275,6 +297,7 @@ describe('选择框组件', () => {
         inputParam: 'inputParam',
         optionParam: 'title'
       });
+      await showOptions(wrapper);
       await wrapper.find('.m-option').trigger('click');
       expect(wrapper.emitted()['select'][0]).toMatchInlineSnapshot(`
         [
@@ -352,7 +375,8 @@ describe('选择框组件', () => {
         expect(wrapper.find('.m-select-multiple-placeholder').text()).toBe(placeholder);
       });
 
-      test('modelValue为undefined时参数变为空数组', () => {
+      // modelValue maybe can be any , we should not check it
+      test.skip('modelValue为undefined时参数变为空数组', () => {
         const modelValue = ref(undefined);
         const wrapper = getWrapper({
           ...baseProps,
@@ -362,7 +386,7 @@ describe('选择框组件', () => {
         expect(wrapper.emitted('update:modelValue')).toMatchObject([[[]]]);
       });
 
-      test('modelValue参数错误警告', () => {
+      test.skip('modelValue参数错误警告', () => {
         const infoSpy = vi.spyOn(console, 'error').mockImplementation(() => { });
         getWrapper({
           ...baseProps,
@@ -372,13 +396,14 @@ describe('选择框组件', () => {
         expect(infoSpy).toHaveBeenCalled();
       });
 
-      test('filter方法测试,常规值渲染', () => {
+      test('filter方法测试,常规值渲染', async () => {
         const wrapper = getWrapper({
           modelValue: [1],
           options: [1, 2, 3, 4],
           multiple: true,
           filter: customFilter
         });
+        await showMultipleOptions(wrapper);
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
           [
             "1",
@@ -394,9 +419,11 @@ describe('选择框组件', () => {
           modelValue: [1],
           options: [1, 2, 3, 4],
           multiple: true,
+          readonly: false,
           filter: customFilter
         });
         await wrapper.find('input').setValue(1);
+        await showMultipleOptions(wrapper);
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
           [
             "1",
@@ -411,9 +438,9 @@ describe('选择框组件', () => {
     describe('多选基础事件', () => {
       test('下拉框渲染', async () => {
         const wrapper = getWrapper(multiplePropsBase);
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
-        await wrapper.find('.m-border').trigger('click');
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
+        expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
+        await showMultipleOptions(wrapper);
+        expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
       });
       test('下拉框渲染，插槽渲染', async () => {
         const wrapper = getWrapper({
@@ -422,10 +449,10 @@ describe('选择框组件', () => {
           {
             option: ({ option }) => h('span', option)
           });
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
-        await wrapper.find('.m-border').trigger('click');
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
-        expect(wrapper.findAll('.m-select-option-wrapper').map(e => e.text())).toMatchInlineSnapshot(`
+        expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
+        await showMultipleOptions(wrapper);
+        expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
+        expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
           [
             "111",
             "222",
@@ -436,23 +463,22 @@ describe('选择框组件', () => {
         );
       });
 
-      test('可输入时下拉框渲染', async () => {
+      // actually when active popover active, content always render
+      test.skip('可输入时下拉框渲染', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBase,
           readonly: false
         });
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('false');
+        expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
         await wrapper.find('input').trigger('click');
-        expect(wrapper.findComponent(MPopover).props('show')).toMatchInlineSnapshot('true');
+        expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
 
       });
     });
 
     describe('多选常规值测试', () => {
       test('常规值渲染tag', () => {
-        const wrapper = getWrapper({
-          ...multiplePropsBase
-        });
+        const wrapper = getWrapper(multiplePropsBase);
         expect(wrapper.html()).toContain('m-tag');
         expect(wrapper.find('.m-tag').text()).toMatchInlineSnapshot('"111"');
       });

@@ -18,6 +18,7 @@ import MRadio from './lib/base/MRadio';
 import MTag from './lib/base/MTag';
 import MProgress from './lib/base/MProgress';
 import MAvatar from './lib/base/MAvatar';
+import MSelect from './lib/base/MSelect';
 
 
 // [other]
@@ -51,6 +52,7 @@ const components: Record<string, Component> = {
   MTag,
   MProgress,
   MAvatar,
+  MSelect,
 
   // [other]
   MDivider,
@@ -83,6 +85,7 @@ export {
   MTag,
   MProgress,
   MAvatar,
+  MSelect,
 
   // [other]
   MDivider,

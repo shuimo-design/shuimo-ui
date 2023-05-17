@@ -1,7 +1,15 @@
 <template>
   <div class="flex">
 
-    <div class="hidden">
+    <div class="hidden" v-if="false">
+      <div class="avatar">
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+      </div>
       <div class="list">
         <m-list :data="stringList"/>
         <m-list :data="dataList">
@@ -82,13 +90,17 @@
     </div>
 
 
-    <div class="avatar">
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+
+    <div class="select">
+      <div>{{value}}</div>
+      <div>{{emitValue}}</div>
+      <div>{{value2}}</div>
+      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false"/>
+      <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
+      <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
+
+      <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
+
     </div>
 
   </div>
@@ -127,7 +139,26 @@ const dataList = [
 
 const stringList = ['轩辕剑', '湛卢', '赤霄'];
 
+const value = ref('子');
 
+const emitValue = ref();
+const emitOptions = [
+  { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
+  { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
+  { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
+  { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
+];
+
+const options2 = ['子', '丑', '寅', '卯'];
+const value2 = ref(['寅', '丑']);
+
+
+const customFilter = (options: any, inputValue: any) => {
+  return String(options) === String(inputValue);
+};
+const testValue = ref([1]);
+// const testValue = ref(undefined);
+const testOptions = [1,2,3,4];
 </script>
 
 <style scoped>

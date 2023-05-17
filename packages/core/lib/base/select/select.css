@@ -1,16 +1,16 @@
-:root{
-  --m-select-h: 31px;
+:root {
+  --m-select-h: 38px;
+  --m-select-w: calc(var(--m-input-w) + 8px);
   --m-input-w: 244px;
+  --m-input-h: 31px;
   --m-select-dropdown-w: var(--m-input-w);
 }
 
-.m-select{
-
-
-  width: var(--m-input-w);
-  height: var(--m-select-h);
+.m-select {
+  display: inline-flex;
+  width: var(--m-select-w);
+  min-height: var(--m-select-h);
   line-height: var(--m-select-h);
-
 }
 
 .m-select-options {
@@ -23,7 +23,6 @@
     margin: 4px 4px;
     padding: 2px 4px;
     border-radius: 5px;
-    //line-height: ;
 
     &:hover {
       background-color: var(--m-option-bg-hover);
@@ -47,56 +46,6 @@
   }
 }
 
-
-.m-select-options-teleport {
-  min-height: var(--m-select-h);
-  display: flex;
-  flex-wrap: wrap;
-
-  .m-tag {
-    .m-tag-main {
-      padding-right: 6px;
-    }
-
-    .m-tag-del {
-      padding-right: 2px;
-    }
-
-    --m-tag-h: 31px;
-    padding: 2px 12px 2px 2px;
-
-    .m-tag-del {
-      position: relative;
-
-      .m-delete-icon {
-        position: absolute;
-        right: -25px;
-
-        &:hover {
-          background-size: 120% 120%;
-        }
-
-        &:active {
-          background-size: 100% 110%;
-        }
-      }
-    }
-  }
-
-  .m-select-multiple-input {
-    border: none;
-    background-color: transparent;
-    min-width: 50px;
-    padding:0 10px;
-    height: var(--m-select-h);
-    flex-grow: 1;
-
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
 .m-select-empty-span {
   display: inline-block;
   margin: 4px 5px;
@@ -106,6 +55,36 @@
 .m-select-multiple-placeholder {
   color: #757575;
   font-size: 13px;
-  margin:0 10px;
+  margin: 0 10px;
   line-height: var(--m-select-h);
+}
+
+
+.m-select-multiple {
+  display: inline;
+  width: var(--m-input-w);
+  line-height: var(--m-input-h);
+  box-sizing: content-box;
+  border: 3px double transparent;
+
+  .m-tag{
+    display: flex;
+    margin: 2px;
+  }
+}
+
+.m-select-multiple-inner{
+  display: inline-flex;
+  vertical-align: top;
+  width: calc(100% - 20px);
+  min-height: var(--m-select-h);
+  padding: 0 3px;
+}
+
+.m-select-multiple-input{
+  background-color: unset !important;
+  background-repeat: no-repeat !important;
+  padding: 0 10px;
+  border: none !important;
+  outline: none !important;
 }
