@@ -112,8 +112,4 @@ describe('popover', () => {
     });
   });
 
-  describe('', function () {
-
-  });
-
 });
