@@ -1,5 +1,4 @@
 .m-delete-icon {
-  @extend .m-cursor-pointer;
   --m-delete-icon-size: 31.5px;
 
   display: inline-block;
@@ -7,6 +6,6 @@
   width: var(--m-delete-icon-size);
   height: var(--m-delete-icon-size);
 
-  background: url(/lib/assets/icon/delete.png) no-repeat;
+  background: url(./assets/delete.png) no-repeat;
   background-size: 100% 100%;
 }

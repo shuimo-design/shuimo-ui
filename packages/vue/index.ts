@@ -25,6 +25,7 @@ import MSelect from './lib/base/MSelect';
 import MDivider from './lib/other/MDivider';
 import MLoading from './lib/other/MLoading';
 import MDarkMode from './lib/other/MDarkMode';
+import MDeleteIcon from './lib/other/MDeleteIcon';
 
 // [message]
 import MPopover from './lib/message/MPopover';
@@ -58,6 +59,7 @@ const components: Record<string, Component> = {
   MDivider,
   MLoading,
   MDarkMode,
+  MDeleteIcon,
 
   // [message]
   MPopover,
@@ -91,6 +93,7 @@ export {
   MDivider,
   MLoading,
   MDarkMode,
+  MDeleteIcon,
 
   // [message]
   MPopover,

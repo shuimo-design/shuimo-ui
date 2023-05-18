@@ -26,6 +26,7 @@
 @import "other/divider/divider.css";
 @import "other/loading/loading.css";
 @import "other/darkMode/darkMode.css";
+@import "other/deleteIcon/deleteIcon.css";
 
 /* [template] */
 @import "template/border/border.css";

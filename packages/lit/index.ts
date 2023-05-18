@@ -48,6 +48,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/other/MDivider'),
     import('./lib/other/MDarkMode'),
     import('./lib/other/MLoading'),
+    import('./lib/other/MDeleteIcon'),
 
   ]);
   window.shuimo = undefined;

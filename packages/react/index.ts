@@ -30,6 +30,7 @@ export { default as MConfirm } from './lib/message/MConfirm';
 export { default as MDivider } from './lib/other/MDivider';
 export { default as MLoading } from './lib/other/MLoading';
 export { default as MDarkMode } from './lib/other/MDarkMode';
+export { default as MDeleteIcon } from './lib/other/MDeleteIcon';
 
 // [template]
 export { default as MRicePaper } from './lib/template/MRicePaper';
