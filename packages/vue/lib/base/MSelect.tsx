@@ -22,7 +22,7 @@
  *        inputReadonly改为readonly
  *        multiple支持undefined modelValue 阿怪
  */
-import { computed, defineComponent, h, ref, VNode } from 'vue';
+import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/select/api';
 import MInput from './MInput';
 import MPopover from '../message/MPopover';
@@ -34,6 +34,7 @@ import { isEmpty } from '@shuimo-design/tools/empty';
 import MTag from './MTag';
 import selectCreator from '@shuimo-design/core/lib/base/select/composition/selectCreator';
 import { SelectOptions } from '@shuimo-design/core/lib/base/select/composition/class/BaseSelect';
+import MDeleteIcon from '../other/MDeleteIcon';
 
 const MOption = defineComponent({
   name: 'MOption',
@@ -49,10 +50,16 @@ const MOption = defineComponent({
 
 const MSelectTag = defineComponent({
   name: 'MSelectTag',
-  setup(props, { slots }) {
+  emits: ['delete'],
+  setup(props, { slots ,emit}) {
+    const deleteTag = (e:MouseEvent) => {
+      e.stopPropagation();
+      emit('delete');
+    }
     return () => {
       return <MTag>
-        {slots.default?.()}
+        <span>{slots.default?.()}</span>
+        <MDeleteIcon onClick={deleteTag} class="m-select-tag-delete-icon m-cursor-pointer"/>
       </MTag>;
     };
   }
@@ -64,21 +71,13 @@ export default defineComponent({
   props,
   emits: ['update:modelValue', 'input', 'select', 'focus', 'blur'],
   setup(props, { emit, slots }) {
-    console.log('setup');
+    const selectOptions = ref([]);
+    const selectDisplayOptions = ref([]);
+    const selectTags = ref([]);
+    const inputValue = ref('');
+
+
     const tools = useSelectTools(props);
-    const { modelValue: inputValue } = useModelValue(() => props.modelValue ?? '', {
-      getValue: data => {
-        // todo to useSelect
-        if (props.multiple) {
-          return '';
-        }
-        const findResult = props.options.find(o => tools.getModelValue(o) === data);
-        if (findResult) {
-          return tools.getInputValue(findResult);
-        }
-        return '';
-      }
-    });
     const {
       popoverOptions,
       inputProps,
@@ -95,9 +94,6 @@ export default defineComponent({
 
 
     // ---------- new ----------
-    const selectOptions = ref([]);
-    const selectDisplayOptions = ref([]);
-    const selectTags = ref([]);
 
     const getEmpty = () => <div class="m-select-empty">
       {slots && slots.empty ? slots.empty() : <span class="m-select-empty-span">暂无数据</span>}
@@ -111,11 +107,10 @@ export default defineComponent({
       popoverRef.value.hide();
     };
 
-
     const getRenderOptions = computed(() => getOptions());
-    const updateInput = (value: String) => {
-      inputValue.value = value;
-      emit('input', value);
+    const updateInput = () => {
+      select.onInput();
+      emit('input', inputValue.value);
     };
 
     const onFocus = (value: FocusEvent) => {
@@ -143,9 +138,17 @@ export default defineComponent({
       value: { inputValue, selectOptions, selectDisplayOptions, selectTags }
     });
 
+    const deleteTag = (tag:SelectOptions<OptionType>) => {
+      select.onDeleteTag(tag);
+      emit('update:modelValue', select.getModelValue());
+    }
+
+
+    watch(() => props.modelValue, (value) => {
+      select.setInputValue(value);
+    });
 
     return () => {
-      console.log('render');
       const { withBorder } = useBorder();
       const getOptionDisplayInfo = (o: OptionType) => {
         if (slots.option) {
@@ -181,8 +184,8 @@ export default defineComponent({
             const getSelectedTag = (tags: OptionType[]) => {
 
               if (!tags || tags.length === 0) return null;
-              return tags.map(tag => <MSelectTag>
-                {getOptionDisplayInfo(tag)}
+              return tags.map(tag => <MSelectTag onDelete={() =>deleteTag(tag) }>
+                {getOptionDisplayInfo(tag.value)}
               </MSelectTag>);
             };
 
@@ -193,7 +196,8 @@ export default defineComponent({
               {inputProps.readonly ?
                 <span class="m-select-multiple-placeholder">{props.placeholder}</span>
                 : <input class="m-select-multiple-input" type="text"
-                         onInput={() => select.onInput()}
+                         onFocus={onFocus} onBlur={onBlur}
+                         onInput={updateInput}
                          v-model={inputValue.value}
                          {...inputProps}/>}
             </div>, 'm-select-multiple');

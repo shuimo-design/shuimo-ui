@@ -90,15 +90,13 @@
     </div>
 
 
-
     <div class="select">
-      <div>{{value}}</div>
-      <div>{{emitValue}}</div>
-      <div>{{value2}}</div>
-      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false"/>
-      <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
-      <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
-
+      <div>{{ value }}</div>
+      <div>{{ emitValue }}</div>
+      <div>{{ value2 }}</div>
+      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>
+            <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
+            <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
       <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
 
     </div>
@@ -156,9 +154,13 @@ const value2 = ref(['寅', '丑']);
 const customFilter = (options: any, inputValue: any) => {
   return String(options) === String(inputValue);
 };
-const testValue = ref([1]);
+const testValue = ref([1, 3]);
 // const testValue = ref(undefined);
-const testOptions = [1,2,3,4];
+const testOptions = [1, 2, 3, 4];
+
+const customFilter2 = (options: any, inputValue: any) => {
+  return options === inputValue;
+};
 </script>
 
 <style scoped>
@@ -167,7 +169,7 @@ const testOptions = [1,2,3,4];
   display: none;
 }
 
-.avatar{
+.avatar {
   display: flex;
 }
 

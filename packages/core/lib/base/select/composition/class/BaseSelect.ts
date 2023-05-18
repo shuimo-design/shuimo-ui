@@ -14,7 +14,7 @@ import { isEmpty } from '@shuimo-design/tools/empty';
 
 
 export type ISelectOptions<OptionValue, JSXNode> = {
-  active: (data?: () => { tags: Array<OptionValue> }) => JSXNode,
+  active: (data?: () => { tags: Array<SelectOptions<OptionValue>> }) => JSXNode,
   content: (data: () => { options: Array<SelectOptions<OptionValue>> }) => JSXNode,
 }
 
@@ -26,7 +26,7 @@ export type SelectCreatorOptions<OptionValue, JSXNode> = {
     inputValue: MRefValue<any>,
     selectOptions: MRefValue<Array<SelectOptions<OptionValue>>>,
     selectDisplayOptions: MRefValue<Array<SelectOptions<OptionValue>>>,
-    selectTags: MRefValue<Array<OptionValue>>,
+    selectTags: MRefValue<Array<SelectOptions<OptionValue>>>,
   },
 }
 
@@ -43,7 +43,7 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
   inputValueRef?: TMRef<any>;
   selectOptions?: TMRef<SelectOptions<OptionValue>[]>;
   selectDisplayOptions?: TMRef<SelectOptions<OptionValue>[]>;
-  selectTags?: TMRef<OptionValue[]>;
+  selectTags?: TMRef<SelectOptions<OptionValue>[]>;
   tools?: ReturnType<typeof useSelectTools>;
 
   protected constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {
@@ -65,6 +65,10 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
     return this.options?.props.modelValue;
   }
 
+  baseFilter(option: OptionType) {
+    return true;
+  }
+
   callFilter(option: OptionType) {
     const { readonly: _readonly, filter } = this.options?.props!;
 
@@ -73,11 +77,12 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
     if (filter) {
       return filter(option, this.inputValueRef?.value);
     }
-    return true;
+    return this.baseFilter(option);
   }
 
   init() {
     this.updateSelectInfo();
+    this.updateInputValue();
   }
 
   updateSelectInfo() {
@@ -96,14 +101,20 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
   updateSelectDisplayOptions() {
     this.selectDisplayOptions!.value = this.selectOptions!.value.filter(o => this.callFilter(o.value));
   }
+
   updateSelectTags() {
   }
 
-  setInputValue(value: OptionType) {
+  updateInputValue() {
+    const findRes = this.options?.props.options.find(o => this.tools?.getModelValue(o) === this.modelValue);
+    this.inputValueRef!.value = findRes ? this.tools?.getInputValue(findRes) : '';
+  }
+
+  setInputValue(value?: OptionType) {
     this.inputValueRef!.value = this.tools?.getInputValue(value);
   }
 
-  getModelValue(value: OptionType) {
+  getModelValue(value?: OptionType) {
     return this.tools?.getModelValue(value);
   }
 
@@ -121,7 +132,7 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
 
 
   baseMatchSelected(o: OptionValue): boolean {
-    return false;
+    return this.modelValue === this.tools?.getModelValue(o);
   }
 
   matchSelected(o: OptionValue) {
@@ -131,18 +142,19 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
     return this.baseMatchSelected(o);
   }
 
-  onInput() {}
+  onInput() {
+    this.updateSelectInfo();
+  }
+
+  onDeleteTag(tag: SelectOptions<OptionValue>) {}
 }
 
 export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, JSXNode> {
   constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {super(options);}
 
-  baseMatchSelected(o: OptionValue): boolean {
-    return this.modelValue === this.tools?.getModelValue(o);
-  }
-
   onClickOption(index: number) {
     this.selectOptions?.value.forEach(o => {o.isSelected = false;});
+    this.inputValueRef!.value = this.tools?.getInputValue(this.selectOptions!.value[index].value);
     return super.onClickOption(index);
   }
 
@@ -165,25 +177,38 @@ export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, 
 export class MultipleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, JSXNode> {
   constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {super(options);}
 
+  onClickOption(index: number) {
+    this.setInputValue();
+    return super.onClickOption(index);
+  }
 
-  setInputValue(value: OptionType) {
+  setInputValue() {
     this.inputValueRef!.value = '';
   }
 
-  getModelValue(value: OptionType) {
+  getModelValue() {
     return this.selectOptions!.value.filter(o => o.isSelected).map(o => this.tools?.getModelValue(o.value));
   }
 
-  onInput() {
-    this.updateSelectInfo();
+  updateSelectTags() {
+    this.selectTags!.value = this.selectOptions!.value.filter(o => o.isSelected);
   }
 
-  updateSelectTags() {
-    this.selectTags!.value = this.selectOptions!.value.filter(o => o.isSelected).map(o => o.value);
+  onDeleteTag(tag: SelectOptions<OptionValue>) {
+    this.selectOptions!.value[tag.index].isSelected = false;
+    this.updateSelectTags();
   }
 
   baseMatchSelected(o: OptionValue): boolean {
     return this.modelValue.includes(this.tools?.getModelValue(o));
+  }
+
+  updateInputValue() {
+    this.inputValueRef!.value = '';
+  }
+
+  baseFilter(option: OptionType) {
+    return this.inputValueRef!.value===this.tools?.getInputValue(option);
   }
 
   initRender(render: InitRenderOptionRender<OptionValue, JSXNode>) {

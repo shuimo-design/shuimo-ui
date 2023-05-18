@@ -67,13 +67,19 @@
   box-sizing: content-box;
   border: 3px double transparent;
 
-  .m-tag{
+  .m-tag {
     display: flex;
-    margin: 2px;
+    margin: 4px;
+    position: sticky;
+
+    .m-tag-main {
+      white-space: nowrap;
+      padding-right: 10px;
+    }
   }
 }
 
-.m-select-multiple-inner{
+.m-select-multiple-inner {
   display: inline-flex;
   vertical-align: top;
   width: calc(100% - 20px);
@@ -81,10 +87,44 @@
   padding: 0 3px;
 }
 
-.m-select-multiple-input{
+.m-select-multiple-input {
   background-color: unset !important;
   background-repeat: no-repeat !important;
   padding: 0 10px;
   border: none !important;
   outline: none !important;
+}
+
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform:  rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(1deg);
+  }
+
+  75% {
+    transform:  rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
+}
+.m-select-tag-delete-icon {
+  display: inline;
+  vertical-align: top;
+  position: absolute;
+  right: -10px;
+  transform-origin: left top;
+
+  &:hover{
+    animation: shake 0.4s 2;
+  }
 }
