@@ -10,9 +10,13 @@ import { defineComponent, h } from 'vue';
 
 export default defineComponent({
   name: 'MDeleteIcon',
-  setup: () => {
+  emits: ['click'],
+  setup: (_, { emit }) => {
+    const click = (e: MouseEvent) => {
+      emit('click', e);
+    };
     return () => {
-      return <div class="m-delete-icon"/>;
+      return <div onClick={click} class="m-delete-icon"/>;
     };
   }
 });

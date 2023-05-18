@@ -18,4 +18,10 @@ describe('deleteIcon', function () {
     expect(wrapper.html()).toContain('<div class="m-delete-icon');
   });
 
+  test('click event', async () => {
+    const wrapper = mount(MDeleteIcon);
+    await wrapper.trigger('click');
+    expect(wrapper.emitted()).toHaveProperty('click');
+  });
+
 });
