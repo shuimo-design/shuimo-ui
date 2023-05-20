@@ -15,6 +15,7 @@
 @import "base/list/list.css";
 @import "base/avatar/avatar.css";
 @import "base/select/select.css";
+@import "base/datePicker/datePicker.css";
 
 /* [message] */
 @import "message/popover/popover.css";

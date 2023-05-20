@@ -27,6 +27,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MProgress'),
     import('./lib/base/MAvatar'),
     import('./lib/base/MSelect'),
+    import('./lib/base/MDatePicker'),
 
     // [message]
     import('./lib/message/MPopover'),

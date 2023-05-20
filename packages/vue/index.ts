@@ -19,6 +19,7 @@ import MTag from './lib/base/MTag';
 import MProgress from './lib/base/MProgress';
 import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
+import MDatePicker from './lib/base/MDatePicker';
 
 
 // [other]
@@ -54,6 +55,7 @@ const components: Record<string, Component> = {
   MProgress,
   MAvatar,
   MSelect,
+  MDatePicker,
 
   // [other]
   MDivider,
@@ -88,6 +90,7 @@ export {
   MProgress,
   MAvatar,
   MSelect,
+  MDatePicker,
 
   // [other]
   MDivider,

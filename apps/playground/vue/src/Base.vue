@@ -87,19 +87,25 @@
         <m-button @click="buttonClick" class="button-event" disabled>disabled</m-button>
         <m-button text="text！"></m-button>
       </div>
+      <div class="select">
+        <div>{{ value }}</div>
+        <div>{{ emitValue }}</div>
+        <div>{{ value2 }}</div>
+        <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>
+        <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
+        <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
+        <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
+
+      </div>
     </div>
 
 
-    <div class="select">
-      <div>{{ value }}</div>
-      <div>{{ emitValue }}</div>
-      <div>{{ value2 }}</div>
-      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>
-            <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
-            <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
-      <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
-
+    <div class="date-picker">
+      <m-date-picker/>
+      <span>{{date}}</span>
+      <m-date-picker v-model="date"/>
     </div>
+
 
   </div>
 </template>
@@ -161,6 +167,9 @@ const testOptions = [1, 2, 3, 4];
 const customFilter2 = (options: any, inputValue: any) => {
   return options === inputValue;
 };
+
+
+const date = ref(new Date());
 </script>
 
 <style scoped>

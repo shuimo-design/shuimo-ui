@@ -18,13 +18,19 @@ export declare type DatePickerProps = {
    *              日期值
    * @default ''
    */
-  modelValue?: string | Date,
+  value?: string | Date,
   /**
    * @description date placeholder
    *              日期选择框提示文字
    * @default 请选择日期
    */
   placeholder?: string,
+  /**
+   * @description date format
+   *              日期格式
+   * @default YYYY-MM-DD
+   */
+  format?: string,
   /**
    * @description datePicker format type date/month
    *              日期选择框类型 date/month
