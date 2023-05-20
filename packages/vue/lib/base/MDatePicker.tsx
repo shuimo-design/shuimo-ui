@@ -10,7 +10,8 @@ import { defineComponent, ref } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/datePicker/api';
 import usePopover from '../../composition/usePopover';
 import {
-  BASE_WEEK_NAME,
+  BASE_MONTH_NAME,
+  BASE_WEEK_NAME, CALENDAR_TYPE,
   CalendarItem,
   DateRefType, DisplayCalendarType, toDayjs,
   useDatePicker
@@ -20,7 +21,6 @@ import MDivider from '../other/MDivider';
 
 
 const MCalendarColumn = defineComponent(<T extends DisplayCalendarType>(props: { columns: T[] }, { emit }) => {
-
   const clickItem = (item: T) => {
     emit('click', item);
   };
@@ -62,12 +62,15 @@ export default defineComponent({
     const spanClass = ref<Array<string | undefined>>([]);
     const dateRef = ref<DateRefType>();
     const currentRef = ref(toDayjs(props.modelValue));
+    const calendarTypeRef = ref<CALENDAR_TYPE>('date');
+    const yearsRef = ref<Array<number>>([]);
 
     const {
       updateDateRef,
       popoverOptions, getCalendar,
       toPrevMonth, toNextMonth, toNextYear, toPrevYear,
-      getValue
+      getValue,
+      clickCurrentYear, clickYearItem, clickCurrentMonth, clickMonthItem
     } = useDatePicker({
       props: {
         ...props,
@@ -77,7 +80,9 @@ export default defineComponent({
         displayValue,
         spanClass,
         dateRef,
-        currentRef
+        currentRef,
+        calendarTypeRef,
+        yearsRef
       }
     });
     const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-date-picker');
@@ -90,15 +95,80 @@ export default defineComponent({
       emit('update:modelValue', value);
     };
 
+    const clickMonth = (month: number) => {
+      clickCurrentMonth(month);
+    };
+
+    const clickYear = (year: number) => {
+      clickCurrentYear(year);
+    };
+
+    const clickYearDiv = (year: number) => {
+      clickYearItem(year);
+    };
+
+    const clickMonthDiv = (month: number) => {
+      clickMonthItem(month);
+    };
+
     return () => {
-      const columns = getCalendar(dateRef);
-      console.log('render');
+      const getDateCalendar = () => {
+        return getCalendar(dateRef)?.map((column, index) => {
+          return <MCalendarColumn columns={column} key={index} onClick={clickDay}/>;
+        });
+      };
+
+      const getMonthCalendar = () => {
+        const isCurrent = (month: number) => {
+          return month === dateRef.value?.month;
+        };
+
+        return (
+          <div>
+            {BASE_MONTH_NAME.map((month, index) => (
+              <div class={['m-date-picker-calendar-column-month', { 'm-date-picker-current': isCurrent(index + 1) }]}
+                   key={index}
+                   onClick={() => clickMonthDiv(index + 1)}>
+                {month}
+              </div>
+            ))}
+          </div>
+        );
+      };
+
+      const getYearCalendar = () => {
+
+        const isCurrent = (year: number) => {
+          return year === dateRef.value?.year;
+        };
+
+        return <div>
+          {yearsRef.value.map((year, index) => {
+            return <div class={['m-date-picker-calendar-column-year', { 'm-date-picker-current': isCurrent(year) }]}
+                        key={index}
+                        onClick={() => clickYearDiv(year)}>{year}</div>;
+          })
+          }
+        </div>;
+      };
+
+      const getCalendarRender = () => {
+        switch (calendarTypeRef.value) {
+          case 'date':
+            return getDateCalendar();
+          case 'month':
+            return getMonthCalendar();
+          case 'year':
+            return getYearCalendar();
+        }
+      };
 
 
       const calenderHead = () => <div class="m-date-picker-calendar-head">
         <MPrevYearArrow onClick={toPrevYear}/>
         <MPrevMonthArrow onClick={toPrevMonth}/>
-        <span>{dateRef.value.year}</span> , <span>{dateRef.value.month}</span>
+        <span onClick={() => clickYear(dateRef.value?.year)}>{dateRef.value?.year}</span> ,
+        <span onClick={() => clickMonth(dateRef.value?.month)}>{dateRef.value?.month}</span>
         <MNextMonthArrow onClick={toNextMonth}/>
         <MNextYearArrow onClick={toNextYear}/>
       </div>;
@@ -109,12 +179,10 @@ export default defineComponent({
         </div>, 'm-date-picker-active'),
         content: () => withBorder(<div>
           {calenderHead()}
-          <MCalendarColumn columns={BASE_WEEK_NAME}/>
+          {calendarTypeRef.value === 'date' ? <MCalendarColumn columns={BASE_WEEK_NAME}/> : undefined}
           <MDivider/>
           <div class="m-date-picker-calendar-body">
-            {columns?.map((column, index) => {
-              return <MCalendarColumn columns={column} key={index} onClick={clickDay}/>;
-            })}
+            {getCalendarRender()}
           </div>
         </div>, 'm-date-picker-calendar')
       });

@@ -40,6 +40,18 @@
   line-height: 25px;
 }
 
+.m-date-picker-calendar-column-year,.m-date-picker-calendar-column-month {
+  width: calc(var(--m-date-picker-width) / 4);
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+
+  &.m-date-picker-current{
+    background-size: 50px 50px;
+  }
+}
+
 .m-date-picker-not-current {
   color: #757575;
   font-weight: 400;
