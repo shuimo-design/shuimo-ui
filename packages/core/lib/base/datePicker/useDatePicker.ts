@@ -203,10 +203,25 @@ export function useDatePicker(options: {
 
   const toNextYear = () => {
     dateRef.value.year += 1;
+
+    if (calendarTypeRef.value === 'year') {
+      if (!yearsRef.value.includes(dateRef.value.year)) {
+        const startYear = dateRef.value.year;
+        yearsRef.value = Array.from({ length: 12 }, (_, i) => startYear + i);
+      }
+    }
+
   };
 
   const toPrevYear = () => {
     dateRef.value.year -= 1;
+
+    if (calendarTypeRef.value === 'year') {
+      if (!yearsRef.value.includes(dateRef.value.year)) {
+        const startYear = dateRef.value.year - 11;
+        yearsRef.value = Array.from({ length: 12 }, (_, i) => startYear + i);
+      }
+    }
   };
 
   const getValue = (item: CalendarItem) => {
