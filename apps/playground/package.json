@@ -14,7 +14,8 @@
     "shuimo-ui": "*",
     "vite": "^4.2.2",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vue": "^3.2.47"
+    "vite-plugin-vue-devtools": "^0.0.15",
+    "vue": "^3.3.4"
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",

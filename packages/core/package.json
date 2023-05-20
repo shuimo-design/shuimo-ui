@@ -10,9 +10,10 @@
     "@floating-ui/dom": "^1.2.7",
     "@shuimo-design/tools": "workspace:*",
     "@shuimo-design/types": "workspace:*",
+    "dayjs": "^1.11.7",
     "lit": "^2.7.2",
     "react": "^18.2.0",
     "vitest": "^0.30.1",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   }
 }
