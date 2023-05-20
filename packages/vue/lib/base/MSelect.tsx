@@ -35,6 +35,7 @@ import MTag from './MTag';
 import selectCreator from '@shuimo-design/core/lib/base/select/composition/selectCreator';
 import { SelectOptions } from '@shuimo-design/core/lib/base/select/composition/class/BaseSelect';
 import MDeleteIcon from '../other/MDeleteIcon';
+import usePopover from '../../composition/usePopover';
 
 const MOption = defineComponent({
   name: 'MOption',
@@ -51,11 +52,11 @@ const MOption = defineComponent({
 const MSelectTag = defineComponent({
   name: 'MSelectTag',
   emits: ['delete'],
-  setup(props, { slots ,emit}) {
-    const deleteTag = (e:MouseEvent) => {
+  setup(props, { slots, emit }) {
+    const deleteTag = (e: MouseEvent) => {
       e.stopPropagation();
       emit('delete');
-    }
+    };
     return () => {
       return <MTag>
         <span>{slots.default?.()}</span>
@@ -84,14 +85,7 @@ export default defineComponent({
       getOptions
     } = useSelect({ props, value: { inputValue } });
 
-    const popoverInstance = ref<VNode | null>(null);
-    const popoverRef = ref<typeof MPopover>();
-    const withPopover = <T = VNode>(slots: { default: () => T, content: () => T, }) => {
-      const p = <MPopover {...popoverOptions} class="m-select" ref={popoverRef}>{slots}</MPopover>;
-      popoverInstance.value = p;
-      return p;
-    };
-
+    const { popoverRef, withPopover } = usePopover(popoverOptions,'m-select');
 
     // ---------- new ----------
 
@@ -138,10 +132,10 @@ export default defineComponent({
       value: { inputValue, selectOptions, selectDisplayOptions, selectTags }
     });
 
-    const deleteTag = (tag:SelectOptions<OptionType>) => {
+    const deleteTag = (tag: SelectOptions<OptionType>) => {
       select.onDeleteTag(tag);
       emit('update:modelValue', select.getModelValue());
-    }
+    };
 
 
     watch(() => props.modelValue, (value) => {
@@ -184,7 +178,7 @@ export default defineComponent({
             const getSelectedTag = (tags: OptionType[]) => {
 
               if (!tags || tags.length === 0) return null;
-              return tags.map(tag => <MSelectTag onDelete={() =>deleteTag(tag) }>
+              return tags.map(tag => <MSelectTag onDelete={() => deleteTag(tag)}>
                 {getOptionDisplayInfo(tag.value)}
               </MSelectTag>);
             };

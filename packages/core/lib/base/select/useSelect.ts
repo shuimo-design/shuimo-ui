@@ -6,11 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { flip, offset, shift } from '@floating-ui/dom';
 import { SelectProps } from './index';
-import { PopoverProps } from '../../message/popover';
 import useSelectTools from './composition/useSelectTools';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
+import usePopover from '../../../composition/common/usePopover';
 
 
 export type OptionType = any;
@@ -22,12 +21,7 @@ export function useSelect(config: {
   }
 }) {
   const tools = useSelectTools(config.props);
-  const popoverOptions: PopoverProps = {
-    placement: 'bottom-start',
-    popper: {
-      middleware: [offset({ crossAxis: 3 }), flip(), shift()]
-    }
-  };
+  const { popoverOptions } = usePopover();
   const { props } = config;
   const inputValueRef = MRef(config.value.inputValue);
 
@@ -35,7 +29,7 @@ export function useSelect(config: {
   const inputProps = {
     readonly: props.readonly,
     disabled: props.disabled,
-    placeholder: props.placeholder,
+    placeholder: props.placeholder
   };
 
   const isSelected = (o: OptionType) => {
