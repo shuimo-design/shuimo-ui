@@ -22,8 +22,8 @@ export const BASE_WEEK_NAME: DisplayCalendarType[] = [
   { day: '伍', isCurrentMonth: true },
   { day: '陆', isCurrentMonth: true }
 ];
-export const BASE_MONTH_NAME =  ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-export type CALENDAR_TYPE = 'date'|'month'|'year';
+export const BASE_MONTH_NAME = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+export type CALENDAR_TYPE = 'date' | 'month' | 'year';
 export type DateRefType = {
   year: number,
   month: number,
@@ -50,7 +50,7 @@ export function useDatePicker(options: {
     spanClass: MRefValue<Array<string | undefined>>,
     dateRef: MRefValue<DateRefType>,
     currentRef: MRefValue<ReturnType<typeof dayjs>>,
-    calendarTypeRef:MRefValue<CALENDAR_TYPE>,
+    calendarTypeRef: MRefValue<CALENDAR_TYPE>,
     yearsRef: MRefValue<Array<number>>,
   }
 }) {
@@ -87,6 +87,7 @@ export function useDatePicker(options: {
         // todo print error
       }
     }
+    spanClass.value = ['m-date-picker-span', needPlaceholder ? 'm-date-picker-placeholder' : undefined];
   };
   // date
   const init = () => {
@@ -98,7 +99,6 @@ export function useDatePicker(options: {
     yearsRef = MRef(options.value.yearsRef);
     const { value } = options.props;
     updateDateRef(value);
-    spanClass.value = ['m-date-picker-span', needPlaceholder ? 'm-date-picker-placeholder' : undefined];
   };
   init();
 
@@ -162,7 +162,7 @@ export function useDatePicker(options: {
       } else {
 
         const nextMonth = dateDayjs.add(1, 'month');
-        const nextMonthFirstDayWeek = nextMonth.day();
+        const nextMonthFirstDayWeek = nextMonth.set('day', 1).day();
         const baseDay = nextMonthFirstDayWeek === 0 ? 0 : (6 - nextMonthFirstDayWeek);
         nextDays.push(...Array.from({ length: 7 }, (_, i) => ({
           day: i + baseDay + 1,
@@ -234,21 +234,21 @@ export function useDatePicker(options: {
     const startYear = year - 6;
     const endYear = year + 5;
     yearsRef.value = Array.from({ length: endYear - startYear + 1 }, (_, i) => startYear + i);
-  }
+  };
 
   const clickYearItem = (year: number) => {
     dateRef.value.year = year;
     calendarTypeRef.value = 'date';
-  }
+  };
 
   const clickCurrentMonth = (month: number) => {
     calendarTypeRef.value = 'month';
-  }
+  };
 
   const clickMonthItem = (month: number) => {
     dateRef.value.month = month;
     calendarTypeRef.value = 'date';
-  }
+  };
 
   return {
     updateDateRef,

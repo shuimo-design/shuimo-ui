@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/datePicker/api';
 import usePopover from '../../composition/usePopover';
 import {
@@ -57,13 +57,17 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup: (props, { slots, emit }) => {
-    console.log('setup');
     const displayValue = ref('');
     const spanClass = ref<Array<string | undefined>>([]);
     const dateRef = ref<DateRefType>();
     const currentRef = ref(toDayjs(props.modelValue));
     const calendarTypeRef = ref<CALENDAR_TYPE>('date');
     const yearsRef = ref<Array<number>>([]);
+
+    watch(() => props.modelValue, (value) => {
+      currentRef.value = toDayjs(value);
+      updateDateRef(value);
+    });
 
     const {
       updateDateRef,

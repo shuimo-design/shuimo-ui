@@ -104,6 +104,7 @@
       <m-date-picker/>
       <span>{{date}}</span>
       <m-date-picker v-model="date"/>
+      <m-date-picker v-model="date" type="month"/>
     </div>
 
 
