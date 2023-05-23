@@ -22,6 +22,7 @@
 @import "message/dialog/dialog.css";
 @import "message/drawer/drawer.css";
 @import "message/confirm/confirm.css";
+@import "message/message/message.css";
 
 /* [other] */
 @import "other/divider/divider.css";

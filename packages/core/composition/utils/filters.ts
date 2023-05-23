@@ -7,8 +7,6 @@
  * Hello, humor
  */
 
-import type { Fn, MaybeComputedRef } from './types';
-import { resolveUnref } from './tools';
 
 export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
 
@@ -19,7 +17,7 @@ export interface FunctionWrapperOptions<Args extends any[] = any[], This = any> 
 }
 
 export type EventFilter<Args extends any[] = any[], This = any> = (
-  invoke: Fn,
+  invoke: () => void,
   options: FunctionWrapperOptions<Args, This>
 ) => void;
 
@@ -28,7 +26,7 @@ export interface DebounceFilterOptions {
    * The maximum time allowed to be delayed before it's invoked.
    * In milliseconds.
    */
-  maxWait?: MaybeComputedRef<number>
+  maxWait?: number;
 }
 
 /**
@@ -48,13 +46,13 @@ export function createFilterWrapper<T extends FunctionArgs>(filter: EventFilter,
  * @param ms
  * @param options
  */
-export function debounceFilter(ms: MaybeComputedRef<number>, options: DebounceFilterOptions = {}) {
+export function debounceFilter(ms: number, options: DebounceFilterOptions = {}) {
   let timer: ReturnType<typeof setTimeout> | undefined;
   let maxTimer: ReturnType<typeof setTimeout> | undefined | null;
 
   const filter: EventFilter = invoke => {
-    const duration = resolveUnref(ms);
-    const maxDuration = resolveUnref(options.maxWait);
+    const duration = ms;
+    const maxDuration = options.maxWait;
 
     if (timer) clearTimeout(timer);
 
@@ -93,7 +91,7 @@ export function debounceFilter(ms: MaybeComputedRef<number>, options: DebounceFi
  * @param [trailing=true]
  * @param [leading=true]
  */
-export function throttleFilter(ms: MaybeComputedRef<number>, trailing = true, leading = true) {
+export function throttleFilter(ms: number, trailing = true, leading = true) {
   let lastExec = 0;
   let timer: ReturnType<typeof setTimeout> | undefined;
   let isLeading = true;
@@ -106,7 +104,7 @@ export function throttleFilter(ms: MaybeComputedRef<number>, trailing = true, le
   };
 
   const filter: EventFilter = invoke => {
-    const duration = resolveUnref(ms);
+    const duration = ms;
     const elapsed = Date.now() - lastExec;
 
     clear();

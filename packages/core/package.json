@@ -11,6 +11,7 @@
     "@shuimo-design/tools": "workspace:*",
     "@shuimo-design/types": "workspace:*",
     "dayjs": "^1.11.7",
+    "interactjs": "^1.10.17",
     "lit": "^2.7.2",
     "react": "^18.2.0",
     "vitest": "^0.30.1",

@@ -6,9 +6,8 @@
  *
  * Hello, humor
  */
-import { createFilterWrapper, debounceFilter } from '../_utils/filters';
-import type { DebounceFilterOptions, FunctionArgs } from '../_utils/filters';
-import type { MaybeComputedRef } from '../_utils/types';
+import { createFilterWrapper, debounceFilter } from '../utils/filters';
+import type { DebounceFilterOptions, FunctionArgs } from '../utils/filters';
 
 /**
  * Debounce execution of a function.
@@ -20,9 +19,9 @@ import type { MaybeComputedRef } from '../_utils/types';
  *
  * @return A new, debounce, function.
  */
-export default function useDebounceFn<T extends FunctionArgs>(fn: T, ms: MaybeComputedRef<number> = 200, options: DebounceFilterOptions = {}): T {
+export default function useDebounceFn<T extends FunctionArgs>(fn: T, ms: number = 200, options: DebounceFilterOptions = {}): T {
   return createFilterWrapper(
     debounceFilter(ms, options),
-    fn,
-  )
+    fn
+  );
 }

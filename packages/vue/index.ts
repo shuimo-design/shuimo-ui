@@ -33,6 +33,7 @@ import MPopover from './lib/message/MPopover';
 import MDialog from './lib/message/MDialog';
 import MDrawer from './lib/message/MDrawer';
 import MConfirm from './lib/message/MConfirm';
+import MMessage from './lib/message/message/MMessage';
 
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
@@ -103,6 +104,7 @@ export {
   MDialog,
   MDrawer,
   MConfirm,
+  MMessage,
 
   // [template]
   MRicePaper,

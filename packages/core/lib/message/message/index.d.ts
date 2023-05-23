@@ -48,18 +48,36 @@ export type MessageProps = {
   dragConfig?: DragConfigType
 };
 
+export type MessageListProps = {
+  /**
+   * @description The direction in which the component appears
+   * @default top-right
+   */
+  direction?: MessageDirectionType,
+}
+
 export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
 
 export type MessageType = 'success' | 'warning' | 'info' | 'error';
 
 export type MessageConfig = MessageProps | string;
 
-type IMessageEnum = {
-  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<object> | void;
+type IMessageEnum<T> = {
+  [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<T> | void;
 };
-export type IMessage = IMessageEnum & {
-  (config: MessageConfig): Promise<object> | void
-};
+export type IMessage<T> = {
+  (config: MessageConfig): Promise<T> | void
+} & IMessageEnum<T>;
+
 export interface DragConfigType {
-  triggerBoundary: number
+  triggerBoundary: number;
+}
+
+/**
+ * @description MessageList instance
+ */
+export declare interface MessageIns<T> {
+  add: (params: MessageProps) => void,
+  remove: (index: number) => void,
+  domList: Array<T>
 }
