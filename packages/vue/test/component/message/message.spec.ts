@@ -8,9 +8,9 @@
  * v2.0.0 适配新版Message
  */
 import { describe, expect, test, vi } from 'vitest';
-import { MMessage } from '../../../lib/message/message';
 import { DOMWrapper } from '@vue/test-utils';
-import { MessageDirectionType } from '../../../types/components/MMessage';
+import { MMessage } from '../../../index';
+import { MessageDirectionType } from '@shuimo-design/core/lib/message/message';
 
 describe('消息提示', () => {
   // todo 修复污染问题
@@ -58,9 +58,12 @@ describe('消息提示', () => {
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
     for (const direction of directions) {
-      expect(bodyWrapper.find('m-message-list_' + direction)).not.toBeNull();
+      expect(bodyWrapper.findAll('.m-message-list-' + direction).length).toBe(1);
     }
     await vi.runAllTimers();
+    for (const direction of directions) {
+      expect(bodyWrapper.findAll('.m-message-list-' + direction).length).toBe(0);
+    }
     expect(bodyWrapper.html()).toBe('<body></body>');
   });
 });
