@@ -13,6 +13,18 @@ type LitProp<T> = [T, Function, any];
 export type MRefValue<T = any> = Ref<T> | State<T> | LitProp<T>;
 export type RMRef<T = any> = ReturnType<typeof MRef<T>>;
 
+
+const reactValue = (value: any) => {
+  // if object
+  if (Array.isArray(value)) {
+    return [...value];
+  }
+  if (typeof value === 'object') {
+    return { ...value };
+  }
+  return value;
+};
+
 export const MRef = <T>(val: MRefValue<T>) => {
   let isState = false;
   let isLitProp = false;
@@ -33,7 +45,7 @@ export const MRef = <T>(val: MRefValue<T>) => {
     },
     set(target, p: PropertyKey, value, receiver) {
       if (isState) {
-        (target.value as State<T>)[1](value);
+        (target.value as State<T>)[1](reactValue(value));
       } else if (isLitProp) {
         const [_, handler, _this] = target.value as LitProp<T>;
         handler.call(_this, value);
