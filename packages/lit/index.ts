@@ -34,6 +34,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/message/MDialog'),
     import('./lib/message/MDrawer'),
     import('./lib/message/MConfirm'),
+    import('./lib/message/MMessage'),
 
     // [template]
     import('./lib/template/MBorder'),

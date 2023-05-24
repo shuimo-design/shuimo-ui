@@ -37,14 +37,20 @@ export function useMessageList(config: {
 
   const add = (item: MessageOptions) => {
     item.id = getKey();
-    messageListRef.value.push(item);
+    const arr = messageListRef.value;
+    arr.push(item);
+    messageListRef.value = arr;
+    return item.id;
   };
 
   const remove = (index: number) => {
-    messageListRef.value.splice(index, 1);
+    const arr = messageListRef.value;
+    arr.splice(index, 1);
+    messageListRef.value = arr;
   };
 
   return {
+    getKey,
     add, remove,
     baseClass
   };

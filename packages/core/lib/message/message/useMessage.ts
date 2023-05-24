@@ -35,10 +35,10 @@ export function useMessage<K>() {
     return messageOptions;
   };
 
-  const addOption = (
+  const addOption = async (
     options: MessageOptions,
     handler: {
-      getIns: (direction: MessageDirectionType) => T,
+      getIns: (direction: MessageDirectionType) => Promise<T> | T,
       nextTick: (
         resolve: (value: K) => void,
         messageListIns: T
@@ -53,7 +53,7 @@ export function useMessage<K>() {
     if (mountInstance) {
       mountInstance.add(messageOptions);
     } else {
-      const ins = handler.getIns(direction);
+      const ins = await handler.getIns(direction);
       ins.add(messageOptions);
       messageListMap.set(direction, ins);
     }
@@ -70,14 +70,14 @@ export function useMessage<K>() {
   };
 
   const initMessage = (handler: {
-    getIns: (direction: MessageDirectionType) => T,
+    getIns: (direction: MessageDirectionType) => Promise<T> | T,
     nextTick: (
       resolve: (value: K) => void,
       messageListIns: T
     ) => Promise<void>
   }) => {
-    const callMessage = (options: MessageOptions) => {
-      return addOption(options, handler);
+    const callMessage = async (options: MessageOptions) => {
+      return await addOption(options, handler);
     };
 
     const MMessage = (config: MessageConfig) => { return callMessage({ config });};
