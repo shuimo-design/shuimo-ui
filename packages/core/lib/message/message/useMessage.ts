@@ -16,7 +16,33 @@ export function useMessage<K>() {
     type?: MessageTypeEnum,
     duration?: number
   }
-  const messageListMap = new Map<MessageDirectionType, T>();
+
+  class InstanceMap {
+    map: Map<MessageDirectionType, any> = new Map<MessageDirectionType, any>();
+    directionSet: Set<MessageDirectionType> = new Set<MessageDirectionType>();
+
+    public async getIns<T>(direction: MessageDirectionType, customerGetIns: (direction: MessageDirectionType) => Promise<T> | T) {
+            return new Promise<T>(async (resolve, reject) => {
+        if (this.directionSet.has(direction)) {
+          setTimeout(() => {
+            const ins = this.map.get(direction);
+            if (ins) {resolve(ins);} else {
+              resolve(this.getIns(direction, customerGetIns));
+            }
+          });
+        } else {
+          this.directionSet.add(direction);
+          const ins = await customerGetIns(direction);
+          this.map.set(direction, ins);
+          resolve(ins);
+        }
+      });
+    }
+  }
+
+  const insMap = new InstanceMap();
+
+
   const mergeOption = (options: MessageConfig, type = MessageTypeEnum.success, duration = 3000) => {
     let messageOptions: Required<MessageProps> = {
       direction: 'top-right',
@@ -49,20 +75,13 @@ export function useMessage<K>() {
     const messageOptions = mergeOption(config, type, duration);
 
     const { direction } = messageOptions;
-    const mountInstance = messageListMap.get(direction);
-    if (mountInstance) {
-      mountInstance.add(messageOptions);
-    } else {
-      const ins = await handler.getIns(direction);
-      ins.add(messageOptions);
-      messageListMap.set(direction, ins);
-    }
+    let mountInstance = await insMap.getIns(direction, handler.getIns);
+    mountInstance.add(messageOptions);
 
 
     return new Promise<K>(async (resolve, reject) => {
-      const messageListIns = messageListMap.get(direction);
-      if (messageListIns) {
-        await handler.nextTick(resolve, messageListIns);
+      if (mountInstance) {
+        await handler.nextTick(resolve, mountInstance);
       } else {
         reject();
       }
