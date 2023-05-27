@@ -38,12 +38,22 @@ export default class TreeNode<T extends TreeData = TreeData> {
     return this.#treeMap.get(id)
   }
 
-  public getLabel(id: TreeNodeData['key']) {
-    const data = this.findNodeById(id)
-    if (data) {
-      return data[this.#config.label]
+  public setChildStatus(node: TreeNodeData) {
+    if (Reflect.has(node, 'expand')) {
+      node.expand = !node.expand
+    } else {
+      Reflect.set(node, 'expand', true)
     }
-    console.warn(`Unknown key ${id}`)
-    return ''
+    const { children: childrenKey } = this.#config
+    const children: TreeNodeData[] = node[childrenKey] ?? []
+    if (children.length > 0) {
+      children.forEach((n) => this.setChildStatus(n))
+    }
+  }
+
+  public toggleExpand(node: TreeNodeData) {
+    console.log('toggle ')
+    this.setChildStatus(node)
+    console.log('current node => ', node)
   }
 }

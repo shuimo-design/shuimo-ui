@@ -1,4 +1,4 @@
-import {TreeProps} from "./index";
+import {TreeNodeData, TreeProps} from "./index";
 import TreeNode from "./tree";
 import { watch } from 'vue'
 
@@ -22,8 +22,13 @@ export const useTree = (props: Required<TreeProps>) => {
     return tree
   }
 
+  const handleToggleExpand = (node: TreeNodeData) => {
+    tree.toggleExpand(node)
+  }
+
   return {
     getTreeNodeData,
-    getTree
+    getTree,
+    handleToggleExpand
   }
 }

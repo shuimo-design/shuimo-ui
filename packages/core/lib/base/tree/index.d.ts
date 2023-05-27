@@ -16,6 +16,7 @@ export interface TreeNodeData extends TreeData {
   expand?: boolean
   // 收起
   close?: boolean
+  children?: TreeNodeData[]
 }
 
 

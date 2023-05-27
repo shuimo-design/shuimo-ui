@@ -7,7 +7,7 @@ export default defineComponent({
   name: 'MTree',
   props,
   setup: (props, { slots }) => {
-    const { getTreeNodeData, getTree } = useTree(props)
+    const { getTreeNodeData, getTree, handleToggleExpand} = useTree(props)
 
     return () => {
       const data= getTreeNodeData()
@@ -15,10 +15,11 @@ export default defineComponent({
       return <div>
         {
           data.map((d, id) => {
+            console.log('d.expand => ', d.expand)
             const childData: TreeNodeData[] = Reflect.get(d, children) ?? []
             const MTree = resolveComponent('MTree')
-            return <div>
-              <h2>{ d[label] } - { d[value ]}</h2>
+            return <div onClick={handleToggleExpand.bind(null, d)}>
+              <h2>{ d[label] } - { d[value ]} - { d.expand ? 't' : 'f' }</h2>
               {
                 childData.length > 0 && h(MTree, {
                   data: childData,
