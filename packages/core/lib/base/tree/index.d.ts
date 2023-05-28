@@ -17,8 +17,10 @@ export interface TreeNodeData extends TreeData {
   // 收起
   close?: boolean
   children?: TreeNodeData[]
+  parent?: TreeNodeData
 }
 
+export type TreeStatusKey = 'checked' | 'selected' | 'expand' | 'close'
 
 // Symbol key in stage3. todo
 // export type TreeNodeWeakMap = WeakMap<Symbol, TreeNodeData>
@@ -35,10 +37,11 @@ export interface TreeConfig {
 export declare type TreeProps = {
   data?: TreeData | TreeData[]
   config?: TreeConfig
+  defaultExpandAll?: boolean
 }
 
 export declare type TreeEvents = {
-  onInput?: (e: HTMLElementEvent<HTMLInputElement>) => void
-  onFocus?: (e: FocusEvent) => void
-  onBlur?: (e: FocusEvent) => void
+  // onInput?: (e: HTMLElementEvent<HTMLInputElement>) => void
+  // onFocus?: (e: FocusEvent) => void
+  // onBlur?: (e: FocusEvent) => void
 }

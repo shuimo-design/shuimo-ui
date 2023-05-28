@@ -22,13 +22,23 @@ export const useTree = (props: Required<TreeProps>) => {
     return tree
   }
 
-  const handleToggleExpand = (node: TreeNodeData) => {
-    tree.toggleExpand(node)
+  const handleToggleExpand = (node: TreeNodeData, e: MouseEvent) => {
+    e.stopPropagation()
+    tree.toggleStatusByNode('expand', node)
+  }
+  const handleToggleChecked = (node: TreeNodeData) => {
+    tree.toggleStatusByNode('checked', node)
+  }
+
+  const handleToggleSelect = (node: TreeNodeData) => {
+    tree.toggleStatusByNode('selected', node)
   }
 
   return {
     getTreeNodeData,
     getTree,
-    handleToggleExpand
+    handleToggleExpand,
+    handleToggleChecked,
+    handleToggleSelect
   }
 }

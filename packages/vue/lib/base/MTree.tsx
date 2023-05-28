@@ -15,17 +15,16 @@ export default defineComponent({
       return <div>
         {
           data.map((d, id) => {
-            console.log('d.expand => ', d.expand)
             const childData: TreeNodeData[] = Reflect.get(d, children) ?? []
             const MTree = resolveComponent('MTree')
-            return <div onClick={handleToggleExpand.bind(null, d)}>
-              <h2>{ d[label] } - { d[value ]} - { d.expand ? 't' : 'f' }</h2>
+            return <div onClick={(e) => handleToggleExpand(d, e)}>
+              <div>{ d[label]}={d.expand.toString()}</div>
               {
-                childData.length > 0 && h(MTree, {
+                (childData.length > 0 && d?.expand === true) && h(MTree, {
                   data: childData,
                   config: props.config,
                   style: {
-                    marginLeft: `${id + 30}px`
+                    marginLeft: `${id + 30}px`,
                   }
                 })
               }
