@@ -6,13 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { WCOPO } from '../../dependents/_types';
 import { PaginationProps } from './index';
+import { MCOPO } from '@shuimo-design/types';
 
-export const props: WCOPO<PaginationProps> = {
+export const props: MCOPO<PaginationProps> = {
   total: { type: Number, default: 0 },
   current: { type: Number, default: undefined },
-  modelValue: { type: Number, default: undefined },
   defaultCurrent: { type: Number, default: 1 },
   pageSize: { type: Number, default: 10 },
   pageSizes: { type: Array, default() {return [10, 20, 30, 40, 50, 100];} },
@@ -21,4 +20,5 @@ export const props: WCOPO<PaginationProps> = {
   },
   foldedMaxPageBtn: { type: Number, default: 5 },
   maxPageBtn: { type: Number, default: 10 },
+  showEdgePageNum: { type: Boolean, default: true }
 };

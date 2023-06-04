@@ -9,36 +9,21 @@
 
 import { describe, test, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MPagination from '../../../lib/template/pagination/MPagination';
+import MPagination from '../../../lib/template/MPagination';
 
 describe('分页组件', function () {
   test(':current', async () => {
     const wrapper = mount(MPagination, {
       props: {
-        current: 1,
+        modelValue: 1,
         total: 100
       }
     });
-    expect(wrapper.find('.m-current-page').text()).toEqual('1');
+    expect(wrapper.find('.m-paper-current').text()).toEqual('1');
     await wrapper.setProps({
-      current: 2
+      modelValue: 2
     });
-    expect(wrapper.find('.m-current-page').text()).toEqual('2');
-  });
-
-  test(':current__model', async () => {
-    const wrapper = mount({
-      data() {
-        return {
-          current: 1
-        };
-      },
-      render() {
-        return <MPagination total={100} v-model={this.current} />;
-      }
-    });
-    await wrapper.find('.m-pager:nth-child(1)').trigger('click');
-    expect(wrapper.vm.$data.current).toEqual(1);
+    expect(wrapper.find('.m-paper-current').text()).toEqual('2');
   });
 
   test('prev click', async () => {

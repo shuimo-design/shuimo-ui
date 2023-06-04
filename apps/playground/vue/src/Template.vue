@@ -1,13 +1,18 @@
 <template>
   <div class="template">
-    <m-form @submit="submitEvent">
-      <m-form-item label="在下乃输入框：" prop="input">
-        <m-input/>
-      </m-form-item>
-      <m-form-item label="在下乃按钮：" prop="hello">
-        <m-button text="点击按钮"/>
-      </m-form-item>
-    </m-form>
+    <div v-if="false">
+      <m-form @submit="submitEvent">
+        <m-form-item label="在下乃输入框：" prop="input">
+          <m-input/>
+        </m-form-item>
+        <m-form-item label="在下乃按钮：" prop="hello">
+          <m-button text="点击按钮"/>
+        </m-form-item>
+      </m-form>
+    </div>
+    <span>current:{{current}}</span>
+    <m-pagination :total="225" v-model="current"></m-pagination>
+
   </div>
 </template>
 
@@ -26,6 +31,8 @@ import {ref} from 'vue';
 const submitEvent = ()=> {
   console.log('submitEvent');
 }
+
+const current = ref(1);
 
 </script>
 

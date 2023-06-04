@@ -28,13 +28,6 @@ export declare type PaginationProps = {
    */
   current?: number,
   /**
-   * @description current page number
-   *              当前页
-   * @type number
-   * @default undefined
-   */
-  modelValue?: number,
-  /**
    * @description default current page number
    *              默认当前页
    * @type number
@@ -68,12 +61,19 @@ export declare type PaginationProps = {
    * @type number
    * @default 5
    */
-  foldedMaxPageBtn?: number,
+  foldedMaxPageBtn?: number | null,
   /**
    * @description the max display pages
    *              最大显示页数
    * @type number
    * @default 10
    */
-  maxPageBtn?: number
+  maxPageBtn?: number | null,
+  /**
+   * @description show edge page number
+   *              是否显示边缘页码
+   * @type boolean
+   * @default true
+   */
+  showEdgePageNum?: boolean,
 };

@@ -45,6 +45,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/template/MFormItem'),
     import('./lib/template/MTable'),
     import('./lib/template/MTableColumn'),
+    import('./lib/template/MPagination'),
 
     // [other]
     import('./lib/other/MDivider'),

@@ -42,6 +42,7 @@ import MForm from './lib/template/MForm';
 import MFormItem from './lib/template/MFormItem';
 import MTable from './lib/template/MTable';
 import MTableColumn from './lib/template/MTableColumn';
+import MPagination from './lib/template/MPagination';
 
 const components: Record<string, Component> = {
   // [base]
@@ -76,6 +77,7 @@ const components: Record<string, Component> = {
   MFormItem,
   MTable,
   MTableColumn,
+  MPagination,
 };
 
 export {
@@ -113,6 +115,7 @@ export {
   MFormItem,
   MTable,
   MTableColumn,
+  MPagination,
 };
 
 export function createMUI() {
