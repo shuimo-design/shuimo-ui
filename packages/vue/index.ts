@@ -21,12 +21,12 @@ import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
 import MDatePicker from './lib/base/MDatePicker';
 
-
 // [other]
 import MDivider from './lib/other/MDivider';
 import MLoading from './lib/other/MLoading';
 import MDarkMode from './lib/other/MDarkMode';
 import MDeleteIcon from './lib/other/MDeleteIcon';
+import MPrinter from '@shuimo-design/core/lib/other/printer/Printer';
 
 // [message]
 import MPopover from './lib/message/MPopover';
@@ -100,6 +100,7 @@ export {
   MLoading,
   MDarkMode,
   MDeleteIcon,
+  MPrinter,
 
   // [message]
   MPopover,
