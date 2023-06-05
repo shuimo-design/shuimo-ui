@@ -34,6 +34,7 @@ import MDialog from './lib/message/MDialog';
 import MDrawer from './lib/message/MDrawer';
 import MConfirm from './lib/message/MConfirm';
 import MMessage from './lib/message/message/MMessage';
+import MTooltip from './lib/message/MTooltip';
 
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
@@ -69,6 +70,7 @@ const components: Record<string, Component> = {
   MPopover,
   MDialog,
   MDrawer,
+  MTooltip,
 
   // [template]
   MRicePaper,
@@ -108,6 +110,7 @@ export {
   MDrawer,
   MConfirm,
   MMessage,
+  MTooltip,
 
   // [template]
   MRicePaper,

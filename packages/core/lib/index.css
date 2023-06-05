@@ -23,6 +23,7 @@
 @import "message/drawer/drawer.css";
 @import "message/confirm/confirm.css";
 @import "message/message/message.css";
+@import "message/tooltip/tooltip.css";
 
 /* [other] */
 @import "other/divider/divider.css";

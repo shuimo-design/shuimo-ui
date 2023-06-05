@@ -9,7 +9,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MTooltip from '../../../lib/message/tooltip/MTooltip';
+import MTooltip from '../../../lib/message/MTooltip';
 
 describe('tooltip组件', () => {
   test('正常渲染', () => {
