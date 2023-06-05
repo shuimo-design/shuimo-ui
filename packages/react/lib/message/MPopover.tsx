@@ -5,6 +5,7 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ * todo support arrow
  */
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -20,10 +21,16 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
   const props = withDefault(baseProps, popoverProps);
 
   const styleState = useState({});
-  const { createPopover, getContent } = usePopover({ style: styleState, props });
+  const arrowStyleState = useState({});
+  const placementState = useState(props.placement);
+  const { createPopover, getContent } = usePopover({
+    props,
+    value: { style: styleState, arrowStyle: arrowStyleState, placement: placementState }
+  });
 
   const popoverRef = useRef(null);
   const contentRef = useRef(null);
+  const arrowRef = useRef(null);
 
 
   const [content, active] = getSlot(props, 'content');
@@ -31,7 +38,7 @@ export default function MPopover(baseProps: PopoverProps & Slot) {
   const [popperInstance, setPopperInstance] = useState<PopoverImpl | null>(null);
 
   useEffect(() => {
-    setPopperInstance(createPopover(popoverRef.current!, contentRef.current!, {
+    setPopperInstance(createPopover(popoverRef.current!, contentRef.current!, arrowRef.current!, {
       ...props.popper,
       placement: props.placement
     }));

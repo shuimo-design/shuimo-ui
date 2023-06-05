@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { autoUpdate, computePosition, ComputePositionConfig } from '@floating-ui/dom';
+import { arrow, autoUpdate, computePosition, ComputePositionConfig } from '@floating-ui/dom';
 
 export type Placement =
   | 'top' | 'top-start' | 'top-end'
@@ -15,17 +15,42 @@ export type Placement =
   | 'left' | 'left-start' | 'left-end';
 export type PopperConfig = Partial<ComputePositionConfig>;
 
-export const usePopper = (triggerNode: HTMLElement, popperNode: HTMLElement, config?: PopperConfig) => {
+type DomStyle = { left: string; top: string; display: string; position: string };
+export type PositionStyle = { style: DomStyle; arrowStyle: DomStyle, placement: Placement };
+
+export const usePopper = (
+  triggerNode: HTMLElement,
+  popperNode: HTMLElement,
+  update: (data: PositionStyle) => void,
+  arrowNode?: HTMLElement,
+  config?: PopperConfig
+) => {
 
   const getPositionStyle = async () => {
-    const { x, y } = await computePosition(triggerNode, popperNode, config);
+    if (arrowNode && config?.middleware) {
+      config.middleware.push(arrow({ element: arrowNode }));
+    }
 
-    return {
-      left: `${x}px`,
-      top: `${y}px`,
-      display: 'block',
-      position: 'absolute'
+
+    const { x, y, placement, middlewareData } = await computePosition(triggerNode, popperNode, config);
+    const res: PositionStyle = {
+      style: {
+        left: `${x}px`,
+        top: `${y}px`,
+        display: 'block',
+        position: 'absolute'
+      },
+      arrowStyle: {
+        left: `${middlewareData.arrow?.x ?? 0}px`,
+        top: `${middlewareData.arrow?.y ?? 0}px`,
+        display: 'block',
+        position: 'absolute'
+      },
+      placement
     };
+    update(res);
+
+    return res;
   };
 
   const clear = autoUpdate(triggerNode, popperNode, getPositionStyle);

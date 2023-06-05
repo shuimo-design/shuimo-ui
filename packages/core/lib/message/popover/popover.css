@@ -1,8 +1,17 @@
-.m-popover-content{
+.m-popover-content {
+  position: absolute;
   display: none;
   z-index: 9;
+  width: max-content;
+  top: 0;
+  left: 0;
 }
 
-.m-popover-default-wrapper{
+.m-popover-default-wrapper {
   display: inline-block;
+}
+
+.m-popover-arrow {
+  position: absolute;
+  display: none;
 }

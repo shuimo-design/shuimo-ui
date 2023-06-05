@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { PopperConfig, usePopper } from '../../../composition/popper/usePopper';
+import { PopperConfig, PositionStyle, usePopper } from '../../../composition/popper/usePopper';
 import MPrinter from '../../other/printer/Printer';
 import { PopoverProps } from './index';
 import { MRef, MRefValue, RMRef } from '../../../composition/common/MRef';
@@ -20,16 +20,20 @@ export class PopoverImpl {
 
   protected _active: HTMLElement;
   protected _content: HTMLElement;
+  protected _arrow: HTMLElement | undefined;
   popperInstance: IPopper;
   style: RMRef;
+  arrowStyle: RMRef;
+  placement: RMRef;
   visible: boolean = false;
   onShow?: Function;
   onHide?: Function;
 
   constructor(
-    val: { style: RMRef },
+    val: { style: RMRef, arrowStyle: RMRef, placement: RMRef },
     active?: HTMLElement,
     content?: HTMLElement,
+    arrow?: HTMLElement,
     config?: PopperConfig,
     lifecycle?: {
       onShow?: Function,
@@ -41,8 +45,12 @@ export class PopoverImpl {
 
     this._active = active!;
     this._content = content!;
-    this.popperInstance = usePopper(this._active, this._content, config);
+    this._arrow = arrow;
+    this.popperInstance = usePopper(this._active, this._content,
+      (positionStyle: PositionStyle) => this.update(positionStyle), this._arrow, config);
     this.style = val.style;
+    this.arrowStyle = val.arrowStyle;
+    this.placement = val.placement;
     this.onShow = lifecycle?.onShow;
     this.onHide = lifecycle?.onHide;
   }
@@ -52,13 +60,26 @@ export class PopoverImpl {
   }
 
   async show() {
-    this.style.value = await this.popperInstance.getPositionStyle();
+    this.style.value = { display: 'block', opacity: '0' };
+    this.arrowStyle.value = { display: 'block', opacity: '0' };
     this.visible = true;
+    await this.popperInstance.getPositionStyle();
     this.onShow?.();
+  }
+
+  update(positionStyle: PositionStyle) {
+    if (!this.visible) {
+      this.hide();
+      return;
+    }
+    this.style.value = positionStyle.style;
+    this.arrowStyle.value = positionStyle.arrowStyle;
+    this.placement.value = positionStyle.placement;
   }
 
   hide() {
     this.style.value = undefined;
+    this.arrowStyle.value = undefined;
     this.visible = false;
     this.onHide?.();
   }
@@ -81,16 +102,27 @@ type ArrayElement<ArrayType> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
 export function usePopover(config: {
-  style: MRefValue,
-  props: PopoverProps
+  props: PopoverProps,
+  value: {
+    style: MRefValue,
+    arrowStyle: MRefValue,
+    placement: MRefValue
+  }
 }) {
 
-  const style = MRef(config.style);
+  const style = MRef(config.value.style);
+  const arrowStyle = MRef(config.value.arrowStyle);
+  const placement = MRef(config.value.placement);
   let instance: PopoverImpl | null = null;
   let clickAwayInstance: ReturnType<typeof useClickAway>;
 
-  const createPopover = (active: HTMLElement, content: HTMLElement, config?: PopperConfig) => {
-    instance = new PopoverImpl({ style }, active, content, config, {
+  const createPopover = (
+    active: HTMLElement,
+    content: HTMLElement,
+    arrow?: HTMLElement,
+    config?: PopperConfig
+  ) => {
+    instance = new PopoverImpl({ style, arrowStyle, placement }, active, content, arrow, config, {
       onShow: () => {
         clickAwayInstance?.add();
       },

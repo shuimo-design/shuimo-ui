@@ -31,14 +31,17 @@ export default defineComponent({
 
     const popoverRef = ref<HTMLElement>();
     const contentRef = ref<HTMLElement>();
+    const arrowRef = ref<HTMLElement>();
     const popperInstance = ref<PopoverImpl>();
 
     const style = ref();
+    const arrowStyle = ref();
+    const placementRef = ref(props.placement);
     const {
       createPopover,
       getContent,
       lifecycle
-    } = usePopover({ style, props });
+    } = usePopover({ props, value: { style, arrowStyle, placement: placementRef } });
 
     const show = async () => {
       await popperInstance.value?.show();
@@ -55,7 +58,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      popperInstance.value = createPopover(popoverRef.value, contentRef.value, {
+      popperInstance.value = createPopover(popoverRef.value, contentRef.value, arrowRef.value, {
         ...props.popper,
         placement: props.placement
       });
@@ -68,8 +71,7 @@ export default defineComponent({
 
 
     return () => {
-
-      return <div class="m-popover">
+      return <div class="m-popover" data-popper-placement={placementRef.value}>
         <div class="m-popover-default-wrapper"
              ref={popoverRef}
              onClick={handleClick}>
@@ -77,6 +79,11 @@ export default defineComponent({
         </div>
         <div class="m-popover-content" ref={contentRef} style={style.value}>
           {getContent(props, () => slots.content(), useTeleport)}
+          {
+            // todo when content not render arrow should not render
+            slots.arrow ?
+              <div class="m-popover-arrow" ref={arrowRef} style={arrowStyle.value}>{slots.arrow()}</div> : null
+          }
         </div>
       </div>;
     };
