@@ -10,7 +10,8 @@ import { App, Component } from 'vue';
 // [base]
 import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
-import MCheckbox from './lib/base/MCheckbox';
+import MCheckbox from './lib/base/checkbox/MCheckbox';
+import MCheckboxGroup from './lib/base/checkbox/MCheckboxGroup';
 import MLi from './lib/base/MLi';
 import MList from './lib/base/MList';
 import MSwitch from './lib/base/MSwitch';
@@ -50,6 +51,7 @@ const components: Record<string, Component> = {
   MButton,
   MInput,
   MCheckbox,
+  MCheckboxGroup,
   MLi,
   MList,
   MSwitch,
@@ -87,6 +89,7 @@ export {
   MButton,
   MInput,
   MCheckbox,
+  MCheckboxGroup,
   MLi,
   MList,
   MSwitch,
