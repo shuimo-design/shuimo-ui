@@ -21,6 +21,7 @@ import MProgress from './lib/base/MProgress';
 import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
 import MDatePicker from './lib/base/MDatePicker';
+import MInputNumber from './lib/base/MInputNumber';
 
 // [other]
 import MDivider from './lib/other/MDivider';
@@ -61,6 +62,7 @@ const components: Record<string, Component> = {
   MAvatar,
   MSelect,
   MDatePicker,
+  MInputNumber,
 
   // [other]
   MDivider,
@@ -99,6 +101,7 @@ export {
   MAvatar,
   MSelect,
   MDatePicker,
+  MInputNumber,
 
   // [other]
   MDivider,

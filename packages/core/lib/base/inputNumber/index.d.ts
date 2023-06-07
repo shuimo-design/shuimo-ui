@@ -18,7 +18,7 @@ export declare type InputNumberProps = {
    * @type number | string
    * @default ''
    */
-  modelValue: number | string,
+  value: number | string,
   /**
    * @description input-number max
    * @type number
@@ -43,6 +43,12 @@ export declare type InputNumberProps = {
    * @default false
    */
   disabled?: boolean,
+  /**
+   * @description input readonly. 是否只读
+   * @type boolean
+   * @default false
+   */
+  readonly?: boolean,
   /**
    * @description input-number placeholder
    * @type string

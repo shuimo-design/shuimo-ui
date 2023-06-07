@@ -9,7 +9,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MInputNumber from '../../../lib/base/inputNumber/MInputNumber';
+import MInputNumber from '../../../lib/base/MInputNumber';
 
 describe('数字输入组件', () => {
   test('无参数渲染', () => {
