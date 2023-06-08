@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "typeRoots": [],
+    "baseUrl": "./lib",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  }
+}

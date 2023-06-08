@@ -1,0 +1,14 @@
+{
+  "name": "@shuimo-design/build",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "version": "1.0.0",
+  "scripts": {
+    "build:vue": "vite build -c ./config/vue.config.ts"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "vite": "^4.2.2",
+    "vite-plugin-lightningcss": "^0.0.5"
+  }
+}
