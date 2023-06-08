@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui",
-  "version": "0.2.8",
+  "version": "0.3.0-alpha.1",
   "contributions": {
     "html": {
       "types-syntax": "typescript",
@@ -190,6 +190,15 @@
               }
             }
           ]
+        },
+        {
+          "name": "m-dark-mode",
+          "source": {
+            "symbol": "MDarkMode"
+          },
+          "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。",
+          "doc-url": "https://shuimo.janghood.com/icon#dark-mode",
+          "attributes": []
         },
         {
           "name": "m-delete-icon",
