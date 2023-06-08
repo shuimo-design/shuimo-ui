@@ -13,7 +13,7 @@ import { InputNumberProps } from '@shuimo-design/core/lib/base/inputNumber';
 import style from '@shuimo-design/core/lib/base/inputNumber/inputNumber.css?inline';
 
 @createMElement({
-  name: 'inputNumber',
+  name: 'input-number',
   props
 })
 export default class  extends LitElement implements InputNumberProps {
