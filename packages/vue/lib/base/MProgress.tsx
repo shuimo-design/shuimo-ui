@@ -36,7 +36,7 @@ export default defineComponent({
 
       return <div class="m-progress-border" style={progressWrapperInfo.value.baseStyle}>
         <div class="m-progress-per" style={progressWrapperInfo.value.textStyle}>
-          <img class="m-progress-leaf" src={leaf.default} alt=""/>
+          <img class="m-progress-leaf" src={leaf} alt=""/>
           {slots.default?.()}
         </div>
         {progress}
