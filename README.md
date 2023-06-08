@@ -64,46 +64,48 @@ pnpm install shuimo-ui
 
 ## TODO
 
-| Component     | Vue3 (v0.2.9-1) | Vue3(v0.3.0 🚧) | Web Component (🚧) | React (🚧) |
-|---------------|-----------------|-----------------|--------------------|------------|
-| **BASE**      |                 |                 |                    |            |
-| Avatar        | ❌               | ✅               | ✨                  | ✨          |
-| Button        | ✅               | ✅               | ✨                  | ✨          |
-| CheckBox      | ✅               | ✅               | ✨                  | ✨          |
-| CheckBoxGroup | ✅               | ❌               | ❌                  | ❌          |
-| DatePicker    | ✅               | ❌               | ❌                  | ❌          |
-| Li            | ❌               | ✅               | ✨                  | ✨          |
-| List          | ✅               | ✅               | ✨                  | 🚧         |
-| Input         | ✅               | ✅               | ✨                  | ✨          |
-| InputNumber   | ✅               | ❌               | ❌                  | ❌          |
-| Progress      | ✅               | ✅               | ✨                  | ✨          |
-| Radio         | ✅               | ✅               | ✨                  | ✨          |
-| Switch        | ✅               | ✅               | ✨                  | ✨          |
-| Select        | ✅               | ❌               | ❌                  | ❌          |
-| Tag           | ✅               | ✅               | ✨                  | ✨          |
-| **MESSAGE**   |                 |                 |                    |            |
-| Dialog        | ✅               | ✅               | ✨                  | ✨          |
-| Drawer        | ✅               | ✅               | ✨                  | 🚧         |
-| Popover       | ✅               | ✅               | ✨                  | 🚧         |
-| **OTHER**     |                 |                 |                    |            |
-| DarkMode      | ❌               | ✅               | ✨                  | ✨          |
-| Divider       | ✅               | ✅               | ✨                  | ✨          |
-| Loading       | ✅               | ✅               | ✨                  | ✨          |
-| Upload        | ✅               | 🔥              | 🔥                 | 🔥         |
-| **TEMPLATE**  |                 |                 |                    |            |
-| Border        | ✅               | ✅               | ✨                  | ✨          |
-| RicePaper     | ✅               | ✅               | ✨                  | ✨          |
-| Form          | ✅               | ✅               | ✨                  | 🚧         |
-| FormItem      | ✅               | ✅               | ✨                  | 🚧         |
-| Table         | ✅               | ✅               | ✨                  | 🚧         |
-| TableColumn   | ✅               | ✅               | ✨                  | 🚧         |
-| **TODO**      |                 |                 |                    |            |
-| Confirm       | ✅               | ❌               | ❌                  | ❌          |
-| Message       | ✅               | ❌               | ❌                  | ❌          |
-| Tooltip       | ✅               | ❌               | ❌                  | ❌          |
-| Menu          | ⚗️              | ❌               | 🚧️                | ❌          |
-| Printer       | ✅               | ❌               | ❌                  | ❌          |
-| Pagination    | ✅               | ❌               | ❌                  | ❌          |
-| DeleteIcon    | ✅               | ❌               | ❌                  | ❌          |
+| Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.1) | Web Component (🚧) | React (🚧) |
+|---------------|-----------------|---------------------|--------------------|------------|
+| **BASE**      |                 |                     |                    |            |
+| Avatar        | ❌               | ✅                   | ✨                  | ✨          |
+| Button        | ✅               | ✅                   | ✨                  | ✨          |
+| CheckBox      | ✅               | ✅                   | ✨                  | ✨          |
+| CheckBoxGroup | ✅               | ✨                   | ❌                  | ❌          |
+| DatePicker    | ✅               | ✅                   | ❌                  | ❌          |
+| Li            | ❌               | ✅                   | ✨                  | ✨          |
+| List          | ✅               | ✅                   | ✨                  | 🚧         |
+| Input         | ✅               | ✅                   | ✨                  | ✨          |
+| InputNumber   | ✅               | ✅                   | ❌                  | ❌          |
+| Progress      | ✅               | ✅                   | ✨                  | ✨          |
+| Radio         | ✅               | ✅                   | ✨                  | ✨          |
+| Switch        | ✅               | ✅                   | ✨                  | ✨          |
+| Select        | ✅               | ✅                   | ❌                  | ❌          |
+| Tag           | ✅               | ✅                   | ✨                  | ✨          |
+| **MESSAGE**   |                 |                     |                    |            |
+| Confirm       | ✅               | ✅                   | ✨                  | 🚧         |
+| Dialog        | ✅               | ✅                   | ✨                  | ✨          |
+| Drawer        | ✅               | ✅                   | ✨                  | 🚧         |
+| Message       | ✅               | ✅                   | ❌                  | ❌          |
+| Popover       | ✅               | ✅                   | ✨                  | 🚧         |
+| Tooltip       | ✅               | ✅                   | ❌                  | ❌          |
+| **OTHER**     |                 |                     |                    |            |
+| DarkMode      | ❌               | ✅                   | ✨                  | ✨          |
+| Divider       | ✅               | ✅                   | ✨                  | ✨          |
+| Loading       | ✅               | ✅                   | ✨                  | ✨          |
+| Upload        | ✅               | 🔥                  | 🔥                 | 🔥         |
+| DeleteIcon    | ✅               | ✅                   | ✨                  | ✨          |
+| Printer       | ✅               | ✅                   | ❌                  | ❌          |
+| **TEMPLATE**  |                 |                     |                    |            |
+| Border        | ✅               | ✅                   | ✨                  | ✨          |
+| RicePaper     | ✅               | ✅                   | ✨                  | ✨          |
+| Form          | ✅               | ✅                   | ✨                  | 🚧         |
+| FormItem      | ✅               | ✅                   | ✨                  | 🚧         |
+| Table         | ✅               | ✅                   | ✨                  | 🚧         |
+| TableColumn   | ✅               | ✅                   | ✨                  | 🚧         |
+| Pagination    | ✅               | ✅                   | ❌                  | ❌          |
+| **TODO**      |                 |                     |                    |            |
+| Tree          | ❌               | 🚧                  | ❌                  | ❌          |
+| Menu          | ⚗️              | ❌                   | 🚧️                | ❌          |
+
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
