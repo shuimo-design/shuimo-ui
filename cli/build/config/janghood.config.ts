@@ -19,8 +19,7 @@ const sourceSymbolTranslator = (dirList: string[]) => {
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ['lib/**/*.d.ts'],
-    exclude: ['**/dependents/**', '**/types/**', '**/basic/**'],
+    include: ['../../packages/core/lib/**/*.d.ts'],
     document: {
       webTypes: {
         active: true,
@@ -30,15 +29,11 @@ export default defineJhConfig({
         },
         sourceSymbolTranslator
       }
-    }
-  },
-  lint: {
-    eslint: {
-      include: [
-        '**/*.{vue,ts,tsx,d.ts}'
-      ],
-      exclude: ['**/dependents/**', '**/basic/**']
     },
-    commitlint: true
+    annotate:{
+      component: {
+        type: 'block'
+      }
+    }
   }
 });

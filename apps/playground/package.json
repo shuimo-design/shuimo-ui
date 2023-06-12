@@ -21,5 +21,5 @@
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "react-dom": "^18.2.0"
   },
-  "web-types": "../../web-types.json"
+  "web-types": "../../cli/build/config/output/web-types.json"
 }

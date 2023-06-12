@@ -11,16 +11,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { LiProps } from '../../base/list/li/li';
-
-export type MenuType = {
-  title: string,
-  key: any,
-  isActive: boolean,
-  index?: number[],
-  children?: MenuTypeArr
-}
-export type MenuTypeArr = Array<MenuType>;
+import { LiProps } from '../../base/li';
 
 
 export declare type MenuProps = {
@@ -29,7 +20,7 @@ export declare type MenuProps = {
    * @type MenuType[]
    * @default []
    */
-  menu?: MenuTypeArr,
+  menu?: any,
   /**
    * @description menu inline
    * @type boolean
@@ -39,3 +30,13 @@ export declare type MenuProps = {
 }
 
 export declare type MenuItemProps = LiProps;
+
+
+// export type MenuType = {
+//   title: string,
+//   key: any,
+//   isActive: boolean,
+//   index?: number[],
+//   children?: MenuTypeArr
+// }
+// export type MenuTypeArr = Array<MenuType>;
