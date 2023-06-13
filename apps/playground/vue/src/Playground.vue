@@ -3,6 +3,7 @@
     <h1>这里是vue的playground</h1>
 <!--    <Message/>-->
     <MTree />
+<!--    <Base/>-->
   </div>
 </template>
 

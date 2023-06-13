@@ -6,5 +6,6 @@ import { DEFAULT_CONFIG } from "./tree";
 export const props: MCOPO<TreeProps> = {
   data: { type: [Object, Array], default: () => []},
   config: { type: Object, default: () => DEFAULT_CONFIG },
-  defaultExpandAll: { type: Boolean, default: false }
+  defaultExpandAll: { type: Boolean, default: false },
+  checkable: { type: Boolean, default: false }
 };

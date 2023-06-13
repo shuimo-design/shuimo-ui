@@ -38,13 +38,25 @@ export default class MPopover extends LitElement {
 
   @property()
   protected contentStyle: any = {};
+  @property()
+  protected arrowStyle: any = {};
+  @property()
+  protected _placement: any = {};
 
   setContentStyle(val: any) {this.contentStyle = val;}
+
+  setArrowStyle(val: any) {this.arrowStyle = val;}
+
+  setPlacement(val: any) {this._placement = val;}
 
   constructor() {
     super();
     const { createPopover, getContent } = usePopover({
-      style: [this.contentStyle, this.setContentStyle, this],
+      value: {
+        style: [this.contentStyle, this.setContentStyle, this],
+        arrowStyle: [this.arrowStyle, this.setArrowStyle, this],
+        placement: [this._placement, this.setPlacement, this]
+      },
       props: this
     });
     this.createPopover = createPopover;

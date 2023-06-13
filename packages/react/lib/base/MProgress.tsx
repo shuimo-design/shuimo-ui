@@ -31,7 +31,7 @@ export default function MProgress(baseProps: ProgressProps & Slot) {
   // @ts-ignore
   return <div className="m-progress-border" style={progressWrapperInfo.baseStyle}>
     <div className="m-progress-per" style={progressWrapperInfo.textStyle}>
-      <img className="m-progress-leaf" src={leaf.default} alt=""/>
+      <img className="m-progress-leaf" src={leaf} alt=""/>
       {props.children}
     </div>
     {progress}

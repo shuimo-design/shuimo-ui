@@ -1,0 +1,1058 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "shuimo-ui",
+  "version": "0.3.0-alpha.2",
+  "js-types-syntax": "typescript",
+  "description-markup": "markdown",
+  "contributions": {
+    "html": {
+      "vue-components": [
+        {
+          "name": "m-button",
+          "source": {
+            "symbol": "MButton"
+          },
+          "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。",
+          "doc-url": "https://shuimo.janghood.com/button",
+          "props": [
+            {
+              "name": "text",
+              "description": "button inline text, will replace by slot\n按钮文本 会被slot覆盖",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "link",
+              "description": "link or not 是否是链接",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "disable or not 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "type",
+              "description": "button type 按钮类型",
+              "type": "string",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-checkbox",
+          "source": {
+            "symbol": "MCheckbox"
+          },
+          "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。",
+          "doc-url": "https://shuimo.janghood.com/checkbox",
+          "props": [
+            {
+              "name": "label",
+              "description": "checkbox label text, will replace slot\n文本 会覆盖slot",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "checked",
+              "description": "checkbox checked\n是否选中",
+              "type": "boolean|undefined|null",
+              "default": "undefined"
+            },
+            {
+              "name": "value",
+              "description": "checkbox value",
+              "type": "any",
+              "default": "undefined"
+            },
+            {
+              "name": "modelValue",
+              "description": "value\n绑定值",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "indeterminate",
+              "description": "checkbox indeterminate\n是否为不确定状态  todo 暂未支持",
+              "type": "boolean",
+              "default": "undefined"
+            },
+            {
+              "name": "disabled",
+              "description": "checkbox disabled\n是否禁用 todo 暂未支持",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-dark-mode",
+          "source": {
+            "symbol": "MDarkMode"
+          },
+          "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。",
+          "doc-url": "https://shuimo.janghood.com/dark-mode",
+          "props": [
+            {
+              "name": "value",
+              "description": "switch value. 开关绑定值",
+              "type": "boolean"
+            }
+          ]
+        },
+        {
+          "name": "m-date-picker",
+          "source": {
+            "symbol": "MDatePicker"
+          },
+          "description": "DatePicker component with shuimo-ui style.\n水墨组件的日期选择组件。",
+          "doc-url": "https://shuimo.janghood.com/date-picker",
+          "props": [
+            {
+              "name": "value",
+              "description": "date value\n日期值",
+              "type": "string|Date",
+              "default": ""
+            },
+            {
+              "name": "placeholder",
+              "description": "date placeholder\n日期选择框提示文字",
+              "type": "string",
+              "default": "请选择日期"
+            },
+            {
+              "name": "format",
+              "description": "date format\n日期格式",
+              "type": "string",
+              "default": "YYYY-MM-DD"
+            },
+            {
+              "name": "type",
+              "description": "datePicker format type date/month\n日期选择框类型 date/month",
+              "type": "string",
+              "default": "date"
+            }
+          ]
+        },
+        {
+          "name": "m-delete-icon",
+          "source": {
+            "symbol": "MDeleteIcon"
+          },
+          "description": "delete icon component with shuimo-ui style.\n水墨组件的删除图标组件。",
+          "doc-url": "https://shuimo.janghood.com/icon#delete",
+          "props": []
+        },
+        {
+          "name": "m-dialog",
+          "source": {
+            "symbol": "MDialog"
+          },
+          "description": "Dialog component with shuimo-ui style.\n水墨组件的弹窗交互组件。",
+          "doc-url": "https://shuimo.janghood.com/dialog",
+          "props": [
+            {
+              "name": "mask",
+              "description": "dialog mask option\n弹窗背景配置",
+              "type": "ModelMask",
+              "default": "show:true, clickClose:true"
+            },
+            {
+              "name": "visible",
+              "description": "dialog visible value\n弹窗是否显示参数",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "closeBtn",
+              "description": "close button visible value\n是否显示关闭按钮",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "teleport",
+              "description": "dialog teleport\n弹窗传送",
+              "type": "MTeleportProps",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-divider",
+          "source": {
+            "symbol": "MDivider"
+          },
+          "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。",
+          "doc-url": "https://shuimo.janghood.com/divider",
+          "props": [
+            {
+              "name": "vertical",
+              "description": "divider is vertical or not",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-drawer",
+          "source": {
+            "symbol": "MDrawer"
+          },
+          "description": "Drawer component with shuimo-ui style.\n水墨组件的抽屉组件。",
+          "doc-url": "https://shuimo.janghood.com/drawer",
+          "props": [
+            {
+              "name": "mask",
+              "description": "drawer mask option\n抽屉背景配置",
+              "type": "ModelMask",
+              "default": "show:true, clickClose:true"
+            },
+            {
+              "name": "width",
+              "description": "drawer width\ndrawer的宽度",
+              "type": "string",
+              "default": "false"
+            },
+            {
+              "name": "visible",
+              "description": "drawer visible value\n抽屉是否显示参数",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "drawerClass",
+              "description": "drawer class\n抽屉扩展类型",
+              "type": "string[]",
+              "default": "[]"
+            },
+            {
+              "name": "closeBtn",
+              "description": "close button visible value\n是否显示关闭按钮",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "teleport",
+              "description": "drawer teleport\n抽屉传送",
+              "type": "MTeleportProps",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-form",
+          "source": {
+            "symbol": "MForm"
+          },
+          "description": "Form component with shuimo-ui style.\n水墨组件的表单组件。",
+          "doc-url": "https://shuimo.janghood.com/form",
+          "props": [
+            {
+              "name": "inline",
+              "description": "form是否行内显示",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "submit",
+              "description": "form 是否默认发送",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-form-item",
+          "source": {
+            "symbol": "MFormItem"
+          },
+          "description": "FormItem component with shuimo-ui style.\n水墨组件的表单item组件。",
+          "doc-url": "https://shuimo.janghood.com/form#item",
+          "props": [
+            {
+              "name": "label",
+              "description": "form item label\n表单项的标题",
+              "type": "string"
+            },
+            {
+              "name": "prop",
+              "description": "form item label prop\n表单内置label的原生prop属性",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "m-input",
+          "source": {
+            "symbol": "MInput"
+          },
+          "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。",
+          "doc-url": "https://shuimo.janghood.com/input",
+          "props": [
+            {
+              "name": "type",
+              "description": "input type. 输入框类型",
+              "type": "string",
+              "default": "input"
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "value",
+              "description": "input value. 输入框绑定值",
+              "type": "string|number",
+              "default": ""
+            },
+            {
+              "name": "readonly",
+              "description": "input readonly. 是否只读",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "input disabled. 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-input-number",
+          "source": {
+            "symbol": "MInputNumber"
+          },
+          "description": "InputNumber component with shuimo-ui style.\n水墨组件的数字输入框组件。",
+          "doc-url": "https://shuimo.janghood.com/input#number",
+          "props": [
+            {
+              "name": "value",
+              "description": "input-number modelValue",
+              "type": "number|string",
+              "default": ""
+            },
+            {
+              "name": "max",
+              "description": "input-number max",
+              "type": "number",
+              "default": "Infinity"
+            },
+            {
+              "name": "min",
+              "description": "input-number min",
+              "type": "number",
+              "default": "-Infinity"
+            },
+            {
+              "name": "precision",
+              "description": "input-number precision",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "disabled",
+              "description": "input-number min",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "readonly",
+              "description": "input readonly. 是否只读",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "placeholder",
+              "description": "input-number placeholder",
+              "type": "string",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-list",
+          "source": {
+            "symbol": "MList"
+          },
+          "description": "List component with shuimo-ui style.\n水墨组件的列表组件。",
+          "doc-url": "https://shuimo.janghood.com/list",
+          "props": [
+            {
+              "name": "data",
+              "description": "List data\n列表数据",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "autoActive",
+              "description": "all item use active style\n所有项使用激活样式",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-loading",
+          "source": {
+            "symbol": "MLoading"
+          },
+          "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。",
+          "doc-url": "https://shuimo.janghood.com/loading",
+          "props": [
+            {
+              "name": "speed",
+              "description": "transform speed",
+              "type": "number",
+              "default": "1500"
+            },
+            {
+              "name": "mask",
+              "description": "with mask or not",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "sideLength",
+              "description": "length of loading item's side (px)",
+              "type": "number|string",
+              "default": "50"
+            }
+          ]
+        },
+        {
+          "name": "m-menu",
+          "source": {
+            "symbol": "MMenu"
+          },
+          "description": "menu component with shuimo-ui style.\n水墨组件的目录组件。",
+          "doc-url": "https://shuimo.janghood.com/menu",
+          "props": [
+            {
+              "name": "menu",
+              "description": "menu array",
+              "type": "any",
+              "default": "[]"
+            },
+            {
+              "name": "inline",
+              "description": "menu inline",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-message",
+          "source": {
+            "symbol": "MMessage"
+          },
+          "description": "Message component with shuimo-ui style.\n水墨组件的消息组件。",
+          "doc-url": "https://shuimo.janghood.com/message",
+          "props": [
+            {
+              "name": "type",
+              "description": "Type of message",
+              "type": "'success'|'warning'|'info'|'error'",
+              "default": "'info'"
+            },
+            {
+              "name": "duration",
+              "description": "The time of duration",
+              "type": "number",
+              "default": "3000"
+            },
+            {
+              "name": "content",
+              "description": "The message content",
+              "type": "string",
+              "default": "这是一条消息"
+            },
+            {
+              "name": "direction",
+              "description": "The direction in which the component appears",
+              "type": "'top-right'|'top-left'|'bottom-right'|'bottom-left'|'top-center'",
+              "default": "top-right"
+            },
+            {
+              "name": "dragAllow",
+              "description": "Whether the component is allowed to be dragged",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "dragConfig",
+              "description": "Whether the component is allowed to be dragged",
+              "type": "DragConfigType",
+              "default": "{triggerBoundary:2}"
+            }
+          ]
+        },
+        {
+          "name": "m-pagination",
+          "source": {
+            "symbol": "MPagination"
+          },
+          "description": "pagination component with shuimo-ui style.\n水墨组件的分页组件。",
+          "doc-url": "https://shuimo.janghood.com/pagination",
+          "props": [
+            {
+              "name": "total",
+              "description": "page total\n分页总数",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "current",
+              "description": "current page number\n当前页",
+              "type": "number",
+              "default": "undefined"
+            },
+            {
+              "name": "defaultCurrent",
+              "description": "default current page number\n默认当前页",
+              "type": "number",
+              "default": "undefined"
+            },
+            {
+              "name": "pageSize",
+              "description": "page size\n每页数量",
+              "type": "number",
+              "default": "10"
+            },
+            {
+              "name": "pageSizes",
+              "description": "page size select list\n可选每页数量",
+              "type": "number[]",
+              "default": "[10, 20, 30, 40, 50, 100]"
+            },
+            {
+              "name": "layout",
+              "description": "component layout\n组件显示",
+              "type": "string",
+              "default": "'prev, pager, next, jumper, total'"
+            },
+            {
+              "name": "foldedMaxPageBtn",
+              "description": "show pages when folded\n折叠时最多显示页码按钮数",
+              "type": "number|null",
+              "default": "5"
+            },
+            {
+              "name": "maxPageBtn",
+              "description": "the max display pages\n最大显示页数",
+              "type": "number|null",
+              "default": "10"
+            },
+            {
+              "name": "showEdgePageNum",
+              "description": "show edge page number\n是否显示边缘页码",
+              "type": "boolean",
+              "default": "true"
+            }
+          ]
+        },
+        {
+          "name": "m-popover",
+          "source": {
+            "symbol": "MPopover"
+          },
+          "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。",
+          "doc-url": "https://shuimo.janghood.com/popover",
+          "props": [
+            {
+              "name": "placement",
+              "description": "popover display placement",
+              "type": "Placement",
+              "default": "bottom"
+            },
+            {
+              "name": "mountRender",
+              "description": "Whether to render the popover content when the component is mounted",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disableClickAway",
+              "description": "Disables automatically closing the popover when the user clicks away from it",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "content",
+              "description": "If the content is just a simple string, it can be passed in as a prop",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "hover",
+              "description": "Trigger the popper on hover",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "popper",
+              "description": "floating-ui options, look: https://floating-ui.com/",
+              "type": "PopperConfig",
+              "default": "{}"
+            },
+            {
+              "name": "teleport",
+              "description": "popover teleport\n弹出框传送",
+              "type": "MTeleportProps|undefined|boolean",
+              "default": "undefined"
+            }
+          ]
+        },
+        {
+          "name": "m-progress",
+          "source": {
+            "symbol": "MProgress"
+          },
+          "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。",
+          "doc-url": "https://shuimo.janghood.com/progress",
+          "props": [
+            {
+              "name": "width",
+              "description": "progress bar width\n进度条的宽度",
+              "type": "number",
+              "default": "399"
+            },
+            {
+              "name": "height",
+              "description": "progress bar height\n进度条的高度",
+              "type": "number",
+              "default": "26.547"
+            },
+            {
+              "name": "value",
+              "description": "progress value\n进度条的值",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "max",
+              "description": "progress value max\n进度条最大值",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "showInfo",
+              "description": "display value\n是否显示进度值",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "infoWidth",
+              "description": "info width\n进度值的宽度",
+              "type": "number",
+              "default": "44"
+            },
+            {
+              "name": "leafHeight",
+              "description": "leaf height\n叶子的高度",
+              "type": "number",
+              "default": "28"
+            }
+          ]
+        },
+        {
+          "name": "m-radio",
+          "source": {
+            "symbol": "MRadio"
+          },
+          "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。",
+          "doc-url": "https://shuimo.janghood.com/radio",
+          "props": [
+            {
+              "name": "label",
+              "description": "radio label\n单选框的标签值",
+              "type": "string|number",
+              "default": ""
+            },
+            {
+              "name": "name",
+              "description": "radio name\n单选框的name值",
+              "type": "string",
+              "default": "undefined"
+            },
+            {
+              "name": "checked",
+              "description": "radio checked\n是否选中",
+              "type": "boolean|undefined|null",
+              "default": "undefined"
+            },
+            {
+              "name": "value",
+              "description": "radio value\n单选框的值",
+              "type": "any",
+              "default": "undefined"
+            },
+            {
+              "name": "modelValue",
+              "description": "value\n绑定值",
+              "type": "any",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-rice-paper",
+          "source": {
+            "symbol": "MRicePaper"
+          },
+          "description": "Rice paper layout component with shuimo-ui style.\n水墨组件的宣纸布局组件",
+          "doc-url": "https://shuimo.janghood.com/rice-paper",
+          "props": [
+            {
+              "name": "cold",
+              "description": "是否使用冷色调",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "mountain",
+              "description": "是否显示山脉背景",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "crane",
+              "description": "是否显示仙鹤",
+              "type": "boolean",
+              "default": "true"
+            }
+          ]
+        },
+        {
+          "name": "m-select",
+          "source": {
+            "symbol": "MSelect"
+          },
+          "description": "Select component with shuimo-ui style.\n水墨组件的选择组件。",
+          "doc-url": "https://shuimo.janghood.com/select",
+          "props": [
+            {
+              "name": "modelValue",
+              "description": "select value\n选择框的值",
+              "type": "any|any[]",
+              "default": ""
+            },
+            {
+              "name": "options",
+              "description": "select options\n选择框的数组",
+              "type": "Array<any>",
+              "default": "[]"
+            },
+            {
+              "name": "inputParam",
+              "description": "support for which key value to display in 'input'\n选择后使用option中的哪个key的值去更新modelValue",
+              "type": "string",
+              "default": "undefined"
+            },
+            {
+              "name": "optionParam",
+              "description": "select dropdown display info key\n选择下拉框中显示内容的key",
+              "type": "string",
+              "default": "undefined"
+            },
+            {
+              "name": "valueParam",
+              "description": "modelValue's key\n参数的key",
+              "type": "string",
+              "default": "undefined"
+            },
+            {
+              "name": "readonly",
+              "description": "used to disable input event\n用于禁止输入事件",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "disabled",
+              "description": "used to disable select\n是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "type": "string",
+              "default": "'请选择...'"
+            },
+            {
+              "name": "toMatch",
+              "description": "modelValue match function\n用于比较参数和modelValue是否相等的方法，常用于modelValue为对象的场景\noption: 列表数据\nvalue: modelValue",
+              "type": "(option:any,value:any)=>boolean",
+              "default": "undefined"
+            },
+            {
+              "name": "multiple",
+              "description": "multiple choice\n是否为多选",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "checkbox",
+              "description": "in multiple, whether to show checkbox\n多选模式下是否启用checkbox",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "filter",
+              "description": "defined input box filter query method\n自定义输入框filter查询方法",
+              "type": "(options:any,inputValue:string)=>boolean",
+              "default": "undefined"
+            }
+          ]
+        },
+        {
+          "name": "m-switch",
+          "source": {
+            "symbol": "MSwitch"
+          },
+          "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text",
+          "doc-url": "https://shuimo.janghood.com/switch",
+          "props": [
+            {
+              "name": "value",
+              "description": "switch value. 开关绑定值",
+              "type": "any"
+            },
+            {
+              "name": "disabled",
+              "description": "switch disabled\n是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "loading",
+              "description": "switch disabled\n是否加载中",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "activeInfo",
+              "description": "打开文本",
+              "type": "string"
+            },
+            {
+              "name": "inactiveInfo",
+              "description": "关闭文本",
+              "type": "string"
+            },
+            {
+              "name": "activeValue",
+              "description": "打开参数",
+              "type": "any"
+            },
+            {
+              "name": "inactiveValue",
+              "description": "关闭参数",
+              "type": "any"
+            },
+            {
+              "name": "onControl",
+              "description": "是否控制",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-table",
+          "source": {
+            "symbol": "MTable"
+          },
+          "description": "Table component with shuimo-ui style.\n水墨组件的表格组件。",
+          "doc-url": "https://shuimo.janghood.com/table",
+          "props": [
+            {
+              "name": "data",
+              "description": "table data\n表格内容",
+              "type": "Array<any>"
+            },
+            {
+              "name": "height",
+              "description": "table height\n表格高度",
+              "type": "string|null"
+            }
+          ]
+        },
+        {
+          "name": "m-table-column",
+          "source": {
+            "symbol": "MTableColumn"
+          },
+          "description": "Table column component with shuimo-ui style.\n水墨组件的表格列组件。",
+          "doc-url": "https://shuimo.janghood.com/table#column",
+          "props": [
+            {
+              "name": "width",
+              "description": "table column width\n列宽",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "param",
+              "description": "table column param\n列对应的参数",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "label",
+              "description": "table column label\n列名",
+              "type": "string",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-tag",
+          "source": {
+            "symbol": "MTag"
+          },
+          "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。",
+          "doc-url": "https://shuimo.janghood.com/tag",
+          "props": [
+            {
+              "name": "type",
+              "description": "button type 按钮类型",
+              "type": "string",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-tooltip",
+          "source": {
+            "symbol": "MTooltip"
+          },
+          "description": "Tooltip component with shuimo-ui style.\n水墨组件的提示框组件。",
+          "doc-url": "https://shuimo.janghood.com/tooltip",
+          "props": [
+            {
+              "name": "placement",
+              "description": "popover display placement",
+              "type": "Placement",
+              "default": "bottom"
+            },
+            {
+              "name": "mountRender",
+              "description": "Whether to render the popover content when the component is mounted",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disableClickAway",
+              "description": "Disables automatically closing the popover when the user clicks away from it",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "content",
+              "description": "If the content is just a simple string, it can be passed in as a prop",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "hover",
+              "description": "Trigger the popper on hover",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "popper",
+              "description": "floating-ui options, look: https://floating-ui.com/",
+              "type": "PopperConfig",
+              "default": "{}"
+            },
+            {
+              "name": "teleport",
+              "description": "popover teleport\n弹出框传送",
+              "type": "MTeleportProps|undefined|boolean",
+              "default": "undefined"
+            }
+          ]
+        },
+        {
+          "name": "MAvatar",
+          "source": {
+            "symbol": "MAvatar"
+          },
+          "description": "avatar component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/avatar,",
+          "props": [
+            {
+              "name": "variant",
+              "description": "avatar variant\n头像的形状",
+              "type": "'circle'|'square';",
+              "default": "circle"
+            },
+            {
+              "name": "size",
+              "description": "avatar size\n头像的大小",
+              "type": "'large'|'default'|'small';",
+              "default": "default"
+            },
+            {
+              "name": "img",
+              "description": "img url\n头像图片地址",
+              "type": "string;",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "MConfirm",
+          "source": {
+            "symbol": "MConfirm"
+          },
+          "description": "confirm component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/confirm,",
+          "props": [
+            {
+              "name": "mask",
+              "description": "confirm mask option\n确认框背景配置",
+              "type": "ModelMask",
+              "default": "show:true, clickClose:true"
+            },
+            {
+              "name": "teleport",
+              "description": "confirm teleport\n确认框传送",
+              "type": "MTeleportProps",
+              "default": ""
+            },
+            {
+              "name": "content",
+              "description": "confirm content\n确认框内容",
+              "type": "string",
+              "default": ""
+            }
+          ]
+        },
+        {
+          "name": "MLi",
+          "source": {
+            "symbol": "MLi"
+          },
+          "description": "li component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/li,",
+          "props": [
+            {
+              "name": "active",
+              "type": "boolean"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "framework": "vue",
+  "default-icon": "./icons/logo.svg"
+}

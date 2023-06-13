@@ -2,14 +2,27 @@
   "name": "shuimo-ui",
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.3.0-0",
-  "main": "index.ts",
+  "version": "0.3.0-alpha.2",
+  "files": [
+    "dist",
+    "icons",
+    "types",
+    "lib",
+    "web-types.json"
+  ],
   "scripts": {
     "test": "vitest",
     "test:update": "vitest -u",
     "coverage": "vitest --coverage"
   },
+  "types": "types/shuimo-ui.d.ts",
+  "main": "./dist/shuimo-ui.umd.js",
+  "module": "./dist/shuimo-ui.mjs",
   "exports": {
+    ".": {
+      "import": "./dist/shuimo-ui.mjs",
+      "require": "./dist/shuimo-ui.umd.js"
+    },
     "./*": "./*"
   },
   "devDependencies": {
@@ -23,5 +36,14 @@
     "jsdom": "^21.1.1",
     "vitest": "^0.30.1",
     "vue": "^3.3.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janghood/shuimo-ui.git"
+  },
+  "web-types": "web-types.json",
+  "bugs": {
+    "url": "https://github.com/janghood/shuimo-ui/issues"
+  },
+  "homepage": "https://shuimo.janghood.com"
 }

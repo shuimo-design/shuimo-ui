@@ -97,14 +97,28 @@
         <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
 
       </div>
+
+      <div class="date-picker">
+        <m-date-picker/>
+        <span>{{ date }}</span>
+        <m-date-picker v-model="date"/>
+        <m-date-picker v-model="date" type="month"/>
+      </div>
+
+      <div class="checkbox-group">
+        <span>{{ checkboxGroup }}</span>
+        <m-checkbox-group v-model="checkboxGroup">
+          <m-checkbox label="1" :value="1"/>
+          <m-checkbox label="2" :value="2"/>
+          <m-checkbox label="3" :value="3"/>
+          <m-checkbox label="4" :value="4"/>
+        </m-checkbox-group>
+      </div>
+
     </div>
 
-
-    <div class="date-picker">
-      <m-date-picker/>
-      <span>{{date}}</span>
-      <m-date-picker v-model="date"/>
-      <m-date-picker v-model="date" type="month"/>
+    <div class="input-number">
+      <m-input-number v-model="inputNumberRef"/>
     </div>
 
 
@@ -171,6 +185,10 @@ const customFilter2 = (options: any, inputValue: any) => {
 
 
 const date = ref(new Date());
+
+const checkboxGroup = ref([1, 3]);
+
+const inputNumberRef = ref(1);
 </script>
 
 <style scoped>

@@ -20,6 +20,7 @@ export { default as MProgress } from './lib/base/MProgress';
 export { default as MAvatar } from './lib/base/MAvatar';
 export { default as MSelect } from './lib/base/MSelect';
 export { default as MDatePicker } from './lib/base/MDatePicker';
+export { default as MInputNumber } from './lib/base/MInputNumber';
 
 // [message]
 export { default as MPopover } from './lib/message/MPopover';
@@ -27,6 +28,7 @@ export { default as MDialog } from './lib/message/MDialog';
 export { default as MDrawer } from './lib/message/MDrawer';
 export { default as MConfirm } from './lib/message/MConfirm';
 export { default as MMessage } from './lib/message/message/MMessage';
+export { default as MTooltip } from './lib/message/MTooltip';
 
 // [other]
 export { default as MDivider } from './lib/other/MDivider';
@@ -41,3 +43,4 @@ export { default as MForm } from './lib/template/MForm';
 export { default as MFormItem } from './lib/template/MFormItem';
 export { default as MTable } from './lib/template/MTable';
 export { default as MTableColumn } from './lib/template/MTableColumn';
+export { default as MPagination } from './lib/template/MPagination';

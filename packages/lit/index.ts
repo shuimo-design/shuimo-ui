@@ -28,6 +28,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MAvatar'),
     import('./lib/base/MSelect'),
     import('./lib/base/MDatePicker'),
+    import('./lib/base/MInputNumber'),
 
     // [message]
     import('./lib/message/MPopover'),
@@ -35,6 +36,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/message/MDrawer'),
     import('./lib/message/MConfirm'),
     import('./lib/message/MMessage'),
+    import('./lib/message/MTooltip'),
 
     // [template]
     import('./lib/template/MBorder'),
@@ -45,6 +47,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/template/MFormItem'),
     import('./lib/template/MTable'),
     import('./lib/template/MTableColumn'),
+    import('./lib/template/MPagination'),
 
     // [other]
     import('./lib/other/MDivider'),

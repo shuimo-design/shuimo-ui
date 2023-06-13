@@ -12,7 +12,7 @@ import { DeleteIconProps } from '@shuimo-design/core/lib/other/deleteIcon';
 import style from '@shuimo-design/core/lib/other/deleteIcon/deleteIcon.css?inline';
 
 @createMElement({
-  name: 'deleteIcon',
+  name: 'delete-icon',
 })
 export default class  extends LitElement implements DeleteIconProps {
 

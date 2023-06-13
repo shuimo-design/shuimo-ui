@@ -15,7 +15,11 @@ export default function usePopover(popoverOptions: PopoverProps,className?:strin
 
   const popoverInstance = ref<VNode | null>(null);
   const popoverRef = ref<typeof MPopover>();
-  const withPopover = <T = VNode>(slots: { default: () => T, content: () => T, }) => {
+  const withPopover = <T = VNode>(slots: {
+    default: () => T,
+    content: () => T,
+    arrow?: () => T
+  }) => {
     const p = <MPopover {...popoverOptions} class={className} ref={popoverRef}>{slots}</MPopover>;
     popoverInstance.value = p;
     return p;

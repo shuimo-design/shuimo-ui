@@ -1,21 +1,22 @@
 import {TreeNodeData, TreeProps} from "./index";
 import TreeNode from "./tree";
-import { watch } from 'vue'
+import { watch, shallowRef, onMounted } from 'vue'
 
 export const useTree = (props: Required<TreeProps>) => {
-  const tree = new TreeNode({
+  const tree = shallowRef<TreeNode>(new TreeNode({
     data: props.data,
-    config: props.config
-  })
+    config: props.config,
+    defaultExpandAll: props.defaultExpandAll
+  }))
 
   watch(() => props.data, (newData) => {
     if (newData) {
-      tree.updateTreeData(newData)
+      tree.value.updateTreeData(newData)
     }
   })
 
   const getTreeNodeData = () => {
-    return tree.getTreeData()
+    return tree.value.getTreeData()
   }
 
   const getTree = () => {
@@ -24,15 +25,20 @@ export const useTree = (props: Required<TreeProps>) => {
 
   const handleToggleExpand = (node: TreeNodeData, e: MouseEvent) => {
     e.stopPropagation()
-    tree.toggleStatusByNode('expand', node)
+    tree.value.toggleStatusByNode('expand', node)
   }
   const handleToggleChecked = (node: TreeNodeData) => {
-    tree.toggleStatusByNode('checked', node)
+    tree.value.toggleStatusByNode('checked', node)
   }
 
   const handleToggleSelect = (node: TreeNodeData) => {
-    tree.toggleStatusByNode('selected', node)
+    tree.value.toggleStatusByNode('selected', node)
   }
+
+  // ones in mounted
+  onMounted(() => {
+    tree.value.updateTreeData(props.data)
+  })
 
   return {
     getTreeNodeData,

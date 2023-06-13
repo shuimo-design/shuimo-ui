@@ -36,7 +36,7 @@ const treeData = ref(mockData)
 <template>
   <div class="flex">
     <div>
-      <MTree :data="treeData"></MTree>
+      <MTree :data="treeData" :default-expand-all="true"></MTree>
     </div>
   </div>
 </template>

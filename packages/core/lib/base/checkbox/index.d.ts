@@ -59,3 +59,19 @@ export declare type CheckboxEvents = {
   onChange?: (e: HTMLElementEvent<HTMLInputElement>) => void,
   onInput?: (value: any) => void
 }
+
+export declare type CheckboxGroupProps = {
+  /**
+   * @description checkbox value group
+   * @type array
+   * @default []
+   */
+  value?: any[],
+  /**
+   * @description type
+   * @type string
+   * @default single
+   * @enum 'single' | 'multiple'
+   */
+  type?: string
+}

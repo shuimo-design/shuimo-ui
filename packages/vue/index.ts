@@ -7,10 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { App, Component } from 'vue';
+import './index.css';
 // [base]
 import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
-import MCheckbox from './lib/base/MCheckbox';
+import MCheckbox from './lib/base/checkbox/MCheckbox';
+import MCheckboxGroup from './lib/base/checkbox/MCheckboxGroup';
 import MLi from './lib/base/MLi';
 import MList from './lib/base/MList';
 import MSwitch from './lib/base/MSwitch';
@@ -21,13 +23,14 @@ import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
 import MDatePicker from './lib/base/MDatePicker';
 import MTree from './lib/base/MTree'
-
+import MInputNumber from './lib/base/MInputNumber';
 
 // [other]
 import MDivider from './lib/other/MDivider';
 import MLoading from './lib/other/MLoading';
 import MDarkMode from './lib/other/MDarkMode';
 import MDeleteIcon from './lib/other/MDeleteIcon';
+import MPrinter from '@shuimo-design/core/lib/other/printer/Printer';
 
 // [message]
 import MPopover from './lib/message/MPopover';
@@ -35,6 +38,7 @@ import MDialog from './lib/message/MDialog';
 import MDrawer from './lib/message/MDrawer';
 import MConfirm from './lib/message/MConfirm';
 import MMessage from './lib/message/message/MMessage';
+import MTooltip from './lib/message/MTooltip';
 
 // [template]
 import MRicePaper from './lib/template/MRicePaper';
@@ -43,12 +47,14 @@ import MForm from './lib/template/MForm';
 import MFormItem from './lib/template/MFormItem';
 import MTable from './lib/template/MTable';
 import MTableColumn from './lib/template/MTableColumn';
+import MPagination from './lib/template/MPagination';
 
 const components: Record<string, Component> = {
   // [base]
   MButton,
   MInput,
   MCheckbox,
+  MCheckboxGroup,
   MLi,
   MList,
   MSwitch,
@@ -58,6 +64,7 @@ const components: Record<string, Component> = {
   MAvatar,
   MSelect,
   MDatePicker,
+  MInputNumber,
   MTree,
 
   // [other]
@@ -70,6 +77,7 @@ const components: Record<string, Component> = {
   MPopover,
   MDialog,
   MDrawer,
+  MTooltip,
 
   // [template]
   MRicePaper,
@@ -78,6 +86,7 @@ const components: Record<string, Component> = {
   MFormItem,
   MTable,
   MTableColumn,
+  MPagination,
 };
 
 export {
@@ -85,6 +94,7 @@ export {
   MButton,
   MInput,
   MCheckbox,
+  MCheckboxGroup,
   MLi,
   MList,
   MSwitch,
@@ -95,12 +105,14 @@ export {
   MSelect,
   MDatePicker,
   MTree,
+  MInputNumber,
 
   // [other]
   MDivider,
   MLoading,
   MDarkMode,
   MDeleteIcon,
+  MPrinter,
 
   // [message]
   MPopover,
@@ -108,6 +120,7 @@ export {
   MDrawer,
   MConfirm,
   MMessage,
+  MTooltip,
 
   // [template]
   MRicePaper,
@@ -116,6 +129,7 @@ export {
   MFormItem,
   MTable,
   MTableColumn,
+  MPagination,
 };
 
 export function createMUI() {

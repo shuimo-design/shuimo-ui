@@ -1,0 +1,19 @@
+{
+  "name": "@shuimo-design/build",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "version": "1.0.0",
+  "scripts": {
+    "build:vue-script": "tsx ./config/build.ts"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "vite": "^4.2.2",
+    "vite-plugin-lightningcss": "^0.0.5"
+  },
+  "dependencies": {
+    "@janghood/api-extractor": "0.0.1-alpha.11",
+    "@janghood/config": "0.0.1-2",
+    "tsx": "^3.12.1"
+  }
+}

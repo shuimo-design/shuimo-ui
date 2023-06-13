@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MCOPO } from '@shuimo-design/types';
-import { CheckboxProps } from './index';
+import { CheckboxGroupProps, CheckboxProps } from './index';
 
 export const props: MCOPO<CheckboxProps> = {
   label: { type: String, default: '' },
@@ -16,4 +16,9 @@ export const props: MCOPO<CheckboxProps> = {
   modelValue: { type: null, default: undefined },
   indeterminate: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false }
+};
+
+export const checkboxGroupProps: MCOPO<CheckboxGroupProps> = {
+  value: { type: Array, default: () => [] },
+  type: { type: String, default: 'single' }
 };

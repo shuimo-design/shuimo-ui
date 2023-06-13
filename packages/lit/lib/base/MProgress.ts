@@ -42,7 +42,7 @@ export default class extends LitElement implements ProgressProps {
 
     return html`<div class="m-progress-border" style=${styleParse(progressWrapperInfo.baseStyle)}>
       <div class="m-progress-per" style=${styleParse(progressWrapperInfo.textStyle)}>
-        <img class="m-progress-leaf" src=${leaf.default} alt=""/>
+        <img class="m-progress-leaf" src=${leaf} alt=""/>
         <slot/>
       </div>
       ${progress}

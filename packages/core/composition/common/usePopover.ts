@@ -7,17 +7,40 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { PopoverProps } from '../../lib/message/popover';
-import { flip, offset, shift } from '@floating-ui/dom';
+import { arrow, flip, offset, shift } from '@floating-ui/dom';
+import { type Options as OffsetOptions } from '@floating-ui/core/src/middleware/offset';
 
-export default function usePopover(){
+export {
+  flip,
+  offset,
+  shift,
+  arrow
+};
+
+export default function usePopover(
+  props?: Partial<PopoverProps>,
+  middleware?: {
+    offset?: OffsetOptions
+    extends?: any[]
+  }
+) {
+
+  const offsetOptions = middleware?.offset ?? { crossAxis: 3 };
+
+
   const popoverOptions: PopoverProps = {
-    placement: 'bottom-start',
+    placement: props?.placement ?? 'bottom-start',
     popper: {
-      middleware: [offset({ crossAxis: 3 }), flip(), shift()]
+      middleware: [
+        offset(offsetOptions),
+        flip(),
+        shift(),
+        ...middleware?.extends ?? []
+      ]
     }
   };
 
   return {
     popoverOptions
-  }
+  };
 }

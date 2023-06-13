@@ -16,6 +16,7 @@
 @import "base/avatar/avatar.css";
 @import "base/select/select.css";
 @import "base/datePicker/datePicker.css";
+@import "base/inputNumber/inputNumber.css";
 
 /* [message] */
 @import "message/popover/popover.css";
@@ -23,6 +24,7 @@
 @import "message/drawer/drawer.css";
 @import "message/confirm/confirm.css";
 @import "message/message/message.css";
+@import "message/tooltip/tooltip.css";
 
 /* [other] */
 @import "other/divider/divider.css";
@@ -36,3 +38,4 @@
 @import "template/table/table.css";
 @import "template/form/form.css";
 @import "template/form/formItem.css";
+@import "template/pagination/pagination.css";

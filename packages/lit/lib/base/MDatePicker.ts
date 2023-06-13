@@ -13,7 +13,7 @@ import { DatePickerProps } from '@shuimo-design/core/lib/base/datePicker';
 import style from '@shuimo-design/core/lib/base/datePicker/datePicker.css?inline';
 
 @createMElement({
-  name: 'datePicker',
+  name: 'date-picker',
   props
 })
 export default class  extends LitElement implements DatePickerProps {

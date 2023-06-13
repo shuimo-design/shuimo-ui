@@ -8,6 +8,7 @@
  */
 import { isEmpty, notEmpty } from '@shuimo-design/tools/empty';
 import { ProgressProps } from './index';
+import leafPng from './assets/leaf.png'
 
 export const BASE_SIZE = {
   BG: { W: 556, H: 37 },
@@ -69,4 +70,4 @@ export const getProgressWrapperStyle = (props: Required<ProgressProps>, progress
   }
 };
 
-export const leaf = await import('./assets/leaf.png');
+export const leaf = leafPng;

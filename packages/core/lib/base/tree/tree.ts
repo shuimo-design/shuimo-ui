@@ -1,6 +1,5 @@
 import {TreeConfig, TreeData, TreeNodeData, TreeDataMap, TreeStatusKey} from "./index";
 import {genTreeDataMap} from "./treeUtil";
-import {s} from "vitest/dist/types-e3c9754d";
 
 export const DEFAULT_CONFIG: TreeConfig = {
   key: 'key',
@@ -12,23 +11,39 @@ export const DEFAULT_CONFIG: TreeConfig = {
 export interface TreeNodeOptions {
   data: TreeData | TreeData[]
   config?: TreeConfig
+  defaultExpandAll?: boolean
 }
+
+export interface TreeAttrs {
+  defaultExpandAll?: boolean
+}
+
 export default class TreeNode<T extends TreeData = TreeData> {
   #treeData: TreeNodeData[] = []
   // flat tree data list
   #treeMap: TreeDataMap = new Map<TreeNodeData["key"], TreeNodeData>()
-  // config
+  // data config
   #config: TreeConfig = DEFAULT_CONFIG
+  // tree config
+  #treeAttrs: TreeAttrs
+
   constructor(options: TreeNodeOptions) {
-    const { data, config = DEFAULT_CONFIG } = options
+    const {
+      data,
+      config = DEFAULT_CONFIG,
+      defaultExpandAll = false
+    } = options
     this.#config = config
+    this.#treeAttrs = {
+      defaultExpandAll
+    }
     this.updateTreeData(data)
   }
 
   public updateTreeData(data: TreeData | TreeData[]) {
     const originData = Array.isArray(data) ? data : [data]
     this.#treeData = originData
-    this.#treeMap = genTreeDataMap(originData, this.#config, this.#treeMap)
+    this.#treeMap = genTreeDataMap(originData, this.#config,  this.#treeAttrs, this.#treeMap)
   }
 
   public findChildrenByKey(key: TreeNodeData['key']): TreeNodeData[] {
@@ -73,7 +88,7 @@ export default class TreeNode<T extends TreeData = TreeData> {
 
   #setParentStatus(statusKey: TreeStatusKey, node: TreeNodeData) {
     const parent = node.parent
-    // TODO: If  Check siblings node status
+    // TODO: Check siblings node status
     this.#initialStatus(statusKey, parent)
   }
 

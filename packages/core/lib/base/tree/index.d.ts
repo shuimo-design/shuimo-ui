@@ -28,7 +28,7 @@ export type TreeStatusKey = 'checked' | 'selected' | 'expand' | 'close'
 export type TreeDataMap = Map<TreeNodeData['key'], TreeNodeData>
 
 export interface TreeConfig {
-  key: string
+  key: string | number
   label: string
   value: string
   children: string
@@ -38,6 +38,7 @@ export declare type TreeProps = {
   data?: TreeData | TreeData[]
   config?: TreeConfig
   defaultExpandAll?: boolean
+  checkable?: boolean
 }
 
 export declare type TreeEvents = {

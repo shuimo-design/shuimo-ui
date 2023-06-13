@@ -1,0 +1,71 @@
+.m-pagination {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+  user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+
+  & .m-pages {
+    flex-shrink: 0;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: unset;
+    padding: unset;
+  }
+
+  & .m-pager {
+    display: inline-block;
+    list-style: none;
+    margin: 2px;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+
+    &:hover {
+      color: var(--m-color-blue);
+    }
+  }
+
+  & .m-paper-current {
+    font-weight: 600;
+    color: var(--m-color-main);
+  }
+
+
+  & button {
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    bottom: -2px;
+  }
+
+}
+
+.m-page-prev:before {
+  content: url('./assets/page_prev.png');
+}
+
+.m-page-next:before {
+  content: url('./assets/page_next.png');
+}
+
+.m-page-prev-disabled:before {
+  content: url('./assets/page_prev_disabled.png');
+}
+
+.m-page-next-disabled:before {
+  content: url('./assets/page_next_disabled.png');
+}
+
+.m-page-prev:not(.m-page-prev-disabled):active {
+  left: -2px;
+}
+
+.m-page-next:not(.m-page-next-disabled):active {
+  right: -2px;
+}
