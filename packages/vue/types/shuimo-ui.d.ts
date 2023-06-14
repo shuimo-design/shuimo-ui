@@ -22,7 +22,18 @@ export interface ShuimoUI {
   install: (app: App) => App;
 }
 
-export function createMUI(): ShuimoUI;
+export type MWCType = 'MBorder' | 'MRicePaper';
+export type MUIOption = {
+  /**
+   * we support both web component and vue version of the border and rice-paper components,
+   * and we default use web component,
+   * you can use this option to disable web component
+   */
+  disableWebComponent?: Array<MWCType>,
+}
+
+
+export function createMUI(options: MUIOption): ShuimoUI;
 
 // export const MMessage: IMessage;
 // export const MPrinter: IPrinter;

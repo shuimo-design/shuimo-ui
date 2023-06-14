@@ -16,7 +16,7 @@
 import { computed, defineComponent, h } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/input/api';
 import { HTMLElementEvent } from '@shuimo-design/types';
-import MBorder from '../template/MBorder';
+import MBorder from '../template/border/MBorder';
 
 export default defineComponent({
   name: 'MInput',

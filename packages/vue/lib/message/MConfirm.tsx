@@ -11,7 +11,7 @@ import { props } from '@shuimo-design/core/lib/message/confirm/api';
 import useModel from '../../composition/useModel';
 import { IConfirm } from '@shuimo-design/core/lib/message/confirm';
 import MButton from '../base/MButton';
-import MBorder from '../template/MBorder';
+import MBorder from '../template/border/MBorder';
 import { useConfirm } from '@shuimo-design/core/lib/message/confirm/useConfirm';
 
 const Confirm: IConfirm = async config => {

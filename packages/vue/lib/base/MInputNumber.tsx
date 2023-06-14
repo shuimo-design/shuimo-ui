@@ -8,7 +8,7 @@
  */
 import { defineComponent, h, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/inputNumber/api';
-import MBorder from '../template/MBorder';
+import MBorder from '../template/border/MBorder';
 import { InputNumber, useInputNumber } from '@shuimo-design/core/lib/base/inputNumber/useInputNumber';
 
 
