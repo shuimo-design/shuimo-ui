@@ -31,7 +31,7 @@ export declare type InputProps = {
    * @description input value. 输入框绑定值
    * @type string|number
    * @default ''
-   * @component
+   * @vue
    */
   value?: string | number,
   /**

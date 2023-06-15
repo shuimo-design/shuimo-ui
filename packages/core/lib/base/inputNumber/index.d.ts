@@ -17,6 +17,7 @@ export declare type InputNumberProps = {
    * @description input-number modelValue
    * @type number | string
    * @default ''
+   * @vue
    */
   value: number | string,
   /**

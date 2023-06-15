@@ -17,6 +17,7 @@ export declare type DatePickerProps = {
    * @description date value
    *              日期值
    * @default ''
+   * @vue
    */
   value?: string | Date,
   /**

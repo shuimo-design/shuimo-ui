@@ -4,7 +4,7 @@
  * @date 2023/05/08 22:52
  * @version v1.0.0
  *
- * @name MAvatar
+ * @name m-avatar
  * @docDescription avatar component with shuimo-ui style.
  * @docUrl https://shuimo.janghood.com/avatar,
  *

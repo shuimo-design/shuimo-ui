@@ -18,7 +18,7 @@ export declare type DarkModeProps = {
   /**
    * @description switch value. 开关绑定值
    * @type boolean
-   * @component
+   * @vue
    */
   value?: boolean
 }
