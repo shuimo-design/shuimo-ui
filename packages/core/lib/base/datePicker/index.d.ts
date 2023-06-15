@@ -38,5 +38,5 @@ export declare type DatePickerProps = {
    * @default date
    * @enum date|month
    */
-  type?: string
+  type?: 'date' | 'month'
 }
