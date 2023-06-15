@@ -4,7 +4,7 @@
  * @date 2023/05/10 20:04
  * @version v1.0.0
  *
- * @name MConfirm
+ * @name m-confirm
  * @docDescription confirm component with shuimo-ui style.
  * @docUrl https://shuimo.janghood.com/confirm,
  *
