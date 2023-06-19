@@ -7,25 +7,17 @@
  * v2.0.1 message handler 提供返回
  * v3.0.0 refactor 阿怪
  */
-import {
-  IMessage,
-  MessageConfig,
-  MessageDirectionType,
-  MessageIns,
-  MessageProps, MessageType
-} from '@shuimo-design/core/lib/message/message';
-import { MessageTypeEnum } from '@shuimo-design/core/lib/message/message/api';
-import { ComponentPublicInstance, nextTick, createApp } from 'vue';
+import { MessageIns } from '@shuimo-design/core/lib/message/message';
+import { ComponentPublicInstance, createApp, nextTick } from 'vue';
 import { useMessage } from '@shuimo-design/core/lib/message/message/useMessage';
 import MMessageList from './MMessageList';
 import MMessageItem from './MMessageItem';
 
 type VueMessageIns = MessageIns<InstanceType<typeof MMessageItem>> & ComponentPublicInstance;
 
-const { initMessage } = useMessage<InstanceType<typeof MMessageItem>>();
+let { initMessage } = useMessage<InstanceType<typeof MMessageItem>>();
 
-
-export default initMessage({
+const MMessage = initMessage({
   getIns: direction => {
     const wrapper = document.createElement('div');
     return createApp(MMessageList, { direction }).mount(wrapper) as VueMessageIns;
@@ -38,3 +30,5 @@ export default initMessage({
     });
   }
 });
+
+export default MMessage;

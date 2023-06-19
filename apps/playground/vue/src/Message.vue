@@ -26,6 +26,15 @@
         </div>
       </m-drawer>
 
+      <div class="tooltip">
+        <m-tooltip>
+          <m-button text="点击触发"/>
+          <template #content>
+            <span>君不见，黄河之水天上来</span>
+          </template>
+        </m-tooltip>
+      </div>
+
       <m-button @click="activeConfirm">测试</m-button>
 
 
@@ -33,15 +42,9 @@
       <m-button @click="callMessage2">显示2</m-button>
     </div>
 
+    <m-button @click="callMessage">显示</m-button>
+    <m-button @click="callMessage2">显示2</m-button>
 
-    <div class="tooltip">
-      <m-tooltip>
-        <m-button text="点击触发"/>
-        <template #content>
-          <span>君不见，黄河之水天上来</span>
-        </template>
-      </m-tooltip>
-    </div>
   </div>
 </template>
 

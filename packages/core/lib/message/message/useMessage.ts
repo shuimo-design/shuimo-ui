@@ -22,12 +22,14 @@ export function useMessage<K>() {
     directionSet: Set<MessageDirectionType> = new Set<MessageDirectionType>();
 
     public async getIns<T>(direction: MessageDirectionType, customerGetIns: (direction: MessageDirectionType) => Promise<T> | T) {
-            return new Promise<T>(async (resolve, reject) => {
+      return new Promise<T>(async (resolve, reject) => {
         if (this.directionSet.has(direction)) {
           setTimeout(() => {
             const ins = this.map.get(direction);
+
             if (ins) {resolve(ins);} else {
-              resolve(this.getIns(direction, customerGetIns));
+              const res = this.getIns(direction, customerGetIns);
+              resolve(res);
             }
           });
         } else {
@@ -94,23 +96,29 @@ export function useMessage<K>() {
       resolve: (value: K) => void,
       messageListIns: T
     ) => Promise<void>
-  }) => {
+  }, needNew?: boolean) => {
     const callMessage = async (options: MessageOptions) => {
       return await addOption(options, handler);
     };
 
     const MMessage = (config: MessageConfig) => { return callMessage({ config });};
 
-    for (const direction of Object.values(MessageTypeEnum)) {
-      (MMessage as IMessage<K>)[direction as MessageType] = (config: MessageConfig, duration?: number) => callMessage({
+    for (const messageType of Object.values(MessageTypeEnum)) {
+      (MMessage as IMessage<K>)[messageType as MessageType] = (config: MessageConfig, duration?: number) => callMessage({
         config,
-        type: MessageTypeEnum[direction],
+        type: MessageTypeEnum[messageType],
         duration
       });
     }
 
-    return MMessage as IMessage<K>;
+    if (needNew !== false) {
+      MMessage.create = (): IMessage<K> => {
+        const { initMessage: _initMessage } = useMessage<K>();
+        return _initMessage(handler, false);
+      };
+    }
 
+    return MMessage as IMessage<K>;
   };
 
   return {
