@@ -8,10 +8,11 @@
  */
 import { TooltipProps } from './index';
 import usePopover from '../../../composition/common/usePopover';
+import { Options } from '../../../composition/common/defineCore';
 
-export function useTooltip(options: {
-  props: Required<TooltipProps>
-}) {
+export function useTooltip(options: Options<{
+  props: TooltipProps
+}>) {
 
 
   const { popoverOptions } = usePopover({

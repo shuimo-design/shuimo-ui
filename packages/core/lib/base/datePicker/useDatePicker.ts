@@ -11,6 +11,7 @@ import { DatePickerProps } from './index';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
 import { isEmpty } from '@shuimo-design/tools/index';
 import dayjs from 'dayjs';
+import { Options } from '../../../composition/common/defineCore';
 
 // 基础星期名
 export const BASE_WEEK_NAME: DisplayCalendarType[] = [
@@ -43,17 +44,18 @@ export const toDayjs = (value: string | Date) => {
   return dayjs(value);
 };
 
-export function useDatePicker(options: {
-  props: Required<DatePickerProps>,
+export function useDatePicker(options: Options<{
+  props: DatePickerProps,
   value: {
-    displayValue: MRefValue<string>,
-    spanClass: MRefValue<Array<string | undefined>>,
-    dateRef: MRefValue<DateRefType>,
-    currentRef: MRefValue<ReturnType<typeof dayjs>>,
-    calendarTypeRef: MRefValue<CALENDAR_TYPE>,
-    yearsRef: MRefValue<Array<number>>,
+    displayValue: string,
+    spanClass: Array<string | undefined>,
+    dateRef: DateRefType,
+    currentRef: ReturnType<typeof dayjs>,
+    calendarTypeRef: CALENDAR_TYPE,
+    yearsRef: Array<number>,
   }
-}) {
+}>) {
+
 
 
   const { popoverOptions } = usePopover();

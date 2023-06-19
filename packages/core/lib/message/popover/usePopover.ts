@@ -6,11 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { PopperConfig, PositionStyle, usePopper } from '../../../composition/popper/usePopper';
+import { Placement, PopperConfig, PositionStyle, usePopper } from '../../../composition/popper/usePopper';
 import MPrinter from '../../other/printer/Printer';
 import { PopoverProps } from './index';
 import { MRef, MRefValue, RMRef } from '../../../composition/common/MRef';
 import useClickAway from '../../../composition/popper/useClickAway';
+import { Options } from '../../../composition/common/defineCore';
 
 const error = MPrinter('水墨Popover组件').error;
 export type IPopper = ReturnType<typeof usePopper>;
@@ -101,18 +102,18 @@ export class PopoverImpl {
 type ArrayElement<ArrayType> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
-export function usePopover(config: {
+export function usePopover(options: Options<{
   props: PopoverProps,
   value: {
-    style: MRefValue,
-    arrowStyle: MRefValue,
-    placement: MRefValue
+    style: any,
+    arrowStyle: any,
+    placement: Placement
   }
-}) {
+}>) {
 
-  const style = MRef(config.value.style);
-  const arrowStyle = MRef(config.value.arrowStyle);
-  const placement = MRef(config.value.placement);
+  const style = MRef(options.value.style);
+  const arrowStyle = MRef(options.value.arrowStyle);
+  const placement = MRef(options.value.placement);
   let instance: PopoverImpl | null = null;
   let clickAwayInstance: ReturnType<typeof useClickAway>;
 
@@ -149,7 +150,7 @@ export function usePopover(config: {
   const onBeforeDestroyEvents: Function[] = [];
 
   onMountedEvents.push(() => {
-    if (config.props.disableClickAway) {
+    if (options.props.disableClickAway) {
       return;
     }
 
