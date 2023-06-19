@@ -41,9 +41,10 @@ describe('popover', () => {
       content: () => 'world'
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-popover\\">
+      "<div class=\\"m-popover\\" data-popper-placement=\\"bottom\\">
         <div class=\\"m-popover-default-wrapper\\">hello</div>
         <div class=\\"m-popover-content\\">
+          <!---->
           <!---->
         </div>
       </div>"

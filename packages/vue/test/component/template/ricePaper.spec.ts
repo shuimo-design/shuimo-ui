@@ -21,6 +21,7 @@ describe('rice paper', () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-rice-paper\\">
+        <!---->
         <div class=\\"m-rice-paper-mountain\\"></div>
         <div class=\\"m-rice-paper-crane\\"></div>
         <div class=\\"m-rice-paper-main\\">
@@ -45,6 +46,7 @@ describe('rice paper', () => {
       "<div class=\\"m-rice-paper\\">
         <!---->
         <!---->
+        <!---->
         <div class=\\"m-rice-paper-main\\">
           <div>test</div>
         </div>
@@ -64,6 +66,7 @@ describe('rice paper', () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-rice-paper m-rice-paper-warm\\">
+        <!---->
         <div class=\\"m-rice-paper-mountain\\"></div>
         <div class=\\"m-rice-paper-crane\\"></div>
         <div class=\\"m-rice-paper-main\\">
