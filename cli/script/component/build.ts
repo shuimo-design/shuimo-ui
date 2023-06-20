@@ -36,7 +36,10 @@ const getNow = () => {
 export const build = async (options: { name: string, group: string, author: string, slogan: string }) => {
   const { name, group, author, slogan } = options;
   const upperCaseFirstName = name.replace(name[0], name[0].toUpperCase());
+  // darkMode to dark-mode
+  const kebabName = name.replace(/([A-Z])/g, '-$1').toLowerCase();
   const MName = `M${upperCaseFirstName}`;
+  const kName = `m-${kebabName}`;
   const propsName = `${upperCaseFirstName}Props`;
   const now = getNow();
   const common = { author, now, slogan, name };
@@ -61,6 +64,7 @@ export const build = async (options: { name: string, group: string, author: stri
       `${corePath}/index.d.ts`,
       {
         ...common,
+        kName,
         MName,
         propsName
       }
@@ -73,7 +77,7 @@ export const build = async (options: { name: string, group: string, author: stri
         ...common,
         propsName
       }
-    )
+    );
     // style
     renderTemplate(
       'core/style.css',
@@ -95,6 +99,7 @@ export const build = async (options: { name: string, group: string, author: stri
         ...common,
         group,
         MName,
+        kName,
         propsName
       }
     );

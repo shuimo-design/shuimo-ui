@@ -13,10 +13,10 @@ import { {{propsName}} } from '@shuimo-design/core/lib/{{group}}/{{name}}';
 import style from '@shuimo-design/core/lib/{{group}}/{{name}}/{{name}}.css?inline';
 
 @createMElement({
-  name: '{{name}}',
+  name: '{{kName}}',
   props
 })
-export default class {{Mname}} extends LitElement implements {{propsName}} {
+export default class {{MName}} extends LitElement implements {{propsName}} {
 
   static styles = unsafeCSS(style);
 

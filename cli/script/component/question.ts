@@ -53,7 +53,7 @@ export const componentQuestion = [
   {
     name: 'name',
     type: 'input',
-    message: 'please input component name',
+    message: 'please input component name, like button, darkMode etc.',
     validate: notEmptyStr('component name can not be empty')
   },
   {
