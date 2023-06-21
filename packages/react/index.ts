@@ -44,3 +44,4 @@ export { default as MFormItem } from './lib/template/MFormItem';
 export { default as MTable } from './lib/template/MTable';
 export { default as MTableColumn } from './lib/template/MTableColumn';
 export { default as MPagination } from './lib/template/MPagination';
+export { default as MCell } from './lib/template/MCell';

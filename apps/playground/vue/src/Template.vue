@@ -9,9 +9,43 @@
           <m-button text="点击按钮"/>
         </m-form-item>
       </m-form>
+
+
+      <span>current:{{ current }}</span>
+      <m-pagination :total="225" v-model="current"></m-pagination>
     </div>
-    <span>current:{{current}}</span>
-    <m-pagination :total="225" v-model="current"></m-pagination>
+
+
+    <m-border>
+      <div class="cell-wrapper">
+        <m-cell>
+          <div class="cell-inner">
+            <span>无倾角</span>
+          </div>
+        </m-cell>
+        <m-cell rotate-position="top-left" :deg="20" :h="80">
+          <div class="cell-inner">
+            <span>top-left</span>
+          </div>
+        </m-cell>
+        <m-cell rotate-position="bottom-left" :deg="30" :h="80">
+          <div class="cell-inner">
+            <span>bottom-left</span>
+          </div>
+        </m-cell>
+        <m-cell rotate-position="top-right" :deg="45" :h="80">
+          <div class="cell-inner">
+            <span>top-right top-right top-right top-right</span>
+          </div>
+        </m-cell>
+        <m-cell rotate-position="bottom-right" :deg="30" :h="80">
+          <div class="cell-inner">
+            <span>bottom-right</span>
+          </div>
+        </m-cell>
+      </div>
+    </m-border>
+
 
   </div>
 </template>
@@ -25,12 +59,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 
-const submitEvent = ()=> {
+const submitEvent = () => {
   console.log('submitEvent');
-}
+};
 
 const current = ref(1);
 
@@ -38,8 +72,27 @@ const current = ref(1);
 
 <style scoped>
 
-.template{
-  width: 100%;
+.template {
+}
+
+
+.cell-wrapper {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-cell {
+
+  margin-top: 5px;
+}
+
+.cell-inner {
+  height: 80px;
+  background: gray;
 }
 
 </style>

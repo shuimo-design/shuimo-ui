@@ -50,6 +50,7 @@ import MTableColumn from './lib/template/MTableColumn';
 import MPagination from './lib/template/MPagination';
 import MWCBorder from './lib/template/border/MWCBorder';
 import MWCRicePaper from './lib/template/ricePaper/MWCRicePaper';
+import MCell from './lib/template/MCell';
 
 const components: Record<string, Component> = {
   // [base]
@@ -87,7 +88,8 @@ const components: Record<string, Component> = {
   MFormItem,
   MTable,
   MTableColumn,
-  MPagination
+  MPagination,
+  MCell,
 };
 
 export {
@@ -129,7 +131,8 @@ export {
   MFormItem,
   MTable,
   MTableColumn,
-  MPagination
+  MPagination,
+  MCell,
 };
 
 export function createMUI(options?: MUIOption) {
