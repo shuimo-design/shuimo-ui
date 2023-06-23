@@ -7,11 +7,15 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MCOPO, MPropType } from '@shuimo-design/types';
-import { CellProps, CellRotatePosition } from './index';
+import { CellProps } from './index';
 
 export const props: MCOPO<CellProps> = {
-  rotatePosition: { type: String as MPropType<CellRotatePosition>, default: undefined },
-  deg: { type: Number, default: undefined },
   h: { type: Number, default: 0 },
   w: { type: Number, default: 0 },
+  // points: { type: [Object, Number, String] as MPropType<OptionPoints>, default: undefined },
+  points: { type: [Number, String] as MPropType<OptionPoints>, default: undefined },
+  a: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
+  b: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
+  c: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
+  d: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined }
 };

@@ -1,29 +1,4 @@
 :root {
-  --m-cell-clip-path: unset;
-  --m-cell-cos: 1;
-  --m-cell-deg: 0;
-
-  --m-cell-minus-w: 0;
-  /*
-    b:border
-    l:left r:right t:top b:bottom
-    ----------
-    t:transform
-    o:origin
-  */
-  --m-cell-bl-to: unset;
-  --m-cell-br-to: unset;
-  --m-cell-bt-to: unset;
-  --m-cell-bb-to: unset;
-
-  /*border top*/
-  --m-cell-bt-l: unset;
-  --m-cell-bt-r: unset;
-
-
-  /*border bottom*/
-  --m-cell-bb-l: unset;
-  --m-cell-bb-r: unset;
 
 }
 
@@ -33,7 +8,7 @@
 }
 
 .m-cell-main {
-  clip-path: var(--m-cell-clip-path);
+  position: relative;
 }
 
 .m-cell-c {
@@ -51,59 +26,17 @@
 }
 
 .m-cell-border-top {
-  top: -2.5px;
-  left: var(--m-cell-bt-l);
-  right: var(--m-cell-bt-r);
+  transform-origin: left center;
 }
 
 .m-cell-border-right {
-  right: -2px;
-  transform-origin: var(--m-cell-br-to);
+   transform-origin: top center;
 }
 
 .m-cell-border-bottom {
-  bottom: -2px;
-  left: var(--m-cell-bb-l);
-  right: var(--m-cell-bb-r);
+  transform-origin: right center;
 }
 
-.m-cell-border-left {
-  left: -3px;
-  transform-origin: var(--m-cell-bl-to);
+.m-cell-border-left{
+  transform-origin: bottom center;
 }
-
-
-.m-cell-b-top {
-  & .m-cell-border-left,.m-cell-border-right {
-    top: 0;
-  }
-
-  & .m-cell-border-bottom {
-    width: calc(100% - var(--m-cell-minus-w));
-  }
-}
-
-.m-cell-b-bottom {
-  & .m-cell-border-left,.m-cell-border-right {
-    bottom: 0;
-  }
-
-  & .m-cell-border-top {
-    width: calc(100% - var(--m-cell-minus-w))
-  }
-}
-
-.m-cell-b-left {
-  & .m-cell-border-left {
-    height: calc(100% / var(--m-cell-cos));
-    transform: var(--m-cell-deg);
-  }
-}
-
-.m-cell-b-right {
-  & .m-cell-border-right {
-    height: calc(100% / var(--m-cell-cos));
-    transform: var(--m-cell-deg);
-  }
-}
-

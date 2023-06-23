@@ -23,22 +23,32 @@
             <span>无倾角</span>
           </div>
         </m-cell>
-        <m-cell rotate-position="top-left" :deg="20" :h="80">
+        <m-cell :a="20" :h="80">
           <div class="cell-inner">
             <span>top-left</span>
           </div>
         </m-cell>
-        <m-cell rotate-position="bottom-left" :deg="30" :h="80">
+        <m-cell :b="30" :h="80">
           <div class="cell-inner">
             <span>bottom-left</span>
           </div>
         </m-cell>
-        <m-cell rotate-position="top-right" :deg="45" :h="80">
+        <m-cell :c="3" :h="80">
           <div class="cell-inner">
             <span>top-right top-right top-right top-right</span>
           </div>
         </m-cell>
-        <m-cell rotate-position="bottom-right" :deg="30" :h="80">
+        <m-cell :d="30" :h="80">
+          <div class="cell-inner">
+            <span>bottom-right</span>
+          </div>
+        </m-cell>
+        <m-cell :a="20" :d="30" :h="80">
+          <div class="cell-inner">
+            <span>bottom-right</span>
+          </div>
+        </m-cell>
+        <m-cell :a="20" :b="10" :d="10" :h="80">
           <div class="cell-inner">
             <span>bottom-right</span>
           </div>

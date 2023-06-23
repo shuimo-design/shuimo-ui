@@ -4,65 +4,57 @@
  * @date 2023/06/21 01:05
  * @version v0.0.1-beta
  *
- * todo core code need move to core hook
+ * fix like :a="20" :b="10" :c="25" :d="60" quadrilateral can not close , should throw error
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, ref, onMounted, computed, watch, nextTick } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/cell/api';
-import { CELL_OPTIONS, useCell } from '@shuimo-design/core/lib/template/cell/useCell';
+import { useCell, type PC } from '@shuimo-design/core/lib/template/cell/useCell';
 
 export default defineComponent({
   name: 'MCell',
   props,
   setup: (props, { slots }) => {
 
-    const position = props.rotatePosition ?? 'bottom-left';// todo for test
-    const { getStyle, getDeg, mCellClass } = useCell({ props });
-
-    const deg = getDeg();
-
-    const h = ref(props.h);
-    const w = ref(props.w);
     const cellRef = ref();
-    const minusW = computed(() => Math.abs(Math.tan(deg * Math.PI / 180) * h.value));
-    const pec = computed(() => minusW.value / w.value);
+    const w = ref(props.w);
+    const h = ref(props.h);
 
+
+    const { getSize } = useCell({
+      props,
+      value: { w, h }
+    });
+    watch(() => [props.a, props.b, props.c, props.d], () => {
+      getSize(props);
+    });
 
     onMounted(() => {
       nextTick(() => {
         // todo why???
         w.value = cellRef.value?.clientWidth;
+        h.value = cellRef.value?.clientHeight;
       });
     });
 
-    const options = computed(() => CELL_OPTIONS[position]);
 
     return () => {
+
+      const { style, styleA, styleB, styleC, styleD } = getSize();
 
       const cell = <div class="m-cell-inner">
         {slots.default?.()}
       </div>;
 
-      const coefficient = Math.cos(deg * Math.PI / 180);
-
-      const style = {
-        ...getStyle(pec.value),
-        '--m-cell-cos': coefficient,
-        '--m-cell-deg': `rotate(${deg * -1}deg)`,
-        '--m-cell-minus-w': `${minusW.value}px`,
-        ...options.value
-      };
-
-
-      const cellWrapper = <div class={['m-cell', ...mCellClass()]} style={style} ref={cellRef}>
-        <div class="m-cell-main">
+      const cellWrapper = <div class={['m-cell']} ref={cellRef}>
+        <div class="m-cell-main" style={style}>
           {cell}
         </div>
-        <div class="m-cell-c m-cell-border-top"/>
-        <div class="m-cell-c m-cell-border-bottom"/>
-        <div class="m-cell-v m-cell-border-left"/>
-        <div class="m-cell-v m-cell-border-right"/>
+        <div class="m-cell-c m-cell-border-top" style={styleA}/>
+        <div class="m-cell-v m-cell-border-right" style={styleB}/>
+        <div class="m-cell-c m-cell-border-bottom" style={styleC}/>
+        <div class="m-cell-v m-cell-border-left" style={styleD}/>
       </div>;
 
       return cellWrapper;
