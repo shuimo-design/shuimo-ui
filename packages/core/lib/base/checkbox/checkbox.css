@@ -35,3 +35,12 @@
   background: url(./assets/checkbox-checked.png) no-repeat;
   background-size: 100% 100%;
 }
+
+.m-checkbox-checkbox-indeterminate {
+  grid-area: checkbox;
+  margin: 10px 0 0 6px;
+  width: 12px;
+  height: 10px;
+  background: url(./assets/indeterminate.png) no-repeat;
+  background-size: contain;
+}

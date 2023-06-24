@@ -23,6 +23,8 @@ import MProgress from './lib/base/MProgress';
 import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
 import MDatePicker from './lib/base/MDatePicker';
+import MTree from './lib/base/tree/MTree'
+import MTreeNode from './lib/base/tree/MTreeNode'
 import MInputNumber from './lib/base/MInputNumber';
 
 // [other]
@@ -68,6 +70,8 @@ const components: Record<string, Component> = {
   MSelect,
   MDatePicker,
   MInputNumber,
+  MTree,
+  MTreeNode,
 
   // [other]
   MDivider,
@@ -107,6 +111,8 @@ export {
   MAvatar,
   MSelect,
   MDatePicker,
+  MTree,
+  MTreeNode,
   MInputNumber,
 
   // [other]
