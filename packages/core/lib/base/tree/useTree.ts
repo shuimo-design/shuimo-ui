@@ -1,50 +1,50 @@
-import {TreeNodeData, TreeProps} from "./index";
-import TreeNode from "./tree";
-import { watch, shallowRef, onMounted } from 'vue'
+import { TreeNodeData, TreeProps } from "./index";
+import { watch, shallowRef, computed, triggerRef } from 'vue'
+import Tree from "./tree";
 
 export const useTree = (props: Required<TreeProps>) => {
-  const tree = shallowRef<TreeNode>(new TreeNode({
+  const tree = shallowRef<Tree>(new Tree({
     data: props.data,
     config: props.config,
-    defaultExpandAll: props.defaultExpandAll
+    defaultExpandAll: props.defaultExpandAll,
+    checkStrictly: props.checkStrictly
   }))
+  const checkedKeys = computed(() => tree.value?.getKeys()?.checkedKeys ?? [])
 
   watch(() => props.data, (newData) => {
     if (newData) {
-      tree.value.updateTreeData(newData)
+      console.log('a')
     }
   })
 
-  const getTreeNodeData = () => {
-    return tree.value.getTreeData()
-  }
+  watch(() => props.checkedKeys, (keys?: Array<string | number>) => {
+    if (keys) {
+      tree.value?.setCheckedByKeys(keys)
+    }
+  }, { immediate: true })
 
-  const getTree = () => {
-    return tree
-  }
+  const treeData = computed(() => tree.value?.getTreeData())
 
   const handleToggleExpand = (node: TreeNodeData, e: MouseEvent) => {
     e.stopPropagation()
-    tree.value.toggleStatusByNode('expand', node)
+    tree.value?.toggleExpand(node)
+    triggerRef(tree)
   }
-  const handleToggleChecked = (node: TreeNodeData) => {
-    tree.value.toggleStatusByNode('checked', node)
-  }
-
-  const handleToggleSelect = (node: TreeNodeData) => {
-    tree.value.toggleStatusByNode('selected', node)
+  const handleToggleChecked = (node: TreeNodeData, checked: boolean) => {
+    tree.value?.setNodeCheckbox(node, checked)
+    triggerRef(tree)
   }
 
-  // ones in mounted
-  onMounted(() => {
-    tree.value.updateTreeData(props.data)
-  })
+
+  const getNodesByKeys = (keys: TreeNodeData['key'][]) => {
+    return tree.value?.getTreeData(keys)
+  }
 
   return {
-    getTreeNodeData,
-    getTree,
+    treeData,
+    getNodesByKeys,
     handleToggleExpand,
     handleToggleChecked,
-    handleToggleSelect
+    checkedKeys,
   }
 }
