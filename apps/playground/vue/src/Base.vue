@@ -117,10 +117,10 @@
 
     </div>
 
-    <div class="input-number">
-      <m-input-number v-model="inputNumberRef"/>
-    </div>
-
+    <m-progress :value="20"/>
+    <m-progress :value="44" show-info/>
+    <m-progress :value="44" show-info>44</m-progress>
+    <m-progress :value="progressValueRef" show-info>{{ progressValueRef }}</m-progress>
 
   </div>
 </template>
@@ -189,6 +189,14 @@ const date = ref(new Date());
 const checkboxGroup = ref([1, 3]);
 
 const inputNumberRef = ref(1);
+
+const progressValueRef = ref(0);
+setInterval(() => {
+  progressValueRef.value += 1;
+  if(progressValueRef.value > 100) {
+    progressValueRef.value = 0;
+  }
+}, 100);
 </script>
 
 <style scoped>

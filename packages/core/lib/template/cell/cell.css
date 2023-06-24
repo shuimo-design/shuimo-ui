@@ -1,0 +1,42 @@
+:root {
+
+}
+
+.m-cell {
+  display: inline-block;
+  position: relative;
+}
+
+.m-cell-main {
+  position: relative;
+}
+
+.m-cell-c {
+  background: url(../../assets/line/crossrange.png) repeat-x;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+}
+
+.m-cell-v {
+  background: url(../../assets/line/vertical.png) repeat-x;
+  height: 100%;
+  width: 6px;
+  position: absolute;
+}
+
+.m-cell-border-top {
+  transform-origin: left center;
+}
+
+.m-cell-border-right {
+   transform-origin: top center;
+}
+
+.m-cell-border-bottom {
+  transform-origin: right center;
+}
+
+.m-cell-border-left{
+  transform-origin: bottom center;
+}

@@ -8,6 +8,7 @@
  */
 import { PaginationProps } from './index';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
+import { Options } from '../../../composition/common/defineCore';
 
 
 /**
@@ -31,11 +32,15 @@ export type Pager = {
 }
 
 export function usePagination(
-  props: Required<PaginationProps>,
-  value: {
-    currentValue: MRefValue<number>
-  }
+  options: Options<{
+    props: PaginationProps,
+    value: {
+      currentValue: number
+    }
+  }>
 ) {
+
+  const { props, value } = options;
 
   const currentValueRef = MRef(value.currentValue);
 

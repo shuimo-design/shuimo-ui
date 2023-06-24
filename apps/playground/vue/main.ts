@@ -13,5 +13,8 @@ import 'shuimo-ui/index.css';
 
 
 createApp(App)
+  // .use(createMUI({
+  //   disableWebComponent: ['MRicePaper','MBorder']
+  // }))
   .use(createMUI())
   .mount('#app');

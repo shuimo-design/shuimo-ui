@@ -24,7 +24,7 @@ export default defineComponent({
       currentValueRef.value = val;
     });
 
-    const { getPageNumList, pageBtnLength } = usePagination(props, { currentValue: currentValueRef });
+    const { getPageNumList, pageBtnLength } = usePagination({ props, value: { currentValue: currentValueRef } });
 
     const changePage = (page: number) => {
       currentValueRef.value = page;

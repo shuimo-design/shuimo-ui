@@ -11,16 +11,17 @@
  */
 import { defineComponent, computed } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/progress/api';
-import { getProgressInfo, getProgressWrapperStyle, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
+import { useProgress, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
 
 export default defineComponent({
   name: 'MProgress',
   props,
   setup: (props, { slots }) => {
-    const progressInfo = computed(() => getProgressInfo(props));
+    const { getProgressWrapperStyle, getProgressInfo } = useProgress({ props });
+    const progressInfo = computed(() => getProgressInfo());
     const progressWrapperInfo = computed(() => {
       if (props.showInfo) {
-        return getProgressWrapperStyle(props, progressInfo.value);
+        return getProgressWrapperStyle(progressInfo.value);
       }
     });
 

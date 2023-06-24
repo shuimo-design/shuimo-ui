@@ -4,7 +4,7 @@
  * @date {{&now}}
  * @version v1.0.0
  *
- * @name {{MName}}
+ * @name {{kName}}
  * @docDescription {{name}} component with shuimo-ui style.
  * @docUrl https://shuimo.janghood.com/{{name}},
  *

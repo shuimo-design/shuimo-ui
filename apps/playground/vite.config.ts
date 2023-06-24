@@ -15,7 +15,16 @@ import { reactTsx } from './base/plugin/reactTsx';
 export default defineConfig({
   plugins: [
     lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%' }),
-    vue({ include: [/\.vue$/], exclude: ['**/react/*.tsx'] }),
+    vue({
+      include: [/\.vue$/],
+      exclude: ['**/react/*.tsx'] ,
+      template: {
+        compilerOptions: {
+          // 将所有带短横线的标签名都视为自定义元素
+          isCustomElement: (tag) => ['m-border','m-rice-paper'].includes(tag)
+        }
+      }
+    }),
     vueJSX({
       exclude: ['**/react/*.tsx']
     }),

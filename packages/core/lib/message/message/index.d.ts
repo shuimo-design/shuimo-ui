@@ -66,7 +66,8 @@ type IMessageEnum<T> = {
   [K in MessageType]: (options: MessageConfig, duration?: number) => Promise<T> | void;
 };
 export type IMessage<T> = {
-  (config: MessageConfig): Promise<T> | void
+  (config: MessageConfig): Promise<T> | void,
+  create?: () => IMessage<T>
 } & IMessageEnum<T>;
 
 export interface DragConfigType {

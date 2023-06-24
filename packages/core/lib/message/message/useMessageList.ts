@@ -8,6 +8,7 @@
  */
 import { MessageListProps, MessageProps } from './index';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
+import { Options } from '../../../composition/common/defineCore';
 
 /**
  * @description MessageList使用到的属性
@@ -24,15 +25,15 @@ const getKey = (() => {
   };
 })();
 
-export function useMessageList(config: {
+export function useMessageList(options: Options<{
   props: MessageListProps,
   value: {
-    messageListRef: MRefValue<MessageOptions[]>
+    messageListRef: MessageOptions[]
   }
-}) {
+}>) {
 
-  const baseClass = ['m-message-list', 'm-message-list-' + config.props.direction];
-  const messageListRef = MRef(config.value.messageListRef);
+  const baseClass = ['m-message-list', 'm-message-list-' + options.props.direction];
+  const messageListRef = MRef(options.value.messageListRef);
 
 
   const add = (item: MessageOptions) => {

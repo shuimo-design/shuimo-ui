@@ -38,7 +38,7 @@ export declare type ButtonProps = {
    * @default default
    * @enum default|primary|error|confirm|warning
    */
-  type?: string
+  type?: 'default' | 'primary' | 'error' | 'confirm' | 'warning'
 };
 
 export declare type ButtonEvents = {

@@ -7,13 +7,26 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, beforeAll } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MTooltip from '../../../lib/message/MTooltip';
 
+
+beforeAll(() => {
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
+
+    unobserve() {}
+
+    disconnect() {}
+  };
+});
+
 describe('tooltip组件', () => {
   test('正常渲染', () => {
-    const wrapper = mount(MTooltip);
+    const wrapper = mount(MTooltip,{
+      slots:{ default: () => 'hello', }
+    });
     expect(wrapper.html()).toContain('m-tooltip');
   });
 });

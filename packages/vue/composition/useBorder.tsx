@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { h, VNode } from 'vue';
-import MBorder from '../lib/template/MBorder';
+import MBorder from '../lib/template/border/MBorder';
 
 
 export default function useBorder() {

@@ -8,7 +8,8 @@
     "icons",
     "types",
     "lib",
-    "web-types.json"
+    "web-types.json",
+    "LICENSE"
   ],
   "scripts": {
     "test": "vitest",

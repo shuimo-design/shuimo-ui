@@ -17,6 +17,7 @@ export declare type DatePickerProps = {
    * @description date value
    *              日期值
    * @default ''
+   * @vue
    */
   value?: string | Date,
   /**
@@ -37,5 +38,5 @@ export declare type DatePickerProps = {
    * @default date
    * @enum date|month
    */
-  type?: string
+  type?: 'date' | 'month'
 }

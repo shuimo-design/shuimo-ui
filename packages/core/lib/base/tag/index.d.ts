@@ -20,5 +20,5 @@ export declare type TagProps = {
    * @default default
    * @enum default|primary|error|confirm|warning
    */
-  type?: string
+  type?: 'default' | 'primary' | 'error' | 'confirm' | 'warning'
 };

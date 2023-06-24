@@ -10,7 +10,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MCheckbox from '../../../lib/base/MCheckbox';
+import MCheckbox from '../../../lib/base/checkbox/MCheckbox';
 // import MCheckboxGroup from '../../../lib/base/checkbox/MCheckboxGroup';
 import { h } from 'vue';
 

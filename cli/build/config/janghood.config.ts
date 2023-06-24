@@ -22,6 +22,7 @@ export default defineJhConfig({
     include: ['../../packages/core/lib/**/*.d.ts'],
     document: {
       webTypes: {
+        packageUrl: '../../packages/vue/package.json',
         active: true,
         webTypesInfo: {
           framework: 'vue',
@@ -30,9 +31,15 @@ export default defineJhConfig({
         sourceSymbolTranslator
       }
     },
-    annotate:{
-      component: {
-        type: 'block'
+    annotate: {
+      vue: {
+        type: 'block',
+        onInit: (param) => {
+          if (param.name === 'value') {
+            param.name = 'modelValue';
+          }
+          return param;
+        }
       }
     }
   }

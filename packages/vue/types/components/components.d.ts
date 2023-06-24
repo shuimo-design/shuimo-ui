@@ -30,13 +30,13 @@ import darkMode from '../../lib/other/MDarkMode';
 import loading from '../../lib/other/MLoading';
 // import menu from '../../lib/other/MMenu';
 
-import border from '../../lib/template/MBorder';
+import border from '../../lib/template/border/MBorder';
 import form from '../../lib/template/MForm';
 import formItem from '../../lib/template/MFormItem';
 import pagination from '../../lib/template/MPagination';
 import table from '../../lib/template/MTable';
 import tableColumn from '../../lib/template/MTableColumn';
-import ricePaper from '../../lib/template/MRicePaper';
+import ricePaper from '../../lib/template/ricePaper/MRicePaper';
 
 export type keyType = any;
 

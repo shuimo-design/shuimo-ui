@@ -73,5 +73,5 @@ export declare type CheckboxGroupProps = {
    * @default single
    * @enum 'single' | 'multiple'
    */
-  type?: string
+  type?: 'single' | 'multiple'
 }

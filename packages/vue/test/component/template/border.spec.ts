@@ -8,7 +8,7 @@
  */
 import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MBorder from '../../../lib/template/MBorder';
+import MBorder from '../../../lib/template/border/MBorder';
 
 describe('border', () => {
   test('render', () => {
@@ -19,6 +19,7 @@ describe('border', () => {
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class=\\"m-border\\">
+        <!---->
         <div class=\\"m-border-main\\">
           <div>test</div>
         </div>

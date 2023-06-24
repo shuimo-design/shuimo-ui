@@ -13,15 +13,19 @@ import { DarkModeProps } from './index';
 
 export function useDarkMode() {
 
-  const getBrowserDarkMode =()=> window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const getBrowserDarkMode = () => typeof window !== 'undefined' &&
+    window?.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const onMountedHook = () => {
-    // todo ssr support, add event remove
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      toggleDarkMode({ value: event.matches });
-    });
+    // todo add event remove
 
-    toggleDarkMode({ value: getBrowserDarkMode() });
+
+    if (typeof window !== 'undefined') {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        toggleDarkMode({ value: event.matches });
+      });
+      toggleDarkMode({ value: getBrowserDarkMode() });
+    }
   };
 
   const toggleDarkMode = (props: DarkModeProps) => {

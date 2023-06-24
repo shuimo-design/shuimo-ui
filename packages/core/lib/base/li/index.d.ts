@@ -4,7 +4,7 @@
  * @date 2023/05/04 17:32
  * @version v1.0.0
  *
- * @name MLi
+ * @name m-li
  * @docDescription li component with shuimo-ui style.
  * @docUrl https://shuimo.janghood.com/li,
  *

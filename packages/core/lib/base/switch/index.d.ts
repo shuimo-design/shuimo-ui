@@ -17,7 +17,7 @@ export declare type SwitchProps = {
   /**
    * @description switch value. 开关绑定值
    * @type any
-   * @component
+   * @vue
    */
   value: any,
   /**

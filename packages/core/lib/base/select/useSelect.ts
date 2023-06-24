@@ -10,20 +10,21 @@ import { SelectProps } from './index';
 import useSelectTools from './composition/useSelectTools';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
 import usePopover from '../../../composition/common/usePopover';
+import { Options } from '../../../composition/common/defineCore';
 
 
 export type OptionType = any;
 
-export function useSelect(config: {
-  props: Required<SelectProps>,
+export function useSelect(options: Options<{
+  props: SelectProps,
   value: {
-    inputValue: MRefValue<string>,
+    inputValue: string,
   }
-}) {
-  const tools = useSelectTools(config.props);
+}>) {
+  const tools = useSelectTools(options.props);
   const { popoverOptions } = usePopover();
-  const { props } = config;
-  const inputValueRef = MRef(config.value.inputValue);
+  const { props } = options;
+  const inputValueRef = MRef(options.value.inputValue);
 
 
   const inputProps = {

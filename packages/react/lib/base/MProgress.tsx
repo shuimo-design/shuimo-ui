@@ -10,16 +10,16 @@ import React from 'react';
 import '@shuimo-design/core/lib/base/progress/progress.css';
 import { ProgressProps } from '@shuimo-design/core/lib/base/progress';
 import { Slot } from '../../types';
-import { getProgressInfo, getProgressWrapperStyle, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
+import { useProgress, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
 import { props as progressProps } from '@shuimo-design/core/lib/base/progress/api';
 import { withDefault } from '../../base/tools';
 
 
-
 export default function MProgress(baseProps: ProgressProps & Slot) {
   const props = withDefault(baseProps, progressProps);
+  const { getProgressWrapperStyle, getProgressInfo } = useProgress({ props });
   // todo use effect?
-  const progressInfo = getProgressInfo(props);
+  const progressInfo = getProgressInfo();
   // @ts-ignore
   const progress = <progress className="m-progress" value={props.value} max={props.max} style={progressInfo.style}/>;
   if (!props.showInfo) {
@@ -27,7 +27,7 @@ export default function MProgress(baseProps: ProgressProps & Slot) {
   }
 
 
-  const progressWrapperInfo = getProgressWrapperStyle(props, progressInfo);
+  const progressWrapperInfo = getProgressWrapperStyle(progressInfo);
   // @ts-ignore
   return <div className="m-progress-border" style={progressWrapperInfo.baseStyle}>
     <div className="m-progress-per" style={progressWrapperInfo.textStyle}>

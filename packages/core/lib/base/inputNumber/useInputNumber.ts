@@ -9,18 +9,19 @@
 import { HTMLElementEvent } from '@shuimo-design/types';
 import { InputNumberProps } from './index';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
+import { Options } from '../../../composition/common/defineCore';
 
 export type InputNumber = string | number;
 
-export function useInputNumber(options: {
-  props: Required<InputNumberProps>,
-  value: {
-    currentValueRef: MRefValue<InputNumber>
+export function useInputNumber(options: Options<{
+  props: InputNumberProps,
+  value:{
+    currentValueRef: InputNumber
   },
   event: {
     updateInput: (value: InputNumber) => void
   }
-}) {
+}>) {
   const { props, value, event } = options;
   const currentValue = MRef(value.currentValueRef);
   const handleInputChange = (e: HTMLElementEvent<HTMLInputElement>, value?: InputNumber) => {

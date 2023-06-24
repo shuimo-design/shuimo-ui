@@ -11,7 +11,7 @@ import { createMElement } from '../../base/createElement';
 import { ProgressProps } from '@shuimo-design/core/lib/base/progress';
 import { props } from '@shuimo-design/core/lib/base/progress/api';
 import style from '@shuimo-design/core/lib/base/progress/progress.css?inline';
-import { getProgressInfo, getProgressWrapperStyle, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
+import { useProgress, leaf } from '@shuimo-design/core/lib/base/progress/useProgress';
 import { styleParse } from '../../base/tools';
 
 @createMElement({
@@ -19,8 +19,8 @@ import { styleParse } from '../../base/tools';
   props
 })
 export default class extends LitElement implements ProgressProps {
-  width?: number = 399;
-  height?: number = 26.547;
+  width: number = 399;
+  height: number = 26.547;
   value: number = 0;
   max: number = 100;
   showInfo: boolean = false;
@@ -30,7 +30,8 @@ export default class extends LitElement implements ProgressProps {
   static styles = unsafeCSS(style);
 
   render() {
-    const progressInfo = getProgressInfo(this);
+    const { getProgressInfo, getProgressWrapperStyle } = useProgress({ props: this });
+    const progressInfo = getProgressInfo();
     const progress = html`
       <progress class="m-progress"
                 value=${this.value} max=${this.max} style=${styleParse(progressInfo.style)}/>`;
@@ -38,14 +39,15 @@ export default class extends LitElement implements ProgressProps {
       return progress;
     }
 
-    const progressWrapperInfo = getProgressWrapperStyle(this as Required<ProgressProps>, progressInfo);
+    const progressWrapperInfo = getProgressWrapperStyle(progressInfo);
 
-    return html`<div class="m-progress-border" style=${styleParse(progressWrapperInfo.baseStyle)}>
-      <div class="m-progress-per" style=${styleParse(progressWrapperInfo.textStyle)}>
-        <img class="m-progress-leaf" src=${leaf} alt=""/>
-        <slot/>
-      </div>
-      ${progress}
-    </div>`;
+    return html`
+      <div class="m-progress-border" style=${styleParse(progressWrapperInfo.baseStyle)}>
+        <div class="m-progress-per" style=${styleParse(progressWrapperInfo.textStyle)}>
+          <img class="m-progress-leaf" src=${leaf} alt=""/>
+          <slot/>
+        </div>
+        ${progress}
+      </div>`;
   }
 }

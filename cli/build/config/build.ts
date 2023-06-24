@@ -6,26 +6,92 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { execSync } from 'child_process';
+import { exec } from 'child_process';
 import * as fs from 'fs';
+// import { rimrafSync } from 'rimraf';
 
-const buildRes = execSync('vite build -c ./config/vue.config.ts');
-const apiRes = execSync('jh-api -c ./config/janghood.config.ts');
 
-if (buildRes && apiRes) {
+const promisify = (fn: Function) => {
+  return (...args: any[]) => {
+    return new Promise<boolean>((resolve, reject) => {
+      fn(...args, err => {
+        if (err) {
+          console.error(err);
+          reject(false);
+        }
+        resolve(true);
+      });
+    });
+  };
+};
 
-  fs.renameSync('./web-types.json', './config/output/web-types.json');
+const pCp = promisify(fs.cp);
+const pRename = promisify(fs.rename);
 
-  // use node copy directory
-  fs.cpSync('../../packages/vue/lib', './config/output/lib', { recursive: true });
-  fs.cpSync('../../assets/icons', './config/output/icons', { recursive: true });
-  fs.cpSync('../../packages/vue/types', './config/output/types', { recursive: true });
-  fs.cpSync('../../packages/vue/dist', './config/output/dist', { recursive: true });
-  fs.cpSync('../../packages/vue/package.json', './config/output/package.json');
-  fs.cpSync('../../README.md', './config/output/README.md');
+const execSync = (cmd: string) => {
+  return new Promise((resolve, reject) => {
+    exec(cmd, res => {
+      if (res) {
+        console.error(res);
+        reject(false);
+      }
+      resolve(true);
+    });
+  });
+};
 
-  // todo remove "@shuimo-design/types": "workspace:*"
-  // todo update web-types name and version
+const run = async () => {
+  const buildRes = await execSync('vite build -c ./config/vue.config.ts');
+  const apiRes = await execSync('jh-api -c ./config/janghood.config.ts');
 
-  // todo auto publish and remove files
-}
+  const init = (lib: 'vue' | 'react' | 'lit') => {
+    const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
+      return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
+    };
+
+    const cpLib = (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
+      return pCp(`../../packages/${lib}/${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
+    };
+
+    const rename = (name: string) => {
+      return pRename(`./${name}`, `./config/output/${name}`);
+    };
+
+    return { cp, cpLib, rename };
+
+  };
+
+  if (buildRes && apiRes) {
+
+    const { cp, rename, cpLib } = init('vue');
+
+    const res = await Promise.all([
+      rename('web-types.json'),
+      cp('icons', 'assets/'),
+      cp('README.md'),
+      cp('LICENSE'),
+
+      cpLib('lib'),
+      cpLib('types'),
+      cpLib('dist'),
+      cpLib('package.json', '', 'file')
+    ]);
+
+
+    // todo remove "@shuimo-design/types": "workspace:*"
+
+    // if (res.every(r => r)) {
+    //   console.log('build success');
+    //   // todo auto publish
+    //
+    //   rimrafSync('./config/output', {
+    //     filter: (path) => {
+    //       return !path.includes('web-types.json');
+    //     }
+    //   });
+    // }
+  }
+
+};
+
+run();

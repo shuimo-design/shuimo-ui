@@ -5,6 +5,7 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ * todo use Options type?
  */
 import { notEmpty } from '@shuimo-design/tools/empty';
 import { IConfirm } from './index';

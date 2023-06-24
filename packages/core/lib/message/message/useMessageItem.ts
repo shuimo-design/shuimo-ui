@@ -17,6 +17,7 @@ import { fadeIn, fadeOut } from './animate';
 import useDebounceFn from '../../../composition/common/useDebounceFn';
 import useDrag from '../../../composition/common/useDrag';
 import useMessageDrag from './useMessageDrag';
+import { Options } from '../../../composition/common/defineCore';
 
 export const messageIcon: Record<MessageType, any> = {
   success: successIcon,
@@ -25,17 +26,17 @@ export const messageIcon: Record<MessageType, any> = {
   error: errorIcon
 };
 
-export function useMessageItem(config: {
-  props: Required<MessageProps>,
-  value: {
-    domRef: MRefValue<HTMLElement | null>
+export function useMessageItem(options: Options<{
+  props:MessageProps,
+  value:{
+    domRef: HTMLElement | null
   },
   event: {
     closeDuration: () => void
   }
-}) {
-  const { direction, duration } = config.props;
-  const domRef = MRef(config.value.domRef);
+}>) {
+  const { direction, duration } = options.props;
+  const domRef = MRef(options.value.domRef);
   const { messageDragInit, directionStrategy, onDragLeave } = useMessageDrag(domRef, {
     needRemove: () => remove()
   });
@@ -43,7 +44,7 @@ export function useMessageItem(config: {
 
   const { init } = useDrag({
     direction,
-    value: { domRef: config.value.domRef },
+    value: { domRef: options.value.domRef },
     event: {
       getOption: () => option,
       movePositionHandler,
@@ -59,7 +60,7 @@ export function useMessageItem(config: {
 
   const remove = () => {
     fadeOut(domRef.value, direction, () => {
-      config.event.closeDuration();
+      options.event.closeDuration();
     });
   }
 

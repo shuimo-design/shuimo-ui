@@ -8,6 +8,7 @@
  */
 import { App, Component } from 'vue';
 import './index.css';
+import { MUIOption, MWCType } from './types/shuimo-ui';
 // [base]
 import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
@@ -42,13 +43,16 @@ import MMessage from './lib/message/message/MMessage';
 import MTooltip from './lib/message/MTooltip';
 
 // [template]
-import MRicePaper from './lib/template/MRicePaper';
-import MBorder from './lib/template/MBorder';
+import MRicePaper from './lib/template/ricePaper/MRicePaper';
+import MBorder from './lib/template/border/MBorder';
 import MForm from './lib/template/MForm';
 import MFormItem from './lib/template/MFormItem';
 import MTable from './lib/template/MTable';
 import MTableColumn from './lib/template/MTableColumn';
 import MPagination from './lib/template/MPagination';
+import MWCBorder from './lib/template/border/MWCBorder';
+import MWCRicePaper from './lib/template/ricePaper/MWCRicePaper';
+import MCell from './lib/template/MCell';
 
 const components: Record<string, Component> = {
   // [base]
@@ -89,6 +93,7 @@ const components: Record<string, Component> = {
   MTable,
   MTableColumn,
   MPagination,
+  MCell,
 };
 
 export {
@@ -133,12 +138,35 @@ export {
   MTable,
   MTableColumn,
   MPagination,
+  MCell,
 };
 
-export function createMUI() {
+export function createMUI(options?: MUIOption) {
   return {
     install: (app: App) => {
+
+      const { disableWebComponent } = options ?? {};
+      const useWebComponent = new Map([
+        ['MBorder', { key: 'm-border', component: MWCBorder }],
+        ['MRicePaper', { key: 'm-rice-paper', component: MWCRicePaper }]
+      ]);
+      if (disableWebComponent && Array.isArray(disableWebComponent) && disableWebComponent.length > 0) {
+        // remove useWebComponent key in disableWebComponent
+        disableWebComponent.forEach((item) => {
+          useWebComponent.delete(item);
+        });
+      }
+      if (useWebComponent.size > 0) {
+        Array.from(useWebComponent).forEach(
+          ([key, value]) => {
+            customElements.define(value.key, value.component);
+          });
+      }
+
       Object.keys(components).forEach(key => {
+        if (useWebComponent.has(key as MWCType)) {
+          return;
+        }
         app.component(key, components[key]);
       });
       // app.directive('loading', loadingDirective);
