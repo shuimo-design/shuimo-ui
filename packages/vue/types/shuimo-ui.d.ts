@@ -33,7 +33,7 @@ export type MUIOption = {
 }
 
 
-export function createMUI(options: MUIOption): ShuimoUI;
+export function createMUI(options?: MUIOption): ShuimoUI;
 
 // export const MMessage: IMessage;
 // export const MPrinter: IPrinter;
