@@ -1,0 +1,27 @@
+.m-tree-node {
+    height: max-content;
+}
+.m-tree-icon {
+    width: 17px;
+    height: 14px;
+    background: url(./assets/arrow.png) no-repeat;
+    background-size: 100% 100%;
+    transform: rotate(-90deg);
+    display: inline-flex;
+    transition: all 0.5s;
+}
+.m-tree-icon__expand {
+    transform: unset;
+}
+.m-tree-checkbox {
+    margin-left: 8px;
+}
+
+.m-tree-default-label {
+    display: inline-flex;
+    margin-left: 8px;
+}
+
+.m-tree-node-child {
+    margin-left: 30px;
+}
