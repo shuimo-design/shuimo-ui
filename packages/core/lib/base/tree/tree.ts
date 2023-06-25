@@ -1,48 +1,47 @@
-import { TreeConfig, TreeData, TreeDataMap, TreeNodeData, TreeStatusKey} from "./index";
+import { TreeConfig, TreeData, TreeDataMap, TreeNodeData, TreeStatusKey } from './index';
 
 export const DEFAULT_CONFIG: TreeConfig = {
   key: 'key',
   label: 'label',
   value: 'value',
   children: 'children'
-}
+};
 
 export interface TreeNodeOptions {
-  data: TreeData | TreeData[]
-  config?: TreeConfig
-  defaultExpandAll?: boolean
-  checkStrictly?: boolean
+  data: TreeData | TreeData[];
+  config?: TreeConfig;
+  defaultExpandAll?: boolean;
+  checkStrictly?: boolean;
 }
 
 export interface TreeAttrs {
-  defaultExpandAll?: boolean
+  defaultExpandAll?: boolean;
 }
 
 export default class Tree {
-  #source: TreeNodeData[]
-  #cacheMap: TreeDataMap
-  #config: TreeConfig = DEFAULT_CONFIG
-  #initialConfig: TreeAttrs
+  #source: TreeNodeData[];
+  #cacheMap: TreeDataMap;
+  #config: TreeConfig = DEFAULT_CONFIG;
+  #initialConfig: TreeAttrs;
 
   constructor(options: TreeNodeOptions) {
     const {
       data,
       config = DEFAULT_CONFIG,
       defaultExpandAll = false
-    } = options
-    console.log('dee', defaultExpandAll)
-    this.#cacheMap = new Map<TreeNodeData["key"], TreeNodeData>()
+    } = options;
+    this.#cacheMap = new Map<TreeNodeData['key'], TreeNodeData>();
     this.#source = Array.isArray(data) ? data : [data];
     this.#config = config;
     this.#initialConfig = {
       defaultExpandAll
-    }
-    this.#init()
+    };
+    this.#init();
   }
 
   #genTreeNodeData(data: TreeData, parentKey?: TreeData['key']) {
-    const { defaultExpandAll } = this.#initialConfig
-    const { key: k, children: c } = this.#config
+    const { defaultExpandAll } = this.#initialConfig;
+    const { key: k, children: c } = this.#config;
 
     const node: TreeNodeData = {
       ...data,
@@ -52,88 +51,89 @@ export default class Tree {
       indeterminate: false,
       parent: parentKey ? this.#cacheMap.get(parentKey) : undefined,
       isRoot: !parentKey
-    }
-    this.#cacheMap.set(node[k], node)
+    };
+    this.#cacheMap.set(node[k], node);
     if (node[c] && node[c].length > 0) {
-      node[c] = this.#genCacheMap(node[c], node[k])
+      node[c] = this.#genCacheMap(node[c], node[k]);
     }
-    return node
+    return node;
   }
 
   #clearCache() {
-    this.#cacheMap.clear()
+    this.#cacheMap.clear();
   }
 
   #init() {
-    this.#clearCache()
-    this.#genCacheMap()
+    this.#clearCache();
+    this.#genCacheMap();
   }
 
-  #genCacheMap(data= this.#source, parentKey?: TreeData['key']) {
+  #genCacheMap(data = this.#source, parentKey?: TreeData['key']) {
     const len = data.length;
     let i;
-    const treeNodeData: TreeNodeData[] = []
-    for (i  = 0; i < len; i++) {
-      const item = data[i]
-      const treeNode = this.#genTreeNodeData(item, parentKey)
-      data[i] = item
-      treeNodeData.push(treeNode)
+    const treeNodeData: TreeNodeData[] = [];
+    for (i = 0; i < len; i++) {
+      const item = data[i];
+      const treeNode = this.#genTreeNodeData(item, parentKey);
+      data[i] = item;
+      treeNodeData.push(treeNode);
     }
 
-    return treeNodeData
+    return treeNodeData;
   }
 
   #getCacheList() {
-    return Array.from(this.#cacheMap.values())
+    return Array.from(this.#cacheMap.values());
   }
 
   #setParentChecked(parent: TreeNodeData) {
-    const { children: c } = this.#config
-    const children: TreeNodeData[] = parent[c] ?? []
-    const allChecked = children.every((child) => child.checked)
-    const oneChecked = children.some((child) => child.checked)
-    const onIndeterminate = children.some((child) => child.indeterminate)
+    const { children: c } = this.#config;
+    const children: TreeNodeData[] = parent[c] ?? [];
+    const allChecked = children.every((child) => child.checked);
+    const oneChecked = children.some((child) => child.checked);
+    const onIndeterminate = children.some((child) => child.indeterminate);
     if (allChecked) {
       parent.indeterminate = false;
-      parent.checked = true
+      parent.checked = true;
     } else {
       parent.indeterminate = oneChecked || onIndeterminate;
-      parent.checked = false
+      parent.checked = false;
     }
     if (parent.parent) {
-      this.#setParentChecked(parent.parent)
+      this.#setParentChecked(parent.parent);
     }
   }
+
   #setChildrenStatus(statusKey: TreeStatusKey, nodes: TreeNodeData[], value: boolean) {
-    const { children: c } = this.#config
+    const { children: c } = this.#config;
     nodes.forEach((node) => {
-      node[statusKey] = value
+      node[statusKey] = value;
       if (node[c]) {
-        this.#setChildrenStatus(statusKey, node[c], value)
+        this.#setChildrenStatus(statusKey, node[c], value);
       }
-    })
+    });
   }
 
   getChildrenKeys(node: TreeNodeData): TreeNodeData['key'][] {
-    const { children: c, key: k } = this.#config
+    const { children: c, key: k } = this.#config;
     if (node[c]) {
-      return node[c].map((it: TreeNodeData) => it[k])
+      return node[c].map((it: TreeNodeData) => it[k]);
     }
-    return []
+    return [];
   }
 
   getNodesByKeys(keys: TreeNodeData['key'][]) {
     return keys.map((key) => {
-      return this.#cacheMap.get(key)
-    })
+      return this.#cacheMap.get(key);
+    });
   }
 
-  getTreeData (keys?: TreeNodeData['key'][]) {
+  getTreeData(keys?: TreeNodeData['key'][]) {
     if (keys) {
-      return this.getNodesByKeys(keys)
+      return this.getNodesByKeys(keys);
     }
     const values = this.#getCacheList();
-    return values.filter((it) => it.isRoot)
+    return values.filter((it) => it.isRoot);
   }
 
   getKeys() {
@@ -158,29 +158,29 @@ export default class Tree {
 
   toggleExpand(node: TreeNodeData, value?: boolean) {
     if (value !== undefined) {
-      node.expand = value
+      node.expand = value;
     } else {
-      node.expand = !node.expand
+      node.expand = !node.expand;
     }
   }
 
   setNodeCheckbox(node: TreeNodeData, checked: boolean) {
-    node.checked = checked
-    node.indeterminate = false
+    node.checked = checked;
+    node.indeterminate = false;
     if (node.children) {
-      this.#setChildrenStatus('checked',node.children, checked)
+      this.#setChildrenStatus('checked', node.children, checked);
     }
     if (node.parent) {
-      this.#setParentChecked(node.parent)
+      this.#setParentChecked(node.parent);
     }
   }
 
   setCheckedByKeys(keys: TreeNodeData['key'][]) {
-    const nodes = this.getNodesByKeys(keys)
+    const nodes = this.getNodesByKeys(keys);
     nodes.forEach((node) => {
       if (node) {
-        this.setNodeCheckbox(node, true)
+        this.setNodeCheckbox(node, true);
       }
-    })
+    });
   }
 }

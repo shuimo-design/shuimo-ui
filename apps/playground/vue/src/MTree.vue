@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * @description tree demo
+ * @author Jobin
+ * @date 2023/6/24 23:27
+ * @version v1.0.0
+ */
 import { MTree } from "shuimo-ui/index";
 import { TreeData } from "@shuimo-design/core/lib/base/tree";
 import { ref } from 'vue'
@@ -40,12 +46,11 @@ const d = generateMockData(5)
     {{ checkedKeys }}
     <br />
     <div>
-      <MTree checkable v-model:checkedKeys="checkedKeys"  :data="d" :default-expand-all="true"></MTree>
+      <m-tree checkbox v-model:checkedKeys="checkedKeys"  :data="d" :default-expand-all="true"></m-tree>
     </div>
     <br />
     <div>
-      <MTree :data="treeData">
-      </MTree>
+      <m-tree :data="treeData"/>
     </div>
   </div>
 </template>

@@ -1,8 +1,7 @@
 <template>
   <div class="m-rice-paper-inside">
     <h1>这里是vue的playground</h1>
-    <Template/>
-    <MTree />
+    <Base/>
   </div>
 </template>
 
@@ -19,7 +18,6 @@ import Base from './Base.vue';
 import Other from './Other.vue';
 import Template from './Template.vue';
 import Message from './Message.vue';
-import MTree from './MTree.vue'
 </script>
 
 <style lang="scss" scoped>

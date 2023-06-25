@@ -17,6 +17,7 @@
 @import "base/select/select.css";
 @import "base/datePicker/datePicker.css";
 @import "base/inputNumber/inputNumber.css";
+@import "base/tree/tree.css";
 
 /* [message] */
 @import "message/popover/popover.css";
