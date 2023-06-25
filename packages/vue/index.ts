@@ -23,8 +23,8 @@ import MProgress from './lib/base/MProgress';
 import MAvatar from './lib/base/MAvatar';
 import MSelect from './lib/base/MSelect';
 import MDatePicker from './lib/base/MDatePicker';
-import MTree from './lib/base/tree/MTree'
-import MTreeNode from './lib/base/tree/MTreeNode'
+import MTree from './lib/base/tree/MTree';
+import MTreeNode from './lib/base/tree/MTreeNode';
 import MInputNumber from './lib/base/MInputNumber';
 
 // [other]
@@ -147,7 +147,7 @@ export {
 export function createMUI(options?: MUIOption) {
   return {
     install: (app: App) => {
-
+      // todo support nuxt
       const { disableWebComponent } = options ?? {};
       const useWebComponent = new Map([
         ['MBorder', { key: 'm-border', component: MWCBorder }],
