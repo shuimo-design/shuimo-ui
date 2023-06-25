@@ -63,5 +63,12 @@ export declare type CellProps = {
    * @type CPoint | number | string | undefined
    */
   d?: CPoint | number | string | undefined;
+  /**
+   * @description maybe you want to inject some styles into the cell
+   *             也许你想向单元格注入一些样式
+   * @default {}
+   * @type Record<string, string|number>
+   */
+  style?: Record<string, string | number> | undefined;
 };
 

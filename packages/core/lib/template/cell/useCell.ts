@@ -9,7 +9,8 @@
 import { CellProps } from './index';
 import { Options } from '../../../composition/common/defineCore';
 import useQuadrilateral from '../../../composition/quadrilateral/useQuadrilateral';
-import { MRef, MRefValue } from '../../../composition/common/MRef';
+import { MRef, MRefValue, RefInit, refWrapper } from '../../../composition/common/MRef';
+import { useElementSize } from "../../../composition/common/useElementSize";
 
 // export type PC = Partial<CSSStyleDeclaration>;
 export type PC = any;
@@ -21,15 +22,11 @@ const BH = 2.5; // means border height, horizontal border height actually is 5px
 
 export function useCell(options: Options<{
   props: CellProps,
-  value: {
-    w: number, h: number,
-  }
-}>) {
-  const { props, value } = options;
-  const w = MRef<number>(value.w);
-  const h = MRef<number>(value.h);
+}>, refInit: RefInit) {
+  const { props } = options;
+  const cellRef = refWrapper<HTMLElement | null>(null, refInit);
 
-
+  const { w, h } = useElementSize(refInit, cellRef);
 
   const getSize = (_props = props) => {
     const res = useQuadrilateral({
@@ -37,13 +34,7 @@ export function useCell(options: Options<{
     });
 
     if (res) {
-      const {
-        A,
-        B,
-        C,
-        D,
-        path
-      } = res;
+      const { A, B, C, D, path } = res;
       const styleA = {
         top: `${A.y - BH}px`,
         left: `${A.x}px`,
@@ -73,15 +64,13 @@ export function useCell(options: Options<{
       };
       return {
         style, styleA, styleB, styleC, styleD
-      }
+      };
     } else {
       console.log(res);
     }
   };
 
 
-  return {
-    getSize
-  };
+  return { getSize, cellRef, };
 
 }
