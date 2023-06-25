@@ -1,4 +1,12 @@
-import { TreeConfig, TreeData, TreeDataMap, TreeNodeData, TreeStatusKey } from './index';
+import { TreeConfig, TreeData, TreeNodeData, TreeStatusKey } from './index';
+
+
+/**
+ *  Symbol key in stage3. todo
+ *  export type TreeNodeWeakMap = WeakMap<Symbol, TreeNodeData>
+ *  Use Map now
+ */
+export type TreeDataMap = Map<TreeNodeData['key'], TreeNodeData>
 
 export const DEFAULT_CONFIG: TreeConfig = {
   key: 'key',

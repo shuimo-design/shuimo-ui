@@ -4,7 +4,7 @@
  * @date 2023/6/24 23:27
  * @version v1.0.0
  *
- * @name m-tree-node
+ * @name m-tree
  * @docDescription Tree component with shuimo-ui style.
  *                 水墨组件的树组件。
  * @docUrl https://shuimo.janghood.com/tree
@@ -100,13 +100,6 @@ export interface TreeNodeData extends TreeData {
 }
 
 export type TreeStatusKey = 'checked' | 'selected' | 'expand' | 'close';
-
-/**
- *  Symbol key in stage3. todo
- *  export type TreeNodeWeakMap = WeakMap<Symbol, TreeNodeData>
- *  Use Map now
- */
-export type TreeDataMap = Map<TreeNodeData['key'], TreeNodeData>
 
 export interface TreeConfig {
   key: string | number;
