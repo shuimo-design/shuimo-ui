@@ -10,6 +10,7 @@ import { defineConfig } from 'vite';
 import lightningcss from 'vite-plugin-lightningcss';
 import vue from '@vitejs/plugin-vue';
 import vueJSX from '@vitejs/plugin-vue-jsx';
+import vueDevTools from 'vite-plugin-vue-devtools';
 import { reactTsx } from './base/plugin/reactTsx';
 
 export default defineConfig({
@@ -28,6 +29,7 @@ export default defineConfig({
     vueJSX({
       exclude: ['**/react/*.tsx']
     }),
+    // vueDevTools(),
     reactTsx()
   ]
 });
