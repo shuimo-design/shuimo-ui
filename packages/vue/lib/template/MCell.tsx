@@ -8,35 +8,31 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref, onMounted, computed, watch, nextTick } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/cell/api';
-import { useCell, type PC } from '@shuimo-design/core/lib/template/cell/useCell';
+import { useCell } from '@shuimo-design/core/lib/template/cell/useCell';
 
 export default defineComponent({
   name: 'MCell',
   props,
   setup: (props, { slots }) => {
 
-    const cellRef = ref();
-    const w = ref(props.w);
-    const h = ref(props.h);
 
+    const { getSize, cellRef } = useCell({
+      props
+    }, ref);
 
-    const { getSize } = useCell({
-      props,
-      value: { w, h }
-    });
     watch(() => [props.a, props.b, props.c, props.d], () => {
       getSize(props);
     });
 
-    onMounted(() => {
-      nextTick(() => {
-        // todo why???
-        w.value = cellRef.value?.clientWidth;
-        h.value = cellRef.value?.clientHeight;
-      });
-    });
+    // a magic strict way
+    const defaultWH = {
+      'min-width': props.w !== 0 ? `${props.w}px` : undefined,
+      'max-width': props.w !== 0 ? `${props.w}px` : undefined,
+      'min-height': props.h !== 0 ? `${props.h}px` : undefined,
+      'max-height': props.h !== 0 ? `${props.h}px` : undefined
+    };
 
 
     return () => {
@@ -47,9 +43,11 @@ export default defineComponent({
         {slots.default?.()}
       </div>;
 
-      const cellWrapper = <div class={['m-cell']} ref={cellRef}>
-        <div class="m-cell-main" style={style}>
-          {cell}
+      const cellWrapper = <div class={['m-cell']} ref={(el) => {
+        cellRef.value = el as HTMLDivElement; // fix volar error
+      }} style={{ ...defaultWH, ...(props.style??{}) }}>
+        <div class="m-cell-main" style={{ ...defaultWH, ...style }}>
+          {slots.default?.()}
         </div>
         <div class="m-cell-c m-cell-border-top" style={styleA}/>
         <div class="m-cell-v m-cell-border-right" style={styleB}/>

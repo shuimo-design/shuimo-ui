@@ -81,6 +81,7 @@ pnpm install shuimo-ui
 | Switch        | ✅               | ✅                   | ✨                  | ✨          |
 | Select        | ✅               | ✅                   | ❌                  | ❌          |
 | Tag           | ✅               | ✅                   | ✨                  | ✨          |
+| Tree          | ❌               | ✨                   | ❌                  | ❌          |
 | **MESSAGE**   |                 |                     |                    |            |
 | Confirm       | ✅               | ✅                   | ✨                  | 🚧         |
 | Dialog        | ✅               | ✅                   | ✨                  | ✨          |
@@ -97,6 +98,8 @@ pnpm install shuimo-ui
 | Printer       | ✅               | ✅                   | ❌                  | ❌          |
 | **TEMPLATE**  |                 |                     |                    |            |
 | Border        | ✅               | ✅                   | ✨                  | ✨          |
+| Cell          | ✅               | ✅                   | ❌                  | ❌          |
+| Grid          | ✅               | ✅                   | ❌                  | ❌          |
 | RicePaper     | ✅               | ✅                   | ✨                  | ✨          |
 | Form          | ✅               | ✅                   | ✨                  | 🚧         |
 | FormItem      | ✅               | ✅                   | ✨                  | 🚧         |
@@ -104,7 +107,6 @@ pnpm install shuimo-ui
 | TableColumn   | ✅               | ✅                   | ✨                  | 🚧         |
 | Pagination    | ✅               | ✅                   | ❌                  | ❌          |
 | **TODO**      |                 |                     |                    |            |
-| Tree          | ❌               | 🚧                  | ❌                  | ❌          |
 | Menu          | ⚗️              | ❌                   | 🚧️                | ❌          |
 
 

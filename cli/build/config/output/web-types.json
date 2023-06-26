@@ -1,12 +1,49 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui",
-  "version": "0.3.0-alpha.2",
+  "version": "0.3.0-alpha.3",
   "js-types-syntax": "typescript",
   "description-markup": "markdown",
   "contributions": {
     "html": {
       "vue-components": [
+        {
+          "name": "m-avatar",
+          "source": {
+            "symbol": "MAvatar"
+          },
+          "description": "avatar component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/avatar,",
+          "props": [
+            {
+              "name": "variant",
+              "description": "avatar variant\n头像的形状",
+              "type": "'circle'|'square'",
+              "default": "circle"
+            },
+            {
+              "name": "size",
+              "description": "avatar size\n头像的大小",
+              "type": "'large'|'default'|'small'",
+              "default": "default"
+            },
+            {
+              "name": "img",
+              "description": "img url\n头像图片地址",
+              "type": "string",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-border",
+          "source": {
+            "symbol": "MBorder"
+          },
+          "description": "Border component with shuimo-ui style\n水墨组件的边框组件。",
+          "doc-url": "https://shuimo.janghood.com/border",
+          "props": []
+        },
         {
           "name": "m-button",
           "source": {
@@ -36,8 +73,94 @@
             {
               "name": "type",
               "description": "button type 按钮类型",
-              "type": "string",
+              "type": "'default'|'primary'|'error'|'confirm'|'warning'",
               "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-cell",
+          "source": {
+            "symbol": "MCell"
+          },
+          "description": "cell component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/cell,",
+          "props": [
+            {
+              "name": "h",
+              "description": "cell height\n单元格高度\nwe should use height to calculate the border of cell...",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "w",
+              "description": "cell width\n单元格宽度\nwe should use width to calculate the border of cell...",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "points",
+              "description": "the point configuration of the cell, which can be an angle or a coordinate\n单元格的点配置，可以是角度也可以是坐标",
+              "type": [
+                "number",
+                "string",
+                "undefined"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "a",
+              "description": "A point configuration of the cell\n单元格的A点配置",
+              "type": [
+                "CPoint",
+                "number",
+                "string",
+                "undefined"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "b",
+              "description": "B point configuration of the cell\n单元格的B点配置",
+              "type": [
+                "CPoint",
+                "number",
+                "string",
+                "undefined"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "c",
+              "description": "C point configuration of the cell\n单元格的C点配置",
+              "type": [
+                "CPoint",
+                "number",
+                "string",
+                "undefined"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "d",
+              "description": "D point configuration of the cell\n单元格的D点配置",
+              "type": [
+                "CPoint",
+                "number",
+                "string",
+                "undefined"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "style",
+              "description": "maybe you want to inject some styles into the cell\n也许你想向单元格注入一些样式",
+              "type": [
+                "Record<string,string",
+                "number>",
+                "undefined"
+              ],
+              "default": "{}"
             }
           ]
         },
@@ -58,7 +181,11 @@
             {
               "name": "checked",
               "description": "checkbox checked\n是否选中",
-              "type": "boolean|undefined|null",
+              "type": [
+                "boolean",
+                "undefined",
+                "null"
+              ],
               "default": "undefined"
             },
             {
@@ -88,6 +215,34 @@
           ]
         },
         {
+          "name": "m-confirm",
+          "source": {
+            "symbol": "MConfirm"
+          },
+          "description": "confirm component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/confirm,",
+          "props": [
+            {
+              "name": "mask",
+              "description": "confirm mask option\n确认框背景配置",
+              "type": "ModelMask",
+              "default": "show:true, clickClose:true"
+            },
+            {
+              "name": "teleport",
+              "description": "confirm teleport\n确认框传送",
+              "type": "MTeleportProps",
+              "default": ""
+            },
+            {
+              "name": "content",
+              "description": "confirm content\n确认框内容",
+              "type": "string",
+              "default": ""
+            }
+          ]
+        },
+        {
           "name": "m-dark-mode",
           "source": {
             "symbol": "MDarkMode"
@@ -96,7 +251,7 @@
           "doc-url": "https://shuimo.janghood.com/dark-mode",
           "props": [
             {
-              "name": "value",
+              "name": "modelValue",
               "description": "switch value. 开关绑定值",
               "type": "boolean"
             }
@@ -111,9 +266,12 @@
           "doc-url": "https://shuimo.janghood.com/date-picker",
           "props": [
             {
-              "name": "value",
+              "name": "modelValue",
               "description": "date value\n日期值",
-              "type": "string|Date",
+              "type": [
+                "string",
+                "Date"
+              ],
               "default": ""
             },
             {
@@ -131,7 +289,7 @@
             {
               "name": "type",
               "description": "datePicker format type date/month\n日期选择框类型 date/month",
-              "type": "string",
+              "type": "'date'|'month'",
               "default": "date"
             }
           ]
@@ -284,6 +442,67 @@
           ]
         },
         {
+          "name": "m-grid",
+          "source": {
+            "symbol": "MGrid"
+          },
+          "description": "grid component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/grid,",
+          "props": [
+            {
+              "name": "h",
+              "description": "gird height\n网格高度",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "w",
+              "description": "cell width\n网格宽度",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "gap",
+              "description": "cell gap\n网格的通用gap",
+              "type": [
+                "number",
+                "string"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "colGap",
+              "description": "cell column gap\n网格的列gap",
+              "type": [
+                "number",
+                "string"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "rowGap",
+              "description": "cell row gap\n网格的行gap",
+              "type": [
+                "number",
+                "string"
+              ],
+              "default": "0"
+            },
+            {
+              "name": "gapRotate",
+              "description": "gap rotate list",
+              "type": "number[]",
+              "default": "[]"
+            },
+            {
+              "name": "direction",
+              "description": "grid direction\n网格方向",
+              "type": "'column'|'row'",
+              "default": "'row'"
+            }
+          ]
+        },
+        {
           "name": "m-input",
           "source": {
             "symbol": "MInput"
@@ -304,9 +523,12 @@
               "default": ""
             },
             {
-              "name": "value",
+              "name": "modelValue",
               "description": "input value. 输入框绑定值",
-              "type": "string|number",
+              "type": [
+                "string",
+                "number"
+              ],
               "default": ""
             },
             {
@@ -332,9 +554,12 @@
           "doc-url": "https://shuimo.janghood.com/input#number",
           "props": [
             {
-              "name": "value",
+              "name": "modelValue",
               "description": "input-number modelValue",
-              "type": "number|string",
+              "type": [
+                "number",
+                "string"
+              ],
               "default": ""
             },
             {
@@ -372,6 +597,20 @@
               "description": "input-number placeholder",
               "type": "string",
               "default": ""
+            }
+          ]
+        },
+        {
+          "name": "m-li",
+          "source": {
+            "symbol": "MLi"
+          },
+          "description": "li component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/li,",
+          "props": [
+            {
+              "name": "active",
+              "type": "boolean"
             }
           ]
         },
@@ -420,7 +659,10 @@
             {
               "name": "sideLength",
               "description": "length of loading item's side (px)",
-              "type": "number|string",
+              "type": [
+                "number",
+                "string"
+              ],
               "default": "50"
             }
           ]
@@ -540,13 +782,19 @@
             {
               "name": "foldedMaxPageBtn",
               "description": "show pages when folded\n折叠时最多显示页码按钮数",
-              "type": "number|null",
+              "type": [
+                "number",
+                "null"
+              ],
               "default": "5"
             },
             {
               "name": "maxPageBtn",
               "description": "the max display pages\n最大显示页数",
-              "type": "number|null",
+              "type": [
+                "number",
+                "null"
+              ],
               "default": "10"
             },
             {
@@ -604,7 +852,11 @@
             {
               "name": "teleport",
               "description": "popover teleport\n弹出框传送",
-              "type": "MTeleportProps|undefined|boolean",
+              "type": [
+                "MTeleportProps",
+                "undefined",
+                "boolean"
+              ],
               "default": "undefined"
             }
           ]
@@ -672,7 +924,10 @@
             {
               "name": "label",
               "description": "radio label\n单选框的标签值",
-              "type": "string|number",
+              "type": [
+                "string",
+                "number"
+              ],
               "default": ""
             },
             {
@@ -684,7 +939,11 @@
             {
               "name": "checked",
               "description": "radio checked\n是否选中",
-              "type": "boolean|undefined|null",
+              "type": [
+                "boolean",
+                "undefined",
+                "null"
+              ],
               "default": "undefined"
             },
             {
@@ -740,7 +999,10 @@
             {
               "name": "modelValue",
               "description": "select value\n选择框的值",
-              "type": "any|any[]",
+              "type": [
+                "any",
+                "any[]"
+              ],
               "default": ""
             },
             {
@@ -820,7 +1082,7 @@
           "doc-url": "https://shuimo.janghood.com/switch",
           "props": [
             {
-              "name": "value",
+              "name": "modelValue",
               "description": "switch value. 开关绑定值",
               "type": "any"
             },
@@ -880,7 +1142,10 @@
             {
               "name": "height",
               "description": "table height\n表格高度",
-              "type": "string|null"
+              "type": [
+                "string",
+                "null"
+              ]
             }
           ]
         },
@@ -923,7 +1188,7 @@
             {
               "name": "type",
               "description": "button type 按钮类型",
-              "type": "string",
+              "type": "'default'|'primary'|'error'|'confirm'|'warning'",
               "default": "default"
             }
           ]
@@ -975,78 +1240,112 @@
             {
               "name": "teleport",
               "description": "popover teleport\n弹出框传送",
-              "type": "MTeleportProps|undefined|boolean",
+              "type": [
+                "MTeleportProps",
+                "undefined",
+                "boolean"
+              ],
               "default": "undefined"
             }
           ]
         },
         {
-          "name": "MAvatar",
+          "name": "m-tree",
           "source": {
-            "symbol": "MAvatar"
+            "symbol": "MTree"
           },
-          "description": "avatar component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/avatar,",
+          "description": "Tree component with shuimo-ui style.\n水墨组件的树组件。",
+          "doc-url": "https://shuimo.janghood.com/tree",
           "props": [
             {
-              "name": "variant",
-              "description": "avatar variant\n头像的形状",
-              "type": "'circle'|'square';",
-              "default": "circle"
+              "name": "data",
+              "description": "tree data\n树数据",
+              "type": [
+                "TreeData",
+                "TreeData[]"
+              ],
+              "default": "[]"
             },
             {
-              "name": "size",
-              "description": "avatar size\n头像的大小",
-              "type": "'large'|'default'|'small';",
-              "default": "default"
+              "name": "config",
+              "description": "tree config\n树配置",
+              "type": "TreeConfig",
+              "default": "{key:'key', label:'label', value:'value', children: 'children'}"
             },
             {
-              "name": "img",
-              "description": "img url\n头像图片地址",
-              "type": "string;",
-              "default": "default"
+              "name": "checkbox",
+              "description": "checkbox 是否使用checkbox\n树数据",
+              "type": "boolean",
+              "default": "[]"
+            },
+            {
+              "name": "defaultExpandAll",
+              "description": "default expand all nodes\n是否默认打开所有节点",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "checkedKeys",
+              "description": "checked keys\n选中key列表",
+              "type": [
+                "Array<string",
+                "number>"
+              ],
+              "default": "[]"
+            },
+            {
+              "name": "checkStrictly",
+              "description": "the selected status of the parent and child nodes is no longer associated,\nand can be selected or canceled separately\n父子节点选中状态不再关联，可各自选中或取消",
+              "type": "boolean",
+              "default": "false"
             }
           ]
         },
         {
-          "name": "MConfirm",
+          "name": "m-tree-node",
           "source": {
-            "symbol": "MConfirm"
+            "symbol": "MTree"
           },
-          "description": "confirm component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/confirm,",
+          "description": "Tree node component with shuimo-ui style.\n水墨组件的树节点组件。",
+          "doc-url": "https://shuimo.janghood.com/tree#node",
           "props": [
             {
-              "name": "mask",
-              "description": "confirm mask option\n确认框背景配置",
-              "type": "ModelMask",
-              "default": "show:true, clickClose:true"
+              "name": "data",
+              "description": "tree data\n树数据",
+              "type": "TreeNodeData[]",
+              "default": "[]"
             },
             {
-              "name": "teleport",
-              "description": "confirm teleport\n确认框传送",
-              "type": "MTeleportProps",
-              "default": ""
+              "name": "config",
+              "description": "tree config\n树配置",
+              "type": "TreeConfig",
+              "default": "{key:'key', label:'label', value:'value', children: 'children'}"
             },
             {
-              "name": "content",
-              "description": "confirm content\n确认框内容",
-              "type": "string",
-              "default": ""
-            }
-          ]
-        },
-        {
-          "name": "MLi",
-          "source": {
-            "symbol": "MLi"
-          },
-          "description": "li component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/li,",
-          "props": [
+              "name": "checkbox",
+              "description": "checkbox 是否使用checkbox\n树数据",
+              "type": "boolean",
+              "default": "[]"
+            },
             {
-              "name": "active",
-              "type": "boolean"
+              "name": "getNodesByKeys",
+              "description": "get nodes by keys function\n通过key获取节点方法",
+              "type": "(keys:TreeNodeData['key'][])=>TreeNodeData[]"
+            },
+            {
+              "name": "handleExpand",
+              "description": "handle expand function\n处理展开节点的方法",
+              "type": "(node:TreeNodeData,e:MouseEvent)=>void"
+            },
+            {
+              "name": "handleCheck",
+              "description": "handle check function\n处理选择节点的方法",
+              "type": "(node:TreeNodeData,check:boolean)=>void"
+            },
+            {
+              "name": "handleItemClick",
+              "description": "handle item click function\n处理item被点击的方法",
+              "type": "(node:TreeNodeData,e:MouseEvent)=>void"
             }
           ]
         }

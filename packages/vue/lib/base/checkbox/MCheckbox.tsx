@@ -9,9 +9,9 @@
  * v1.0.1 修复checkbox的slot支持
  * v2.0.0 阿怪 upgrade to core version
  */
-import { defineComponent, ref, watch, computed } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/checkbox/api';
-import { initChecked, getNewModelValue } from '@shuimo-design/core/lib/base/checkbox/useCheckbox';
+import { getNewModelValue, initChecked } from '@shuimo-design/core/lib/base/checkbox/useCheckbox';
 import { notEmpty } from '@shuimo-design/tools/empty';
 
 export default defineComponent({
@@ -29,8 +29,8 @@ export default defineComponent({
     const onClick = (e: MouseEvent) => {
       e.stopPropagation();
       checked.value = !checked.value;
-      const newVal = getNewModelValue(props, checked.value)
-      emit('change', newVal)
+      const newVal = getNewModelValue(props, checked.value);
+      emit('change', newVal);
       emit('update:modelValue', newVal);
     };
 
@@ -43,8 +43,8 @@ export default defineComponent({
         <input type="checkbox" checked={checked.value}/>
         <div class="m-checkbox-checkbox"/>
         {
-          props.indeterminate ? <div class="m-checkbox-checkbox-indeterminate" /> :
-          checked.value ? <div class="m-checkbox-checkbox-inner" /> : null
+          props.indeterminate ? <div class="m-checkbox-checkbox-indeterminate"/> :
+            checked.value ? <div class="m-checkbox-checkbox-inner"/> : null
         }
         {label}
       </div>;

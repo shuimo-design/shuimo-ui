@@ -2,8 +2,9 @@
     height: max-content;
 }
 .m-tree-icon {
-    width: 17px;
-    height: 14px;
+    margin-bottom: 8px;
+    width: 8.5px;
+    height: 7px;
     background: url(./assets/arrow.png) no-repeat;
     background-size: 100% 100%;
     transform: rotate(-90deg);

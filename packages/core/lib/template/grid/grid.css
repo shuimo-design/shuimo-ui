@@ -1,0 +1,34 @@
+.m-grid {
+
+  --m-grid-w: 100%;
+
+  --m-grid-row-gap: 0;
+  --m-grid-col-gap: 0;
+
+  --m-grid-direction: row;
+
+  display: inline-flex;
+  flex-direction: var(--m-grid-direction);
+  width: var(--m-grid-w);
+
+  &.m-grid-row {
+    & > * {
+      margin-right: var(--m-grid-row-gap);
+    }
+  }
+
+  &.m-grid-column {
+    & > * {
+      margin-top: var(--m-grid-col-gap);
+    }
+  }
+
+  & .m-cell {
+    margin-right: var(--m-grid-col-gap);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}

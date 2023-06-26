@@ -6,13 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import Effect from "./effect";
 
 type Ref<T> = { value: T };
 type State<T> = [T, Function];
 type LitProp<T> = [T, Function, any];
 export type MRefValue<T = any> = Ref<T> | State<T> | LitProp<T>;
 export type RMRef<T = any> = ReturnType<typeof MRef<T>>;
-
+export type RefInit<T = any> = (v: T) => Ref<T>;
 
 const reactValue = (value: any) => {
   // if object
@@ -55,4 +56,29 @@ export const MRef = <T>(val: MRefValue<T>) => {
       return true;
     }
   }) as ProxyConstructor & { value: T };
+};
+
+/**
+ * piece of shit
+ * 一拖答辩，用来反向包裹ref以实现watch功能的代码
+ * @param val
+ * @param fn
+ * @constructor
+ */
+export const refWrapper = <T>(val: T, fn: RefInit<T>) => {
+
+  // only support vue  todo:fix
+  const v = fn(val);
+
+  const proxy = new Proxy({ value: val }, {
+    get(target) {
+      return v.value;
+    },
+    set(target, p: PropertyKey, value) {
+      v.value = value;
+      Effect.run(proxy)
+      return true;
+    }
+  }) as ProxyConstructor & { value: T };
+  return proxy;
 };

@@ -117,10 +117,7 @@
 
     </div>
 
-    <m-progress :value="20"/>
-    <m-progress :value="44" show-info/>
-    <m-progress :value="44" show-info>44</m-progress>
-    <m-progress :value="progressValueRef" show-info>{{ progressValueRef }}</m-progress>
+    <MTree />
 
   </div>
 </template>
@@ -135,6 +132,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from 'vue';
+import MTree from "./MTree.vue";
 
 const buttonClick = () => {console.log('button click');};
 

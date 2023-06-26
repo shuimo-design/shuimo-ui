@@ -6,6 +6,10 @@
  *
  * {{slogan}}
  */
-export function use{{upperCaseFirstName}}() {
+import { {{upperCaseFirstName}}Props } from './index';
+import { Options } from '../../../composition/common/defineCore';
+export function use{{upperCaseFirstName}}(options: Options<{
+  props: {{upperCaseFirstName}}Props
+}>) {
 
 }
