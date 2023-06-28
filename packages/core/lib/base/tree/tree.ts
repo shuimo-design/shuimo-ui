@@ -23,7 +23,8 @@ export interface TreeNodeOptions {
 }
 
 export interface TreeAttrs {
-  defaultExpandAll?: boolean;
+  defaultExpandAll: boolean;
+  checkStrictly: boolean;
 }
 
 export default class Tree {
@@ -36,13 +37,15 @@ export default class Tree {
     const {
       data,
       config = DEFAULT_CONFIG,
-      defaultExpandAll = false
+      defaultExpandAll = false,
+      checkStrictly = true,
     } = options;
     this.#cacheMap = new Map<TreeNodeData['key'], TreeNodeData>();
     this.#source = Array.isArray(data) ? data : [data];
     this.#config = config;
     this.#initialConfig = {
-      defaultExpandAll
+      defaultExpandAll,
+      checkStrictly
     };
     this.#init();
   }
@@ -95,6 +98,9 @@ export default class Tree {
   }
 
   #setParentChecked(parent: TreeNodeData) {
+    if (parent.disabled) {
+      return
+    }
     const { children: c } = this.#config;
     const children: TreeNodeData[] = parent[c] ?? [];
     const allChecked = children.every((child) => child.checked);
@@ -115,6 +121,9 @@ export default class Tree {
   #setChildrenStatus(statusKey: TreeStatusKey, nodes: TreeNodeData[], value: boolean) {
     const { children: c } = this.#config;
     nodes.forEach((node) => {
+      if (node.disabled) {
+        return
+      }
       node[statusKey] = value;
       if (node[c]) {
         this.#setChildrenStatus(statusKey, node[c], value);
@@ -175,6 +184,10 @@ export default class Tree {
   setNodeCheckbox(node: TreeNodeData, checked: boolean) {
     node.checked = checked;
     node.indeterminate = false;
+    const { checkStrictly } = this.#initialConfig
+    if (!checkStrictly) {
+      return
+    }
     if (node.children) {
       this.#setChildrenStatus('checked', node.children, checked);
     }

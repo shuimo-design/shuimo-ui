@@ -29,10 +29,10 @@ export default defineComponent({
             const icon = childNodes.length > 0? <span class={{'m-tree-icon': true, 'm-tree-icon__expand': d.expand}}
                                                           onClick={(e) => props.handleExpand(d, e)}></span> : null;
 
-            const checkbox = props.checkbox ? <MCheckbox class="m-tree-checkbox" indeterminate={d.indeterminate} modelValue={d.checked}
+            const checkbox = props.checkbox ? <MCheckbox class="m-tree-checkbox" disabled={d.disabled} indeterminate={d.indeterminate} modelValue={d.checked}
                                                          onChange={(checked: boolean) => props.handleCheck(d, checked)} >
                 <slot name="default">
-                  <span class="m-tree-default-label" onClick={(e: MouseEvent) => props.handleItemClick(d, e)}>{d[l]}</span>
+                  <span class="m-tree-default-label" onClick={(e: MouseEvent) => props.handleItemClick(d, e)}>{d[l]} -- {d.disabled.toString() }</span>
                 </slot>
               </MCheckbox>
               : <slot name="default" {...{ node: d }}>
