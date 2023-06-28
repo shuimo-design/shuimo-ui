@@ -50,7 +50,7 @@ export declare type TreeProps = {
    *              and can be selected or canceled separately
    *              父子节点选中状态不再关联，可各自选中或取消
    * @type boolean
-   * @default false
+   * @default true
    */
   checkStrictly?: boolean;
 }
@@ -60,7 +60,7 @@ export interface TreeData {
   label?: string;
   value?: string | number;
   children?: TreeData[];
-
+  disabled?: boolean;
   [k: string]: any;
 }
 

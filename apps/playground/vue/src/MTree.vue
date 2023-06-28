@@ -22,6 +22,7 @@ function generateMockData(level: number, pLevel?: string, pKey?: string): TreeDa
       label,
       value: `Value ${i}`,
       children: [],
+      disabled: i % 2 === 0,
     };
 
     if (i < level) {
@@ -46,7 +47,7 @@ const d = generateMockData(5);
     {{ checkedKeys }}
     <br/>
     <div>
-      <m-tree checkbox v-model:checkedKeys="checkedKeys" :data="d" :default-expand-all="true"></m-tree>
+      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d" :default-expand-all="true"></m-tree>
     </div>
     <br/>
     <div>
@@ -56,4 +57,7 @@ const d = generateMockData(5);
 </template>
 
 <style scoped lang="css">
+:global(.flex) {
+  justify-content: flex-start;
+}
 </style>
