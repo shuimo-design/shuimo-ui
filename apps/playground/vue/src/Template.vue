@@ -14,35 +14,229 @@
       <span>current:{{ current }}</span>
       <m-pagination :total="225" v-model="current"></m-pagination>
 
+      <m-border v-if="false">
+        <m-grid :gap="20" direction="column" class="screen">
+          <m-grid :gap="5" :h="245">
+            <m-cell :w="245">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell>
+              <img src="../assets/right.png" alt="">
+            </m-cell>
+          </m-grid>
+          <m-grid :gap="5" :h="162" :gapRotate="[10, 20]">
+            <m-cell :w="162">
+              <img src="../assets/1.png" alt="">
+            </m-cell>
+            <m-cell>
+              <img src="../assets/3.png" alt="">
+            </m-cell>
+            <m-cell>
+              <img src="../assets/2.png" alt="">
+            </m-cell>
+          </m-grid>
+        </m-grid>
+
+      </m-border>
+
+      <div class="cell">
+        <div class="buttons">
+          <div class="button">
+            <m-button @click="subA">-</m-button>
+            <span>{{ A }}</span>
+            <m-button @click="addA">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subB">-</m-button>
+            <span>{{ B }}</span>
+            <m-button @click="addB">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subC">-</m-button>
+            <span>{{ C }}</span>
+            <m-button @click="addC">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subD">-</m-button>
+            <span>{{ D }}</span>
+            <m-button @click="addD">+</m-button>
+          </div>
+
+        </div>
+
+        <div v-if="true">
+          <div>
+            <m-cell :a="-A" :b="B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+        </div>
+
+        <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+
+      </div>
     </div>
 
+  </div>
+  <div class="cell">
+    <div class="buttons">
+      <div class="button">
+        <m-button @click="subA">-</m-button>
+        <span>{{ A }}</span>
+        <m-button @click="addA">+</m-button>
+      </div>
+      <div class="button">
+        <m-button @click="subB">-</m-button>
+        <span>{{ B }}</span>
+        <m-button @click="addB">+</m-button>
+      </div>
+      <div class="button">
+        <m-button @click="subC">-</m-button>
+        <span>{{ C }}</span>
+        <m-button @click="addC">+</m-button>
+      </div>
+      <div class="button">
+        <m-button @click="subD">-</m-button>
+        <span>{{ D }}</span>
+        <m-button @click="addD">+</m-button>
+      </div>
 
-    <m-border>
-      <m-grid :gap="20" direction="column" class="screen">
-        <m-grid :gap="5" :h="245">
-          <m-cell :w="245">
-            <img src="../assets/left.png" alt="">
-          </m-cell>
-          <m-cell>
-            <img src="../assets/right.png" alt="">
-          </m-cell>
-        </m-grid>
-        <m-grid :gap="5" :h="162" :gapRotate="[4, 20]">
-          <m-cell :w="162">
-            <img src="../assets/1.png" alt="">
-          </m-cell>
-          <m-cell>
-            <img src="../assets/3.png" alt="">
-          </m-cell>
-          <m-cell>
-            <img src="../assets/2.png" alt="">
-          </m-cell>
-        </m-grid>
-      </m-grid>
+    </div>
 
-    </m-border>
+    <div v-if="true">
+      <div>
+        <m-cell :a="-A" :b="B" :c="C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+      </div>
+      <div>
+        <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+      </div>
+      <div>
+        <m-cell :a="A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+      </div>
+      <div>
+        <m-cell :a="A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+      </div>
+      <div>
+        <m-cell :a="A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="A" :b="B" :c="C" :d="D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+        <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">
+          <img src="../assets/left.png" alt="">
+        </m-cell>
+      </div>
+    </div>
+
+    <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+      <img src="../assets/left.png" alt="">
+    </m-cell>
 
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -62,6 +256,22 @@ const submitEvent = () => {
 };
 
 const current = ref(1);
+
+
+const init = (base = 0) => {
+  const deg = ref(base);
+  const add = () => deg.value++;
+  const sub = () => deg.value--;
+
+  return [deg, add, sub];
+};
+
+
+const [A, addA, subA] = init(0);
+const [B, addB, subB] = init(0);
+const [C, addC, subC] = init(2);
+const [D, addD, subD] = init(10);
+
 
 </script>
 
@@ -92,6 +302,20 @@ img {
 
 .template-cell {
   margin-left: -58px;
+}
+
+.buttons {
+  height: 300px;
+}
+
+.button .m-button {
+  margin: 0 4px;
+}
+
+.button span {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
 }
 
 </style>
