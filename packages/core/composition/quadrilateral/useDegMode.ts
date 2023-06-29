@@ -17,6 +17,7 @@ import ALL_CASE from './algorithm/ALL';
 
 export default function useDegMode(w: number, h: number, degList: number[]) {
   degList = degList.map(e => e ?? 0);
+  // Convert to binary according to the positive and negative values of degList, positive is 1 and negative is 0
   // 根据degList的正负值转成二进制，正为1 负为0
   const degDecimal = parseInt(degList.map(d => d >= 0 ? 1 : 0).join(''), 2) as CASE;
 
