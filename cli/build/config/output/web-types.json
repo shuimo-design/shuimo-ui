@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui",
-  "version": "0.3.0-alpha.3",
+  "version": "0.3.0-alpha.4",
   "js-types-syntax": "typescript",
   "description-markup": "markdown",
   "contributions": {
@@ -1297,7 +1297,7 @@
               "name": "checkStrictly",
               "description": "the selected status of the parent and child nodes is no longer associated,\nand can be selected or canceled separately\n父子节点选中状态不再关联，可各自选中或取消",
               "type": "boolean",
-              "default": "false"
+              "default": "true"
             }
           ]
         },
