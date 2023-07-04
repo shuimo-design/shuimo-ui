@@ -29,7 +29,7 @@ export default function useDegMode(w: number, h: number, degList: number[]) {
     degDecimal
   };
 
-  let points: QPoints;
+  let points: QPoints | undefined;
 
   switch (algorithm) {
     case ALGORITHM.ALL:
@@ -60,7 +60,6 @@ export default function useDegMode(w: number, h: number, degList: number[]) {
       points = TR_BLE(options);
       break;
     default:
-      //@ts-ignore
       points = undefined;
       console.error('algorithm error');
   }
