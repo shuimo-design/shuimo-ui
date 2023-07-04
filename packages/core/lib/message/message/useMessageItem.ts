@@ -7,10 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import successIcon from './assets/success.png';
-import errorIcon from './assets/error.png';
-import warningIcon from './assets/warning.png';
-import infoIcon from './assets/info.png';
+import successIcon from './assets/success.webp';
+import errorIcon from './assets/error.webp';
+import warningIcon from './assets/warning.webp';
+import infoIcon from './assets/info.webp';
 import { MessageProps, MessageType } from './index';
 import { MRef, MRefValue } from '../../../composition/common/MRef';
 import { fadeIn, fadeOut } from './animate';

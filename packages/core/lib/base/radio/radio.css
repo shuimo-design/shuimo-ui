@@ -9,14 +9,14 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-image: url('./assets/border.png');
+    background-image: url('./assets/border.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
     vertical-align: middle;
 
     &:checked{
-      background-image: url('./assets/radio-checked.png');
+      background-image: url('./assets/radio-checked.webp');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 20px;

@@ -47,19 +47,19 @@
 }
 
 .m-page-prev:before {
-  content: url('./assets/page_prev.png');
+  content: url('./assets/page_prev.webp');
 }
 
 .m-page-next:before {
-  content: url('./assets/page_next.png');
+  content: url('./assets/page_next.webp');
 }
 
 .m-page-prev-disabled:before {
-  content: url('./assets/page_prev_disabled.png');
+  content: url('./assets/page_prev_disabled.webp');
 }
 
 .m-page-next-disabled:before {
-  content: url('./assets/page_next_disabled.png');
+  content: url('./assets/page_next_disabled.webp');
 }
 
 .m-page-prev:not(.m-page-prev-disabled):active {

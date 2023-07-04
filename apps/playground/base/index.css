@@ -13,5 +13,5 @@ iframe {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  background: url(@shuimo-design/core/lib/template/ricePaper/assets/rice_paper.png) repeat;
+  background: url(@shuimo-design/core/lib/template/ricePaper/assets/rice_paper.webp) repeat;
 }

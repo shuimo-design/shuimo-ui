@@ -11,7 +11,7 @@
   --m-rice-paper-crane-bg-h: 364px;
 
 
-  background-image: url(./assets/rice_paper.png);
+  background-image: url(./assets/rice_paper.webp);
   background-repeat: repeat;
   background-color: var(--m-rice-paper-bg-color);
   display: grid;
@@ -19,7 +19,7 @@
   overflow: hidden;
 
   &.m-rice-paper-warm {
-    background-image: url(./assets/rice_paper_warm.png);
+    background-image: url(./assets/rice_paper_warm.webp);
     background-repeat: repeat;
     display: grid;
   }
@@ -27,7 +27,7 @@
 
 .m-rice-paper-mountain {
   width: var(--m-rice-paper-mountain-w);
-  background: url(./assets/mountain.png) no-repeat;
+  background: url(./assets/mountain.webp) no-repeat;
   background-size: var(--m-rice-paper-mountain-bg-size-w) auto;
   background-position-y: var(--m-rice-paper-mountain-bg-position-y);
   grid-area: main;
@@ -36,7 +36,7 @@
 .m-rice-paper-crane {
   width: var(--m-rice-paper-crane-w);
   height: var(--m-rice-paper-crane-h);
-  background: url(./assets/crane.png) no-repeat;
+  background: url(./assets/crane.webp) no-repeat;
   background-size: var(--m-rice-paper-crane-bg-w) var(--m-rice-paper-crane-bg-h);
   background-position-y: var(--m-rice-paper-crane-bg-position-y);
   grid-area: main;

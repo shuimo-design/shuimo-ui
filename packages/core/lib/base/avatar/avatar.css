@@ -49,7 +49,7 @@
   --m-image-m-l: calc(var(--m-avatar-w) / 54 * 9);
 
   & .m-avatar-mask {
-    background: url(./assets/circle.png);
+    background: url(./assets/circle.webp);
     background-size: 100% 100%;
   }
 
@@ -65,7 +65,7 @@
   --m-image-m-l: calc(var(--m-avatar-w) / 52 * 3);
 
   & .m-avatar-mask {
-    background: url(./assets/square.png);
+    background: url(./assets/square.webp);
     background-size: 100% 100%;
   }
 

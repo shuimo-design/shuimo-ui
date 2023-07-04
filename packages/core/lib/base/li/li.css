@@ -2,12 +2,12 @@
   margin-left: 23px;
 
   &::marker {
-    content: url(../../assets/icon/base_icon.png);
+    content: url(../../assets/icon/base_icon.webp);
   }
 
   &.m-li-active {
     &::marker {
-      content: url(../../assets/icon/active_icon.png);
+      content: url(../../assets/icon/active_icon.webp);
     }
   }
 

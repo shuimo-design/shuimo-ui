@@ -42,12 +42,12 @@
   -webkit-appearance: none;
 
   &::-webkit-progress-bar {
-    background: url('./assets/bamboo_bg.png') repeat-x;
+    background: url('./assets/bamboo_bg.webp') repeat-x;
     background-size: var(--m-progress-bg-size);
   }
 
   &::-webkit-progress-value {
-    background: url('./assets/bamboo.png') repeat-x;
+    background: url('./assets/bamboo.webp') repeat-x;
     background-size: var(--m-progress-bg-size);
   }
 }

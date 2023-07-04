@@ -81,22 +81,22 @@
 }
 
 .m-date-picker-prev-arrow {
-  background: url(./assets/calendar_month_prev.png) no-repeat;
+  background: url(./assets/calendar_month_prev.webp) no-repeat;
   background-size: 100%;
 }
 
 .m-date-picker-next-arrow {
-  background: url(./assets/calendar_month_next.png) no-repeat;
+  background: url(./assets/calendar_month_next.webp) no-repeat;
   background-size: 100%;
 }
 
 .m-date-picker-prev-year-arrow {
-  background: url(./assets/calendar_year_prev.png) no-repeat;
+  background: url(./assets/calendar_year_prev.webp) no-repeat;
   background-size: 100%;
 }
 
 .m-date-picker-next-year-arrow {
-  background: url(./assets/calendar_year_next.png) no-repeat;
+  background: url(./assets/calendar_year_next.webp) no-repeat;
   background-size: 100%;
 }
 
@@ -107,6 +107,6 @@
 }
 
 .m-date-picker-current {
-  background: url(./assets/circle.png) no-repeat center;
+  background: url(./assets/circle.webp) no-repeat center;
   background-size: 23px 23px;
 }

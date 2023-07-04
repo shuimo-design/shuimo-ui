@@ -8,3 +8,4 @@
  */
 
 declare module '*.css?inline';
+declare module '*.webp';

@@ -18,7 +18,7 @@
   display: inline-block;
   height: 24px;
   width: 24px;
-  background: url(./assets/border.png) no-repeat;
+  background: url(./assets/border.webp) no-repeat;
   background-size: 100% 100%;
 }
 
@@ -32,7 +32,7 @@
   margin: 7px 0 0 6px;
   width: 12px;
   height: 10px;
-  background: url(./assets/checkbox-checked.png) no-repeat;
+  background: url(./assets/checkbox-checked.webp) no-repeat;
   background-size: 100% 100%;
 }
 
@@ -41,6 +41,6 @@
   margin: 10px 0 0 6px;
   width: 12px;
   height: 10px;
-  background: url(./assets/indeterminate.png) no-repeat;
+  background: url(./assets/indeterminate.webp) no-repeat;
   background-size: contain;
 }

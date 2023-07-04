@@ -8,7 +8,7 @@
  */
 import { isEmpty, notEmpty } from '@shuimo-design/tools/empty';
 import { ProgressProps } from './index';
-import leafPng from './assets/leaf.png'
+import leafPng from './assets/leaf.webp'
 import { Options } from '../../../composition/common/defineCore';
 
 export const BASE_SIZE = {

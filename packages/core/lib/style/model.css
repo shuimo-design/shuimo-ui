@@ -59,7 +59,7 @@
   top: calc(var(--m-dialog-h) * 95 / 698 + var(--m-close-btn-h) * 16 / 75);
   left: calc(var(--m-dialog-w) * 975 / 996 + var(--m-close-btn-w) * 24 / 46);
   display: inline-block;
-  background: url(../assets/model/close.png) no-repeat;
+  background: url(../assets/model/close.webp) no-repeat;
   background-size: 100% 100%;
   width: var(--m-close-btn-w);
   height: var(--m-close-btn-h);

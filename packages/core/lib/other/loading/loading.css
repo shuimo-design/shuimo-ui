@@ -44,7 +44,7 @@
 /*
 @each $type in shua1, shua2, shua3, shua4 {
   .m-loading-$(type) {
-    background: url(./assets/#{$type}.png) no-repeat;
+    background: url(./assets/#{$type}.webp) no-repeat;
     background-size: 100% 100%;
     opacity: 0;
   }
@@ -53,25 +53,25 @@
 
 
 .m-loading-shua0 {
-  background: url(./assets/shua1.png) no-repeat;
+  background: url(./assets/shua1.webp) no-repeat;
   background-size: 100% 100%;
   opacity: 0;
 }
 
 .m-loading-shua1 {
-  background: url(./assets/shua2.png) no-repeat;
+  background: url(./assets/shua2.webp) no-repeat;
   background-size: 100% 100%;
   opacity: 0;
 }
 
 .m-loading-shua2 {
-  background: url(./assets/shua3.png) no-repeat;
+  background: url(./assets/shua3.webp) no-repeat;
   background-size: 100% 100%;
   opacity: 0;
 }
 
 .m-loading-shua3 {
-  background: url(./assets/shua4.png) no-repeat;
+  background: url(./assets/shua4.webp) no-repeat;
   background-size: 100% 100%;
   opacity: 0;
 }

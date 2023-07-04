@@ -32,7 +32,7 @@
   align-items: center;
   padding: 30px 40px;
   box-sizing: border-box;
-  background: url('./assets/message-box.png') no-repeat;
+  background: url('./assets/message-box.webp') no-repeat;
   background-size: 100% 100%;
   position: relative;
   user-select: none;

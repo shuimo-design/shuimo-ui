@@ -10,13 +10,13 @@
   min-width: 70px;
   border: 5px double transparent;
   border-radius: 2px;
-  border-image: url(./assets/border/base.png) 8;
+  border-image: url(./assets/border/base.webp) 8;
   color: white;
   text-align: center;
 
 
   &:disabled, &:disabled:hover {
-    background: url(./assets/bg/disabled.png);
+    background: url(./assets/bg/disabled.webp);
     background-size: 20.8px 9.8px;
     color: var(--m-color-text-disabled);
 
@@ -41,11 +41,11 @@ $types: default, primary, error, confirm, warning;
 
 @each $type in $types {
   .m-button-#{$type} {
-    background: url('./assets/bg/#{$type}.png');
+    background: url('./assets/bg/#{$type}.webp');
     background-size: 20.8px 9.8px;
 
     &:hover {
-      background: url('./assets/bg/hover/#{$type}.png');
+      background: url('./assets/bg/hover/#{$type}.webp');
       background-size: 20.8px 9.8px;
     }
   }
@@ -53,51 +53,51 @@ $types: default, primary, error, confirm, warning;
 
  **/
 .m-button-default {
-  background: url(./assets/bg/default.png);
+  background: url(./assets/bg/default.webp);
   background-size: 20.8px 9.8px;
 
   &:hover {
-    background: url(./assets/bg/hover/default.png);
+    background: url(./assets/bg/hover/default.webp);
     background-size: 20.8px 9.8px;
   }
 }
 
 .m-button-primary {
-  background: url(./assets/bg/primary.png);
+  background: url(./assets/bg/primary.webp);
   background-size: 20.8px 9.8px;
 
   &:hover {
-    background: url(./assets/bg/hover/primary.png);
+    background: url(./assets/bg/hover/primary.webp);
     background-size: 20.8px 9.8px;
   }
 }
 
 .m-button-error {
-  background: url(./assets/bg/error.png);
+  background: url(./assets/bg/error.webp);
   background-size: 20.8px 9.8px;
 
   &:hover {
-    background: url(./assets/bg/hover/error.png);
+    background: url(./assets/bg/hover/error.webp);
     background-size: 20.8px 9.8px;
   }
 }
 
 .m-button-confirm {
-  background: url(./assets/bg/confirm.png);
+  background: url(./assets/bg/confirm.webp);
   background-size: 20.8px 9.8px;
 
   &:hover {
-    background: url(./assets/bg/hover/confirm.png);
+    background: url(./assets/bg/hover/confirm.webp);
     background-size: 20.8px 9.8px;
   }
 }
 
 .m-button-warning {
-  background: url(./assets/bg/warning.png);
+  background: url(./assets/bg/warning.webp);
   background-size: 20.8px 9.8px;
 
   &:hover {
-    background: url(./assets/bg/hover/warning.png);
+    background: url(./assets/bg/hover/warning.webp);
     background-size: 20.8px 9.8px;
   }
 }

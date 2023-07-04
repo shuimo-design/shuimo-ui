@@ -38,7 +38,7 @@
     width: var(--m-switch-w);
     height: var(--m-switch-h);
     margin: var(--m-switch-margin);
-    background: url(./assets/bg.png) no-repeat var(--m-swicth-bg-position-x) var(--m-swicth-bg-position-y);
+    background: url(./assets/bg.webp) no-repeat var(--m-swicth-bg-position-x) var(--m-swicth-bg-position-y);
     background-size: var(--m-switch-bg-w) var(--m-switch-bg-h);
   }
 
@@ -56,7 +56,7 @@
       @extend .m-cursor-pointer;
       width: var(--m-switch-core-border-w);
       height: var(--m-switch-core-border-h);
-      background: url(./assets/core.png) no-repeat;
+      background: url(./assets/core.webp) no-repeat;
       margin: var(--m-swicth-core-bg-marigh);
       background-size: 100% 100%;
     }
