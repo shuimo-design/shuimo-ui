@@ -12,6 +12,7 @@
  * v1.1.2 阿怪 添加blur事件冒泡
  * v2.0.0 阿怪 upgrade to core version
  * v2.0.1 阿怪 add input event
+ * v2.0.2 阿怪 fix type sinking error
  */
 import { computed, defineComponent, h } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/input/api';
@@ -37,6 +38,7 @@ export default defineComponent({
         value: props.modelValue,
         placeholder: props.placeholder,
         disabled: props.disabled,
+        type: props.type,
         readOnly: props.readonly,
         onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
           emit('update:modelValue', e.target.value);
