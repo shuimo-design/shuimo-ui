@@ -26,6 +26,7 @@ import MDatePicker from './lib/base/MDatePicker';
 import MTree from './lib/base/tree/MTree';
 import MTreeNode from './lib/base/tree/MTreeNode';
 import MInputNumber from './lib/base/MInputNumber';
+import MSlider from './lib/base/MSlider';
 
 // [other]
 import MDivider from './lib/other/MDivider';
@@ -73,6 +74,7 @@ const components: Record<string, Component> = {
   MInputNumber,
   MTree,
   MTreeNode,
+  MSlider,
 
   // [other]
   MDivider,
@@ -116,6 +118,7 @@ export {
   MTree,
   MTreeNode,
   MInputNumber,
+  MSlider,
 
   // [other]
   MDivider,

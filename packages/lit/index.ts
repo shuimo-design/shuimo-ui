@@ -29,6 +29,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/base/MSelect'),
     import('./lib/base/MDatePicker'),
     import('./lib/base/MInputNumber'),
+    import('./lib/base/MSlider'),
 
     // [message]
     import('./lib/message/MPopover'),

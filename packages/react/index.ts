@@ -21,6 +21,7 @@ export { default as MAvatar } from './lib/base/MAvatar';
 export { default as MSelect } from './lib/base/MSelect';
 export { default as MDatePicker } from './lib/base/MDatePicker';
 export { default as MInputNumber } from './lib/base/MInputNumber';
+export { default as MSlider } from './lib/base/MSlider';
 
 // [message]
 export { default as MPopover } from './lib/message/MPopover';

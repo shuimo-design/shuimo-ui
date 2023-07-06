@@ -114,10 +114,17 @@
           <m-checkbox label="4" :value="4"/>
         </m-checkbox-group>
       </div>
+      <MTree/>
 
     </div>
 
-    <MTree />
+    <m-dark-mode></m-dark-mode>
+
+    <div>{{sliderRef}}</div>
+    <div>{{slider2Ref}}</div>
+    <m-slider v-model="sliderRef"/>
+    <m-slider show-info/>
+    <m-slider v-model="slider2Ref" :min="2" :max="20" :step="2"/>
 
   </div>
 </template>
@@ -132,9 +139,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from 'vue';
-import MTree from "./MTree.vue";
+import MTree from './MTree.vue';
 
-const buttonClick = () => {console.log('button click');};
+const buttonClick = () => {
+  console.log('button click');
+};
 
 const inputValue = ref('input value');
 
@@ -191,10 +200,16 @@ const inputNumberRef = ref(1);
 const progressValueRef = ref(0);
 setInterval(() => {
   progressValueRef.value += 1;
-  if(progressValueRef.value > 100) {
+  if (progressValueRef.value > 100) {
     progressValueRef.value = 0;
   }
 }, 100);
+
+
+const sliderRef = ref(0);
+const slider2Ref = ref(0);
+
+
 </script>
 
 <style scoped>

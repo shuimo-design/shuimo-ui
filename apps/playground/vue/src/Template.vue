@@ -36,29 +36,28 @@
             </m-cell>
           </m-grid>
         </m-grid>
-
       </m-border>
 
       <div class="cell">
         <div class="buttons">
           <div class="button">
             <m-button @click="subA">-</m-button>
-            <span>{{ A }}</span>
+            <span>角A：{{ A }}</span>
             <m-button @click="addA">+</m-button>
           </div>
           <div class="button">
             <m-button @click="subB">-</m-button>
-            <span>{{ B }}</span>
+            <span>角B：{{ B }}</span>
             <m-button @click="addB">+</m-button>
           </div>
           <div class="button">
             <m-button @click="subC">-</m-button>
-            <span>{{ C }}</span>
+            <span>角C：{{ C }}</span>
             <m-button @click="addC">+</m-button>
           </div>
           <div class="button">
             <m-button @click="subD">-</m-button>
-            <span>{{ D }}</span>
+            <span>角D：{{ D }}</span>
             <m-button @click="addD">+</m-button>
           </div>
 
@@ -143,22 +142,22 @@
     <div class="buttons">
       <div class="button">
         <m-button @click="subA">-</m-button>
-        <span>{{ A }}</span>
+        <span>角A：{{ A }}</span>
         <m-button @click="addA">+</m-button>
       </div>
       <div class="button">
         <m-button @click="subB">-</m-button>
-        <span>{{ B }}</span>
+        <span>角B：{{ B }}</span>
         <m-button @click="addB">+</m-button>
       </div>
       <div class="button">
         <m-button @click="subC">-</m-button>
-        <span>{{ C }}</span>
+        <span>角C：{{ C }}</span>
         <m-button @click="addC">+</m-button>
       </div>
       <div class="button">
         <m-button @click="subD">-</m-button>
-        <span>{{ D }}</span>
+        <span>角D：{{ D }}</span>
         <m-button @click="addD">+</m-button>
       </div>
 
@@ -222,18 +221,43 @@
         <m-cell :a="A" :b="B" :c="C" :d="D" :h="100" :w="100">
           <img src="../assets/left.png" alt="">
         </m-cell>
-        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
+<!--        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">-->
+<!--          <img src="../assets/left.png" alt="">-->
+<!--        </m-cell>-->
+<!--        <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">-->
+<!--          <img src="../assets/left.png" alt="">-->
+<!--        </m-cell>-->
       </div>
     </div>
 
-    <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+    <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100" v-if="false">
       <img src="../assets/left.png" alt="">
     </m-cell>
+
+
+    <m-border v-if="false">
+      <m-grid :gap="20" direction="column" class="screen">
+        <m-grid :gap="5" :h="245">
+          <m-cell :w="245">
+            <img src="../assets/left.png" alt="">
+          </m-cell>
+          <m-cell>
+            <img src="../assets/right.png" alt="">
+          </m-cell>
+        </m-grid>
+        <m-grid :gap="5" :h="162" :gapRotate="[-10, 20]">
+          <m-cell :w="162">
+            <img src="../assets/1.png" alt="">
+          </m-cell>
+          <m-cell>
+            <img src="../assets/3.png" alt="">
+          </m-cell>
+          <m-cell>
+            <img src="../assets/2.png" alt="">
+          </m-cell>
+        </m-grid>
+      </m-grid>
+    </m-border>
 
   </div>
 
@@ -305,7 +329,7 @@ img {
 }
 
 .buttons {
-  height: 300px;
+  height: 150px;
 }
 
 .button .m-button {
@@ -314,7 +338,7 @@ img {
 
 .button span {
   display: inline-block;
-  width: 50px;
+  width: 100px;
   text-align: center;
 }
 
