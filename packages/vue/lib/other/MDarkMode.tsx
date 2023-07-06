@@ -23,7 +23,7 @@ export default defineComponent({
     const { onMountedHook, toggleDarkMode, getBrowserDarkMode } = useDarkMode();
     const value = ref(props.modelValue ?? getBrowserDarkMode());
 
-    const clickHandler = () => {
+    const clickHandler = (e: MouseEvent) => {
       value.value = !value.value;
       emit('update:modelValue', value.value);
       toggleDarkMode({ value: value.value });
@@ -52,7 +52,7 @@ export default defineComponent({
           transform="translate(0) rotate(180, 250, 250)"
           fill="#FFFFFF"/>
         <path
-          class="svg-black dark-hidden"
+          class="fins"
           transform="translate(0)"
           fill="#000000"/>
         <circle class="svg-black" cx="250" cy="375" r="40"/>
@@ -61,7 +61,7 @@ export default defineComponent({
 
 
       return <div class="m-dark-mode"
-                  onClick={(e: MouseEvent) => clickHandler()}>
+                  onClick={(e: MouseEvent) => clickHandler(e)}>
         {svg}
       </div>;
     };

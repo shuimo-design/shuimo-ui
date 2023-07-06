@@ -55,7 +55,7 @@ export default class MDarkMode extends LitElement implements DarkModeProps {
     transform="translate(0) rotate(180, 250, 250)"
     fill="#FFFFFF"/>
   <path
-    class="svg-black dark-hidden"
+    class="fins"
     transform="translate(0)"
     fill="#000000"/>
   <circle class="svg-black" cx="250" cy="375" r="40"/>

@@ -40,7 +40,7 @@ export default function MDarkMode(props: DarkModeProps) {
       transform="translate(0) rotate(180, 250, 250)"
       fill="#FFFFFF"/>
     <path
-      className="svg-black dark-hidden"
+      className="fins"
       transform="translate(0)"
       fill="#000000"/>
     <circle className="svg-black" cx="250" cy="375" r="40"/>

@@ -6,6 +6,7 @@
     d: var(--dark-mode-path-fish);
   }
 }
+
 @keyframes fish_to_hidden {
   from {
     d: var(--dark-mode-path-fish)
@@ -15,6 +16,22 @@
   }
 }
 
+@keyframes fins_show {
+  from {
+    d: var(--dark-mode-path-fins-w)
+  }
+  to{
+    d: var(--dark-mode-path-fins-d);
+  }
+}
+@keyframes fins_hide {
+  from {
+    d: var(--dark-mode-path-fins-d)
+  }
+  to{
+    d: var(--dark-mode-path-fins-w);
+  }
+}
 
 .m-dark-mode {
   display: inline-block;
@@ -56,7 +73,8 @@
     filter: var(--svg-white);
   }
 
-  .dark-hidden {
-    visibility: var(--dark-mode-visible);
+  .fins {
+    d: var(--dark-mode-path-fins);
+    animation: var(--dark-mode-d-fins-animation);
   }
 }
