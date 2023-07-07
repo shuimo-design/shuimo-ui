@@ -43,16 +43,13 @@
   & svg {
     height: var(--dark-mode-h);
     width: var(--dark-mode-w);
-    cursor: pointer;
+    cursor: var(--m-cursor-pointer);
     overflow: visible;
   }
 
   .m-dark-mode-filter {
     width: 0;
     height: 0;
-  }
-
-  .m-dark-mode-svg:hover {
   }
 
   & path.svg-black {

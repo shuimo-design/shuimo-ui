@@ -13,12 +13,13 @@
   border-image: url(./assets/border/base.webp) 8;
   color: white;
   text-align: center;
-
+  cursor: var(--m-cursor-pointer);
 
   &:disabled, &:disabled:hover {
     background: url(./assets/bg/disabled.webp);
     background-size: 20.8px 9.8px;
     color: var(--m-color-text-disabled);
+    cursor: var(--m-cursor-disabled);
 
     & > slot {
       pointer-events: none;

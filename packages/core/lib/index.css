@@ -3,6 +3,8 @@
 @import "style/model.css";
 
 
+/** fix react import out of order error **/
+
 /* [base] */
 @import "base/button/button.css";
 @import "base/input/input.css";
