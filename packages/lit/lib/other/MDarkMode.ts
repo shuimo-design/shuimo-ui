@@ -13,7 +13,7 @@ import { DarkModeProps } from '@shuimo-design/core/lib/other/darkMode';
 import style from '@shuimo-design/core/lib/other/darkMode/darkMode.css?inline';
 import { useDarkMode } from '@shuimo-design/core/lib/other/darkMode/useDarkMode';
 
-const { onMountedHook, toggleDarkMode } = useDarkMode();
+const { onMountedHook, toggleDarkMode ,getBrowserDarkMode} = useDarkMode();
 
 @createMElement({
   name: 'dark-mode'
@@ -24,7 +24,8 @@ export default class MDarkMode extends LitElement implements DarkModeProps {
 
   constructor() {
     super();
-    const isDark = onMountedHook();
+    onMountedHook();
+    const isDark = getBrowserDarkMode();
     if (isDark) {
       this.value = true;
       toggleDarkMode(this);
