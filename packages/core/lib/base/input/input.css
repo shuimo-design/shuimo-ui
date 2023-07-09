@@ -3,7 +3,6 @@
 **/
 
 .m-input {
-  @extend .m-cursor-pointer;
 
   --m-input-w: 244px;
   --m-color-disabled: #DBDADD;
@@ -39,6 +38,7 @@
 }
 
 .m-input-inner {
+  cursor: var(--m-cursor-pointer);
   background-color: unset !important;
   background-repeat: no-repeat !important;
   padding: 0 10px;
@@ -49,6 +49,7 @@
 }
 
 .m-textarea-inner {
+  cursor: var(--m-cursor-pointer);
   padding: 10px;
   width: calc(100% - 10px);
   height: calc(100% - 20px);

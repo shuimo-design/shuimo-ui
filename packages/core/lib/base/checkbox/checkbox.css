@@ -13,7 +13,7 @@
 }
 
 .m-checkbox-checkbox {
-  @extend .m-cursor-pointer;
+  cursor: var(--m-cursor-pointer);
   grid-area: checkbox;
   display: inline-block;
   height: 24px;

@@ -53,7 +53,7 @@
     transition: all 1s;
 
     .m-switch-core-border {
-      @extend .m-cursor-pointer;
+      cursor: var(--m-cursor-pointer);
       width: var(--m-switch-core-border-w);
       height: var(--m-switch-core-border-h);
       background: url(./assets/core.webp) no-repeat;
@@ -88,7 +88,7 @@
 
   &.m-switch-loading {
     .m-switch-core-border {
-      @extend .m-cursor-disabled;
+      cursor: var(--m-cursor-disabled);
     }
 
     .m-switch-core {
@@ -98,7 +98,7 @@
 
   &.m-switch-disabled {
     .m-switch-core-border {
-      @extend .m-cursor-disabled;
+      cursor: var(--m-cursor-disabled);
     }
 
     --m-switch-core-bg-disabled: white;
