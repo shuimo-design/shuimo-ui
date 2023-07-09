@@ -9,8 +9,8 @@
  * todo fix types
  */
 import type { App, Directive } from 'vue';
-// import { IMessage } from './components/MMessage';
-// import { IPrinter } from './components/MPrint';
+import { IMessage } from './components/MMessage';
+import { IPrinter } from './components/MPrint';
 import { IConfirm } from './components/MConfirm';
 
 export * from './components/components';
@@ -35,7 +35,7 @@ export type MUIOption = {
 
 export function createMUI(options?: MUIOption): ShuimoUI;
 
-// export const MMessage: IMessage;
-// export const MPrinter: IPrinter;
+export const MMessage: IMessage;
+export const MPrinter: IPrinter;
 export const MConfirm: IConfirm;
 // export const WScroll: Directive;
