@@ -40,16 +40,15 @@ export function usePagination(
   }>
 ) {
 
-  const { props, value } = options;
+  const {  value } = options;
 
   const currentValueRef = MRef(value.currentValue);
 
-  const {
-    total, pageSize,
-    foldedMaxPageBtn, maxPageBtn,
-    showEdgePageNum
-  } = props;
-  const pageBtnLength = Math.ceil(total / pageSize);
+
+  const getPageBtnLength = () => {
+    const { total, pageSize } = options.props;
+    return Math.ceil(total / pageSize);
+  };
 
   const toPager = (value: number | string, config?: Partial<Omit<Pager, 'value'>>) => {
     return {
@@ -65,12 +64,17 @@ export function usePagination(
   };
 
   const getPageNumList: () => Pager[] = () => {
-
+    const pageBtnLength = getPageBtnLength();
+    const {
+      total, pageSize,
+      foldedMaxPageBtn, maxPageBtn,
+      showEdgePageNum
+    } = options.props;
 
     if (total <= pageSize) {
       return [toPager(1)];
     }
-    if (!maxPageBtn || pageBtnLength <= maxPageBtn || foldedMaxPageBtn && foldedMaxPageBtn >= pageBtnLength - 1) {
+    if (!maxPageBtn || getPageBtnLength() <= maxPageBtn || foldedMaxPageBtn && foldedMaxPageBtn >= pageBtnLength - 1) {
       return getPageNumListRange(1, pageBtnLength);
     }
     const foldedMaxPageBtnOdd = Math.max(oddNum(foldedMaxPageBtn ?? 5), 1); // this nub must be odd
@@ -133,7 +137,7 @@ export function usePagination(
 
   return {
     getPageNumList,
-    pageBtnLength
+    getPageBtnLength
   };
 
 }

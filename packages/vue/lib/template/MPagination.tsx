@@ -24,7 +24,7 @@ export default defineComponent({
       currentValueRef.value = val;
     });
 
-    const { getPageNumList, pageBtnLength } = usePagination({ props, value: { currentValue: currentValueRef } });
+    const { getPageNumList, getPageBtnLength } = usePagination({ props, value: { currentValue: currentValueRef } });
 
     const changePage = (page: number) => {
       currentValueRef.value = page;
@@ -38,7 +38,7 @@ export default defineComponent({
     };
 
     const toNext = () => {
-      if (currentValueRef.value === pageBtnLength) return;
+      if (currentValueRef.value === getPageBtnLength()) return;
       changePage(currentValueRef.value + 1);
     };
 
@@ -54,7 +54,7 @@ export default defineComponent({
           return <div class={['m-pager', { 'm-paper-current': page.isCurrent }]}
                       onClick={() => changePage(page.jump)}>{page.value}</div>;
         }),
-        next: () => <div class={['m-page-next', { 'm-page-next-disabled': currentValueRef.value === pageBtnLength }]}
+        next: () => <div class={['m-page-next', { 'm-page-next-disabled': currentValueRef.value === getPageBtnLength() }]}
                          onClick={() => toNext()}/>
 
       };
