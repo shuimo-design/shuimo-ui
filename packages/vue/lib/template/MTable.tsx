@@ -68,9 +68,9 @@ export default defineComponent({
             }</th>
           </tr>
           </tbody>,
-        tbodyTr: ({ data, slot, slotInfo }) => {
-          return <td class="m-td">{slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : toString(data)}</td>;
-        },
+        tbodyTr: ({ data, slot, slotInfo }) => <td class="m-td">
+          {slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : data}
+        </td>,
         theadTh: ({ label, slot }) => <th class="m-th">{slot ? slot() : label}</th>,
         thead: ths => <thead class="m-thead">
         <tr class="m-tr">{ths}</tr>
