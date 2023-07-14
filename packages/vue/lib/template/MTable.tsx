@@ -8,7 +8,7 @@
  *
  * todo fix when header codes more then one line
  */
-import { defineComponent, Fragment, Comment } from 'vue';
+import { Comment, defineComponent, Fragment } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/table/api';
 import { useTable } from '@shuimo-design/core/lib/template/table/useTable';
 
@@ -50,6 +50,15 @@ export default defineComponent({
         columns.push(s);
       });
 
+      const toString = (data: any) => {
+        // todo fix this
+        if (typeof data === 'object') {
+          return JSON.stringify(data);
+        }
+        return data;
+      };
+
+
       const { thead, tbody } = initTable({
         empty:
           <tbody class="m-table-empty">
@@ -60,7 +69,7 @@ export default defineComponent({
           </tr>
           </tbody>,
         tbodyTr: ({ data, slot, slotInfo }) => {
-          return <td class="m-td">{slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : data}</td>;
+          return <td class="m-td">{slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : toString(data)}</td>;
         },
         theadTh: ({ label, slot }) => <th class="m-th">{slot ? slot() : label}</th>,
         thead: ths => <thead class="m-thead">
