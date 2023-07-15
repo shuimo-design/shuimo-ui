@@ -146,6 +146,10 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
     this.updateSelectInfo();
   }
 
+  optionsUpdate() {
+    this.updateSelectInfo();
+  }
+
   onDeleteTag(tag: SelectOptions<OptionValue>) {}
 }
 

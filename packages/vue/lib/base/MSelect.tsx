@@ -2,7 +2,7 @@
  * @description 选择框组件
  * @author 阿怪
  * @date 2021/8/27 11:05 上午
- * @version v2.1.1
+ * @version v2.1.2
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
@@ -21,14 +21,13 @@
  *        添加数组为空支持，
  *        inputReadonly改为readonly
  *        multiple支持undefined modelValue 阿怪
+ * v2.1.2 support props options update 阿怪  todo -> what will happen if another props changes?
  */
-import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
+import { computed, defineComponent, h, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/select/api';
 import MInput from './MInput';
-import MPopover from '../message/MPopover';
 import useBorder from '../../composition/useBorder';
 import { OptionType, useSelect } from '@shuimo-design/core/lib/base/select/useSelect';
-import useModelValue from '../../composition/useModelValue';
 import useSelectTools from '@shuimo-design/core/lib/base/select/composition/useSelectTools';
 import { isEmpty } from '@shuimo-design/tools/empty';
 import MTag from './MTag';
@@ -85,7 +84,7 @@ export default defineComponent({
       getOptions
     } = useSelect({ props, value: { inputValue } });
 
-    const { popoverRef, withPopover } = usePopover(popoverOptions,'m-select');
+    const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-select');
 
     // ---------- new ----------
 
@@ -140,6 +139,10 @@ export default defineComponent({
 
     watch(() => props.modelValue, (value) => {
       select.setInputValue(value);
+    });
+
+    watch(() => props.options, () => {
+      select.optionsUpdate();
     });
 
     return () => {
