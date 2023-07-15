@@ -27,7 +27,7 @@ import message from '../../lib/message/message/MMessageItem';
 
 import divider from '../../lib/other/MDivider';
 import darkMode from '../../lib/other/MDarkMode';
-import loading from '../../lib/other/MLoading';
+import loading from '../../lib/other/loading/MLoading';
 // import menu from '../../lib/other/MMenu';
 
 import border from '../../lib/template/border/MBorder';

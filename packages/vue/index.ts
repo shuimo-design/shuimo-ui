@@ -30,7 +30,8 @@ import MSlider from './lib/base/MSlider';
 
 // [other]
 import MDivider from './lib/other/MDivider';
-import MLoading from './lib/other/MLoading';
+import MLoading from './lib/other/loading/MLoading';
+import { loadingDirective } from './lib/other/loading/directive';
 import MDarkMode from './lib/other/MDarkMode';
 import MDeleteIcon from './lib/other/MDeleteIcon';
 import MPrinter from '@shuimo-design/core/lib/other/printer/Printer';
@@ -175,7 +176,7 @@ export function createMUI(options?: MUIOption) {
         }
         app.component(key, components[key]);
       });
-      // app.directive('loading', loadingDirective);
+      app.directive('loading', loadingDirective);
       return app;
     }
   };
