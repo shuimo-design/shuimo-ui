@@ -69,3 +69,7 @@
 .m-page-next:not(.m-page-next-disabled):active {
   right: -2px;
 }
+
+.m-page-total {
+  margin: 0 4px;
+}

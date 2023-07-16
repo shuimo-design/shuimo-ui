@@ -48,6 +48,7 @@ export default defineComponent({
 
 
       const btnGetter = {
+        total: ()=> <div class="m-page-total">共 <span>{props.total}</span> 条</div>,
         prev: () => <div class={['m-page-prev', { 'm-page-prev-disabled': currentValueRef.value === 1 }]}
                          onClick={() => toPrev()}/>,
         pager: () => pages.map(page => {
