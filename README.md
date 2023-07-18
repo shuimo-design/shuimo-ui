@@ -64,7 +64,7 @@ pnpm install shuimo-ui
 
 ## TODO
 
-| Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.1) | Web Component (🚧) | React (🚧) |
+| Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.x) | Web Component (🚧) | React (🚧) |
 |---------------|-----------------|---------------------|--------------------|------------|
 | **BASE**      |                 |                     |                    |            |
 | Avatar        | ❌               | ✅                   | ✨                  | ✨          |
@@ -78,8 +78,9 @@ pnpm install shuimo-ui
 | InputNumber   | ✅               | ✅                   | ❌                  | ❌          |
 | Progress      | ✅               | ✅                   | ✨                  | ✨          |
 | Radio         | ✅               | ✅                   | ✨                  | ✨          |
-| Switch        | ✅               | ✅                   | ✨                  | ✨          |
 | Select        | ✅               | ✅                   | ❌                  | ❌          |
+| Slider        | ✅               | ✅                   | ❌                  | ❌          |
+| Switch        | ✅               | ✅                   | ✨                  | ✨          |
 | Tag           | ✅               | ✅                   | ✨                  | ✨          |
 | Tree          | ❌               | ✨                   | ❌                  | ❌          |
 | **MESSAGE**   |                 |                     |                    |            |
