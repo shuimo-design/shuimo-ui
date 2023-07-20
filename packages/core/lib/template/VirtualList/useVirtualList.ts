@@ -17,6 +17,7 @@ import {
   ACTION_TYPE,
   THRESHOLD_TYPE
 } from '../../../composition/virtualList/enums';
+import useContainerObserver from '../../../composition/virtualList/useContainerObserver';
 
 export const initBoundary = (options: {
   from: number, // visible start number
@@ -77,7 +78,6 @@ export function useVirtualList(options: Options<{
   };
   let visibleCount = 5; // base is 5
   let overScanCoefficient = 1;
-  let ob: IntersectionObserver;
   const { list } = options.props;
   const total = list.length;
 
@@ -212,39 +212,10 @@ export function useVirtualList(options: Options<{
   };
 
 
-  const toObserve = (domList: HTMLCollection) => {
-    if (domList) {
-      for (let i = 0; i < domList.length; i++) {
-        ob.observe(domList[i]);
-      }
-    }
-  };
-
-  const clearOb = (domList: HTMLCollection) => {
-    if (domList) {
-      for (let i = 0; i < domList.length; i++) {
-        ob.unobserve(domList[i]);
-      }
-    }
-  };
-
-  useResizeObserver(containerRef, () => {
-    if (containerRef.value) {
-      // todo 应该不需要一直初始化
-      if (ob) {ob.disconnect();}
-      ob = new IntersectionObserver(cb, {
-        root: containerRef.value,
-        threshold: [0, 1]
-      });
-      const children = getChildren();
-      clearOb(children);
-      toObserve(children);
-    } else {
-      if (ob) {
-        ob.disconnect();
-      }
-    }
-  });
+  useContainerObserver({
+    containerRef,
+    callback:cb
+  })
 
   return {
     displayList,
