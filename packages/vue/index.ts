@@ -56,6 +56,7 @@ import MWCBorder from './lib/template/border/MWCBorder';
 import MWCRicePaper from './lib/template/ricePaper/MWCRicePaper';
 import MCell from './lib/template/MCell';
 import MGrid from './lib/template/MGrid';
+import MVirtualList from './lib/template/MVirtualList';
 
 const components: Record<string, Component> = {
   // [base]
@@ -99,6 +100,7 @@ const components: Record<string, Component> = {
   MPagination,
   MCell,
   MGrid,
+  MVirtualList,
 };
 
 export {
@@ -146,6 +148,7 @@ export {
   MPagination,
   MCell,
   MGrid,
+  MVirtualList,
 };
 
 export function createMUI(options?: MUIOption) {

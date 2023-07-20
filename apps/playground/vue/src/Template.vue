@@ -135,132 +135,144 @@
         </m-cell>
 
       </div>
-    </div>
 
-  </div>
-  <div class="cell">
-    <div class="buttons">
-      <div class="button">
-        <m-button @click="subA">-</m-button>
-        <span>角A：{{ A }}</span>
-        <m-button @click="addA">+</m-button>
-      </div>
-      <div class="button">
-        <m-button @click="subB">-</m-button>
-        <span>角B：{{ B }}</span>
-        <m-button @click="addB">+</m-button>
-      </div>
-      <div class="button">
-        <m-button @click="subC">-</m-button>
-        <span>角C：{{ C }}</span>
-        <m-button @click="addC">+</m-button>
-      </div>
-      <div class="button">
-        <m-button @click="subD">-</m-button>
-        <span>角D：{{ D }}</span>
-        <m-button @click="addD">+</m-button>
-      </div>
+      <div class="cell">
+        <div class="buttons">
+          <div class="button">
+            <m-button @click="subA">-</m-button>
+            <span>角A：{{ A }}</span>
+            <m-button @click="addA">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subB">-</m-button>
+            <span>角B：{{ B }}</span>
+            <m-button @click="addB">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subC">-</m-button>
+            <span>角C：{{ C }}</span>
+            <m-button @click="addC">+</m-button>
+          </div>
+          <div class="button">
+            <m-button @click="subD">-</m-button>
+            <span>角D：{{ D }}</span>
+            <m-button @click="addD">+</m-button>
+          </div>
 
-    </div>
-
-    <div v-if="true">
-      <div>
-        <m-cell :a="-A" :b="B" :c="C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="-B" :c="C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-      </div>
-      <div>
-        <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="B" :c="C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-      </div>
-      <div>
-        <m-cell :a="A" :b="-B" :c="C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-      </div>
-      <div>
-        <m-cell :a="A" :b="B" :c="-C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-      </div>
-      <div>
-        <m-cell :a="A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="B" :c="-C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-        <m-cell :a="A" :b="B" :c="C" :d="D" :h="100" :w="100">
-          <img src="../assets/left.png" alt="">
-        </m-cell>
-<!--        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">-->
-<!--          <img src="../assets/left.png" alt="">-->
-<!--        </m-cell>-->
-<!--        <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">-->
-<!--          <img src="../assets/left.png" alt="">-->
-<!--        </m-cell>-->
-      </div>
-    </div>
-
-    <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100" v-if="false">
-      <img src="../assets/left.png" alt="">
-    </m-cell>
-
-
-    <m-border v-if="false">
-      <m-grid :gap="20" direction="column" class="screen">
-        <m-grid :gap="5" :h="245">
-          <m-cell :w="245">
+        </div>
+        <div v-if="true">
+          <div>
+            <m-cell :a="-A" :b="B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="-B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="-B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+          </div>
+          <div>
+            <m-cell :a="A" :b="-B" :c="C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="B" :c="-C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <m-cell :a="A" :b="B" :c="C" :d="D" :h="100" :w="100">
+              <img src="../assets/left.png" alt="">
+            </m-cell>
+            <!--        <m-cell :a="-A" :b="-B" :c="-C" :d="-D" :h="100" :w="100">-->
+            <!--          <img src="../assets/left.png" alt="">-->
+            <!--        </m-cell>-->
+            <!--        <m-cell :a="45" :b="45" :c="45" :d="45" :h="100" :w="100">-->
+            <!--          <img src="../assets/left.png" alt="">-->
+            <!--        </m-cell>-->
+          </div>
+          <m-cell :a="A" :b="B" :c="C" :d="-D" :h="100" :w="100" v-if="false">
             <img src="../assets/left.png" alt="">
           </m-cell>
-          <m-cell>
-            <img src="../assets/right.png" alt="">
-          </m-cell>
-        </m-grid>
-        <m-grid :gap="5" :h="162" :gapRotate="[-10, 20]">
-          <m-cell :w="162">
-            <img src="../assets/1.png" alt="">
-          </m-cell>
-          <m-cell>
-            <img src="../assets/3.png" alt="">
-          </m-cell>
-          <m-cell>
-            <img src="../assets/2.png" alt="">
-          </m-cell>
-        </m-grid>
-      </m-grid>
-    </m-border>
+
+
+          <m-border v-if="false">
+            <m-grid :gap="20" direction="column" class="screen">
+              <m-grid :gap="5" :h="245">
+                <m-cell :w="245">
+                  <img src="../assets/left.png" alt="">
+                </m-cell>
+                <m-cell>
+                  <img src="../assets/right.png" alt="">
+                </m-cell>
+              </m-grid>
+              <m-grid :gap="5" :h="162" :gapRotate="[-10, 20]">
+                <m-cell :w="162">
+                  <img src="../assets/1.png" alt="">
+                </m-cell>
+                <m-cell>
+                  <img src="../assets/3.png" alt="">
+                </m-cell>
+                <m-cell>
+                  <img src="../assets/2.png" alt="">
+                </m-cell>
+              </m-grid>
+            </m-grid>
+          </m-border>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row-flex">
+      <m-virtual-list class="max-height" :list="baseList" v-if="false">
+        <template #default="data">
+          <div class="virtual-list-item">{{ data }}</div>
+        </template>
+      </m-virtual-list>
+      <m-virtual-list class="max-height" :list="optionsMore">
+        <template #default="data">
+          <div class="virtual-list-item">{{ data }}</div>
+        </template>
+      </m-virtual-list>
+    </div>
 
   </div>
-
 </template>
 
 <script setup lang="ts">
@@ -296,6 +308,10 @@ const [B, addB, subB] = init(0);
 const [C, addC, subC] = init(2);
 const [D, addD, subD] = init(10);
 
+// const baseList = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
+const baseList = ['子1', '丑2', '寅3', '卯4', '辰5', '巳6', '午7', '未8', '申9', '酉10', '戌11', '亥12'];
+const optionsMore = Array.from({ length: 10 })
+    .fill(baseList).flat();
 
 </script>
 
@@ -340,6 +356,28 @@ img {
   display: inline-block;
   width: 100px;
   text-align: center;
+}
+
+.virtual-list-item {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  border: 3px solid gray;
+  margin: 4px 0;
+  padding: 2px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.max-height {
+  height: 300px;
+  overflow: auto;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
 }
 
 </style>
