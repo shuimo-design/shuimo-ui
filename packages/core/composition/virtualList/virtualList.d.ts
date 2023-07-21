@@ -9,7 +9,8 @@
 
 type EntryInfo = {
   ratio: number,
-  index: number,
-  realHeight: number,
-  translateY: number,
+  position: number,  // POSITION_TYPE
+  realIndex: number,
+  realHeight?: number,
+  translateY?: number,
 }
