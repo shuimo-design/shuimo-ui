@@ -52,9 +52,7 @@ export function useVirtualList(options: Options<{
 
   const lastItemRef = refWrapper<HTMLElement | null>(null, refInit);
   let baseY = 0;
-  const styleRef = refWrapper<any>({
-    'transform': `translateY(${baseY}px)`
-  }, refInit);
+  const styleRef = refWrapper<any>({ 'transform': `translateY(${baseY}px)` }, refInit);
 
   /**
    * render info 渲染信息
@@ -67,7 +65,6 @@ export function useVirtualList(options: Options<{
     nextActiveIndex: visibleCount
   };
 
-  let stopFlag = false;
 
   const getList = (from :number) => {
     const initRes = initBoundary({ from: from, total, visibleCount, overScanCoefficient });
@@ -79,50 +76,8 @@ export function useVirtualList(options: Options<{
   };
   getList(from);
 
-  const entriesInfoWeakMap: WeakMap<Element, EntryInfo> = new WeakMap();
-
-  const transformYList: number[] = [0]; // reduce transformY
-
-  // const onInit = (entries: IntersectionObserverEntry[]) => {
-  //   const { renderFrom, realFrom, realEnd, renderEnd } = info;
-  //   if (entries[realFrom - renderFrom]?.intersectionRatio === 1 && entries[realEnd - renderFrom - 1]?.intersectionRatio === 1) {
-  //     const totalHeight = entries.map(e => e.boundingClientRect.height).reduce((a, b) => a + b, 0);
-  //     const length = entries.length;
-  //     const avgHeight = totalHeight / length;
-  //     const rootHeight = entries[0].rootBounds!.height;
-  //     visibleCount = Math.ceil(rootHeight / avgHeight);
-  //     getList(from);
-  //   }
-  //
-  //   entries.forEach((entry, index) => {
-  //     const realIndex = index + renderFrom;
-  //
-  //     if (realIndex < visibleCount) {
-  //       transformYList[realIndex] = 0;
-  //     } else {
-  //       const prevHeight = transformYList[realIndex - 1];
-  //       if (prevHeight == null) {
-  //         console.error('prevHeight is null', realIndex, transformYList, entry.target);
-  //       } else {
-  //         transformYList[realIndex] = prevHeight + entry.boundingClientRect.height;
-  //       }
-  //     }
-  //
-  //     entriesInfoWeakMap.set(entry.target, {
-  //       ratio: entry.intersectionRatio,
-  //       index,
-  //       realHeight: entry.boundingClientRect.height,
-  //       translateY: transformYList[realIndex]
-  //     });
-  //   });
-  //
-  //
-  // };
-
   const { cb } = useEntries({
-    getTotal: () => {
-      return getChildren().length;
-    },
+    getChildren,
     getVisibleCount: () => visibleCount,
     getList,
     getInfo: () => info,
@@ -131,24 +86,6 @@ export function useVirtualList(options: Options<{
     },
     styleRef
   });
-
-  // const cb = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-  //   if (entries.length === getChildren().length) {
-  //     onInit(entries);
-  //     return;
-  //   }
-  //   let needUpdate = false;
-  //   if (entries.length > 1) {
-  //     console.log(entries.map(e => e.intersectionRatio), entries.map(e => e.target));
-  //   }
-  //
-  //
-  //   getList(from);
-  //   styleRef.value = {
-  //     'transform': `translateY(${transformYList[from - 1]}px)`
-  //   };
-  // };
-
 
   useContainerObserver({
     containerRef,

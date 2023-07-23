@@ -6,24 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ACTION, ACTION_POSITION, THRESHOLD_TYPE } from './enums';
+import { ACTION } from './enums';
 import { refWrapper } from '../common/MRef';
 
-const toStr = [
-  'enter-top-start', 'enter-top-end',
-  'enter-bottom-start', 'enter-bottom-end',
-  'leave-top-start', 'leave-top-end',
-  'leave-bottom-start', 'leave-bottom-end'
-];
-const toStrZH = [
-  '开始进入顶部', '完全进入顶部',
-  '开始进入底部', '完全进入底部',
-  '开始离开顶部', '完全离开顶部',
-  '开始离开底部', '完全离开底部'
-];
 
 export default function useEntries(options: {
-  getTotal: () => number,
+  getChildren: () => HTMLCollection,
   getVisibleCount: () => number,
   getList: (from: number) => void,
   getInfo: () => {
@@ -91,7 +79,6 @@ export default function useEntries(options: {
 
     // get every action last target
     const actionMap = new Map<ACTION, Element[]>;
-    // const actionMap = new Map<string, Element>;
     actionList.forEach(({ action, target }) => {
       if (actionMap.has(action)) {
         actionMap.get(action)!.push(target);
@@ -100,7 +87,7 @@ export default function useEntries(options: {
       }
     });
 
-    // 暂时先获取完全离开顶部index
+    // 暂时先获取完全离开顶部index todo use enum
     let type = '下拉';
     let topEndTarget = actionMap.get(ACTION.ENTER_TOP_END);
     if (topEndTarget == null) {
@@ -119,29 +106,40 @@ export default function useEntries(options: {
     let bottomEndTarget = actionMap.get(ACTION.ENTER_BOTTOM_END);
     if (bottomEndTarget != null) {
       let target = bottomEndTarget[0];
-      const info = entriesInfoWeakMap.get(target)!;
-      console.log(info, info.realIndex, info.translateY, entries);
 
-      options.getList(info.realIndex);
-      options.styleRef.value = {
-        'transform': `translateY(${transformYList[info.realIndex - 1]}px)`
-      };
+      requestAnimationFrame(() => {
+
+        const firstTargetInfo = entriesInfoWeakMap.get(entries[0].target);
+        if (firstTargetInfo?.position === ACTION.LEAVE_TOP_START) {
+          // 意味着可能太快了
+          const children = options.getChildren();
+          const firstChild = children[0];
+          if (firstChild) {
+            const firstChildInfo = firstChild.getBoundingClientRect();
+            if (firstChildInfo.bottom > entries[0].rootBounds!.bottom) {
+              options.getList(0); // 开摆！！
+              options.styleRef.value = {
+                'transform': `translateY(0px)`
+              };
+            }
+          }
+
+        }
+
+      });
+
       return;
     }
-
-
-    console.log('未触发getList', actionMap);
 
 
   };
 
 
   const cb = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-    if (entries.length === options.getTotal()) {
+    if (entries.length === options.getChildren().length) {
       onInit(entries);
       return;
     }
-
     entriesHandler(entries);
     // console.log('-----------cb over----------');
   };
@@ -229,13 +227,13 @@ export const getAction = (entry: IntersectionObserverEntry, prevInfo: EntryInfo)
     } else if (prevPosition === POSITION_TYPE.BOTTOM_VISIBLE) {
       returnAction = ratioSub > 0 ? ACTION.ENTER_BOTTOM_START : ACTION.LEAVE_BOTTOM_END;
     } else {
-      console.log(prevInfo.ratio, prevPosition, entry.intersectionRatio, currentPosition);
+      // console.log(prevInfo.ratio, prevPosition, entry.intersectionRatio, currentPosition);
       returnAction = ACTION.UNKNOWN;
     }
   } else {
     returnAction = ACTION_POSITION_MAP[prevPosition]?.[currentPosition];
     if (returnAction == null) {
-      console.log(prevInfo.ratio, prevPosition, entry.intersectionRatio, currentPosition);
+      // console.log(prevInfo.ratio, prevPosition, entry.intersectionRatio, currentPosition);
       returnAction = ACTION.UNKNOWN;
     }
   }

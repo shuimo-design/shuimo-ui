@@ -2,7 +2,7 @@
  * @description vue version virtualList
  * @author 阿怪
  * @date 2023/07/18 20:53
- * @version v1.0.0
+ * @version v0.0.1-beta
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
@@ -24,7 +24,7 @@ export default defineComponent({
     return () => {
       return <div class="m-virtual-list" ref={el => containerRef.value = el as HTMLElement}>
         <div class="m-virtual-list-max-height" >
-          <div style={styleRef.value}>
+          <div class="m-virtual-list-wrapper" style={styleRef.value}>
             {
               (displayList.value ?? []).map(l => {
                 return slots.default(l);

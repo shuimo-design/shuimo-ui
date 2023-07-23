@@ -7,25 +7,6 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-
-export enum ACTION_TYPE {
-  ENTER,
-  LEAVE
-}
-
-
-export enum ACTION_POSITION {
-  TOP,
-  BOTTOM
-}
-
-
-export enum THRESHOLD_TYPE {
-  ZERO,
-  ONE
-}
-
-
 export enum ACTION {
   ENTER_TOP_START,
   ENTER_TOP_END,

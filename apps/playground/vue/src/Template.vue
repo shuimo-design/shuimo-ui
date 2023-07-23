@@ -372,7 +372,6 @@ img {
 
 .max-height {
   height: 300px;
-  overflow: auto;
 }
 
 .row-flex {

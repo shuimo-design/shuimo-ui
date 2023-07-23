@@ -1,7 +1,6 @@
 .m-virtual-list {
-  will-change: padding-top;
+  will-change: transform;
+  overflow: auto;
 }
 
-.m-virtual-list-max-height {
-  height: 20000px;
-}
+
