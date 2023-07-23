@@ -6,24 +6,29 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, h, ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/virtualList/api';
 import { useVirtualList } from '@shuimo-design/core/lib/template/VirtualList/useVirtualList';
 
 export default defineComponent({
   name: 'MVirtualList',
   props,
-  setup: (props, { slots }) => {
+  emits: ['reachBottom'],
+  setup: (props, { emit, slots }) => {
     const {
       containerRef,
       lastItemRef,
       displayList,
       styleRef
-    } = useVirtualList({ props }, ref);
+    } = useVirtualList({
+      props, event: {
+        reachBottom: () => emit('reachBottom')
+      }
+    }, ref);
 
     return () => {
       return <div class="m-virtual-list" ref={el => containerRef.value = el as HTMLElement}>
-        <div class="m-virtual-list-max-height" >
+        <div class="m-virtual-list-max-height">
           <div class="m-virtual-list-wrapper" style={styleRef.value}>
             {
               (displayList.value ?? []).map(l => {

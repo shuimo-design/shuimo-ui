@@ -5,6 +5,8 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * fix style any
  */
 import { ACTION } from './enums';
 import { refWrapper } from '../common/MRef';
@@ -21,6 +23,8 @@ export default function useEntries(options: {
     renderEnd: number,
   },
   setVisibleCount: (count: number) => void,
+  getTotal: () => number,
+  reachBottom: () => void,
   styleRef: ReturnType<typeof refWrapper<any>>
 }) {
   const entriesInfoWeakMap: WeakMap<Element, EntryInfo> = new WeakMap();
@@ -67,6 +71,10 @@ export default function useEntries(options: {
 
 
   const entriesHandler = (entries: IntersectionObserverEntry[]) => {
+
+    const maxIndex = options.getTotal() - 1;
+    let touchBottom = false;
+
     const actionList = entries.map(e => {
       const prevInfo = entriesInfoWeakMap.get(e.target)!;
       if (prevInfo == null) {
@@ -74,8 +82,21 @@ export default function useEntries(options: {
       }
       const action = getAction(e, prevInfo);
       prevInfo.ratio = e.intersectionRatio;
+
+      if (prevInfo.realIndex === maxIndex) {
+        if (e.isIntersecting) {
+          touchBottom = true;
+        }
+      }
+
+
       return { action, target: e.target };
     });
+
+    if (touchBottom) {
+      options.reachBottom();
+    }
+
 
     // get every action last target
     const actionMap = new Map<ACTION, Element[]>;
@@ -105,22 +126,19 @@ export default function useEntries(options: {
     }
     let bottomEndTarget = actionMap.get(ACTION.ENTER_BOTTOM_END);
     if (bottomEndTarget != null) {
-      let target = bottomEndTarget[0];
 
       requestAnimationFrame(() => {
 
         const firstTargetInfo = entriesInfoWeakMap.get(entries[0].target);
         if (firstTargetInfo?.position === ACTION.LEAVE_TOP_START) {
-          // 意味着可能太快了
+          // beta --> A workaround that hasn't been fully tested
           const children = options.getChildren();
           const firstChild = children[0];
           if (firstChild) {
             const firstChildInfo = firstChild.getBoundingClientRect();
             if (firstChildInfo.bottom > entries[0].rootBounds!.bottom) {
               options.getList(0); // 开摆！！
-              options.styleRef.value = {
-                'transform': `translateY(0px)`
-              };
+              options.styleRef.value = { 'transform': `translateY(0px)` };
             }
           }
 
@@ -141,7 +159,6 @@ export default function useEntries(options: {
       return;
     }
     entriesHandler(entries);
-    // console.log('-----------cb over----------');
   };
 
 
@@ -210,12 +227,6 @@ const getPosition = (entry: IntersectionObserverEntry) => {
 };
 
 export const getAction = (entry: IntersectionObserverEntry, prevInfo: EntryInfo) => {
-  const { top, bottom } = entry.rootBounds!;
-  const { top: entryTop, bottom: entryBottom } = entry.boundingClientRect;
-
-
-  // const thresholdType = entry.intersectionRatio > 0.5 ? ACTION_TYPE.ONE : THRESHOLD_TYPE.ZERO;
-
   const prevPosition = prevInfo.position as POSITION_TYPE;
   const currentPosition = getPosition(entry);
   let returnAction;

@@ -34,7 +34,10 @@ export const initBoundary = (options: {
 
 
 export function useVirtualList(options: Options<{
-  props: VirtualListProps
+  props: VirtualListProps,
+  event: {
+    reachBottom: () => void,
+  }
 }>, refInit: RefInit) {
 
   const containerRef = refWrapper<HTMLElement | null>(null, refInit);
@@ -66,7 +69,7 @@ export function useVirtualList(options: Options<{
   };
 
 
-  const getList = (from :number) => {
+  const getList = (from: number) => {
     const initRes = initBoundary({ from: from, total, visibleCount, overScanCoefficient });
     const { renderFrom, renderEnd } = initRes;
     Object.assign(info, initRes);
@@ -84,7 +87,9 @@ export function useVirtualList(options: Options<{
     setVisibleCount: count => {
       visibleCount = count;
     },
-    styleRef
+    getTotal: () => total,
+    styleRef,
+    reachBottom: options.event?.reachBottom ?? (() => {})
   });
 
   useContainerObserver({
