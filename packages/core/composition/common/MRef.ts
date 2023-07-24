@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import Effect from "./effect";
+import Effect from './effect';
 
 type Ref<T> = { value: T };
 type State<T> = [T, Function];
@@ -75,8 +75,12 @@ export const refWrapper = <T>(val: T, fn: RefInit<T>) => {
       return v.value;
     },
     set(target, p: PropertyKey, value) {
+      if (v.value === value) {
+        return true;
+      }
+
       v.value = value;
-      Effect.run(proxy)
+      Effect.run(proxy);
       return true;
     }
   }) as ProxyConstructor & { value: T };
