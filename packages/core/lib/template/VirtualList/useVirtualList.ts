@@ -94,7 +94,10 @@ export function useVirtualList(options: Options<{
 
   useContainerObserver({
     containerRef,
-    callback: cb
+    callback: cb,
+    getTarget: ()=>{
+      return containerRef.value?.children?.[0].children?.[0].children ?? [] as unknown as HTMLCollection;
+    }
   });
 
   return {

@@ -12,29 +12,65 @@ import { useResizeObserver } from '../common/useResizeObserver';
 type RRefWrapper<T> = ReturnType<typeof refWrapper<T>>;
 export default function useContainerObserver(options: {
   containerRef: RRefWrapper<HTMLElement | null>,
+  threshold?: number | number[],
+  getTarget: () => HTMLCollection | Element,
   callback: (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => void
 }) {
   let ob: IntersectionObserver;
 
-  const getChildren = () => {
-    // magic!! because the MVirtualList has three div wrapper
-    return options.containerRef.value?.children?.[0].children?.[0].children ?? [] as unknown as HTMLCollection;
-  };
+  type TargetType = HTMLCollection | Element | Element[];
 
-  const toObserve = (domList: HTMLCollection) => {
-    if (domList) {
-      for (let i = 0; i < domList.length; i++) {
-        ob.observe(domList[i]);
+  const eventQueue: Array<{ target: TargetType, type: 'observe' | 'unobserve' }> = [];
+  const clearQueue = () => {
+    if (ob) {
+      while (eventQueue.length) {
+        const { target, type } = eventQueue.shift()!;
+        handlerEvent(target, type);
       }
     }
   };
 
-  const clearObserve = (domList: HTMLCollection) => {
-    if (domList) {
-      for (let i = 0; i < domList.length; i++) {
-        ob.unobserve(domList[i]);
+
+  const handlerEvent = (target: TargetType, type: 'observe' | 'unobserve') => {
+
+    if (!ob) {
+      eventQueue.push({ target, type });
+      return;
+    }
+
+
+    if (target) {
+      if (Array.isArray(target)) {
+        for (let i = 0; i < target.length; i++) {
+          ob[type](target[i]);
+        }
+      } else {
+        ob[type](target as Element);
       }
     }
+  };
+
+
+  const observeList: Element[] = [];
+  const toObserve = (target: TargetType) => {
+    if (Array.isArray(target)) {
+      for (let i = 0; i < target.length; i++) {
+        observeList.push(target[i]);
+      }
+    } else {
+      observeList.push(target as Element);
+    }
+    handlerEvent(target, 'observe');
+  };
+
+  const clearObserve = (target: TargetType) => {
+    handlerEvent(target, 'unobserve');
+  };
+
+  const reObserve = (target: TargetType) => {
+    clearObserve(observeList);
+    observeList.length = 0;
+    toObserve(target);
   };
 
 
@@ -42,19 +78,22 @@ export default function useContainerObserver(options: {
     if (ob) {ob.disconnect();}
     ob = new IntersectionObserver(options.callback, {
       root: options.containerRef.value,
-      threshold: [0, 1]
+      threshold: options.threshold ?? [0, 1]
     });
+    clearQueue();
   };
-
 
   useResizeObserver(options.containerRef, () => {
     if (options.containerRef.value) {
       if (!ob) {initOb();}
-      const children = getChildren();
-      clearObserve(children);
-      toObserve(children);
+      const target = options.getTarget();
+      reObserve(target);
     }
   });
 
+
+  return {
+    reObserve
+  };
 
 }
