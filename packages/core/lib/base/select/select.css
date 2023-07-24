@@ -128,3 +128,9 @@
     animation: shake 0.4s 2;
   }
 }
+
+.m-select-loading{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

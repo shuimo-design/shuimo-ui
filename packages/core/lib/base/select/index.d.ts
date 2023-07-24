@@ -99,5 +99,26 @@ export declare type SelectProps = {
    * @type function  (options:any, inputValue: string) =>boolean
    * @default undefined
    */
-  filter?: (options: any, inputValue: string) => boolean
+  filter?: (options: any, inputValue: string) => boolean,
+  /**
+   * @description The height of the options dom
+   *              下拉框的高度
+   * @type number | string
+   * @default undefined
+   */
+  optionsH?: number | string,
+  /**
+   * @description Whether to fetch
+   *              是否fetch
+   * @type boolean
+   * @default false
+   */
+  needFetch?: boolean,
+  /**
+   * @description beta version autoComplete fetch func, should return an end flag
+   *            beta版本的自动补全，需要返回一个是否停止标志
+   * @type Function
+   * @default undefined
+   */
+  fetch?: () => Promise<void>
 };

@@ -118,13 +118,13 @@
 
     </div>
 
-    <m-dark-mode></m-dark-mode>
-
-    <div>{{sliderRef}}</div>
-    <div>{{slider2Ref}}</div>
-    <m-slider v-model="sliderRef"/>
-    <m-slider show-info/>
-    <m-slider v-model="slider2Ref" :min="2" :max="20" :step="2"/>
+    <div>
+      <div class="select">
+        <div>{{ value }}</div>
+        <m-select v-model="value" :options="optionsMoreRef" :readonly="false" options-h="200" :need-fetch="needFetch"
+                  :fetch="fetchSelect"/>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -177,6 +177,27 @@ const emitOptions = [
 
 const options2 = ['子', '丑', '寅', '卯'];
 const value2 = ref(['寅', '丑']);
+
+const optionsMore = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+const optionsMoreRef = ref([...optionsMore]);
+
+let count = 1;
+const needFetch = ref(true);
+const fetchSelect = async () => {
+  return new Promise(resolve => {
+
+    setTimeout(() => {
+      optionsMoreRef.value.push(...optionsMore);
+      count++;
+      if(count > 2) {
+        needFetch.value = false;
+        console.log(needFetch.value);
+      }
+      resolve();
+    }, 1000);
+
+  });
+};
 
 
 const customFilter = (options: any, inputValue: any) => {

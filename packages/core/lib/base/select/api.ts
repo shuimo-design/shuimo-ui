@@ -21,5 +21,8 @@ export const props: MCOPO<SelectProps> = {
   toMatch: { type: Function as MPropType<(option: any, value: any) => boolean>, default: undefined },
   multiple: { type: Boolean, default: false },
   checkbox: { type: Boolean, default: true },
-  filter: { type: Function as MPropType<(option: any, inputValue: string) => boolean>, default: undefined }
+  filter: { type: Function as MPropType<(option: any, inputValue: string) => boolean>, default: undefined },
+  optionsH: { type: [Number, String], default: undefined },
+  needFetch: { type: Boolean, default: false },
+  fetch: { type: Function as MPropType<()=> Promise<void>>, default: undefined }
 };

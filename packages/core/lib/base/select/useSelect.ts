@@ -8,9 +8,10 @@
  */
 import { SelectProps } from './index';
 import useSelectTools from './composition/useSelectTools';
-import { MRef, MRefValue } from '../../../composition/common/MRef';
+import { MRef, RefInit } from '../../../composition/common/MRef';
 import usePopover from '../../../composition/common/usePopover';
 import { Options } from '../../../composition/common/defineCore';
+import useSelectFetch from './useSelectFetch';
 
 
 export type OptionType = any;
@@ -20,11 +21,13 @@ export function useSelect(options: Options<{
   value: {
     inputValue: string,
   }
-}>) {
+}>, refInit: RefInit) {
   const tools = useSelectTools(options.props);
   const { popoverOptions } = usePopover();
   const { props } = options;
   const inputValueRef = MRef(options.value.inputValue);
+
+  const fetchOptions = useSelectFetch({ props }, refInit);
 
 
   const inputProps = {
@@ -56,6 +59,7 @@ export function useSelect(options: Options<{
   };
 
   return {
+    ...fetchOptions,
     popoverOptions,
     inputProps,
     getOptions

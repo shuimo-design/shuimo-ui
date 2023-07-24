@@ -2,16 +2,11 @@
  * @description 选择框组件
  * @author 阿怪
  * @date 2021/8/27 11:05 上午
- * @version v2.1.2
+ * @version v2.1.3-beta
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *
- * v1.0.1 修复moduleValue不更新问题、keyParam默认值改为title 阿怪
- * v1.0.2 keyParam默认值改为value，新增titleParam
- * v1.0.3 修复之前两个版本错误的参数流转问题
- * v1.1.0 代码结构改为使用ts，新增输入框筛选功能
- * v1.1.1 添加slot功能
- * v1.1.2 输入模式添加点击查询功能
+ * v1     don't care
  * v2.0.0 重构
  * v2.0.1 添加focus冒泡、dialog添加防抖和仅在option大于0的时候显示判断
  * v2.0.2 修复inputValue在找不到时不更新数据的问题
@@ -22,8 +17,11 @@
  *        inputReadonly改为readonly
  *        multiple支持undefined modelValue 阿怪
  * v2.1.2 support props options update 阿怪  todo -> what will happen if another props changes?
+ * v2.1.3-beta support fetch 阿怪
+ *
+ * todo : maybe should keep options render
  */
-import { computed, defineComponent, h, ref, watch } from 'vue';
+import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/select/api';
 import MInput from './MInput';
 import useBorder from '../../composition/useBorder';
@@ -32,9 +30,10 @@ import useSelectTools from '@shuimo-design/core/lib/base/select/composition/useS
 import { isEmpty } from '@shuimo-design/tools/empty';
 import MTag from './MTag';
 import selectCreator from '@shuimo-design/core/lib/base/select/composition/selectCreator';
-import { SelectOptions } from '@shuimo-design/core/lib/base/select/composition/class/BaseSelect';
+import { ISelectOptions, SelectOptions } from '@shuimo-design/core/lib/base/select/composition/class/BaseSelect';
 import MDeleteIcon from '../other/MDeleteIcon';
 import usePopover from '../../composition/usePopover';
+import MLoading from '../other/loading/MLoading';
 
 const MOption = defineComponent({
   name: 'MOption',
@@ -81,8 +80,9 @@ export default defineComponent({
     const {
       popoverOptions,
       inputProps,
-      getOptions
-    } = useSelect({ props, value: { inputValue } });
+      getOptions,
+      lastOptionRef, selectOptionRef, fetchLoadingRef,
+    } = useSelect({ props, value: { inputValue } }, ref);
 
     const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-select');
 
@@ -121,8 +121,6 @@ export default defineComponent({
       if (isEmpty(inputValue.value)) {
         emit('update:modelValue', undefined);
       }
-
-
       // todo
     };
 
@@ -143,7 +141,25 @@ export default defineComponent({
 
     watch(() => props.options, () => {
       select.optionsUpdate();
-    });
+    }, { deep: true });
+
+
+
+    // temp version
+    const fixPx = (value: string | number | undefined | null) => {
+      if (value == null) {
+        return value;
+      }
+      if (!isNaN(Number(value))) {
+        return `${value}px`;
+      }
+      return value;
+    };
+    const optionsStyleRef = ref(props.optionsH ? {
+      'max-height': fixPx(props.optionsH),
+      'overflow': 'auto'
+    } : undefined);
+
 
     return () => {
       const { withBorder } = useBorder();
@@ -154,6 +170,33 @@ export default defineComponent({
         return String(tools.getOptionValue(o));
       };
 
+      const loadingDom = fetchLoadingRef.value ? <div class="m-select-loading">
+        <MLoading/>
+      </div> : null;
+
+      const initContent: ISelectOptions<OptionType, VNode>['content'] = data => {
+        const { options } = data();
+        const lastIndex = options.length - 1;
+        return withBorder(<div class="m-select-options" style={optionsStyleRef.value}
+                               ref={el => selectOptionRef.value = el}>
+          <div class="m-select-options-inside">
+            {
+              options.length > 0 ? options.map((o, i) =>
+                  h(MOption, {
+                    onClick: () => optionClick(o),
+                    isSelected: o.isSelected,
+                    ref: el => {
+                      if (i === lastIndex) {
+                        lastOptionRef.value = el;
+                      }
+                    }
+                  }, () => getOptionDisplayInfo(o.value))) :
+                getEmpty()
+            }
+          </div>
+          {loadingDom}
+        </div>);
+      };
 
       const render = select.initRender({
         single: {
@@ -162,19 +205,7 @@ export default defineComponent({
                            onFocus={onFocus} onBlur={onBlur}
                            onInput={updateInput} {...inputProps}/>;
           },
-          content: data => {
-            const { options } = data();
-            return withBorder(<div class="m-select-options">
-              {
-                options.length > 0 ? options.map(o =>
-                    h(MOption, {
-                      onClick: () => optionClick(o),
-                      isSelected: o.isSelected
-                    }, () => getOptionDisplayInfo(o.value))) :
-                  getEmpty()
-              }
-            </div>);
-          }
+          content: initContent
         },
         multiple: {
           active: getData => {
@@ -199,19 +230,7 @@ export default defineComponent({
                          {...inputProps}/>}
             </div>, 'm-select-multiple');
           },
-          content: data => {
-            const { options } = data();
-            return withBorder(<div class="m-select-options">
-              {
-                options.length > 0 ? options.map(o =>
-                    h(MOption, {
-                      onClick: () => optionClick(o),
-                      isSelected: o.isSelected
-                    }, () => getOptionDisplayInfo(o.value))) :
-                  getEmpty()
-              }
-            </div>);
-          }
+          content: initContent
         }
       });
 

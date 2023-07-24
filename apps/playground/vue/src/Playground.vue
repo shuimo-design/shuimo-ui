@@ -2,7 +2,7 @@
   <div class="m-rice-paper-inside">
     <h1>这里是vue的playground</h1>
     <m-dark-mode/>
-    <Other/>
+    <Base/>
   </div>
 </template>
 
@@ -19,6 +19,8 @@ import Base from './Base.vue';
 import Other from './Other.vue';
 import Template from './Template.vue';
 import Message from './Message.vue';
+
+
 </script>
 
 <style lang="scss" scoped>
