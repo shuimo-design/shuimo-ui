@@ -17,6 +17,7 @@ import { props } from '@shuimo-design/core/lib/message/popover/api';
 import { Placement } from '@shuimo-design/core/composition/popper/usePopper';
 import style from '@shuimo-design/core/lib/message/popover/popover.css?inline';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
+import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
 
 
 @createMElement({
@@ -57,7 +58,7 @@ export default class MPopover extends LitElement {
         arrowStyle: [this.arrowStyle, this.setArrowStyle, this],
         placement: [this._placement, this.setPlacement, this]
       },
-      props: this
+      props: this as unknown as Required<PopoverProps>
     });
     this.createPopover = createPopover;
   }

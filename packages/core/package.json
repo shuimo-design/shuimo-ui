@@ -7,7 +7,7 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.2.7",
+    "@floating-ui/dom": "^1.4.5",
     "@shuimo-design/tools": "workspace:*",
     "@shuimo-design/types": "workspace:*",
     "dayjs": "^1.11.7",

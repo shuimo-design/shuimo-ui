@@ -8,7 +8,7 @@
  */
 import { PopoverProps } from '../../lib/message/popover';
 import { arrow, flip, offset, shift } from '@floating-ui/dom';
-import { type Options as OffsetOptions } from '@floating-ui/core/src/middleware/offset';
+import { type OffsetOptions } from '@floating-ui/core/src/middleware/offset';
 
 export {
   flip,
