@@ -100,7 +100,7 @@ const components: Record<string, Component> = {
   MPagination,
   MCell,
   MGrid,
-  MVirtualList,
+  MVirtualList
 };
 
 export {
@@ -148,10 +148,10 @@ export {
   MPagination,
   MCell,
   MGrid,
-  MVirtualList,
+  MVirtualList
 };
 
-export function createMUI(options?: MUIOption) {
+export function createMUI(options: MUIOption | undefined) {
   return {
     install: (app: App) => {
       // todo support nuxt

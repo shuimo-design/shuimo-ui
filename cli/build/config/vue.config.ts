@@ -37,7 +37,17 @@ export default defineConfig({
     target: 'esnext',
     lib: {
       name: 'shuimo-ui',
-      fileName: 'shuimo-ui',
+      formats: ['es', 'cjs', 'umd'],
+      fileName: (format, entryName) => {
+        switch (format) {
+          case 'es':
+            return `es/shuimo-ui.mjs`;
+          case 'cjs':
+            return `cjs/shuimo-ui.cjs`;
+          case 'umd':
+            return `umd/shuimo-ui.umd.js`;
+        }
+      },
       entry: getPath('./index.ts')
     },
     rollupOptions: {

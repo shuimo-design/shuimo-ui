@@ -18,12 +18,18 @@
     "coverage": "vitest --coverage"
   },
   "types": "types/shuimo-ui.d.ts",
-  "main": "./dist/shuimo-ui.umd.js",
-  "module": "./dist/shuimo-ui.mjs",
+  "main": "./dist/umd/shuimo-ui.umd.js",
+  "module": "./dist/es/shuimo-ui.mjs",
   "exports": {
     ".": {
-      "import": "./dist/shuimo-ui.mjs",
-      "require": "./dist/shuimo-ui.umd.js"
+      "import": {
+        "types": "./dist/es/shuimo-ui.d.mts",
+        "default": "./dist/es/shuimo-ui.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/shuimo-ui.d.cts",
+        "default": "./dist/cjs/shuimo-ui.cjs"
+      }
     },
     "./*": "./*"
   },
