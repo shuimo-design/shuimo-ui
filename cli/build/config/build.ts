@@ -51,7 +51,7 @@ const tscDeclaration = (path: string, fileName: string) => {
   const outPath = `./config/output/dist/${path}`;
 
   const args = [
-    `../../../node_modules/.bin/vue-tsc ${filePath}`,
+    `../../node_modules/.bin/vue-tsc ${filePath}`,
     `--outDir ${outPath}`,
     '--target esnext',
     '--declaration',
@@ -113,13 +113,14 @@ const run = async () => {
       cpLib('lib'),
       cpLib('types'),
       cpLib('dist'),
+      cpLib('index.ts'),
       cpLib('package.json', '', 'file')
     ]);
 
     if (res.every(r => r)) {
       console.log('build success, now build ts declaration file');
       Promise.all([
-        tscDeclaration('es', 'shuimo-ui.mjs'),
+        // tscDeclaration('es', 'shuimo-ui.mjs'),
         tscDeclaration('cjs', 'shuimo-ui.cjs'),
         tscDeclaration('umd', 'shuimo-ui.umd.js')
       ]);

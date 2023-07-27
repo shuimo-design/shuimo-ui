@@ -6,6 +6,7 @@
     "typeRoots": [],
     "baseUrl": "./lib",
     "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "declarationMap": true
   }
 }

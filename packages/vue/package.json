@@ -9,6 +9,7 @@
     "icons",
     "types",
     "lib",
+    "index.ts",
     "web-types.json",
     "LICENSE"
   ],
@@ -17,7 +18,7 @@
     "test:update": "vitest -u",
     "coverage": "vitest --coverage"
   },
-  "types": "types/shuimo-ui.d.ts",
+  "types": "./dist/es/shuimo-ui.d.mts",
   "main": "./dist/umd/shuimo-ui.umd.js",
   "module": "./dist/es/shuimo-ui.mjs",
   "exports": {

@@ -10,6 +10,7 @@ import { defineConfig } from 'vite';
 import lightningcss from 'vite-plugin-lightningcss';
 import vue from '@vitejs/plugin-vue';
 import vueJSX from '@vitejs/plugin-vue-jsx';
+import dts from 'vite-plugin-dts';
 import * as path from 'path';
 
 // windows sep error?
@@ -24,7 +25,12 @@ export default defineConfig({
   plugins: [
     lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%' }),
     vue({ include: [/\.vue$/], exclude: ['**/react/*.tsx'] }),
-    vueJSX()
+    vueJSX(),
+    dts({
+      outDir: `${outputRoot}/es`,
+      staticImport: true,
+      entryRoot: path.resolve(__dirname, '../../../packages/vue')
+    })
   ],
   resolve: {
     alias: {

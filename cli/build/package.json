@@ -9,6 +9,7 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "vite": "^4.2.2",
+    "vite-plugin-dts": "^3.3.1",
     "vite-plugin-lightningcss": "^0.0.5",
     "vue-tsc": "^1.8.8"
   },
