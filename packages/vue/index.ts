@@ -151,7 +151,7 @@ export {
   MVirtualList
 };
 
-export function createMUI(options: MUIOption | undefined) {
+export function createMUI(options: MUIOption | undefined = {}) {
   return {
     install: (app: App) => {
       // todo support nuxt

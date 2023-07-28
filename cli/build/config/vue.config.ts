@@ -25,12 +25,7 @@ export default defineConfig({
   plugins: [
     lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%' }),
     vue({ include: [/\.vue$/], exclude: ['**/react/*.tsx'] }),
-    vueJSX(),
-    dts({
-      outDir: `${outputRoot}/es`,
-      staticImport: true,
-      entryRoot: path.resolve(__dirname, '../../../packages/vue')
-    })
+    vueJSX()
   ],
   resolve: {
     alias: {
@@ -53,6 +48,7 @@ export default defineConfig({
           case 'umd':
             return `umd/shuimo-ui.umd.js`;
         }
+        return entryName;
       },
       entry: getPath('./index.ts')
     },

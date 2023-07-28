@@ -32,7 +32,7 @@ const pRm = promisify(fs.rm);
 
 const execSync = (cmd: string) => {
   return new Promise((resolve, reject) => {
-    exec(cmd, (res,stdout) => {
+    exec(cmd, (res, stdout) => {
       if (res) {
         console.error(res);
         reject(false);
@@ -43,30 +43,12 @@ const execSync = (cmd: string) => {
   });
 };
 
-// tsc shuimo-ui.mjs --target esnext --declaration  --emitDeclarationOnly --allowJs --skipLibCheck --declarationMap --exactOptionalPropertyTypes
 
-const tscDeclaration = (path: string, fileName: string) => {
-
-  const filePath = `./config/output/dist/${path}/${fileName}`;
-  const outPath = `./config/output/dist/${path}`;
-
-  const args = [
-    `../../node_modules/.bin/vue-tsc ${filePath}`,
-    `--outDir ${outPath}`,
-    '--target esnext',
-    '--declaration',
-    '--emitDeclarationOnly',
-    '--allowJs',
-    '--skipLibCheck',
-    '--declarationMap',
-  ];
-
-  return execSync(args.join(' '));
-};
 const init = (lib: 'vue' | 'react' | 'lit') => {
   const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
     return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
   };
+
   const rm = (path: string, options?: RmOptions) => {
     return pRm(path, options ?? { recursive: true, force: true });
   };
@@ -88,13 +70,21 @@ const init = (lib: 'vue' | 'react' | 'lit') => {
   };
 
 
-  return { cp, cpLib, rename, rmLib };
+  const renameTypes = async () => {
+    await Promise.all([
+      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.mts`),
+      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`),
+    ]);
+    return rm(`./config/output/types/shuimo-ui.d.ts`);
+  };
+
+  return { cp, cpLib, rename, rmLib, renameTypes };
 
 };
 
 const run = async () => {
 
-  const { cp, rename, cpLib, rmLib } = init('vue');
+  const { cp, rename, cpLib, rmLib, renameTypes } = init('vue');
 
   const removeRes = await rmLib('dist');
   const buildRes = await execSync('vite build -c ./config/vue.config.ts');
@@ -114,17 +104,10 @@ const run = async () => {
       cpLib('types'),
       cpLib('dist'),
       cpLib('index.ts'),
-      cpLib('package.json', '', 'file')
+      cpLib('package.json', '', 'file'),
     ]);
 
-    if (res.every(r => r)) {
-      console.log('build success, now build ts declaration file');
-      Promise.all([
-        // tscDeclaration('es', 'shuimo-ui.mjs'),
-        tscDeclaration('cjs', 'shuimo-ui.cjs'),
-        tscDeclaration('umd', 'shuimo-ui.umd.js')
-      ]);
-    }
+    await renameTypes()
 
 
     // todo remove "@shuimo-design/types": "workspace:*"
