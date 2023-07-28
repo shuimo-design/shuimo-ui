@@ -12,7 +12,7 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "react": "^18.2.0",
     "shuimo-ui": "*",
-    "vite": "^4.2.2",
+    "vite": "^4.4.7",
     "vite-plugin-lightningcss": "^0.0.5",
     "vite-plugin-vue-devtools": "^0.0.15",
     "vue": "^3.3.4"
