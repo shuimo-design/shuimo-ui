@@ -9,7 +9,7 @@
 import { MCOPO } from '@shuimo-design/types';
 import { LoadingProps } from './index';
 
-export const defaultSpeed = 2000;
+export const defaultSpeed = 3000;
 export const props: MCOPO<LoadingProps> = {
   speed: { type: Number, default: defaultSpeed },
   mask: { type: Boolean, default: false },

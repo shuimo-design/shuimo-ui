@@ -8,20 +8,12 @@
  *
  * "shua" is an onomatopoeia, just like the sound of a knife cutting through something.
  */
-import { MCOPO, MNodeTemplate } from '@shuimo-design/types';
 import { LoadingProps, LoadingRef } from './index';
 import { unref } from '../../../composition/common/tools';
+import { defaultSpeed } from './api';
 
-
-const defaultSpeed = 2000;
-export const loadingProps: MCOPO<LoadingProps> = {
-  speed: { type: Number, default: defaultSpeed },
-  mask: { type: Boolean, default: false },
-  sideLength: { type: [Number, String], default: 50 }
-};
-
-const baseTimout = 100;
-const shuaLength = 8;
+const baseTimout = 1000;
+const shuaLength = 4;
 const shuaIndexList = Array.from({ length: shuaLength }).map((_, index) => index);
 
 const useRandomNum = (randomSpeed: number, activeFn: (shuaIndex: number) => void) => {
@@ -31,13 +23,17 @@ const useRandomNum = (randomSpeed: number, activeFn: (shuaIndex: number) => void
   let timer;
 
   const pushRandomNum = () => {
-    const randomNum = Math.floor(Math.random() * popList.length);
+    // todo fix: why use random will cause the animation to be stuck
+    // const randomNum = Math.floor(Math.random() * popList.length);
+    const randomNum = 0;
     shuaList.push(popList.splice(randomNum, 1)[0]);
     if (popList.length === 0) {
       popList = Array.from(shuaIndexList);
     }
     activeFn(shuaList.pop()!);
-    timer = setTimeout(pushRandomNum, randomSpeed * Math.random() + baseTimout);
+    // const ms = randomSpeed * Math.random() / 3 + randomSpeed * 0.7;
+    const ms = randomSpeed * 0.7;
+    timer = setTimeout(pushRandomNum, ms);
   };
 
 
@@ -57,10 +53,8 @@ export function useLoading() {
     const ref = unref(refValue);
     if (!ref || !ref.classList) return;
     ref.classList.add(showClassName);
-    ref.style.setProperty(ROTATE_VAR_NAME, `rotate(${0.1 * Math.random()}turn)`);
     setTimeout(() => {
       ref.classList.remove(showClassName);
-      ref.style.removeProperty(ROTATE_VAR_NAME);
     }, speed);
   };
 
