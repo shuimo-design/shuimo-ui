@@ -12,7 +12,8 @@
  */
 
 export declare type VirtualListProps<T = any> = {
-
+  /**
+   * @description list
+   */
   list?: Array<T>
-
 };
