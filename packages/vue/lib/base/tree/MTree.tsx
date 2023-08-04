@@ -17,7 +17,7 @@ export default defineComponent({
   props,
   emit: {
     'update:checkedKeys': (keys: TreeNodeData['key'][]) => true,
-    'node-click': (node: TreeNodeData, e: MouseEvent) => true,
+    'node-click': (node: TreeNodeData, e: MouseEvent) => true
   },
   setup: (props, { emit }) => {
     const treeRef = shallowRef<Tree>();
@@ -52,12 +52,12 @@ export default defineComponent({
     return () => {
       const treeNodeProps: TreeNodeProps = {
         data: treeData.value,
-        config: props.config,
+        config: treeRef.value.config,
         checkbox: props.checkbox,
         getNodesByKeys,
         handleExpand,
         handleCheck: handleCheckbox,
-        handleItemClick,
+        handleItemClick
       };
       return <div class="m-tree">
         <MTreeNode {...treeNodeProps}/>

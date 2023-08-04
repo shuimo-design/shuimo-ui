@@ -106,6 +106,7 @@ export interface TreeConfig {
   label: string;
   value: string;
   children: string;
+  expand: string;
 }
 
 export declare type TreeEvents = {
