@@ -2,7 +2,7 @@
   <div class="m-rice-paper-inside">
     <h1>这里是vue的playground</h1>
     <m-dark-mode/>
-    <Other/>
+    <Template/>
   </div>
 </template>
 
@@ -23,6 +23,6 @@ import Message from './Message.vue';
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

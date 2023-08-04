@@ -1,0 +1,32 @@
+{
+  "name": "@shuimo-design/doc",
+  "author": "阿怪",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "doc:dev": "nuxt dev --port 8513",
+    "build": "jh-api && nuxt build && npm run fontmin",
+    "doc:build": "nuxt build",
+    "doc:build:start": "npm run build && node .output/server/index.mjs",
+    "doc:generate": "nuxt generate",
+    "doc:preview": "nuxt preview",
+    "doc:postinstall": "nuxt prepare",
+    "doc:jh-api": "jh-api",
+    "doc:fontmin": "cd ./script/fontmin && npm run replace",
+    "prepare": "jhlint install",
+    "doc:lint": "jhlint"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@shuimo-design/core": "workspace:*",
+    "@types/node": "^18.17.1",
+    "nuxt": "^3.6.5",
+    "shuimo-ui": "*"
+  },
+  "web-types": "../../cli/build/config/output/web-types.json",
+  "dependencies": {
+    "@higuaifan/rollup-plugin-fontmin": "^0.0.5",
+    "@janghood/config": "0.0.1-3",
+    "prismjs": "^1.29.0"
+  }
+}

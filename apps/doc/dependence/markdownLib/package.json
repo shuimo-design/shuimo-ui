@@ -1,0 +1,14 @@
+{
+  "name": "@shuimo-design/markdown-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@antfu/utils": "^0.5.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1"
+  }
+}

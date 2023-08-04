@@ -37,7 +37,7 @@ function generateMockData(level: number, pLevel?: string, pKey?: string): TreeDa
 
 const maxLevel = 3;
 const mockData = generateMockData(maxLevel);
-console.log('mock data=> ', mockData);
+// console.log('mock data=> ', mockData);
 const treeData = ref(mockData);
 const d = generateMockData(5);
 </script>
@@ -47,11 +47,11 @@ const d = generateMockData(5);
     {{ checkedKeys }}
     <br/>
     <div>
-      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d" :default-expand-all="true"></m-tree>
+<!--      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d" :default-expand-all="true"></m-tree>-->
     </div>
     <br/>
     <div>
-      <m-tree :data="treeData"/>
+<!--      <m-tree :data="treeData"/>-->
     </div>
   </div>
 </template>

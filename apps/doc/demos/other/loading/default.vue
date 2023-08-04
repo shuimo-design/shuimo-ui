@@ -1,0 +1,3 @@
+<template>
+  <m-loading/>
+</template>

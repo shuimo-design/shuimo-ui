@@ -259,19 +259,26 @@
       </div>
     </div>
 
-    <div class="row-flex">
-      <m-virtual-list class="max-height" :list="baseList" v-if="false">
-        <template #default="data">
-          <div class="virtual-list-item">{{ data }}</div>
-        </template>
-      </m-virtual-list>
-      <m-virtual-list class="max-height" :list="optionsMore">
-        <template #default="data">
-          <div class="virtual-list-item">{{ data }}</div>
-        </template>
-      </m-virtual-list>
-    </div>
+    <!--    <div class="row-flex">-->
+    <!--      <m-virtual-list class="max-height" :list="baseList" v-if="false">-->
+    <!--        <template #default="data">-->
+    <!--          <div class="virtual-list-item">{{ data }}</div>-->
+    <!--        </template>-->
+    <!--      </m-virtual-list>-->
+    <!--      <m-virtual-list class="max-height" :list="optionsMore">-->
+    <!--        <template #default="data">-->
+    <!--          <div class="virtual-list-item">{{ data }}</div>-->
+    <!--        </template>-->
+    <!--      </m-virtual-list>-->
+    <!--    </div>-->
 
+    <!--  <MTree/>-->
+
+    <m-menu :data="menu" :config="{label:'title'}"/>
+    <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
+    <m-tree :data="menu" :config="{label:'title'}"/>
+
+    <MTreeTemp/>
   </div>
 </template>
 
@@ -285,6 +292,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from 'vue';
+import MTreeTemp from './MTree.vue';
 
 
 const submitEvent = () => {
@@ -312,6 +320,58 @@ const [D, addD, subD] = init(10);
 const baseList = ['子1', '丑2', '寅3', '卯4', '辰5', '巳6', '午7', '未8', '申9', '酉10', '戌11', '亥12'];
 const optionsMore = Array.from({ length: 10 })
     .fill(baseList).flat();
+
+
+const menu = [{
+  title: '首页', route: 'main', isActive: true, children: [
+    { title: '快速开始', route: 'quickStart', isActive: false },
+    { title: '颜色', route: 'color', isActive: false },
+    { title: '从wash-painting升级', route: 'w2m', isActive: false }
+  ]
+},
+
+  {
+    title: '基础组件', route: 'button', isActive: false, children: [
+      { title: '按钮', route: 'button', isActive: false },
+      { title: '输入框', route: 'input', isActive: false },
+      { title: '单选框', route: 'radio', isActive: false },
+      { title: '复选框', route: 'checkbox', isActive: false },
+      { title: '选择框', route: 'select', isActive: false },
+      { title: '日期选择框', route: 'datePicker', isActive: false },
+      { title: '列表', route: 'list', isActive: false },
+      { title: '开关', route: 'switch', isActive: false },
+      { title: '标签', route: 'tag', isActive: false }
+    ]
+  },
+  {
+    title: '模版组件', route: 'form', isActive: false, children: [
+      { title: '表单', route: 'form', isActive: false },
+      { title: '列表', route: 'table', isActive: false },
+      { title: '分页', route: 'pagination', isActive: false },
+      { title: '宣纸布局', route: 'rice-paper', isActive: false }
+    ]
+  },
+  {
+    title: '消息组件', route: 'dialog', isActive: false, children: [
+      { title: '弹窗', route: 'dialog', isActive: false },
+      { title: '抽屉', route: 'drawer', isActive: false },
+      { title: '提示', route: 'message', isActive: false },
+      { title: '气泡卡片', route: 'popover', isActive: false },
+      { title: '悬浮提示', route: 'tooltip', isActive: false },
+      { title: '确认框', route: 'confirm', isActive: false }
+    ]
+  },
+  {
+    title: '其他组件', route: 'upload', isActive: false, children: [
+      { title: '文件上传', route: 'upload', isActive: false },
+      { title: '控制台打印', route: 'printer', isActive: false },
+      { title: '分割线', route: 'divider', isActive: false },
+      { title: '进度条', route: 'progress', isActive: false },
+      { title: '边框', route: 'border', isActive: false },
+      { title: '滚动条', route: 'scroll', isActive: false },
+      { title: '加载', route: 'loading', isActive: false }
+    ]
+  }];
 
 </script>
 
