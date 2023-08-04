@@ -8,7 +8,7 @@
  */
 import { defineComponent, ref } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/virtualList/api';
-import { useVirtualList } from '@shuimo-design/core/lib/template/VirtualList/useVirtualList';
+import { useVirtualList } from '@shuimo-design/core/lib/template/virtualList/useVirtualList';
 
 export default defineComponent({
   name: 'MVirtualList',
