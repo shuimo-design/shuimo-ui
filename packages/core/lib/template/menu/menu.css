@@ -1,14 +1,48 @@
 .m-menu {
+  display: flex;
+  padding-top: 124px;
+  background: url(./assets/menu_line.png) 0 0 repeat-y;
+  background-position-x: 8px;
 
-  padding-inline-start: 20px;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  --m-menu-line-w: 27px;
 
-  &.m-menu-inline {
-    ::slotted(m-menu-item) {
-      display: inline-flex;
+}
+
+.m-menu-main {
+  display: inline-block;
+
+  & .m-menu-item {
+    margin: 12px 0;
+    font-size: 14px;
+
+    &:hover {
+
+      & > span {
+        font-weight: bold;
+      }
     }
   }
 
+  & > .m-menu-item {
+    margin: 16px 0;
+    padding-left: 27px;
+    background: url(../../assets/icon/base_icon.webp) no-repeat;
+    background-position-x: 8px;
+    background-position-y: 8px;
 
+    & > span {
+      font-size: 20px;
+    }
+
+    & span {
+      margin-left: 12px;
+    }
+
+    &.m-menu-item-active {
+      background: url(../../assets/icon/active_icon.webp) no-repeat;
+      background-position-x: 0;
+    }
+  }
 }
+
+

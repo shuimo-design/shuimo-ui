@@ -1,42 +1,59 @@
 /**
- * @description menu api type
+ * @description
  * @author 阿怪
- * @date 2022/4/17 00:55
+ * @date 2023/08/03 15:28
  * @version v1.0.0
  *
  * @name m-menu
  * @docDescription menu component with shuimo-ui style.
- *                 水墨组件的目录组件。
- * @docUrl https://shuimo.janghood.com/menu
+ * @docUrl https://shuimo.janghood.com/menu,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { LiProps } from '../../base/li';
-
+import { TreeConfig, TreeData } from '../../base/tree';
 
 export declare type MenuProps = {
   /**
-   * @description menu array
-   * @type MenuType[]
+   * @description tree data
+   *              树数据
+   * @type TreeData
    * @default []
    */
-  menu?: any,
+  data?: TreeData | TreeData[];
   /**
-   * @description menu inline
+   * @description tree config
+   *              树配置
+   * @type TreeConfig
+   * @default { key:'key', label:'label', value:'value', children: 'children' }
+   */
+  config?: TreeConfig;
+  /**
+   * @description checkbox 是否使用checkbox
+   *              树数据
+   * @type TreeData
+   * @default []
+   */
+  checkbox?: boolean;
+  /**
+   * @description default expand all nodes
+   *              是否默认打开所有节点
    * @type boolean
    * @default false
    */
-  inline?: boolean
-}
-
-export declare type MenuItemProps = LiProps;
-
-
-// export type MenuType = {
-//   title: string,
-//   key: any,
-//   isActive: boolean,
-//   index?: number[],
-//   children?: MenuTypeArr
-// }
-// export type MenuTypeArr = Array<MenuType>;
+  defaultExpandAll?: boolean;
+  /**
+   * @description checked keys
+   *              选中key列表
+   * @type Array<string|number>
+   * @default []
+   */
+  checkedKeys?: Array<string | number>;
+  /**
+   * @description the selected status of the parent and child nodes is no longer associated,
+   *              and can be selected or canceled separately
+   *              父子节点选中状态不再关联，可各自选中或取消
+   * @type boolean
+   * @default true
+   */
+  checkStrictly?: boolean;
+};

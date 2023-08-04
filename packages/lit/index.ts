@@ -52,6 +52,7 @@ export const initWebComponent = async (prev = 'm') => {
     import('./lib/template/MCell'),
     import('./lib/template/MGrid'),
     import('./lib/template/MVirtualList'),
+    import('./lib/template/MMenu'),
 
     // [other]
     import('./lib/other/MDivider'),

@@ -48,3 +48,4 @@ export { default as MPagination } from './lib/template/MPagination';
 export { default as MCell } from './lib/template/MCell';
 export { default as MGrid } from './lib/template/MGrid';
 export { default as MVirtualList } from './lib/template/MVirtualList';
+export { default as MMenu } from './lib/template/MMenu';

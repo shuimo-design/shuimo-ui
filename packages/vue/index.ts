@@ -57,6 +57,7 @@ import MWCRicePaper from './lib/template/ricePaper/MWCRicePaper';
 import MCell from './lib/template/MCell';
 import MGrid from './lib/template/MGrid';
 import MVirtualList from './lib/template/MVirtualList';
+import MMenu from './lib/template/menu/MMenu';
 
 const components: Record<string, Component> = {
   // [base]
@@ -100,7 +101,8 @@ const components: Record<string, Component> = {
   MPagination,
   MCell,
   MGrid,
-  MVirtualList
+  MVirtualList,
+  MMenu
 };
 
 export {
@@ -148,7 +150,8 @@ export {
   MPagination,
   MCell,
   MGrid,
-  MVirtualList
+  MVirtualList,
+  MMenu
 };
 
 export function createMUI(options: MUIOption | undefined = {}) {
