@@ -29,6 +29,7 @@ export const menu: MenuTypeArr = [
       { label: '列表', route: 'list', isActive: false },
       { label: '开关', route: 'switch', isActive: false },
       { label: '标签', route: 'tag', isActive: false },
+      { label: '滑动条', route: 'slider', isActive: false },
     ]
   },
   {
