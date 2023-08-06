@@ -28,12 +28,15 @@ export default defineComponent({
       };
     });
 
-    watch(() => props.value, () => {
-      perRef.value = props.value;
-    });
+    // watch(() => props.value, () => {
+    //   perRef.value = props.value;
+    // });
 
     const { onMountedEvent, sliderRef } = useSlider({
-      props,
+      props: {
+        ...props,
+        value: props.modelValue
+      },
       value: { btnRef, perRef },
       event: {
         change: value => {

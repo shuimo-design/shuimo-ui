@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MRef, MRefValue, RMRef } from './MRef';
+import { MRef, MRefValue } from './MRef';
 import interactjs from 'interactjs';
 import { MessageDirectionType } from '../../lib/message/message';
 
@@ -29,11 +29,11 @@ export default function useDrag(config: {
 }) {
   const domRef = MRef(config.value.domRef);
 
-  const init = () => {
+  const init = (basePosition?: { x?: number, y?: number }) => {
     if (!domRef.value) {
       return;
     }
-    const position: DragPosition = { x: 0, y: 0 };
+    const position: DragPosition = { x: basePosition?.x ?? 0, y: basePosition?.y ?? 0 };
     return interactjs(domRef.value)
       .styleCursor(false)
       .draggable({

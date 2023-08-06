@@ -47,7 +47,6 @@ export function useSlider(options: Options<{
     perRef.value = positionX / totalW;
     options.event.change(getValue());
     return { x: positionX > 0 ? positionX : 0, y: 0 };
-
   };
 
 
@@ -57,16 +56,34 @@ export function useSlider(options: Options<{
   };
 
 
-  const { init } = useDrag({
+  const { init: initDrag } = useDrag({
     direction: 'top-right',
     value: {
       domRef: btnRef
     },
     event: {
       getOption: () => option,
-      movePositionHandler,
+      movePositionHandler
     }
   });
+
+  const init = () => {
+    if (btnRef.value) {
+      const { max, min, value } = options.props;
+      const per = (value-min) / (max - min);
+      if (window && sliderRef.value) {
+        const w = Number.parseFloat(window.getComputedStyle(sliderRef.value).width);
+
+        const totalW = w - btnW;
+        perRef.value = per;
+        const x = per * totalW;
+        btnRef.value.style.transform = `translate(${x}px, 0)`;
+
+        initDrag({ x });
+      }
+
+    }
+  };
 
   const onMountedEvent = () => {
     init();
