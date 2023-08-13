@@ -14,7 +14,7 @@
  * v2.0.1 阿怪 add input event
  * v2.0.2 阿怪 fix type sinking error
  */
-import { computed, defineComponent, h } from 'vue';
+import { computed, defineComponent, h, useAttrs } from 'vue';
 import { props } from '@shuimo-design/core/lib/base/input/api';
 import { HTMLElementEvent } from '@shuimo-design/types';
 import MBorder from '../template/border/MBorder';
@@ -27,6 +27,7 @@ export default defineComponent({
     modelValue: { type: [String, Number], default: '' }
   },
   setup(props, { emit }) {
+    const attrs = useAttrs()
 
     const borderClass = computed(() => ({
       class: ['m-input', { 'm-textarea': props.type === 'textarea' }, { 'm-input-disabled': props.disabled }]
@@ -35,6 +36,7 @@ export default defineComponent({
       const isInput = props.type !== 'textarea';
 
       return h(MBorder, borderClass.value, () => h(!isInput ? 'textarea' : 'input', {
+        ...attrs,
         value: props.modelValue,
         placeholder: props.placeholder,
         disabled: props.disabled,

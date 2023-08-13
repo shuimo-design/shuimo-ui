@@ -21,7 +21,7 @@ import {
 import { useState } from 'react';
 
 export default function Base() {
-  const buttonClick = () => {console.log('button click');};
+  const buttonClick = () => { console.log('button click'); };
 
   const button = <div>
     <MButton onClick={buttonClick}>你好</MButton>
@@ -41,11 +41,12 @@ export default function Base() {
   };
   const input = <div>
     <span>{inputVal}</span>
-    <br/>
-    <MInput value={inputVal} onInput={inputChange}/>
-    <MInput readonly value={inputVal} onInput={inputChange}/>
-    <MInput disabled value={inputVal} onInput={inputChange}/>
-    <MInput type="textarea"></MInput>
+    <br />
+    <MInput value={inputVal} onInput={inputChange} />
+    <MInput autoFocus value={inputVal} onInput={inputChange} />
+    {/* <MInput readonly value={inputVal} onInput={inputChange} />
+    <MInput disabled value={inputVal} onInput={inputChange} />
+    <MInput type="textarea"></MInput> */}
   </div>;
 
 
@@ -61,19 +62,19 @@ export default function Base() {
 
   const checkbox = <div className="checkbox">
     <span>{checkboxVal ? 'true' : 'false'}</span>
-    <br/>
-    <MCheckbox/>
+    <br />
+    <MCheckbox />
     <MCheckbox disabled></MCheckbox>
     <MCheckbox modelValue={checkboxVal} onInput={checkboxChange}></MCheckbox>
     <MCheckbox>slot</MCheckbox>
     <MCheckbox label="label"></MCheckbox>
     <MCheckbox label="label">replace by label</MCheckbox>
     <MCheckbox checked={true}>default checked</MCheckbox>
-    <br/>
+    <br />
     <span>checkboxValNumber:{checkboxValNumber}</span>
-    <br/>
+    <br />
     <MCheckbox modelValue={checkboxValNumber} onInput={setCheckboxValNumber} value={1}>number value 1</MCheckbox>
-    <br/>
+    <br />
     <MCheckbox modelValue={checkboxValNumber} onInput={setCheckboxValNumber} value={2}>number value 2</MCheckbox>
   </div>;
 
@@ -117,26 +118,26 @@ export default function Base() {
 
   const stringList = ['轩辕剑', '湛卢', '赤霄'];
 
-  const listData = (data:{data:{title:string}})=>{
+  const listData = (data: { data: { title: string } }) => {
     return <span>{data.data.title}</span>
   }
 
   const list = <div className="list">
-    <MList data={stringList}/>
-    <MList data={dataList} children={listData}/>
+    <MList data={stringList} />
+    <MList data={dataList} children={listData} />
   </div>
 
   const avatar = <div className="avatar">
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
-    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" />
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" />
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large" />
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large" />
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small" />
+    <MAvatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small" />
   </div>
 
 
   return <div className="flex">
-    {avatar}
+    {input}
   </div>;
 }

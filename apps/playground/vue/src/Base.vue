@@ -3,17 +3,17 @@
 
     <div class="hidden" v-if="false">
       <div class="avatar">
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" />
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" />
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large" />
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large" />
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small" />
+        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small" />
       </div>
       <div class="list">
-        <m-list :data="stringList"/>
+        <m-list :data="stringList" />
         <m-list :data="dataList">
-          <template #default="{data}">
+          <template #default="{ data }">
             <span>title:{{ data.title }}</span>
           </template>
         </m-list>
@@ -32,46 +32,46 @@
       </div>
       <div class="switch">
         <span>参数值为：{{ switchValue }}</span>
-        <m-switch v-model="switchValue"/>
-        <m-switch v-model="switchValue" loading/>
-        <m-switch v-model="switchValue" disabled/>
+        <m-switch v-model="switchValue" />
+        <m-switch v-model="switchValue" loading />
+        <m-switch v-model="switchValue" disabled />
       </div>
       <div class="radio">
         <span>radio:{{ radioVal }}</span>
-        <br/>
+        <br />
 
-        <m-radio v-model="radioVal" :label="radioLabel" name="hi" :value="radioLabel"/>
-        <m-radio label="2" name="hi" value="2"/>
-        <m-radio label="3" name="hi" value="2"/>
+        <m-radio v-model="radioVal" :label="radioLabel" name="hi" :value="radioLabel" />
+        <m-radio label="2" name="hi" value="2" />
+        <m-radio label="3" name="hi" value="2" />
       </div>
       <div class="checkbox">
-        <m-progress :value="20"/>
-        <m-progress :value="44" show-info/>
+        <m-progress :value="20" />
+        <m-progress :value="44" show-info />
         <m-progress :value="44" show-info>44</m-progress>
 
         <span>{{ checkboxVal }}</span>
-        <br/>
-        <m-checkbox/>
+        <br />
+        <m-checkbox />
         <m-checkbox disabled></m-checkbox>
         <m-checkbox v-model="checkboxVal"></m-checkbox>
         <m-checkbox>slot</m-checkbox>
         <m-checkbox label="label"></m-checkbox>
         <m-checkbox label="label">replace by label</m-checkbox>
         <m-checkbox :checked="true">default checked</m-checkbox>
-        <br/>
+        <br />
         <span>checkboxValNumber:{{ checkboxValNumber }}</span>
-        <br/>
+        <br />
         <m-checkbox v-model="checkboxValNumber" :value="1">number value 1</m-checkbox>
-        <br/>
+        <br />
         <m-checkbox v-model="checkboxValNumber" :value="2">number value 2</m-checkbox>
-        <br/>
+        <br />
         <span>{{ checkboxObjectValue }}</span>
-        <br/>
+        <br />
         <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject">obj value</m-checkbox>
       </div>
       <div class="input">
         <span>{{ inputValue }}</span>
-        <br/>
+        <br />
         <m-input v-model="inputValue"></m-input>
         <m-input readonly v-model="inputValue"></m-input>
         <m-input disabled v-model="inputValue"></m-input>
@@ -91,38 +91,47 @@
         <div>{{ value }}</div>
         <div>{{ emitValue }}</div>
         <div>{{ value2 }}</div>
-        <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>
-        <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
-        <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
-        <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
+        <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2" />
+        <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value" />
+        <m-select v-model="value2" :options="options2" multiple :readonly="false" />
+        <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter" />
 
       </div>
 
       <div class="date-picker">
-        <m-date-picker/>
+        <m-date-picker />
         <span>{{ date }}</span>
-        <m-date-picker v-model="date"/>
-        <m-date-picker v-model="date" type="month"/>
+        <m-date-picker v-model="date" />
+        <m-date-picker v-model="date" type="month" />
       </div>
 
       <div class="checkbox-group">
         <span>{{ checkboxGroup }}</span>
         <m-checkbox-group v-model="checkboxGroup">
-          <m-checkbox label="1" :value="1"/>
-          <m-checkbox label="2" :value="2"/>
-          <m-checkbox label="3" :value="3"/>
-          <m-checkbox label="4" :value="4"/>
+          <m-checkbox label="1" :value="1" />
+          <m-checkbox label="2" :value="2" />
+          <m-checkbox label="3" :value="3" />
+          <m-checkbox label="4" :value="4" />
         </m-checkbox-group>
       </div>
-      <MTree/>
+      <MTree />
+      <div class="select">
+        <div>{{ value }}</div>
+        <m-select v-model="value" :options="optionsMoreRef" :readonly="false" options-h="200" :need-fetch="needFetch"
+          :fetch="fetchSelect" />
+      </div>
 
     </div>
 
     <div>
-      <div class="select">
-        <div>{{ value }}</div>
-        <m-select v-model="value" :options="optionsMoreRef" :readonly="false" options-h="200" :need-fetch="needFetch"
-                  :fetch="fetchSelect"/>
+      <div class="input">
+        <span>{{ inputValue }}</span>
+        <br />
+        <m-input v-model="inputValue"></m-input>
+        <!-- <m-input autofocus v-model="inputValue"></m-input> -->
+        <m-input readonly v-model="inputValue"></m-input>
+        <m-input disabled v-model="inputValue"></m-input>
+        <m-input type="textarea"></m-input>
       </div>
     </div>
 
@@ -184,12 +193,12 @@ const optionsMoreRef = ref([...optionsMore]);
 let count = 1;
 const needFetch = ref(true);
 const fetchSelect = async () => {
-  return new Promise(resolve => {
+  return new Promise<void>(resolve => {
 
     setTimeout(() => {
       optionsMoreRef.value.push(...optionsMore);
       count++;
-      if(count > 2) {
+      if (count > 2) {
         needFetch.value = false;
         console.log(needFetch.value);
       }
@@ -234,7 +243,6 @@ const slider2Ref = ref(0);
 </script>
 
 <style scoped>
-
 .hidden {
   display: none;
 }
@@ -242,5 +250,4 @@ const slider2Ref = ref(0);
 .avatar {
   display: flex;
 }
-
 </style>

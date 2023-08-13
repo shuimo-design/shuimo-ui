@@ -13,7 +13,6 @@
     "doc:postinstall": "nuxt prepare",
     "doc:jh-api": "jh-api",
     "doc:fontmin": "cd ./script/fontmin && npm run replace",
-    "prepare": "jhlint install",
     "doc:lint": "jhlint"
   },
   "devDependencies": {
