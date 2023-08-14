@@ -23,6 +23,7 @@ export default function MInput(props: InputProps & InputEvents) {
   ].join(' ');
 
   const dom = React.createElement(domType, {
+    autoFocus: props.autofocus,
     value: props.value,
     placeholder: props.placeholder,
     disabled: props.disabled,

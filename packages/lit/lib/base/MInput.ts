@@ -20,6 +20,7 @@ import style from '@shuimo-design/core/lib/base/input/input.css?inline';
 })
 export default class MInput extends LitElement implements InputProps {
 
+  autofocus: boolean = false;
   disabled: boolean = false;
   value: string | number = '';
   placeholder: string = '';
@@ -37,10 +38,10 @@ export default class MInput extends LitElement implements InputProps {
     return html`
       <m-border
           class="${[
-            'm-input',
-            this.type === 'textarea' ? 'm-textarea' : '',
-            this.disabled ? 'm-input-disabled' : ''
-          ].join(' ')}">
+        'm-input',
+        this.type === 'textarea' ? 'm-textarea' : '',
+        this.disabled ? 'm-input-disabled' : ''
+      ].join(' ')}">
         ${info}
       </m-border>`;
   }
@@ -49,6 +50,7 @@ export default class MInput extends LitElement implements InputProps {
     return html`
       <textarea class="m-textarea-inner"
                 rows="10"
+                .autofocus="${this.autofocus}"
                 .value="${this.value}"
                 .placeholder="${this.placeholder}"
                 .disabled="${this.disabled}"
@@ -60,6 +62,7 @@ export default class MInput extends LitElement implements InputProps {
   getInput() {
     return html`
       <input class="m-input-inner"
+             .autofocus="${this.autofocus}"
              .value="${this.value}"
              .placeholder="${this.placeholder}"
              .disabled="${this.disabled}"

@@ -71,6 +71,13 @@ describe('input', () => {
       expect(wrapper.element.querySelector('input')!.value).toContain('hi');
     });
 
+    test('autofocus', () => {
+      const wrapper = mount(MInput, {
+        props: { autofocus: true }
+      });
+      expect(wrapper.element.querySelector('input')!.autofocus).toBeTruthy();
+    });
+
   });
 
   describe('event',()=>{
