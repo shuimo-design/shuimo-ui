@@ -15,5 +15,6 @@ export const props: MCOPO<InputProps> = {
   placeholder: { type: String, default: '' },
   value: { type: [String, Number], default: '' },
   readonly: { type: Boolean, default: false },
-  disabled: { type: Boolean, default: false }
+  disabled: { type: Boolean, default: false },
+  autofocus: { type: Boolean, default: false },
 };

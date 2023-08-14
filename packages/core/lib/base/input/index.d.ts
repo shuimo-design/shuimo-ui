@@ -46,6 +46,12 @@ export declare type InputProps = {
    * @default false
    */
   disabled?: boolean
+  /**
+   * @description input autofocus. 是否自动聚焦
+   * @type boolean
+   * @default false
+   */
+  autofocus?: boolean
 }
 
 export declare type InputEvents = {

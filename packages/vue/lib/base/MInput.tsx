@@ -35,6 +35,7 @@ export default defineComponent({
       const isInput = props.type !== 'textarea';
 
       return h(MBorder, borderClass.value, () => h(!isInput ? 'textarea' : 'input', {
+        autofocus: props.autofocus,
         value: props.modelValue,
         placeholder: props.placeholder,
         disabled: props.disabled,
