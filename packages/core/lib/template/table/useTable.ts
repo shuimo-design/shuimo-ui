@@ -17,8 +17,18 @@ export function useTable() {
   type StyleType = { width?: string } | undefined;
   const initTable = <T>(renders: {
     empty: T,
-    tbodyTr: (option: { data: any | string, slot?: SlotRender, slotInfo?: { data: any, index: number } }) => T,
-    theadTh: (option: { label?: string, slot?: SlotRender, style?: StyleType }) => T,
+    tbodyTr: (option: {
+      data: any | string,
+      param: string,
+      slot?: SlotRender,
+      slotInfo?: { data: any, index: number }
+    }) => T,
+    theadTh: (option: {
+      param?: string,
+      label?: string,
+      slot?: SlotRender,
+      style?: StyleType
+    }) => T,
     thead: (ths: T[]) => T,
     tbody: (trs: T[]) => T,
     tbodyTrs: (tds: T[], i: number) => T,
@@ -40,6 +50,7 @@ export function useTable() {
         tbodyTrList.forEach((t, i) => {
           t.push(renders.tbodyTr({
             data: getData(i, param),
+            param,
             slot: bodySlot,
             slotInfo: {
               data: data[i],
@@ -86,7 +97,12 @@ export function useTable() {
         }
         pushTd(column.props.param, bodySlot, style);
 
-        return renders.theadTh({ label: column.props.label, slot: headSlot, style });
+        return renders.theadTh({
+          label: column.props.label,
+          param: column.props.param,
+          slot: headSlot,
+          style
+        });
       });
       return renders.thead(ths);
     };

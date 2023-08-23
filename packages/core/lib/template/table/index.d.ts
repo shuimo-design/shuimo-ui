@@ -24,5 +24,12 @@ export declare type TableProps = {
    *              表格高度
    * @type string
    */
-  height?: string | null
+  height?: string | null,
+  /**
+   * @description auto add param class
+   *             自动添加key class
+   * @type boolean
+   * @default false
+   */
+  paramClass?: boolean
 }

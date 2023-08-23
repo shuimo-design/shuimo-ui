@@ -5,6 +5,9 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * todo fix table
+ * add new feature like table column width , paramClass
  */
 
 import { describe, expect, test, vi } from 'vitest';
@@ -234,8 +237,8 @@ describe('table', function () {
       components: { MTable, MTableColumn },
       template: `
         <MTable>
-        <MTableColumn param="param" label="label"></MTableColumn>
-        <!-- <MTableColumn param="id" label="id"></MTableColumn> -->
+          <MTableColumn param="param" label="label"></MTableColumn>
+          <!-- <MTableColumn param="id" label="id"></MTableColumn> -->
         </MTable>`
     });
     expect(wrapper.html()).not.contains('id');

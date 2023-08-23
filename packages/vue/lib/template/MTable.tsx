@@ -58,6 +58,10 @@ export default defineComponent({
         return data;
       };
 
+      const paramClass = (preFix: string, param: string) => {
+        if (!props.paramClass) {return null;}
+        return `m-${preFix}-${param}`;
+      };
 
       const { thead, tbody } = initTable({
         empty: <tbody class="m-table-empty">
@@ -67,10 +71,11 @@ export default defineComponent({
           }</th>
         </tr>
         </tbody>,
-        tbodyTr: ({ data, slot, slotInfo }) => <td class="m-td">
+        tbodyTr: ({ data, param, slot, slotInfo }) => <td class={['m-td', paramClass('td', param)]}>
           {slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : data}
         </td>,
-        theadTh: ({ label, slot, style }) => <th class="m-th" style={style}>{slot ? slot() : label}</th>,
+        theadTh: ({ label, param, slot, style }) => <th class={['m-th', paramClass('th', param)]}
+                                                        style={style}>{slot ? slot() : label}</th>,
         thead: ths => <thead class="m-thead">
         <tr class="m-tr">{ths}</tr>
         </thead>,
