@@ -60,18 +60,17 @@ export default defineComponent({
 
 
       const { thead, tbody } = initTable({
-        empty:
-          <tbody class="m-table-empty">
-          <tr>
-            <th colspan={columns.length}>{
-              slots && slots.empty ? slots.empty() : '暂无数据'
-            }</th>
-          </tr>
-          </tbody>,
+        empty: <tbody class="m-table-empty">
+        <tr>
+          <th colspan={columns.length}>{
+            slots && slots.empty ? slots.empty() : '暂无数据'
+          }</th>
+        </tr>
+        </tbody>,
         tbodyTr: ({ data, slot, slotInfo }) => <td class="m-td">
           {slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : data}
         </td>,
-        theadTh: ({ label, slot }) => <th class="m-th">{slot ? slot() : label}</th>,
+        theadTh: ({ label, slot, style }) => <th class="m-th" style={style}>{slot ? slot() : label}</th>,
         thead: ths => <thead class="m-thead">
         <tr class="m-tr">{ths}</tr>
         </thead>,

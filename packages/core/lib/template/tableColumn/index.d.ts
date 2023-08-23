@@ -20,19 +20,19 @@ export declare type TableColumnProps = {
    * @type string
    * @default ''
    */
-  width?: string,
+  width?: string;
   /**
    * @description table column param
    *              列对应的参数
    * @type string
    * @default ''
    */
-  param?: string,
+  param?: string;
   /**
    * @description table column label
    *              列名
    * @type string
    * @default ''
    */
-  label?: string
+  label?: string;
 }

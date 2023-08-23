@@ -123,6 +123,16 @@
         <div>{{ value }}</div>
         <m-select v-model="value" :options="optionsMoreRef" :readonly="false" options-h="200" :need-fetch="needFetch"
                   :fetch="fetchSelect"/>
+
+        <div>
+          <m-slider v-model="widthRef" :max="400"/>
+          <br/>
+          <m-slider v-model="heightRef" :max="400"/>
+        </div>
+
+        <m-input id="hi" :style="{
+        width: `${widthRef}px`,height:`${heightRef}px`
+        }" ref="inputRef"/>
       </div>
     </div>
 
@@ -140,6 +150,10 @@
  */
 import { ref } from 'vue';
 import MTree from './MTree.vue';
+
+
+const widthRef = ref(200);
+const heightRef = ref(200);
 
 const buttonClick = () => {
   console.log('button click');
@@ -189,7 +203,7 @@ const fetchSelect = async () => {
     setTimeout(() => {
       optionsMoreRef.value.push(...optionsMore);
       count++;
-      if(count > 2) {
+      if (count > 2) {
         needFetch.value = false;
         console.log(needFetch.value);
       }

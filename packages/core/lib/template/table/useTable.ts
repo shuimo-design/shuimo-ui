@@ -10,13 +10,15 @@ import Printer from '../../other/printer/Printer';
 
 
 const error = Printer('水墨UI表格组件').error;
+
 export function useTable() {
 
   type SlotRender = any | undefined;
+  type StyleType = { width?: string } | undefined;
   const initTable = <T>(renders: {
     empty: T,
     tbodyTr: (option: { data: any | string, slot?: SlotRender, slotInfo?: { data: any, index: number } }) => T,
-    theadTh: (option: { label?: string, slot?: SlotRender }) => T,
+    theadTh: (option: { label?: string, slot?: SlotRender, style?: StyleType }) => T,
     thead: (ths: T[]) => T,
     tbody: (trs: T[]) => T,
     tbodyTrs: (tds: T[], i: number) => T,
@@ -33,7 +35,7 @@ export function useTable() {
       return '';
     };
 
-    const pushTd = (param: string | undefined, bodySlot: SlotRender) => {
+    const pushTd = (param: string | undefined, bodySlot: SlotRender, style: StyleType) => {
       if (param) {
         tbodyTrList.forEach((t, i) => {
           t.push(renders.tbodyTr({
@@ -45,10 +47,22 @@ export function useTable() {
             }
           }));
         });
-      }else{
+      } else {
         error('param is undefined, column without param will be ignored!');
       }
       // todo if param is undefined
+    };
+
+
+    const getStyle = (options?: { width?: string | number }): StyleType => {
+      if (!options || !options.width) {
+        return {};
+      }
+      const numberWidth = Number(options.width);
+      if (!isNaN(numberWidth)) {
+        return { width: numberWidth + 'px' };
+      }
+      return { width: options.width as string };
     };
 
     /**
@@ -56,7 +70,7 @@ export function useTable() {
      */
     const initTHead = () => {
       const ths = (columns ?? []).filter(column => {
-        if(!column.props){
+        if (!column.props) {
           error('column.props is undefined, column without param will be ignored!');
           return false;
         }
@@ -65,13 +79,14 @@ export function useTable() {
         const slots = renders.initSlot(column);
         let bodySlot: SlotRender | undefined;
         let headSlot: SlotRender | undefined;
+        const style = getStyle(column.props);
         if (slots) {
           bodySlot = slots.body;
           headSlot = slots.head;
         }
-        pushTd(column.props.param, bodySlot);
+        pushTd(column.props.param, bodySlot, style);
 
-        return renders.theadTh({ label: column.props.label, slot: headSlot });
+        return renders.theadTh({ label: column.props.label, slot: headSlot, style });
       });
       return renders.thead(ths);
     };

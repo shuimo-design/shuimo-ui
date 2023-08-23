@@ -257,6 +257,13 @@
 
 
       </div>
+
+      <div class="width-400">
+        <m-pagination :total="225" v-model="current"></m-pagination>
+      </div>
+      <div class="width-500">
+        <m-pagination :total="225" v-model="current"></m-pagination>
+      </div>
     </div>
 
     <!--    <div class="row-flex">-->
@@ -274,11 +281,18 @@
 
     <!--  <MTree/>-->
 
-    <m-menu :data="menu" :config="{label:'title'}"/>
-    <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
-    <m-tree :data="menu" :config="{label:'title'}"/>
+    <!--    <m-menu :data="menu" :config="{label:'title'}"/>-->
+    <!--    &lt;!&ndash;    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>&ndash;&gt;-->
+    <!--    <m-tree :data="menu" :config="{label:'title'}"/>-->
 
-    <MTreeTemp/>
+
+    <m-table class="width-400" :data="tableDataRef">
+      <m-table-column label="姓名" param="name"></m-table-column>
+      <m-table-column label="地址" param="address" width="200"></m-table-column>
+      <m-table-column label="年龄" param="age"></m-table-column>
+    </m-table>
+
+
   </div>
 </template>
 
@@ -298,6 +312,14 @@ import MTreeTemp from './MTree.vue';
 const submitEvent = () => {
   console.log('submitEvent');
 };
+
+const tableDataRef = ref([
+  {
+    name: '不长',
+    address: '这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长',
+    age: 18
+  }
+]);
 
 const current = ref(1);
 
@@ -376,6 +398,105 @@ const menu = [{
 </script>
 
 <style scoped>
+.m-pagination {
+  justify-content: space-between
+}
+
+.w-200-overflow.m-pagination {
+  justify-content: space-between
+}
+
+.w-140-overflow-hidden{
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.width-400 {
+  width: 400px;
+}
+
+.width-500 {
+  width: 500px;
+}
+
+.template {
+}
+
+.cell-wrapper {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.screen {
+  width: 500px;
+  height: 728px;
+}
+
+.template-cell {
+  margin-left: -58px;
+}
+
+.buttons {
+  height: 150px;
+}
+
+.button .m-button {
+  margin: 0 4px;
+}
+
+.button span {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+.virtual-list-item {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  border: 3px solid gray;
+  margin: 4px 0;
+  padding: 2px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.max-height {
+  height: 300px;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+-hidden{
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.width-400 {
+  width: 400px;
+}
+
+.width-500 {
+  width: 500px;
+}
 
 .template {
 }
