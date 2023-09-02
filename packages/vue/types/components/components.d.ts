@@ -6,6 +6,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+import avatar from '../../lib/base/MAvatar';
 import button from '../../lib/base/MButton';
 import checkbox from '../../lib/base/checkbox/MCheckbox';
 import checkboxGroup from '../../lib/base/checkbox/MCheckboxGroup';
@@ -49,6 +50,7 @@ export type MenuType = {
 }
 export type MenuTypeArr = Array<MenuType>;
 
+export declare const MAvatar: typeof avatar;
 export declare const MButton: typeof button;
 export declare const MInput: typeof input;
 export declare const MCheckbox: typeof checkbox;
