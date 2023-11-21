@@ -14,7 +14,7 @@ import { IPrinter } from './components/MPrint';
 import { IConfirm } from './components/MConfirm';
 
 export * from './components/components';
-// export * from './components/hooks';
+export * from './components/hooks';
 
 declare module 'packages/vue/types/shuimo-ui' {}
 

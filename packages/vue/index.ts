@@ -9,6 +9,7 @@
 import { App, Component } from 'vue';
 import './index.css';
 import { MUIOption, MWCType } from './types/shuimo-ui';
+import useDialog from './composition/useDialog';
 // [base]
 import MButton from './lib/base/MButton';
 import MInput from './lib/base/MInput';
@@ -106,6 +107,7 @@ const components: Record<string, Component> = {
 };
 
 export {
+  useDialog,
   // [base]
   MButton,
   MInput,
