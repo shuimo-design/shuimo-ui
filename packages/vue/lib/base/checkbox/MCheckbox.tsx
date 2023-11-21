@@ -29,7 +29,7 @@ export default defineComponent({
     const onClick = (e: MouseEvent) => {
       e.stopPropagation();
       if (props.disabled) {
-        return
+        return;
       }
       checked.value = !checked.value;
       const newVal = getNewModelValue(props, checked.value);
@@ -42,7 +42,7 @@ export default defineComponent({
         {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
       </label>;
 
-      return <div class="m-checkbox" onClick={onClick}>
+      return <div class={['m-checkbox', { 'm-disabled': props.disabled }]} onClick={onClick}>
         <input type="checkbox" checked={checked.value}/>
         <div class="m-checkbox-checkbox"/>
         {

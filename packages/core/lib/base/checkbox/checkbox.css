@@ -3,12 +3,20 @@
 **/
 
 .m-checkbox {
-
   display: inline-grid;
   grid-template-areas: 'checkbox slot';
 
+  &.m-disabled{
+
+    .m-checkbox-checkbox{
+      cursor: var(--m-cursor-disabled);
+    }
+  }
+
   & input {
     display: none;
+
+
   }
 }
 
