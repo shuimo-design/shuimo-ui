@@ -1,3 +1,12 @@
+@keyframes spin {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(405deg);
+  }
+}
+
 .m-switch {
   --m-switch-scale: 1;
 
@@ -74,15 +83,6 @@
 
     .m-switch-core {
       margin-left: var(--m-switch-core-inacitve-margin-left);
-    }
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(45deg);
-    }
-    to {
-      transform: rotate(405deg);
     }
   }
 
