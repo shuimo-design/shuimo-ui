@@ -9,7 +9,7 @@
 <style scoped>
 
 .m-tag {
-  margin: 5px 0;
+  margin: 0 5px;
 }
 
 </style>
