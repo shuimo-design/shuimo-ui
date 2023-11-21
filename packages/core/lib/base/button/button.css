@@ -4,10 +4,10 @@
   **/
 
   padding: 0 15px;
-  height: 32px;
+  height: var(--m-button-height, 32px);
   outline: unset;
   line-height: 24px;
-  min-width: 70px;
+  min-width: var(--m-button-width, 32px);
   border: 5px double transparent;
   border-radius: 2px;
   border-image: url(./assets/border/base.webp) 8;
