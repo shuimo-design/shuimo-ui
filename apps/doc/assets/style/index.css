@@ -72,3 +72,7 @@ a {
     }
   }*/
 }
+
+.m-height {
+  --m-dialog-h: 600px;
+}

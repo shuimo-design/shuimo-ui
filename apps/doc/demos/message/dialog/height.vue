@@ -1,20 +1,18 @@
 <template>
-  <m-button @click="showDialog">点击显示弹窗</m-button>
-  <m-dialog @close="closeDialog" :visible="visible">
-    <div class="height">君不见，黄河之水天上来</div>
+  <m-dialog class="m-height">
+    <template #active>
+      <m-button>点击显示弹窗</m-button>
+    </template>
+    <div >山河风景元无异，城郭人民半已非。</div>
   </m-dialog>
 </template>
 
-<script setup lang="ts">
-
-import { useDialog } from "shuimo-ui";
-
-const { visible, closeDialog, showDialog } = useDialog();
-
-</script>
 
 <style scoped>
-.height {
-  height: 600px;
+/** 这段css需要放到global中 **/
+.m-height {
+  --m-dialog-h: 600px;
 }
 </style>
+<script setup lang="ts">
+</script>

@@ -14,7 +14,9 @@ export default defineComponent({
   name: 'MDialog',
   props,
   emits: ['update:visible'],
-  setup: (props, { emit, slots }) => {
+  setup: (props, { emit, slots,attrs }) => {
+    const classList = attrs.class;
+
 
     const {
       visible,
@@ -31,7 +33,7 @@ export default defineComponent({
 
 
       const getDialog = () => {
-        return getModel(<div class="m-dialog" onClick={handleModelClickPropagation}>
+        return getModel(<div class={['m-dialog',classList]} onClick={handleModelClickPropagation}>
           {props.closeBtn ? getClose() : null}
           {slots.default?.()}
         </div>);
