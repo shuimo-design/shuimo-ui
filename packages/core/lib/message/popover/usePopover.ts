@@ -31,7 +31,7 @@ export class PopoverImpl {
   onHide?: Function;
 
   constructor(
-    val: { style: RMRef, arrowStyle: RMRef, placement: RMRef },
+    val: { style: RMRef, arrowStyle: RMRef, placement: RMRef, /*default*/show: boolean },
     active?: HTMLElement,
     content?: HTMLElement,
     arrow?: HTMLElement,
@@ -52,6 +52,7 @@ export class PopoverImpl {
     this.style = val.style;
     this.arrowStyle = val.arrowStyle;
     this.placement = val.placement;
+    this.visible = val.show;
     this.onShow = lifecycle?.onShow;
     this.onHide = lifecycle?.onHide;
   }
@@ -103,13 +104,17 @@ type ArrayElement<ArrayType> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
 export function usePopover(options: Options<{
-  props: PopoverProps,
-  value: {
-    style: any,
-    arrowStyle: any,
-    placement: Placement
-  }
-}>) {
+    props: PopoverProps,
+    value: {
+      style: any,
+      arrowStyle: any,
+      placement: Placement
+    }
+  }>,
+  lifecycle?: { /* event can't use optional... */
+    onShow?: Function,
+    onHide?: Function
+  }) {
 
   const style = MRef(options.value.style);
   const arrowStyle = MRef(options.value.arrowStyle);
@@ -123,28 +128,36 @@ export function usePopover(options: Options<{
     arrow?: HTMLElement,
     config?: PopperConfig
   ) => {
-    instance = new PopoverImpl({ style, arrowStyle, placement }, active, content, arrow, config, {
-      onShow: () => {
-        clickAwayInstance?.add();
-      },
-      onHide: () => {
-        clickAwayInstance?.remove();
-      }
-    });
+    instance = new PopoverImpl(
+      { style, arrowStyle, placement, show: options.props.show },
+      active,
+      content,
+      arrow,
+      config,
+      {
+        onShow: () => {
+          clickAwayInstance?.add();
+          lifecycle?.onShow?.();
+        },
+        onHide: () => {
+          clickAwayInstance?.remove();
+          lifecycle?.onHide?.();
+        }
+      });
     return instance;
   };
 
-  // const props = config.props;
-  // const popoverEnter = () => {
-  //   if (props.hover) {
-  //     instance?.show();
-  //   }
-  // };
-  // const popoverLeave = () => {
-  //   if (props.hover) {
-  //     instance?.hide();
-  //   }
-  // };
+  const props = options.props;
+  const popoverEnter = () => {
+    if (props.hover) {
+      instance?.show();
+    }
+  };
+  const popoverLeave = () => {
+    if (props.hover) {
+      instance?.hide();
+    }
+  };
 
   const onMountedEvents: Function[] = [];
   const onBeforeDestroyEvents: Function[] = [];
@@ -155,7 +168,7 @@ export function usePopover(options: Options<{
     }
 
     clickAwayInstance = useClickAway({
-      target: () => instance?.content,
+      target: () => instance?.content?.parentElement,
       handler: () => {
         instance?.hide();
         // emits?
@@ -196,8 +209,8 @@ export function usePopover(options: Options<{
   return {
     createPopover,
     getContent,
-    // popoverEnter,
-    // popoverLeave,
+    popoverEnter,
+    popoverLeave,
     lifecycle: {
       onMountedEvents,
       onBeforeDestroyEvents

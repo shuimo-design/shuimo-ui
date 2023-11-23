@@ -39,7 +39,7 @@ export const props: MCOPO<PopoverProps> = {
   // offsetSkid: { type: String, default: '0' },
   // offsetDistance: { type: String, default: '0' },
   hover: { type: Boolean, default: false },
-  // show: { type: Boolean, default: null },
+  show: { type: Boolean, default: null },
   // disabled: { type: Boolean, default: false },
   // openDelay: { type: Number, default: 0 },
   // closeDelay: { type: Number, default: 0 },

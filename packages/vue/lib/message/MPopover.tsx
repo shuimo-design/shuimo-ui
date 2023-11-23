@@ -7,7 +7,7 @@
  * Hello, humor
  * v2.0.0-process 阿怪 准备重构，搭建模版
  */
-import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { PopoverImpl, usePopover } from '@shuimo-design/core/lib/message/popover/usePopover';
 import { props } from '@shuimo-design/core/lib/message/popover/api';
 import useTeleport from '../../composition/useTeleport';
@@ -40,8 +40,22 @@ export default defineComponent({
     const {
       createPopover,
       getContent,
-      lifecycle
-    } = usePopover({ props, value: { style, arrowStyle, placement: placementRef } });
+      lifecycle,
+      popoverEnter,
+      popoverLeave
+    } = usePopover({
+        props,
+        value: { style, arrowStyle, placement: placementRef }
+      },
+      {
+        onShow: () => {
+          emit('update:show', true);
+        },
+        onHide: () => {
+          emit('update:show', false);
+        }
+      }
+    );
 
     const show = async () => {
       await popperInstance.value?.show();
@@ -52,8 +66,12 @@ export default defineComponent({
 
     expose({ show, hide });
 
+    watch(() => props.show, () => {
+      if (props.show) {show();} else {hide();}
+    });
 
     const handleClick = async () => {
+      if (props.hover) {return;}
       await popperInstance.value?.toggle();
     };
 
@@ -71,9 +89,11 @@ export default defineComponent({
 
 
     return () => {
-      return <div class="m-popover" data-popper-placement={placementRef.value}>
+      return <div class="m-popover" data-popper-placement={placementRef.value}
+                  onMouseleave={popoverLeave}>
         <div class="m-popover-default-wrapper"
              ref={popoverRef}
+             onMouseenter={popoverEnter}
              onClick={handleClick}>
           {slots.default()}
         </div>

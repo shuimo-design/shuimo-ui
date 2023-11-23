@@ -47,6 +47,13 @@ export type PopoverProps = {
    */
   hover?: boolean,
   /**
+   * @description display content value
+   *              是否显示参数
+   * @type boolean
+   * @default false
+   */
+  show?: boolean,
+  /**
    * @description floating-ui options, look: https://floating-ui.com/
    * @type PopperConfig
    * @default {}
