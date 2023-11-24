@@ -76,3 +76,9 @@ a {
 .m-height {
   --m-dialog-h: 600px;
 }
+
+.m-menu-item-child{
+  .m-menu-item-active{
+    color: var(--m-color-main);
+  }
+}

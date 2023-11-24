@@ -11,7 +11,7 @@
 type MenuTypeArr = any;
 export const menu: MenuTypeArr = [
   {
-    label: '首页', route: 'main', isActive: true, children: [
+    label: '首页', route: 'main', isActive: false, children: [
       { label: '快速开始', route: 'quickStart', isActive: false },
       { label: '颜色', route: 'color', isActive: false },
       { label: '从wash-painting升级', route: 'w2m', isActive: false },

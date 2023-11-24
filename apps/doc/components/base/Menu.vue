@@ -16,17 +16,73 @@ import { menu } from '@/config/menu.config';
 
 const menuList = ref(menu);
 
+const clearAllMenuList = (list: any) => {
+  list.forEach((item: any) => {
+    item.isActive = false;
+    if (item.children && item.children.length > 0) {
+      clearAllMenuList(item.children);
+    }
+  });
+};
+
 const router = useRouter();
 
 type Menu = any; // todo fix this
-const clickMenu = (info: Menu) => {
-  // if (index.length === 1) {
-  //   m = menuList.value![index[0]];
-  // } else {
-  //   m = menuList.value![index[0]]!.children![index[1]];
-  // }
+const clickMenu = (info: Menu, event: { target: HTMLElement }) => {
+  if (info.children && info.children.length > 0) {
+    if (Array(...event.target.classList).includes('m-menu-item-child')) {
+      return;
+    }
+  }
+  menuList.value.forEach((item: Menu) => {
+    item.isActive = false;
+    if (item.children && item.children.length > 0) {
+      item.children.forEach((child: Menu, index: number) => {
+        child.isActive = false;
+        // active true logic
+        if (item.label === info.label && item.route === info.route && index === 0) {
+          item.isActive = true;
+          if (item.route !== 'main') {
+            child.isActive = true;
+          }
+        }
+        if (child.label === info.label && child.route === info.route) {
+          item.isActive = true;
+          child.isActive = true;
+        }
+      });
+    }
+  });
+
   router.push(`/${info.route}`);
+
 };
+
+onBeforeMount(() => {
+
+  const path = router.currentRoute.value.path.split('/')[1];
+
+  if (path === '' || path === 'main') {
+    clearAllMenuList(menuList.value);
+    menuList.value[0].isActive = true;
+    return;
+  }
+  menuList.value.forEach((item: Menu) => {
+    item.isActive = false;
+    if (item.children && item.children.length > 0) {
+      item.children.forEach((child: Menu) => {
+        child.isActive = false;
+
+        if (child.route === path) {
+          item.isActive = true;
+          child.isActive = true;
+        }
+      });
+    }
+  });
+
+
+});
 
 
 </script>

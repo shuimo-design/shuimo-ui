@@ -8,7 +8,7 @@
  *
  * todo these are temporary code for doc...
  */
-import { computed, defineComponent, h, shallowRef, triggerRef } from 'vue';
+import { computed, defineComponent, h, shallowRef, triggerRef, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/template/menu/api';
 import { useMenu } from '@shuimo-design/core/lib/template/menu/useMenu';
 import Tree from '@shuimo-design/core/lib/base/tree/tree';
@@ -27,7 +27,7 @@ export default defineComponent({
     const treeRef = shallowRef<Tree>();
 
 
-    const { handleToggleExpand, handleToggleChecked, getNodesByKeys } = useMenu({
+    const { handleToggleExpand, handleToggleChecked, getNodesByKeys, initTreeRef } = useMenu({
       props: {
         ...props,
         config: {
@@ -39,11 +39,17 @@ export default defineComponent({
       event: { triggerTree: () => {triggerRef(treeRef);} }
     });
 
+    let count = 0;
+    watch(() => props.data, (oldVal,newVal) => {
+      initTreeRef();
+    }, { deep: true });
+
 
     const treeData = computed(() => treeRef.value.getTreeData());
     const checkedKeys = computed(() => treeRef.value?.getKeys()?.checkedKeys ?? []);
     const handleExpand = (node: TreeNodeData, e: MouseEvent) => {
       handleToggleExpand(node, e);
+      e.stopPropagation();
     };
     const handleCheckbox = (node: TreeNodeData, checked: boolean) => {
       handleToggleChecked(node, checked);
@@ -55,10 +61,10 @@ export default defineComponent({
       handleExpand(node, e);
       node.isActive = !node.isActive;
       emit('node-click', node, e);
+      e.stopPropagation();
     };
 
     return () => {
-
       const treeNodeProps: TreeNodeProps = {
         data: treeData.value,
         config: treeRef.value.config,

@@ -2,6 +2,7 @@ import { TreeData, TreeNodeData, TreeProps } from './index';
 import Tree from './tree';
 import { Options } from '../../../composition/common/defineCore';
 import { MRef } from '../../../composition/common/MRef';
+import { deepClone } from '@shuimo-design/tools/index';
 
 export const useTree = (options: Options<{
   props: TreeProps,
@@ -14,12 +15,15 @@ export const useTree = (options: Options<{
 }>) => {
   const { props, value, event } = options;
   const treeRef = MRef<Tree>(value.treeRef);
-  treeRef.value = new Tree({
-    data: fixKey(props.data, props.config.key),
-    config: props.config,
-    defaultExpandAll: props.defaultExpandAll,
-    checkStrictly: props.checkStrictly
-  });
+  const initTreeRef = (data = props.data) => {
+    treeRef.value = new Tree({
+      data: fixKey(deepClone(data), props.config.key),
+      config: props.config,
+      defaultExpandAll: props.defaultExpandAll,
+      checkStrictly: props.checkStrictly
+    });
+  };
+  initTreeRef();
 
   const handleToggleExpand = (node: TreeNodeData, e: MouseEvent) => {
     e.stopPropagation();
@@ -38,7 +42,8 @@ export const useTree = (options: Options<{
   return {
     getNodesByKeys,
     handleToggleExpand,
-    handleToggleChecked
+    handleToggleChecked,
+    initTreeRef
   };
 };
 

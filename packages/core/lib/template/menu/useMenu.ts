@@ -26,6 +26,7 @@ export function useMenu(options: Options<{
     getNodesByKeys,
     handleToggleExpand,
     handleToggleChecked,
+    initTreeRef,
   } = useTree(options);
 
 
@@ -33,6 +34,7 @@ export function useMenu(options: Options<{
     getNodesByKeys,
     handleToggleExpand,
     handleToggleChecked,
-  }
+    initTreeRef,
+  };
 
 }
