@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui",
-  "version": "0.3.0-alpha.7",
+  "version": "0.3.0-alpha.8",
   "js-types-syntax": "typescript",
   "description-markup": "markdown",
   "contributions": {
@@ -542,6 +542,12 @@
               "description": "input disabled. 是否禁用",
               "type": "boolean",
               "default": "false"
+            },
+            {
+              "name": "autofocus",
+              "description": "input autofocus. 是否自动聚焦",
+              "type": "boolean",
+              "default": "false"
             }
           ]
         },
@@ -672,20 +678,50 @@
           "source": {
             "symbol": "MMenu"
           },
-          "description": "menu component with shuimo-ui style.\n水墨组件的目录组件。",
-          "doc-url": "https://shuimo.janghood.com/menu",
+          "description": "menu component with shuimo-ui style.",
+          "doc-url": "https://shuimo.janghood.com/menu,",
           "props": [
             {
-              "name": "menu",
-              "description": "menu array",
-              "type": "any",
+              "name": "data",
+              "description": "tree data\n树数据",
+              "type": [
+                "TreeData",
+                "TreeData[]"
+              ],
               "default": "[]"
             },
             {
-              "name": "inline",
-              "description": "menu inline",
+              "name": "config",
+              "description": "tree config\n树配置",
+              "type": "TreeConfig",
+              "default": "{key:'key', label:'label', value:'value', children: 'children'}"
+            },
+            {
+              "name": "checkbox",
+              "description": "checkbox 是否使用checkbox\n树数据",
+              "type": "boolean",
+              "default": "[]"
+            },
+            {
+              "name": "defaultExpandAll",
+              "description": "default expand all nodes\n是否默认打开所有节点",
               "type": "boolean",
               "default": "false"
+            },
+            {
+              "name": "checkedKeys",
+              "description": "checked keys\n选中key列表",
+              "type": [
+                "Array<string",
+                "number>"
+              ],
+              "default": "[]"
+            },
+            {
+              "name": "checkStrictly",
+              "description": "the selected status of the parent and child nodes is no longer associated,\nand can be selected or canceled separately\n父子节点选中状态不再关联，可各自选中或取消",
+              "type": "boolean",
+              "default": "true"
             }
           ]
         },
@@ -840,6 +876,12 @@
             {
               "name": "hover",
               "description": "Trigger the popper on hover",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "show",
+              "description": "display content value\n是否显示参数",
               "type": "boolean",
               "default": "false"
             },
@@ -1213,6 +1255,12 @@
                 "string",
                 "null"
               ]
+            },
+            {
+              "name": "paramClass",
+              "description": "auto add param class\n自动添加key class",
+              "type": "boolean",
+              "default": "false"
             }
           ]
         },
@@ -1426,6 +1474,7 @@
           "props": [
             {
               "name": "list",
+              "description": "list",
               "type": "Array<T>"
             }
           ]
