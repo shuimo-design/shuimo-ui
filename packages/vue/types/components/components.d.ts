@@ -15,6 +15,7 @@ import input from '../../lib/base/MInput';
 import inputNumber from '../../lib/base/MInputNumber';
 import radio from '../../lib/base/MRadio';
 import select from '../../lib/base/MSelect';
+import li from '../../lib/base/MLi';
 import list from '../../lib/base/MList';
 import tag from '../../lib/base/MTag';
 import progress from '../../lib/base/MProgress';
@@ -29,7 +30,6 @@ import message from '../../lib/message/message/MMessageItem';
 import divider from '../../lib/other/MDivider';
 import darkMode from '../../lib/other/MDarkMode';
 import loading from '../../lib/other/loading/MLoading';
-// import menu from '../../lib/other/MMenu';
 
 import border from '../../lib/template/border/MBorder';
 import form from '../../lib/template/MForm';
@@ -38,6 +38,9 @@ import pagination from '../../lib/template/MPagination';
 import table from '../../lib/template/MTable';
 import tableColumn from '../../lib/template/MTableColumn';
 import ricePaper from '../../lib/template/ricePaper/MRicePaper';
+import menu from '../../lib/template/menu/MMenu';
+import menuItem from '../../lib/template/menu/MMenuItem';
+
 
 export type keyType = any;
 
@@ -58,6 +61,7 @@ export declare const MCheckboxGroup: typeof checkboxGroup;
 export declare const MDatePicker: typeof datepicker;
 export declare const MRadio: typeof radio;
 export declare const MSelect: typeof select;
+export declare const MLi: typeof li;
 export declare const MList: typeof list;
 export declare const MTag: typeof tag;
 export declare const MProgress: typeof progress;
@@ -81,3 +85,5 @@ export declare const MPagination: typeof pagination;
 export declare const MTable: typeof table;
 export declare const MTableColumn: typeof tableColumn;
 export declare const MRicePaper: typeof ricePaper;
+export declare const MMenu: typeof menu;
+export declare const MMenuItem: typeof menuItem;
