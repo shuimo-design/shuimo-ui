@@ -38,9 +38,11 @@ import { MInput } from 'shuimo-ui';
 // plugins/vue-plugins.ts
 import { createMUI } from 'shuimo-ui';
 
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(WUI);
-})
+export default defineNuxtPlugin(nuxtApp => {
+  nuxtApp.vueApp.use(createMUI({
+    disableWebComponent: ['MBorder', 'MRicePaper']
+  }));
+});
 ```
 
 #### 样式引入
