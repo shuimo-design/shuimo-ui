@@ -59,6 +59,8 @@ import MCell from './lib/template/MCell';
 import MGrid from './lib/template/MGrid';
 import MVirtualList from './lib/template/MVirtualList';
 import MMenu from './lib/template/menu/MMenu';
+import MBreadcrumb from './lib/template/breadcrumb/MBreadcrumb';
+import MBreadcrumbItem from './lib/template/breadcrumb/MBreadcrumbItem';
 
 const components: Record<string, Component> = {
   // [base]
@@ -103,7 +105,9 @@ const components: Record<string, Component> = {
   MCell,
   MGrid,
   MVirtualList,
-  MMenu
+  MMenu,
+  MBreadcrumb,
+  MBreadcrumbItem
 };
 
 export {
@@ -153,7 +157,9 @@ export {
   MCell,
   MGrid,
   MVirtualList,
-  MMenu
+  MMenu,
+  MBreadcrumb,
+  MBreadcrumbItem
 };
 
 export function createMUI(options: MUIOption | undefined = {}) {

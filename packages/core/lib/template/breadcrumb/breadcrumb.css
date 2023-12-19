@@ -1,0 +1,28 @@
+.m-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.m-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  font-size: 16px;
+  color: #111111;
+  line-height: 30px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.m-breadcrumb-separator {
+  background: url(./assets/separator.webp) no-repeat;
+  height: 23px;
+  width: 13px;
+}
+
+
