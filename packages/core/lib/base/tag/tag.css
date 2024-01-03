@@ -1,121 +1,58 @@
 .m-tag {
   display: inline-flex;
-  height: var(--m-tag-h);
+  min-height: var(--m-tag-h);
+  min-width: var(--m-tag-w-min);
+  height: 100%;
+  --m-tag-bg: var(--m-color-text-dark);
 }
 
 .m-tag-left, .m-tag-right {
   height: var(--m-tag-h);
-  width: var(--m-tag-w);
+  width: var(--m-tag-border-w);
+  background-color: var(--m-tag-bg);
+  background-repeat: no-repeat;
+  mask-size: auto 100%;
 }
 
 .m-tag-main {
   height: var(--m-tag-h);
+  min-width: var(--m-tag-w-min);
   line-height: var(--m-tag-h);
   color: white;
+  background-color: var(--m-tag-bg);
+  mask-image: url(./assets/main.svg);
+  background-repeat: repeat-x;
+  mask-size: auto 100%;
+  padding: 0 4px;
+  text-align: center;
 }
 
-/**
-@each $type in default, primary, error, confirm, warning {
-  .m-tag-$(type) {
-    .m-tag-main {
-      background: url(./assets/#{$type}/main.webp) repeat-x;
-      background-size: 100% 100%;
-    }
-
-    .m-tag-left {
-      background: url(./assets/#{$type}/left.webp) no-repeat;
-      background-size: 100% 100%;
-    }
-
-    .m-tag-right {
-      background: url(./assets/#{$type}/right.webp) no-repeat;
-      background-size: 100% 100%;
-    }
-  }
+.m-tag-left {
+  margin-right: -1px;
+  --m-tag-border-w: calc(var(--m-tag-h) * 51.59 / 240.61);
+  mask-image: url(./assets/left.svg);
 }
-**/
 
-.m-tag-default {
-  .m-tag-main {
-    background: url(./assets/default/main.webp) repeat-x;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-left {
-    background: url(./assets/default/left.webp) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-right {
-    background: url(./assets/default/right.webp) no-repeat;
-    background-size: 100% 100%;
-  }
+.m-tag-right {
+  margin-left: -1px;
+  --m-tag-border-w: calc(var(--m-tag-h) * 51.72 / 240.58);
+  mask-image: url(./assets/right.svg);
+  background-repeat: no-repeat;
 }
+
 
 .m-tag-primary {
-  .m-tag-main {
-    background: url(./assets/primary/main.webp) repeat-x;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-left {
-    background: url(./assets/primary/left.webp) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-right {
-    background: url(./assets/primary/right.webp) no-repeat;
-    background-size: 100% 100%;
-  }
+  --m-tag-bg: var(--m-color-blue);
 }
 
 .m-tag-error {
-  .m-tag-main {
-    background: url(./assets/error/main.webp) repeat-x;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-left {
-    background: url(./assets/error/left.webp) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-right {
-    background: url(./assets/error/right.webp) no-repeat;
-    background-size: 100% 100%;
-  }
+  --m-tag-bg: var(--m-color-error);
 }
 
 .m-tag-confirm {
-  .m-tag-main {
-    background: url(./assets/confirm/main.webp) repeat-x;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-left {
-    background: url(./assets/confirm/left.webp) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-right {
-    background: url(./assets/confirm/right.webp) no-repeat;
-    background-size: 100% 100%;
-  }
+  --m-tag-bg: var(--m-color-success);
 }
 
 .m-tag-warning {
-  .m-tag-main {
-    background: url(./assets/warning/main.webp) repeat-x;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-left {
-    background: url(./assets/warning/left.webp) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .m-tag-right {
-    background: url(./assets/warning/right.webp) no-repeat;
-    background-size: 100% 100%;
-  }
+  --m-tag-bg: var(--m-color-warn);
 }

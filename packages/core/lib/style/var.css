@@ -23,7 +23,7 @@
 
   --m-tag-h: 45px;
   --m-tag-w-min: 80px;
-  --m-tag-w: calc(var(--m-tag-h) / 4.5);
+  --m-tag-border-w: calc(var(--m-tag-h) / 4.5);
 
   --m-line-crossrange: url(../assets/line/crossrange.webp);
   --m-line-vertical: url(../assets/line/vertical.webp);
