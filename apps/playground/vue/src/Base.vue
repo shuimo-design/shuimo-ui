@@ -120,19 +120,16 @@
 
     <div>
       <div class="select">
-        <div>{{ value }}</div>
-        <m-select v-model="value" :options="optionsMoreRef" :readonly="false" options-h="200" :need-fetch="needFetch"
-                  :fetch="fetchSelect"/>
+        <m-tag>你好你好你好你好你好</m-tag>
 
-        <div>
-          <m-slider v-model="widthRef" :max="400"/>
-          <br/>
-          <m-slider v-model="heightRef" :max="400"/>
-        </div>
+        <m-tag type="primary">primary</m-tag>
+        <m-tag type="error">error</m-tag>
+        <m-tag type="confirm">confirm</m-tag>
+        <m-tag type="warning">warning</m-tag>
 
-        <m-input id="hi" :style="{
-        width: `${widthRef}px`,height:`${heightRef}px`
-        }" ref="inputRef"/>
+        <m-tag style="--m-tag-bg:#42d392">vue2 color</m-tag>
+        <m-tag style="--m-tag-bg:#646cff">vite color</m-tag>
+        <m-tag class="large" style="--m-tag-bg:#646cff">large</m-tag>
       </div>
     </div>
 
@@ -257,4 +254,8 @@ const slider2Ref = ref(0);
   display: flex;
 }
 
+.large{
+  --m-tag-h: 200px;
+  --m-tag-w-min: 400px;
+}
 </style>

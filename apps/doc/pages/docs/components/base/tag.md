@@ -8,6 +8,10 @@
 
 ::: demo base/tag/type
 
+### 自定义颜色
+
+::: demo base/tag/color
+
 ## API
 
 ::: api base/tag
