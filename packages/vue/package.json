@@ -2,7 +2,7 @@
   "name": "shuimo-ui",
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.3.0-alpha.8",
+  "version": "0.3.0-alpha.9",
   "license": "MIT",
   "files": [
     "dist",
