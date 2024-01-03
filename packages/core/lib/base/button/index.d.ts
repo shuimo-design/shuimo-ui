@@ -7,7 +7,7 @@
  * @name m-button
  * @docDescription Button component with shuimo-ui style.
  *              水墨组件的按钮组件。
- * @docUrl https://shuimo.janghood.com/button
+ * @docUrl https://shuimo.design/button
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

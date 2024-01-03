@@ -6,7 +6,7 @@
  *
  * @name m-avatar
  * @docDescription avatar component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/avatar,
+ * @docUrl https://shuimo.design/avatar,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

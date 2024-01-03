@@ -13,7 +13,7 @@
             "symbol": "MAvatar"
           },
           "description": "avatar component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/avatar,",
+          "doc-url": "https://shuimo.design/avatar,",
           "props": [
             {
               "name": "variant",
@@ -41,7 +41,7 @@
             "symbol": "MBorder"
           },
           "description": "Border component with shuimo-ui style\n水墨组件的边框组件。",
-          "doc-url": "https://shuimo.janghood.com/border",
+          "doc-url": "https://shuimo.design/border",
           "props": []
         },
         {
@@ -50,7 +50,7 @@
             "symbol": "MBreadcrumb"
           },
           "description": "Breadcrumb component with shuimo-ui style.\n水墨组件的面包屑组件。",
-          "doc-url": "https://shuimo.janghood.com/breadcrumb",
+          "doc-url": "https://shuimo.design/breadcrumb",
           "props": [
             {
               "name": "separator",
@@ -72,7 +72,7 @@
             "symbol": "MButton"
           },
           "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。",
-          "doc-url": "https://shuimo.janghood.com/button",
+          "doc-url": "https://shuimo.design/button",
           "props": [
             {
               "name": "text",
@@ -106,7 +106,7 @@
             "symbol": "MCell"
           },
           "description": "cell component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/cell,",
+          "doc-url": "https://shuimo.design/cell,",
           "props": [
             {
               "name": "h",
@@ -192,7 +192,7 @@
             "symbol": "MCheckbox"
           },
           "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。",
-          "doc-url": "https://shuimo.janghood.com/checkbox",
+          "doc-url": "https://shuimo.design/checkbox",
           "props": [
             {
               "name": "label",
@@ -242,7 +242,7 @@
             "symbol": "MConfirm"
           },
           "description": "confirm component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/confirm,",
+          "doc-url": "https://shuimo.design/confirm,",
           "props": [
             {
               "name": "mask",
@@ -270,7 +270,7 @@
             "symbol": "MDarkMode"
           },
           "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。",
-          "doc-url": "https://shuimo.janghood.com/dark-mode",
+          "doc-url": "https://shuimo.design/dark-mode",
           "props": [
             {
               "name": "modelValue",
@@ -285,7 +285,7 @@
             "symbol": "MDatePicker"
           },
           "description": "DatePicker component with shuimo-ui style.\n水墨组件的日期选择组件。",
-          "doc-url": "https://shuimo.janghood.com/date-picker",
+          "doc-url": "https://shuimo.design/date-picker",
           "props": [
             {
               "name": "modelValue",
@@ -322,7 +322,7 @@
             "symbol": "MDeleteIcon"
           },
           "description": "delete icon component with shuimo-ui style.\n水墨组件的删除图标组件。",
-          "doc-url": "https://shuimo.janghood.com/icon#delete",
+          "doc-url": "https://shuimo.design/icon#delete",
           "props": []
         },
         {
@@ -331,7 +331,7 @@
             "symbol": "MDialog"
           },
           "description": "Dialog component with shuimo-ui style.\n水墨组件的弹窗交互组件。",
-          "doc-url": "https://shuimo.janghood.com/dialog",
+          "doc-url": "https://shuimo.design/dialog",
           "props": [
             {
               "name": "mask",
@@ -365,7 +365,7 @@
             "symbol": "MDivider"
           },
           "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。",
-          "doc-url": "https://shuimo.janghood.com/divider",
+          "doc-url": "https://shuimo.design/divider",
           "props": [
             {
               "name": "vertical",
@@ -381,7 +381,7 @@
             "symbol": "MDrawer"
           },
           "description": "Drawer component with shuimo-ui style.\n水墨组件的抽屉组件。",
-          "doc-url": "https://shuimo.janghood.com/drawer",
+          "doc-url": "https://shuimo.design/drawer",
           "props": [
             {
               "name": "mask",
@@ -427,7 +427,7 @@
             "symbol": "MForm"
           },
           "description": "Form component with shuimo-ui style.\n水墨组件的表单组件。",
-          "doc-url": "https://shuimo.janghood.com/form",
+          "doc-url": "https://shuimo.design/form",
           "props": [
             {
               "name": "inline",
@@ -449,7 +449,7 @@
             "symbol": "MFormItem"
           },
           "description": "FormItem component with shuimo-ui style.\n水墨组件的表单item组件。",
-          "doc-url": "https://shuimo.janghood.com/form#item",
+          "doc-url": "https://shuimo.design/form#item",
           "props": [
             {
               "name": "label",
@@ -469,7 +469,7 @@
             "symbol": "MGrid"
           },
           "description": "grid component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/grid,",
+          "doc-url": "https://shuimo.design/grid,",
           "props": [
             {
               "name": "h",
@@ -530,7 +530,7 @@
             "symbol": "MInput"
           },
           "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。",
-          "doc-url": "https://shuimo.janghood.com/input",
+          "doc-url": "https://shuimo.design/input",
           "props": [
             {
               "name": "type",
@@ -579,7 +579,7 @@
             "symbol": "MInputNumber"
           },
           "description": "InputNumber component with shuimo-ui style.\n水墨组件的数字输入框组件。",
-          "doc-url": "https://shuimo.janghood.com/input#number",
+          "doc-url": "https://shuimo.design/input#number",
           "props": [
             {
               "name": "modelValue",
@@ -634,7 +634,7 @@
             "symbol": "MLi"
           },
           "description": "li component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/li,",
+          "doc-url": "https://shuimo.design/li,",
           "props": [
             {
               "name": "active",
@@ -648,7 +648,7 @@
             "symbol": "MList"
           },
           "description": "List component with shuimo-ui style.\n水墨组件的列表组件。",
-          "doc-url": "https://shuimo.janghood.com/list",
+          "doc-url": "https://shuimo.design/list",
           "props": [
             {
               "name": "data",
@@ -670,7 +670,7 @@
             "symbol": "MLoading"
           },
           "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。",
-          "doc-url": "https://shuimo.janghood.com/loading",
+          "doc-url": "https://shuimo.design/loading",
           "props": [
             {
               "name": "speed",
@@ -701,7 +701,7 @@
             "symbol": "MMenu"
           },
           "description": "menu component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/menu,",
+          "doc-url": "https://shuimo.design/menu,",
           "props": [
             {
               "name": "data",
@@ -753,7 +753,7 @@
             "symbol": "MMessage"
           },
           "description": "Message component with shuimo-ui style.\n水墨组件的消息组件。",
-          "doc-url": "https://shuimo.janghood.com/message",
+          "doc-url": "https://shuimo.design/message",
           "props": [
             {
               "name": "type",
@@ -799,7 +799,7 @@
             "symbol": "MPagination"
           },
           "description": "pagination component with shuimo-ui style.\n水墨组件的分页组件。",
-          "doc-url": "https://shuimo.janghood.com/pagination",
+          "doc-url": "https://shuimo.design/pagination",
           "props": [
             {
               "name": "total",
@@ -869,7 +869,7 @@
             "symbol": "MPopover"
           },
           "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。",
-          "doc-url": "https://shuimo.janghood.com/popover",
+          "doc-url": "https://shuimo.design/popover",
           "props": [
             {
               "name": "placement",
@@ -931,7 +931,7 @@
             "symbol": "MProgress"
           },
           "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。",
-          "doc-url": "https://shuimo.janghood.com/progress",
+          "doc-url": "https://shuimo.design/progress",
           "props": [
             {
               "name": "width",
@@ -983,7 +983,7 @@
             "symbol": "MRadio"
           },
           "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。",
-          "doc-url": "https://shuimo.janghood.com/radio",
+          "doc-url": "https://shuimo.design/radio",
           "props": [
             {
               "name": "label",
@@ -1030,7 +1030,7 @@
             "symbol": "MRicePaper"
           },
           "description": "Rice paper layout component with shuimo-ui style.\n水墨组件的宣纸布局组件",
-          "doc-url": "https://shuimo.janghood.com/rice-paper",
+          "doc-url": "https://shuimo.design/rice-paper",
           "props": [
             {
               "name": "cold",
@@ -1058,7 +1058,7 @@
             "symbol": "MSelect"
           },
           "description": "Select component with shuimo-ui style.\n水墨组件的选择组件。",
-          "doc-url": "https://shuimo.janghood.com/select",
+          "doc-url": "https://shuimo.design/select",
           "props": [
             {
               "name": "modelValue",
@@ -1164,7 +1164,7 @@
             "symbol": "MSlider"
           },
           "description": "slider component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/slider,",
+          "doc-url": "https://shuimo.design/slider",
           "props": [
             {
               "name": "modelValue",
@@ -1210,7 +1210,7 @@
             "symbol": "MSwitch"
           },
           "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text",
-          "doc-url": "https://shuimo.janghood.com/switch",
+          "doc-url": "https://shuimo.design/switch",
           "props": [
             {
               "name": "modelValue",
@@ -1263,7 +1263,7 @@
             "symbol": "MTable"
           },
           "description": "Table component with shuimo-ui style.\n水墨组件的表格组件。",
-          "doc-url": "https://shuimo.janghood.com/table",
+          "doc-url": "https://shuimo.design/table",
           "props": [
             {
               "name": "data",
@@ -1292,7 +1292,7 @@
             "symbol": "MTableColumn"
           },
           "description": "Table column component with shuimo-ui style.\n水墨组件的表格列组件。",
-          "doc-url": "https://shuimo.janghood.com/table#column",
+          "doc-url": "https://shuimo.design/table#column",
           "props": [
             {
               "name": "width",
@@ -1320,7 +1320,7 @@
             "symbol": "MTag"
           },
           "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。",
-          "doc-url": "https://shuimo.janghood.com/tag",
+          "doc-url": "https://shuimo.design/tag",
           "props": [
             {
               "name": "type",
@@ -1336,7 +1336,7 @@
             "symbol": "MTooltip"
           },
           "description": "Tooltip component with shuimo-ui style.\n水墨组件的提示框组件。",
-          "doc-url": "https://shuimo.janghood.com/tooltip",
+          "doc-url": "https://shuimo.design/tooltip",
           "props": [
             {
               "name": "placement",
@@ -1392,7 +1392,7 @@
             "symbol": "MTree"
           },
           "description": "Tree component with shuimo-ui style.\n水墨组件的树组件。",
-          "doc-url": "https://shuimo.janghood.com/tree",
+          "doc-url": "https://shuimo.design/tree",
           "props": [
             {
               "name": "data",
@@ -1444,7 +1444,7 @@
             "symbol": "MTree"
           },
           "description": "Tree node component with shuimo-ui style.\n水墨组件的树节点组件。",
-          "doc-url": "https://shuimo.janghood.com/tree#node",
+          "doc-url": "https://shuimo.design/tree#node",
           "props": [
             {
               "name": "data",
@@ -1492,7 +1492,7 @@
             "symbol": "MVirtualList"
           },
           "description": "virtualList component with shuimo-ui style.",
-          "doc-url": "https://shuimo.janghood.com/virtualList,",
+          "doc-url": "https://shuimo.design/virtualList,",
           "props": [
             {
               "name": "list",

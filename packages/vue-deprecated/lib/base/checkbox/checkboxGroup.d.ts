@@ -7,7 +7,7 @@
  * @name m-checkbox-group
  * @docDescription CheckboxGroup component with shuimo-ui style.
  *              水墨组件的复选框包裹组件。
- * @docUrl https://shuimo.janghood.com/checkbox#group
+ * @docUrl https://shuimo.design/checkbox#group
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

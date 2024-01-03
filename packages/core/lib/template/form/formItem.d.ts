@@ -7,7 +7,7 @@
  * @name m-form-item
  * @docDescription FormItem component with shuimo-ui style.
  *                  水墨组件的表单item组件。
- * @docUrl https://shuimo.janghood.com/form#item
+ * @docUrl https://shuimo.design/form#item
  * @sourceSymbol MFormItem
  *
  * 公司的业务千篇一律，复杂的代码好几百行。

@@ -7,7 +7,7 @@
  * @name m-radio
  * @docDescription Radio component with shuimo-ui style.
  *                 水墨组件的单选组件。
- * @docUrl https://shuimo.janghood.com/radio
+ * @docUrl https://shuimo.design/radio
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

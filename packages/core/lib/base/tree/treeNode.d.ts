@@ -7,7 +7,7 @@
  * @name m-tree-node
  * @docDescription Tree node component with shuimo-ui style.
  *                 水墨组件的树节点组件。
- * @docUrl https://shuimo.janghood.com/tree#node
+ * @docUrl https://shuimo.design/tree#node
  *
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。

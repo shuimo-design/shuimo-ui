@@ -7,7 +7,7 @@
  * @name m-tree
  * @docDescription Tree component with shuimo-ui style.
  *                 水墨组件的树组件。
- * @docUrl https://shuimo.janghood.com/tree
+ * @docUrl https://shuimo.design/tree
  */
 export declare type TreeProps = {
   /**

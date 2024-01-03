@@ -6,7 +6,7 @@
  *
  * @name m-cell
  * @docDescription cell component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/cell,
+ * @docUrl https://shuimo.design/cell,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

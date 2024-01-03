@@ -7,7 +7,7 @@
  * @name m-select
  * @docDescription Select component with shuimo-ui style.
  *                 水墨组件的选择组件。
- * @docUrl https://shuimo.janghood.com/select
+ * @docUrl https://shuimo.design/select
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  *

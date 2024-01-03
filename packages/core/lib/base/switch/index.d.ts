@@ -8,7 +8,7 @@
  * @docDescription Switch component with shuimo-ui style.
  *                  水墨组件的开关组件。
  *                  slot优先级高于text
- * @docUrl https://shuimo.janghood.com/switch
+ * @docUrl https://shuimo.design/switch
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

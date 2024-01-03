@@ -8,7 +8,7 @@
  * @name m-breadcrumb
  * @docDescription Breadcrumb component with shuimo-ui style.
  *                  水墨组件的面包屑组件。
- * @docUrl https://shuimo.janghood.com/breadcrumb
+ * @docUrl https://shuimo.design/breadcrumb
  *
  * Hello, humor
  */

@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/janghood/shuimo-ui/issues"
   },
-  "homepage": "https://shuimo.janghood.com",
+  "homepage": "https://shuimo.design",
   "dependencies": {
     "turbo": "^1.6.3",
     "typescript": "^5.0.4"

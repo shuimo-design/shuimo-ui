@@ -7,7 +7,7 @@
  * @name m-loading
  * @docDescription loading component with shuimo-ui style.
  *                 水墨组件的加载组件。
- * @docUrl https://shuimo.janghood.com/loading
+ * @docUrl https://shuimo.design/loading
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

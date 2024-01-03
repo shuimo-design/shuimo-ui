@@ -9,7 +9,7 @@
  *                 For switching between day and night mode.
  *                 水墨组件的太极组件。
  *                 用于切换日夜间模式。
- * @docUrl https://shuimo.janghood.com/dark-mode
+ * @docUrl https://shuimo.design/dark-mode
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

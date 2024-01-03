@@ -7,7 +7,7 @@
  * @name m-date-picker
  * @docDescription DatePicker component with shuimo-ui style.
  *                 水墨组件的日期选择组件。
- * @docUrl https://shuimo.janghood.com/date-picker
+ * @docUrl https://shuimo.design/date-picker
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

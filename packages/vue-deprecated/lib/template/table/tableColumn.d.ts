@@ -7,7 +7,7 @@
  * @name m-table-column
  * @docDescription Table column component with shuimo-ui style.
  *                  水墨组件的表格列组件。
- * @docUrl https://shuimo.janghood.com/table#column
+ * @docUrl https://shuimo.design/table#column
  * @sourceSymbol MTableColumn
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。

@@ -6,7 +6,7 @@
  *
  * @name m-grid
  * @docDescription grid component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/grid,
+ * @docUrl https://shuimo.design/grid,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

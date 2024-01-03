@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://shuimo.janghood.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://shuimo.design" target="_blank" rel="noopener noreferrer">
     <img width="180" src="https://raw.githubusercontent.com/janghood/shuimo-ui/main/assets/icons/logo.svg" 
         alt="shuimo logo">
   </a>
@@ -58,7 +58,7 @@ npm install shuimo-ui
 
 ### 文档
 
-[点击这里](https://shuimo.janghood.com)
+[点击这里](https://shuimo.design)
 
 ## TODO
 

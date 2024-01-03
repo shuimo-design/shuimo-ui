@@ -6,7 +6,7 @@
  *
  * @name m-virtual-list
  * @docDescription virtualList component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/virtualList,
+ * @docUrl https://shuimo.design/virtualList,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

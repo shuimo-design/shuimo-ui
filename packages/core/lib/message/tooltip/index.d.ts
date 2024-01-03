@@ -7,7 +7,7 @@
  * @name m-tooltip
  * @docDescription Tooltip component with shuimo-ui style.
  *                 水墨组件的提示框组件。
- * @docUrl https://shuimo.janghood.com/tooltip
+ * @docUrl https://shuimo.design/tooltip
  *
  * Hello, humor
  */

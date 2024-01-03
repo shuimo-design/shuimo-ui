@@ -7,7 +7,7 @@
  * @name m-form
  * @docDescription Form component with shuimo-ui style.
  *                  水墨组件的表单组件。
- * @docUrl https://shuimo.janghood.com/form
+ * @docUrl https://shuimo.design/form
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */

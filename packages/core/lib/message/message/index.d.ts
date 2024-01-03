@@ -7,7 +7,7 @@
  * @name m-message
  * @docDescription Message component with shuimo-ui style.
  *              水墨组件的消息组件。
- * @docUrl https://shuimo.janghood.com/message
+ * @docUrl https://shuimo.design/message
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  *

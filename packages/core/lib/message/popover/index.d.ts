@@ -7,7 +7,7 @@
  * @name m-popover
  * @docDescription Popover component with shuimo-ui style.
  *                 水墨组件的弹出框组件。
- * @docUrl https://shuimo.janghood.com/popover
+ * @docUrl https://shuimo.design/popover
  *
  * Hello, humor
  */

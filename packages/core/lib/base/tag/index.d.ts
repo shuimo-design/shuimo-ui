@@ -7,7 +7,7 @@
  * @name m-tag
  * @docDescription Tag component with shuimo-ui style.
  *              水墨组件的标签组件。
- * @docUrl https://shuimo.janghood.com/tag
+ * @docUrl https://shuimo.design/tag
  *
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。

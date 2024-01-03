@@ -7,7 +7,7 @@
  * @name m-divider
  * @docDescription divider component with shuimo-ui style.
  *                 水墨组件的分割线组件。
- * @docUrl https://shuimo.janghood.com/divider
+ * @docUrl https://shuimo.design/divider
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

@@ -7,7 +7,7 @@
  * @name m-menu
  * @docDescription menu component with shuimo-ui style.
  *                 水墨组件的目录组件。
- * @docUrl https://shuimo.janghood.com/menu
+ * @docUrl https://shuimo.design/menu
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

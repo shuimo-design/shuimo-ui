@@ -7,7 +7,7 @@
  * @name m-rice-paper
  * @docDescription Rice paper layout component with shuimo-ui style.
  *                  水墨组件的宣纸布局组件
- * @docUrl https://shuimo.janghood.com/rice-paper
+ * @docUrl https://shuimo.design/rice-paper
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

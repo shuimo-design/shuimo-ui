@@ -6,7 +6,7 @@
  *
  * @name m-confirm
  * @docDescription confirm component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/confirm,
+ * @docUrl https://shuimo.design/confirm,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

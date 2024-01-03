@@ -7,7 +7,7 @@
  * @name m-progress
  * @docDescription progress component with shuimo-ui style.
  *                 水墨组件的进度条组件。
- * @docUrl https://shuimo.janghood.com/progress
+ * @docUrl https://shuimo.design/progress
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

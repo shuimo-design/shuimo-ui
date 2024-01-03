@@ -6,7 +6,7 @@
  *
  * @name {{kName}}
  * @docDescription {{name}} component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/{{name}},
+ * @docUrl https://shuimo.design/{{name}},
  *
  * {{slogan}}
  */

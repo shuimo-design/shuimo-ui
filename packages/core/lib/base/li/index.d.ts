@@ -6,7 +6,7 @@
  *
  * @name m-li
  * @docDescription li component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/li,
+ * @docUrl https://shuimo.design/li,
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

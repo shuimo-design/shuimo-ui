@@ -6,7 +6,7 @@
  *
  * @name m-slider
  * @docDescription slider component with shuimo-ui style.
- * @docUrl https://shuimo.janghood.com/slider,
+ * @docUrl https://shuimo.design/slider
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

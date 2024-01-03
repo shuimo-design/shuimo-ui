@@ -7,7 +7,7 @@
  * @name m-delete-icon
  * @docDescription delete icon component with shuimo-ui style.
  *                 水墨组件的删除图标组件。
- * @docUrl https://shuimo.janghood.com/icon#delete
+ * @docUrl https://shuimo.design/icon#delete
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

@@ -7,7 +7,7 @@
  * @name m-checkbox
  * @docDescription Checkbox component with shuimo-ui style.
  *                 水墨组件的复选框组件。
- * @docUrl https://shuimo.janghood.com/checkbox
+ * @docUrl https://shuimo.design/checkbox
  *
  * Hello, humor
  */

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://shuimo.janghood.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://shuimo.design" target="_blank" rel="noopener noreferrer">
     <img width="180" src="https://raw.githubusercontent.com/janghood/shuimo-ui/main/assets/icons/logo.svg" 
         alt="shuimo logo">
   </a>
@@ -60,7 +60,7 @@ pnpm install shuimo-ui
 
 ### document
 
-[click here](https://shuimo.janghood.com)
+[click here](https://shuimo.design)
 
 ## TODO
 

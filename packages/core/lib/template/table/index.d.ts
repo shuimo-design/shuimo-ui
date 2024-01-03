@@ -7,7 +7,7 @@
  * @name m-table
  * @docDescription Table component with shuimo-ui style.
  *                  水墨组件的表格组件。
- * @docUrl https://shuimo.janghood.com/table
+ * @docUrl https://shuimo.design/table
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */

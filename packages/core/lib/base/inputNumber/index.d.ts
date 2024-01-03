@@ -7,7 +7,7 @@
  * @name m-input-number
  * @docDescription InputNumber component with shuimo-ui style.
  *                 水墨组件的数字输入框组件。
- * @docUrl https://shuimo.janghood.com/input#number
+ * @docUrl https://shuimo.design/input#number
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
