@@ -10,5 +10,6 @@ import { MCOPO } from '@shuimo-design/types';
 import { LiProps } from './index';
 
 export const props: MCOPO<LiProps> = {
-  active: { type: Boolean, default: false }
+  active: { type: Boolean, default: false },
+  icon: { type: Boolean, default: true },
 };

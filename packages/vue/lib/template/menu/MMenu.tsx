@@ -78,7 +78,7 @@ export default defineComponent({
 
       return <div class="m-menu">
         <div class="m-menu-main">
-          <MMenuItem {...treeNodeProps}/>
+          <MMenuItem {...treeNodeProps} root={true}/>
         </div>
       </div>;
     };

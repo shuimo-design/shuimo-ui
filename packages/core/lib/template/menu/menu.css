@@ -12,7 +12,7 @@
   display: inline-block;
 
   & .m-menu-item {
-    margin: 12px 0;
+    margin: 2px 0;
     font-size: 14px;
 
     &:hover {
@@ -23,25 +23,17 @@
     }
   }
 
-  & > .m-menu-item {
+  .m-menu-main-root-item {
+    font-size: 20px;
     margin: 16px 0;
-    padding-left: 27px;
-    background: url(../../assets/icon/base_icon.webp) no-repeat;
-    background-position-x: 8px;
-    background-position-y: 8px;
+  }
 
-    & > span {
-      font-size: 20px;
-    }
+  .m-menu-item-child{
+    margin-left: 16px;
+  }
 
-    & span {
-      margin-left: 12px;
-    }
-
-    &.m-menu-item-active {
-      background: url(../../assets/icon/active_icon.webp) no-repeat;
-      background-position-x: 0;
-    }
+  & > .m-menu-item {
+    padding-left: 1px;
   }
 }
 

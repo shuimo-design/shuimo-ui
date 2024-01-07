@@ -10,10 +10,14 @@
 import { defineComponent, h, ref, resolveComponent } from 'vue';
 import { treeNodeProps } from '@shuimo-design/core/lib/base/tree/api';
 import { TreeNodeData } from '@shuimo-design/core/lib/base/tree';
+import MLi from '../../base/MLi';
 
 export default defineComponent({
   name: 'MMenuItem',
-  props: treeNodeProps,
+  props: {
+    ...treeNodeProps,
+    root: { type: Boolean, default: false }
+  },
   inheritAttrs: false,
   setup: (props) => {
 
@@ -37,16 +41,15 @@ export default defineComponent({
           const children = d[c] ?? [];
           const cKeys = children.map((it) => it[k]);
           const childNodes = props.getNodesByKeys(cKeys);
-          return <div class={['m-menu-item', { 'm-menu-item-active': d.isActive }]}
+          return <MLi class={['m-menu-item',{'m-menu-main-root-item':props.root}]} active={d.isActive} icon={props.root}
                       onClick={(e: MouseEvent) => clickEvent(e, d)}>
-            <div class="m-menu-item-icon"/>
             <span class="m-cursor-pointer">{d[l]}</span>
             {(childNodes.length > 0 && d.expand) ? <div class="m-menu-item-child"
                                                         ref={el => itemRef.value = el as HTMLElement}>
-              {h(MMenuItem, { ...props, data: childNodes })}
+              {h(MMenuItem, { ...props, root: false, data: childNodes })}
             </div> : null}
 
-          </div>;
+          </MLi>;
         })
       }</>;
     };

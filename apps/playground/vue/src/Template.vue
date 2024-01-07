@@ -281,9 +281,9 @@
 
     <!--  <MTree/>-->
 
-    <!--    <m-menu :data="menu" :config="{label:'title'}"/>-->
-    <!--    &lt;!&ndash;    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>&ndash;&gt;-->
-    <!--    <m-tree :data="menu" :config="{label:'title'}"/>-->
+        <m-menu :data="menu" :config="{label:'title'}"/>
+        <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
+        <m-tree :data="menu" :config="{label:'title'}"/>
 
 
     <m-table class="width-400" :data="tableDataRef" :param-class="true">

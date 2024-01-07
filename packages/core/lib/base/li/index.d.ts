@@ -13,7 +13,11 @@
 
 export declare type LiProps = {
   /**
-   * @description
+   * @description is active style or not
    */
-  active?: boolean
+  active?: boolean;
+  /**
+   * @description show icon or not
+   */
+  icon?: boolean
 };

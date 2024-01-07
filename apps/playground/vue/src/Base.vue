@@ -23,12 +23,15 @@
         <m-li active>active li</m-li>
       </div>
       <div class="tag">
-        <m-tag>hi</m-tag>
-        <m-tag>primary</m-tag>
+        <m-tag>你好你好你好你好你好</m-tag>
+
         <m-tag type="primary">primary</m-tag>
         <m-tag type="error">error</m-tag>
         <m-tag type="confirm">confirm</m-tag>
         <m-tag type="warning">warning</m-tag>
+        <m-tag style="--m-tag-bg:#42d392">vue2 color</m-tag>
+        <m-tag style="--m-tag-bg:#646cff">vite color</m-tag>
+        <m-tag class="large" style="--m-tag-bg:#646cff">large</m-tag>
       </div>
       <div class="switch">
         <span>参数值为：{{ switchValue }}</span>
@@ -120,16 +123,15 @@
 
     <div>
       <div class="select">
-        <m-tag>你好你好你好你好你好</m-tag>
-
-        <m-tag type="primary">primary</m-tag>
-        <m-tag type="error">error</m-tag>
-        <m-tag type="confirm">confirm</m-tag>
-        <m-tag type="warning">warning</m-tag>
-
-        <m-tag style="--m-tag-bg:#42d392">vue2 color</m-tag>
-        <m-tag style="--m-tag-bg:#646cff">vite color</m-tag>
-        <m-tag class="large" style="--m-tag-bg:#646cff">large</m-tag>
+        <m-tag>hihihihi</m-tag>
+        <m-li>你好</m-li>
+        <m-li active>你好</m-li>
+        <m-li active style="--m-marker-active-inner-color:#42d392">绿色</m-li>
+        <m-li @mouseenter="mouseEnterActive" @mouseleave="mouseLeaveActive" :active="liActiveRef">鼠标进出</m-li>
+        <m-li>你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行你好，字很多，想换行</m-li>
+        <m-divider/>
+        <br/>
+        <m-divider vertical/>
       </div>
     </div>
 
@@ -148,6 +150,14 @@
 import { ref } from 'vue';
 import MTree from './MTree.vue';
 
+
+const liActiveRef = ref(false);
+const mouseEnterActive = ()=>{
+  liActiveRef.value = true;
+};
+const mouseLeaveActive = ()=>{
+  liActiveRef.value = false;
+};
 
 const widthRef = ref(200);
 const heightRef = ref(200);

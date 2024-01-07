@@ -78,7 +78,7 @@ a {
 }
 
 .m-menu-item-child{
-  .m-menu-item-active{
+  .m-li-active{
     color: var(--m-color-main);
   }
 }
