@@ -35,6 +35,7 @@
 @import "other/loading/loading.css";
 @import "other/darkMode/darkMode.css";
 @import "other/deleteIcon/deleteIcon.css";
+@import "other/scroll/scroll.css";
 
 /* [template] */
 @import "template/border/border.css";
