@@ -196,6 +196,13 @@ export function createMUI(options: MUIOption | undefined = {}) {
         app.component(key, components[key]);
       });
       app.directive('loading', loadingDirective);
+
+
+
+      app.provide(MShuimoConfigKey,{
+        svgInject: options?.svgInject ?? 'auto'
+      })
+
       return app;
     }
   };

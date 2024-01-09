@@ -8,7 +8,7 @@
  *
  * todo fix types
  */
-import type { App, Directive } from 'vue';
+import type { App } from 'vue';
 import { IMessage } from './components/MMessage';
 import { IPrinter } from './components/MPrint';
 import { IConfirm } from './components/MConfirm';
@@ -30,6 +30,15 @@ export type MUIOption = {
    * you can use this option to disable web component
    */
   disableWebComponent?: Array<MWCType>,
+  /**
+   * svg inject type,
+   * auto means in MSvgIcon component, we will check svg is exist or not,
+   * and append by document.append
+   *
+   * use wrapper you must use component MSvgWrapper wrap your MLi component
+   * and svg has id, so you must keep MSvgWrapper component unique.
+   */
+  svgInject?: 'auto' | 'wrapper' | 'nuxt'
 }
 
 
@@ -38,4 +47,3 @@ export function createMUI(options?: MUIOption): ShuimoUI;
 export const MMessage: IMessage;
 export const MPrinter: IPrinter;
 export const MConfirm: IConfirm;
-// export const WScroll: Directive;
