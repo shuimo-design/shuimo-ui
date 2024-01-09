@@ -43,20 +43,11 @@ const execSync = (cmd: string) => {
   });
 };
 
-
-const init = (lib: 'vue' | 'react' | 'lit') => {
-  const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
-    return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
-  };
-
-  const rm = (path: string, options?: RmOptions) => {
-    return pRm(path, options ?? { recursive: true, force: true });
-  };
-  const rmLib = (path: string, options?: RmOptions) => {
-    return rm(`../../packages/${lib}/${path}`, options ?? { recursive: true, force: true });
-  };
-
-  const cpLib = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
+const rm = (path: string, options?: RmOptions) => {
+  return pRm(path, options ?? { recursive: true, force: true });
+};
+const cpLibBase = (lib: 'vue' | 'react' | 'lit' | 'core') => {
+  return async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
     // before cp, rm
     const fromName = `../../packages/${lib}/${path}${name}`;
     const toName = `./config/output/${name}`;
@@ -64,6 +55,18 @@ const init = (lib: 'vue' | 'react' | 'lit') => {
     await rm(toName, options);
     return pCp(fromName, toName, options);
   };
+};
+
+const init = (lib: 'vue' | 'react' | 'lit') => {
+  const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
+    return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
+  };
+
+  const rmLib = (path: string, options?: RmOptions) => {
+    return rm(`../../packages/${lib}/${path}`, options ?? { recursive: true, force: true });
+  };
+
+  const cpLib = cpLibBase(lib);
 
   const rename = (name: string) => {
     return pRename(`./${name}`, `./config/output/${name}`);
@@ -73,7 +76,7 @@ const init = (lib: 'vue' | 'react' | 'lit') => {
   const renameTypes = async () => {
     await Promise.all([
       pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.mts`),
-      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`),
+      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`)
     ]);
     return rm(`./config/output/types/shuimo-ui.d.ts`);
   };
@@ -100,14 +103,15 @@ const run = async () => {
       cp('README.md'),
       cp('LICENSE'),
 
+      cpLibBase('core')('public'),
       cpLib('lib'),
       cpLib('types'),
       cpLib('dist'),
       cpLib('index.ts'),
-      cpLib('package.json', '', 'file'),
+      cpLib('package.json', '', 'file')
     ]);
 
-    await renameTypes()
+    await renameTypes();
 
 
     // todo remove "@shuimo-design/types": "workspace:*"

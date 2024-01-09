@@ -63,7 +63,6 @@ import MMenu from './lib/template/menu/MMenu';
 import MBreadcrumb from './lib/template/breadcrumb/MBreadcrumb';
 import MBreadcrumbItem from './lib/template/breadcrumb/MBreadcrumbItem';
 
-import './lib/base/li/icon.svg';
 import { MShuimoConfigKey } from './lib/other/config/MShuimoConfig';
 
 const components: Record<string, Component> = {
