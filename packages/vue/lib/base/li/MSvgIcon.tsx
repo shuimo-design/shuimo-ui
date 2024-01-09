@@ -7,9 +7,21 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { defineComponent, onMounted,getCurrentInstance } from 'vue';
+import { createApp, defineComponent, h, inject } from 'vue';
+import { MShuimoConfigKey } from '../../other/config/MShuimoConfig';
+import { MUIOption } from '../../../types/shuimo-ui';
+import MSvgSymbol, { SVG_ID } from './MSvgSymbol';
 
-const SVG_ID = 'm-shuimo-svg-icon';
+const installIconSvg = () => {
+  if (!document) {return;}
+  if (!document.getElementById(SVG_ID)) {
+    const svg = h(MSvgSymbol);
+    const div = document.createElement('div');
+    createApp({ render: () => svg }).mount(div);
+    // todo use body maybe have some problem...
+    document.body.appendChild(div);
+  }
+};
 export default defineComponent((props: {
   width?: number | string,
   height?: number | string,
@@ -22,20 +34,27 @@ export default defineComponent((props: {
   inner?: boolean,
 }) => {
 
+  const shuimoConfig = inject<MUIOption>(MShuimoConfigKey);
+  const isNuxt = shuimoConfig?.svgInject === 'nuxt';
+  const svgUrl = isNuxt ? `m-shuimo/icon.svg#${SVG_ID}` : `#${SVG_ID}`;
+  if (shuimoConfig?.svgInject === 'auto') {
+    installIconSvg();
+  }
+
   return () => (
-    <div class={['m-svg-icon',props.class]} style={{ width: props.width, height: props.height }}>
+    <div class={['m-svg-icon', props.class]} style={{ width: props.width, height: props.height }}>
       {props.wrapper ? (
         <svg xmlns="http://www.w3.org/2000/svg" width={props.wrapperWidth} height={props.wrapperHeight}
              class="m-svg-icon-wrapper"
              viewBox="0 0 34 34">
-          <use xlinkHref={`#${SVG_ID}`}></use>
+          <use href={svgUrl}></use>
         </svg>
       ) : null}
       {props.inner ? (
         <svg xmlns="http://www.w3.org/2000/svg" width={props.innerWidth} height={props.innerHeight}
              class="m-svg-icon-inner"
              viewBox="0 0 34 34">
-          <use xlinkHref={`#${SVG_ID}`}></use>
+          <use href={svgUrl}></use>
         </svg>
       ) : null}
     </div>
