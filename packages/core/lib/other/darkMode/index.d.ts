@@ -20,7 +20,19 @@ export declare type DarkModeProps = {
    * @type boolean
    * @vue
    */
-  value?: boolean
+  value?: boolean;
+  /**
+   * @description auto init mode. 自动初始化模式
+   * @type boolean
+   */
+  autoMode?: boolean;
+  /**
+   * @description init handler. 初始化事件
+   * @type function
+   * @return boolean need auto init or not
+   */
+  initHandler?: () => boolean;
+
 }
 
 export declare type DarkModeEvents = {

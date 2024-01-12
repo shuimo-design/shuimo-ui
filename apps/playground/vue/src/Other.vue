@@ -8,7 +8,7 @@
     <div style="height: 200px">
       <m-divider vertical/>
     </div>
-    <m-dark-mode/>
+    <m-dark-mode v-model="darkModeRef" :init-handler="initHandler" @change="onChangeMode"/>
   </div>
 </template>
 
@@ -21,7 +21,22 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { ref } from 'vue';
 
+const darkModeRef = ref(false);
+const initHandler = () => {
+  const darkMode = localStorage.getItem('shuimo-blog-dark-mode');
+  darkModeRef.value = darkMode === 'true';
+
+  console.log(darkModeRef.value);
+  return false;
+
+};
+
+const onChangeMode = (val: string) => {
+  console.log('change mode', val);
+  localStorage.setItem('shuimo-blog-dark-mode', val);
+};
 
 </script>
 

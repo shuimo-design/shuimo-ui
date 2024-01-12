@@ -10,5 +10,6 @@ import { MCOPO } from '@shuimo-design/types';
 import { DarkModeProps } from './index';
 
 export const props: MCOPO<DarkModeProps> = {
-  value: { type: Boolean, default: undefined }
+  value: { type: Boolean, default: undefined },
+  autoMode: { type: Boolean, default: true },
 };

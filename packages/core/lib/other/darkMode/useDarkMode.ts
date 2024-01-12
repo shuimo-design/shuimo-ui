@@ -11,20 +11,21 @@
  */
 import { DarkModeProps } from './index';
 
-export function useDarkMode() {
+export function useDarkMode(autoMode: boolean) {
 
   const getBrowserDarkMode = () => typeof window !== 'undefined' &&
     window?.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const onMountedHook = () => {
     // todo add event remove
-
-
-    if (typeof window !== 'undefined') {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        toggleDarkMode({ value: event.matches });
-      });
-      toggleDarkMode({ value: getBrowserDarkMode() });
+    console.log('on mounted hook');
+    if(autoMode) {
+      if (typeof window !== 'undefined') {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+          toggleDarkMode({ value: event.matches });
+        });
+        toggleDarkMode({ value: getBrowserDarkMode() });
+      }
     }
   };
 

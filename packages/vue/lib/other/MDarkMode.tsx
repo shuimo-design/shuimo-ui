@@ -8,29 +8,43 @@
  *
  * todo fix feDropShadow warning
  */
-import { h, defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, h, onMounted, ref, watch } from 'vue';
 import { props } from '@shuimo-design/core/lib/other/darkMode/api';
 import { useDarkMode } from '@shuimo-design/core/lib/other/darkMode/useDarkMode';
 
 export default defineComponent({
   name: 'MDarkMode',
   props: {
-    modelValue: props.value
+    modelValue: props.value,
+    autoMode: props.autoMode,
+    initHandler: props.initHandler
   },
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'change'],
   setup: (props, { emit }) => {
 
-    const { onMountedHook, toggleDarkMode, getBrowserDarkMode } = useDarkMode();
+    const { onMountedHook, toggleDarkMode, getBrowserDarkMode } = useDarkMode(props.autoMode);
     const value = ref(props.modelValue ?? getBrowserDarkMode());
 
     const clickHandler = (e: MouseEvent) => {
       value.value = !value.value;
       emit('update:modelValue', value.value);
+      emit('change', value.value);
       toggleDarkMode({ value: value.value });
     };
 
     onMounted(() => {
-      onMountedHook();
+      let autoInit = props.autoMode;
+      if (props.initHandler) {
+        autoInit = props.initHandler();
+      }
+
+      if (autoInit) {
+        onMountedHook();
+      }
+    });
+
+    watch(() => props.modelValue, (val) => {
+      toggleDarkMode({ value: val });
     });
 
     return () => {
