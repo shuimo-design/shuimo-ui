@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { props } from '@shuimo-design/core/lib/other/loading/api';
 import { useLoading } from '@shuimo-design/core/lib/other/loading/useLoading';
 
