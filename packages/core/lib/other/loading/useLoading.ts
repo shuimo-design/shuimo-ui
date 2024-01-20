@@ -6,7 +6,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  *
- * "shua" is an onomatopoeia, just like the sound of a knife cutting through something.
  */
 import { LoadingProps } from './index';
 
@@ -18,7 +17,6 @@ export function useLoading() {
     const fixedSideLength = isNumber ? `${props.sideLength}px` : props.sideLength;
     return { '--m-loading-speed': `${animationSpeed}s`, height: fixedSideLength, width: fixedSideLength };
   };
-
 
   return {
     getStyle
