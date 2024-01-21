@@ -21,6 +21,12 @@ export declare type LoadingProps = {
    */
   speed?: number,
   /**
+   * @description logo size
+   * @type number
+   * @default 100
+   */
+  size?: number,
+  /**
    * @description with mask or not
    * @type boolean
    * @default false

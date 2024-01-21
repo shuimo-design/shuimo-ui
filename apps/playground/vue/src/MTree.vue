@@ -6,7 +6,7 @@
  * @version v1.0.0
  */
 import { MTree } from 'shuimo-ui/index';
-import { TreeData } from '@shuimo-design/core/lib/base/tree';
+import type { TreeData } from '@shuimo-design/core/lib/base/tree';
 import { ref } from 'vue';
 
 const checkedKeys = ref<Array<string | number>>(['12', '22', '3']);

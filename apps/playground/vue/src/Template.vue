@@ -280,13 +280,13 @@
     <!--    </div>-->
 
     <!--  <MTree/>-->
-
+    <m-loading :mask="false" :size="2" :speed="500"></m-loading>
         <m-menu :data="menu" :config="{label:'title'}"/>
         <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
         <m-tree :data="menu" :config="{label:'title'}"/>
 
 
-    <m-table class="width-400" :data="tableDataRef" :param-class="true">
+    <m-table v-loading="true" class="width-400" :data="tableDataRef" :param-class="true">
       <m-table-column label="姓名" param="name"></m-table-column>
       <m-table-column label="地址" param="address" width="200"></m-table-column>
       <m-table-column label="年龄" param="age"></m-table-column>

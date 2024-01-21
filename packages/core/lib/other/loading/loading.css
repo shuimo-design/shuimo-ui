@@ -4,26 +4,12 @@
   justify-content: center;
   align-items: center;
   opacity: 0.7;
-  --m-loading-speed: 0.8s;
+  --m-loading-speed: 2s;
+  --m-loading-size-w: 64px;
+  --m-loading-size-h: 50px;
 }
 
-@keyframes scale1 {
-  from {
-    transform: scale(0.8) ;
-    opacity: 0.05;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 0.05;
-  }
-}
-
-.m-loading-shua-wrapper {
+.m-loading-wrapper {
   display: grid;
   max-width: 100%;
   max-height: 100%;
@@ -34,55 +20,21 @@
   align-items: center;
 }
 
-.m-loading-item {
+.m-loading-main {
   grid-area: main;
   max-width: 100%;
   max-height: 100%;
-  height: 50px;
-  width: 50px;
-}
-
-/*
-@each $type in shua1, shua2, shua3, shua4 {
-  .m-loading-$(type) {
-    background: url(./assets/#{$type}.webp) no-repeat;
-    background-size: contain;
-    opacity: 0;
-  }
-}
-*/
-
-
-.m-loading-shua0 {
-  background: url(./assets/shua1.webp) no-repeat;
-  background-size: 100% 100%;
-  opacity: 0;
-}
-
-.m-loading-shua1 {
-  background: url(./assets/shua2.webp) no-repeat;
-  background-size: 100% 100%;
-  opacity: 0;
-}
-
-.m-loading-shua2 {
-  background: url(./assets/shua3.webp) no-repeat;
-  background-size: 100% 100%;
-  opacity: 0;
-}
-
-.m-loading-shua3 {
-  background: url(./assets/shua4.webp) no-repeat;
-  background-size: 100% 100%;
-  opacity: 0;
-}
-
-
-.m-loading-item-show {
-  --m-loading-show-rotate: rotate(0.05turn);
-  transform: scale(0.8) var(--m-loading-show-rotate);
-  will-change: opacity;
-  animation: scale1 var(--m-loading-speed);
+  height: var(--m-loading-size-h);
+  width: var(--m-loading-size-w);
+  background-image: url(./assets/code.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation-name: heart-beat;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-duration: var(--m-loading-speed);
 }
 
 
@@ -102,4 +54,22 @@
 
 .m-loading-parent-relative {
   position: relative;
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
