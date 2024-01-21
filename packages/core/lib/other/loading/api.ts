@@ -12,7 +12,7 @@ import { LoadingProps } from './index';
 export const defaultSpeed = 2000;
 export const props: MCOPO<LoadingProps> = {
   speed: { type: Number, default: defaultSpeed },
-  size: { type: [Number, String], default: 100 },
+  size: { type: Number, default: 1 },
   mask: { type: Boolean, default: true },
   sideLength: { type: [Number, String], default: 50 }
 };

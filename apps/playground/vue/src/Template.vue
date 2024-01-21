@@ -280,7 +280,7 @@
     <!--    </div>-->
 
     <!--  <MTree/>-->
-    <m-loading></m-loading>
+    <m-loading :mask="false" :size="2" :speed="500"></m-loading>
         <m-menu :data="menu" :config="{label:'title'}"/>
         <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
         <m-tree :data="menu" :config="{label:'title'}"/>

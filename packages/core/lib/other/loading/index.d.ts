@@ -25,7 +25,7 @@ export declare type LoadingProps = {
    * @type number
    * @default 100
    */
-  size?: number | string,
+  size?: number,
   /**
    * @description with mask or not
    * @type boolean
