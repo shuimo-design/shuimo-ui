@@ -7,11 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 默认改为冷色调，添加色调选项
  */
-import { defineComponent, onBeforeUnmount, onMounted } from "vue";
+import { defineComponent, onBeforeUnmount, onMounted } from 'vue';
 import { props } from './api';
 import useImgMove from './compositions/useImgMove';
 
-export default defineComponent((props,{slots})=>{
+
+export default defineComponent((props, { slots }) => {
 
 
   const {
@@ -51,37 +52,35 @@ export default defineComponent((props,{slots})=>{
     window.removeEventListener('mousemove', moveMountain);
   });
 
-  return ()=> {
+  return () => {
 
-    const mountain = <div class="mountains w-100 absolute">
-      <div class="flex between-end">
-        <div class="m-m-left">
-          <div class="m-l-base bg-100 absolute m-m-reflect" ref={mLBaseRef}/>
-          <div class="m-l-mid bg-100 absolute m-m-reflect" ref={mLMidRef}/>
-          <div class="m-l-front bg-100 absolute m-m-reflect" ref={mLFrontRef}/>
-          <div class="m-l-front-2 bg-100 absolute m-m-reflect" ref={mLFront2Ref}/>
-        </div>
-        <div class="m-m-right">
-          <div class="m-r-base bg-100 absolute m-m-reflect" ref={mRBaseRef}/>
-          <div class="m-r-mid bg-100 absolute m-m-reflect" ref={mRMidRef}/>
-          <div class="m-r-front bg-100 absolute m-m-reflect" ref={mRFrontRef}/>
-          <div class="m-r-front-2 bg-100 absolute m-m-reflect" ref={mRFront2Ref}/>
-        </div>
+    const mountain = <div class="mountains">
+      <div class="m-m-left">
+        <div class="m-l-base m-m-reflect" ref={mLBaseRef}/>
+        <div class="m-l-mid m-m-reflect" ref={mLMidRef}/>
+        <div class="m-l-front m-m-reflect" ref={mLFrontRef}/>
+        <div class="m-l-front-2 m-m-reflect" ref={mLFront2Ref}/>
+      </div>
+      <div class="m-m-right">
+        <div class="m-r-base m-m-reflect" ref={mRBaseRef}/>
+        <div class="m-r-mid m-m-reflect" ref={mRMidRef}/>
+        <div class="m-r-front m-m-reflect" ref={mRFrontRef}/>
+        <div class="m-r-front-2 m-m-reflect" ref={mRFront2Ref}/>
       </div>
     </div>;
 
     return (
-      <div class="m-bg w-100 h-100 absolute t0r0">
+      <div class="m-bg">
         {mountain}
-        <div class="rice-paper-hover w-100 h-100 absolute t0r0"/>
-        <div class="m-bg-layout absolute t0r0 w-100 h-100">
+        <div class="rice-paper-hover"/>
+        <div class="m-bg-layout">
           {slots.default?.()}
         </div>
       </div>
-    )
-  }
+    );
+  };
 
 }, {
   name: 'MRicePaper',
   props
-})
+});

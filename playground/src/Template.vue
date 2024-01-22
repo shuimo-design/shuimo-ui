@@ -281,45 +281,54 @@
           <m-breadcrumb-item content="bread-7"/>
         </m-breadcrumb>
       </div>
+
+      <m-form @submit="submitEvent">
+        <m-form-item label="在下乃输入框：" prop="input">
+          <m-input/>
+        </m-form-item>
+        <m-form-item label="在下乃按钮：" prop="hello">
+          <m-button text="点击按钮"/>
+        </m-form-item>
+      </m-form>
+
+      <div class="row-flex">
+        <span>{{ baseList.length }}</span>
+        <m-virtual-list class="max-height" :list="baseList" v-if="false">
+          <template #default="data">
+            <div class="virtual-list-item">{{ data }}</div>
+          </template>
+        </m-virtual-list>
+        <m-divider/>
+        <span>{{ optionsMore.length }}</span>
+        <m-virtual-list class="max-height" :list="optionsMore">
+          <template #default="data">
+            <div class="virtual-list-item">{{ data }}</div>
+          </template>
+        </m-virtual-list>
+      </div>
+
+      <!--  <MTree/>-->
+      <m-loading :mask="false" :size="2" :speed="500"></m-loading>
+      <m-menu :data="menu" :config="{label:'title'}"/>
+      <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
+      <m-tree :data="menu" :config="{label:'title'}"/>
+
+
+      <m-table class="width-400" :data="tableDataRef" :param-class="true">
+        <m-table-column label="姓名" param="name"></m-table-column>
+        <m-table-column label="地址" param="address" width="200"></m-table-column>
+        <m-table-column label="年龄" param="age"></m-table-column>
+      </m-table>
     </div>
 
-    <m-form @submit="submitEvent">
-      <m-form-item label="在下乃输入框：" prop="input">
-        <m-input/>
-      </m-form-item>
-      <m-form-item label="在下乃按钮：" prop="hello">
-        <m-button text="点击按钮"/>
-      </m-form-item>
-    </m-form>
-
-    <div class="row-flex">
-      <span>{{ baseList.length }}</span>
-      <m-virtual-list class="max-height" :list="baseList" v-if="false">
-        <template #default="data">
-          <div class="virtual-list-item">{{ data }}</div>
-        </template>
-      </m-virtual-list>
-      <m-divider/>
-      <span>{{ optionsMore.length }}</span>
-      <m-virtual-list class="max-height" :list="optionsMore">
-        <template #default="data">
-          <div class="virtual-list-item">{{ data }}</div>
-        </template>
-      </m-virtual-list>
-    </div>
-
-    <!--  <MTree/>-->
-    <m-loading :mask="false" :size="2" :speed="500"></m-loading>
-    <m-menu :data="menu" :config="{label:'title'}"/>
-    <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
-    <m-tree :data="menu" :config="{label:'title'}"/>
 
 
-    <m-table class="width-400" :data="tableDataRef" :param-class="true">
-      <m-table-column label="姓名" param="name"></m-table-column>
-      <m-table-column label="地址" param="address" width="200"></m-table-column>
-      <m-table-column label="年龄" param="age"></m-table-column>
-    </m-table>
+<!--    <div class="filter-div">-->
+<!--      <m-rice-paper>-->
+<!--        <div class="inside-div"/>-->
+<!--      </m-rice-paper>-->
+<!--    </div>-->
+
 
     <!--    <Layout/>-->
 
@@ -588,4 +597,21 @@ img {
   flex-direction: row;
 }
 
+
+.filter-div {
+  /* demo中为了更好看一点 */
+  width: 400px;
+  height: 400px;
+  background: white;
+}
+
+
+.inside-div {
+  margin: 25px;
+  height: 350px;
+  width: 350px;
+  background: var(--m-color-text);
+  opacity: 0.2;
+  border-radius: 50%;
+}
 </style>

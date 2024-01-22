@@ -11,11 +11,16 @@ import Playground from './Playground.vue';
 </script>
 
 <template>
-  <m-rice-paper :mountain="false">
+  <m-rice-paper class="rice-paper" :mountain="false">
     <Playground/>
   </m-rice-paper>
 </template>
 
 <style scoped>
+
+.rice-paper {
+  height: 100vh;
+  width: 100vw;
+}
 
 </style>
