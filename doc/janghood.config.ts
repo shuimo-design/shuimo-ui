@@ -13,14 +13,13 @@ import { defineJhConfig } from '@janghood/config';
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ['../../packages/core/lib/**/*.d.ts'],
-    exclude: ['**/dependents/**/*.d.ts', '**/types/**/*.d.ts', '**/basic/**/*.d.ts'],
+    include: ['../lib/components/**/**/*.d.ts'],
+    exclude: ['../lib/components/types/*.d.ts'],
     document: {
       markdown: {
         output: 'apis',
-        replace: '../../packages/core/lib/',
+        replace: '../lib/components',
         active: true,
-
       }
     },
     annotate: {
