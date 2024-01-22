@@ -31,13 +31,12 @@ defineProps<{ url: string, target?: string }>();
   font-size: 24px;
   line-height: 80px;
   font-family: var(--wljh);
-  color: #222222;
+  color: var(--color);
   letter-spacing: -4px;
-  text-shadow: 1px 2px 0 #ffffff;
+  text-shadow: var(--text-shadow);
 
   &:hover {
-    color: #660000;
+    color: var(--hover-color);
   }
 }
-
 </style>
