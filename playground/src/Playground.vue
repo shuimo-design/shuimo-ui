@@ -1,10 +1,3 @@
-<template>
-  <div class="m-rice-paper-inside">
-    <h1>这里是vue的playground</h1>
-    <Template/>
-  </div>
-</template>
-
 <script setup lang="ts">
 /**
  * @description vue playground
@@ -27,7 +20,7 @@ import Message from './Message.vue';
     <m-dark-mode/>
   </div>
   <div class="playground">
-    <Base/>
+    <Template/>
   </div>
 </template>
 
