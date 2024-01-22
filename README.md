@@ -9,6 +9,10 @@
 <p align="center">A vary coarse Chinese ink style UI</p>
 <p align="center">一款很粗暴的水墨UI</p>
 
+![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
+[![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
+[![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
+
 [中文文档](https://github.com/janghood/shuimo-ui/blob/main/assets/README/README.zh.md)
 
 ## Introduction
@@ -27,30 +31,11 @@ users who have an artistic pursuit of the site and hope to build it quickly.
 It looks like this:
 <img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
 
-## 🚧 About this branch
-
-In the past we only wrote the `Vue3` version.
-
-Now we are trying to support `Web Component` and `React` version.
-
-And we also hope to provide a `Assets free, Only code` version and a `Don't care about package size` version,
-but this will take a long time, so please wait.
-
-You can check old `Vue3` version on this [branch](https://github.com/janghood/shuimo-ui/tree/vue).
-
-You can check our current support status [here](https://github.com/janghood/shuimo-ui/tree/main#TODO).
-
 ## discussion
 
 [discord](https://discord.gg/xy3BenWvYj)，but maybe the last time login was ten thousand years ago 😂.
 
 You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a>  _（join Wechat group or something..）_。
-
-## Vue3
-
-![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
-[![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
-[![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
 ### Install
 
@@ -64,51 +49,51 @@ pnpm install shuimo-ui
 
 ## TODO
 
-| Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.x) | Web Component (🚧) | React (🚧) |
-|---------------|-----------------|---------------------|--------------------|------------|
-| **BASE**      |                 |                     |                    |            |
-| Avatar        | ❌               | ✅                   | ✨                  | ✨          |
-| Button        | ✅               | ✅                   | ✨                  | ✨          |
-| CheckBox      | ✅               | ✅                   | ✨                  | ✨          |
-| CheckBoxGroup | ✅               | ✨                   | ❌                  | ❌          |
-| DatePicker    | ✅               | ✅                   | ❌                  | ❌          |
-| Li            | ❌               | ✅                   | ✨                  | ✨          |
-| List          | ✅               | ✅                   | ✨                  | 🚧         |
-| Input         | ✅               | ✅                   | ✨                  | ✨          |
-| InputNumber   | ✅               | ✅                   | ❌                  | ❌          |
-| Progress      | ✅               | ✅                   | ✨                  | ✨          |
-| Radio         | ✅               | ✅                   | ✨                  | ✨          |
-| Select        | ✅               | ✅                   | ❌                  | ❌          |
-| Slider        | ✅               | ✅                   | ❌                  | ❌          |
-| Switch        | ✅               | ✅                   | ✨                  | ✨          |
-| Tag           | ✅               | ✅                   | ✨                  | ✨          |
-| Tree          | ❌               | ✨                   | ❌                  | ❌          |
-| **MESSAGE**   |                 |                     |                    |            |
-| Confirm       | ✅               | ✅                   | ✨                  | 🚧         |
-| Dialog        | ✅               | ✅                   | ✨                  | ✨          |
-| Drawer        | ✅               | ✅                   | ✨                  | 🚧         |
-| Message       | ✅               | ✅                   | ❌                  | ❌          |
-| Popover       | ✅               | ✅                   | ✨                  | 🚧         |
-| Tooltip       | ✅               | ✅                   | ❌                  | ❌          |
-| **OTHER**     |                 |                     |                    |            |
-| DarkMode      | ❌               | ✅                   | ✨                  | ✨          |
-| Divider       | ✅               | ✅                   | ✨                  | ✨          |
-| Loading       | ✅               | ✅                   | ✨                  | ✨          |
-| Upload        | ✅               | 🔥                  | 🔥                 | 🔥         |
-| DeleteIcon    | ✅               | ✅                   | ✨                  | ✨          |
-| Printer       | ✅               | ✅                   | ❌                  | ❌          |
-| **TEMPLATE**  |                 |                     |                    |            |
-| Border        | ✅               | ✅                   | ✨                  | ✨          |
-| Cell          | ✅               | ✅                   | ❌                  | ❌          |
-| Grid          | ✅               | ✅                   | ❌                  | ❌          |
-| RicePaper     | ✅               | ✅                   | ✨                  | ✨          |
-| Form          | ✅               | ✅                   | ✨                  | 🚧         |
-| FormItem      | ✅               | ✅                   | ✨                  | 🚧         |
-| Table         | ✅               | ✅                   | ✨                  | 🚧         |
-| TableColumn   | ✅               | ✅                   | ✨                  | 🚧         |
-| Pagination    | ✅               | ✅                   | ❌                  | ❌          |
-| **TODO**      |                 |                     |                    |            |
-| Menu          | ⚗️              | ❌                   | 🚧️                | ❌          |
+| Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.x) |
+|---------------|-----------------|---------------------|
+| **BASE**      |                 |                     |
+| Avatar        | ❌               | ✅                   | 
+| Button        | ✅               | ✅                   | 
+| CheckBox      | ✅               | ✅                   | 
+| CheckBoxGroup | ✅               | ✨                   | 
+| DatePicker    | ✅               | ✅                   | 
+| Li            | ❌               | ✅                   | 
+| List          | ✅               | ✅                   | 
+| Input         | ✅               | ✅                   | 
+| InputNumber   | ✅               | ✅                   | 
+| Progress      | ✅               | ✅                   | 
+| Radio         | ✅               | ✅                   | 
+| Select        | ✅               | ✅                   | 
+| Slider        | ✅               | ✅                   | 
+| Switch        | ✅               | ✅                   | 
+| Tag           | ✅               | ✅                   | 
+| Tree          | ❌               | ✨                   | 
+| **MESSAGE**   |                 |                     |   
+| Confirm       | ✅               | ✅                   | 
+| Dialog        | ✅               | ✅                   | 
+| Drawer        | ✅               | ✅                   | 
+| Message       | ✅               | ✅                   | 
+| Popover       | ✅               | ✅                   | 
+| Tooltip       | ✅               | ✅                   | 
+| **OTHER**     |                 |                     |   
+| DarkMode      | ❌               | ✅                   | 
+| Divider       | ✅               | ✅                   | 
+| Loading       | ✅               | ✅                   | 
+| Upload        | ✅               | 🔥                  | 
+| DeleteIcon    | ✅               | ✅                   | 
+| Printer       | ✅               | ✅                   | 
+| **TEMPLATE**  |                 |                     |   
+| Border        | ✅               | ✅                   | 
+| Cell          | ✅               | ✅                   | 
+| Grid          | ✅               | ✅                   | 
+| RicePaper     | ✅               | ✅                   | 
+| Form          | ✅               | ✅                   | 
+| FormItem      | ✅               | ✅                   | 
+| Table         | ✅               | ✅                   | 
+| TableColumn   | ✅               | ✅                   | 
+| Pagination    | ✅               | ✅                   | 
+| **TODO**      |                 |                     |   
+| Menu          | ⚗️              | ❌                   | 
 
 
 This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
