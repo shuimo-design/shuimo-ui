@@ -46,10 +46,10 @@ const execSync = (cmd: string) => {
 const rm = (path: string, options?: RmOptions) => {
   return pRm(path, options ?? { recursive: true, force: true });
 };
-const cpLibBase = (lib: 'vue' | 'react' | 'lit' | 'core') => {
+const cpLibBase = (lib: string) => {
   return async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
     // before cp, rm
-    const fromName = `../../packages/${lib}/${path}${name}`;
+    const fromName = `../../${lib}/${path}${name}`;
     const toName = `./config/output/${name}`;
     const options = type === 'document' ? { recursive: true, force: true } : undefined;
     await rm(toName, options);
@@ -57,16 +57,16 @@ const cpLibBase = (lib: 'vue' | 'react' | 'lit' | 'core') => {
   };
 };
 
-const init = (lib: 'vue' | 'react' | 'lit') => {
+const init = () => {
   const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
     return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
   };
 
   const rmLib = (path: string, options?: RmOptions) => {
-    return rm(`../../packages/${lib}/${path}`, options ?? { recursive: true, force: true });
+    return rm(`../../lib/${path}`, options ?? { recursive: true, force: true });
   };
 
-  const cpLib = cpLibBase(lib);
+  const cpLib = cpLibBase('lib');
 
   const rename = (name: string) => {
     return pRename(`./${name}`, `./config/output/${name}`);
@@ -87,7 +87,7 @@ const init = (lib: 'vue' | 'react' | 'lit') => {
 
 const run = async () => {
 
-  const { cp, rename, cpLib, rmLib, renameTypes } = init('vue');
+  const { cp, rename, cpLib, rmLib, renameTypes } = init();
 
   const removeRes = await rmLib('dist');
   const buildRes = await execSync('vite build -c ./config/vue.config.ts');
@@ -103,8 +103,9 @@ const run = async () => {
       cp('README.md'),
       cp('LICENSE'),
 
-      cpLibBase('core')('public'),
-      cpLib('lib'),
+      cpLib('public'),
+      cpLib('components'),
+      cpLib('compositions'),
       cpLib('types'),
       cpLib('dist'),
       cpLib('index.ts'),

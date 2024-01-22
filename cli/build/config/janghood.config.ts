@@ -19,10 +19,11 @@ const sourceSymbolTranslator = (dirList: string[]) => {
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ['../../packages/core/lib/**/*.d.ts'],
+    include: ['../../lib/components/**/*.d.ts'],
+    exclude: ['../../lib/components/types/*.d.ts'],
     document: {
       webTypes: {
-        packageUrl: '../../packages/vue/package.json',
+        packageUrl: '../../lib/package.json',
         active: true,
         webTypesInfo: {
           framework: 'vue',

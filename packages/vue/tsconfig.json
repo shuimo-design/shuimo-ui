@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "typeRoots": [],
-    "baseUrl": "./lib",
-    "jsx": "preserve"
-  }
-}

@@ -6,7 +6,7 @@
  *
  * {{slogan}}
  */
-import { MCOPO } from '@shuimo-design/types';
+import { MCOPO } from '../../types/props';
 import { {{propsName}} } from './index';
 
 export const props: MCOPO<{{propsName}}> = {
