@@ -51,11 +51,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janghood/shuimo-ui.git"
+    "url": "git+https://github.com/shuimo-design/shuimo-ui.git"
   },
   "web-types": "web-types.json",
   "bugs": {
-    "url": "https://github.com/janghood/shuimo-ui/issues"
+    "url": "https://github.com/shuimo-design/shuimo-ui/issues"
   },
   "homepage": "https://shuimo.design"
 }

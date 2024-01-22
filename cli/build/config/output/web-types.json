@@ -695,6 +695,12 @@
               "default": "1500"
             },
             {
+              "name": "size",
+              "description": "logo size",
+              "type": "number",
+              "default": "100"
+            },
+            {
               "name": "mask",
               "description": "with mask or not",
               "type": "boolean",
