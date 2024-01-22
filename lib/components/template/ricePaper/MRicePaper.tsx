@@ -72,7 +72,7 @@ export default defineComponent((props, { slots }) => {
     return (
       <div class="m-rice-paper">
         {mountain}
-        <div class="rice-paper-hover"/>
+        <div class="m-rice-paper-hover"/>
         <div class="m-rice-paper-layout">
           {slots.default?.()}
         </div>

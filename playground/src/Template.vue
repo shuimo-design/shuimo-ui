@@ -322,12 +322,16 @@
     </div>
 
 
-
-<!--    <div class="filter-div">-->
-<!--      <m-rice-paper>-->
-<!--        <div class="inside-div"/>-->
-<!--      </m-rice-paper>-->
-<!--    </div>-->
+  <div class="animation">
+    <m-button @click="toggleVisible">toggleVisible</m-button>
+    <transition name="m-layout">
+      <div class="filter-div" v-if="riceVisibleRef">
+        <m-rice-paper>
+          <div class="inside-div"/>
+        </m-rice-paper>
+      </div>
+    </transition>
+  </div>
 
 
     <!--    <Layout/>-->
@@ -346,6 +350,8 @@
  */
 import { ref } from 'vue';
 
+const riceVisibleRef = ref(false);
+const toggleVisible = () => riceVisibleRef.value = !riceVisibleRef.value;
 
 const submitEvent = () => {
   console.log('submitEvent');
@@ -602,7 +608,7 @@ img {
   /* demo中为了更好看一点 */
   width: 400px;
   height: 400px;
-  background: white;
+  //background: white;
 }
 
 
@@ -613,5 +619,10 @@ img {
   background: var(--m-color-text);
   opacity: 0.2;
   border-radius: 50%;
+}
+
+.animation{
+  height: 500px;
+  width: 500px;
 }
 </style>

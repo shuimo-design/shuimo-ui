@@ -20,7 +20,7 @@ import Message from './Message.vue';
     <m-dark-mode/>
   </div>
   <div class="playground">
-    <Other/>
+    <Template/>
   </div>
 </template>
 
