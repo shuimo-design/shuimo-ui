@@ -8,7 +8,7 @@
     "dev": "pnpm -C playground run dev",
     "build": "pnpm -C cli/build run build",
     "doc:dev": "pnpm -C doc run doc:dev",
-    "doc:build": "pnpm -C doc run doc:build",
+    "doc:build": "pnpm -C doc run build",
     "re-install": "pnpm run clean:node_modules && pnpm i"
   },
   "packageManager": "pnpm@7.17.1",
