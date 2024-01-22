@@ -1,0 +1,48 @@
+.m-layout-enter-active, .m-layout-leave-active {
+  --m-layout-speed: 0.8s;
+  transition: all var(--m-layout-speed);
+
+  .m-rice-paper-layout {
+    transition: all var(--m-layout-speed);
+  }
+
+  .m-m-left, .m-m-right {
+    transition: all calc(var(--m-layout-speed) / 2);
+  }
+
+}
+
+.m-layout-enter-from, .m-layout-leave-to {
+  /** for nuxt layout **/
+  /*.m-rice-paper-hover {*/
+  /*  visibility: hidden;*/
+  /*}*/
+
+  .m-rice-paper-layout {
+    opacity: 0;
+  }
+
+  .m-m-left {
+    transform: translateX(calc(var(--m-m-left-w) * -1));
+  }
+
+  .m-m-right {
+    transform: translateX(var(--m-m-right-w));
+  }
+
+}
+
+.m-layout-enter-to, .m-layout-leave-from {
+
+  .m-rice-paper-layout {
+    opacity: 1;
+  }
+
+  .m-m-left, .m-m-right {
+    transform: translateX(0);
+  }
+
+  .m-rice-paper-hover {
+    visibility: visible;
+  }
+}

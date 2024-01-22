@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+
 const riceVisibleRef = ref(true);
 const toggleVisible = () => riceVisibleRef.value = !riceVisibleRef.value;
 </script>
@@ -35,13 +36,13 @@ const toggleVisible = () => riceVisibleRef.value = !riceVisibleRef.value;
   border-radius: 50%;
 }
 
-.animation{
+.animation {
   height: 500px;
   width: 500px;
 }
 
 /*!* if you want some animation *!*/
-
+/* you should put theme in global style */
 .m-layout-enter-active, .m-layout-leave-active {
   --m-layout-speed: 0.8s;
   transition: all var(--m-layout-speed);
@@ -57,7 +58,6 @@ const toggleVisible = () => riceVisibleRef.value = !riceVisibleRef.value;
 }
 
 .m-layout-enter-from, .m-layout-leave-to {
-
   /** for nuxt layout **/
   /*.m-rice-paper-hover {*/
   /*  visibility: hidden;*/
