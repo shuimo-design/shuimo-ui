@@ -1,0 +1,234 @@
+.w-100 {
+  width: 100vw;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.absolute {
+  position: absolute;
+
+  &.t0r0 {
+    top: 0;
+    right: 0;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &.between-end {
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &.between-start {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.bg-100 {
+  background-size: 100% 100%;
+}
+
+.m-bg {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(10, 87, 64, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.rice-paper-hover {
+  background-image: url(../../../public/rice-paper/rice-paper.webp);
+  opacity: 0.8;
+  background-repeat: repeat;
+}
+
+.m-bg-inside {
+  z-index: 0;
+}
+
+.mountains {
+  --img-root: 100vw / 4096;
+  --ir: var(--img-root);
+  bottom: 0;
+  margin-bottom: calc(var(--ir) * 432);
+}
+
+.m-m-reflect {
+  -webkit-box-reflect: below 10px -webkit-linear-gradient(#0000000f, #0000001c 50%, rgb(0 0 0 / 41%));
+}
+
+.m-m-left {
+  position: relative;
+  margin-left: calc(var(--ir) * -55);
+  --m-m-left-w: calc(var(--ir) * 1772);
+  height: calc(var(--ir) * 601);
+}
+
+.m-m-right {
+  position: relative;
+  margin-right: calc(var(--ir) * -55);
+  --m-m-right-w: calc(var(--ir) * 2273);
+  height: calc(var(--ir) * 773);
+}
+
+.m-l-base {
+  width: calc(var(--ir) * 1772);
+  height: calc(var(--ir) * 601);
+  background-image: url(./assets/img/green/l-base.webp);
+}
+
+.m-l-mid {
+  width: calc(var(--ir) * 1162);
+  height: calc(var(--ir) * 358);
+  bottom: calc(var(--ir) * 4);
+  background-image: url(./assets/img/green/l-mid.webp);
+}
+
+.m-l-front {
+  width: calc(var(--ir) * 510);
+  height: calc(var(--ir) * 282);
+  bottom: calc(var(--ir) * 5);
+  background-image: url(./assets/img/green/l-front.webp);
+}
+
+.m-l-front-2 {
+  width: calc(var(--ir) * 833);
+  height: calc(var(--ir) * 304);
+  bottom: calc(var(--ir) * 4);
+  left: calc(var(--ir) * 490);
+  background-image: url(./assets/img/green/l-front-2.webp);
+}
+
+.m-r-base {
+  width: calc(var(--ir) * 2273);
+  height: calc(var(--ir) * 773);
+  right: 0;
+  background-image: url(./assets/img/green/r-base.webp);
+}
+
+.m-r-mid {
+  width: calc(var(--ir) * 1250);
+  height: calc(var(--ir) * 708);
+  bottom: calc(var(--ir) * 4);
+  right: 0;
+  background-image: url(./assets/img/green/r-mid.webp);
+}
+
+.m-r-front {
+  width: calc(var(--ir) * 1001);
+  height: calc(var(--ir) * 381);
+  bottom: calc(var(--ir) * 5);
+  right: calc(var(--ir) * 680);
+  background-image: url(./assets/img/green/r-front.webp);
+}
+
+.m-r-front-2 {
+  width: calc(var(--ir) * 629);
+  height: calc(var(--ir) * 359);
+  bottom: calc(var(--ir) * 4);
+  right: 0;
+  background-image: url(./assets/img/green/r-front-2.webp);
+}
+
+html[dark] {
+  .m-bg {
+    background-color: black;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .rice-paper-hover {
+    background-image: url(../../../public/rice-paper/rice-paper-warm.webp);
+    opacity: 0.5;
+  }
+
+
+  .m-l-base {
+    background-image: url(./assets/img/dark/l-base.webp);
+  }
+
+  .m-l-mid {
+    background-image: url(./assets/img/dark/l-mid.webp);
+  }
+
+  .m-l-front {
+    background-image: url(./assets/img/dark/l-front.webp);
+  }
+
+  .m-l-front-2 {
+    background-image: url(./assets/img/dark/l-front-2.webp);
+  }
+
+  .m-r-base {
+    background-image: url(./assets/img/dark/r-base.webp);
+  }
+
+  .m-r-mid {
+    background-image: url(./assets/img/dark/r-mid.webp);
+  }
+
+  .m-r-front {
+    background-image: url(./assets/img/dark/r-front.webp);
+  }
+
+  .m-r-front-2 {
+    background-image: url(./assets/img/dark/r-front-2.webp);
+  }
+
+
+}
+
+/* about layout change animation */
+
+.m-layout-enter-active, .m-layout-leave-active {
+  transition: all 0.8s;
+
+  .m-bg-layout {
+    transition: all 0.8s;
+  }
+
+  .m-m-left, .m-m-right {
+    transition: all 0.4s;
+  }
+
+}
+
+.m-layout-enter-from, .m-layout-leave-to {
+
+  .rice-paper-hover {
+    visibility: hidden;
+  }
+
+  .m-bg-layout {
+    opacity: 0;
+  }
+
+  .m-m-left {
+    transform: translateX(calc(var(--m-m-left-w) * -1));
+  }
+
+  .m-m-right {
+    transform: translateX(var(--m-m-right-w));
+  }
+
+}
+
+.m-layout-enter-to, .m-layout-leave-from {
+
+  .m-bg-layout {
+    opacity: 1;
+  }
+
+  .m-m-left, .m-m-right {
+    transform: translateX(0);
+  }
+
+  .rice-paper-hover {
+    visibility: visible;
+  }
+}
+
+

@@ -14,25 +14,18 @@ import dts from 'vite-plugin-dts';
 import * as path from 'path';
 
 // windows sep error?
-const corePath = path.resolve(__dirname, '../../../packages/core');
-const toolsPath = path.resolve(__dirname, '../../../tools/tools');
-const outputRoot = path.resolve(__dirname, '../../../packages/vue/dist');
+const outputRoot = path.resolve(__dirname, '../../../lib/dist');
 const getPath = (url: string) => {
-  return path.resolve(__dirname, `../../../packages/vue/${url}`);
+  const p =  path.resolve(__dirname, `../../../lib/${url}`);
+  return p
 };
 
 export default defineConfig({
   plugins: [
-    lightningcss({ drafts: { nesting: true }, browserslist: '>= 0.25%' }),
+    lightningcss({ browserslist: '>= 0.25%' }),
     vue({ include: [/\.vue$/], exclude: ['**/react/*.tsx'] }),
     vueJSX()
   ],
-  resolve: {
-    alias: {
-      '@shuimo-design/core': corePath,
-      '@shuimo-design/tools': toolsPath
-    }
-  },
   build: {
     outDir: outputRoot,
     target: 'esnext',

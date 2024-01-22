@@ -1,8 +1,5 @@
 packages:
-  - 'packages/core/**'
-  - 'packages/vue/**'
-  - 'packages/react/**'
-  - 'packages/lit/**'
+  - 'lib/**'
+  - 'doc/**'
+  - 'playground/**'
   - 'cli/**'
-  - 'apps/**'
-  - 'tools/**'

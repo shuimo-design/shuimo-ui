@@ -1,0 +1,46 @@
+@import "assets/style/global.css";
+
+/*!* [base] *!*/
+@import "components/base/avatar/avatar.css";
+@import "components/base/button/button.css";
+@import "components/base/checkbox/checkbox.css";
+@import "components/base/datePicker/datePicker.css";
+@import "components/base/input/input.css";
+@import "components/base/inputNumber/inputNumber.css";
+@import "components/base/li/li.css";
+@import "components/base/list/list.css";
+@import "components/base/progress/progress.css";
+@import "components/base/radio/radio.css";
+@import "components/base/select/select.css";
+@import "components/base/slider/slider.css";
+@import "components/base/switch/switch.css";
+@import "components/base/tag/tag.css";
+@import "components/base/tree/tree.css";
+
+/*!* [message] *!*/
+@import "components/message/confirm/confirm.css";
+@import "components/message/popover/popover.css";
+@import "components/message/dialog/dialog.css";
+@import "components/message/drawer/drawer.css";
+@import "components/message/message/message.css";
+@import "components/message/tooltip/tooltip.css";
+
+/*!* [other] *!*/
+@import "components/other/divider/divider.css";
+@import "components/other/loading/loading.css";
+@import "components/other/darkMode/darkMode.css";
+@import "components/other/deleteIcon/deleteIcon.css";
+@import "components/other/scroll/scroll.css";
+
+/*!* [template] *!*/
+@import "components/template/border/border.css";
+@import "components/template/breadcrumb/breadcrumb.css";
+@import "components/template/cell/cell.css";
+@import "components/template/grid/grid.css";
+@import "components/template/form/form.css";
+@import "components/template/form/formItem.css";
+@import "components/template/menu/menu.css";
+@import "components/template/pagination/pagination.css";
+@import "components/template/ricePaper/ricePaper.css";
+@import "components/template/table/table.css";
+@import "components/template/virtualList/virtualList.css";

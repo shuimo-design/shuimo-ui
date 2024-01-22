@@ -23,12 +23,5 @@
     "url": "https://github.com/janghood/shuimo-ui/issues"
   },
   "homepage": "https://shuimo.design",
-  "dependencies": {
-    "turbo": "^1.6.3",
-    "typescript": "^5.0.4"
-  },
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  },
   "web-types": "web-types.json"
 }

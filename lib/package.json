@@ -1,0 +1,61 @@
+{
+  "name": "shuimo-ui",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "description": "一款粗暴的水墨风UI组件",
+  "version": "0.3.0-alpha.11",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "components",
+    "compositions",
+    "icons",
+    "public",
+    "types",
+    "index.ts",
+    "web-types.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "coverage": "vitest --coverage"
+  },
+  "types": "./types/shuimo-ui.d.mts",
+  "main": "./dist/umd/shuimo-ui.umd.js",
+  "module": "./dist/es/shuimo-ui.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/shuimo-ui.d.mts",
+        "default": "./dist/es/shuimo-ui.mjs"
+      },
+      "require": {
+        "types": "./types/shuimo-ui.d.cts",
+        "default": "./dist/cjs/shuimo-ui.cjs"
+      }
+    },
+    "./*": "./*"
+  },
+  "devDependencies": {
+    "@floating-ui/dom": "^1.5.4",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vitest/coverage-c8": "^0.33.0",
+    "@vue/test-utils": "^2.4.3",
+    "dayjs": "^1.11.10",
+    "interactjs": "^1.10.26",
+    "jsdom": "^24.0.0",
+    "vitest": "^1.2.1",
+    "vue": "^3.4.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janghood/shuimo-ui.git"
+  },
+  "web-types": "web-types.json",
+  "bugs": {
+    "url": "https://github.com/janghood/shuimo-ui/issues"
+  },
+  "homepage": "https://shuimo.design"
+}

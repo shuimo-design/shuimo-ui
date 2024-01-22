@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": [],
+    "baseUrl": "./lib",
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+  }
+}
