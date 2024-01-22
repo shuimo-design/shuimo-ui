@@ -30,14 +30,15 @@ export default defineComponent((props, { emit }) => {
     if (props.initHandler && typeof props.initHandler === 'function') {
       autoInit = props.initHandler();
     }
-
     if (autoInit) {
       onMountedHook();
     }
   });
 
   watch(() => props.modelValue, (val) => {
-    toggleDarkMode({ modelValue: val });
+    if (val !== value.value) {
+      toggleDarkMode({ modelValue: val });
+    }
   });
 
   return () => {
