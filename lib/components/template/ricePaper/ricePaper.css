@@ -1,8 +1,10 @@
-.m-bg {
+.m-rice-paper {
   position: relative;
   overflow: hidden;
   background-color: rgba(10, 87, 64, 0.2);
   transition: background-color 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
 }
 
 .rice-paper-hover {
@@ -15,11 +17,11 @@
   height: 100%;
 }
 
-.m-bg-inside {
+.m-rice-paper-inside {
   z-index: 0;
 }
 
-.m-bg-layout {
+.m-rice-paper-layout {
   position: absolute;
   width: 100%;
 }
@@ -119,7 +121,7 @@
 }
 
 html[dark] {
-  .m-bg {
+  .m-rice-paper {
     background-color: black;
     transition: background-color 0.3s ease-in-out;
   }
@@ -170,7 +172,7 @@ html[dark] {
 /*.m-layout-enter-active, .m-layout-leave-active {*/
 /*  transition: all 0.8s;*/
 
-/*  .m-bg-layout {*/
+/*  .m-rice-paper-layout {*/
 /*    transition: all 0.8s;*/
 /*  }*/
 
@@ -186,7 +188,7 @@ html[dark] {
 /*    visibility: hidden;*/
 /*  }*/
 
-/*  .m-bg-layout {*/
+/*  .m-rice-paper-layout {*/
 /*    opacity: 0;*/
 /*  }*/
 
@@ -202,7 +204,7 @@ html[dark] {
 
 /*.m-layout-enter-to, .m-layout-leave-from {*/
 
-/*  .m-bg-layout {*/
+/*  .m-rice-paper-layout {*/
 /*    opacity: 1;*/
 /*  }*/
 
