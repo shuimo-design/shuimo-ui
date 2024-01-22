@@ -9,16 +9,19 @@
  * 这个组件只是忽然兴起做的，svg和动画感觉都不太到位，代码也有很多瑕疵，后续空了以后会进行优化和迭代。
  * This component was just created suddenly. The svg and animation are not in place, and the code has many flaws. It will be optimized and iterated someday.
  */
+import { ref } from 'vue';
 import { DarkModeProps } from './index';
 
-export function useDarkMode(autoMode: boolean) {
+export function useDarkMode(props: DarkModeProps) {
 
   const getBrowserDarkMode = () => typeof window !== 'undefined' &&
     window?.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  const isDarkRef = ref(props.modelValue ?? getBrowserDarkMode());
+
   const onMountedHook = () => {
     // todo add event remove
-    if(autoMode) {
+    if (props.autoMode) {
       if (typeof window !== 'undefined') {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
           toggleDarkMode({ modelValue: event.matches });
@@ -29,18 +32,22 @@ export function useDarkMode(autoMode: boolean) {
   };
 
   const toggleDarkMode = (props: DarkModeProps) => {
+    console.log('toggleDarkMode', props.modelValue);
     // set or remove dark to html
     const htmlTag = document.querySelector('html');
     if (htmlTag) {
       if (props.modelValue) {
+        isDarkRef.value = true;
         htmlTag.setAttribute('dark', '');
       } else {
+        isDarkRef.value = false;
         htmlTag.removeAttribute('dark');
       }
     }
   };
 
   return {
+    isDarkRef,
     getBrowserDarkMode,
     onMountedHook,
     toggleDarkMode

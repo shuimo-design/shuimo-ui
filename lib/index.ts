@@ -10,6 +10,7 @@ import { App, Component } from 'vue';
 import './index.css';
 import { MUIOption, MWCType } from './types/shuimo-ui';
 import useDialog from './compositions/useDialog';
+import useDarkModeStorage from './compositions/useDarkModeStorage';
 // // [base]
 import MAvatar from './components/base/avatar/MAvatar';
 import MButton from './components/base/button/MButton';
@@ -120,6 +121,7 @@ const components: Record<string, Component> = {
 
 export {
   useDialog,
+  useDarkModeStorage,
   // // [base]
   MAvatar,
   MButton,

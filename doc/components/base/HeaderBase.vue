@@ -3,7 +3,7 @@
     <div class="header-title">
       <span>水墨UI</span>
     </div>
-    <m-dark-mode/>
+    <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
     <HeaderButton v-if="showIndexButton" :url="'/'">回到首页</HeaderButton>
     <HeaderButton v-if="!showIndexButton" :url="'/main'">进入组件</HeaderButton>
     <HeaderButton :url="'https://github.com/janghood/shuimo-ui'" target="_blank">
@@ -23,10 +23,13 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import HeaderButton from './HeaderButton.vue';
+import { useDarkModeStorage } from 'shuimo-ui';
 
 defineProps({
   showIndexButton: { type: Boolean, default: true }
 });
+
+const { darkModeRef, initDarkMode } = useDarkModeStorage();
 </script>
 
 <style scoped>
@@ -68,7 +71,7 @@ defineProps({
   margin-top: -30px;
 }
 
-.m-dark-mode{
+.m-dark-mode {
   margin-left: 10px;
   float: right;
 }

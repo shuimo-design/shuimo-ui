@@ -11,24 +11,27 @@
 import { defineComponent, h, onMounted, ref, watch } from 'vue';
 import { props } from './api';
 import { useDarkMode } from './useDarkMode';
+import { DarkModeProps } from './index';
 
 
-export default defineComponent((props, { emit }) => {
+export default defineComponent((props: DarkModeProps, { emit }) => {
 
-  const { onMountedHook, toggleDarkMode, getBrowserDarkMode } = useDarkMode(props.autoMode);
-  const value = ref(props.modelValue ?? getBrowserDarkMode());
+  const { onMountedHook, toggleDarkMode, isDarkRef } = useDarkMode(props);
 
-  const clickHandler = (e: MouseEvent) => {
-    value.value = !value.value;
-    emit('update:modelValue', value.value);
-    emit('change', value.value);
-    toggleDarkMode({ modelValue: value.value });
+  const clickHandler = () => {
+    isDarkRef.value = !isDarkRef.value;
+    emit('update:modelValue', isDarkRef.value);
+    emit('change', isDarkRef.value);
+    toggleDarkMode({ modelValue: isDarkRef.value });
   };
 
   onMounted(() => {
     let autoInit = props.autoMode;
     if (props.initHandler && typeof props.initHandler === 'function') {
       autoInit = props.initHandler();
+      if (props.modelValue !== isDarkRef.value) {
+        isDarkRef.value = Boolean(props.modelValue);
+      }
     }
     if (autoInit) {
       onMountedHook();
@@ -36,7 +39,7 @@ export default defineComponent((props, { emit }) => {
   });
 
   watch(() => props.modelValue, (val) => {
-    if (val !== value.value) {
+    if (val !== isDarkRef.value) {
       toggleDarkMode({ modelValue: val });
     }
   });
@@ -69,7 +72,7 @@ export default defineComponent((props, { emit }) => {
 
 
     return <div class="m-dark-mode"
-                onClick={(e: MouseEvent) => clickHandler(e)}>
+                onClick={() => clickHandler()}>
       {svg}
     </div>;
   };

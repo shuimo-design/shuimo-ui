@@ -11,13 +11,19 @@ import Base from './Base.vue';
 import Other from './Other.vue';
 import Template from './Template.vue';
 import Message from './Message.vue';
+import { useDarkModeStorage } from 'shuimo-ui/index.ts';
+import { onMounted } from 'vue';
 
+onMounted(()=>{
+  localStorage.clear()
+})
 
+const { darkModeRef, initDarkMode } = useDarkModeStorage();
 </script>
 
 <template>
   <div class="header">
-    <m-dark-mode/>
+    <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
   </div>
   <div class="playground">
     <Template/>

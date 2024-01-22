@@ -14,3 +14,8 @@ export declare function useDialog(name?: string): {
   closeDialog: () => void,
   showDialog: () => void
 };
+
+export declare function useDarkModeStorage(storageKey?: string): {
+  darkModeRef: Ref<boolean>,
+  initDarkMode: () => boolean
+};
