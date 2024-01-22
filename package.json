@@ -5,13 +5,10 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "pre-dev": "turbo run pre-dev",
-    "dev": "turbo run dev",
-    "playground": "turbo run playground",
-    "dev:doc": "turbo run dev:doc",
-    "dev:web-component-doc": "turbo run web-component-doc:dev",
-    "clean:build": "turbo run clean && rimraf dist",
-    "clean:node_modules": "turbo run clean && rimraf node_modules **/*/node_modules",
+    "dev": "pnpm -C playground run dev",
+    "build": "pnpm -C cli/build run build",
+    "doc:dev": "pnpm -C doc run doc:dev",
+    "doc:build": "pnpm -C doc run doc:build",
     "re-install": "pnpm run clean:node_modules && pnpm i"
   },
   "packageManager": "pnpm@7.17.1",
