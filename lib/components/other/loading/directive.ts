@@ -13,7 +13,7 @@ const getNumberFromPx = (px: string) => Number(px.replace('px', ''));
 
 const addLoadingElement = (el: any) => {
   const height = getComputedStyle(el)['height'] || '50px';
-  const width = getComputedStyle(el)['height'] || '50px';
+  const width = getComputedStyle(el)['height'] || '70px';
   const minSide = Math.min(getNumberFromPx(height), getNumberFromPx(width)) * 0.6;
 
   const loadingElement = createApp(MLoading, {

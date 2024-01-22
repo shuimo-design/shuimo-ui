@@ -1,7 +1,7 @@
 <template>
   <div class="other flex">
 
-    <m-loading/>
+    <m-loading :speed="0"/>
     <m-loading mask/>
     <m-loading mask :side-length="300"/>
 

@@ -14,5 +14,5 @@ export const props: MCOPO<LoadingProps> = {
   speed: { type: Number, default: defaultSpeed },
   size: { type: Number, default: 1 },
   mask: { type: Boolean, default: true },
-  sideLength: { type: [Number, String], default: 50 }
+  sideLength: { type: [Number, String], default: 64 }
 };
