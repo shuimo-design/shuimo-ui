@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 默认改为冷色调，添加色调选项
  */
-import { defineComponent, onBeforeUnmount, onMounted } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, watch } from 'vue';
 import { props } from './api';
 import useImgMove from './compositions/useImgMove';
 
@@ -44,17 +44,30 @@ export default defineComponent((props, { slots }) => {
     rightOnMove(xMove, yMove);
   };
 
+  // todo use a better way to handle this.
   onMounted(() => {
-    window.addEventListener('mousemove', moveMountain);
+    if (props.mountain) {
+      window.addEventListener('mousemove', moveMountain);
+    }
   });
 
   onBeforeUnmount(() => {
-    window.removeEventListener('mousemove', moveMountain);
+    if (props.mountain) {
+      window.removeEventListener('mousemove', moveMountain);
+    }
+  });
+
+  watch(() => props.mountain, (val) => {
+    if (val) {
+      window.addEventListener('mousemove', moveMountain);
+    } else {
+      window.removeEventListener('mousemove', moveMountain);
+    }
   });
 
   return () => {
 
-    const mountain = <div class="mountains">
+    const mountain = props.mountain ? <div class="mountains">
       <div class="m-m-left">
         <div class="m-l-base m-m-reflect" ref={mLBaseRef}/>
         <div class="m-l-mid m-m-reflect" ref={mLMidRef}/>
@@ -67,10 +80,10 @@ export default defineComponent((props, { slots }) => {
         <div class="m-r-front m-m-reflect" ref={mRFrontRef}/>
         <div class="m-r-front-2 m-m-reflect" ref={mRFront2Ref}/>
       </div>
-    </div>;
+    </div> : null;
 
     return (
-      <div class="m-rice-paper">
+      <div class={['m-rice-paper', `m-rice-paper-${props.type ?? 'default'}`]}>
         {mountain}
         <div class="m-rice-paper-hover"/>
         <div class="m-rice-paper-layout">

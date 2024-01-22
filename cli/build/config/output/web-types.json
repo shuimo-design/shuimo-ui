@@ -1049,20 +1049,14 @@
           "doc-url": "https://shuimo.design/rice-paper",
           "props": [
             {
-              "name": "cold",
-              "description": "是否使用冷色调",
-              "type": "boolean",
+              "name": "type",
+              "description": "色调",
+              "type": "'cold'|'warm'|'default'",
               "default": "true"
             },
             {
               "name": "mountain",
               "description": "是否显示山脉背景",
-              "type": "boolean",
-              "default": "true"
-            },
-            {
-              "name": "crane",
-              "description": "是否显示仙鹤",
               "type": "boolean",
               "default": "true"
             }

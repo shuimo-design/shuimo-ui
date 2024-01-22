@@ -7,11 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { RicePaperProps } from './index';
-import { MCOPO } from '../../types/props';
+import { MCOPO, MPropType } from '../../types/props';
 
 
 export const props :MCOPO<RicePaperProps>= {
-  cold: { type: Boolean, default: true },
+  type: { type: String as MPropType<'cold' | 'warm' | 'default'>, default: 'default' },
   mountain: { type: Boolean, default: true },
-  crane: { type: Boolean, default: true }
 }

@@ -1,3 +1,10 @@
+:root{
+  --m-rice-paper-cold: url(../../../public/rice-paper/rice-paper.webp);
+  --m-rice-paper-warm: url(../../../public/rice-paper/rice-paper-warm.webp);
+  --m-rice-paper-light: var(--m-rice-paper-cold);
+  --m-rice-paper-dark: var(--m-rice-paper-warm);
+}
+
 .m-rice-paper {
   position: relative;
   overflow: hidden;
@@ -7,8 +14,18 @@
   width: 100%;
 }
 
+.m-rice-paper-cold{
+  --m-rice-paper-light: var(--m-rice-paper-cold);
+  --m-rice-paper-dark: var(--m-rice-paper-cold);
+}
+
+.m-rice-paper-warm{
+  --m-rice-paper-light: var(--m-rice-paper-warm);
+  --m-rice-paper-dark: var(--m-rice-paper-warm);
+}
+
 .m-rice-paper-hover {
-  background-image: url(../../../public/rice-paper/rice-paper.webp);
+  background-image: var(--m-rice-paper-light);
   opacity: 0.8;
   background-repeat: repeat;
   position: absolute;
@@ -127,7 +144,7 @@ html[dark] {
   }
 
   .m-rice-paper-hover {
-    background-image: url(../../../public/rice-paper/rice-paper-warm.webp);
+    background-image: var(--m-rice-paper-dark);
     opacity: 0.5;
   }
 
