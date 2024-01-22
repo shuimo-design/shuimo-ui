@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://shuimo.design" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://raw.githubusercontent.com/janghood/shuimo-ui/main/assets/icons/logo.svg" 
+    <img width="180" src="https://raw.githubusercontent.com/shuimo-design/shuimo-ui/main/assets/icons/logo.svg" 
         alt="shuimo logo">
   </a>
 </p>
@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
-[英文文档](https://github.com/janghood/shuimo-ui)
+[英文文档](https://github.com/shuimo-design/shuimo-ui)
 
 ## 简介（Introduction）
 
@@ -26,7 +26,7 @@
 希望这款中国传统风格的组件库，能用于一些小众的需求，能满足于一些对页面有美术追求，又希望能快速搭建的用户。
 
 它的实践看起来是这样的：
-<img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
+<img src="https://github.com/shuimo-design/shuimo-ui/blob/main/assets/img/example.png?raw=true">
 
 ## 讨论(discussion)
 
@@ -43,6 +43,12 @@ npm install shuimo-ui
 ### 文档
 
 [点击这里](https://shuimo.design)
+
+## 支持者
+
+<img width="180" src="https://raw.githubusercontent.com/shuimo-design/shuimo-ui/main/assets/README/jetbrains.svg" alt="jetbrains logo">
+
+十分感谢 [`Jetbrains`](https://www.jetbrains.com/) 提供给我们的开源开发许可证。
 
 ## TODO
 
@@ -92,4 +98,3 @@ npm install shuimo-ui
 | **TODO**      |                 |                     |   
 | Menu          | ⚗️              | ❌                   | 
 
-### 这种迁移极度耗时和耗费精力，我们正在尽我们所能。如果可以的话，请star一下，或者提交一些贡献。非常感谢！

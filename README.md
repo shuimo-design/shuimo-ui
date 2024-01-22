@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://shuimo.design" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://raw.githubusercontent.com/janghood/shuimo-ui/main/assets/icons/logo.svg" 
+    <img width="180" src="https://raw.githubusercontent.com/shuimo-design/shuimo-ui/main/assets/icons/logo.svg" 
         alt="shuimo logo">
   </a>
 </p>
@@ -13,7 +13,7 @@
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
-[中文文档](https://github.com/janghood/shuimo-ui/blob/main/assets/README/README.zh.md)
+[中文文档](https://github.com/shuimo-design/shuimo-ui/blob/main/assets/README/README.zh.md)
 
 ## Introduction
 
@@ -29,13 +29,14 @@ I hope that this traditional Chinese-style component library can be used for som
 users who have an artistic pursuit of the site and hope to build it quickly.
 
 It looks like this:
-<img src="https://github.com/janghood/shuimo-ui/blob/main/assets/img/example.png?raw=true">
+<img src="https://github.com/shuimo-design/shuimo-ui/blob/main/assets/img/example.png?raw=true">
 
 ## discussion
 
 [discord](https://discord.gg/xy3BenWvYj)，but maybe the last time login was ten thousand years ago 😂.
 
-You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a>  _（join Wechat group or something..）_。
+You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a>  _（join Wechat group or
+something..）_。
 
 ### Install
 
@@ -46,6 +47,13 @@ pnpm install shuimo-ui
 ### document
 
 [click here](https://shuimo.design)
+
+## Backers
+
+<img width="180" src="https://raw.githubusercontent.com/shuimo-design/shuimo-ui/main/assets/README/jetbrains.svg" alt="jetbrains logo">
+
+Thanks to [`Jetbrains`](https://www.jetbrains.com/) for providing us with open source development licenses.
+
 
 ## TODO
 
@@ -95,5 +103,3 @@ pnpm install shuimo-ui
 | **TODO**      |                 |                     |   
 | Menu          | ⚗️              | ❌                   | 
 
-
-This migration is going to take a lot of time, we are doing our best. If possible, please star or submit a post. Thank you very much.
