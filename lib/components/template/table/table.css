@@ -65,7 +65,7 @@
 
 
 .m-table-img {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
 }
@@ -101,21 +101,21 @@
 */
 
 .m-table-thead-img {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
   position: relative;
 }
 
 .m-table-tbody-img {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
   position: absolute;
 }
 
 .m-table-header-img-top {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
   position: relative;
@@ -124,7 +124,7 @@
 }
 
 .m-table-header-img-bottom {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
   position: relative;
@@ -133,7 +133,7 @@
 }
 
 .m-table-border-img-bottom {
-  background: url(../../../../../lib/public/line/crossrange.webp) repeat-x;
+  background: var(--m-line-crossrange) repeat-x;
   height: 5px;
   width: calc(100% - 2px);
   position: relative;
