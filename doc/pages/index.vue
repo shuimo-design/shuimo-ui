@@ -29,7 +29,7 @@ definePageMeta({
 <style scoped>
 
 .entry-main {
-  height: calc(100vh - 122px);
+  height: calc(100vh - 102px);
   display: grid;
   grid-template-areas:  "container";
 }
