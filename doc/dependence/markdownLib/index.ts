@@ -3,45 +3,46 @@ import { createFilter } from '@rollup/pluginutils';
 import { createMarkdown } from './markdown';
 import { resolveOptions } from './options';
 import type { Options } from './types';
-import demo from "./demo";
-import api from "./api";
+import demo from './demo';
+import api from './api';
 import path from 'path';
 
-export const VitePluginMarkdown = (userOptions: Options = {}): Plugin => {
+export const VitePluginMarkdown = async (userOptions: Options = {}): Promise<Plugin> => {
   const options = resolveOptions(userOptions);
-  const markdownToVue = createMarkdown(options);
+  const markdownToVue = await createMarkdown(options);
 
   const filter = createFilter(
     userOptions.include || /\.md/,
-    userOptions.exclude,
+    userOptions.exclude
   );
 
   return {
     name: 'vite-plugin-md',
     enforce: 'pre',
-    transform(raw, id) {
+    async transform(raw, id) {
       const { findAPIAndReplace } = api();
       const { findDemo, insertImport } = demo();
+
       if (!filter(id))
-        return
+        return;
       try {
         raw = findAPIAndReplace(raw);
         findDemo(raw);
         const code = markdownToVue(id, raw);
         const fileName = path.basename(id).split('.')[0];
-        return insertImport(code, fileName);
+        return await insertImport(code, fileName);
       } catch (e: any) {
-        this.error(e)
+        this.error(e);
       }
     },
     async handleHotUpdate(ctx) {
       if (!filter(ctx.file))
-        return
+        return;
 
-      const defaultRead = ctx.read
+      const defaultRead = ctx.read;
       ctx.read = async function () {
-        return markdownToVue(ctx.file, await defaultRead())
-      }
-    },
-  }
-}
+        return markdownToVue(ctx.file, await defaultRead());
+      };
+    }
+  };
+};

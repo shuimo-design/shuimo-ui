@@ -9,6 +9,9 @@
   "dependencies": {
     "@antfu/utils": "^0.5.2",
     "gray-matter": "^4.0.3",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "markdown-it-shikiji": "^0.10.0",
+    "prismjs": "^1.29.0",
+    "shikiji": "^0.10.0"
   }
 }

@@ -6,18 +6,9 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import Prism from 'prismjs';
-import 'prismjs/components/prism-haml.js';
-import 'prismjs/components/prism-typescript.js';
-import 'prismjs/components/prism-bash.js';
-import 'prismjs/components/prism-scss.js';
+import { type BundledLanguage, codeToThemedTokens, type SpecialLanguage } from 'shikiji';
+import { ShuimoTheme } from '../../shikiji/shuimo.theme';
 
-
-Prism.languages['vue'] = {
-  ...Prism.languages.haml,
-  ...Prism.languages.typescript,
-  ...Prism.languages.scss,
-}
 
 enum highlightType {
   'typescript' = 'typescript',
@@ -26,25 +17,26 @@ enum highlightType {
   'scss' = 'scss',
 }
 
-const highlight = (code: string, type: highlightType) => {
-  if (type === highlightType.vue) {
-    return Prism.highlight(code, Prism.languages.vue, highlightType.vue)
-      .replace(/\{/g, '&#123;')
-      .replace(/\}/g, '&#125;')
-  }
-  if (type === highlightType.typescript) {
-    return Prism.highlight(code, Prism.languages.typescript, highlightType.typescript);
-  }
-  if (type === highlightType.shell) {
-    return Prism.highlight(code, Prism.languages.shell, highlightType.shell)
-  }
-  if (type === highlightType.scss) {
-    return Prism.highlight(code, Prism.languages.scss, highlightType.scss)
-  }
-  return code;
-}
+const toHTMl = async (code: string, lang: BundledLanguage | SpecialLanguage) => {
+  const nodesList = await codeToThemedTokens(code, {
+    lang,
+    theme: ShuimoTheme
+  });
+  const r2 = nodesList.map((nodes, i) => {
+    return nodes.map((node, j) => {
+      const content = node.content
+        .replaceAll('{', '&#123;')
+        .replaceAll('}', '&#125;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('<', '&lt;');
+      return `<span style="color:${node.color}" class="token">${content}</span>`;
+    }).join('');
+  }).join('\n');
+  return `<pre class="shiki-pre"><code>${r2}</code></pre>`;
+};
 
-export const resetCode = (code: string) => {
+
+export const resetCode = async (code: string, fileName: string) => {
   const templateList = code.split('<template>'); // 为了获取最前面的<template>
   const [, ...endTemplate] = templateList;
   const data = endTemplate.join('<template>');
@@ -55,24 +47,5 @@ export const resetCode = (code: string) => {
   leftTemplateListPre.join('</template>');
   leftTemplateListTemp.join('</template>');
 
-  const temp = highlight(code, highlightType.vue);
-  return `<pre class="language-vue"><code ref="element">${temp}</code></pre>`;
-}
-
-
-export const prismCode = (code: string) => {
-  code = code.replaceAll(/<pre><code class="([^"]+)">([^<]*)<\/code><\/pre>/g, (str, type, code) => {
-    type = type.replace('language-', '');
-
-    code = code.replaceAll('&gt;', '>').replaceAll('&lt;', '<');
-
-    if (Object.keys(highlightType).includes(type)) {
-      code = highlight(code, type);
-      return `<pre class="language-${type}"><code>${code}</code></pre>`;
-    }
-    return str;
-  });
-
-  return code;
-
-}
+  return toHTMl(code, 'vue');
+};
