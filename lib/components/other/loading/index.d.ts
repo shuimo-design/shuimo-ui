@@ -23,7 +23,7 @@ export declare type LoadingProps = {
   /**
    * @description logo size
    * @type number
-   * @default 100
+   * @default 1
    */
   size?: number,
   /**
