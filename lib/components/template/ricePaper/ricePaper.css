@@ -1,8 +1,11 @@
-:root{
+:root {
   --m-rice-paper-cold: url(../../../public/rice-paper/rice-paper.webp);
   --m-rice-paper-warm: url(../../../public/rice-paper/rice-paper-warm.webp);
   --m-rice-paper-light: var(--m-rice-paper-cold);
   --m-rice-paper-dark: var(--m-rice-paper-warm);
+  --m-rice-paper-light-opacity: 0.8;
+  --m-rice-paper-dark-opacity: 0.5;
+  --m-rice-paper-mountains-opacity:1;
 }
 
 .m-rice-paper {
@@ -14,19 +17,19 @@
   width: 100%;
 }
 
-.m-rice-paper-cold{
+.m-rice-paper-cold {
   --m-rice-paper-light: var(--m-rice-paper-cold);
   --m-rice-paper-dark: var(--m-rice-paper-cold);
 }
 
-.m-rice-paper-warm{
+.m-rice-paper-warm {
   --m-rice-paper-light: var(--m-rice-paper-warm);
   --m-rice-paper-dark: var(--m-rice-paper-warm);
 }
 
 .m-rice-paper-hover {
   background-image: var(--m-rice-paper-light);
-  opacity: 0.8;
+  opacity: var(--m-rice-paper-light-opacity);
   background-repeat: repeat;
   position: absolute;
   top: 0;
@@ -50,6 +53,7 @@
   aspect-ratio: 4096 / 773;
   bottom: 0;
   margin-bottom: calc(100% / 4096 * 432);
+  opacity: var(--m-rice-paper-mountains-opacity);
 }
 
 .m-m-reflect {
@@ -145,7 +149,7 @@ html[dark] {
 
   .m-rice-paper-hover {
     background-image: var(--m-rice-paper-dark);
-    opacity: 0.5;
+    opacity: var(--m-rice-paper-dark-opacity);
   }
 
 
