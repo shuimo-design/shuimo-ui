@@ -19,11 +19,14 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
   const { onMountedHook, toggleDarkMode, isDarkRef } = useDarkMode(props);
 
   const clickHandler = () => {
-    isDarkRef.value = !isDarkRef.value;
-    emit('update:modelValue', isDarkRef.value);
-    emit('change', isDarkRef.value);
-    toggleDarkMode({ modelValue: isDarkRef.value });
+    isDarkRef.value = toggleDarkMode({ modelValue: !isDarkRef.value });
+    emitChange(isDarkRef.value);
   };
+
+  const emitChange = (val: boolean) => {
+    emit('update:modelValue', val);
+    emit('change', val);
+  }
 
   onMounted(() => {
     let autoInit = props.autoMode;
@@ -35,6 +38,7 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
     }
     if (autoInit) {
       onMountedHook();
+      emitChange(isDarkRef.value);
     }
   });
 

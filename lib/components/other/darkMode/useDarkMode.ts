@@ -21,18 +21,19 @@ export function useDarkMode(props: DarkModeProps) {
 
   const onMountedHook = () => {
     // todo add event remove
+    let isDark = isDarkRef.value;
     if (props.autoMode) {
       if (typeof window !== 'undefined') {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-          toggleDarkMode({ modelValue: event.matches });
+          isDark = toggleDarkMode({ modelValue: event.matches });
         });
-        toggleDarkMode({ modelValue: getBrowserDarkMode() });
+       isDark =  toggleDarkMode({ modelValue: getBrowserDarkMode() });
       }
     }
+    isDarkRef.value = isDark;
   };
 
   const toggleDarkMode = (props: DarkModeProps) => {
-    console.log('toggleDarkMode', props.modelValue);
     // set or remove dark to html
     const htmlTag = document.querySelector('html');
     if (htmlTag) {
@@ -44,6 +45,7 @@ export function useDarkMode(props: DarkModeProps) {
         htmlTag.removeAttribute('dark');
       }
     }
+    return isDarkRef.value;
   };
 
   return {
