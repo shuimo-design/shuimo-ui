@@ -1,0 +1,71 @@
+:root {
+  /*木 春*/
+  --m-color-piaobi: #C0D695; /*缥碧*/
+  --m-color-qingqing: #4F6F46; /*青青*/
+  --m-color-cuiqiu: #446A37; /*翠虬*/
+  --m-color-qingshou: #284852; /*青绶*/
+  --m-color-qingluan: #9AA7B1; /*青鸾*/
+  --m-color-songlan: #6B798E; /*菘蓝*/
+  --m-color-qingdai: #45465E; /*青黛*/
+  --m-color-luozidai: #13393E; /*螺子黛*/
+  --m-color-qiling: #12264F; /*麒麟*/
+  --m-color-cuiwei: #4C8045; /*翠微*/
+  --m-color-tingwulv: #68945C; /*庭芜绿*/
+  --m-color-cangjia: #A8BF8F; /*苍葭*/
+  --m-color-huangliliu: #FEDC5E; /*黄栗留*/
+  --m-color-zhizi: #FAC03D; /*栀子*/
+
+  /*火 夏*/
+  --m-color-zhuyantuo: #F29A76; /*朱颜酡*/
+  --m-color-wozhe: #DD6B7B; /*渥赭*/
+  --m-color-chunzhi: #C25160; /*唇脂*/
+  --m-color-danji: #E60012; /*丹罽*/
+  --m-color-daran: #A81C2B; /*大繎*/
+  --m-color-jiangsha: #B27777; /*绛纱*/
+  --m-color-xilan: #E3ADB9; /*夕岚*/
+
+  /*金 秋*/
+  --m-color-gaoyu: #EFEFEF; /*缟羽*/
+  --m-color-yuse: #EAE4D1; /*玉色*/
+  --m-color-luanhua: #C0AD5E; /*栾华*/
+  --m-color-xinzi: #DA9233; /*杏子*/
+  --m-color-moge: #9F5221; /*靺鞈*/
+  --m-color-chenxiang: #99806C; /*沉香*/
+  --m-color-mihe: #DFD7C2; /*蜜合*/
+  --m-color-huaqing: #1A2847; /*花青*/
+
+  /*水 冬*/
+  --m-color-yuebai: #D4E5EF; /*月白*/
+  --m-color-qingshan: #A3BBDB; /*晴山*/
+  --m-color-ziyuan: #757CBB; /*紫苑*/
+  --m-color-zhengqing: #6CA8AF; /*正青*/
+  --m-color-yuyangran: #576470; /*育阳染*/
+  --m-color-jingyuan: #31322C; /*京元*/
+  --m-color-tieli: #46433B; /*驖骊*/
+  --m-color-tajian: #151D29; /*獭见*/
+  --m-color-jieshizi: #602641; /*芥拾紫*/
+  --m-color-shiyin: #C8B6BB; /*石英*/
+
+  /*土*/
+  --m-color-xiaoyaoyou: #B2BFC3; /*逍遥游*/
+  --m-color-huangliang: #C4B798; /*黄梁*/
+  --m-color-tanhe: #945635; /*檀褐*/
+  --m-color-jijin: #896D47; /*吉金*/
+  --m-color-youhulu: #644D31; /*油葫芦*/
+
+  --m-color-jin-yang: var(--m-color-xinzi); /*金-阳*/
+  --m-color-jin-yin: var(--m-color-gaoyu); /*金-阴*/
+
+  --m-color-mu-yang: var(--m-color-cuiqiu); /*木-阳*/
+  --m-color-mu-yin: var(--m-color-piaobi); /*木-阴*/
+
+  --m-color-shui-yang: var(--m-color-tajian); /*水-阳*/
+  --m-color-shui-yin: var(--m-color-qingshan); /*水-阴*/
+
+  --m-color-huo-yang: var(--m-color-daran); /*火-阳*/
+  --m-color-huo-yin: var(--m-color-wozhe); /*火-阴*/
+
+  --m-color-tu-yang: var(--m-color-tanhe); /*土-阳*/
+  --m-color-tu-yin: var(--m-color-huangliang); /*土-阴*/
+
+}
