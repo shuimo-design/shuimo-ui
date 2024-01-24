@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extensions: ['.md'],
   modules: ['./modules/markdown', './modules/fontmin'],
+  css: ['./assets/style/index.css'],
   alias: {
     '../core': path.resolve('../../packages/core')
   },

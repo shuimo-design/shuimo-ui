@@ -1,45 +1,41 @@
-:root{
-  --m-skj-bg: white;
-  --m-skj-main: var(--m-color-main);
-
-  --m-skj-keyword-operator: var(--m-color-success);
-  --m-skj-keyword-other: var(--m-color-warn);
-
-  --m-skj-storage: var(--m-color-pink);
-
-  --m-skj-entity: var(--m-color-main);
-  --m-skj-entity-warn: var(--m-color-warn);
-
-
-  --m-skj-control: var(--m-color-pink);
-  --m-skj-variable: var(--m-color-text);
-  --m-skj-operator: var(--m-color-warn);
-
-
+:root {
   --m-skj-empty: white;
 
-
   /*重新整理部分*/
-  --m-skj-punctuation: #06453e;
-  --m-skj-text: #74787a;
-  --m-skj-regexp: #1a6840;
-  --m-skj-type: #a98003;
-  --m-skj-comment: #BBBBBB;
-  --m-skj-value: #4A9992FF;
-  --m-skj-func: #9b7503;
-  --m-skj-property: #326863;
-  --m-skj-constant: #06453e;
-  --m-skj-entity-impl: #f8cb46;
-  --m-skj-keyword: var(--m-color-blue);
-  --m-skj-debugger: #E8B004FF;
-  --m-skj-doc-param: #8abcd1;
-  --m-skj-vue: #42b883;
-
-
+  --m-skj-main: var(--m-color-main);
+  --m-skj-punctuation: var(--m-color-cuiqiu);
+  --m-skj-regexp: var(--m-color-luozidai);
+  --m-skj-constant: var(--m-color-qingshou);
+  --m-skj-text: var(--m-color-jingyuan);
+  --m-skj-type: var(--m-color-chenxiang);
+  --m-skj-comment: var(--m-color-yuyangran);
+  --m-skj-value: var(--m-color-songlan);
+  --m-skj-func: var(--m-color-moge);
+  --m-skj-property: var(--m-color-songlan);
+  --m-skj-entity-impl: var(--m-color-ziyuan);
+  --m-skj-keyword: var(--m-color-tajian);
+  --m-skj-keyword-operator: var(--m-color-qingshou);
+  --m-skj-storage: var(--m-color-chunzhi);
+  --m-skj-entity: var(--m-skj-main);
+  --m-skj-debugger: var(--m-color-xinzi);
+  --m-skj-doc-param: var(--m-color-ziyuan);
+  --m-skj-vue: var(--m-color-tingwulv);
 }
 
-html[dark]{
+html[dark] {
   --m-skj-bg: black;
-  --m-skj-main: var(--m-color-main);
-
+  --m-skj-main: #ff8181;
+  --m-skj-punctuation: var(--m-color-piaobi);
+  --m-skj-regexp: var(--m-color-qingqing);
+  --m-skj-text: var(--m-color-yuebai);
+  --m-skj-value: var(--m-color-cangjia);
+  --m-skj-entity-impl: var(--m-color-yuse);
+  --m-skj-keyword: var(--m-color-qingshan);
+  --m-skj-type: var(--m-color-xinzi);
+  --m-skj-constant: var(--m-color-ziyuan);
+  --m-skj-func: var(--m-color-luanhua);
+  --m-skj-keyword-operator: var(--m-color-ziyuan);
+  --m-skj-comment: var(--m-color-huangliang);
+  --m-skj-storage: var(--m-color-chunzhi);
+  --m-skj-property: var(--m-color-cuiwei);
 }

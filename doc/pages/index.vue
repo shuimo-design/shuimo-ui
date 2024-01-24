@@ -18,8 +18,6 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import '/assets/style/index.css';
-
 definePageMeta({
   layout: 'without-menu'
 })
