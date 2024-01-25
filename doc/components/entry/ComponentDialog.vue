@@ -4,10 +4,10 @@
       <m-input/>
       <m-button text="点我进入组件页面" @click="toMain"/>
     </div>
-    <img class="level" src="/img/entry/level.png" alt="">
-    <img class="fan-left" src="/img/entry/fan_left.png" alt="">
-    <img class="fan-center" src="/img/entry/fan_center.png" alt="">
-    <img class="fan-right" src="/img/entry/fan_right.png" alt="">
+    <img class="level" src="/img/entry/level.webp" alt="">
+    <img class="fan-left" src="/img/entry/fan_left.webp" alt="">
+    <img class="fan-center" src="/img/entry/fan_center.webp" alt="">
+    <img class="fan-right" src="/img/entry/fan_right.webp" alt="">
   </div>
 </template>
 
