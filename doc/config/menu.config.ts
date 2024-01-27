@@ -38,6 +38,7 @@ export const menu: MenuTypeArr = [
       { label: '列表', route: 'table', isActive: false },
       { label: '分页', route: 'pagination', isActive: false },
       { label: '宣纸布局', route: 'rice-paper', isActive: false },
+      { label: '面包屑', route: 'breadcrumb', isActive: false },
     ]
   },
   {
