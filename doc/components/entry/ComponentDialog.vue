@@ -42,7 +42,7 @@ const toMain = () => {
 }
 
 .component .entry-dialog {
-  background: url(/img/entry/dialog_bg.png) no-repeat;
+  background: url(/img/entry/dialog_bg.webp) no-repeat;
   background-size: 100% 100%;
   box-sizing: border-box;
   width: calc(996 / 1920 * 100vw);
