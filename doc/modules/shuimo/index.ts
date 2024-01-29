@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
+import { addPlugin, createResolver, defineNuxtModule,addComponent } from '@nuxt/kit';
 export default defineNuxtModule({
   setup(options, nuxtApp) {
 
@@ -22,6 +22,11 @@ export default defineNuxtModule({
     });
     addPlugin(resolve('./plugin.ts'));
 
-    nuxtApp.options.css.push(resolve('../../node_modules/shuimo-ui/dist/style.css'));
+    addComponent({
+      name: 'MLoadingPreview',
+      filePath: resolve('./components/MLoadingPreview.vue')
+    });
+
+    // nuxtApp.options.css.push(resolve('../../node_modules/shuimo-ui/dist/style.css'));
   }
 });

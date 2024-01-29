@@ -1,5 +1,3 @@
-@import "markdown.css";
-@import "shikiji.css";
 @import "rice-paper.css";
 
 * {
@@ -29,7 +27,6 @@ html[dark] {
     --hover-color: var(--m-color-pink);
     --pre-bg-color: rgba(203, 209, 227, 0.13);
   }
-
 }
 
 a {

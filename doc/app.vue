@@ -1,7 +1,7 @@
 <template>
   <div class="shuimo-ui m-cursor">
     <Title>水墨UI</Title>
-    <Loading v-if="isLoading" v-model="isLoading"/>
+    <MLoadingPreview v-model="isLoading" v-if="isLoading"/>
     <m-rice-paper v-else class="layout">
       <BaseHeaderBase :show-index-button="showIndexButton"/>
       <NuxtLayout>
