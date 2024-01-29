@@ -17,8 +17,8 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5",
-    "shuimo-ui": "*"
+    "nuxt": "^3.9.3",
+    "shuimo-ui": "workspace:*"
   },
   "web-types": "../cli/build/config/output/web-types.json",
   "dependencies": {

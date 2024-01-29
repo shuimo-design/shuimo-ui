@@ -1,12 +1,18 @@
-.m-loading {
-  height: 50px;
-  width: 70px;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.7;
+:root {
   --m-loading-speed: 2s;
   --m-loading-size-w: 64px;
   --m-loading-size-h: 50px;
+  --m-loading-wrapper-w: var(--m-loading-size-h);
+  --m-loading-wrapper-h: calc(var(--m-loading-size-w) / 64 * 70);
+  --m-loading-opacity: 0.7;
+}
+
+.m-loading {
+  width: var(--m-loading-wrapper-w);
+  height: var(--m-loading-wrapper-h);
+  justify-content: center;
+  align-items: center;
+  opacity: var(--m-loading-opacity);
 }
 
 .m-loading-wrapper {
@@ -24,9 +30,10 @@
   grid-area: main;
   max-width: 100%;
   max-height: 100%;
+  aspect-ratio: 32/25;
   height: var(--m-loading-size-h);
   width: var(--m-loading-size-w);
-  background-image: url(./assets/code.svg);
+  background-image: url(../../../public/icon/logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
   animation-name: heart-beat;
