@@ -20,6 +20,7 @@ export default defineComponent((props, { slots }) => {
                 style={getStyle(props)} ref={loadingRef}>
       <div class="m-loading-wrapper">
         <div class="m-loading-main"></div>
+        {slots.default?.()}
       </div>
     </div>;
   };
