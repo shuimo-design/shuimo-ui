@@ -54,7 +54,6 @@ pnpm install shuimo-ui
 
 Thanks to [`Jetbrains`](https://www.jetbrains.com/) for providing us with open source development licenses.
 
-
 ## TODO
 
 | Component     | Vue3 (v0.2.9-1) | Vue3(0.3.0-alpha.x) |
@@ -103,3 +102,6 @@ Thanks to [`Jetbrains`](https://www.jetbrains.com/) for providing us with open s
 | **TODO**      |                 |                     |   
 | Menu          | ⚗️              | ❌                   | 
 
+## Contribution
+
+[Contributing Guide](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)

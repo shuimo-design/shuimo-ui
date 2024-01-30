@@ -98,3 +98,6 @@ npm install shuimo-ui
 | **TODO**      |                 |                     |   
 | Menu          | ⚗️              | ❌                   | 
 
+## 贡献
+
+[贡献指南](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)
