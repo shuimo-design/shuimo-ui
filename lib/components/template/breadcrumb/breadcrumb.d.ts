@@ -13,6 +13,8 @@
  * Hello, humor
  */
 
+import type { BreadcrumbItemProps } from './breadcrumbItem';
+
 export declare type BreadcrumbProps = {
   /**
    * @description 面包屑分隔符
@@ -26,13 +28,4 @@ export declare type BreadcrumbProps = {
    * @default []
    */
   options?: Array<BreadcrumbItemProps>,
-}
-
-export declare type BreadcrumbItemProps = {
-  /**
-   * @description 面包屑项内容
-   * @type string
-   * @default ''
-   */
-  content?:string,
 }

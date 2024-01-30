@@ -7,7 +7,8 @@
  * Hello, humor
  */
 import { MCOPO } from '../../types/props';
-import type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
+import type { BreadcrumbProps } from './breadcrumb';
+import type { BreadcrumbItemProps } from './breadcrumbItem';
 
 export const props: MCOPO<BreadcrumbProps> = {
   separator: { type: String, default: '' },
