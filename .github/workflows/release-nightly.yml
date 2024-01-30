@@ -1,0 +1,68 @@
+name: Release Nightly
+
+on:
+  schedule:
+     - cron: "00 22 * * *"
+
+jobs:
+  check:
+    if: ${{ github.ref == 'refs/heads/main'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for new commits
+        id: check
+        run: |
+           DATE=$(date -u -d "1 day ago" "+%Y-%m-%d")
+           if git log --since="$DATE" --oneline | grep .; then
+              echo "new_commits=true" >> "$GITHUB_OUTPUT"
+           else
+             echo "new_commits=false" >> "$GITHUB_OUTPUT"
+           fi
+    outputs:
+      new_commits: ${{ steps.check.outputs.new_commits }}
+
+  build:
+    needs: check
+    if: ${{ needs.check.outputs.new_commits == 'true'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install pnpm -g && pnpm install
+
+      - name: Build package
+        run: pnpm run build
+
+      - name: Get current package version
+        id: version
+        run: |
+          DATE=$(date "+%Y%m%d")
+          echo "version=$(node -p "require('./lib/package.json').version")-nightly.$DATE">> "$GITHUB_ENV"
+
+      - name: cd cli/build/config/output
+        run: cd cli/build/config/output
+
+      - name: Change package name
+        run: jq '.name="shuimo-ui-nightly"' package.json > temp.json && mv temp.json package.json
+
+      - name: change version
+        run: |
+          git config --global user.email "jimmyrss1102@gmail.com"
+          git config --global user.name "Cai"
+          npm version ${{ env.version }} --force
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
