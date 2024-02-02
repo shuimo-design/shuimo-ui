@@ -50,7 +50,6 @@ export function useDatePicker(options: Options<{
 
 
   const { popoverOptions } = usePopover();
-  const today = new Date();
   const dateRef = ref<DateRefType>();
   const displayValue = ref('');
   const spanClass = ref<Array<string | undefined>>([]);
@@ -228,6 +227,7 @@ export function useDatePicker(options: Options<{
     calendarTypeRef.value = 'date';
   };
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const clickCurrentMonth = (month: number) => {
     calendarTypeRef.value = 'month';
   };

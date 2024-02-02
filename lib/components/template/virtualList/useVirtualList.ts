@@ -45,16 +45,16 @@ export function useVirtualList(options: Options<{
     return containerRef.value?.children?.[0].children?.[0].children ?? [] as unknown as HTMLCollection;
   };
   let visibleCount = 5; // base is 5
-  let overScanCoefficient = 1;
+  const overScanCoefficient = 1;
   const { list } = options.props;
   const total = list.length;
 
-  let from = 0;
+  const from = 0;
 
   const displayList = ref<{ data: any, index: number }[]>([]);
 
   const lastItemRef = ref<HTMLElement | null>(null);
-  let baseY = 0;
+  const baseY = 0;
   const styleRef = ref<any>({ 'transform': `translateY(${baseY}px)` });
 
   /**

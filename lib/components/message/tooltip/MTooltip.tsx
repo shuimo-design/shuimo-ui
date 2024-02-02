@@ -20,7 +20,7 @@ export default defineComponent((props, { slots }) => {
 
   return () => {
     return withPopover<VNode | VNode[]>({
-      default: () => slots.default?.()!,
+      default: () => slots.default?.()??<></>,
       content: () => withBorder(<div class="m-tooltip-wrapper">{slots.content?.()}</div>),
       arrow: () => <div class="m-arrow" data-popper-arrow/>
     });

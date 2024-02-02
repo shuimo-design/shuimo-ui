@@ -10,20 +10,15 @@ import { type BundledLanguage, codeToThemedTokens, type SpecialLanguage } from '
 import { ShuimoTheme } from '../../shikiji/shuimo.theme';
 
 
-enum highlightType {
-  'typescript' = 'typescript',
-  'shell' = 'shell',
-  'vue' = 'vue',
-  'scss' = 'scss',
-}
+
 
 const toHTMl = async (code: string, lang: BundledLanguage | SpecialLanguage) => {
   const nodesList = await codeToThemedTokens(code, {
     lang,
     theme: ShuimoTheme
   });
-  const r2 = nodesList.map((nodes, i) => {
-    return nodes.map((node, j) => {
+  const r2 = nodesList.map((nodes) => {
+    return nodes.map((node) => {
       const content = node.content
         .replaceAll('{', '&#123;')
         .replaceAll('}', '&#125;')
@@ -36,7 +31,7 @@ const toHTMl = async (code: string, lang: BundledLanguage | SpecialLanguage) => 
 };
 
 
-export const resetCode = async (code: string, fileName: string) => {
+export const resetCode = async (code: string) => {
   const templateList = code.split('<template>'); // 为了获取最前面的<template>
   const [, ...endTemplate] = templateList;
   const data = endTemplate.join('<template>');

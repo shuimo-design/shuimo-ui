@@ -9,7 +9,7 @@
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
 
-export default defineComponent((props, { emit }) => {
+export default defineComponent((props) => {
   return () => {
     return <div class={['m-avatar', `m-avatar-${props.variant}`, `m-avatar-${props.size}`]}>
       <img src={props.img} alt=""/>

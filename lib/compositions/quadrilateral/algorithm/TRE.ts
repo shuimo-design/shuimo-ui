@@ -14,7 +14,7 @@ import { abs, CASE, DegModeOptions, getPoints, initCase, QPoints, tan } from './
 
 
 export default function TRE(options: DegModeOptions): QPoints {
-
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
     w, h, degList, degDecimal,
     A, B, C, D,

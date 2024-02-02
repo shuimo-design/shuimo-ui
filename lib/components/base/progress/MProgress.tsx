@@ -20,6 +20,7 @@ export default defineComponent((props, { slots }) => {
     if (props.showInfo) {
       return getProgressWrapperStyle(progressInfo.value);
     }
+    return undefined
   });
 
 

@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { defineCustomElement } from 'vue';
+// import { defineCustomElement } from 'vue';
 // import { MBorderOptions } from './MBorder';
 // import style from '@shuimo-design/core/lib/template/border/border.css?inline';
 

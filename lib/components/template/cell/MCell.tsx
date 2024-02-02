@@ -36,13 +36,9 @@ export default defineComponent((_props: CellProps, { slots }) => {
 
     const { style, styleA, styleB, styleC, styleD } = getSize();
 
-    const cell = <div class="m-cell-inner">
-      {slots.default?.()}
-    </div>;
-
-    const cellWrapper = <div class={['m-cell']} ref={(el) => {
-      cellRef.value = el as HTMLDivElement; // fix volar error
-    }} style={{ ...defaultWH, ...(props.style ?? {}) }}>
+    return <div class={['m-cell']} ref={(el) => {
+      cellRef.value = el as HTMLDivElement;
+    }} style={{ ...defaultWH, ...props.style }}>
       <div class="m-cell-main" style={{ ...defaultWH, ...style }}>
         {slots.default?.()}
       </div>
@@ -51,8 +47,6 @@ export default defineComponent((_props: CellProps, { slots }) => {
       <div class="m-cell-c m-cell-border-bottom" style={styleC}/>
       <div class="m-cell-v m-cell-border-left" style={styleD}/>
     </div>;
-
-    return cellWrapper;
   };
 }, {
   name: 'MCell',

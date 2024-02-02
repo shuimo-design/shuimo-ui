@@ -14,13 +14,14 @@ import {
   BASE_WEEK_NAME,
   CalendarItem,
   DisplayCalendarType, toDayjs,
-  useDatePicker
+  useDatePicker,
 } from './useDatePicker';
 import MDivider from '../../other/divider/MDivider';
 import { props } from './api.ts';
 
 import usePopover from '../../../compositions/usePopover.tsx';
 import useBorder from '../../../compositions/useBorder.tsx';
+import { DatePickerProps } from './index';
 
 const MCalendarColumn = defineComponent((props: { columns: DisplayCalendarType[] }, { emit }) => {
   const clickItem = (item: DisplayCalendarType) => {
@@ -33,7 +34,7 @@ const MCalendarColumn = defineComponent((props: { columns: DisplayCalendarType[]
         return <div class={[
           'm-date-picker-calendar-column',
           item.isCurrentMonth ? '' : 'm-date-picker-not-current',
-          item.isCurrent ? 'm-date-picker-current' : ''
+          item.isCurrent ? 'm-date-picker-current' : '',
         ]} key={index} onClick={() => clickItem(item)}>
           {item.day}
         </div>;
@@ -43,7 +44,7 @@ const MCalendarColumn = defineComponent((props: { columns: DisplayCalendarType[]
   };
 }, {
   props: { columns: { type: Array, default: () => [] } },
-  emits: ['click']
+  emits: ['click'],
 });
 
 const MPrevMonthArrow = defineComponent(() => () => <div class="m-date-picker-m-arrow m-date-picker-prev-arrow"/>);
@@ -51,8 +52,8 @@ const MNextMonthArrow = defineComponent(() => () => <div class="m-date-picker-m-
 const MPrevYearArrow = defineComponent(() => () => <div class="m-date-picker-y-arrow m-date-picker-prev-year-arrow"/>);
 const MNextYearArrow = defineComponent(() => () => <div class="m-date-picker-y-arrow m-date-picker-next-year-arrow"/>);
 
-export default defineComponent((props, { slots, emit }) => {
-
+export default defineComponent((_props: DatePickerProps, { emit }) => {
+  const props = _props as Required<DatePickerProps>;
 
   const {
     updateDateRef,
@@ -60,7 +61,7 @@ export default defineComponent((props, { slots, emit }) => {
     toPrevMonth, toNextMonth, toNextYear, toPrevYear,
     getValue,
     clickCurrentYear, clickYearItem, clickCurrentMonth, clickMonthItem,
-    dateRef, spanClass, displayValue, calendarTypeRef, currentRef, yearsRef
+    dateRef, spanClass, displayValue, calendarTypeRef, currentRef, yearsRef,
   } = useDatePicker({ props });
   const { withPopover } = usePopover(popoverOptions, 'm-date-picker');
   const { withBorder } = useBorder();
@@ -166,11 +167,11 @@ export default defineComponent((props, { slots, emit }) => {
         <div class="m-date-picker-calendar-body">
           {getCalendarRender()}
         </div>
-      </div>, 'm-date-picker-calendar')
+      </div>, 'm-date-picker-calendar'),
     });
   };
 }, {
   name: 'MDatePicker',
   props,
-  emits: ['update:modelValue']
+  emits: ['update:modelValue'],
 });

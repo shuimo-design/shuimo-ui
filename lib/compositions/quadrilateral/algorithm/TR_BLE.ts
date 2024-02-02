@@ -11,6 +11,7 @@
 import { DegModeOptions, getPoints, initCase, QPoints, tan } from './common';
 
 export default function TR_BLE(options: DegModeOptions): QPoints {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
     w, h, degList, degDecimal,
     A, B, C, D,

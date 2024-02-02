@@ -21,7 +21,7 @@ const Confirm: IConfirm = async config => {
     const confirmVNode = h({
       name: 'MConfirm',
       props,
-      setup: (props: ConfirmProps, { emit, slots }) => {
+      setup: (props: ConfirmProps, { emit }) => {
 
 
         const {

@@ -27,7 +27,8 @@ export default function useSelectFetch(options: Options<{
     }
   });
 
-  const callback = async (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+  // const callback = async (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+  const callback = async (entries: IntersectionObserverEntry[]) => {
     const entry = entries[0];
     if (entry.isIntersecting) {
       // touch bottom

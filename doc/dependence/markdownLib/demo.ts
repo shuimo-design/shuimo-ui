@@ -33,17 +33,16 @@ export default function demo() {
 
   /**
    * 用于在md转vue后添加导入的方法
-   * @param code
    * @param fileName
    */
-  const insertImport = async (code: string, fileName: string) => {
+  const insertImport = async (code: string) => {
     const replacements: Array<{ demoStr: string, promise: Promise<string> }> = [];
     try{
       code.replace(insertSearchValue, (demoStr: string, relativeDemoPath: string) => {
         const demoDefName = pathTransform(relativeDemoPath);
         const demoData = fs.readFileSync(`${__dirname}/../../demos/${relativeDemoPath}.vue`, 'utf-8');
         if (importMap.has(demoDefName)) {
-          const promise = resetCode(demoData, fileName)
+          const promise = resetCode(demoData)
             .then(newCode => {
               return `<${demoDefName} /> \n${newCode}`;
             });

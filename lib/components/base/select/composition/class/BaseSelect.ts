@@ -20,7 +20,7 @@ export type ISelectOptions<OptionValue, JSXNode> = {
 
 export type SelectOptions<OptionValue> = { value: OptionValue, isSelected: boolean, index: number };
 
-export type SelectCreatorOptions<OptionValue, JSXNode> = {
+export type SelectCreatorOptions<OptionValue> = {
   props: Required<SelectProps>,
   value: {
     inputValue: Ref<any>,
@@ -37,16 +37,16 @@ type InitRenderOptionRender<OptionValue, JSXNode> = {
 
 type TMRef<T> = Ref<T>;
 
-export abstract class BaseSelect<OptionValue, JSXNode> {
+export abstract class BaseSelect<OptionValue> {
 
-  options?: SelectCreatorOptions<OptionValue, JSXNode>;
+  options?: SelectCreatorOptions<OptionValue>;
   inputValueRef?: TMRef<any>;
   selectOptions?: TMRef<SelectOptions<OptionValue>[]>;
   selectDisplayOptions?: TMRef<SelectOptions<OptionValue>[]>;
   selectTags?: TMRef<SelectOptions<OptionValue>[]>;
   tools?: ReturnType<typeof useSelectTools>;
 
-  protected constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {
+  protected constructor(options: SelectCreatorOptions<OptionValue>) {
     this.options = options;
     this.inputValueRef = ref(options.value.inputValue);
     this.selectOptions = ref(options.value.selectOptions);
@@ -65,6 +65,7 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
     return this.options?.props.modelValue;
   }
 
+  /* eslint-disable  @typescript-eslint/no-unused-vars */
   baseFilter(option: OptionType) {
     return true;
   }
@@ -153,8 +154,8 @@ export abstract class BaseSelect<OptionValue, JSXNode> {
   onDeleteTag(tag: SelectOptions<OptionValue>) {}
 }
 
-export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, JSXNode> {
-  constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {super(options);}
+export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue> {
+  constructor(options: SelectCreatorOptions<OptionValue>) {super(options);}
 
   onClickOption(index: number) {
     this.selectOptions?.value.forEach(o => {o.isSelected = false;});
@@ -178,8 +179,8 @@ export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, 
   }
 }
 
-export class MultipleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue, JSXNode> {
-  constructor(options: SelectCreatorOptions<OptionValue, JSXNode>) {super(options);}
+export class MultipleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue> {
+  constructor(options: SelectCreatorOptions<OptionValue>) {super(options);}
 
   onClickOption(index: number) {
     this.setInputValue();

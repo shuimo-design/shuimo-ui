@@ -8,7 +8,7 @@
  *
  * todo these are temporary code for doc...
  */
-import { computed, defineComponent, shallowRef, triggerRef, watch } from 'vue';
+import { computed, defineComponent, triggerRef, watch } from 'vue';
 import MMenuItem from './MMenuItem.tsx';
 import { props } from './api.ts';
 import { useMenu } from './useMenu.ts';
@@ -16,7 +16,7 @@ import { TreeNodeData } from '../../base/tree';
 import { TreeNodeProps } from '../../base/tree/treeNode';
 import { MenuProps } from './index';
 
-export default defineComponent((_props: MenuProps, { slots, emit }) => {
+export default defineComponent((_props: MenuProps, { emit }) => {
   const props = _props as Required<MenuProps>;
 
 
@@ -31,8 +31,7 @@ export default defineComponent((_props: MenuProps, { slots, emit }) => {
     event: { triggerTree: () => {triggerRef(treeRef);} }
   });
 
-  let count = 0;
-  watch(() => props.data, (oldVal, newVal) => {
+  watch(() => props.data, () => {
     initTreeRef();
   }, { deep: true });
 
@@ -78,7 +77,9 @@ export default defineComponent((_props: MenuProps, { slots, emit }) => {
   name: 'MMenu',
   props,
   emits: {
+    /* eslint-disable */
     'update:checkedKeys': (keys: TreeNodeData['key'][]) => true,
+    /* eslint-disable */
     'node-click': (node: TreeNodeData, e: MouseEvent) => true
   }
 });

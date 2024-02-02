@@ -12,7 +12,7 @@ import MBorder from '../../template/border/MBorder.tsx';
 import { InputNumber, useInputNumber } from './useInputNumber.ts';
 
 
-export default defineComponent((props, { slots, emit }) => {
+export default defineComponent((props, { emit }) => {
     const currentValue = ref<InputNumber>(props.modelValue);
 
     const updateInput = (oldVal: InputNumber) => {

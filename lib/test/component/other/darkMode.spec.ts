@@ -7,8 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { describe, expect, test,beforeAll,vi } from 'vitest';
-import { DOMWrapper, mount } from '@vue/test-utils';
-import MDarkMode from '../../../lib/other/MDarkMode';
+import { mount } from '@vue/test-utils';
+import { MDarkMode } from '../../../index.ts';
 
 
 beforeAll(()=>{
@@ -36,7 +36,7 @@ describe('darkMode', function () {
   describe('function', function () {
 
     test('default html attribute',async () => {
-      const wrapper = mount(MDarkMode);
+      mount(MDarkMode);
       expect(document.documentElement.hasAttribute('dark')).toBe(false);
     });
 

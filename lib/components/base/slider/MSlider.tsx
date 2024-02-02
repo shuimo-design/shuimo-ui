@@ -13,7 +13,7 @@ import { props } from './api.ts';
 import { SliderProps } from './index';
 import { useSlider } from './useSlider.ts';
 
-export default defineComponent((props: SliderProps, { slots, emit }) => {
+export default defineComponent((props: SliderProps, { emit }) => {
 
 
   const perRef = ref(0);
@@ -53,7 +53,7 @@ export default defineComponent((props: SliderProps, { slots, emit }) => {
       {props.showInfo ? getInfo() : undefined}
       <div class="m-slider-wrapper" ref={el => sliderRef.value = el as HTMLDivElement}>
         <div class="m-slider-runway" style={runwayStyle.value}/>
-        <div class="m-slider-button" ref={el => btnRef.value = el}></div>
+        <div class="m-slider-button" ref={el => btnRef.value = el  as HTMLDivElement}></div>
       </div>
     </div>;
   };

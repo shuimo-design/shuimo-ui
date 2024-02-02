@@ -6,11 +6,11 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { Component, defineComponent, h, ref } from 'vue';
+import { Component, defineComponent, ref } from 'vue';
 import MMessageItem from './MMessageItem';
 import { listProps } from './api.ts';
 import useTeleport from '../../../compositions/common/useTeleport.ts';
-import { MessageOptions, useMessageList } from './useMessageList.ts';
+import { useMessageList } from './useMessageList.ts';
 
 
 export default defineComponent( (props, { expose }) => {

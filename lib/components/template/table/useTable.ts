@@ -21,6 +21,7 @@ export function useTable() {
       data: any | string,
       param: string,
       slot?: SlotRender,
+      style?: StyleType,
       slotInfo?: { data: any, index: number }
     }) => T,
     theadTh: (option: {
@@ -35,7 +36,7 @@ export function useTable() {
     initSlot: (tableColumn: any) => { body: SlotRender, head: SlotRender } | undefined,
   }, columns: Array<any>, data: any[]) => {
     const tbodyTrList: T[][] = [];
-    data.forEach(d => {tbodyTrList.push([]);});
+    data.forEach(() => {tbodyTrList.push([]);});
 
 
     const getData = (i: number, param: string) => {
@@ -50,12 +51,13 @@ export function useTable() {
         tbodyTrList.forEach((t, i) => {
           t.push(renders.tbodyTr({
             data: getData(i, param),
+            style,
             param,
             slot: bodySlot,
             slotInfo: {
               data: data[i],
-              index: i
-            }
+              index: i,
+            },
           }));
         });
       } else {
@@ -86,7 +88,7 @@ export function useTable() {
           return false;
         }
         return true;
-      }).map((column, index) => {
+      }).map((column) => {
         const slots = renders.initSlot(column);
         let bodySlot: SlotRender | undefined;
         let headSlot: SlotRender | undefined;
@@ -101,26 +103,26 @@ export function useTable() {
           label: column.props.label,
           param: column.props.param,
           slot: headSlot,
-          style
+          style,
         });
       });
       return renders.thead(ths);
     };
     const thead = initTHead();
     const tbody = tbodyTrList.length > 0 ? renders.tbody(
-      tbodyTrList.map((tds, i) => renders.tbodyTrs(tds, i))
+      tbodyTrList.map((tds, i) => renders.tbodyTrs(tds, i)),
     ) : renders.empty;
 
     return {
       thead,
-      tbody
+      tbody,
     };
   };
 
 
   return {
     initTable,
-    error
+    error,
   };
 
 }

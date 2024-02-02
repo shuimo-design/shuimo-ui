@@ -139,6 +139,7 @@ export const { abs } = Math;
 
 export const initCase = (options: DegModeOptions) => {
   const { w, h, degList, degDecimal } = options;
+  /* eslint-disable prefer-const */
   let [A, B, C, D] = degList;
 
   return {

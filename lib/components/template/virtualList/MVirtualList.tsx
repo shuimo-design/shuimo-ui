@@ -15,7 +15,6 @@ import { useVirtualList } from './useVirtualList.ts';
 export default defineComponent((props, { emit, slots }) => {
   const {
     containerRef,
-    lastItemRef,
     displayList,
     styleRef
   } = useVirtualList({

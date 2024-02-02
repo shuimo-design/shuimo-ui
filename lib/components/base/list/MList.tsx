@@ -8,7 +8,7 @@
  *
  * todo click toggle active and emit click event
  */
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import MLi from '../li/MLi.tsx';
 import { useList } from './useList.ts';
 import { props } from './api.ts';

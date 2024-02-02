@@ -58,7 +58,9 @@ export default defineComponent((props, { emit }) => {
   name: 'MTree',
   props,
   emits: {
+    /* eslint-disable */
     'update:checkedKeys': (keys: TreeNodeData['key'][]) => true,
+    /* eslint-disable */
     'node-click': (node: TreeNodeData, e: MouseEvent) => true
   }
 });

@@ -13,6 +13,7 @@
 import { DegModeOptions, getPoints, initCase, QPoints, tan } from './common';
 
 export default function TL_BRE(options: DegModeOptions): QPoints {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
     w, h, degList, degDecimal,
     A, B, C, D,

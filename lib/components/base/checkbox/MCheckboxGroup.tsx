@@ -14,7 +14,6 @@ import { checkboxGroupProps } from './api.ts';
 type ChildType = any;
 export default defineComponent((props, { emit, slots }) => {
   const propsRef = ref<ChildType[]>([]);
-  const valuesRef = ref([]);
   const modelValuesRef = ref<ChildType[]>([]);
 
 

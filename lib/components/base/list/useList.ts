@@ -23,7 +23,7 @@ const baseRender = (item: any) => {
   return '';
 };
 
-export function useList<T, DataType = any>() {
+export function useList<T>() {
 
   const dataValidate = (data: T[] | undefined) => {
     if (!Array.isArray(data)) {

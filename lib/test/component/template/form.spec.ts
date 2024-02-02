@@ -9,8 +9,8 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 import { mount } from '@vue/test-utils';
-import { describe, test, expect, vi } from 'vitest';
-import { MButton, MForm, MFormItem, MInput } from '../../../../../lib';
+import { describe, test, expect } from 'vitest';
+import { MButton, MForm, MFormItem, MInput } from '../../../../lib';
 
 const mountForm = (config: any) => {
   return mount({

@@ -17,7 +17,7 @@ import { MessageIns } from './index';
 
 type VueMessageIns = MessageIns<Component<typeof MMessageItem>> & ComponentPublicInstance;
 
-let { initMessage } = useMessage<Component<typeof MMessageItem>>();
+const { initMessage } = useMessage<Component<typeof MMessageItem>>();
 
 const MMessage = initMessage({
   getIns: direction => {

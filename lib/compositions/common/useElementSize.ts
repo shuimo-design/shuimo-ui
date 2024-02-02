@@ -14,8 +14,8 @@ import { useResizeObserver } from "./useResizeObserver";
 
 export function useElementSize(
   target: Ref<HTMLElement | null>,
-  initialSize = { w: 0, h: 0 },
-  options: ResizeObserverOptions = {},
+  // initialSize = { w: 0, h: 0 },
+  // options: ResizeObserverOptions = {},
 ) {
 
   const w = ref(0);

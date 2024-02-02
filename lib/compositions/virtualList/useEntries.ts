@@ -34,7 +34,7 @@ export default function useEntries(options: {
     // all entries visible, need reload list [todo: until visibleCount = entries.length]
 
     const info = options.getInfo();
-    const { renderFrom, realFrom, realEnd, renderEnd } = info;
+    const { renderFrom, realFrom, realEnd } = info;
     if (entries[realFrom - renderFrom]?.isIntersecting && entries[realEnd - renderFrom - 1]?.isIntersecting) {
       const totalHeight = entries.map(e => e.boundingClientRect.height).reduce((a, b) => a + b, 0);
       const length = entries.length;
@@ -116,7 +116,7 @@ export default function useEntries(options: {
       topEndTarget = actionMap.get(ACTION.LEAVE_TOP_END);
     }
     if (topEndTarget != null) {
-      let target = type === '上拉' ? topEndTarget[0] : topEndTarget[topEndTarget.length - 1];
+      const target = type === '上拉' ? topEndTarget[0] : topEndTarget[topEndTarget.length - 1];
       const info = entriesInfoWeakMap.get(target)!;
       options.getList(info.realIndex);
       options.styleRef.value = {
@@ -124,7 +124,7 @@ export default function useEntries(options: {
       };
       return;
     }
-    let bottomEndTarget = actionMap.get(ACTION.ENTER_BOTTOM_END);
+    const bottomEndTarget = actionMap.get(ACTION.ENTER_BOTTOM_END);
     if (bottomEndTarget != null) {
 
       requestAnimationFrame(() => {
@@ -152,7 +152,7 @@ export default function useEntries(options: {
 
   };
 
-
+  /* eslint-disable  @typescript-eslint/no-unused-vars */
   const cb = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     if (entries.length === options.getChildren().length) {
       onInit(entries);

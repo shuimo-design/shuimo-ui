@@ -23,7 +23,7 @@ const removePx = (num?: number | string) => {
     return Number(num.replace('px', ''));
   }
   return num;
-}
+};
 
 export function useGrid(options: Options<{
   props: GridProps
@@ -31,8 +31,8 @@ export function useGrid(options: Options<{
   const gridRef = ref<HTMLElement | null>(null);
   const { w, h } = useElementSize(gridRef);
   const getGridClass = () => {
-    return [`m-grid-${options.props.direction}`]
-  }
+    return [`m-grid-${options.props.direction}`];
+  };
 
   const getStyle = () => {
     const { props } = options;
@@ -40,13 +40,13 @@ export function useGrid(options: Options<{
       width: props.w,
       height: props.h,
       '--m-grid-col-gap': fixNum(props.colGap) ?? fixNum(props.gap) ?? 0,
-      '--m-grid-direction': props.direction ?? 'row'
+      '--m-grid-direction': props.direction ?? 'row',
     };
   };
 
-  const getSlotProp = (slot: any, key: string) => {
+  const getSlotProp = (slot: any, key: string): number | undefined => {
     return slot.props[key];
-  }
+  };
 
   const calcCells = (cells: any[]) => {
     const { props } = options;
@@ -64,7 +64,7 @@ export function useGrid(options: Options<{
       const wList = cells.map((cell) => getSlotProp(cell, 'w'));
       const length = wList.length;
       const emptyLength = wList.filter(e => e === undefined).length;
-      const usedLength = wList.reduce((a, b) => a ?? 0 + b ?? 0);
+      const usedLength = wList.reduce((a, b) => (a ?? 0) + (b ?? 0)) ?? 0;
       const totalGap = (length - 1) * rowGap;
       const remainW = w.value - totalGap - usedLength;
       const mLeft = [0, ...props.gapRotate.map(e => h.value * tan(e))];
@@ -75,7 +75,7 @@ export function useGrid(options: Options<{
           if (e === undefined) {
             wList[i] = average;
           }
-        })
+        });
       }
 
       wList.forEach((w, i) => {
@@ -85,21 +85,21 @@ export function useGrid(options: Options<{
         if (mLeft[i] !== undefined && mLeft[i] !== 0) {
           cells[i].props.style = {
             'margin-left': `-${mLeft[i]}px`,
-          }
+          };
         }
-      })
+      });
 
     }
 
 
-  }
+  };
 
 
   return {
     getStyle,
     getGridClass,
     gridRef,
-    calcCells
+    calcCells,
   };
 
 }

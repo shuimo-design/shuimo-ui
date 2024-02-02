@@ -10,7 +10,7 @@
  */
 
 import { beforeEach, describe, expect, test, beforeAll, vi ,afterEach} from 'vitest';
-import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
 import { ComponentPublicInstance } from 'vue';
 import { MDatePicker } from '../../../index.ts';
 
@@ -113,7 +113,7 @@ describe('with event', () => {
   });
 
   // not support month type right now;
-  test.skip('月份选择', async done => {
+  // test.skip('月份选择', async done => {
     // const teleportTarget = new DOMWrapper(document.querySelector('body')!);
     // const wrapper = mount(MDatePicker, {
     //   props: {
@@ -138,5 +138,5 @@ describe('with event', () => {
     //   expect(calendar.isVisible()).toBe(false);
     //   done();
     // }, 100);
-  });
+  // });
 });

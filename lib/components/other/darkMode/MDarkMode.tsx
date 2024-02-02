@@ -8,7 +8,7 @@
  *
  * todo fix feDropShadow warning
  */
-import { defineComponent, h, onMounted, ref, watch } from 'vue';
+import { defineComponent, h, onMounted, watch } from 'vue';
 import { props } from './api';
 import { useDarkMode } from './useDarkMode';
 import { DarkModeProps } from './index';

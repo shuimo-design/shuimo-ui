@@ -10,7 +10,7 @@ import { defineComponent, ref, watch } from 'vue';
 import { props } from './api.ts';
 import { usePagination } from './usePagination.ts';
 
-export default defineComponent((props, { emit, slots }) => {
+export default defineComponent((props, { emit }) => {
 
   const currentValueRef = ref(props.modelValue ?? 1);
   watch(() => props.modelValue, (val) => {

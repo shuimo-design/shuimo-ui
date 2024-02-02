@@ -33,7 +33,7 @@ const fadeIn = (dom: HTMLElement | null, direction: string) => {
 const fadeOut = (dom: HTMLElement | null, direction: MessageDirectionType, onFinish: () => void) => {
   if (!dom) return;
 
-  let translate = { x: 0, y: 0 };
+  const translate = { x: 0, y: 0 };
   if (dom.style.transform) {
     translate.x = Number(dom.style.transform.split('(')[1].split('px')[0]);
     translate.y = Number(dom.style.transform.split(',')[1].split('px')[0]);

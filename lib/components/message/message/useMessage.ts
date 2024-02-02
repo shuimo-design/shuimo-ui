@@ -21,8 +21,8 @@ export function useMessage<K>() {
     map: Map<MessageDirectionType, any> = new Map<MessageDirectionType, any>();
     directionSet: Set<MessageDirectionType> = new Set<MessageDirectionType>();
 
-    public async getIns<T>(direction: MessageDirectionType, customerGetIns: (direction: MessageDirectionType) => Promise<T> | T) {
-      return new Promise<T>(async (resolve, reject) => {
+    public getIns<T>(direction: MessageDirectionType, customerGetIns: (direction: MessageDirectionType) => Promise<T> | T) {
+      return new Promise<T>(async (resolve) => {
         if (this.directionSet.has(direction)) {
           setTimeout(() => {
             const ins = this.map.get(direction);
@@ -77,7 +77,7 @@ export function useMessage<K>() {
     const messageOptions = mergeOption(config, type, duration);
 
     const { direction } = messageOptions;
-    let mountInstance = await insMap.getIns(direction, handler.getIns);
+    const mountInstance = await insMap.getIns(direction, handler.getIns);
     mountInstance.add(messageOptions);
 
 

@@ -79,7 +79,7 @@ export default function useQuadrilateralOptions(options: QOptions | string | num
 
 
 const quadrilateralOptions = (options: QOptions) => {
-  let { points } = options;
+  const { points } = options;
   let A: Point = {}, B: Point = {}, C: Point = {}, D: Point = {};
 
   if (points) {

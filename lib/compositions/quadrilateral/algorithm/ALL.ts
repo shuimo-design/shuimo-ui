@@ -10,6 +10,7 @@ import { DegModeOptions, getPoints, initCase, QPoints, tan } from './common';
 
 
 export default function ALL_CASE(options: DegModeOptions): QPoints {
+  /* eslint-disable prefer-const,@typescript-eslint/no-unused-vars */
   let {
     w, h, degList, degDecimal,
     A, B, C, D,

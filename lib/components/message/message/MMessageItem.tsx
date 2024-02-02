@@ -11,7 +11,7 @@ import { props } from './api.ts';
 import { messageIcon, useMessageItem } from './useMessageItem.ts';
 import { MessageProps } from './index';
 
-export default defineComponent((_props: MessageProps, { slots, emit }) => {
+export default defineComponent((_props: MessageProps, { emit }) => {
   const props = _props as Required<MessageProps>;
 
 

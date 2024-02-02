@@ -47,13 +47,13 @@ export default defineComponent((props, { slots }) => {
         columns.push(s);
       });
 
-      const toString = (data: any) => {
-        // todo fix this
-        if (typeof data === 'object') {
-          return JSON.stringify(data);
-        }
-        return data;
-      };
+      // const toString = (data: any) => {
+      //   // todo fix this
+      //   if (typeof data === 'object') {
+      //     return JSON.stringify(data);
+      //   }
+      //   return data;
+      // };
 
       const paramClass = (preFix: string, param: string) => {
         if (!props.paramClass) {return null;}
@@ -68,7 +68,8 @@ export default defineComponent((props, { slots }) => {
           }</th>
         </tr>
         </tbody>,
-        tbodyTr: ({ data, param, slot, slotInfo }) => <td class={['m-td', paramClass('td', param)]}>
+        tbodyTr: ({ data, param, slot, slotInfo,style }) => <td style={style}
+                                                                class={['m-td', paramClass('td', param)]}>
           {slot ? slot({ data: slotInfo?.data, index: slotInfo?.index }) : data}
         </td>,
         theadTh: ({ label, param, slot, style }) => <th class={['m-th', paramClass('th', param!)]}
@@ -77,7 +78,7 @@ export default defineComponent((props, { slots }) => {
         <tr class="m-tr">{ths}</tr>
         </thead>,
         tbody: trs => <tbody class="m-tbody">{trs}</tbody>,
-        tbodyTrs: (tds, i) => <tr class="m-tr">{...tds}
+        tbodyTrs: (tds) => <tr class="m-tr">{...tds}
           <td class="m-table-tbody-img"/>
         </tr>,
         initSlot: tableColumn => {

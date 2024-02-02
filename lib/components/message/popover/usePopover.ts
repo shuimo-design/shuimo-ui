@@ -9,12 +9,12 @@
 import { Placement, PopperConfig, PositionStyle, usePopper } from '../../../compositions/popper/usePopper.ts';
 import useClickAway from '../../../compositions/popper/useClickAway';
 import { Options } from '../../../compositions/common/defineCore';
-import MPrinter from '../../other/printer/Printer';
+// import MPrinter from '../../other/printer/Printer';
 import { PopoverProps } from './index';
 import { onBeforeMount, onMounted, ref, type Ref, shallowRef } from 'vue';
 
 
-const error = MPrinter('水墨Popover组件').error;
+// const error = MPrinter('水墨Popover组件').error;
 export type IPopper = ReturnType<typeof usePopper>;
 
 
@@ -42,8 +42,8 @@ export class PopoverImpl {
       onHide?: Function
     }
   ) {
-    if (!content) {new Error('MPopover: content is required');}
-    if (!active) {new Error('MPopover: active is required');}
+    if (!content) {throw new Error('MPopover: content is required');}
+    if (!active) {throw new Error('MPopover: active is required');}
 
     this._active = active!;
     this._content = content!;

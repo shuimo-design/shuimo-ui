@@ -7,10 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v2.0.0 适配新版Message
  */
-import { describe, expect, test, vi,beforeAll } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { DOMWrapper } from '@vue/test-utils';
-import { MMessage as MessageCreator } from '../../../../../lib';
-import { MessageDirectionType } from '@shuimo-design/core/lib/message/message';
+import { MMessage as MessageCreator } from '../../../../lib';
+import { MessageDirectionType } from '../../../components/message/message';
 
 describe('消息提示', () => {
   // todo 修复污染问题
@@ -21,7 +21,7 @@ describe('消息提示', () => {
 
   test('普通渲染', async () => {
     vi.useFakeTimers();
-    MMessage = MessageCreator.create();
+    MMessage = MessageCreator.create!();
     await MMessage('提示内容');
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
@@ -32,7 +32,7 @@ describe('消息提示', () => {
 
   test('2秒后触发remove', async () => {
     vi.useFakeTimers();
-    MMessage = MessageCreator.create();
+    MMessage = MessageCreator.create!();
     await MMessage.info({ content: '提示内容', duration: 2000 });
     const body = document.body;
     const bodyWrapper = new DOMWrapper(body);
@@ -41,20 +41,20 @@ describe('消息提示', () => {
     expect(bodyWrapper.find('.m-message')).not.toBeNull();
     await vi.runAllTimers();
     expect(body.innerHTML).toBe('');
-  },1000);
+  }, 1000);
 
   test('测试所有类型', async () => {
     vi.useFakeTimers();
-    MMessage = MessageCreator.create();
+    MMessage = MessageCreator.create!();
     const directions: Array<MessageDirectionType> = [
       'top-right',
       'top-left',
       'bottom-right',
       'bottom-left',
-      'top-center'
-    ]
+      'top-center',
+    ];
 
-    for(let direction of directions){
+    for (const direction of directions) {
       await MMessage({ content: '', direction });
     }
 

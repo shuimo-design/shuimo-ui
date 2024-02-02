@@ -6,12 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { describe, expect, it, beforeEach } from 'vitest';
-import { DateRefType, DisplayCalendarType, toDayjs, useDatePicker } from '../../../components/base/datePicker/useDatePicker.ts';
-import { DatePickerProps } from '../../../components/base/datePicker';
+// import { describe, expect, it, beforeEach } from 'vitest';
+// import { DateRefType, DisplayCalendarType, toDayjs, useDatePicker } from '../../../components/base/datePicker/useDatePicker.ts';
+// import { DatePickerProps } from '../../../components/base/datePicker';
 
 
-describe.skip('useDatePicker core test', function () {
+// describe.skip('useDatePicker core test', function () {
   //
   // const baseProps:Required<DatePickerProps> = {
   //   modelValue: '',
@@ -153,4 +153,4 @@ describe.skip('useDatePicker core test', function () {
   //     expect(calendar[5][6]).toMatchObject({ day: 5, isCurrentMonth: false, month: 2, year: 2022 });
   //   });
   // });
-});
+// });

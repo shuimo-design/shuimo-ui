@@ -17,5 +17,5 @@
 
 <script setup lang="ts">
 import { useDialog } from "shuimo-ui";
-const { visible, closeDialog, showDialog } = useDialog();
+const { visible, closeDialog } = useDialog();
 </script>
