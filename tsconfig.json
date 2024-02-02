@@ -10,8 +10,5 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "allowImportingTsExtensions": true,
-  },
-  "exclude": [
-    "node_modules",
-  ]
+  }
 }

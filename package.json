@@ -9,7 +9,9 @@
     "build": "pnpm -C cli/build run build",
     "doc:dev": "pnpm -C doc run doc:dev",
     "doc:build": "pnpm -C doc run build",
-    "re-install": "pnpm run clean:node_modules && pnpm i"
+    "clean:node_modules": "rimraf node_modules **/*/node_modules",
+    "re-install": "pnpm run clean:node_modules && pnpm i",
+    "lint": "jhlint"
   },
   "packageManager": "pnpm@7.17.1",
   "repository": {
@@ -20,5 +22,10 @@
     "url": "https://github.com/janghood/shuimo-ui/issues"
   },
   "homepage": "https://shuimo.design",
-  "web-types": "web-types.json"
+  "web-types": "web-types.json",
+  "devDependencies": {
+    "@janghood/config": "0.0.1-3",
+    "@janghood/lint": "0.0.2",
+    "rimraf": "^5.0.5"
+  }
 }
