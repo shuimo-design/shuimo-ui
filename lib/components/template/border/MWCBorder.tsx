@@ -7,8 +7,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-// import { defineCustomElement } from 'vue';
-// import { MBorderOptions } from './MBorder';
-// import style from '@shuimo-design/core/lib/template/border/border.css?inline';
+import { defineCustomElement } from 'vue';
+import { MBorderSetup } from './MBorder';
+import style from './border.css?inline';
 
-// export default defineCustomElement(MBorderOptions(<style>{style}</style>,<slot/>));
+export default defineCustomElement({
+  name: 'MWCBorder',
+  setup: MBorderSetup(<slot></slot> as unknown as HTMLSlotElement),
+  styles: [style],
+});

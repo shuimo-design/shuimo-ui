@@ -7,12 +7,13 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  * v1.0.1 默认改为冷色调，添加色调选项
  */
-import { defineComponent, onBeforeUnmount, onMounted, watch, SetupContext, RenderFunction } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, watch } from 'vue';
 import { props } from './api';
 import useImgMove from './compositions/useImgMove';
 import { RicePaperProps } from './index';
+import { WCSetup } from '../../types/template';
 
-export const MRicePaperSetup: (slot?: HTMLSlotElement) => (props: Readonly<RicePaperProps>, ctx: SetupContext) => RenderFunction = slot => {
+export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
   return (props, { slots }) => {
 
     const {

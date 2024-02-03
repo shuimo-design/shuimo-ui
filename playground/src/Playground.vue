@@ -13,6 +13,7 @@ import Template from './Template.vue';
 import Message from './Message.vue';
 import { useDarkModeStorage } from 'shuimo-ui/index.ts';
 import { onMounted } from 'vue';
+import Layout from './Layout.vue';
 
 onMounted(()=>{
   localStorage.clear()
@@ -26,7 +27,7 @@ const { darkModeRef, initDarkMode } = useDarkModeStorage();
     <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
   </div>
   <div class="playground">
-    <Template/>
+    <Layout/>
   </div>
 </template>
 

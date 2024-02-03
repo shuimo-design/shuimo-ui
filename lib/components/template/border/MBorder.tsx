@@ -10,20 +10,27 @@
 
 import { defineComponent } from 'vue';
 import { baseLineClass, lineType } from './lineType.ts';
+import { WCSetup } from '../../types/template';
 
-export default defineComponent((props, { slots })=>{
-  return () => {
-    const lineTemplate = Object.keys(lineType).map(type => {
-      return <div class={[baseLineClass, `m-border-${type}-line`]}></div>;
-    });
+export const MBorderSetup:WCSetup =  slot =>{
+  return (_, { slots })=>{
+    return () => {
+      const renderSlot = slot ?? slots.default?.();
+      const lineTemplate = Object.keys(lineType).map(type => {
+        return <div class={[baseLineClass, `m-border-${type}-line`]}></div>;
+      });
 
-    return <div class="m-border">
-      <div class="m-border-main">
-        {slots.default?.()}
-      </div>
-      {lineTemplate}
-    </div>;
-  };
-},{
+      return <div class="m-border">
+        <div class="m-border-main">
+          {renderSlot}
+        </div>
+        {lineTemplate}
+      </div>;
+    };
+  }
+}
+
+
+export default defineComponent(MBorderSetup(),{
   name: 'MBorder',
 });

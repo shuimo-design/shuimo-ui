@@ -6,6 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import { RenderFunction, SetupContext } from 'vue';
 import { MCOPO } from './props';
 
 type WithArray<T> = T | T[]; // todo fix this
@@ -54,3 +55,5 @@ export declare type CustomElementParams = {
   template?: MNodeTemplate,
   props?: MCOPO<any>
 }
+
+export declare type WCSetup<T = any> = (slot?: HTMLSlotElement) => (props: Readonly<T>, ctx: SetupContext) => RenderFunction;

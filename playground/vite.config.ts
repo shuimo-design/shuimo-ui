@@ -16,7 +16,7 @@ export default defineConfig({
       compilerOptions: {
         // 将所有带短横线的标签名都视为自定义元素
         isCustomElement: (tag) => {
-          if (tag === 'm-rice-paper') {
+          if (tag === 'm-rice-paper' || tag === 'm-border') {
             return true;
           }
           return false;

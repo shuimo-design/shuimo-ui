@@ -64,7 +64,7 @@ import MPagination from './components/template/pagination/MPagination';
 import MTable from './components/template/table/MTable';
 import MTableColumn from './components/template/tableColumn/MTableColumn';
 import MVirtualList from './components/template/virtualList/MVirtualList';
-// import MWCBorder from './components/template/border/MWCBorder';
+import MWCBorder from './components/template/border/MWCBorder';
 import MWCRicePaper from './components/template/ricePaper/MWCRicePaper';
 //
 import { MShuimoConfigKey } from './components/other/config/MShuimoConfig';
@@ -161,6 +161,7 @@ export {
   MRicePaper,
   MWCRicePaper,
   MBorder,
+  MWCBorder,
   MBreadcrumb,
   MBreadcrumbItem,
   MCell,
@@ -180,7 +181,7 @@ export function createMUI(options: MUIOption | undefined = {}) {
       // todo support nuxt
       const { disableWebComponent } = options ?? {};
       const useWebComponent = new Map([
-        // ['MBorder', { key: 'm-border', component: MWCBorder }],
+        ['MBorder', { key: 'm-border', component: MWCBorder }],
         ['MRicePaper', { key: 'm-rice-paper', component: MWCRicePaper }]
       ]);
       if (disableWebComponent && Array.isArray(disableWebComponent) && disableWebComponent.length > 0) {
@@ -192,7 +193,6 @@ export function createMUI(options: MUIOption | undefined = {}) {
       if (useWebComponent.size > 0) {
         Array.from(useWebComponent).forEach(
           ([key, value]) => {
-            console.log('define custom element success', key, value.key, value.component);
             customElements.define(value.key, value.component);
           });
       }
