@@ -41,18 +41,6 @@ import ricePaper from '../../components/template/ricePaper/MRicePaper';
 import menu from '../../components/template/menu/MMenu';
 import menuItem from '../../components/template/menu/MMenuItem';
 
-
-export type keyType = any;
-
-export type MenuType = {
-  title: string,
-  key: keyType,
-  isActive: boolean,
-  index?: number[],
-  children?: MenuTypeArr
-}
-export type MenuTypeArr = Array<MenuType>;
-
 export declare const MAvatar: typeof avatar;
 export declare const MButton: typeof button;
 export declare const MInput: typeof input;

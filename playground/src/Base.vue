@@ -99,7 +99,7 @@
       </div>
 
       <div class="slider">
-        <span>{{sliderRef}}</span>
+        <span>{{ sliderRef }}</span>
         <m-slider v-model="sliderRef" :min="-50" :max="50"/>
       </div>
 
@@ -129,10 +129,12 @@
 
     </div>
 
-    <div class="switch">
-      <m-li>hi</m-li>
-      <m-li active>active li</m-li>
-    </div>
+
+    <m-button>hi</m-button>
+    <m-tag>hi</m-tag>
+    <m-li>hi</m-li>
+    <m-li active>active li</m-li>
+
 
   </div>
 </template>
@@ -151,10 +153,10 @@ import MTree from './MTree.vue';
 
 
 const liActiveRef = ref(false);
-const mouseEnterActive = ()=>{
+const mouseEnterActive = () => {
   liActiveRef.value = true;
 };
-const mouseLeaveActive = ()=>{
+const mouseLeaveActive = () => {
   liActiveRef.value = false;
 };
 
@@ -180,7 +182,7 @@ const switchValue = ref(false);
 const dataList = [
   { title: '轩辕剑', active: true },
   { title: '湛卢' },
-  { title: '赤霄' }
+  { title: '赤霄' },
 ];
 
 const stringList = ['轩辕剑', '湛卢', '赤霄'];
@@ -192,7 +194,7 @@ const emitOptions = [
   { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
   { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
   { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
-  { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
+  { title: 'option4', value: 4, inputParam: 'input4', value2: 7 },
 ];
 
 const options2 = ['子', '丑', '寅', '卯'];
@@ -263,12 +265,12 @@ const slider2Ref = ref(0);
   display: flex;
 }
 
-.large{
+.large {
   --m-tag-h: 200px;
   --m-tag-w-min: 400px;
 }
 
-.progress{
+.progress {
   display: flex;
   flex-direction: column;
 }

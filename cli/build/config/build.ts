@@ -109,6 +109,7 @@ const run = async () => {
       cpLib('types'),
       cpLib('dist'),
       cpLib('index.ts'),
+      cpLib('assets/style'),
       cpLib('package.json', '', 'file')
     ]);
 

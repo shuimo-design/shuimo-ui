@@ -9,13 +9,13 @@
 import { createApp } from 'vue';
 import App from './src/App.vue';
 import { createMUI } from 'shuimo-ui/index';
-import 'shuimo-ui/index.css';
 import './src/assets/index.css';
-
 
 createApp(App)
   // .use(createMUI({
   //   disableWebComponent: ['MRicePaper','MBorder']
   // }))
-  .use(createMUI())
+  .use(createMUI({
+    component:['MButton','MRicePaper']
+  }))
   .mount('#app');
