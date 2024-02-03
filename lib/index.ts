@@ -9,7 +9,7 @@
 import { App, Component } from 'vue';
 import './index.css';
 // import { MUIOption, MWCType } from './types/shuimo-ui';
-import { MUIOption } from './types/shuimo-ui';
+import { MUIOption, MWCType } from './types/shuimo-ui';
 import useDialog from './compositions/useDialog';
 import useDarkModeStorage from './compositions/useDarkModeStorage';
 // // [base]
@@ -65,7 +65,7 @@ import MTable from './components/template/table/MTable';
 import MTableColumn from './components/template/tableColumn/MTableColumn';
 import MVirtualList from './components/template/virtualList/MVirtualList';
 // import MWCBorder from './components/template/border/MWCBorder';
-// import MWCRicePaper from './components/template/ricePaper/MWCRicePaper';
+import MWCRicePaper from './components/template/ricePaper/MWCRicePaper';
 //
 import { MShuimoConfigKey } from './components/other/config/MShuimoConfig';
 
@@ -88,23 +88,21 @@ const components: Record<string, Component> = {
   MTag,
   MTree,
   MTreeNode,
-  //
-  // // [other]
+
+  // [other]
   MDivider,
   MLoading,
   MDarkMode,
   MDeleteIcon,
   MSvgWrapper,
 
-  //
-  // // [message]
+  // [message]
   MDialog,
   MDrawer,
   MPopover,
   MTooltip,
-  //
-  // // [template]
 
+  // [template]
   MBorder,
   MBreadcrumb,
   MBreadcrumbItem,
@@ -123,7 +121,8 @@ const components: Record<string, Component> = {
 export {
   useDialog,
   useDarkModeStorage,
-  // // [base]
+
+  // [base]
   MAvatar,
   MButton,
   MCheckbox,
@@ -141,25 +140,26 @@ export {
   MTag,
   MTree,
   MTreeNode,
-  //
-  // // [other]
+
+  // [other]
   MDivider,
   MLoading,
   MDarkMode,
   MDeleteIcon,
   MPrinter,
   MSvgWrapper,
-  //
-  // // [message]
+
+  // [message]
   MConfirm,
   MDialog,
   MDrawer,
   MMessage,
   MPopover,
   MTooltip,
-  //
-  // // [template]
+
+  // [template]
   MRicePaper,
+  MWCRicePaper,
   MBorder,
   MBreadcrumb,
   MBreadcrumbItem,
@@ -178,29 +178,30 @@ export function createMUI(options: MUIOption | undefined = {}) {
   return {
     install: (app: App) => {
       // todo support nuxt
-      // const { disableWebComponent } = options ?? {};
-      // const useWebComponent = new Map([
-      //   ['MBorder', { key: 'm-border', component: MWCBorder }],
-      //   ['MRicePaper', { key: 'm-rice-paper', component: MWCRicePaper }]
-      // ]);
-      // if (disableWebComponent && Array.isArray(disableWebComponent) && disableWebComponent.length > 0) {
-      //   // remove useWebComponent key in disableWebComponent
-      //   disableWebComponent.forEach((item) => {
-      //     useWebComponent.delete(item);
-      //   });
-      // }
-      // if (useWebComponent.size > 0) {
-      //   Array.from(useWebComponent).forEach(
-      //     ([key, value]) => {
-      //       customElements.define(value.key, value.component);
-      //     });
-      // }
+      const { disableWebComponent } = options ?? {};
+      const useWebComponent = new Map([
+        // ['MBorder', { key: 'm-border', component: MWCBorder }],
+        ['MRicePaper', { key: 'm-rice-paper', component: MWCRicePaper }]
+      ]);
+      if (disableWebComponent && Array.isArray(disableWebComponent) && disableWebComponent.length > 0) {
+        // remove useWebComponent key in disableWebComponent
+        disableWebComponent.forEach((item) => {
+          useWebComponent.delete(item);
+        });
+      }
+      if (useWebComponent.size > 0) {
+        Array.from(useWebComponent).forEach(
+          ([key, value]) => {
+            console.log('define custom element success', key, value.key, value.component);
+            customElements.define(value.key, value.component);
+          });
+      }
 
 
       Object.keys(components).forEach(key => {
-        // if (useWebComponent.has(key as MWCType)) {
-        //   return;
-        // }
+        if (useWebComponent.has(key as MWCType)) {
+          return;
+        }
         app.component(key, components[key]);
       });
       app.directive('loading', loadingDirective);

@@ -6,8 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-// import {defineCustomElement} from 'vue';
-// import { MRicePaperOption } from './MRicePaper';
-// import style from '@shuimo-design/core/lib/template/ricePaper/ricePaper.css?inline';
-//
-// export default defineCustomElement(MRicePaperOption(<style>{style}</style>,<slot/>));
+import { defineCustomElement } from 'vue';
+import { MRicePaperSetup } from './MRicePaper.tsx';
+import { props } from './api.ts';
+import styles from './assets/ricePaperShadow.css?inline';
+
+export default defineCustomElement({
+  name: 'MWCRicePaper',
+  props,
+  setup: MRicePaperSetup(<slot></slot> as unknown as HTMLSlotElement),
+  styles: [styles],
+});

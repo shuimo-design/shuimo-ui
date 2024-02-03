@@ -6,3 +6,8 @@ html, body {
 html[dark] {
   color: white;
 }
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}

@@ -6,10 +6,22 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJSX from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
-  plugins:[vue(), vueJSX()]
-})
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        // 将所有带短横线的标签名都视为自定义元素
+        isCustomElement: (tag) => {
+          if (tag === 'm-rice-paper') {
+            return true;
+          }
+          return false;
+        },
+      },
+    },
+  }), vueJSX()],
+});
