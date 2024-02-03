@@ -9,11 +9,11 @@
 import { defineCustomElement } from 'vue';
 import { MRicePaperSetup } from './MRicePaper.tsx';
 import { props } from './api.ts';
-import styles from './assets/ricePaperShadow.css?inline';
+import style from './assets/ricePaperShadow.css?inline';
 
 export default defineCustomElement({
   name: 'MWCRicePaper',
   props,
   setup: MRicePaperSetup(<slot></slot> as unknown as HTMLSlotElement),
-  styles: [styles],
+  styles: [style],
 });
