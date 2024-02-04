@@ -15,7 +15,5 @@ createApp(App)
   // .use(createMUI({
   //   disableWebComponent: ['MRicePaper','MBorder']
   // }))
-  .use(createMUI({
-    component:['MButton','MRicePaper']
-  }))
+  .use(createMUI())
   .mount('#app');
