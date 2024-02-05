@@ -8,8 +8,9 @@
  */
 import { defineComponent, h } from 'vue';
 import useModel from '../../../../lib/compositions/useModel';
-import { MBorder } from '../../../../lib';
 import { props } from './api.ts';
+import MBorder from '../../template/border/MBorder.tsx';
+import './drawer.css';
 
 export default defineComponent((props, { emit, slots }) => {
 

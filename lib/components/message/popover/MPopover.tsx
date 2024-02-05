@@ -11,6 +11,7 @@ import { defineComponent, ref, watch } from 'vue';
 import { props } from './api.ts';
 import useTeleport from '../../../compositions/common/useTeleport.ts';
 import { usePopover } from './usePopover.ts';
+import './popover.css';
 
 
 export default defineComponent((props, { slots, emit, expose }) => {

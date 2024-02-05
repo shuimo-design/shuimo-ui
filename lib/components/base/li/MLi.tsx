@@ -10,6 +10,7 @@ import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import MSvgIcon from '../../other/svg/MSvgIcon.tsx';
 import { LiProps } from './index';
+import './li.css';
 
 export default defineComponent((props: LiProps, { slots }) => {
   return () => {

@@ -1,4 +1,4 @@
-.m-progress,.m-progress-border{
+:root{
   --m-progress-real-width: unset;
   --m-progress-real-height: unset;
   --m-progress-width: calc(var(--m-progress-real-width, 556px));
@@ -10,6 +10,8 @@
   --m-progress-per-height: max(var(--m-progress-per-height, 20px), var(--m-progress-leaf-height));
   --m-progress-per-font-size: var(--m-progress-per-font-size, 16px);
 }
+
+.m-progress,.m-progress-border{}
 
 
 .m-progress-border {

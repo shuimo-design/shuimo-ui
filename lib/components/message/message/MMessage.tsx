@@ -14,6 +14,7 @@ import MMessageList from './MMessageList';
 import MMessageItem from './MMessageItem';
 import { useMessage } from './useMessage.ts';
 import { MessageIns } from './index';
+import './message.css';
 
 type VueMessageIns = MessageIns<Component<typeof MMessageItem>> & ComponentPublicInstance;
 

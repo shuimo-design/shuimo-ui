@@ -12,7 +12,7 @@ import { defineComponent } from 'vue';
 import MLi from '../li/MLi.tsx';
 import { useList } from './useList.ts';
 import { props } from './api.ts';
-
+import './list.css';
 
 export default defineComponent((props, { slots }) => {
   return () => {

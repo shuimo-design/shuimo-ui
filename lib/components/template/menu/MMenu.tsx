@@ -15,6 +15,7 @@ import { useMenu } from './useMenu.ts';
 import { TreeNodeData } from '../../base/tree';
 import { TreeNodeProps } from '../../base/tree/treeNode';
 import { MenuProps } from './index';
+import './menu.css';
 
 export default defineComponent((_props: MenuProps, { emit }) => {
   const props = _props as Required<MenuProps>;

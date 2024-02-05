@@ -12,6 +12,7 @@ import { defineComponent, watch } from 'vue';
 import { props } from './api.ts';
 import { useCell } from './useCell.ts';
 import { CellProps } from './index';
+import './cell.css';
 
 export default defineComponent((_props: CellProps, { slots }) => {
   const props = _props as Required<CellProps>;

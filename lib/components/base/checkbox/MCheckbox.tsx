@@ -15,6 +15,7 @@ import { notEmpty } from '../../../tools';
 import { props } from './api.ts';
 import { getNewModelValue, initChecked } from './useCheckbox.ts';
 import { CheckboxProps } from './index';
+import './checkbox.css';
 
 export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
   const props = _props as Required<CheckboxProps>; // props in setup is Required

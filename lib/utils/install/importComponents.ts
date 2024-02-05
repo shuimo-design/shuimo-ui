@@ -60,11 +60,6 @@ import MTable from '../../components/template/table/MTable';
 import MTableColumn from '../../components/template/tableColumn/MTableColumn';
 import MVirtualList from '../../components/template/virtualList/MVirtualList';
 
-import MWCBorder from '../../components/template/border/MWCBorder';
-import MWCRicePaper from '../../components/template/ricePaper/MWCRicePaper';
-
-
-
 export const components: Record<string, Component> = {
   // [base]
   MAvatar,
@@ -168,6 +163,4 @@ export {
   MTableColumn,
   MVirtualList,
 
-  MWCBorder,
-  MWCRicePaper
 };

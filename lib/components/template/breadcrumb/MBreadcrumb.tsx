@@ -10,6 +10,7 @@
 import { defineComponent, reactive, provide, toRefs } from 'vue';
 import BreadcrumbItem from './MBreadcrumbItem';
 import { props } from './api.ts';
+import './breadcrumb.css';
 
 export default defineComponent((props, { slots }) => {
     const { separator } = toRefs(props);

@@ -15,7 +15,7 @@
 import { defineComponent, h } from 'vue';
 import { props } from './api.ts';
 import { ButtonProps } from './index';
-
+import './button.css';
 
 export default defineComponent((props: ButtonProps, { slots }) => {
     return () => {

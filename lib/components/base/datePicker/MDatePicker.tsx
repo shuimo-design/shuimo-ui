@@ -22,6 +22,7 @@ import { props } from './api.ts';
 import usePopover from '../../../compositions/usePopover.tsx';
 import useBorder from '../../../compositions/useBorder.tsx';
 import { DatePickerProps } from './index';
+import './datePicker.css';
 
 const MCalendarColumn = defineComponent((props: { columns: DisplayCalendarType[] }, { emit }) => {
   const clickItem = (item: DisplayCalendarType) => {

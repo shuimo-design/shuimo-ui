@@ -9,6 +9,7 @@
 import { defineComponent } from 'vue';
 import useModel from '../../../../lib/compositions/useModel';
 import { props } from './api.ts';
+import './dialog.css';
 
 export default defineComponent((props, { emit, slots, attrs }) => {
   const classList = attrs.class;

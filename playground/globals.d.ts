@@ -7,7 +7,4 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-declare module '*.css?inline';
-declare module '*.webp';
-declare module '*.ts';
-declare module '*.tsx';
+declare module '*.vue';

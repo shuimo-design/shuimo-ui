@@ -8,6 +8,7 @@
  */
 import { defineComponent, h } from 'vue';
 import { props } from './api.ts';
+import './form.css';
 
 export default defineComponent((props, { slots }) => {
   return () => {

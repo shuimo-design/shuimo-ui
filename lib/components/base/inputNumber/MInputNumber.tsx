@@ -10,7 +10,7 @@ import { defineComponent, ref, watch } from 'vue';
 import { props } from './api.ts';
 import MBorder from '../../template/border/MBorder.tsx';
 import { InputNumber, useInputNumber } from './useInputNumber.ts';
-
+import './inputNumber.css';
 
 export default defineComponent((props, { emit }) => {
     const currentValue = ref<InputNumber>(props.modelValue);

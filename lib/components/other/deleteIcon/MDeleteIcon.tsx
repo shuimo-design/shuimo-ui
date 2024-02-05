@@ -7,6 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent } from 'vue';
+import './deleteIcon.css';
 
 export default defineComponent((_, { emit }) => {
   const click = (e: MouseEvent) => {

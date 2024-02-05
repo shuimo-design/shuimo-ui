@@ -13,8 +13,6 @@ import { MShuimoConfigKey } from '../../components/other/config/MShuimoConfig.ts
 import { installComponent } from './installComponent.ts';
 
 
-export * from './importComponents.ts';
-
 export const install = (options: MUIOption | undefined = {}) => {
   return (app: App) => {
     app = installComponent(app, options);

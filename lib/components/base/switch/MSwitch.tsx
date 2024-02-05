@@ -13,6 +13,7 @@ import { props } from './api.ts';
 import { getIsActive, switchIsBoolean } from './useSwitch.ts';
 import { isEmpty } from '../../../tools';
 import { SwitchProps } from './index';
+import './switch.css';
 
 export default defineComponent((props, { emit, slots }) => {
   const activeValue = ref(props.activeValue);

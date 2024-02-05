@@ -10,6 +10,7 @@ import { useTree } from './useTree.ts';
 import { TreeNodeProps } from './treeNode';
 import MTreeNode from './MTreeNode';
 import { props } from './api.ts';
+import './tree.css';
 
 export default defineComponent((props, { emit }) => {
 

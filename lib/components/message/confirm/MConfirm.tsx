@@ -13,6 +13,7 @@ import { useConfirm } from './useConfirm.ts';
 import { props } from './api.ts';
 import MButton from '../../base/button/MButton.tsx';
 import MBorder from '../../template/border/MBorder.tsx';
+import './confirm.css';
 
 const Confirm: IConfirm = async config => {
   const { ConfirmImpl } = useConfirm((options) => {

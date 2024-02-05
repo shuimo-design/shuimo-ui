@@ -9,6 +9,7 @@
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import { TagProps } from './index';
+import './tag.css';
 
 export default defineComponent((props: TagProps, { slots }) => {
   return () => {
