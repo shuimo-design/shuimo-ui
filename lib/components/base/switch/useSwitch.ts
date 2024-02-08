@@ -8,8 +8,6 @@
  */
 import { SwitchProps } from './index';
 
-
-
 export const switchIsBoolean = (value: SwitchProps['modelValue']) => {
   return typeof value === 'boolean';
 }

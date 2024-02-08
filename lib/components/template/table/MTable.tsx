@@ -11,6 +11,7 @@
 import { Comment, defineComponent, Fragment } from 'vue';
 import { useTable } from './useTable.ts';
 import { props } from './api.ts';
+import './table.css';
 
 // todo use i18n
 

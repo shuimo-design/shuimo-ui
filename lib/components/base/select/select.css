@@ -1,9 +1,14 @@
+@import "../../message/popover/popover.css";
+@import "../../template/border/border.css";
+@import "../../base/tag/tag.css";
+
 :root {
   --m-select-h: 38px;
   --m-select-w: calc(var(--m-input-w) + 8px);
+  --m-select-dropdown-w: var(--m-input-w);
+  /* todo fix input-w */
   --m-input-w: 244px;
   --m-input-h: 31px;
-  --m-select-dropdown-w: var(--m-input-w);
 }
 
 .m-select {
@@ -61,7 +66,7 @@
 
 
 .m-select-multiple {
-  display: inline;
+  display: inline-grid;
   width: var(--m-input-w);
   line-height: var(--m-input-h);
   box-sizing: content-box;

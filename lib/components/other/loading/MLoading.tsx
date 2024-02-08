@@ -9,6 +9,7 @@
 import { defineComponent, ref } from 'vue';
 import { useLoading } from './useLoading.ts';
 import { props } from './api.ts';
+import './loading.css';
 
 export default defineComponent((props, { slots }) => {
   const loadingRef = ref<HTMLElement>();

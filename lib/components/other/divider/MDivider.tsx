@@ -10,7 +10,7 @@
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import { DividerProps } from './index';
-
+import './divider.css';
 
 export default defineComponent((props: DividerProps) => {
   return () => <div class={{

@@ -9,6 +9,10 @@
 import { exec } from 'child_process';
 import * as fs from 'fs';
 import { RmOptions } from 'fs';
+import { build } from 'vite';
+import { EsConfig } from './es.config';
+import { globalStyleConfig, moveGlobalToEs } from './globalStyle.config';
+import { commonConfig } from './common.config';
 // import { rimrafSync } from 'rimraf';
 
 
@@ -76,7 +80,7 @@ const init = () => {
   const renameTypes = async () => {
     await Promise.all([
       pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.mts`),
-      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`)
+      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`),
     ]);
     return rm(`./config/output/types/shuimo-ui.d.ts`);
   };
@@ -90,12 +94,28 @@ const run = async () => {
   const { cp, rename, cpLib, rmLib, renameTypes } = init();
 
   const removeRes = await rmLib('dist');
-  const buildRes = await execSync('vite build -c ./config/vue.config.ts');
+  const esConfig = new EsConfig();
+  const commonBuildRes = await build(commonConfig);
+  const esmBuildRes = await build(esConfig.config);
+  const esmGlobalCssBuildRes = await build(globalStyleConfig);
+
+  // 遍历esConfig.savedCssObj
+  for (const key in esConfig.savedCssObj) {
+    const value = esConfig.savedCssObj[key];
+    const res = fs.existsSync(key);
+    // 在头部插入 import '${value}.css';
+    if (res) {
+      const data = fs.readFileSync(key, 'utf-8');
+      fs.writeFileSync(key, `import './${value}.css';\n${data}`);
+    }
+  }
+
   const apiRes = await execSync('jh-api -c ./config/janghood.config.ts');
 
 
-  if (buildRes && apiRes) {
+  if (commonBuildRes && esmBuildRes && apiRes && esmGlobalCssBuildRes) {
 
+    moveGlobalToEs();
 
     const res = await Promise.all([
       rename('web-types.json'),
@@ -110,13 +130,10 @@ const run = async () => {
       cpLib('dist'),
       cpLib('index.ts'),
       cpLib('assets/style'),
-      cpLib('package.json', '', 'file')
+      cpLib('package.json', '', 'file'),
     ]);
 
     await renameTypes();
-
-
-    // todo remove "@shuimo-design/types": "workspace:*"
 
     // if (res.every(r => r)) {
     //   console.log('build success');

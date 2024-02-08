@@ -11,6 +11,7 @@
 import { defineComponent } from 'vue';
 import { baseLineClass, lineType } from './lineType.ts';
 import { WCSetup } from '../../types/template';
+import './border.css';
 
 export const MBorderSetup:WCSetup =  slot =>{
   return (_, { slots })=>{

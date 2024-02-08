@@ -11,6 +11,7 @@ import usePopover from '../../../../lib/compositions/usePopover';
 import useBorder from '../../../../lib/compositions/useBorder';
 import { props } from './api.ts';
 import { useTooltip } from './useTooltip.ts';
+import './tooltip.css';
 
 export default defineComponent((props, { slots }) => {
 

@@ -34,7 +34,7 @@ export default defineComponent((props: {
   inner?: boolean,
 }) => {
 
-  const shuimoConfig = inject<MUIOption>(MShuimoConfigKey);
+  const shuimoConfig = inject<MUIOption>(MShuimoConfigKey, { svgInject: 'auto' });
   const isNuxt = shuimoConfig?.svgInject === 'nuxt';
   const svgUrl = isNuxt ? `m-shuimo/icon.svg#${SVG_ID}` : `#${SVG_ID}`;
   if (shuimoConfig?.svgInject === 'auto') {
@@ -70,6 +70,6 @@ export default defineComponent((props: {
     innerHeight: { type: [Number, String], default: '13px' },
     class: { type: String, default: '' },
     wrapper: { type: Boolean, default: false },
-    inner: { type: Boolean, default: true }
-  }
+    inner: { type: Boolean, default: true },
+  },
 });

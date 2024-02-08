@@ -12,6 +12,7 @@
 import { computed, defineComponent } from 'vue';
 import { leaf, useProgress } from './useProgress.ts';
 import { props } from './api.ts';
+import './progress.css';
 
 export default defineComponent((props, { slots }) => {
   const { getProgressWrapperStyle, getProgressInfo } = useProgress({ props });

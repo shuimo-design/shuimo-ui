@@ -20,6 +20,7 @@
  * v2.1.3-beta support fetch 阿怪
  *
  * todo : maybe should keep options render
+ * todo : fix tag error
  */
 import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
 import useBorder from '../../../../lib/compositions/useBorder';
@@ -35,6 +36,7 @@ import { isEmpty } from '../../../tools';
 import selectCreator from './composition/selectCreator.ts';
 import MLoading from '../../other/loading/MLoading.tsx';
 import MInput from '../input/MInput.tsx';
+import './select.css';
 
 const MOption = defineComponent({
   name: 'MOption',

@@ -1,9 +1,6 @@
-/**
-  @import "../../style/cursor.pcss";
-**/
+@import "../../template/border/border.css";
 
 .m-input {
-
   --m-input-w: 244px;
   --m-color-disabled: #DBDADD;
   box-sizing: content-box;

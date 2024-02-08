@@ -1,3 +1,6 @@
+@import "../../message/popover/popover.css";
+@import "../../template/border/border.css";
+
 .m-date-picker-active {
   --m-input-w: 244px;
   --m-color-disabled: #DBDADD;
@@ -6,7 +9,6 @@
   width: var(--m-input-w);
   height: 31px;
   line-height: 31px;
-  display: inline-block;
 }
 
 .m-date-picker-calendar {
@@ -40,14 +42,14 @@
   line-height: 25px;
 }
 
-.m-date-picker-calendar-column-year,.m-date-picker-calendar-column-month {
+.m-date-picker-calendar-column-year, .m-date-picker-calendar-column-month {
   width: calc(var(--m-date-picker-width) / 4);
   display: inline-block;
   text-align: center;
   height: 50px;
   line-height: 50px;
 
-  &.m-date-picker-current{
+  &.m-date-picker-current {
     background-size: 50px 50px;
   }
 }

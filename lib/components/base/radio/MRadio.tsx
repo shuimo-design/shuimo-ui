@@ -8,6 +8,7 @@
 import { defineComponent, ref } from 'vue';
 import { createRadioId, getNewModelValue, initChecked } from './useRadio.ts';
 import { props } from './api.ts';
+import './radio.css';
 
 export default defineComponent((props, { emit, slots }) => {
   const checked = ref(initChecked(props));

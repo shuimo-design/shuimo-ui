@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineCustomElement } from 'vue';
-import { MRicePaperSetup } from './MRicePaper.tsx';
+import { MRicePaperSetup } from './RicePaperSetup.tsx';
 import { props } from './api.ts';
 import style from './assets/ricePaperShadow.css?inline';
 

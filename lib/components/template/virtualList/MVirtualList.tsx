@@ -11,6 +11,7 @@
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import { useVirtualList } from './useVirtualList.ts';
+import './virtualList.css';
 
 export default defineComponent((props, { emit, slots }) => {
   const {

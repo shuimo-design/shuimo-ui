@@ -7,12 +7,6 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import './index.css';
-import { MUIOption } from './types/shuimo-ui';
-import { install } from './utils/install';
 export * from './utils/install';
-
-export function createMUI(options: MUIOption | undefined = {}) {
-  return {
-    install: install(options),
-  };
-}
+export * from './utils/install/importComponents.ts';
+export * from './utils/install/vuePlugin.ts';

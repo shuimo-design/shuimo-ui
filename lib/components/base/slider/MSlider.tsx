@@ -12,6 +12,7 @@ import { computed, defineComponent, ref } from 'vue';
 import { props } from './api.ts';
 import { SliderProps } from './index';
 import { useSlider } from './useSlider.ts';
+import './slider.css';
 
 export default defineComponent((props: SliderProps, { emit }) => {
 

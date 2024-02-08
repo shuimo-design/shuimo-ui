@@ -12,6 +12,7 @@ import { defineComponent, h, onMounted, watch } from 'vue';
 import { props } from './api';
 import { useDarkMode } from './useDarkMode';
 import { DarkModeProps } from './index';
+import './darkMode.css';
 
 
 export default defineComponent((props: DarkModeProps, { emit }) => {

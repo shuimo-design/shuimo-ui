@@ -8,6 +8,7 @@
  */
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
+import './avatar.css';
 
 export default defineComponent((props) => {
   return () => {

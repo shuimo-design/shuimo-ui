@@ -18,6 +18,7 @@ import { computed, defineComponent, h } from 'vue';
 import { props } from './api.ts';
 import { HTMLElementEvent } from '../../types/template';
 import MBorder from '../../template/border/MBorder.tsx';
+import './input.css';
 
 export default defineComponent((props, { emit }) => {
 
