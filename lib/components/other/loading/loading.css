@@ -2,8 +2,8 @@
   --m-loading-speed: 2s;
   --m-loading-size-w: 64px;
   --m-loading-size-h: 50px;
-  --m-loading-wrapper-w: var(--m-loading-size-h);
-  --m-loading-wrapper-h: calc(var(--m-loading-size-w) / 64 * 70);
+  --m-loading-wrapper-w: var(--m-loading-size-w);
+  --m-loading-wrapper-h: calc(var(--m-loading-size-w) / 64 * var(--m-loading-size-h));
   --m-loading-opacity: 0.7;
 }
 
