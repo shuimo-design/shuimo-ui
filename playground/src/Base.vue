@@ -134,8 +134,9 @@
     <m-tag>hi</m-tag>
     <m-li>hi</m-li>
     <m-li active>active li</m-li>
+    <m-loading :mask="false"></m-loading>
 
-
+    <div class="test-box" v-loading="true" />
   </div>
 </template>
 
@@ -273,5 +274,11 @@ const slider2Ref = ref(0);
 .progress {
   display: flex;
   flex-direction: column;
+}
+
+.test-box {
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
 }
 </style>
