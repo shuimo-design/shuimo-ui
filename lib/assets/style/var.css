@@ -25,10 +25,6 @@
   --m-cursor-pointer: url(../../public/cursor/pointer.webp), auto;
   --m-cursor-disabled: url(../../public/cursor/disabled.webp), auto;
 
-  --m-tag-h: 45px;
-  --m-tag-w-min: 80px;
-  --m-tag-border-w: calc(var(--m-tag-h) / 4.5);
-
   --m-line-crossrange: url(../../public/line/crossrange.webp);
   --m-line-vertical: url(../../public/line/vertical.webp);
 
