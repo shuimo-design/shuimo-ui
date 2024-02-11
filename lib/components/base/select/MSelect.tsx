@@ -20,7 +20,7 @@
  * v2.1.3-beta support fetch 阿怪
  *
  * todo : maybe should keep options render
- * todo : fix tag error
+ * todo : fix ts error
  */
 import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
 import useBorder from '../../../../lib/compositions/useBorder';
@@ -59,10 +59,12 @@ const MSelectTag = defineComponent({
       emit('delete');
     };
     return () => {
-      return <MTag>
-        <span>{slots.default?.()}</span>
+      return <div class="m-select-tag-wrapper">
+        <MTag>
+          <span>{slots.default?.()}</span>
+        </MTag>
         <MDeleteIcon onClick={deleteTag} class="m-select-tag-delete-icon m-cursor-pointer"/>
-      </MTag>;
+      </div>;
     };
   }
 });

@@ -67,7 +67,7 @@
 
 .m-select-multiple {
   display: inline-grid;
-  width: var(--m-input-w);
+  min-width: var(--m-input-w);
   line-height: var(--m-input-h);
   box-sizing: content-box;
   border: 3px double transparent;
@@ -86,8 +86,9 @@
 
 .m-select-multiple-inner {
   display: inline-flex;
+  flex-wrap: wrap;
   vertical-align: top;
-  width: calc(100% - 20px);
+  align-items: center;
   min-height: var(--m-select-h);
   padding: 0 3px;
 }
@@ -98,6 +99,8 @@
   padding: 0 10px;
   border: none !important;
   outline: none !important;
+  height: 31px;
+  line-height: 31px;
 }
 
 
@@ -107,7 +110,7 @@
   }
 
   25% {
-    transform:  rotate(-1deg);
+    transform: rotate(-1deg);
   }
 
   50% {
@@ -115,27 +118,33 @@
   }
 
   75% {
-    transform:  rotate(-2deg);
+    transform: rotate(-2deg);
   }
 
   100% {
     transform: rotate(2deg);
   }
 }
+
 .m-select-tag-delete-icon {
-  display: inline;
+  display: inline-block;
   vertical-align: top;
   position: absolute;
   right: -10px;
+  top: 2px;
   transform-origin: left top;
 
-  &:hover{
+  &:hover {
     animation: shake 0.4s 2;
   }
 }
 
-.m-select-loading{
+.m-select-loading {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.m-select-tag-wrapper {
+  position: relative;
 }
