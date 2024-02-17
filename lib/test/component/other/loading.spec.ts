@@ -41,6 +41,20 @@ describe('loading', function () {
       expect(wrapper.find('.m-loading').element.getAttribute('style')).toContain('height: 10vh; width: 10vh;');
       wrapper.unmount();
     });
+
+    test.skip('size:2', () => {
+      const DEFAULT_WIDTH = 64;
+      const DEFAULT_HEIGHT = 50;
+      const wrapper = getWrapper({ size: 2 });
+      expect(wrapper.find('.m-loading').element.getAttribute('style')).toContain(`--m-loading-size-w: ${DEFAULT_WIDTH * 2}px; --m-loading-size-h: ${DEFAULT_HEIGHT * 2};`);
+      wrapper.unmount();
+    });
+
+    test.skip('speed:800', () => {
+      const wrapper = getWrapper({ speed: 800 });
+      expect(wrapper.find('.m-loading').element.getAttribute('style')).toContain('--m-loading-speed: 0.8s;');
+      wrapper.unmount();
+    });
   });
 
   describe.skip('animation', () => {
