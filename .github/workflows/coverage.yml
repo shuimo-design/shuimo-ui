@@ -18,4 +18,3 @@ jobs:
         with:
           token: ${{ secrets.CODECOVTOKEN }}
           directory: ./lib/coverage/
-          dry_run: ./lib/coverage/tmp
