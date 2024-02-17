@@ -20,7 +20,6 @@ export default defineConfig({
       provider: 'v8',
       all: true,
       include: ['components/**', 'compositions/**'],
-      reporter: ['json', 'html']
     }
   }
 });
