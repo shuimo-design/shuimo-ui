@@ -12,9 +12,11 @@ import { props } from './api.ts';
 import useTeleport from '../../../compositions/common/useTeleport.ts';
 import { usePopover } from './usePopover.ts';
 import './popover.css';
+import { PopoverProps } from './index';
 
 
-export default defineComponent((props, { slots, emit, expose }) => {
+export default defineComponent((_props:PopoverProps, { slots, emit, expose }) => {
+  const props = _props as Required<PopoverProps>;
 
   if (!slots.content) {
     console.error('MPopover: content is required');

@@ -8,7 +8,7 @@
  */
 
 import { describe, expect, test, vi } from 'vitest';
-import { MPrinter as Printer } from '../../../../../lib';
+import Printer from '../../../components/other/printer/Printer.ts';
 
 describe('打印模块', function () {
   const p = Printer('测试用例');

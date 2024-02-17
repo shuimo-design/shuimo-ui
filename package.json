@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "pnpm -C playground run dev",
     "build": "pnpm -C cli/build run build",
+    "test": "pnpm -C lib run test",
+    "coverage": "pnpm -C lib run coverage",
     "doc:dev": "pnpm -C doc run doc:dev",
     "doc:build": "pnpm -C doc run build",
     "clean:node_modules": "rimraf node_modules **/*/node_modules",

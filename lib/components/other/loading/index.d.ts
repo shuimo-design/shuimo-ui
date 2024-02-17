@@ -11,7 +11,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { RefValue } from '@shuimo-design/types';
 
 export declare type LoadingProps = {
   /**
@@ -38,19 +37,4 @@ export declare type LoadingProps = {
    * @default 50
    */
   sideLength?: number | string
-};
-
-export declare type LoadingRef = {
-  /**
-   * @description loading instance
-   */
-  loadingRef: RefValue,
-  shua0Ref: RefValue,
-  shua1Ref: RefValue,
-  shua2Ref: RefValue,
-  shua3Ref: RefValue,
-  shua4Ref: RefValue,
-  shua5Ref: RefValue,
-  shua6Ref: RefValue,
-  shua7Ref: RefValue,
 };

@@ -9,8 +9,8 @@
 
 import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { DOMWrapper, mount } from '@vue/test-utils';
-import { MPopover } from '../../../../../lib';
-import { PopoverProps } from '@shuimo-design/core/lib/message/popover';
+import { PopoverProps } from '../../../components/message/popover';
+import MPopover from '../../../components/message/popover/MPopover.tsx';
 
 
 beforeAll(() => {
@@ -41,9 +41,9 @@ describe('popover', () => {
       content: () => 'world'
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-popover\\" data-popper-placement=\\"bottom\\">
-        <div class=\\"m-popover-default-wrapper\\">hello</div>
-        <div class=\\"m-popover-content\\">
+      "<div class="m-popover" data-popper-placement="bottom">
+        <div class="m-popover-default-wrapper">hello</div>
+        <div class="m-popover-content">
           <!---->
           <!---->
         </div>

@@ -10,8 +10,10 @@ import { defineComponent, ref, watch } from 'vue';
 import { props } from './api.ts';
 import { usePagination } from './usePagination.ts';
 import './pagination.css';
+import { PaginationProps } from './index';
 
-export default defineComponent((props, { emit }) => {
+export default defineComponent((_props:PaginationProps, { emit }) => {
+  const props = _props as Required<PaginationProps>;
 
   const currentValueRef = ref(props.modelValue ?? 1);
   watch(() => props.modelValue, (val) => {

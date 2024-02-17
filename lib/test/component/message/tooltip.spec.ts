@@ -9,7 +9,7 @@
 
 import { describe, expect, test, beforeAll } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MTooltip from '../../../lib/message/MTooltip';
+import MTooltip from '../../../components/message/tooltip/MTooltip.tsx';
 
 
 beforeAll(() => {

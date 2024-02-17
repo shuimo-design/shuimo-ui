@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 import usePopover from '../../../compositions/common/usePopover.ts';
 import { Ref, ref } from 'vue';
 import { isEmpty } from '../../../tools';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import type { Options } from '../../../compositions/common/defineCore.ts';
 
 // 基础星期名
 export const BASE_WEEK_NAME: DisplayCalendarType[] = [
@@ -47,8 +47,6 @@ export const toDayjs = (value: string | Date) => {
 export function useDatePicker(options: Options<{
   props: DatePickerProps
 }>) {
-
-
   const { popoverOptions } = usePopover();
   const dateRef = ref<DateRefType>();
   const displayValue = ref('');

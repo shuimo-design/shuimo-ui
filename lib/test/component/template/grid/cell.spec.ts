@@ -6,12 +6,20 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { describe, expect, test } from 'vitest';
+import { beforeAll, describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MCell from '../../../../../../lib/components/template/cell/MCell';
-import { CellProps } from '@shuimo-design/core/lib/template/cell';
+import MCell from '../../../../components/template/cell/MCell.tsx';
+import { CellProps } from '../../../../components/template/cell';
 
+beforeAll(() => {
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
 
+    unobserve() {}
+
+    disconnect() {}
+  };
+});
 describe('cell', () => {
 
 
@@ -29,16 +37,14 @@ describe('cell', () => {
   test('render', () => {
     const wrapper = getWrapper();
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-cell\\">
-        <div class=\\"m-cell-main\\" style=\\"clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 0%);\\">
-          <div class=\\"m-cell-inner\\">
-            <div>test</div>
-          </div>
+      "<div class="m-cell">
+        <div class="m-cell-main" style="clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);">
+          <div>test</div>
         </div>
-        <div class=\\"m-cell-c m-cell-border-top\\" style=\\"top: -2.5px; left: 0px; width: 0px;\\"></div>
-        <div class=\\"m-cell-v m-cell-border-right\\" style=\\"top: -1.25px; right: -1.5px; height: 0px;\\"></div>
-        <div class=\\"m-cell-c m-cell-border-bottom\\" style=\\"bottom: -2.5px; right: 0px; width: 0px;\\"></div>
-        <div class=\\"m-cell-v m-cell-border-left\\" style=\\"bottom: 0px; left: -3px; height: 0px;\\"></div>
+        <div class="m-cell-c m-cell-border-top" style="top: -2.5px; left: 0px; width: 0px;"></div>
+        <div class="m-cell-v m-cell-border-right" style="top: -1.25px; right: -1.5px; height: 0px;"></div>
+        <div class="m-cell-c m-cell-border-bottom" style="bottom: -2.5px; right: 0px; width: 0px;"></div>
+        <div class="m-cell-v m-cell-border-left" style="bottom: 0px; left: -3px; height: 0px;"></div>
       </div>"
     `);
   });

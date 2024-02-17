@@ -10,8 +10,10 @@ import { defineComponent } from 'vue';
 import useModel from '../../../../lib/compositions/useModel';
 import { props } from './api.ts';
 import './dialog.css';
+import { DialogProps } from './index';
 
-export default defineComponent((props, { emit, slots, attrs }) => {
+export default defineComponent((_props: DialogProps, { emit, slots, attrs }) => {
+  const props = _props as Required<DialogProps>;
   const classList = attrs.class;
 
 
@@ -20,7 +22,7 @@ export default defineComponent((props, { emit, slots, attrs }) => {
     getModel,
     getModelActive,
     handleModelClickPropagation,
-    getClose
+    getClose,
   } = useModel(props, { emit });
   return () => {
 
@@ -44,5 +46,5 @@ export default defineComponent((props, { emit, slots, attrs }) => {
 }, {
   name: 'MDialog',
   props,
-  emits: ['update:visible']
+  emits: ['update:visible'],
 });
