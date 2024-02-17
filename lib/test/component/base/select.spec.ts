@@ -196,7 +196,7 @@ describe('select', () => {
         }
       });
       await showOptions(wrapper);
-      expect(wrapper.find('.m-option-selected').element.textContent.trim()).toMatchInlineSnapshot('"option1"');
+      expect(wrapper.find('.m-option-selected').element.textContent!.trim()).toMatchInlineSnapshot('"option1"');
     });
 
     describe('filter方法测试', () => {

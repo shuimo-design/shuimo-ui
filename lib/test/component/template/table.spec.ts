@@ -14,8 +14,9 @@ import { describe, expect, test, vi } from 'vitest';
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
 import { Slot } from '@vue/test-utils/dist/types';
-import { MTable, MTableColumn } from '../../../../../lib';
-import { TableProps } from '@shuimo-design/core/lib/template/table';
+import { TableProps } from '../../../components/template/table';
+import MTable from '../../../components/template/table/MTable.tsx';
+import MTableColumn from '../../../components/template/tableColumn/MTableColumn.tsx';
 
 describe('table', function () {
   const getWrapper = (props?: TableProps, slots?: Record<string, Slot>) => {
@@ -28,25 +29,25 @@ describe('table', function () {
       { default: [h(MTableColumn, { param: 'param', label: 'label' })] }
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">label</th>
+      "<div class="m-table">
+        <div class="m-table-header-img-top"></div>
+        <div class="m-table-header-img-bottom"></div>
+        <div class="m-table-wrap">
+          <table class="m-table-inner">
+            <thead class="m-thead">
+              <tr class="m-tr">
+                <th class="m-th">label</th>
               </tr>
             </thead>
-            <tbody class=\\"m-tbody\\">
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\">hi</td>
-                <td class=\\"m-table-tbody-img\\"></td>
+            <tbody class="m-tbody">
+              <tr class="m-tr">
+                <td class="m-td">hi</td>
+                <td class="m-table-tbody-img"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
+        <div class="m-table-border-img-bottom"></div>
       </div>"
     `);
   });
@@ -69,27 +70,27 @@ describe('table', function () {
       }
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">label</th>
+      "<div class="m-table">
+        <div class="m-table-header-img-top"></div>
+        <div class="m-table-header-img-bottom"></div>
+        <div class="m-table-wrap">
+          <table class="m-table-inner">
+            <thead class="m-thead">
+              <tr class="m-tr">
+                <th class="m-th">label</th>
               </tr>
             </thead>
-            <tbody class=\\"m-tbody\\">
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\">
+            <tbody class="m-tbody">
+              <tr class="m-tr">
+                <td class="m-td">
                   <div>slot数据：hi</div>
                 </td>
-                <td class=\\"m-table-tbody-img\\"></td>
+                <td class="m-table-tbody-img"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
+        <div class="m-table-border-img-bottom"></div>
       </div>"
     `);
   });
@@ -107,27 +108,27 @@ describe('table', function () {
       }
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">
+      "<div class="m-table">
+        <div class="m-table-header-img-top"></div>
+        <div class="m-table-header-img-bottom"></div>
+        <div class="m-table-wrap">
+          <table class="m-table-inner">
+            <thead class="m-thead">
+              <tr class="m-tr">
+                <th class="m-th">
                   <div>head slot</div>
                 </th>
               </tr>
             </thead>
-            <tbody class=\\"m-tbody\\">
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\">hi</td>
-                <td class=\\"m-table-tbody-img\\"></td>
+            <tbody class="m-tbody">
+              <tr class="m-tr">
+                <td class="m-td">hi</td>
+                <td class="m-table-tbody-img"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
+        <div class="m-table-border-img-bottom"></div>
       </div>"
     `);
   });
@@ -154,29 +155,29 @@ describe('table', function () {
       }
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">label</th>
+      "<div class="m-table">
+        <div class="m-table-header-img-top"></div>
+        <div class="m-table-header-img-bottom"></div>
+        <div class="m-table-wrap">
+          <table class="m-table-inner">
+            <thead class="m-thead">
+              <tr class="m-tr">
+                <th class="m-th">label</th>
               </tr>
             </thead>
-            <tbody class=\\"m-tbody\\">
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\"><span>slot数据：hi, index:0</span></td>
-                <td class=\\"m-table-tbody-img\\"></td>
+            <tbody class="m-tbody">
+              <tr class="m-tr">
+                <td class="m-td"><span>slot数据：hi, index:0</span></td>
+                <td class="m-table-tbody-img"></td>
               </tr>
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\"><span>slot数据：hello, index:1</span></td>
-                <td class=\\"m-table-tbody-img\\"></td>
+              <tr class="m-tr">
+                <td class="m-td"><span>slot数据：hello, index:1</span></td>
+                <td class="m-table-tbody-img"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
+        <div class="m-table-border-img-bottom"></div>
       </div>"
     `);
   });
@@ -202,32 +203,32 @@ describe('table', function () {
       `
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-table\\">
-        <div class=\\"m-table-header-img-top\\"></div>
-        <div class=\\"m-table-header-img-bottom\\"></div>
-        <div class=\\"m-table-wrap\\">
-          <table class=\\"m-table-inner\\">
-            <thead class=\\"m-thead\\">
-              <tr class=\\"m-tr\\">
-                <th class=\\"m-th\\">id</th>
-                <th class=\\"m-th\\">param</th>
+      "<div class="m-table">
+        <div class="m-table-header-img-top"></div>
+        <div class="m-table-header-img-bottom"></div>
+        <div class="m-table-wrap">
+          <table class="m-table-inner">
+            <thead class="m-thead">
+              <tr class="m-tr">
+                <th class="m-th">id</th>
+                <th class="m-th">param</th>
               </tr>
             </thead>
-            <tbody class=\\"m-tbody\\">
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\">1</td>
-                <td class=\\"m-td\\">立春</td>
-                <td class=\\"m-table-tbody-img\\"></td>
+            <tbody class="m-tbody">
+              <tr class="m-tr">
+                <td class="m-td">1</td>
+                <td class="m-td">立春</td>
+                <td class="m-table-tbody-img"></td>
               </tr>
-              <tr class=\\"m-tr\\">
-                <td class=\\"m-td\\">2</td>
-                <td class=\\"m-td\\">雨水</td>
-                <td class=\\"m-table-tbody-img\\"></td>
+              <tr class="m-tr">
+                <td class="m-td">2</td>
+                <td class="m-td">雨水</td>
+                <td class="m-table-tbody-img"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class=\\"m-table-border-img-bottom\\"></div>
+        <div class="m-table-border-img-bottom"></div>
       </div>"
     `);
   });
@@ -248,24 +249,24 @@ describe('table', function () {
     test('default', () => {
       const wrapper = getWrapper({ data: [] }, { default: [h(MTableColumn, { param: 'param', label: 'label' })] });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-table\\">
-          <div class=\\"m-table-header-img-top\\"></div>
-          <div class=\\"m-table-header-img-bottom\\"></div>
-          <div class=\\"m-table-wrap\\">
-            <table class=\\"m-table-inner\\">
-              <thead class=\\"m-thead\\">
-                <tr class=\\"m-tr\\">
-                  <th class=\\"m-th\\">label</th>
+        "<div class="m-table">
+          <div class="m-table-header-img-top"></div>
+          <div class="m-table-header-img-bottom"></div>
+          <div class="m-table-wrap">
+            <table class="m-table-inner">
+              <thead class="m-thead">
+                <tr class="m-tr">
+                  <th class="m-th">label</th>
                 </tr>
               </thead>
-              <tbody class=\\"m-table-empty\\">
+              <tbody class="m-table-empty">
                 <tr>
-                  <th colspan=\\"1\\">暂无数据</th>
+                  <th colspan="1">暂无数据</th>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class=\\"m-table-border-img-bottom\\"></div>
+          <div class="m-table-border-img-bottom"></div>
         </div>"
       `);
     });
@@ -279,26 +280,26 @@ describe('table', function () {
         }
       );
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-table\\">
-          <div class=\\"m-table-header-img-top\\"></div>
-          <div class=\\"m-table-header-img-bottom\\"></div>
-          <div class=\\"m-table-wrap\\">
-            <table class=\\"m-table-inner\\">
-              <thead class=\\"m-thead\\">
-                <tr class=\\"m-tr\\">
-                  <th class=\\"m-th\\">label</th>
+        "<div class="m-table">
+          <div class="m-table-header-img-top"></div>
+          <div class="m-table-header-img-bottom"></div>
+          <div class="m-table-wrap">
+            <table class="m-table-inner">
+              <thead class="m-thead">
+                <tr class="m-tr">
+                  <th class="m-th">label</th>
                 </tr>
               </thead>
-              <tbody class=\\"m-table-empty\\">
+              <tbody class="m-table-empty">
                 <tr>
-                  <th colspan=\\"1\\">
+                  <th colspan="1">
                     <div>无数据slot</div>
                   </th>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class=\\"m-table-border-img-bottom\\"></div>
+          <div class="m-table-border-img-bottom"></div>
         </div>"
       `);
     });
@@ -306,22 +307,22 @@ describe('table', function () {
     test('without data', () => {
       const wrapper = getWrapper();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-table\\">
-          <div class=\\"m-table-header-img-top\\"></div>
-          <div class=\\"m-table-header-img-bottom\\"></div>
-          <div class=\\"m-table-wrap\\">
-            <table class=\\"m-table-inner\\">
-              <thead class=\\"m-thead\\">
-                <tr class=\\"m-tr\\"></tr>
+        "<div class="m-table">
+          <div class="m-table-header-img-top"></div>
+          <div class="m-table-header-img-bottom"></div>
+          <div class="m-table-wrap">
+            <table class="m-table-inner">
+              <thead class="m-thead">
+                <tr class="m-tr"></tr>
               </thead>
-              <tbody class=\\"m-table-empty\\">
+              <tbody class="m-table-empty">
                 <tr>
-                  <th colspan=\\"0\\">暂无数据</th>
+                  <th colspan="0">暂无数据</th>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class=\\"m-table-border-img-bottom\\"></div>
+          <div class="m-table-border-img-bottom"></div>
         </div>"
       `);
     });
@@ -339,22 +340,22 @@ describe('table', function () {
     test('The child node in the list is not m-table-column but undefined', () => {
       const wrapper = getWrapper({ data: [] }, { default: () => undefined });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-table\\">
-          <div class=\\"m-table-header-img-top\\"></div>
-          <div class=\\"m-table-header-img-bottom\\"></div>
-          <div class=\\"m-table-wrap\\">
-            <table class=\\"m-table-inner\\">
-              <thead class=\\"m-thead\\">
-                <tr class=\\"m-tr\\"></tr>
+        "<div class="m-table">
+          <div class="m-table-header-img-top"></div>
+          <div class="m-table-header-img-bottom"></div>
+          <div class="m-table-wrap">
+            <table class="m-table-inner">
+              <thead class="m-thead">
+                <tr class="m-tr"></tr>
               </thead>
-              <tbody class=\\"m-table-empty\\">
+              <tbody class="m-table-empty">
                 <tr>
-                  <th colspan=\\"0\\">暂无数据</th>
+                  <th colspan="0">暂无数据</th>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class=\\"m-table-border-img-bottom\\"></div>
+          <div class="m-table-border-img-bottom"></div>
         </div>"
       `);
     });

@@ -16,12 +16,12 @@ describe('开关组件', () => {
     test('仅modelValue参数渲染', () => {
       const wrapper = mount(MSwitch, { props: { modelValue: true } });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-switch m-switch-active\\"><span class=\\"m-switch-span\\"></span>
-          <div class=\\"m-switch-main\\">
-            <div class=\\"m-switch-core\\">
-              <div class=\\"m-switch-core-border\\"></div>
+        "<div class="m-switch m-switch-active"><span class="m-switch-span"></span>
+          <div class="m-switch-main">
+            <div class="m-switch-core">
+              <div class="m-switch-core-border"></div>
             </div>
-          </div><span class=\\"m-switch-span\\"></span>
+          </div><span class="m-switch-span"></span>
         </div>"
       `);
     });
@@ -36,8 +36,8 @@ describe('开关组件', () => {
       });
       expect(wrapper.findAll('.m-switch-span').map(e => e.html())).toMatchInlineSnapshot(`
         [
-          "<span class=\\"m-switch-span\\">active</span>",
-          "<span class=\\"m-switch-span\\">inactive</span>",
+          "<span class="m-switch-span">active</span>",
+          "<span class="m-switch-span">inactive</span>",
         ]
       `);
     });
@@ -54,11 +54,11 @@ describe('开关组件', () => {
         }
       });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-switch m-switch-active\\">active slot info<div class=\\"m-switch-main\\">
-            <div class=\\"m-switch-core\\">
-              <div class=\\"m-switch-core-border\\"></div>
+        "<div class="m-switch m-switch-active">active slot info<div class="m-switch-main">
+            <div class="m-switch-core">
+              <div class="m-switch-core-border"></div>
             </div>
-          </div><span class=\\"m-switch-span\\">inactiveInfo</span></div>"
+          </div><span class="m-switch-span">inactiveInfo</span></div>"
       `);
     });
 
@@ -68,12 +68,12 @@ describe('开关组件', () => {
       });
       await wrapper.find('.m-switch-core').trigger('click');
       expect(wrapper.find('.m-switch').html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-switch m-switch-active\\"><span class=\\"m-switch-span\\"></span>
-          <div class=\\"m-switch-main\\">
-            <div class=\\"m-switch-core\\">
-              <div class=\\"m-switch-core-border\\"></div>
+        "<div class="m-switch m-switch-active"><span class="m-switch-span"></span>
+          <div class="m-switch-main">
+            <div class="m-switch-core">
+              <div class="m-switch-core-border"></div>
             </div>
-          </div><span class=\\"m-switch-span\\"></span>
+          </div><span class="m-switch-span"></span>
         </div>"
       `);
     });
@@ -81,12 +81,12 @@ describe('开关组件', () => {
     test('loading参数', async () => {
       const wrapper = mount(MSwitch, { props: { modelValue: true, loading: true } });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-switch m-switch-active m-switch-loading\\"><span class=\\"m-switch-span\\"></span>
-          <div class=\\"m-switch-main\\">
-            <div class=\\"m-switch-core\\">
-              <div class=\\"m-switch-core-border\\"></div>
+        "<div class="m-switch m-switch-active m-switch-loading"><span class="m-switch-span"></span>
+          <div class="m-switch-main">
+            <div class="m-switch-core">
+              <div class="m-switch-core-border"></div>
             </div>
-          </div><span class=\\"m-switch-span\\"></span>
+          </div><span class="m-switch-span"></span>
         </div>"
       `);
     });
@@ -94,12 +94,12 @@ describe('开关组件', () => {
     test('disabled参数', async () => {
       const wrapper = mount(MSwitch, { props: { modelValue: true, disabled: true } });
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div class=\\"m-switch m-switch-active m-switch-disabled\\"><span class=\\"m-switch-span\\"></span>
-          <div class=\\"m-switch-main\\">
-            <div class=\\"m-switch-core\\">
-              <div class=\\"m-switch-core-border\\"></div>
+        "<div class="m-switch m-switch-active m-switch-disabled"><span class="m-switch-span"></span>
+          <div class="m-switch-main">
+            <div class="m-switch-core">
+              <div class="m-switch-core-border"></div>
             </div>
-          </div><span class=\\"m-switch-span\\"></span>
+          </div><span class="m-switch-span"></span>
         </div>"
       `);
     });
@@ -108,22 +108,22 @@ describe('开关组件', () => {
   test('修改active', async () => {
     const wrapper = mount(MSwitch, { props: { modelValue: true } });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-switch m-switch-active\\"><span class=\\"m-switch-span\\"></span>
-        <div class=\\"m-switch-main\\">
-          <div class=\\"m-switch-core\\">
-            <div class=\\"m-switch-core-border\\"></div>
+      "<div class="m-switch m-switch-active"><span class="m-switch-span"></span>
+        <div class="m-switch-main">
+          <div class="m-switch-core">
+            <div class="m-switch-core-border"></div>
           </div>
-        </div><span class=\\"m-switch-span\\"></span>
+        </div><span class="m-switch-span"></span>
       </div>"
     `);
     await wrapper.setProps({ modelValue: false });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-switch m-switch-inactive\\"><span class=\\"m-switch-span\\"></span>
-        <div class=\\"m-switch-main\\">
-          <div class=\\"m-switch-core\\">
-            <div class=\\"m-switch-core-border\\"></div>
+      "<div class="m-switch m-switch-inactive"><span class="m-switch-span"></span>
+        <div class="m-switch-main">
+          <div class="m-switch-core">
+            <div class="m-switch-core-border"></div>
           </div>
-        </div><span class=\\"m-switch-span\\"></span>
+        </div><span class="m-switch-span"></span>
       </div>"
     `);
   });

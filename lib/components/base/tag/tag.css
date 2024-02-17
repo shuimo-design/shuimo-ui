@@ -1,3 +1,9 @@
+:root{
+  --m-tag-h: 45px;
+  --m-tag-w-min: 80px;
+  --m-tag-border-w: calc(var(--m-tag-h) / 4.5);
+}
+
 .m-tag {
   display: inline-flex;
   min-height: var(--m-tag-h);

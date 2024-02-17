@@ -11,7 +11,7 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, test, expect } from 'vitest';
-import MDivider from '../../../lib/other/MDivider';
+import MDivider from '../../../components/other/divider/MDivider.tsx';
 
 describe('divider', function () {
   test('render', () => {

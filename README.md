@@ -10,7 +10,7 @@
 <p align="center">一款很粗暴的水墨UI</p>
 
 ![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
-[![codecov](https://codecov.io/gh/janghood/shuimo-ui/branch/master/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/janghood/shuimo-ui)
+[![codecov](https://codecov.io/gh/shuimo-design/shuimo-ui/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/shuimo-design/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
 [中文文档](https://github.com/shuimo-design/shuimo-ui/blob/main/assets/README/README.zh.md)

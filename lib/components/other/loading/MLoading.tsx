@@ -10,8 +10,10 @@ import { defineComponent, ref } from 'vue';
 import { useLoading } from './useLoading.ts';
 import { props } from './api.ts';
 import './loading.css';
+import { LoadingProps } from './index';
 
-export default defineComponent((props, { slots }) => {
+export default defineComponent((_props:LoadingProps, { slots }) => {
+  const props = _props as Required<LoadingProps>;
   const loadingRef = ref<HTMLElement>();
 
   const { getStyle } = useLoading();

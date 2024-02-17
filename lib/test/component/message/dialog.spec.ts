@@ -10,7 +10,7 @@
 import { describe, expect, test } from 'vitest';
 import { DOMWrapper, mount } from '@vue/test-utils';
 import { h } from 'vue';
-import { MDialog } from '../../../../../lib';
+import MDialog from '../../../components/message/dialog/MDialog.tsx';
 
 describe('dialog', () => {
   const body = document.body;
@@ -22,8 +22,8 @@ describe('dialog', () => {
       }
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-dialog-wrapper\\">
-        <div class=\\"m-model-active\\">
+      "<div class="m-dialog-wrapper">
+        <div class="m-model-active">
           <!---->
         </div>
       </div>"

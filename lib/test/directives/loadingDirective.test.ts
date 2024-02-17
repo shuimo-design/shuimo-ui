@@ -9,7 +9,7 @@
 
 import { describe, test, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { loadingDirective } from '../../lib/other/loading/directive';
+import { loadingDirective } from '../../components/other/loading/directive.ts';
 
 describe('loading指令', function () {
   test('测试loading指令', () => {

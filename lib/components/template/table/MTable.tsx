@@ -12,10 +12,12 @@ import { Comment, defineComponent, Fragment } from 'vue';
 import { useTable } from './useTable.ts';
 import { props } from './api.ts';
 import './table.css';
+import { TableProps } from './index';
 
 // todo use i18n
 
-export default defineComponent((props, { slots }) => {
+export default defineComponent((_props:TableProps, { slots }) => {
+    const props = _props as Required<TableProps>;
     const { initTable, error } = useTable();
 
     return () => {

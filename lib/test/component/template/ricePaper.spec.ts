@@ -9,7 +9,7 @@
 
 import { describe, test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { MRicePaper } from '../../../../../lib';
+import MRicePaper from '../../../components/template/ricePaper/MRicePaper.tsx';
 
 describe('rice paper', () => {
   test('render', () => {
@@ -20,56 +20,23 @@ describe('rice paper', () => {
     });
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-rice-paper\\">
-        <!---->
-        <div class=\\"m-rice-paper-mountain\\"></div>
-        <div class=\\"m-rice-paper-crane\\"></div>
-        <div class=\\"m-rice-paper-main\\">
-          <div>test</div>
+      "<div class="m-rice-paper m-rice-paper-default">
+        <div class="mountains">
+          <div class="m-m-left">
+            <div class="m-l-base m-m-reflect"></div>
+            <div class="m-l-mid m-m-reflect"></div>
+            <div class="m-l-front m-m-reflect"></div>
+            <div class="m-l-front-2 m-m-reflect"></div>
+          </div>
+          <div class="m-m-right">
+            <div class="m-r-base m-m-reflect"></div>
+            <div class="m-r-mid m-m-reflect"></div>
+            <div class="m-r-front m-m-reflect"></div>
+            <div class="m-r-front-2 m-m-reflect"></div>
+          </div>
         </div>
-      </div>"
-    `);
-  });
-
-  test('hidden mountains and cranes', () => {
-    const wrapper = mount(MRicePaper, {
-      props: {
-        mountain: false,
-        crane: false
-      },
-      slots: {
-        default: '<div>test</div>'
-      }
-    });
-
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-rice-paper\\">
-        <!---->
-        <!---->
-        <!---->
-        <div class=\\"m-rice-paper-main\\">
-          <div>test</div>
-        </div>
-      </div>"
-    `);
-  });
-
-  test('use warn', () => {
-    const wrapper = mount(MRicePaper, {
-      props: {
-        cold: false
-      },
-      slots: {
-        default: '<div>test</div>'
-      }
-    });
-
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-rice-paper m-rice-paper-warm\\">
-        <!---->
-        <div class=\\"m-rice-paper-mountain\\"></div>
-        <div class=\\"m-rice-paper-crane\\"></div>
-        <div class=\\"m-rice-paper-main\\">
+        <div class="m-rice-paper-hover"></div>
+        <div class="m-rice-paper-layout">
           <div>test</div>
         </div>
       </div>"

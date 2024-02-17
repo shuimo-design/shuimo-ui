@@ -5,11 +5,12 @@
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ * todo fix this.current
  */
 
 import { describe, test, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import MPagination from '../../../../../lib/components/template/pagination/MPagination';
+import MPagination from '../../../components/template/pagination/MPagination.tsx';
 
 describe('分页组件', function () {
   test(':current', async () => {

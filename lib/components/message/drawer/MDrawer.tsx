@@ -11,8 +11,10 @@ import useModel from '../../../../lib/compositions/useModel';
 import { props } from './api.ts';
 import MBorder from '../../template/border/MBorder.tsx';
 import './drawer.css';
+import { DrawerProps } from './index';
 
-export default defineComponent((props, { emit, slots }) => {
+export default defineComponent((_props:DrawerProps, { emit, slots }) => {
+  const props = _props as Required<DrawerProps>;
 
   const {
     visible,

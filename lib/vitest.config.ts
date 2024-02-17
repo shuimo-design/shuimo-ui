@@ -14,16 +14,12 @@ import Jsx from '@vitejs/plugin-vue-jsx';
 export default defineConfig({
   plugins: [Vue(), Jsx()],
   test: {
-    transformMode: {
-      web: [/\.[jt]sx$/]
-    },
     environment: 'jsdom',
     clearMocks: true,
     coverage: {
-      provider: 'c8',
+      provider: 'v8',
       all: true,
-      include: ['lib/**', 'composition/**'],
-      reporter: ['json', 'html']
+      include: ['components/**', 'compositions/**'],
     }
   }
 });

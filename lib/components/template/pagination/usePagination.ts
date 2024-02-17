@@ -8,7 +8,7 @@
  */
 import { PaginationProps } from './index';
 import { Options } from '../../../compositions/common/defineCore.ts';
-import { ref } from 'vue';
+import { Ref, ref } from 'vue';
 
 
 /**

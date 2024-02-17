@@ -1,10 +1,14 @@
-.m-avatar {
-
+:root {
   --m-avatar-large: 50px;
   --m-avatar-default: 40px;
   --m-avatar-small: 24px;
-
   --m-avatar-size: var(--m-avatar-default);
+
+  --m-avatar-circle-bg: url(./assets/circle.webp);
+  --m-avatar-square-bg: url(./assets/square.webp);
+}
+
+.m-avatar {
   --m-avatar-w: var(--m-avatar-size);
   --m-image-size: var(--m-avatar-size);
 
@@ -26,6 +30,7 @@
     grid-area: avatar;
     width: var(--m-avatar-w);
     height: var(--m-avatar-size);
+    background-size: 100% 100%;
   }
 
   --m-image-m-t: 0;
@@ -49,8 +54,7 @@
   --m-image-m-l: calc(var(--m-avatar-w) / 54 * 9);
 
   & .m-avatar-mask {
-    background: url(./assets/circle.webp);
-    background-size: 100% 100%;
+    background-image: var(--m-avatar-circle-bg);
   }
 
   & > img {
@@ -65,8 +69,7 @@
   --m-image-m-l: calc(var(--m-avatar-w) / 52 * 3);
 
   & .m-avatar-mask {
-    background: url(./assets/square.webp);
-    background-size: 100% 100%;
+    background-image: var(--m-avatar-square-bg);
   }
 
 }

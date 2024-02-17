@@ -9,7 +9,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { DOMWrapper } from '@vue/test-utils';
-import { MConfirm } from '../../../../../lib';
+import MConfirm from '../../../components/message/confirm/MConfirm.tsx';
 
 describe('confirm', async () => {
   test('render', () => {

@@ -10,7 +10,7 @@
 import { describe, expect, test } from 'vitest';
 import { DOMWrapper, mount } from '@vue/test-utils';
 import { h } from 'vue';
-import { MDrawer } from '../../../../../lib';
+import MDrawer from '../../../components/message/drawer/MDrawer.tsx';
 
 describe('drawer', () => {
   const body = document.body;
@@ -79,7 +79,7 @@ describe('drawer', () => {
       }
     });
     expect(wrapper.find('.m-model-active').html()).toMatchInlineSnapshot(`
-      "<div class=\\"m-model-active\\">
+      "<div class="m-model-active">
         <div>active</div>
       </div>"
     `);

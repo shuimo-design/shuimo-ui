@@ -50,7 +50,7 @@ describe('useVirtualList', () => {
   });
 
 
-  describe('get action', () => {
+  describe.skip('get action', () => {
 
   });
 
