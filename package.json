@@ -4,6 +4,7 @@
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "license": "MIT",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "pnpm -C playground run dev",
     "build": "pnpm -C cli/build run build",
