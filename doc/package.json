@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "private": true,
   "scripts": {
-    "doc:dev": "nuxt dev --port 8513",
+    "doc:dev": "jh-api && nuxt dev --port 8513",
     "build": "jh-api && nuxt build && npm run doc:fontmin",
     "doc:build": "nuxt build",
     "doc:build:start": "npm run build && node .output/server/index.mjs",
