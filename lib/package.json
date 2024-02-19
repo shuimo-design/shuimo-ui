@@ -45,8 +45,8 @@
     "@vitest/coverage-v8": "1.3.0",
     "@vue/test-utils": "^2.4.4",
     "dayjs": "^1.11.10",
+    "happy-dom": "^13.3.8",
     "interactjs": "^1.10.26",
-    "jsdom": "^24.0.0",
     "vitest": "^1.3.0",
     "vue": "^3.4.19"
   },

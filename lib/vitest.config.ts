@@ -14,12 +14,12 @@ import Jsx from '@vitejs/plugin-vue-jsx';
 export default defineConfig({
   plugins: [Vue(), Jsx()],
   test: {
-    environment: 'jsdom',
+    environment: 'happy-dom',
     clearMocks: true,
     coverage: {
       provider: 'v8',
       all: true,
       include: ['components/**', 'compositions/**'],
-    }
-  }
+    },
+  },
 });
