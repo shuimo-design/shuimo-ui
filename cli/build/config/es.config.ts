@@ -6,12 +6,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig, PluginOption } from 'vite';
+import { defineConfig, normalizePath, PluginOption } from 'vite';
 import fs from 'fs';
 import path from 'path';
 import { baseRoot, buildConfig, fileName, getPath, plugins as basePlugins, rollupOptions } from './common.config';
 
-const outputRoot = path.resolve(__dirname, '../../../lib/dist');
+const outputRoot = normalizePath(path.resolve(__dirname, '../../../lib/dist'));
 
 // init components records
 // 扫描lib/components下的所有文件
@@ -23,7 +23,7 @@ componentsTypeFiles.forEach(type => {
   const files = fs.readdirSync(path.resolve(baseRoot, `components/${type}`));
   return files.forEach((componentFileName => {
     // 首先判断是否是文件夹
-    const componentPath = path.resolve(baseRoot, `components/${type}/${componentFileName}`);
+    const componentPath = normalizePath(path.resolve(baseRoot, `components/${type}/${componentFileName}`));
     const stat = fs.statSync(componentPath);
     if (!stat.isDirectory()) {
       return;
