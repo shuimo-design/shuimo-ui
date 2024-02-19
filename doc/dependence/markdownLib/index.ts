@@ -29,8 +29,7 @@ export const VitePluginMarkdown = async (userOptions: Options = {}): Promise<Plu
         raw = findAPIAndReplace(raw);
         findDemo(raw);
         const code = markdownToVue(id, raw);
-        const fileName = path.basename(id).split('.')[0];
-        return await insertImport(code, fileName);
+        return await insertImport(code);
       } catch (e: any) {
         this.error(e);
       }

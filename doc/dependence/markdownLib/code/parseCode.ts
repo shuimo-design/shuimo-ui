@@ -6,14 +6,14 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { type BundledLanguage, codeToThemedTokens, type SpecialLanguage } from 'shikiji';
+import { type BundledLanguage, codeToTokensBase, type SpecialLanguage } from 'shiki';
 import { ShuimoTheme } from '../../shikiji/shuimo.theme';
 
 
 
 
 const toHTMl = async (code: string, lang: BundledLanguage | SpecialLanguage) => {
-  const nodesList = await codeToThemedTokens(code, {
+  const nodesList = await codeToTokensBase(code, {
     lang,
     theme: ShuimoTheme
   });
