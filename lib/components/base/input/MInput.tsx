@@ -19,11 +19,11 @@ import { props } from './api.ts';
 import { HTMLElementEvent } from '../../types/template';
 import MBorder from '../../template/border/MBorder.tsx';
 import './input.css';
+import { InputProps } from './index';
 
-export default defineComponent((props, { emit }) => {
-
+export default defineComponent((props: InputProps, { emit }) => {
   const borderClass = computed(() => ({
-    class: ['m-input', { 'm-textarea': props.type === 'textarea' }, { 'm-input-disabled': props.disabled }]
+    class: ['m-input', { 'm-textarea': props.type === 'textarea' }, { 'm-input-disabled': props.disabled }],
   }));
   return () => {
     const isInput = props.type !== 'textarea';
@@ -46,11 +46,11 @@ export default defineComponent((props, { emit }) => {
         emit('blur', e);
       },
       class: isInput ? 'm-input-inner' : 'm-textarea-inner',
-      ...(isInput ? {} : { rows: 10 })
+      ...(isInput ? {} : { rows: 10 }),
     }));
   };
 }, {
   name: 'MInput',
   emits: ['update:modelValue', 'focus', 'blur', 'input'],
-  props
+  props,
 });

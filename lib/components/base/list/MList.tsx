@@ -13,8 +13,10 @@ import MLi from '../li/MLi.tsx';
 import { useList } from './useList.ts';
 import { props } from './api.ts';
 import './list.css';
+import { ListProps } from './index';
 
-export default defineComponent((props, { slots }) => {
+export default defineComponent((_props: ListProps, { slots }) => {
+  const props = _props as Required<ListProps>;
   return () => {
 
     const { baseRender, dataValidate } = useList();
@@ -33,9 +35,9 @@ export default defineComponent((props, { slots }) => {
           </MLi>;
         })
       }
-    </div>
+    </div>;
   };
 }, {
   name: 'MList',
-  props
+  props,
 });
