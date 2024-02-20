@@ -16,7 +16,8 @@ import './grid.css';
 export default defineComponent((props, { slots }) => {
   const { getStyle, getGridClass, gridRef, calcCells } = useGrid({ props });
   return () => {
-    const cells = slots.default?.()!;
+    const cells = slots.default?.();
+    if (!cells) {return null;}
     // inject props
     cells.forEach(c => {
       if (typeof c.type === 'object' &&
@@ -42,5 +43,5 @@ export default defineComponent((props, { slots }) => {
   };
 }, {
   name: 'MGrid',
-  props
+  props,
 });

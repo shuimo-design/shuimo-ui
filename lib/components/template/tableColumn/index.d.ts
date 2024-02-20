@@ -35,4 +35,4 @@ export declare type TableColumnProps = {
    * @default ''
    */
   label?: string;
-}
+};

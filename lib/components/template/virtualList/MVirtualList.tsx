@@ -17,11 +17,11 @@ export default defineComponent((props, { emit, slots }) => {
   const {
     containerRef,
     displayList,
-    styleRef
+    styleRef,
   } = useVirtualList({
     props, event: {
-      reachBottom: () => emit('reachBottom')
-    }
+      reachBottom: () => emit('reachBottom'),
+    },
   });
 
   return () => {
@@ -42,5 +42,5 @@ export default defineComponent((props, { emit, slots }) => {
 }, {
   name: 'MVirtualList',
   props,
-  emits: ['reachBottom']
+  emits: ['reachBottom'],
 });

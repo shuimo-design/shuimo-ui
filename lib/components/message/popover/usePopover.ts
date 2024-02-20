@@ -32,7 +32,7 @@ export class PopoverImpl {
   onHide?: Function;
 
   constructor(
-    val: { style: Ref, arrowStyle: Ref, placement: Ref, /*default*/show: boolean },
+    val: { style: Ref, arrowStyle: Ref, placement: Ref, /* default */show: boolean },
     active?: HTMLElement,
     content?: HTMLElement,
     arrow?: HTMLElement,
@@ -40,7 +40,7 @@ export class PopoverImpl {
     lifecycle?: {
       onShow?: Function,
       onHide?: Function
-    }
+    },
   ) {
     if (!content) {throw new Error('MPopover: content is required');}
     if (!active) {throw new Error('MPopover: active is required');}
@@ -104,17 +104,12 @@ export class PopoverImpl {
 type ArrayElement<ArrayType> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
-export function usePopover(options: Options<{
-    props: PopoverProps,
-    value: {
-      placement: Placement
-    }
-  }>,
+export function usePopover(
+  options: Options<{ props: PopoverProps, value: { placement: Placement } }>,
   lifecycle?: { /* event can't use optional... */
     onShow?: Function,
     onHide?: Function
   }) {
-
   const style = ref();
   const arrowStyle = ref();
   const placement = ref(options.value.placement);
@@ -131,7 +126,7 @@ export function usePopover(options: Options<{
     active: HTMLElement,
     content: HTMLElement,
     arrow?: HTMLElement,
-    config?: PopperConfig
+    config?: PopperConfig,
   ) => {
     instance = new PopoverImpl(
       { style, arrowStyle, placement, show: options.props.show },
@@ -147,7 +142,7 @@ export function usePopover(options: Options<{
         onHide: () => {
           clickAwayInstance?.remove();
           lifecycle?.onHide?.();
-        }
+        },
       });
     return instance;
   };
@@ -172,7 +167,7 @@ export function usePopover(options: Options<{
     }
     popperInstance.value = createPopover(popoverRef.value, contentRef.value, arrowRef.value, {
       ...props.popper,
-      placement: props.placement
+      placement: props.placement,
     });
 
     if (options.props.disableClickAway) {
@@ -184,7 +179,7 @@ export function usePopover(options: Options<{
       handler: () => {
         instance?.hide();
         // emits?
-      }
+      },
     });
   });
 
@@ -200,13 +195,13 @@ export function usePopover(options: Options<{
     props: PopoverProps,
     getContentSlot: () => T,
     useTeleport: (options: any) => ArrayElement<T> | T,
-    _instance = instance
+    _instance = instance,
   ) => {
     const contentTeleportWrapper = () => {
       if (props.teleport) {
         return useTeleport({
           teleportProps: props.teleport,
-          slot: getContentSlot()
+          slot: getContentSlot(),
         });
       }
       return getContentSlot();
@@ -229,7 +224,7 @@ export function usePopover(options: Options<{
     popperInstance,
     style, arrowStyle,
     lifecycle: {
-      onBeforeDestroyEvents
-    }
+      onBeforeDestroyEvents,
+    },
   };
 }

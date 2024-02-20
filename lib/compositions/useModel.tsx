@@ -21,7 +21,7 @@ export default function useModel(props: {
   const visible = ref(props.visible);
   const { emit } = ctx;
 
-  watch(() => props.visible, (val) => {
+  watch(() => props.visible, val => {
     visible.value = val;
   });
 
@@ -52,7 +52,7 @@ export default function useModel(props: {
   const getModel = (dom: VNode) => {
     return useTeleport({
       teleportProps: { to: props.teleport.to },
-      slot: wrapperWithMask(dom)
+      slot: wrapperWithMask(dom),
     });
   };
 
@@ -63,7 +63,7 @@ export default function useModel(props: {
     closeModel,
     handleModelClickPropagation,
     getClose,
-    getModelActive
+    getModelActive,
   };
 
 }

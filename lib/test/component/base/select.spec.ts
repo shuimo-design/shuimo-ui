@@ -40,7 +40,7 @@ describe('select', () => {
 
   const baseProps = {
     modelValue: 1,
-    options: [1, 2, 3, 4]
+    options: [1, 2, 3, 4],
   };
 
   type OptionType = { title: string; value: number; inputParam: string; value2: number };
@@ -49,7 +49,7 @@ describe('select', () => {
     { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
     { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
     { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
-    { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
+    { title: 'option4', value: 4, inputParam: 'input4', value2: 7 },
   ];
   /**
    * @desc 自定义查询方法
@@ -83,7 +83,7 @@ describe('select', () => {
     test('options为空', async () => {
       const wrapper = getWrapper({
         ...baseProps,
-        options: []
+        options: [],
       });
       await showOptions(wrapper);
       expect(wrapper.findAll('.m-select-empty').length).toBe(1);
@@ -92,9 +92,9 @@ describe('select', () => {
     test('options为空,传入empty插槽', async () => {
       const wrapper = getWrapper({
         ...baseProps,
-        options: []
+        options: [],
       }, {
-        empty: () => h('div', { class: 'empty' }, 'empty')
+        empty: () => h('div', { class: 'empty' }, 'empty'),
       });
       await showOptions(wrapper);
       expect(wrapper.findAll('.empty').length).toBe(1);
@@ -111,7 +111,7 @@ describe('select', () => {
       const wrapper = getWrapper({
         modelValue: options[0],
         options,
-        inputParam: 'inputParam'
+        inputParam: 'inputParam',
       });
       expect(wrapper.element.querySelector('input')!.value).toMatchInlineSnapshot('"input1"');
     });
@@ -121,7 +121,7 @@ describe('select', () => {
         modelValue: options[0],
         options,
         inputParam: 'inputParam',
-        optionParam: 'title'
+        optionParam: 'title',
       });
       await showOptions(wrapper);
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
@@ -139,7 +139,7 @@ describe('select', () => {
         modelValue: undefined,
         options,
         inputParam: 'inputParam',
-        valueParam: 'value'
+        valueParam: 'value',
       });
       await showOptions(wrapper);
       await wrapper.find('.m-option').trigger('click');
@@ -151,7 +151,7 @@ describe('select', () => {
         modelValue: undefined,
         options,
         inputParam: 'inputParam',
-        valueParam: 'value'
+        valueParam: 'value',
       });
       await showOptions(wrapper);
       await wrapper.setProps({ valueParam: 'value2' });
@@ -162,7 +162,7 @@ describe('select', () => {
     test('开启为可输入模式', () => {
       const wrapper = getWrapper({
         ...baseProps,
-        readonly: false
+        readonly: false,
       });
       expect(wrapper.find('input').attributes().readonly).toBeUndefined();
     });
@@ -170,7 +170,7 @@ describe('select', () => {
     test('禁用模式', () => {
       const wrapper = getWrapper({
         ...baseProps,
-        disabled: true
+        disabled: true,
       });
       expect(wrapper.find('input').attributes().disabled).not.toBeUndefined();
     });
@@ -180,7 +180,7 @@ describe('select', () => {
       const wrapper = getWrapper({
         ...baseProps,
         modelValue: undefined,
-        placeholder
+        placeholder,
       });
       expect(wrapper.find('input').attributes().placeholder).toBe(placeholder);
     });
@@ -193,7 +193,7 @@ describe('select', () => {
         optionParam: 'title',
         toMatch: (option: OptionType, value: OptionType) => {
           return value.value === option.value && value.value2 === option.value2;
-        }
+        },
       });
       await showOptions(wrapper);
       expect(wrapper.find('.m-option-selected').element.textContent!.trim()).toMatchInlineSnapshot('"option1"');
@@ -203,7 +203,7 @@ describe('select', () => {
       test('不可输入时显示所有', async () => {
         const wrapper = getWrapper({
           ...baseProps,
-          filter: customFilter
+          filter: customFilter,
         });
         await showOptions(wrapper);
         expect(wrapper.findAll('.m-option').length).toBe(baseProps.options.length);
@@ -213,7 +213,7 @@ describe('select', () => {
         const wrapper = getWrapper({
           ...baseProps,
           readonly: false,
-          filter: customFilter
+          filter: customFilter,
         });
         await showOptions(wrapper);
         // todo actually first render all options looks like better
@@ -230,11 +230,11 @@ describe('select', () => {
           modelValue: options[0],
           options,
           inputParam: 'inputParam',
-          optionParam: 'title'
+          optionParam: 'title',
         },
         {
-          option: ({ option }) => h('span', option.value2)
-        }
+          option: ({ option }) => h('span', option.value2),
+        },
       );
       await showOptions(wrapper);
       expect(wrapper.findAll('.m-option').map(e => e.element.innerHTML)).toMatchInlineSnapshot(`
@@ -250,11 +250,11 @@ describe('select', () => {
     test('renders empty content slot when no options are available', async () => {
       const wrapper = mount(MSelect, {
         props: {
-          options: []
+          options: [],
         },
         slots: {
-          empty: '<div class="empty-slot">No options available</div>'
-        }
+          empty: '<div class="empty-slot">No options available</div>',
+        },
       });
       await showOptions(wrapper);
       expect(wrapper.find('.empty-slot').exists()).toBe(true);
@@ -309,7 +309,7 @@ describe('select', () => {
         modelValue: options[1],
         options,
         inputParam: 'inputParam',
-        optionParam: 'title'
+        optionParam: 'title',
       });
       await showOptions(wrapper);
       await wrapper.find('.m-option').trigger('click');
@@ -335,7 +335,7 @@ describe('select', () => {
     const multiplePropsBase = {
       modelValue: ['111'],
       multiple: true,
-      options: ['111', '222', '333', '444']
+      options: ['111', '222', '333', '444'],
     };
     /**
      * @desc 基础数据，`modelValue`为空
@@ -343,7 +343,7 @@ describe('select', () => {
     const multiplePropsBaseNoValue = {
       modelValue: [],
       multiple: true,
-      options: ['111', '222', '333', '444']
+      options: ['111', '222', '333', '444'],
     };
     /**
      * @desc 对象数据
@@ -358,8 +358,8 @@ describe('select', () => {
         { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
         { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
         { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
-        { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
-      ]
+        { title: 'option4', value: 4, inputParam: 'input4', value2: 7 },
+      ],
     };
     /**
      * @desc 对象数据，`modelValue`为空
@@ -374,8 +374,8 @@ describe('select', () => {
         { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
         { title: 'option2', value: 2, inputParam: 'input12', value2: 5 },
         { title: 'option3', value: 3, inputParam: 'input3', value2: 6 },
-        { title: 'option4', value: 4, inputParam: 'input4', value2: 7 }
-      ]
+        { title: 'option4', value: 4, inputParam: 'input4', value2: 7 },
+      ],
     };
 
 
@@ -384,7 +384,7 @@ describe('select', () => {
         const placeholder = '默认值';
         const wrapper = getWrapper({
           placeholder: placeholder,
-          ...multiplePropsBaseNoValue
+          ...multiplePropsBaseNoValue,
         });
         expect(wrapper.find('.m-select-multiple-placeholder').text()).toBe(placeholder);
       });
@@ -395,7 +395,7 @@ describe('select', () => {
         const wrapper = getWrapper({
           ...baseProps,
           modelValue,
-          multiple: true
+          multiple: true,
         });
         expect(wrapper.emitted('update:modelValue')).toMatchObject([[[]]]);
       });
@@ -405,7 +405,7 @@ describe('select', () => {
         getWrapper({
           ...baseProps,
           modelValue: false,
-          multiple: true
+          multiple: true,
         });
         expect(infoSpy).toHaveBeenCalled();
       });
@@ -415,7 +415,7 @@ describe('select', () => {
           modelValue: [1],
           options: [1, 2, 3, 4],
           multiple: true,
-          filter: customFilter
+          filter: customFilter,
         });
         await showMultipleOptions(wrapper);
         expect(wrapper.findAll('.m-option').map(e => e.text())).toMatchInlineSnapshot(`
@@ -434,7 +434,7 @@ describe('select', () => {
           options: [1, 2, 3, 4],
           multiple: true,
           readonly: false,
-          filter: customFilter
+          filter: customFilter,
         });
         await wrapper.find('input').setValue(1);
         await showMultipleOptions(wrapper);
@@ -454,12 +454,10 @@ describe('select', () => {
         expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
       });
       test('下拉框渲染，插槽渲染', async () => {
-        const wrapper = getWrapper({
-            ...multiplePropsBase
-          },
-          {
-            option: ({ option }) => h('span', option)
-          });
+        const wrapper = getWrapper(
+          { ...multiplePropsBase },
+          { option: ({ option }) => h('span', option) },
+        );
         expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
         await showMultipleOptions(wrapper);
         expect(wrapper.find('.m-popover-content').element.children.length).not.toBe(0);
@@ -470,7 +468,7 @@ describe('select', () => {
             "333",
             "444",
           ]
-        `
+        `,
         );
       });
 
@@ -478,7 +476,7 @@ describe('select', () => {
       test.skip('可输入时下拉框渲染', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBase,
-          readonly: false
+          readonly: false,
         });
         expect(wrapper.find('.m-popover-content').element.children.length).toBe(0);
         await wrapper.find('input').trigger('click');
@@ -496,7 +494,7 @@ describe('select', () => {
 
       test('常规值选中(点击border)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBaseNoValue
+          ...multiplePropsBaseNoValue,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-option').trigger('click');
@@ -504,10 +502,10 @@ describe('select', () => {
       });
 
 
-      //todo support checkbox and group ,not only a component
+      // todo support checkbox and group ,not only a component
       test.skip('常规值选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBaseNoValue
+          ...multiplePropsBaseNoValue,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-checkbox').trigger('click');
@@ -516,7 +514,7 @@ describe('select', () => {
 
       test.skip('常规值取消选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase
+          ...multiplePropsBase,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-checkbox').trigger('click');
@@ -525,7 +523,7 @@ describe('select', () => {
 
       test('常规值取消选中(点击delete-icon)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsBase
+          ...multiplePropsBase,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-delete-icon').trigger('click');
@@ -535,7 +533,7 @@ describe('select', () => {
       test('常规值测试查询匹配', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBaseNoValue,
-          readonly: false
+          readonly: false,
         });
         await wrapper.find('input').setValue('111');
         await showMultipleOptions(wrapper);
@@ -549,7 +547,7 @@ describe('select', () => {
       test('常规值输入冒泡', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBase,
-          readonly: false
+          readonly: false,
         });
         await wrapper.find('input').setValue(2);
         expect(wrapper.emitted('input')!.length).toBe(1);
@@ -573,7 +571,7 @@ describe('select', () => {
     describe('多选对象值测试', () => {
       test('对象值渲染tag', () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj
+          ...multiplePropsObj,
         });
         expect(wrapper.html()).toContain('m-tag');
         expect(wrapper.find('.m-tag').text()).toMatchInlineSnapshot('"option1"');
@@ -581,7 +579,7 @@ describe('select', () => {
 
       test('对象值选中(点击border)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObjNoValue
+          ...multiplePropsObjNoValue,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-option').trigger('click');
@@ -590,7 +588,7 @@ describe('select', () => {
 
       test('对象值选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObjNoValue
+          ...multiplePropsObjNoValue,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-option').trigger('click');
@@ -599,7 +597,7 @@ describe('select', () => {
 
       test('对象值取消选中(点击delete-icon)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj
+          ...multiplePropsObj,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-delete-icon').trigger('click');
@@ -608,7 +606,7 @@ describe('select', () => {
 
       test.skip('对象值取消选中(点击check)', async () => {
         const wrapper = getWrapper({
-          ...multiplePropsObj
+          ...multiplePropsObj,
         });
         await showMultipleOptions(wrapper);
         await wrapper.find('.m-checkbox').trigger('click');
@@ -618,7 +616,7 @@ describe('select', () => {
       test('对象值测试查询匹配', async () => {
         const wrapper = getWrapper({
           ...multiplePropsObjNoValue,
-          readonly: false
+          readonly: false,
         });
         await wrapper.find('input').setValue('input1');
         await showMultipleOptions(wrapper);
@@ -632,7 +630,7 @@ describe('select', () => {
       test('对象值输入冒泡', async () => {
         const wrapper = getWrapper({
           ...multiplePropsBase,
-          readonly: false
+          readonly: false,
         });
         await wrapper.find('input').setValue(2);
         expect(wrapper.emitted('input')!.length).toBe(1);
@@ -657,7 +655,7 @@ describe('select', () => {
         test('关闭checkbox', () => {
           const wrapper = getWrapper({
             ...multiplePropsObj,
-            checkbox: false
+            checkbox: false,
           });
           expect(wrapper.find('.m-checkbox').exists()).toBe(false);
         });
@@ -678,8 +676,8 @@ describe('select', () => {
             { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
             { title: 'option1', value: 1, inputParam: 'input1', value2: 4 },
             { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
-            { title: 'option2', value: 2, inputParam: 'input2', value2: 5 }
-          ]
+            { title: 'option2', value: 2, inputParam: 'input2', value2: 5 },
+          ],
         };
 
         test('重复数据渲染问题', async () => {

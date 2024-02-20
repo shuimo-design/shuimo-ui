@@ -88,7 +88,7 @@ export function useTable() {
           return false;
         }
         return true;
-      }).map((column) => {
+      }).map(column => {
         const slots = renders.initSlot(column);
         let bodySlot: SlotRender | undefined;
         let headSlot: SlotRender | undefined;

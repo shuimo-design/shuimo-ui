@@ -24,17 +24,17 @@ describe('checkbox', () => {
 
     test('label', () => {
       const wrapper = mount(MCheckbox, {
-        props: { label: '测试label' }
+        props: { label: '测试label' },
       });
       expect(wrapper.find('.m-checkbox-slot').text()).toBe('测试label');
     });
 
-    test('checked',()=>{
+    test('checked', () => {
       const wrapper = mount(MCheckbox, {
-        props: { checked:true }
+        props: { checked: true },
       });
       expect(wrapper.find('.m-checkbox').html()).toContain('m-checkbox-checkbox-inner');
-    })
+    });
 
 
     describe('modify props', function () {
@@ -42,22 +42,22 @@ describe('checkbox', () => {
       test('modify modelValue', async () => {
         const wrapper = mount(MCheckbox, {
           props: {
-            modelValue: false
-          }
+            modelValue: false,
+          },
         });
         expect(wrapper.html()).not.toContain('m-checkbox-checkbox-inner');
-        await wrapper.setProps({modelValue:true});
+        await wrapper.setProps({ modelValue: true });
         expect(wrapper.html()).toContain('m-checkbox-checkbox-inner');
-      })
+      });
     });
 
-  })
+  });
 
   test('slot', () => {
     const wrapper = mount(MCheckbox, {
       slots: {
-        default: () => h('div', '测试slot')
-      }
+        default: () => h('div', '测试slot'),
+      },
     });
     expect(wrapper.find('.m-checkbox-slot').text()).toBe('测试slot');
   });
@@ -66,8 +66,8 @@ describe('checkbox', () => {
     const wrapper = mount(MCheckbox, {
       props: {
         label: '测试label',
-        modelValue: false
-      }
+        modelValue: false,
+      },
     });
     expect(wrapper.html()).not.toContain('m-checkbox-checkbox-inner');
     await wrapper.find('.m-checkbox').trigger('click');

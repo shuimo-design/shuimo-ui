@@ -7,12 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { beforeEach, describe, expect, it } from 'vitest';
-import {
-  DateRefType,
-  DisplayCalendarType,
-  toDayjs,
-  useDatePicker,
-} from '../../../components/base/datePicker/useDatePicker.ts';
+import { DateRefType, DisplayCalendarType, useDatePicker } from '../../../components/base/datePicker/useDatePicker.ts';
 import { DatePickerProps } from '../../../components/base/datePicker';
 import { ref } from 'vue';
 
@@ -26,13 +21,13 @@ describe('useDatePicker core test', function () {
     type: 'date',
   };
 
-  const getBaseInfo = () => {
-    const displayValue = { value: '' };
-    const spanClass = { value: [] };
-    const dateRef = { value: { year: 2023, month: 5, day: 20 } };
-    const currentRef = { value: toDayjs('2023-05-20') };
-    return { displayValue, spanClass, dateRef, currentRef };
-  };
+  // const getBaseInfo = () => {
+  //   const displayValue = { value: '' };
+  //   const spanClass = { value: [] };
+  //   const dateRef = { value: { year: 2023, month: 5, day: 20 } };
+  //   const currentRef = { value: toDayjs('2023-05-20') };
+  //   return { displayValue, spanClass, dateRef, currentRef };
+  // };
 
   describe('date calculation', function () {
 
@@ -103,8 +98,8 @@ describe('useDatePicker core test', function () {
   describe('getCalendar', () => {
     const dateRef: DateRefType = { year: 2022, month: 1, day: 1 };
     const MDateRefValue = ref(dateRef);
-    const currentRef = { value: () => ({ year: () => 2022, month: () => 1, date: () => 1 }) };
-    const options = { MDateRefValue, currentRef };
+    // const currentRef = { value: () => ({ year: () => 2022, month: () => 1, date: () => 1 }) };
+    // const options = { MDateRefValue, currentRef };
     let calendar: Array<Array<DisplayCalendarType>>;
 
     beforeEach(() => {

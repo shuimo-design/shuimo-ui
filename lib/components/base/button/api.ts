@@ -13,5 +13,9 @@ export const props: MCOPO<ButtonProps> = {
   text: { type: String, default: '' },
   link: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  type: { type: String as MPropType<'default' | 'primary' | 'error' | 'confirm' | 'warning'>, default: 'default', enum: ['default', 'primary', 'error', 'confirm', 'warning'] }
+  type: {
+    type: String as MPropType<'default' | 'primary' | 'error' | 'confirm' | 'warning'>,
+    default: 'default',
+    enum: ['default', 'primary', 'error', 'confirm', 'warning'],
+  },
 };

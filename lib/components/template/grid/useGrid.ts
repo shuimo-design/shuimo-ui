@@ -61,7 +61,7 @@ export function useGrid(options: Options<{
     if (props.direction === 'row') {
       const { gapRotate } = props;
       const rowGap = removePx(props.rowGap) ?? removePx(props.gap) ?? 0;
-      const wList = cells.map((cell) => getSlotProp(cell, 'w'));
+      const wList = cells.map(cell => getSlotProp(cell, 'w'));
       const length = wList.length;
       const emptyLength = wList.filter(e => e === undefined).length;
       const usedLength = wList.reduce((a, b) => (a ?? 0) + (b ?? 0)) ?? 0;

@@ -33,7 +33,7 @@
     display: inline-block;
   }
 
-  & .m-slider-max{
+  & .m-slider-max {
     float: right;
   }
 }

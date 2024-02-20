@@ -18,7 +18,7 @@ export interface FunctionWrapperOptions<Args extends any[] = any[], This = any> 
 
 export type EventFilter<Args extends any[] = any[], This = any> = (
   invoke: () => void,
-  options: FunctionWrapperOptions<Args, This>
+  options: FunctionWrapperOptions<Args, This>,
 ) => void;
 
 export interface DebounceFilterOptions {

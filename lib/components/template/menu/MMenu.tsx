@@ -21,15 +21,15 @@ export default defineComponent((_props: MenuProps, { emit }) => {
   const props = _props as Required<MenuProps>;
 
 
-  const { handleToggleExpand, handleToggleChecked, getNodesByKeys, initTreeRef,treeRef } = useMenu({
+  const { handleToggleExpand, handleToggleChecked, getNodesByKeys, initTreeRef, treeRef } = useMenu({
     props: {
       ...props,
       config: {
         expand: 'isActive',
-        ...props.config
-      }
+        ...props.config,
+      },
     },
-    event: { triggerTree: () => {triggerRef(treeRef);} }
+    event: { triggerTree: () => {triggerRef(treeRef);} },
   });
 
   watch(() => props.data, () => {
@@ -64,7 +64,7 @@ export default defineComponent((_props: MenuProps, { emit }) => {
       getNodesByKeys,
       handleExpand,
       handleCheck: handleCheckbox,
-      handleItemClick
+      handleItemClick,
     };
 
 
@@ -81,6 +81,6 @@ export default defineComponent((_props: MenuProps, { emit }) => {
     /* eslint-disable */
     'update:checkedKeys': (keys: TreeNodeData['key'][]) => true,
     /* eslint-disable */
-    'node-click': (node: TreeNodeData, e: MouseEvent) => true
-  }
+    'node-click': (node: TreeNodeData, e: MouseEvent) => true,
+  },
 });

@@ -12,7 +12,7 @@ import { props } from './api.ts';
 import './loading.css';
 import { LoadingProps } from './index';
 
-export default defineComponent((_props:LoadingProps, { slots }) => {
+export default defineComponent((_props: LoadingProps, { slots }) => {
   const props = _props as Required<LoadingProps>;
   const loadingRef = ref<HTMLElement>();
 
@@ -29,5 +29,5 @@ export default defineComponent((_props:LoadingProps, { slots }) => {
   };
 }, {
   name: 'MLoading',
-  props
+  props,
 });

@@ -25,4 +25,4 @@ export declare type RicePaperProps = {
    * @default true
    */
   mountain?: boolean
-}
+};

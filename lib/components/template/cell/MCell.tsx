@@ -17,7 +17,7 @@ import './cell.css';
 export default defineComponent((_props: CellProps, { slots }) => {
   const props = _props as Required<CellProps>;
   const { getSize, cellRef } = useCell({
-    props
+    props,
   });
 
   watch(() => [props.a, props.b, props.c, props.d], () => {
@@ -29,7 +29,7 @@ export default defineComponent((_props: CellProps, { slots }) => {
     'min-width': props.w !== 0 ? `${props.w}px` : undefined,
     'max-width': props.w !== 0 ? `${props.w}px` : undefined,
     'min-height': props.h !== 0 ? `${props.h}px` : undefined,
-    'max-height': props.h !== 0 ? `${props.h}px` : undefined
+    'max-height': props.h !== 0 ? `${props.h}px` : undefined,
   };
 
 
@@ -37,7 +37,7 @@ export default defineComponent((_props: CellProps, { slots }) => {
 
     const { style, styleA, styleB, styleC, styleD } = getSize();
 
-    return <div class={['m-cell']} ref={(el) => {
+    return <div class={['m-cell']} ref={el => {
       cellRef.value = el as HTMLDivElement;
     }} style={{ ...defaultWH, ...props.style }}>
       <div class="m-cell-main" style={{ ...defaultWH, ...style }}>
@@ -51,5 +51,5 @@ export default defineComponent((_props: CellProps, { slots }) => {
   };
 }, {
   name: 'MCell',
-  props
+  props,
 });

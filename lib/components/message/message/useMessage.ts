@@ -15,14 +15,14 @@ export function useMessage<K>() {
     config: MessageConfig,
     type?: MessageTypeEnum,
     duration?: number
-  }
+  };
 
   class InstanceMap {
     map: Map<MessageDirectionType, any> = new Map<MessageDirectionType, any>();
     directionSet: Set<MessageDirectionType> = new Set<MessageDirectionType>();
 
     public getIns<T>(direction: MessageDirectionType, customerGetIns: (direction: MessageDirectionType) => Promise<T> | T) {
-      return new Promise<T>(async (resolve) => {
+      return new Promise<T>(async resolve => {
         if (this.directionSet.has(direction)) {
           setTimeout(() => {
             const ins = this.map.get(direction);
@@ -52,7 +52,7 @@ export function useMessage<K>() {
       type,
       content: '',
       dragAllow: true,
-      dragConfig: { triggerBoundary: 2 }
+      dragConfig: { triggerBoundary: 2 },
     };
     if (typeof options === 'string') {
       messageOptions.content = options;
@@ -69,9 +69,9 @@ export function useMessage<K>() {
       getIns: (direction: MessageDirectionType) => Promise<T> | T,
       nextTick: (
         resolve: (value: K) => void,
-        messageListIns: T
+        messageListIns: T,
       ) => Promise<void>
-    }
+    },
   ) => {
     const { config, type, duration } = options;
     const messageOptions = mergeOption(config, type, duration);
@@ -94,7 +94,7 @@ export function useMessage<K>() {
     getIns: (direction: MessageDirectionType) => Promise<T> | T,
     nextTick: (
       resolve: (value: K) => void,
-      messageListIns: T
+      messageListIns: T,
     ) => Promise<void>
   }, needNew?: boolean) => {
     const callMessage = async (options: MessageOptions) => {
@@ -107,7 +107,7 @@ export function useMessage<K>() {
       (MMessage as IMessage<K>)[messageType as MessageType] = (config: MessageConfig, duration?: number) => callMessage({
         config,
         type: MessageTypeEnum[messageType],
-        duration
+        duration,
       });
     }
 
@@ -122,7 +122,7 @@ export function useMessage<K>() {
   };
 
   return {
-    initMessage
+    initMessage,
   };
 
 }

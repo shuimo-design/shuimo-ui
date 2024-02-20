@@ -20,19 +20,19 @@ export default defineJhConfig({
         output: 'apis',
         replace: '../lib/components',
         active: true,
-      }
+      },
     },
     annotate: {
       vue: {
         type: 'block',
-        onInit: (param) => {
+        onInit: param => {
           if (param.name === 'value') {
             param.name = 'modelValue';
           }
           return param;
-        }
-      }
-    }
+        },
+      },
+    },
   },
   // lint: {
   //   eslint: {

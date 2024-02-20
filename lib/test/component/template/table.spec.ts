@@ -26,7 +26,7 @@ describe('table', function () {
   test('render', () => {
     const wrapper = getWrapper(
       { data: [{ param: 'hi' }] },
-      { default: [h(MTableColumn, { param: 'param', label: 'label' })] }
+      { default: [h(MTableColumn, { param: 'param', label: 'label' })] },
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-table">
@@ -63,11 +63,11 @@ describe('table', function () {
             {
               default: (data: { data: { param: string } }) => {
                 return h('div', {}, `slot数据：${data.data.param}`);
-              }
-            }
-          )
-        ]
-      }
+              },
+            },
+          ),
+        ],
+      },
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-table">
@@ -102,10 +102,10 @@ describe('table', function () {
         default: [
           h(MTableColumn,
             { param: 'param', label: 'label' },
-            { head: () => {return h('div', {}, `head slot`);} }
-          )
-        ]
-      }
+            { head: () => {return h('div', {}, `head slot`);} },
+          ),
+        ],
+      },
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-table">
@@ -136,7 +136,7 @@ describe('table', function () {
   test('slot use data', () => {
     const wrapper = getWrapper(
       {
-        data: [{ slotInfo: 'hi' }, { slotInfo: 'hello' }]
+        data: [{ slotInfo: 'hi' }, { slotInfo: 'hello' }],
       },
       {
         default: [
@@ -144,15 +144,15 @@ describe('table', function () {
             MTableColumn,
             {
               param: 'slotInfo',
-              label: 'label'
+              label: 'label',
             },
             {
               default: (data: { data: any; index: number }) =>
-                h('span', `slot数据：${data.data.slotInfo}, index:${data.index}`)
-            }
-          )
-        ]
-      }
+                h('span', `slot数据：${data.data.slotInfo}, index:${data.index}`),
+            },
+          ),
+        ],
+      },
     );
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-table">
@@ -188,11 +188,11 @@ describe('table', function () {
       setup() {
         const columns = [
           { param: 'id', label: 'id' },
-          { param: 'param', label: 'param' }
+          { param: 'param', label: 'param' },
         ];
         const data = [
           { id: 1, param: '立春' },
-          { id: 2, param: '雨水' }
+          { id: 2, param: '雨水' },
         ];
         return { columns, data };
       },
@@ -200,7 +200,7 @@ describe('table', function () {
         <MTable :data="data">
           <MTableColumn v-for="column in columns" :key="column.param" :param="column.param" :label="column.label"/>
         </MTable>
-      `
+      `,
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-table">
@@ -240,7 +240,7 @@ describe('table', function () {
         <MTable>
           <MTableColumn param="param" label="label"></MTableColumn>
           <!-- <MTableColumn param="id" label="id"></MTableColumn> -->
-        </MTable>`
+        </MTable>`,
     });
     expect(wrapper.html()).not.contains('id');
   });
@@ -276,8 +276,8 @@ describe('table', function () {
         { data: [] },
         {
           default: [h(MTableColumn, { param: 'param', label: 'label' })],
-          empty: [h('div', {}, '无数据slot')]
-        }
+          empty: [h('div', {}, '无数据slot')],
+        },
       );
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class="m-table">
@@ -372,9 +372,9 @@ describe('table', function () {
       mount(MTable, {
         slots: {
           default: [
-            h(MTableColumn, { param: 'param' }, [h('div')])
-          ]
-        }
+            h(MTableColumn, { param: 'param' }, [h('div')]),
+          ],
+        },
       });
       expect(infoSpy).toHaveBeenCalled();
     });

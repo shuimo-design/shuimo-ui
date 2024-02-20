@@ -14,8 +14,8 @@ describe('border', () => {
   test('render', () => {
     const wrapper = mount(MBorder, {
       slots: {
-        default: '<div>test</div>'
-      }
+        default: '<div>test</div>',
+      },
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-border">

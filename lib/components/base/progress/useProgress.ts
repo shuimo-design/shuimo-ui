@@ -8,13 +8,13 @@
  */
 import { ProgressProps } from './index';
 // @ts-ignore  todo fix this
-import leafPng from './assets/leaf.webp'
+import leafPng from './assets/leaf.webp';
 import { isEmpty, notEmpty } from '../../../tools';
 import { Options } from '../../../compositions/common/defineCore.ts';
 
 export const BASE_SIZE = {
   BG: { W: 556, H: 37 },
-  LEAF: { W: 95, H: 109 }
+  LEAF: { W: 95, H: 109 },
 };
 
 const W2H = BASE_SIZE.BG.W / BASE_SIZE.BG.H;
@@ -23,7 +23,7 @@ const LEAF_W2H = BASE_SIZE.LEAF.W / BASE_SIZE.LEAF.H;
 const getSize = (w?: number, h?: number, w2h = W2H) => {
   const size = {
     width: w || BASE_SIZE.BG.W,
-    height: h || BASE_SIZE.BG.H
+    height: h || BASE_SIZE.BG.H,
   };
   if (isEmpty(h) && notEmpty(w)) {
     return { width: w!, height: w! / w2h };
@@ -39,13 +39,12 @@ const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: n
 };
 
 
-
 export const leaf = leafPng;
 
 
 export function useProgress(options: Options<{
   props: ProgressProps,
-}>){
+}>) {
   const { props } = options;
   const getProgressInfo = () => {
     const { width, height } = getSize(props.width, props.height);
@@ -53,36 +52,36 @@ export function useProgress(options: Options<{
     return {
       style: {
         '--m-progress-real-width': `${width}px`,
-        '--m-progress-real-height': `${height}px`
+        '--m-progress-real-height': `${height}px`,
       },
-      width
+      width,
     };
   };
 
-  const getProgressWrapperStyle = ( progressInfo: ReturnType<typeof getProgressInfo>) => {
+  const getProgressWrapperStyle = (progressInfo: ReturnType<typeof getProgressInfo>) => {
     const { width, style } = progressInfo;
     const leafSize = getSize(undefined, props.leafHeight, LEAF_W2H);
     const per = Math.ceil((props.value / props.max) * 100);
     const perWidth = leafSize.width + props.infoWidth;
     const textStyle = {
-      left: `${getTextLeft(width, props.infoWidth, leafSize.width, per)}px`
+      left: `${getTextLeft(width, props.infoWidth, leafSize.width, per)}px`,
     };
 
     const baseStyle = {
       ...style,
       '--m-progress-per-height': `${leafSize.height}px`,
       '--m-progress-per-width': `${perWidth}px`,
-      '--m-progress-leaf-height': `${props.leafHeight}px`
+      '--m-progress-leaf-height': `${props.leafHeight}px`,
     };
 
     return {
-      textStyle,baseStyle
-    }
+      textStyle, baseStyle,
+    };
   };
 
   return {
     getProgressInfo,
-    getProgressWrapperStyle
-  }
+    getProgressWrapperStyle,
+  };
 
 }

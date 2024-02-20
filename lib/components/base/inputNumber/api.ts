@@ -16,5 +16,5 @@ export const props: MCOPO<InputNumberProps> = {
   min: { type: Number, default: -Infinity },
   disabled: { type: Boolean, default: false },
   readonly: { type: Boolean, default: false },
-  precision: { type: Number, default: 0 }
+  precision: { type: Number, default: 0 },
 };

@@ -17,8 +17,8 @@ const toHTMl = async (code: string, lang: BundledLanguage | SpecialLanguage) => 
     lang,
     theme: ShuimoTheme
   });
-  const r2 = nodesList.map((nodes) => {
-    return nodes.map((node) => {
+  const r2 = nodesList.map(nodes => {
+    return nodes.map(node => {
       const content = node.content
         .replaceAll('{', '&#123;')
         .replaceAll('}', '&#125;')

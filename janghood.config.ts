@@ -12,7 +12,9 @@ import { defineJhConfig } from '@janghood/config';
 export default defineJhConfig({
   base: {
     include: ['lib/**/*', 'doc/**/*'],
-    exclude: ['*.webp', '*.png', '*.css', '*.md','*.ico','*.ttf','*.svg','**/dist/**/*'],
+    exclude: [
+      '*.webp', '*.png', '*.css', '*.md','*.ico','*.ttf','*.svg','*.json',
+      '**/dist/**/*','**/coverage/**/*','**/markdownLib/**/*'],
   },
   lint: {
     eslint: true,

@@ -10,5 +10,5 @@ import { MCOPO, MPropType } from '../../types/props';
 import { TagProps } from './index';
 
 export const props: MCOPO<TagProps> = {
-  type: { type: String as MPropType<'default' | 'primary' | 'error' | 'confirm' | 'warning'>, default: 'default' }
+  type: { type: String as MPropType<'default' | 'primary' | 'error' | 'confirm' | 'warning'>, default: 'default' },
 };

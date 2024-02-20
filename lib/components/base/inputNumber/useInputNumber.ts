@@ -15,7 +15,7 @@ export type InputNumber = string | number;
 
 export function useInputNumber(options: Options<{
   props: InputNumberProps,
-  value:{
+  value: {
     currentValueRef: InputNumber
   },
   event: {
@@ -79,7 +79,7 @@ export function useInputNumber(options: Options<{
   return {
     handleInputChange,
     handleInputBlur,
-    validate
+    validate,
   };
 
 }

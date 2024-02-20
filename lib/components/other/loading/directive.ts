@@ -18,7 +18,7 @@ const addLoadingElement = (el: any) => {
 
   const loadingElement = createApp(MLoading, {
     class: 'm-loading-directive m-loading-mask',
-    sideLength: minSide
+    sideLength: minSide,
   }).mount(document.createElement('div'));
   el.classList?.add('m-loading-parent-relative');
   el.appendChild(loadingElement.$el);
@@ -40,5 +40,5 @@ export const loadingDirective: Directive = {
       el.querySelector('.m-loading-directive')?.remove();
       el.classList?.remove('m-loading-parent-relative');
     }
-  }
+  },
 };

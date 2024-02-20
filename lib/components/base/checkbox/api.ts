@@ -15,10 +15,10 @@ export const props: MCOPO<CheckboxProps> = {
   value: { type: null, default: undefined },
   modelValue: { type: null, default: undefined },
   indeterminate: { type: Boolean, default: false },
-  disabled: { type: Boolean, default: false }
+  disabled: { type: Boolean, default: false },
 };
 
 export const checkboxGroupProps: MCOPO<CheckboxGroupProps> = {
   value: { type: Array, default: () => [] },
-  type: { type: String as MPropType<'single' | 'multiple'>, default: 'single' }
+  type: { type: String as MPropType<'single' | 'multiple'>, default: 'single' },
 };

@@ -54,7 +54,7 @@ export type MessageListProps = {
    * @default top-right
    */
   direction?: MessageDirectionType,
-}
+};
 
 export type MessageDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center';
 

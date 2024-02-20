@@ -12,7 +12,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { TreeConfig, TreeNodeData } from "./index";
+import { TreeConfig, TreeNodeData } from './index';
 
 
 export declare type TreeNodeProps = {
@@ -61,4 +61,4 @@ export declare type TreeNodeProps = {
    * @type (node: TreeNodeData, e: MouseEvent) => void
    */
   handleItemClick: (node: TreeNodeData, e: MouseEvent) => void;
-}
+};

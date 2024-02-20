@@ -25,9 +25,8 @@
 }
 
 
-
 html[dark] {
-  --m-rp-bg:black;
+  --m-rp-bg: black;
   --m-rp-light: var(--m-rp-warm);
   --m-rp-hover-bg-i: var(--m-rp-dark);
   --m-rp-hover-opacity: var(--m-rp-dark-opacity);

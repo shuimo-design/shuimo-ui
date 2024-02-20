@@ -11,5 +11,4 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-export declare type DeleteIconProps = {
-};
+export declare type DeleteIconProps = {};

@@ -18,12 +18,12 @@ export declare type FormProps = {
    * @type boolean
    * @default false
    */
-  inline?:boolean,
+  inline?: boolean,
   /**
    * @description form 是否默认发送
    * @type boolean
    * @default false
    */
   submit?: boolean
-}
+};
 

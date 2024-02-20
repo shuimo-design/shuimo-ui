@@ -43,8 +43,6 @@ export default defineComponent((props, { emit, slots }) => {
 
 
   return () => {
-
-
     return <div class="m-checkbox-group">{slots.default?.().map((node, index) => {
       if (!node) {return;}
       if (!node.props) {node.props = {};}
@@ -57,7 +55,7 @@ export default defineComponent((props, { emit, slots }) => {
   name: 'MCheckboxGroup',
   props: {
     ...checkboxGroupProps,
-    modelValue: checkboxGroupProps.value
+    modelValue: checkboxGroupProps.value,
   },
-  emits: ['update:modelValue']
+  emits: ['update:modelValue'],
 });

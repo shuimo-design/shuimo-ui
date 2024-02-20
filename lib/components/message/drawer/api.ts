@@ -15,5 +15,5 @@ export const props: MCOPO<DrawerProps> = {
   visible: { type: Boolean, default: false },
   drawerClass: { type: Array, default: [] },
   closeBtn: { type: Boolean, default: true },
-  teleport: { type: Object, default: { to: 'body' } }
+  teleport: { type: Object, default: { to: 'body' } },
 };

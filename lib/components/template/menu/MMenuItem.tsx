@@ -33,7 +33,7 @@ export default defineComponent((_props: MenuItemProps) => {
     const { label: l, key: k, children: c } = props.config;
 
     return <>{
-      props.data.map((d) => {
+      props.data.map(d => {
         const children = d[c] ?? [];
         const cKeys = children.map((it: TreeChildren) => it[k]);
         const childNodes = props.getNodesByKeys(cKeys);
@@ -57,7 +57,7 @@ export default defineComponent((_props: MenuItemProps) => {
   name: 'MMenuItem',
   props: {
     ...treeNodeProps,
-    root: { type: Boolean, default: false }
+    root: { type: Boolean, default: false },
   },
-  inheritAttrs: false
+  inheritAttrs: false,
 });

@@ -7,11 +7,11 @@
 </template>
 
 <script setup lang="ts">
-import { MPrinter } from "shuimo-ui";
+import { MPrinter } from 'shuimo-ui';
 
 const clickBtn = () => {
   // 这条不会触发
   MPrinter('水墨表单组件').info('点击按钮');
-}
+};
 
 </script>

@@ -12,5 +12,5 @@ import { DarkModeProps } from './index';
 export const props: MCOPO<DarkModeProps> = {
   modelValue: { type: Boolean, default: undefined },
   autoMode: { type: Boolean, default: true },
-  initHandler: { type: Function as  MPropType<() => boolean>, default: undefined },
+  initHandler: { type: Function as MPropType<() => boolean>, default: undefined },
 };

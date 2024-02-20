@@ -1,5 +1,5 @@
 <template>
-  <span>{{visible}}</span>
+  <span>{{ visible }}</span>
   <br/>
   <m-popover v-model:show="visible">
     <m-button text="点击我"/>
@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDialog } from "shuimo-ui";
+import { useDialog } from 'shuimo-ui';
+
 const { visible, closeDialog } = useDialog();
 </script>

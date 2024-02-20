@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { h, VNodeTypes, Teleport } from 'vue';
-import { describe, test, expect } from 'vitest';
+import { h, Teleport, VNodeTypes } from 'vue';
+import { describe, expect, test } from 'vitest';
 import useTeleport, { initTeleportOptions } from '../../compositions/common/useTeleport.ts';
 
 

@@ -28,7 +28,7 @@ export const initBoundary = (options: {
   const nextActiveIndex = Math.ceil((realEnd + renderEnd) / 2);
   return {
     renderFrom, realFrom, realEnd, renderEnd,
-    nextActiveIndex
+    nextActiveIndex,
   };
 };
 
@@ -55,7 +55,7 @@ export function useVirtualList(options: Options<{
 
   const lastItemRef = ref<HTMLElement | null>(null);
   const baseY = 0;
-  const styleRef = ref<any>({ 'transform': `translateY(${baseY}px)` });
+  const styleRef = ref<any>({ transform: `translateY(${baseY}px)` });
 
   /**
    * render info 渲染信息
@@ -65,7 +65,7 @@ export function useVirtualList(options: Options<{
     realFrom: 0,
     realEnd: visibleCount,
     renderEnd: visibleCount,
-    nextActiveIndex: visibleCount
+    nextActiveIndex: visibleCount,
   };
 
 
@@ -89,7 +89,7 @@ export function useVirtualList(options: Options<{
     },
     getTotal: () => total,
     styleRef,
-    reachBottom: options.event?.reachBottom ?? (() => {})
+    reachBottom: options.event?.reachBottom ?? (() => {}),
   });
 
   useContainerObserver({
@@ -97,14 +97,14 @@ export function useVirtualList(options: Options<{
     callback: cb,
     getTarget: () => {
       return containerRef.value?.children?.[0].children?.[0].children ?? [] as unknown as HTMLCollection;
-    }
+    },
   });
 
   return {
     displayList,
     containerRef,
     lastItemRef,
-    styleRef
+    styleRef,
   };
 
 

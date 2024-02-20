@@ -12,7 +12,7 @@ export type EventListenerOptions = {
   target: any,
   event: string,
   handler: EventListenerOrEventListenerObject,
-}
+};
 
 export default function useEventListener(options: EventListenerOptions) {
 
@@ -42,7 +42,7 @@ export default function useEventListener(options: EventListenerOptions) {
   return {
     add, remove,
     onMounted,
-    onBeforeDestroy
+    onBeforeDestroy,
   };
 
 }

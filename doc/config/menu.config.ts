@@ -15,7 +15,7 @@ export const menu: MenuTypeArr = [
       { label: '快速开始', route: 'quickStart', isActive: false },
       { label: '颜色', route: 'color', isActive: false },
       { label: '从wash-painting升级', route: 'w2m', isActive: false },
-    ]
+    ],
   },
 
   {
@@ -30,7 +30,7 @@ export const menu: MenuTypeArr = [
       { label: '开关', route: 'switch', isActive: false },
       { label: '标签', route: 'tag', isActive: false },
       { label: '滑动条', route: 'slider', isActive: false },
-    ]
+    ],
   },
   {
     label: '模版组件', route: 'form', isActive: false, children: [
@@ -39,7 +39,7 @@ export const menu: MenuTypeArr = [
       { label: '分页', route: 'pagination', isActive: false },
       { label: '宣纸布局', route: 'rice-paper', isActive: false },
       { label: '面包屑', route: 'breadcrumb', isActive: false },
-    ]
+    ],
   },
   {
     label: '消息组件', route: 'dialog', isActive: false, children: [
@@ -48,8 +48,8 @@ export const menu: MenuTypeArr = [
       { label: '提示', route: 'message', isActive: false },
       { label: '气泡卡片', route: 'popover', isActive: false },
       { label: '悬浮提示', route: 'tooltip', isActive: false },
-      { label: '确认框', route: 'confirm', isActive: false }
-    ]
+      { label: '确认框', route: 'confirm', isActive: false },
+    ],
   },
   {
     label: '其他组件', route: 'printer', isActive: false, children: [
@@ -59,6 +59,6 @@ export const menu: MenuTypeArr = [
       { label: '边框', route: 'border', isActive: false },
       // { label: '滚动条', route: 'scroll', isActive: false },
       { label: '加载', route: 'loading', isActive: false },
-    ]
-  }
-]
+    ],
+  },
+];

@@ -11,7 +11,7 @@ import MPopover from '../components/message/popover/MPopover.tsx';
 import { PopoverProps } from '../components/message/popover';
 
 
-export default function usePopover(popoverOptions: PopoverProps,className?:string) {
+export default function usePopover(popoverOptions: PopoverProps, className?: string) {
 
   const popoverInstance = ref<VNode | null>(null);
   const popoverRef = ref<typeof MPopover>();
@@ -29,7 +29,7 @@ export default function usePopover(popoverOptions: PopoverProps,className?:strin
   return {
     popoverInstance,
     popoverRef,
-    withPopover
-  }
+    withPopover,
+  };
 
 }

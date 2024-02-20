@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineNuxtModule } from "@nuxt/kit";
+import { defineNuxtModule } from '@nuxt/kit';
 import { fileScanAndFontmin } from '@higuaifan/rollup-plugin-fontmin';
 
 export default defineNuxtModule({
@@ -24,6 +24,6 @@ export default defineNuxtModule({
         ],
       });
     });
-  }
+  },
 
-})
+});

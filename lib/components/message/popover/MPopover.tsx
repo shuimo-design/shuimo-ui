@@ -15,7 +15,7 @@ import './popover.css';
 import { PopoverProps } from './index';
 
 
-export default defineComponent((_props:PopoverProps, { slots, emit, expose }) => {
+export default defineComponent((_props: PopoverProps, { slots, emit, expose }) => {
   const props = _props as Required<PopoverProps>;
 
   if (!slots.content) {
@@ -36,19 +36,17 @@ export default defineComponent((_props:PopoverProps, { slots, emit, expose }) =>
     popoverLeave,
     popoverRef, contentRef, arrowRef,
     popperInstance,
-    style, arrowStyle
-  } = usePopover({
-      props,
-      value: { placement: placementRef }
-    },
+    style, arrowStyle,
+  } = usePopover(
+    { props, value: { placement: placementRef } },
     {
       onShow: () => {
         emit('update:show', true);
       },
       onHide: () => {
         emit('update:show', false);
-      }
-    }
+      },
+    },
   );
 
   const show = async () => {
@@ -92,5 +90,5 @@ export default defineComponent((_props:PopoverProps, { slots, emit, expose }) =>
 }, {
   name: 'MPopover',
   props,
-  emits: ['open:popper', 'close:popper', 'update:show']
+  emits: ['open:popper', 'close:popper', 'update:show'],
 });

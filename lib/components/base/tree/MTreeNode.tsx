@@ -19,12 +19,12 @@ export default defineComponent((_props: TreeNodeProps, { attrs }) => {
     const MTreeNode = resolveComponent('MTreeNode');
     return <>
       {
-        props.data.map((d) => {
+        props.data.map(d => {
           const children = d[c] ?? [];
           const cKeys = children.map((it: TreeChildren) => it[k]);
           const childNodes = props.getNodesByKeys(cKeys);
           const icon = childNodes.length > 0 ? <span class={{ 'm-tree-icon': true, 'm-tree-icon__expand': d.expand }}
-                                                     onClick={(e) => props.handleExpand(d, e)}></span> : null;
+                                                     onClick={e => props.handleExpand(d, e)}></span> : null;
 
           const checkbox = props.checkbox ?
             // @ts-ignore todo fix this type
@@ -32,13 +32,13 @@ export default defineComponent((_props: TreeNodeProps, { attrs }) => {
                        modelValue={d.checked}
                        onChange={(checked: boolean) => props.handleCheck(d, checked)}>
               <slot name="default">
-                  <span class="m-tree-default-label"
-                        onClick={(e: MouseEvent) => props.handleItemClick(d, e)}>{d[l]}</span>
-              </slot>
-            </MCheckbox>
-            : <slot name="default" {...{ node: d }}>
                 <span class="m-tree-default-label"
                       onClick={(e: MouseEvent) => props.handleItemClick(d, e)}>{d[l]}</span>
+              </slot>
+            </MCheckbox> :
+            <slot name="default" {...{ node: d }}>
+              <span class="m-tree-default-label"
+                    onClick={(e: MouseEvent) => props.handleItemClick(d, e)}>{d[l]}</span>
             </slot>;
 
 
@@ -57,5 +57,5 @@ export default defineComponent((_props: TreeNodeProps, { attrs }) => {
 }, {
   name: 'MTreeNode',
   props: treeNodeProps,
-  inheritAttrs: false
+  inheritAttrs: false,
 });

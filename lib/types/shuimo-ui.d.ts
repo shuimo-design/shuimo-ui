@@ -54,7 +54,7 @@ export type MUIOption = {
    * and svg has id, so you must keep MSvgWrapper component unique.
    */
   svgInject?: 'auto' | 'wrapper' | 'nuxt'
-}
+};
 
 
 export function createMUI(options?: MUIOption): ShuimoUI;
@@ -70,5 +70,5 @@ export type MenuType<T = any> = {
   isActive: boolean,
   index?: number[],
   children?: MenuTypeArr
-}
+};
 export type MenuTypeArr<T = any> = Array<MenuType<T>>;

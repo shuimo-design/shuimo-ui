@@ -18,16 +18,15 @@ import { ButtonProps } from './index';
 import './button.css';
 
 export default defineComponent((props: ButtonProps, { slots }) => {
-    return () => {
-      const domType = props.link ? 'a' : 'button';
-      const slot = slots.default?.() ?? props.text;
-      return h(domType, {
-        class: ['m-button', { 'm-button-disabled': props.disabled }, `m-button-${props.type}`],
-        disabled: props.disabled
-      }, slot);
-    };
-  }
-  , {
-    name: 'MButton',
-    props
-  });
+  return () => {
+    const domType = props.link ? 'a' : 'button';
+    const slot = slots.default?.() ?? props.text;
+    return h(domType, {
+      class: ['m-button', { 'm-button-disabled': props.disabled }, `m-button-${props.type}`],
+      disabled: props.disabled,
+    }, slot);
+  };
+}, {
+  name: 'MButton',
+  props,
+});

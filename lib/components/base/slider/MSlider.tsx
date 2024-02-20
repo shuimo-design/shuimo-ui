@@ -21,7 +21,7 @@ export default defineComponent((props: SliderProps, { emit }) => {
 
   const runwayStyle = computed(() => {
     return {
-      width: `${perRef.value * 100}%`
+      width: `${perRef.value * 100}%`,
     };
   });
 
@@ -35,8 +35,8 @@ export default defineComponent((props: SliderProps, { emit }) => {
     event: {
       change: value => {
         emit('update:modelValue', value);
-      }
-    }
+      },
+    },
   });
 
 
@@ -54,12 +54,12 @@ export default defineComponent((props: SliderProps, { emit }) => {
       {props.showInfo ? getInfo() : undefined}
       <div class="m-slider-wrapper" ref={el => sliderRef.value = el as HTMLDivElement}>
         <div class="m-slider-runway" style={runwayStyle.value}/>
-        <div class="m-slider-button" ref={el => btnRef.value = el  as HTMLDivElement}></div>
+        <div class="m-slider-button" ref={el => btnRef.value = el as HTMLDivElement}></div>
       </div>
     </div>;
   };
 }, {
   name: 'MSlider',
   props,
-  emits: ['update:modelValue']
+  emits: ['update:modelValue'],
 });

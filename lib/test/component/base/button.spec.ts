@@ -11,7 +11,7 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { MButton } from '../../../index.ts';
 
 describe('button', () => {
@@ -24,8 +24,8 @@ describe('button', () => {
     test('base text', () => {
       const wrapper = mount(MButton, {
         props: {
-          text: 'test'
-        }
+          text: 'test',
+        },
       });
       expect(wrapper.text()).toMatchInlineSnapshot('"test"');
     });
@@ -33,8 +33,8 @@ describe('button', () => {
     test('slot text', () => {
       const wrapper = mount(MButton, {
         slots: {
-          default: 'slot info'
-        }
+          default: 'slot info',
+        },
       });
       expect(wrapper.text()).toMatchInlineSnapshot('"slot info"');
     });
@@ -43,8 +43,8 @@ describe('button', () => {
   test('type', () => {
     const wrapper = mount(MButton, {
       props: {
-        type: 'primary'
-      }
+        type: 'primary',
+      },
     });
     expect(wrapper.html()).toContain('m-button-primary');
   });
@@ -52,15 +52,15 @@ describe('button', () => {
   test('disabled', () => {
     const wrapper = mount(MButton, {
       props: {
-        disabled: true
-      }
+        disabled: true,
+      },
     });
     expect(wrapper.get('button').element.disabled).toBe(true);
   });
 
   test('a', () => {
     const wrapper = mount(MButton, {
-      props: { link: true }
+      props: { link: true },
     });
     expect(wrapper.html()).toContain('<a');
   });

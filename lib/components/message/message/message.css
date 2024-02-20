@@ -8,18 +8,22 @@
   left: 50%;
   transform: translateX(-50%) translateY(0%);
 }
+
 .m-message-list-top-right {
   top: 0;
   right: 0;
 }
+
 .m-message-list-top-left {
   top: 0;
   left: 0;
 }
+
 .m-message-list-bottom-right {
   bottom: 0;
   right: 0;
 }
+
 .m-message-list-bottom-left {
   bottom: 0;
   left: 0;
@@ -50,6 +54,6 @@
   }
 }
 
-.m-message-remove{
+.m-message-remove {
   opacity: 0.3;
 }

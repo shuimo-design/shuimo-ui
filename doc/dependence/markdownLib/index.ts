@@ -5,7 +5,6 @@ import { resolveOptions } from './options';
 import type { Options } from './types';
 import demo from './demo';
 import api from './api';
-import path from 'path';
 
 export const VitePluginMarkdown = async (userOptions: Options = {}): Promise<Plugin> => {
   const options = resolveOptions(userOptions);

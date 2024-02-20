@@ -12,6 +12,6 @@ import { createMUI } from 'shuimo-ui';
 export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.use(createMUI({
     disableWebComponent: ['MBorder', 'MRicePaper'],
-    svgInject: 'nuxt'
+    svgInject: 'nuxt',
   }));
 });

@@ -38,7 +38,7 @@ export const props: MCOPO<TooltipProps> = {
   hover: { type: Boolean, default: false },
   content: { type: String, default: '' },
   popper: {
-    type: Object, default: () => ({})
+    type: Object, default: () => ({}),
   },
-  teleport: { type: [Object, Boolean], default: undefined }
+  teleport: { type: [Object, Boolean], default: undefined },
 };

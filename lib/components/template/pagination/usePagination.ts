@@ -8,7 +8,7 @@
  */
 import { PaginationProps } from './index';
 import { Options } from '../../../compositions/common/defineCore.ts';
-import { Ref, ref } from 'vue';
+import { ref } from 'vue';
 
 
 /**
@@ -29,7 +29,7 @@ export type Pager = {
   type: 'folded',
   isCurrent: false,
   jump: number
-}
+};
 
 export function usePagination(
   options: Options<{
@@ -37,10 +37,10 @@ export function usePagination(
     value: {
       currentValue: number
     }
-  }>
+  }>,
 ) {
 
-  const {  value } = options;
+  const { value } = options;
 
   const currentValueRef = ref(value.currentValue);
 
@@ -55,7 +55,7 @@ export function usePagination(
       value,
       type: config?.type ?? 'number',
       isCurrent: currentValueRef.value === value,
-      jump: config?.jump ?? value
+      jump: config?.jump ?? value,
     } as Pager;
   };
 
@@ -68,12 +68,13 @@ export function usePagination(
     const {
       total, pageSize,
       foldedMaxPageBtn, maxPageBtn,
-      showEdgePageNum
+      showEdgePageNum,
     } = options.props;
 
     if (total <= pageSize) {
       return [toPager(1)];
     }
+    // eslint-disable-next-line @stylistic/no-mixed-operators
     if (!maxPageBtn || getPageBtnLength() <= maxPageBtn || foldedMaxPageBtn && foldedMaxPageBtn >= pageBtnLength - 1) {
       return getPageNumListRange(1, pageBtnLength);
     }
@@ -81,7 +82,7 @@ export function usePagination(
 
     const edgeConfig = {
       length: showEdgePageNum ? 1 : 0,
-      rightStartSub: showEdgePageNum ? 0 : 1
+      rightStartSub: showEdgePageNum ? 0 : 1,
     };
     // remove edge page num
     const btnNumWithoutEdge = foldedMaxPageBtnOdd - (showEdgePageNum ? 2 : 0);
@@ -95,7 +96,7 @@ export function usePagination(
       const numLength = foldedMaxPageBtnOdd - edgeConfig.length;
       const res: Pager[] = [
         ...getPageNumListRange(1, numLength),
-        toFoldedPager(1 + numLength)
+        toFoldedPager(1 + numLength),
       ];
       if (showEdgePageNum) {
         res.push(toPager(pageBtnLength));
@@ -137,7 +138,7 @@ export function usePagination(
 
   return {
     getPageNumList,
-    getPageBtnLength
+    getPageBtnLength,
   };
 
 }

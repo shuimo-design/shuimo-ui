@@ -12,11 +12,11 @@ import { usePagination } from './usePagination.ts';
 import './pagination.css';
 import { PaginationProps } from './index';
 
-export default defineComponent((_props:PaginationProps, { emit }) => {
+export default defineComponent((_props: PaginationProps, { emit }) => {
   const props = _props as Required<PaginationProps>;
 
   const currentValueRef = ref(props.modelValue ?? 1);
-  watch(() => props.modelValue, (val) => {
+  watch(() => props.modelValue, val => {
     currentValueRef.value = val;
   });
 
@@ -52,7 +52,7 @@ export default defineComponent((_props:PaginationProps, { emit }) => {
                     onClick={() => changePage(page.jump!)}>{page.value}</div>;
       }),
       next: () => <div class={['m-page-next', { 'm-page-next-disabled': currentValueRef.value === getPageBtnLength() }]}
-                       onClick={() => toNext()}/>
+                       onClick={() => toNext()}/>,
 
     };
 
@@ -64,5 +64,5 @@ export default defineComponent((_props:PaginationProps, { emit }) => {
 }, {
   name: 'MPagination',
   props,
-  emits: ['update:modelValue', 'change']
+  emits: ['update:modelValue', 'change'],
 });

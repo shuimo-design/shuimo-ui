@@ -10,7 +10,7 @@ import { RicePaperProps } from './index';
 import { MCOPO, MPropType } from '../../types/props';
 
 
-export const props :MCOPO<RicePaperProps>= {
+export const props: MCOPO<RicePaperProps> = {
   type: { type: String as MPropType<'cold' | 'warm' | 'default'>, default: 'default' },
   mountain: { type: Boolean, default: true },
-}
+};

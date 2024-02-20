@@ -3,12 +3,12 @@
 </template>
 
 <script setup lang="ts">
-import { MMessage } from "shuimo-ui";
+import { MMessage } from 'shuimo-ui';
 
 const callMessage = () => {
   MMessage({
-    content: "这是一条消息",
-    direction: "top-center",
+    content: '这是一条消息',
+    direction: 'top-center',
     dragAllow: true,
     dragConfig: {
       triggerBoandary: 2,

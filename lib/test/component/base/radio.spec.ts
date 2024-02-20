@@ -7,16 +7,16 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { MRadio } from '../../../index.ts';
 import { mount } from '@vue/test-utils';
 
 describe('radio', () => {
 
-  test('base render',()=>{
+  test('base render', () => {
     const wrapper = mount(MRadio);
     expect(wrapper.html()).toContain('m-radio');
-  })
+  });
 
 
   test('render radio', () => {
@@ -26,8 +26,8 @@ describe('radio', () => {
     const wrapperWithValue = mount(MRadio, {
       props: {
         modelValue: 'labelValue',
-        label: 'labelValue'
-      }
+        label: 'labelValue',
+      },
     });
 
     expect(wrapperWithValue.find('label').html()).toContain('<input type="radio');
@@ -40,8 +40,8 @@ describe('radio', () => {
       props: {
         modelValue: '',
         value: 'labelValue',
-        label: 'labelValue'
-      }
+        label: 'labelValue',
+      },
     });
     await wrapper.find('input').trigger('click');
     expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['labelValue']);
@@ -51,12 +51,11 @@ describe('radio', () => {
   test('slot', () => {
     const wrapper = mount(MRadio, {
       slots: {
-        default: 'test slot'
-      }
+        default: 'test slot',
+      },
     });
     expect(wrapper.find('label').html()).toContain('test slot');
   });
-
 
 
   // test.skip('修改选项', async () => {

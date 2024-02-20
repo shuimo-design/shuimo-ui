@@ -30,9 +30,8 @@ export declare type DarkModeProps = {
    * @type function
    */
   initHandler?: () => boolean;
-
-}
+};
 
 export declare type DarkModeEvents = {
   onClick?: (e: MouseEvent) => void
-}
+};

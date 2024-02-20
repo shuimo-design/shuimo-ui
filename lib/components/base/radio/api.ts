@@ -15,5 +15,5 @@ export const props: MCOPO<RadioProps> = {
   name: { type: String, default: undefined },
   checked: { type: Boolean, default: undefined },
   value: { type: [String, Number], default: '' },
-  modelValue: { type: null, default: '' }
+  modelValue: { type: null, default: '' },
 };

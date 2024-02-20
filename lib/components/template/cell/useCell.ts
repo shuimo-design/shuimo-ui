@@ -30,7 +30,7 @@ export function useCell(options: Options<{
 
   const getSize = (_props = props) => {
     const res = useQuadrilateral({
-      w: w.value, h: h.value, options: _props
+      w: w.value, h: h.value, options: _props,
     });
 
     if (res) {
@@ -39,39 +39,39 @@ export function useCell(options: Options<{
         top: `${A.y - BH}px`,
         left: `${A.x}px`,
         width: `${A.length}px`,
-        transform: A.deg ? `rotate(${A.deg}deg)` : undefined
+        transform: A.deg ? `rotate(${A.deg}deg)` : undefined,
       };
       const styleB = {
         top: `${B.y - BH / 2}px`,
         right: `${w.value - B.x - BW / 2}px`,
         height: `${B.length}px`,
-        transform: B.deg ? `rotate(${B.deg}deg)` : undefined
+        transform: B.deg ? `rotate(${B.deg}deg)` : undefined,
       };
       const styleC = {
         bottom: `${h.value - C.y - BH}px`,
         right: `${w.value - C.x}px`,
         width: `${C.length}px`,
-        transform: C.deg ? `rotate(${C.deg}deg)` : undefined
+        transform: C.deg ? `rotate(${C.deg}deg)` : undefined,
       };
       const styleD = {
         bottom: `${h.value - D.y}px`,
         left: `${D.x - BW}px`,
         height: `${D.length}px`,
-        transform: D.deg ? `rotate(${D.deg}deg)` : undefined
+        transform: D.deg ? `rotate(${D.deg}deg)` : undefined,
       };
       const style = {
-        'clip-path': path
+        'clip-path': path,
       };
       return {
-        style, styleA, styleB, styleC, styleD
+        style, styleA, styleB, styleC, styleD,
       };
     } else {
       console.log(res);
     }
-    return {}
+    return {};
   };
 
 
-  return { getSize, cellRef, };
+  return { getSize, cellRef };
 
 }

@@ -36,6 +36,6 @@ export function useList<T>() {
 
   return {
     baseRender,
-    dataValidate
+    dataValidate,
   };
 }

@@ -12,10 +12,10 @@ import { FormItemProps } from './formItem';
 
 export const props: MCOPO<FormProps> = {
   inline: { type: Boolean, default: false },
-  submit: { type: Boolean, default: false }
+  submit: { type: Boolean, default: false },
 };
 
 export const formItemProps: MCOPO<FormItemProps> = {
   label: { type: String, default: '' },
-  prop: { type: String, default: '' }
+  prop: { type: String, default: '' },
 };

@@ -30,7 +30,7 @@ export default defineComponent((_props: InputNumberProps, { emit }) => {
     },
   });
 
-  watch(() => props.modelValue, (val) => {
+  watch(() => props.modelValue, val => {
     validate(val);
   });
 

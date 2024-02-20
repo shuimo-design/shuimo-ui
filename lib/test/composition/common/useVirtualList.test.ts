@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { test, describe } from 'vitest';
+import { describe, test } from 'vitest';
 import { initBoundary } from '../../../components/template/virtualList/useVirtualList.ts';
 
 describe('useVirtualList', () => {
@@ -21,7 +21,7 @@ describe('useVirtualList', () => {
         from: 0,
         total,
         visibleCount: 8,
-        overScanCoefficient: 1
+        overScanCoefficient: 1,
       });
       console.log(res);
     });
@@ -31,7 +31,7 @@ describe('useVirtualList', () => {
         from: 10,
         total,
         visibleCount: 8,
-        overScanCoefficient: 1
+        overScanCoefficient: 1,
       });
       console.log(res);
     });
@@ -41,7 +41,7 @@ describe('useVirtualList', () => {
         from: 20,
         total,
         visibleCount: 8,
-        overScanCoefficient: 1
+        overScanCoefficient: 1,
       });
       console.log(res);
     });

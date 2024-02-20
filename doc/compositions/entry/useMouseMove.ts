@@ -39,9 +39,9 @@ export const getStyleNumber = (elt: Element, type: keyof CSSStyleDeclaration) =>
 const calNumber = (d: number) => Math.log1p(d);
 
 type DomInfoType = {
-  dom: HTMLElement,
-  height: number,
-  width: number
+  dom: HTMLElement;
+  height: number;
+  width: number;
 };
 
 
@@ -77,7 +77,7 @@ export default function useMouseMove(elementId: string, offset = 1) {
         return {
           dom: d,
           height: getStyleNumber(d, 'height'),
-          width: getStyleNumber(d, 'width')
+          width: getStyleNumber(d, 'width'),
         };
       });
     }
@@ -90,6 +90,6 @@ export default function useMouseMove(elementId: string, offset = 1) {
   });
 
   return {
-    init
+    init,
   };
 }

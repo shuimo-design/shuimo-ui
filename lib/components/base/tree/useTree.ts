@@ -17,7 +17,7 @@ export const useTree = (options: Options<{
       data: fixKey(deepClone(data), props.config.key),
       config: props.config,
       defaultExpandAll: props.defaultExpandAll,
-      checkStrictly: props.checkStrictly
+      checkStrictly: props.checkStrictly,
     });
   };
   initTreeRef();
@@ -41,7 +41,7 @@ export const useTree = (options: Options<{
     getNodesByKeys,
     handleToggleExpand,
     handleToggleChecked,
-    initTreeRef
+    initTreeRef,
   };
 };
 

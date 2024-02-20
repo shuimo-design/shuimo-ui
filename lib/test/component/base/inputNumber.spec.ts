@@ -20,14 +20,14 @@ describe('数字输入组件', () => {
   // 测试用例
   test.skip('传递默认值', () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: '' }
+      props: { modelValue: '' },
     });
     expect(wrapper.element.querySelector('input')!.value).toBe('');
   });
 
   test('修改默认值', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5 }
+      props: { modelValue: 5 },
     });
     await wrapper.setProps({ modelValue: 8 });
     expect(wrapper.element.querySelector('input')!.value).toBe('8');
@@ -35,7 +35,7 @@ describe('数字输入组件', () => {
 
   test('设置最大值', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 11, max: 10 }
+      props: { modelValue: 11, max: 10 },
     });
 
     await wrapper.find('input').setValue(11);
@@ -45,7 +45,7 @@ describe('数字输入组件', () => {
 
   test('设置最小值', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5, min: 4 }
+      props: { modelValue: 5, min: 4 },
     });
 
     await wrapper.find('input').setValue(4);
@@ -55,7 +55,7 @@ describe('数字输入组件', () => {
 
   test('保留2位小数', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5.545, precision: 2 }
+      props: { modelValue: 5.545, precision: 2 },
     });
 
     await wrapper.find('input').setValue(5.545);
@@ -64,10 +64,9 @@ describe('数字输入组件', () => {
   });
 
 
-
   test('输入负值', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5, precision: 2 }
+      props: { modelValue: 5, precision: 2 },
     });
     await wrapper.find('input').setValue(-12);
     expect(wrapper.element.querySelector('input')!.value).toBe('-12');
@@ -75,7 +74,7 @@ describe('数字输入组件', () => {
 
   test('输入小数开头的值', async () => {
     const wrapper = mount(MInputNumber, {
-      props: { modelValue: 5, precision: 2 }
+      props: { modelValue: 5, precision: 2 },
     });
     await wrapper.find('input').setValue('.1');
     expect(wrapper.element.querySelector('input')!.value).toBe('0.1');

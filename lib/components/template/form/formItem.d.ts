@@ -26,5 +26,5 @@ export declare type FormItemProps = {
    * @type string
    */
   prop?: string
-}
+};
 

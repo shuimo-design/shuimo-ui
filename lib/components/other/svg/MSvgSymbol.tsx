@@ -9,10 +9,10 @@
  * provide every symbol svg icon to the global
  */
 
-import { defineComponent } from "vue"
+import { defineComponent } from 'vue';
 
 export const SVG_ID = 'm-shuimo-svg-icon';
-export default defineComponent(()=> {
+export default defineComponent(() => {
   return () => <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id={SVG_ID}>
       <g class="m-svg-icon">
@@ -33,7 +33,7 @@ export default defineComponent(()=> {
         <path d="m20.74,28.02c-.1-.02-.2-.03-.3-.06,0,0,0-.08,0-.13.1.01.2.02.3.03,0,.05-.01.1-.02.15Z"/>
       </g>
     </symbol>
-  </svg>
-},{
-  name:'MSvgSymbol'
-})
+  </svg>;
+}, {
+  name: 'MSvgSymbol',
+});

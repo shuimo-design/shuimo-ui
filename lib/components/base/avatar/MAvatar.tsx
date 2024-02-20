@@ -10,7 +10,7 @@ import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import './avatar.css';
 
-export default defineComponent((props) => {
+export default defineComponent(props => {
   return () => {
     return <div class={['m-avatar', `m-avatar-${props.variant}`, `m-avatar-${props.size}`]}>
       <img src={props.img} alt=""/>
@@ -19,5 +19,5 @@ export default defineComponent((props) => {
   };
 }, {
   name: 'MAvatar',
-  props
+  props,
 });

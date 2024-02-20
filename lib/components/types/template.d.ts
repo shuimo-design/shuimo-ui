@@ -18,7 +18,7 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
 type MVNodeRenderParams = {
   if?: boolean,
   show?: boolean,
-}
+};
 
 interface ElementEventListener {
   (event: HTMLElementEvent<any>): void;
@@ -28,7 +28,7 @@ export type MNodeProps = Record<string, WithArray<string | number | boolean> | E
 
 export declare type MNodeSlot = MVNodeRenderParams & {
   props?: MNodeProps,
-}
+};
 
 export declare type MNodeTemplate = {
   type: string,
@@ -37,7 +37,7 @@ export declare type MNodeTemplate = {
   slots?: Map<string, MNodeSlot>,
   innerText?: string[],
   initProps?: (templateProps: MCOPO<any>, props: MNodeProps, filter?: string[]) => void,
-} & MVNodeRenderParams
+} & MVNodeRenderParams;
 
 
 export declare type MVNode = {
@@ -47,13 +47,13 @@ export declare type MVNode = {
   props?: MNodeTemplate['props'],
   children?: Record<string, MVNode>,
   slots?: MNodeTemplate['slots']
-}
+};
 
 export declare type CustomElementParams = {
   name: string,
   style?: string,
   template?: MNodeTemplate,
   props?: MCOPO<any>
-}
+};
 
 export declare type WCSetup<T = any> = (slot?: HTMLSlotElement) => (props: Readonly<T>, ctx: SetupContext) => RenderFunction;

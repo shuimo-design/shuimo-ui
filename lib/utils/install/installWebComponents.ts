@@ -12,7 +12,6 @@ import MWCBorder from '../../components/template/border/MWCBorder.tsx';
 import MWCRicePaper from '../../components/template/ricePaper/MWCRicePaper.tsx';
 
 
-
 export const installWebComponents = (app: App, options: MUIOption | undefined) => {
   // todo support nuxt
   const { disableWebComponent } = options ?? {};
@@ -23,13 +22,14 @@ export const installWebComponents = (app: App, options: MUIOption | undefined) =
 
   if (disableWebComponent && Array.isArray(disableWebComponent) && disableWebComponent.length > 0) {
     // remove useWebComponent key in disableWebComponent
-    disableWebComponent.forEach((item) => {
+    disableWebComponent.forEach(item => {
       useWebComponent.delete(item);
     });
   }
 
   if (useWebComponent.size > 0) {
     Array.from(useWebComponent).forEach(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       ([_, value]) => {
         customElements.define(value.key, value.component);
       });
@@ -37,7 +37,7 @@ export const installWebComponents = (app: App, options: MUIOption | undefined) =
 
   return {
     app,
-    useWebComponent
+    useWebComponent,
   };
 
 };

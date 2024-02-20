@@ -10,10 +10,10 @@ import { SwitchProps } from './index';
 
 export const switchIsBoolean = (value: SwitchProps['modelValue']) => {
   return typeof value === 'boolean';
-}
+};
 
 export const getIsActive = (value: SwitchProps['modelValue'], activeValue: SwitchProps['activeValue']) => {
   return value === activeValue;
-}
+};
 
 

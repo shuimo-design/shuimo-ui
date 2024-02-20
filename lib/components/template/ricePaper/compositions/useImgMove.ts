@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from 'vue';
 import type { Ref } from 'vue';
+import { ref } from 'vue';
 
 
 const setTransform = (el: Ref<HTMLElement | undefined>, value: string) => {
@@ -41,6 +41,6 @@ export default function useImgMove(position: 'left' | 'right' = 'left') {
 
   return {
     baseRef, midRef, frontRef, front2Ref,
-    onMove
+    onMove,
   };
 }

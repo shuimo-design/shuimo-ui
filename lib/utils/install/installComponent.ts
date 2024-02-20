@@ -33,7 +33,7 @@ export const installComponent = (
       }
       if (excludes) {
         installComponentsKey = installComponentsKey.filter(
-          (item) => !excludes.includes(item),
+          item => !excludes.includes(item),
         );
       }
     }

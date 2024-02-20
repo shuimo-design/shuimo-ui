@@ -52,13 +52,13 @@ export declare type CheckboxProps = {
    * @default false
    */
   disabled?: boolean
-}
+};
 
 
 export declare type CheckboxEvents = {
   onChange?: (e: HTMLElementEvent<HTMLInputElement>) => void,
   onInput?: (value: any) => void
-}
+};
 
 export declare type CheckboxGroupProps = {
   /**
@@ -74,4 +74,4 @@ export declare type CheckboxGroupProps = {
    * @enum 'single' | 'multiple'
    */
   type?: 'single' | 'multiple'
-}
+};

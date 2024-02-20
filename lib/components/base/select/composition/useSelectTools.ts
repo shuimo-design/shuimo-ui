@@ -13,7 +13,7 @@ export type IsSelectOption<T> = {
 
 export default function useSelectTools<T>(props: SelectProps) {
 
-  type SelectOption = IsSelectOption<T>
+  type SelectOption = IsSelectOption<T>;
 
   const getInfoWithKey = (option: T, key: 'optionParam' | 'valueParam' | 'inputParam') => {
     if (!props[key]) {
@@ -41,6 +41,6 @@ export default function useSelectTools<T>(props: SelectProps) {
 
 
   return {
-    getInfoWithKey, getInputValue, getOptionValue, getModelValue, selectFilter
+    getInfoWithKey, getInputValue, getOptionValue, getModelValue, selectFilter,
   };
 }

@@ -22,5 +22,5 @@ export default defineComponent((props, { slots }) => {
   };
 }, {
   name: 'MFormItem',
-  props: formItemProps
+  props: formItemProps,
 });

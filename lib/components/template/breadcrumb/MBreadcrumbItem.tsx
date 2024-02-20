@@ -30,14 +30,14 @@ export default defineComponent((props, { slots }) => {
   return () => {
     return (
       <div class="m-breadcrumb-item">
-          <span class="m-breadcrumb-separator-wrapper">
-            {separatorContent}
-          </span>
+        <span class="m-breadcrumb-separator-wrapper">
+          {separatorContent}
+        </span>
         {slots.default?.() || props.content}
       </div>
     );
   };
 }, {
   name: 'MBreadcrumbItem',
-  props: breadcrumbItemProps
+  props: breadcrumbItemProps,
 });
