@@ -10,11 +10,10 @@ import path from 'path';
 import lightningcss from 'vite-plugin-lightningcss';
 import vue from '@vitejs/plugin-vue';
 import vueJSX from '@vitejs/plugin-vue-jsx';
-import { type UserConfig } from 'vite';
+import { normalizePath, type UserConfig } from 'vite';
 
-// windows sep error?
-export const outputRoot = path.resolve(__dirname, '../../../lib/dist');
-export const baseRoot = path.resolve(__dirname, '../../../lib');
+export const outputRoot = normalizePath(path.resolve(__dirname, '../../../lib/dist'));
+export const baseRoot = normalizePath(path.resolve(__dirname, '../../../lib'));
 export const getPath = (url: string) => {
   const p = path.resolve(__dirname, `../../../lib/${url}`);
   return p;
