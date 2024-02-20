@@ -46,7 +46,7 @@ export declare type RadioProps = {
    * @default ''
    */
   modelValue?: any,
-}
+};
 
 export declare type RadioEvents = {
   onClick?: (e: MouseEvent, value?: string | number) => void

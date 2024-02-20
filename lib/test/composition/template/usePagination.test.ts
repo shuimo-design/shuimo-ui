@@ -28,8 +28,8 @@ describe('pagination hook', function () {
 
   const getPagination = (props: PaginationProps, value?: { currentValue?: Ref<number> }) => {
     return usePagination({
-      props:{ ...baseProps, ...props },
-      value: { currentValue:ref(1), ...value }
+      props: { ...baseProps, ...props },
+      value: { currentValue: ref(1), ...value },
     });
   };
 

@@ -26,11 +26,11 @@ describe('cell', () => {
   const getWrapper = (props?: CellProps) => {
     return mount(MCell, {
       props: {
-        ...props
+        ...props,
       },
       slots: {
-        default: '<div>test</div>'
-      }
+        default: '<div>test</div>',
+      },
     });
   };
 

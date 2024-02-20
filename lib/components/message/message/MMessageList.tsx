@@ -13,29 +13,29 @@ import useTeleport from '../../../compositions/common/useTeleport.ts';
 import { useMessageList } from './useMessageList.ts';
 
 
-export default defineComponent( (props, { expose }) => {
+export default defineComponent((props, { expose }) => {
 
-    const domList = ref<Array<Component<typeof MMessageItem>>>([]);
+  const domList = ref<Array<Component<typeof MMessageItem>>>([]);
 
-    const { baseClass, add, remove, messageListRef } = useMessageList({
-      props
+  const { baseClass, add, remove, messageListRef } = useMessageList({
+    props,
+  });
+
+  expose({ add, messageListRef, domList });
+
+  return () => {
+    if (!messageListRef.value.length) return;
+
+    const messages = messageListRef.value.map((item, index) =>
+      <MMessageItem
+        ref={ref => {if (ref) {domList.value.push(ref as Component<typeof MMessageItem>);}}}
+        key={item.id} {...item} onCloseDuration={() => remove(index)}/>);
+
+    return useTeleport({
+      slot: <div class={baseClass}>{messages}</div>,
     });
-
-    expose({ add, messageListRef, domList });
-
-    return () => {
-      if (!messageListRef.value.length) return;
-
-      const messages = messageListRef.value.map((item, index) =>
-        <MMessageItem
-          ref={ref => {if (ref) {domList.value.push(ref as Component<typeof MMessageItem>);}}}
-          key={item.id} {...item} onCloseDuration={() => remove(index)}/>);
-
-      return useTeleport({
-        slot: <div class={baseClass}>{messages}</div>
-      });
-    };
-  },{
+  };
+}, {
   name: 'MMessageList',
   props: listProps,
 });

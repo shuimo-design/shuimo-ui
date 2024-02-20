@@ -9,7 +9,7 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 
-import { beforeEach, describe, expect, test, beforeAll, vi ,afterEach} from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from 'vitest';
 import { mount, VueWrapper } from '@vue/test-utils';
 import { ComponentPublicInstance } from 'vue';
 import { MDatePicker } from '../../../index.ts';
@@ -33,8 +33,8 @@ describe('datePicker', () => {
   test.skip('month type', () => {
     const wrapper = mount(MDatePicker, {
       props: {
-        type: 'month'
-      }
+        type: 'month',
+      },
     });
     expect(wrapper.html()).toContain('m-date-picker');
     wrapper.unmount();
@@ -56,13 +56,13 @@ describe('with event', () => {
   const day = 4;
   beforeEach(() => {
     wrapper = mount(MDatePicker, {
-      props: { modelValue: `${year}-0${month}-0${day}` }
+      props: { modelValue: `${year}-0${month}-0${day}` },
     });
   });
 
   afterEach(() => {
     wrapper.unmount();
-  })
+  });
 
   const showOptions = async (wrapper: VueWrapper) => {
     vi.useFakeTimers();
@@ -71,7 +71,7 @@ describe('with event', () => {
   };
 
   test('click show calendar', async () => {
-    expect(wrapper.findAll('.m-date-picker-calendar').length).toBe(0)
+    expect(wrapper.findAll('.m-date-picker-calendar').length).toBe(0);
     await showOptions(wrapper);
     expect(wrapper.findAll('.m-date-picker-calendar').length).not.toBe(0);
   });
@@ -114,29 +114,29 @@ describe('with event', () => {
 
   // not support month type right now;
   // test.skip('月份选择', async done => {
-    // const teleportTarget = new DOMWrapper(document.querySelector('body')!);
-    // const wrapper = mount(MDatePicker, {
-    //   props: {
-    //     type: 'month'
-    //   }
-    // });
-    // await wrapper.find('.m-date-picker-div').trigger('click');
-    // const calendar = teleportTarget.find('.m-calendar-dropdown');
-    // expect(calendar.isVisible()).toBe(true);
-    // expect(calendar.find('.month-table').isVisible()).toBe(true);
-    //
-    // const spans = document.querySelectorAll('.m-calendar-dropdown-header span');
-    // const year = new Date().getFullYear();
-    // const month = (new Date().getMonth() + 1) < 10 ? `0${(new Date().getMonth() + 1)}` : (new Date().getMonth() + 1);
-    // expect(spans[0].textContent).toContain(`${year}`);
-    // expect(spans[2].textContent).toContain(`${month}`);
-    //
-    // await calendar.find('.month-table td div .today').trigger('click');
-    // expect(calendar.find('.month').text()).toBe(`${month}`);
-    // expect(wrapper.vm.$props.modelValue).toBeDefined();
-    // setTimeout(async () => {
-    //   expect(calendar.isVisible()).toBe(false);
-    //   done();
-    // }, 100);
+  // const teleportTarget = new DOMWrapper(document.querySelector('body')!);
+  // const wrapper = mount(MDatePicker, {
+  //   props: {
+  //     type: 'month'
+  //   }
+  // });
+  // await wrapper.find('.m-date-picker-div').trigger('click');
+  // const calendar = teleportTarget.find('.m-calendar-dropdown');
+  // expect(calendar.isVisible()).toBe(true);
+  // expect(calendar.find('.month-table').isVisible()).toBe(true);
+  //
+  // const spans = document.querySelectorAll('.m-calendar-dropdown-header span');
+  // const year = new Date().getFullYear();
+  // const month = (new Date().getMonth() + 1) < 10 ? `0${(new Date().getMonth() + 1)}` : (new Date().getMonth() + 1);
+  // expect(spans[0].textContent).toContain(`${year}`);
+  // expect(spans[2].textContent).toContain(`${month}`);
+  //
+  // await calendar.find('.month-table td div .today').trigger('click');
+  // expect(calendar.find('.month').text()).toBe(`${month}`);
+  // expect(wrapper.vm.$props.modelValue).toBeDefined();
+  // setTimeout(async () => {
+  //   expect(calendar.isVisible()).toBe(false);
+  //   done();
+  // }, 100);
   // });
 });

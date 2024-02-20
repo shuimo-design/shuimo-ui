@@ -1,6 +1,8 @@
 import MarkdownIt from 'markdown-it';
-import { fromHighlighter } from 'markdown-it-shikiji/core'
-import { getHighlighterCore } from 'shikiji/core'
+import { fromHighlighter } from '@shikijs/markdown-it/core'
+import { getHighlighterCore } from 'shiki/core'
+import getWasm from 'shiki/wasm'
+import type { HighlighterGeneric } from '@shikijs/core'
 import matter from 'gray-matter';
 import { toArray } from '@antfu/utils';
 import type { ResolvedOptions } from './types';
@@ -23,7 +25,7 @@ function extractScriptSetup(html: string) {
 function extractCustomBlock(html: string, options: ResolvedOptions) {
   const blocks: string[] = [];
   for (const tag of options.customSfcBlocks) {
-    html = html.replace(new RegExp(`<${tag}[^>]*\\b[^>]*>[^<>]*<\\/${tag}>`, 'mg'), (code) => {
+    html = html.replace(new RegExp(`<${tag}[^>]*\\b[^>]*>[^<>]*<\\/${tag}>`, 'mg'), code => {
       blocks.push(code);
       return '';
     });
@@ -40,10 +42,11 @@ export async function createMarkdown(options: ResolvedOptions) {
       import('../shikiji/shuimo.theme')
     ],
     langs:[
-      import('shikiji/langs/vue'),
-      import('shikiji/langs/typescript'),
-      import('shikiji/langs/shellscript'),
-    ]
+      import('shiki/langs/vue.mjs'),
+      import('shiki/langs/typescript.mjs'),
+      import('shiki/langs/shellscript.mjs'),
+    ],
+    loadWasm: getWasm
   });
   const markdown = new MarkdownIt({
     html: true,
@@ -54,7 +57,7 @@ export async function createMarkdown(options: ResolvedOptions) {
 
 
 
-  markdown.use(fromHighlighter(highlighter,{
+  markdown.use(fromHighlighter(highlighter as HighlighterGeneric<any, any>,{
     themes: { dark: 'shuimo', light: 'shuimo' },
   }));
 
@@ -65,7 +68,7 @@ export async function createMarkdown(options: ResolvedOptions) {
 
   markdown.linkify.set({ fuzzyLink: false });
 
-  options.markdownItUses.forEach((e) => {
+  options.markdownItUses.forEach(e => {
     const [plugin, options] = toArray(e);
 
     markdown.use(plugin, options);

@@ -19,5 +19,5 @@ export declare type BreadcrumbItemProps = {
    * @type string
    * @default ''
    */
-  content?:string,
-}
+  content?: string,
+};

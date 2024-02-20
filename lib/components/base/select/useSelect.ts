@@ -33,7 +33,7 @@ export function useSelect(options: Options<{
   const inputProps = {
     readonly: props.readonly,
     disabled: props.disabled,
-    placeholder: props.placeholder
+    placeholder: props.placeholder,
   };
 
   const isSelected = (o: OptionType) => {
@@ -53,7 +53,7 @@ export function useSelect(options: Options<{
     }).map(o => {
       return {
         value: o,
-        isSelected: isSelected(o)
+        isSelected: isSelected(o),
       };
     });
   };
@@ -62,7 +62,7 @@ export function useSelect(options: Options<{
     ...fetchOptions,
     popoverOptions,
     inputProps,
-    getOptions
+    getOptions,
   };
 
 }

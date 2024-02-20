@@ -41,13 +41,13 @@ import './select.css';
 const MOption = defineComponent({
   name: 'MOption',
   props: {
-    isSelected: Boolean
+    isSelected: Boolean,
   },
   setup(props, { slots }) {
     return () => {
       return <div class={['m-option', { 'm-option-selected': props.isSelected }]}>{slots.default?.() ?? ''}</div>;
     };
-  }
+  },
 });
 
 const MSelectTag = defineComponent({
@@ -66,7 +66,7 @@ const MSelectTag = defineComponent({
         <MDeleteIcon onClick={deleteTag} class="m-select-tag-delete-icon m-cursor-pointer"/>
       </div>;
     };
-  }
+  },
 });
 
 
@@ -82,7 +82,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
     popoverOptions,
     inputProps,
     getOptions,
-    lastOptionRef, selectOptionRef, fetchLoadingRef
+    lastOptionRef, selectOptionRef, fetchLoadingRef,
   } = useSelect({ props: props as Required<SelectProps>, value: { inputValue } });
 
   const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-select');
@@ -128,7 +128,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
 
   const select = selectCreator({
     props: props as Required<SelectProps>,
-    value: { inputValue, selectOptions, selectDisplayOptions, selectTags }
+    value: { inputValue, selectOptions, selectDisplayOptions, selectTags },
   });
 
   const deleteTag = (tag: SelectOptions<OptionType>) => {
@@ -137,7 +137,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
   };
 
 
-  watch(() => props.modelValue, (value) => {
+  watch(() => props.modelValue, value => {
     select.setInputValue(value);
   });
 
@@ -158,7 +158,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
   };
   const optionsStyleRef = ref(props.optionsH ? {
     'max-height': fixPx(props.optionsH),
-    'overflow': 'auto'
+    overflow: 'auto',
   } : undefined);
 
 
@@ -178,22 +178,22 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
     const initContent: ISelectOptions<OptionType, VNode>['content'] = data => {
       const { options } = data();
       const lastIndex = options.length - 1;
-      //@ts-ignore todo fix type error
+      // @ts-ignore todo fix type error
       return withBorder(<div class="m-select-options" style={optionsStyleRef.value}
-                             // @ts-ignore
+        // @ts-ignore
                              ref={el => selectOptionRef.value = el}>
         <div class="m-select-options-inside">
           {
-            options.length > 0 ? options.map((o, i) =>
-                h(MOption, {
-                  onClick: () => optionClick(o),
-                  isSelected: o.isSelected,
-                  ref: el => {
-                    if (i === lastIndex) {
-                      lastOptionRef.value = el;
-                    }
+            options.length > 0 ?
+              options.map((o, i) => h(MOption, {
+                onClick: () => optionClick(o),
+                isSelected: o.isSelected,
+                ref: el => {
+                  if (i === lastIndex) {
+                    lastOptionRef.value = el;
                   }
-                }, () => getOptionDisplayInfo(o.value))) :
+                },
+              }, () => getOptionDisplayInfo(o.value))) :
               getEmpty()
           }
         </div>
@@ -204,12 +204,12 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
     const render = select.initRender({
       single: {
         active: () => {
-          //@ts-ignore todo fix class type error
+          // @ts-ignore todo fix class type error
           return <MInput class="m-select-input" v-model={inputValue.value}
                          onFocus={onFocus} onBlur={onBlur}
                          onInput={updateInput} {...inputProps}/>;
         },
-        content: initContent
+        content: initContent,
       },
       multiple: {
         active: getData => {
@@ -221,7 +221,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
             </MSelectTag>);
           };
 
-          if(!getData) { return <></>;}
+          if (!getData) { return <></>;}
           const { tags } = getData();
 
           return withBorder(<div class="m-select-multiple-inner">
@@ -235,18 +235,18 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
                        {...inputProps}/>}
           </div>, 'm-select-multiple');
         },
-        content: initContent
-      }
+        content: initContent,
+      },
     });
 
     return withPopover({
       default: render.getActive,
-      content: render.getContent
+      content: render.getContent,
     });
   };
 
 }, {
   name: 'MSelect',
   props,
-  emits: ['update:modelValue', 'input', 'select', 'focus', 'blur']
+  emits: ['update:modelValue', 'input', 'select', 'focus', 'blur'],
 });

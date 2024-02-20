@@ -53,7 +53,7 @@ export declare type TreeProps = {
    * @default true
    */
   checkStrictly?: boolean;
-}
+};
 
 export interface TreeData {
   key: string | number;
@@ -61,6 +61,7 @@ export interface TreeData {
   value?: string | number;
   children?: TreeData[];
   disabled?: boolean;
+
   [k: string]: any;
 }
 
@@ -113,4 +114,4 @@ export declare type TreeEvents = {
   // onInput?: (e: HTMLElementEvent<HTMLInputElement>) => void
   // onFocus?: (e: FocusEvent) => void
   // onBlur?: (e: FocusEvent) => void
-}
+};

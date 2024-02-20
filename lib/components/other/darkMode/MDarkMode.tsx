@@ -27,7 +27,7 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
   const emitChange = (val: boolean) => {
     emit('update:modelValue', val);
     emit('change', val);
-  }
+  };
 
   onMounted(() => {
     let autoInit = props.autoMode;
@@ -43,7 +43,7 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
     }
   });
 
-  watch(() => props.modelValue, (val) => {
+  watch(() => props.modelValue, val => {
     if (val !== isDarkRef.value) {
       toggleDarkMode({ modelValue: val });
     }
@@ -85,5 +85,5 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
 }, {
   name: 'MDarkMode',
   props,
-  emits: ['update:modelValue', 'change']
+  emits: ['update:modelValue', 'change'],
 });

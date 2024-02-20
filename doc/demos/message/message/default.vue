@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 
-import { MMessage } from "shuimo-ui";
+import { MMessage } from 'shuimo-ui';
 
 
 const callMessage = () => {
@@ -13,9 +13,9 @@ const callMessage = () => {
   MMessage.info('info的message');
   MMessage({
     content: 'normal',
-    direction: 'top-right'
-  })
-}
+    direction: 'top-right',
+  });
+};
 
 
 </script>

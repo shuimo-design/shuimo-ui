@@ -64,7 +64,7 @@ export default function useEntries(options: {
         ratio: e.intersectionRatio,
         position: getPosition(e),
         realIndex,
-        translateY: transformYList[realIndex]
+        translateY: transformYList[realIndex],
       });
     });
   };
@@ -99,7 +99,7 @@ export default function useEntries(options: {
 
 
     // get every action last target
-    const actionMap = new Map<ACTION, Element[]>;
+    const actionMap = new Map<ACTION, Element[]>();
     actionList.forEach(({ action, target }) => {
       if (actionMap.has(action)) {
         actionMap.get(action)!.push(target);
@@ -120,7 +120,7 @@ export default function useEntries(options: {
       const info = entriesInfoWeakMap.get(target)!;
       options.getList(info.realIndex);
       options.styleRef.value = {
-        'transform': `translateY(${transformYList[info.realIndex - 1]}px)`
+        transform: `translateY(${transformYList[info.realIndex - 1]}px)`,
       };
       return;
     }
@@ -138,7 +138,7 @@ export default function useEntries(options: {
             const firstChildInfo = firstChild.getBoundingClientRect();
             if (firstChildInfo.bottom > entries[0].rootBounds!.bottom) {
               options.getList(0); // 开摆！！
-              options.styleRef.value = { 'transform': `translateY(0px)` };
+              options.styleRef.value = { transform: `translateY(0px)` };
             }
           }
 
@@ -163,7 +163,7 @@ export default function useEntries(options: {
 
 
   return {
-    cb
+    cb,
   };
 
 
@@ -174,7 +174,7 @@ enum POSITION_TYPE {
   TOP_VISIBLE,
   VISIBLE,
   BOTTOM_VISIBLE,
-  BOTTOM
+  BOTTOM,
 }
 
 export const ACTION_POSITION_MAP: Record<POSITION_TYPE, any> = {
@@ -182,32 +182,32 @@ export const ACTION_POSITION_MAP: Record<POSITION_TYPE, any> = {
     [POSITION_TYPE.TOP_VISIBLE]: ACTION.LEAVE_TOP_START,
     [POSITION_TYPE.VISIBLE]: ACTION.LEAVE_TOP_END,
     [POSITION_TYPE.BOTTOM_VISIBLE]: ACTION.ENTER_BOTTOM_START,
-    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END
+    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END,
   },
   [POSITION_TYPE.TOP_VISIBLE]: {
     [POSITION_TYPE.TOP]: ACTION.ENTER_TOP_END,
     [POSITION_TYPE.VISIBLE]: ACTION.LEAVE_TOP_END,
     [POSITION_TYPE.BOTTOM_VISIBLE]: ACTION.ENTER_BOTTOM_START,
-    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END
+    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END,
   },
   [POSITION_TYPE.VISIBLE]: {
     [POSITION_TYPE.TOP]: ACTION.ENTER_TOP_END,
     [POSITION_TYPE.TOP_VISIBLE]: ACTION.ENTER_TOP_START,
     [POSITION_TYPE.BOTTOM_VISIBLE]: ACTION.ENTER_BOTTOM_START,
-    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END
+    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END,
   },
   [POSITION_TYPE.BOTTOM_VISIBLE]: {
     [POSITION_TYPE.TOP]: ACTION.ENTER_TOP_END,
     [POSITION_TYPE.TOP_VISIBLE]: ACTION.ENTER_TOP_START,
     [POSITION_TYPE.VISIBLE]: ACTION.LEAVE_BOTTOM_END,
-    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END
+    [POSITION_TYPE.BOTTOM]: ACTION.ENTER_BOTTOM_END,
   },
   [POSITION_TYPE.BOTTOM]: {
     [POSITION_TYPE.TOP]: ACTION.ENTER_TOP_END,
     [POSITION_TYPE.TOP_VISIBLE]: ACTION.ENTER_TOP_START,
     [POSITION_TYPE.VISIBLE]: ACTION.LEAVE_BOTTOM_END,
-    [POSITION_TYPE.BOTTOM_VISIBLE]: ACTION.LEAVE_BOTTOM_START
-  }
+    [POSITION_TYPE.BOTTOM_VISIBLE]: ACTION.LEAVE_BOTTOM_START,
+  },
 };
 
 

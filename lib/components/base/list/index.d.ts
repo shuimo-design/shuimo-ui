@@ -26,4 +26,4 @@ export declare type ListProps = {
    * @default false
    */
   autoActive?: boolean
-}
+};

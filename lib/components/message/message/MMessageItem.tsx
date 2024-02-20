@@ -18,14 +18,14 @@ export default defineComponent((_props: MessageProps, { emit }) => {
   const {
     onMountedEvent, setTimer,
     onMouseEnterHandler, onMouseLeaveHandler,
-    domRef
+    domRef,
   } = useMessageItem({
     props,
     event: {
       closeDuration: () => {
         emit('closeDuration');
-      }
-    }
+      },
+    },
   });
 
   onMounted(() => {
@@ -35,8 +35,8 @@ export default defineComponent((_props: MessageProps, { emit }) => {
 
 
   return () => {
-    const iconDom = <img class={'m-message-list-icon'} src={`${messageIcon[props.type]}`}/>;
-    const contentDom = <div class={'m-message-content'}>{props.content}</div>;
+    const iconDom = <img class="m-message-list-icon" src={`${messageIcon[props.type]}`}/>;
+    const contentDom = <div class="m-message-content">{props.content}</div>;
     return <div class="m-message-item" ref={domRef}
                 onMouseenter={onMouseEnterHandler} onMouseleave={onMouseLeaveHandler}>
       {iconDom}
@@ -46,5 +46,5 @@ export default defineComponent((_props: MessageProps, { emit }) => {
 }, {
   name: 'MMessageItem',
   props,
-  emits: ['closeDuration']
+  emits: ['closeDuration'],
 });

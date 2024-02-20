@@ -24,8 +24,8 @@ describe('progress', () => {
     const wrapper = mount(MProgress, {
       props: { showInfo: true },
       slots: {
-        default: h('span', 'default info')
-      }
+        default: h('span', 'default info'),
+      },
     });
     expect(wrapper.html()).toContain('default info');
   });

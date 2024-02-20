@@ -11,7 +11,7 @@ import { ModelMask } from '../types/common/model';
 
 export default function useMask(
   props: { mask?: ModelMask },
-  handleClick: () => void
+  handleClick: () => void,
 ) {
 
   const maskClick = () => {
@@ -27,7 +27,7 @@ export default function useMask(
   };
 
   return {
-    wrapperWithMask
+    wrapperWithMask,
   };
 
 }

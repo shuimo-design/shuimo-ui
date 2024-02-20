@@ -7,10 +7,10 @@ export default defineNuxtConfig({
   extensions: ['.md'],
   modules: [
     './modules/markdown',
-    './modules/fontmin'
+    './modules/fontmin',
   ],
   css: ['./assets/style/index.css'],
   alias: {
-    '../core': path.resolve('../../packages/core')
-  }
+    '../core': path.resolve('../../packages/core'),
+  },
 });

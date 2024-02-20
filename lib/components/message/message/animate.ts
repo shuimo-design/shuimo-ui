@@ -17,7 +17,7 @@ interface AnimateKeyframe {
 
 const OPTION = {
   duration: 300,
-  easing: 'linear'
+  easing: 'linear',
 };
 
 const directionArr = ['top-right', 'bottom-right', 'top-left', 'bottom-left', 'top-center'];
@@ -59,31 +59,31 @@ const getFadeInKeyframes = (direction: string, offset: { h: number, w: number })
   if (direction === 'top-right') {
     arr = [
       { opacity: 0, transform: `translateX(${offset.w}px)` },
-      { opacity: 1, transform: `translateX(0)` }
+      { opacity: 1, transform: `translateX(0)` },
     ];
   }
   if (direction === 'bottom-right') {
     arr = [
       { opacity: 0, transform: `translateX(${offset.w}px)`, marginBottom: `-${offset.h}px` },
-      { opacity: 1, transform: `translateX(0px)` }
+      { opacity: 1, transform: `translateX(0px)` },
     ];
   }
   if (direction === 'top-left') {
     arr = [
       { opacity: 0, transform: `translateX(-${offset.w}px)` },
-      { opacity: 1, transform: `translateX(0px)` }
+      { opacity: 1, transform: `translateX(0px)` },
     ];
   }
   if (direction === 'bottom-left') {
     arr = [
       { opacity: 0, transform: `translateX(-${offset.w}px)`, marginBottom: `-${offset.h}px` },
-      { opacity: 1, transform: `translateX(0px)` }
+      { opacity: 1, transform: `translateX(0px)` },
     ];
   }
   if (direction === 'top-center') {
     arr = [
       { opacity: 0, marginTop: `-${offset.h}px`, transform: 'scale(0.8)' },
-      { opacity: 1, transform: `translateY(0px)` }
+      { opacity: 1, transform: `translateY(0px)` },
     ];
   }
   return arr;
@@ -98,31 +98,31 @@ const getFadeOutKeyframes = (direction: string, offset: { h: number, w: number }
   if (direction === 'top-right') {
     arr = [
       { opacity: 1, transform: `translateX(${translate.x}px)` },
-      { opacity: 0, transform: `translateX(${offset.w}px)`, marginBottom: `-${offset.h}px` }
+      { opacity: 0, transform: `translateX(${offset.w}px)`, marginBottom: `-${offset.h}px` },
     ];
   }
   if (direction === 'bottom-right') {
     arr = [
       { opacity: 1, transform: `translateX(${translate.x}px)` },
-      { opacity: 0, transform: `translateX(${offset.w}px)` }
+      { opacity: 0, transform: `translateX(${offset.w}px)` },
     ];
   }
   if (direction === 'top-left') {
     arr = [
       { opacity: 1, transform: `translateX(${translate.x}px)` },
-      { opacity: 0, transform: `translateX(-${offset.w}px)`, marginBottom: `-${offset.h}px` }
+      { opacity: 0, transform: `translateX(-${offset.w}px)`, marginBottom: `-${offset.h}px` },
     ];
   }
   if (direction === 'bottom-left') {
     arr = [
       { opacity: 1, transform: `translateX(${translate.x}px)` },
-      { opacity: 0, transform: `translateX(-${offset.w}px)` }
+      { opacity: 0, transform: `translateX(-${offset.w}px)` },
     ];
   }
   if (direction === 'top-center') {
     arr = [
       { opacity: 1, transform: `translateY(${translate.y}px)` },
-      { opacity: 0, marginTop: `-${offset.h}px`, transform: 'scale(0.8)' }
+      { opacity: 0, marginTop: `-${offset.h}px`, transform: 'scale(0.8)' },
     ];
   }
   return arr;

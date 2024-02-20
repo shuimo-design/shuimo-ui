@@ -16,6 +16,6 @@ export default function useBorder() {
   };
 
   return {
-    withBorder
+    withBorder,
   };
 }

@@ -23,7 +23,7 @@ export const usePopper = (
   popperNode: HTMLElement,
   update: (data: PositionStyle) => void,
   arrowNode?: HTMLElement,
-  config?: PopperConfig
+  config?: PopperConfig,
 ) => {
 
   const getPositionStyle = async () => {
@@ -38,15 +38,15 @@ export const usePopper = (
         left: `${x}px`,
         top: `${y}px`,
         display: 'block',
-        position: 'absolute'
+        position: 'absolute',
       },
       arrowStyle: {
         left: `${middlewareData.arrow?.x ?? 0}px`,
         top: `${middlewareData.arrow?.y ?? 0}px`,
         display: 'block',
-        position: 'absolute'
+        position: 'absolute',
       },
-      placement
+      placement,
     };
     update(res);
 
@@ -58,6 +58,6 @@ export const usePopper = (
 
   return {
     getPositionStyle,
-    clear
+    clear,
   };
 };

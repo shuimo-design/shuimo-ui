@@ -2,14 +2,12 @@
   "name": "@shuimo-design/playground",
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "vite"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.1.0",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "shuimo-ui": "workspace:*",
-    "vue": "^3.4.15"
+    "shuimo-ui": "workspace:*"
   },
   "web-types": "../cli/build/config/output/web-types.json"
 }

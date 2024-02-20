@@ -14,5 +14,5 @@ export const props: MCOPO<DialogProps> = {
   mask: { type: Object, default: { show: true, clickClose: true } },
   visible: { type: Boolean, default: false },
   closeBtn: { type: Boolean, default: true },
-  teleport: { type: Object, default: { to: 'body' } }
+  teleport: { type: Object, default: { to: 'body' } },
 };

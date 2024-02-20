@@ -57,7 +57,7 @@ export declare type SwitchProps = {
    * @default false
    */
   onControl?: boolean
-}
+};
 
 
 export declare type SwitchEvents = {

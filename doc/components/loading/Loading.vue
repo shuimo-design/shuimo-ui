@@ -17,14 +17,14 @@
 
 import LogoSvg from './LogoSvg.vue';
 
-defineProps<{ modelValue:boolean }>();
-const emits =defineEmits(['update:modelValue']);
+defineProps<{ modelValue: boolean }>();
+const emits = defineEmits(['update:modelValue']);
 
 
 onMounted(async () => {
   // await import('shuimo-ui/dist/style.css');
   emits('update:modelValue', false);
-})
+});
 
 </script>
 

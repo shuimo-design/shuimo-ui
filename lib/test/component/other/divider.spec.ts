@@ -10,7 +10,7 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import MDivider from '../../../components/other/divider/MDivider.tsx';
 
 describe('divider', function () {
@@ -22,8 +22,8 @@ describe('divider', function () {
   test('vertical', () => {
     const wrapper = mount(MDivider, {
       props: {
-        vertical: true
-      }
+        vertical: true,
+      },
     });
     expect(wrapper.html()).toContain('m-divider-vertical');
   });

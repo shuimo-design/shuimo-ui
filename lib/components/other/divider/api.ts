@@ -11,5 +11,5 @@ import { DividerProps } from './index';
 
 
 export const props: MCOPO<DividerProps> = {
-  vertical: { type: Boolean, default: false }
+  vertical: { type: Boolean, default: false },
 };

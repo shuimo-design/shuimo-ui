@@ -11,5 +11,5 @@ import { ListProps } from './index';
 
 export const props: MCOPO<ListProps> = {
   data: { type: Array, default: () => [] },
-  autoActive: { type: Boolean, default: false }
+  autoActive: { type: Boolean, default: false },
 };

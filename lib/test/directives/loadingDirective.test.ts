@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { loadingDirective } from '../../components/other/loading/directive.ts';
 
@@ -16,8 +16,8 @@ describe('loading指令', function () {
     const wrapper = mount(
       { template: '<div v-loading></div>' },
       {
-        global: { directives: { loading: loadingDirective } }
-      }
+        global: { directives: { loading: loadingDirective } },
+      },
     );
     expect(wrapper.find('.m-loading').exists()).toBe(true);
     wrapper.unmount();
@@ -29,13 +29,13 @@ describe('loading指令', function () {
       {
         template: '<div v-loading="loadingValue"></div>',
         props: {
-          loadingValue: { type: Boolean, default: false }
-        }
+          loadingValue: { type: Boolean, default: false },
+        },
       },
       {
         props: { loadingValue: false },
-        global: { directives: { loading: loadingDirective } }
-      }
+        global: { directives: { loading: loadingDirective } },
+      },
     );
     expect(wrapper.find('.m-loading').exists()).toBe(false);
     await vi.runOnlyPendingTimers();
@@ -49,12 +49,12 @@ describe('loading指令', function () {
     const wrapper = mount(
       {
         template: '<div v-loading="loadingValue"></div>',
-        props: { loadingValue: { type: Boolean, default: false } }
+        props: { loadingValue: { type: Boolean, default: false } },
       },
       {
         props: { loadingValue: true },
-        global: { directives: { loading: loadingDirective } }
-      }
+        global: { directives: { loading: loadingDirective } },
+      },
     );
     await wrapper.setProps({ loadingValue: false });
     expect(wrapper.find('.m-loading').exists()).toBe(false);
@@ -69,16 +69,16 @@ describe('loading指令', function () {
           '<div>' + '<span v-loading="loadingValue"></span>' + '<span v-loading="loadingValue2"></span>' + '</div>',
         props: {
           loadingValue: { type: Boolean, default: false },
-          loadingValue2: { type: Boolean, default: false }
-        }
+          loadingValue2: { type: Boolean, default: false },
+        },
       },
       {
         props: {
           loadingValue: true,
-          loadingValue2: false
+          loadingValue2: false,
         },
-        global: { directives: { loading: loadingDirective } }
-      }
+        global: { directives: { loading: loadingDirective } },
+      },
     );
     await wrapper.setProps({ loadingValue: true });
     const spanList = wrapper.findAll('span');

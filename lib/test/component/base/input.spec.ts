@@ -11,7 +11,7 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { MInput } from '../../../index.ts';
 
 describe('input', () => {
@@ -24,8 +24,8 @@ describe('input', () => {
   test('type=textarea', () => {
     const wrapper = mount(MInput, {
       props: {
-        type: 'textarea'
-      }
+        type: 'textarea',
+      },
     });
     expect(wrapper.element.querySelector('input')).toBe(null);
     expect(wrapper.element.querySelector('textarea')!.value).toBe('');
@@ -36,28 +36,28 @@ describe('input', () => {
 
     test('modelValue', () => {
       const wrapper = mount(MInput, {
-        props: { modelValue: 'test' }
+        props: { modelValue: 'test' },
       });
       expect(wrapper.element.querySelector('input')!.value).toBe('test');
     });
 
     test('placeholder', () => {
       const wrapper = mount(MInput, {
-        props: { placeholder: 'test placeholder' }
+        props: { placeholder: 'test placeholder' },
       });
       expect(wrapper.element.querySelector('input')!.placeholder).toBe('test placeholder');
     });
 
     test('disabled', () => {
       const wrapper = mount(MInput, {
-        props: { disabled: true }
+        props: { disabled: true },
       });
       expect(wrapper.element.querySelector('input')!.disabled).toBeTruthy();
     });
 
     test('readonly', () => {
       const wrapper = mount(MInput, {
-        props: { readonly: true }
+        props: { readonly: true },
       });
       expect(wrapper.element.querySelector('input')!.readOnly).toBeTruthy();
     });
@@ -65,7 +65,7 @@ describe('input', () => {
 
     test('set modelValue', async () => {
       const wrapper = mount(MInput, {
-        props: { modelValue: 'test' }
+        props: { modelValue: 'test' },
       });
       await wrapper.setProps({ modelValue: 'hi' });
       expect(wrapper.element.querySelector('input')!.value).toContain('hi');
@@ -73,21 +73,21 @@ describe('input', () => {
 
     test('autofocus', () => {
       const wrapper = mount(MInput, {
-        props: { autofocus: true }
+        props: { autofocus: true },
       });
       expect(wrapper.element.querySelector('input')!.autofocus).toBeTruthy();
     });
 
   });
 
-  describe('event',()=>{
+  describe('event', () => {
 
-    test('onInput',()=>{
+    test('onInput', () => {
       const wrapper = mount(MInput);
       wrapper.find('input').setValue('test');
       expect(wrapper.emitted('update:modelValue')![0]).toEqual(['test']);
       expect(wrapper.emitted('input')![0]).toEqual(['test']);
-    })
+    });
 
     test('onFocus', async () => {
       const wrapper = mount(MInput, { props: { modelValue: 'test' } });
@@ -101,9 +101,7 @@ describe('input', () => {
       expect(wrapper.emitted('blur')!.length).toBe(1);
     });
 
-  })
-
-
+  });
 
 
 });

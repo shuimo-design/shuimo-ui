@@ -21,7 +21,7 @@ export const BASE_WEEK_NAME: DisplayCalendarType[] = [
   { day: '叁', isCurrentMonth: true },
   { day: '肆', isCurrentMonth: true },
   { day: '伍', isCurrentMonth: true },
-  { day: '陆', isCurrentMonth: true }
+  { day: '陆', isCurrentMonth: true },
 ];
 export const BASE_MONTH_NAME = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
 export type CALENDAR_TYPE = 'date' | 'month' | 'year';
@@ -29,16 +29,16 @@ export type DateRefType = {
   year: number,
   month: number,
   day: number,
-}
+};
 export type DisplayCalendarType = {
   day: number | string,
   isCurrentMonth: boolean,
   isCurrent?: boolean,
-}
+};
 export type CalendarItem = DisplayCalendarType & {
   month: number,
   year: number,
-}
+};
 
 export const toDayjs = (value: string | Date) => {
   return dayjs(value);
@@ -71,7 +71,7 @@ export function useDatePicker(options: Options<{
         dateRef.value = {
           year: dayJsValue.year(),
           month: dayJsValue.month() + 1,
-          day: dayJsValue.date()
+          day: dayJsValue.date(),
         };
       } else {
         // todo print error
@@ -116,7 +116,7 @@ export function useDatePicker(options: Options<{
       isCurrentMonth: true,
       isCurrent: isCurrent(i + 1),
       month: dateRef.month,
-      year: dateRef.year
+      year: dateRef.year,
     }));
     // 往后填充到周六
     const nextDaysYear = dateRef.month === 12 ? dateRef.year + 1 : dateRef.year;
@@ -124,7 +124,7 @@ export function useDatePicker(options: Options<{
       day: i + 1,
       isCurrentMonth: false,
       month: dateRef.month + 1,
-      year: nextDaysYear
+      year: nextDaysYear,
     }));
     // 如果长度不够的话再补7天
     if (prevDays.length + currentDays.length + nextDays.length < 42) {
@@ -136,7 +136,7 @@ export function useDatePicker(options: Options<{
           day: lastMonthDays - 6 + i,
           isCurrentMonth: false,
           month: lastMonth,
-          year: prevDaysYear
+          year: prevDaysYear,
         })));
       } else {
 
@@ -147,7 +147,7 @@ export function useDatePicker(options: Options<{
           day: i + baseDay + 1,
           isCurrentMonth: false,
           month: dateRef.month + 1,
-          year: nextDaysYear
+          year: nextDaysYear,
         })));
       }
     }
@@ -165,7 +165,7 @@ export function useDatePicker(options: Options<{
   };
 
   const toPrevMonth = () => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.month -= 1;
     if (dateRef.value.month === 0) {
       dateRef.value.month = 12;
@@ -174,7 +174,7 @@ export function useDatePicker(options: Options<{
   };
 
   const toNextMonth = () => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.month += 1;
     if (dateRef.value.month === 13) {
       dateRef.value.month = 1;
@@ -183,7 +183,7 @@ export function useDatePicker(options: Options<{
   };
 
   const toNextYear = () => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.year += 1;
 
     if (calendarTypeRef.value === 'year') {
@@ -196,7 +196,7 @@ export function useDatePicker(options: Options<{
   };
 
   const toPrevYear = () => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.year -= 1;
 
     if (calendarTypeRef.value === 'year') {
@@ -220,7 +220,7 @@ export function useDatePicker(options: Options<{
   };
 
   const clickYearItem = (year: number) => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.year = year;
     calendarTypeRef.value = 'date';
   };
@@ -231,7 +231,7 @@ export function useDatePicker(options: Options<{
   };
 
   const clickMonthItem = (month: number) => {
-    if(!dateRef.value)return;
+    if (!dateRef.value) return;
     dateRef.value.month = month;
     calendarTypeRef.value = 'date';
   };
@@ -243,7 +243,7 @@ export function useDatePicker(options: Options<{
     toPrevMonth, toNextMonth, toNextYear, toPrevYear,
     getValue,
     clickCurrentYear, clickYearItem, clickCurrentMonth, clickMonthItem,
-    dateRef, spanClass, displayValue, calendarTypeRef, currentRef, yearsRef
+    dateRef, spanClass, displayValue, calendarTypeRef, currentRef, yearsRef,
   };
 
 }

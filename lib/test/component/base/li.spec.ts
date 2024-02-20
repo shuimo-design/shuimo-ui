@@ -8,7 +8,7 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { MLi } from '../../../index.ts';
 
 describe('li', () => {
@@ -33,18 +33,18 @@ describe('li', () => {
   test('active', () => {
     const wrapper = mount(MLi, {
       props: {
-        active: true
-      }
+        active: true,
+      },
     });
     expect(wrapper.html()).toContain('m-li-active');
   });
 
-  test('slot',()=>{
+  test('slot', () => {
     const wrapper = mount(MLi, {
       slots: {
-        default: 'test'
-      }
+        default: 'test',
+      },
     });
     expect(wrapper.html()).toContain('test');
-  })
+  });
 });

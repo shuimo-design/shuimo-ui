@@ -15,12 +15,12 @@ export default defineComponent((props, { slots }) => {
     return h('form', {
       class: {
         'm-form': true,
-        'm-form-inline': props.inline
+        'm-form-inline': props.inline,
       },
-      onsubmit: () => props.submit
+      onsubmit: () => props.submit,
     }, slots);
   };
 }, {
   name: 'MForm',
-  props
+  props,
 });

@@ -7,14 +7,13 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { PopoverProps } from '../../components/message/popover';
-import { arrow, flip, offset, shift } from '@floating-ui/dom';
-import { type OffsetOptions } from '@floating-ui/dom';
+import { arrow, flip, offset, type OffsetOptions, shift } from '@floating-ui/dom';
 
 export {
   flip,
   offset,
   shift,
-  arrow
+  arrow,
 };
 
 export default function usePopover(
@@ -22,7 +21,7 @@ export default function usePopover(
   middleware?: {
     offset?: OffsetOptions
     extends?: any[]
-  }
+  },
 ) {
 
   const offsetOptions = middleware?.offset ?? { crossAxis: 3 };
@@ -35,12 +34,12 @@ export default function usePopover(
         offset(offsetOptions),
         flip(),
         shift(),
-        ...middleware?.extends ?? []
-      ]
-    }
+        ...middleware?.extends ?? [],
+      ],
+    },
   };
 
   return {
-    popoverOptions
+    popoverOptions,
   };
 }

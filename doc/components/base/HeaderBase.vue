@@ -26,7 +26,7 @@ import HeaderButton from './HeaderButton.vue';
 import { useDarkModeStorage } from 'shuimo-ui';
 
 defineProps({
-  showIndexButton: { type: Boolean, default: true }
+  showIndexButton: { type: Boolean, default: true },
 });
 
 const { darkModeRef, initDarkMode } = useDarkModeStorage();

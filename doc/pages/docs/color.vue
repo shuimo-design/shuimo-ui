@@ -35,7 +35,7 @@
 import BaseTitle from '../../components/docs/BaseTitle.vue';
 import ColorPresenter from '../../components/docs/ColorPresenter.vue';
 
-definePageMeta({ alias: '/color' })
+definePageMeta({ alias: '/color' });
 
 </script>
 

@@ -66,4 +66,4 @@ export type PopoverProps = {
    * @default undefined
    */
   teleport?: MTeleportProps | undefined | boolean
-}
+};

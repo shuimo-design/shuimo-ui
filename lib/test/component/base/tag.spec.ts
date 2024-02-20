@@ -20,8 +20,8 @@ describe('标签组件', () => {
   test('插槽text', () => {
     const wrapper = mount(MTag, {
       slots: {
-        default: 'slot info'
-      }
+        default: 'slot info',
+      },
     });
     expect(wrapper.text()).toMatchInlineSnapshot('"slot info"');
   });
@@ -29,8 +29,8 @@ describe('标签组件', () => {
   test('参数type', () => {
     const wrapper = mount(MTag, {
       props: {
-        type: 'primary'
-      }
+        type: 'primary',
+      },
     });
     expect(wrapper.html()).toContain('m-tag-primary');
   });

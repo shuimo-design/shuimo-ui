@@ -5,14 +5,14 @@
  */
 import { TreeConfig, TreeData, TreeNodeData, TreeStatusKey } from './index';
 
-export type TreeDataMap = Map<TreeNodeData['key'], TreeNodeData>
+export type TreeDataMap = Map<TreeNodeData['key'], TreeNodeData>;
 
 export const DEFAULT_CONFIG: TreeConfig = {
   key: 'key',
   label: 'label',
   value: 'value',
   children: 'children',
-  expand: 'expand'
+  expand: 'expand',
 };
 
 export const mergeConfig = (config: Partial<TreeConfig>) => {
@@ -25,7 +25,7 @@ export const mergeConfig = (config: Partial<TreeConfig>) => {
     label: config.label ?? DEFAULT_CONFIG.label,
     value: config.value ?? DEFAULT_CONFIG.value,
     children: config.children ?? DEFAULT_CONFIG.children,
-    expand: config.expand ?? DEFAULT_CONFIG.expand
+    expand: config.expand ?? DEFAULT_CONFIG.expand,
   };
 
 };
@@ -53,14 +53,14 @@ export default class Tree {
       data,
       config = DEFAULT_CONFIG,
       defaultExpandAll = false,
-      checkStrictly = true
+      checkStrictly = true,
     } = options;
     this.#cacheMap = new Map<TreeNodeData['key'], TreeNodeData>();
     this.#source = Array.isArray(data) ? data : [data];
     this.#config = mergeConfig(config);
     this.#initialConfig = {
       defaultExpandAll,
-      checkStrictly
+      checkStrictly,
     };
     this.#init();
   }
@@ -75,12 +75,12 @@ export default class Tree {
 
     const node: TreeNodeData = {
       ...data,
-      expand: defaultExpandAll || data[e],
+      expand: defaultExpandAll || data[e!],
       selected: false,
       checked: false,
       indeterminate: false,
       parent: parentKey ? this.#cacheMap.get(parentKey) : undefined,
-      isRoot: !parentKey
+      isRoot: !parentKey,
     };
     this.#cacheMap.set(node[k], node);
     if (node[c] && node[c].length > 0) {
@@ -122,9 +122,9 @@ export default class Tree {
     }
     const { children: c } = this.#config;
     const children: TreeNodeData[] = parent[c] ?? [];
-    const allChecked = children.every((child) => child.checked);
-    const oneChecked = children.some((child) => child.checked);
-    const onIndeterminate = children.some((child) => child.indeterminate);
+    const allChecked = children.every(child => child.checked);
+    const oneChecked = children.some(child => child.checked);
+    const onIndeterminate = children.some(child => child.indeterminate);
     if (allChecked) {
       parent.indeterminate = false;
       parent.checked = true;
@@ -139,7 +139,7 @@ export default class Tree {
 
   #setChildrenStatus(statusKey: TreeStatusKey, nodes: TreeNodeData[], value: boolean) {
     const { children: c } = this.#config;
-    nodes.forEach((node) => {
+    nodes.forEach(node => {
       if (node.disabled) {
         return;
       }
@@ -159,7 +159,7 @@ export default class Tree {
   }
 
   getNodesByKeys(keys: TreeNodeData['key'][]) {
-    return keys.map((key) => {
+    return keys.map(key => {
       // todo check undefined?
       return this.#cacheMap.get(key)!;
     });
@@ -170,7 +170,7 @@ export default class Tree {
       return this.getNodesByKeys(keys);
     }
     const values = this.#getCacheList();
-    return values.filter((it) => it.isRoot);
+    return values.filter(it => it.isRoot);
   }
 
   getKeys() {
@@ -218,7 +218,7 @@ export default class Tree {
 
   setCheckedByKeys(keys: TreeNodeData['key'][]) {
     const nodes = this.getNodesByKeys(keys);
-    nodes.forEach((node) => {
+    nodes.forEach(node => {
       if (node) {
         this.setNodeCheckbox(node, true);
       }

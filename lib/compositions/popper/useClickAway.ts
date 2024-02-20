@@ -34,7 +34,7 @@ export default function useClickAway(options: {
   return useEventListener({
     target: window,
     event,
-    handler: listener
+    handler: listener,
   });
 
 

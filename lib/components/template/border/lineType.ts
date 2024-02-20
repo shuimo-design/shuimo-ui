@@ -12,6 +12,7 @@ export enum lineType {
   top = 'top',
   left = 'left',
   right = 'right',
-  bottom = 'bottom'
+  bottom = 'bottom',
 }
+
 export const baseLineClass = 'm-border-line';

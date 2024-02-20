@@ -15,10 +15,10 @@ import './divider.css';
 export default defineComponent((props: DividerProps) => {
   return () => <div class={{
     'm-divider': true,
-    'm-divider-vertical': props.vertical
+    'm-divider-vertical': props.vertical,
     // 'm-divider-strong': this.type === 'strong',
   }}/>;
 }, {
   name: 'MDivider',
-  props
+  props,
 });

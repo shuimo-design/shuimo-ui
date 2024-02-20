@@ -38,4 +38,4 @@ export declare type DatePickerProps = {
    * @enum date|month
    */
   type?: 'date' | 'month'
-}
+};

@@ -31,8 +31,8 @@ describe('开关组件', () => {
         props: {
           modelValue: true,
           activeInfo: 'active',
-          inactiveInfo: 'inactive'
-        }
+          inactiveInfo: 'inactive',
+        },
       });
       expect(wrapper.findAll('.m-switch-span').map(e => e.html())).toMatchInlineSnapshot(`
         [
@@ -45,13 +45,13 @@ describe('开关组件', () => {
     test('active参数被slot覆盖', () => {
       const wrapper = mount(MSwitch, {
         slots: {
-          activeInfo: 'active slot info'
+          activeInfo: 'active slot info',
         },
         props: {
           modelValue: true,
           activeInfo: 'activeInfo',
-          inactiveInfo: 'inactiveInfo'
-        }
+          inactiveInfo: 'inactiveInfo',
+        },
       });
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div class="m-switch m-switch-active">active slot info<div class="m-switch-main">
@@ -64,7 +64,7 @@ describe('开关组件', () => {
 
     test('activeValue和inactiveValue参数', async () => {
       const wrapper = mount(MSwitch, {
-        props: { modelValue: 'hi', activeValue: 'hi', inactiveValue: 'bye' }
+        props: { modelValue: 'hi', activeValue: 'hi', inactiveValue: 'bye' },
       });
       await wrapper.find('.m-switch-core').trigger('click');
       expect(wrapper.find('.m-switch').html()).toMatchInlineSnapshot(`
@@ -175,7 +175,7 @@ describe('开关组件', () => {
 
     test('change有参数冒泡', async () => {
       const wrapper = mount(MSwitch, {
-        props: { modelValue: 'hi', activeValue: 'hi', inactiveValue: 'bye' }
+        props: { modelValue: 'hi', activeValue: 'hi', inactiveValue: 'bye' },
       });
       await wrapper.find('.m-switch-core').trigger('click');
       expect(wrapper.emitted()['change'][0]).toMatchInlineSnapshot(`
@@ -189,7 +189,7 @@ describe('开关组件', () => {
   describe('onControl', () => {
     test('onControl为true时改变modelValue', async () => {
       const wrapper = mount(MSwitch, {
-        props: { modelValue: true, onControl: false }
+        props: { modelValue: true, onControl: false },
       });
       await wrapper.find('.m-switch-core').trigger('click');
       expect(wrapper.emitted()['update:modelValue'][0]).toMatchInlineSnapshot(`
@@ -201,7 +201,7 @@ describe('开关组件', () => {
     test('onControl为true时不改变modelValue', async () => {
       vi.useFakeTimers();
       const wrapper = mount(MSwitch, {
-        props: { modelValue: true, onControl: true }
+        props: { modelValue: true, onControl: true },
       });
       await wrapper.find('.m-switch-core').trigger('click');
       expect(wrapper.emitted()['update:modelValue']).toBeUndefined();

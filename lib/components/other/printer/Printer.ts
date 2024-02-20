@@ -16,19 +16,19 @@ import { IPrinter, PrinterType, printInterface } from '../../../types/components
 enum PrinterEnum {
   suggest = 'suggest',
   info = 'info',
-  error = 'error'
+  error = 'error',
 }
 
 const typeColor = {
   suggest: '#ebb10d',
   info: '#474b4c',
-  error: '#f03f24'
+  error: '#f03f24',
 };
 
 const PrinterConsole: Record<PrinterEnum, keyof Pick<Console, 'log' | 'error'>> = {
   [PrinterEnum.suggest]: 'log',
   [PrinterEnum.info]: 'log',
-  [PrinterEnum.error]: 'error'
+  [PrinterEnum.error]: 'error',
 };
 
 const Printer: IPrinter = (defaultUser = '水墨UI') => {
@@ -47,7 +47,7 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
       options.format,
       `background:${typeColor[options.type]}; border-radius:5px; padding:5px 7px;color:white;`,
       '',
-      options.content
+      options.content,
     );
   };
 

@@ -57,4 +57,4 @@ export declare type DrawerProps = {
    * @default ''
    */
   teleport?: MTeleportProps
-}
+};

@@ -9,4 +9,4 @@
  */
 
 export { initChecked, getNewModelValue } from '../../../compositions/input/useBooleanInput';
-export const createRadioId = ()=>`m-radio-${Math.random().toString(36).substr(2)}`;
+export const createRadioId = () => `m-radio-${Math.random().toString(36).substr(2)}`;

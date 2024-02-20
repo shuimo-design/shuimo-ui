@@ -17,7 +17,7 @@ export default defineComponent((props, { emit }) => {
 
   const { handleToggleExpand, handleToggleChecked, getNodesByKeys, treeRef } = useTree({
     props,
-    event: { triggerTree: () => {triggerRef(treeRef);} }
+    event: { triggerTree: () => {triggerRef(treeRef);} },
   });
 
   const treeData = computed(() => treeRef.value!.getTreeData());
@@ -49,7 +49,7 @@ export default defineComponent((props, { emit }) => {
       getNodesByKeys,
       handleExpand,
       handleCheck: handleCheckbox,
-      handleItemClick
+      handleItemClick,
     };
     return <div class="m-tree">
       <MTreeNode {...treeNodeProps}/>
@@ -62,6 +62,6 @@ export default defineComponent((props, { emit }) => {
     /* eslint-disable */
     'update:checkedKeys': (keys: TreeNodeData['key'][]) => true,
     /* eslint-disable */
-    'node-click': (node: TreeNodeData, e: MouseEvent) => true
-  }
+    'node-click': (node: TreeNodeData, e: MouseEvent) => true,
+  },
 });

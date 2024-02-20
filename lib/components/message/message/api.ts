@@ -13,11 +13,13 @@ export enum MessageTypeEnum {
   success = 'success',
   warning = 'warning',
   info = 'info',
-  error = 'error'
+  error = 'error',
 }
+
 export interface DragConfigType {
-  triggerBoundary: number
+  triggerBoundary: number;
 }
+
 export const props: MCOPO<MessageProps> = {
   type: { type: String as MPropType<MessageTypeEnum>, default: MessageTypeEnum.info },
   duration: { type: Number, default: 3000 },
@@ -27,11 +29,11 @@ export const props: MCOPO<MessageProps> = {
   dragConfig: {
     type: Object as MPropType<DragConfigType>,
     default: {
-      triggerBoundary: 2
-    }
-  }
+      triggerBoundary: 2,
+    },
+  },
 };
 
 export const listProps: MCOPO<MessageListProps> = {
   direction: { type: String as MPropType<MessageDirectionType>, default: 'top-right' },
-}
+};

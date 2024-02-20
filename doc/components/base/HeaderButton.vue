@@ -14,7 +14,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-defineProps<{ url: string, target?: string }>();
+defineProps<{ url: string; target?: string }>();
 
 </script>
 

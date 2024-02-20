@@ -9,8 +9,10 @@ import { defineComponent, ref } from 'vue';
 import { createRadioId, getNewModelValue, initChecked } from './useRadio.ts';
 import { props } from './api.ts';
 import './radio.css';
+import { RadioProps } from './index';
 
-export default defineComponent((props, { emit, slots }) => {
+export default defineComponent((_props: RadioProps, { emit, slots }) => {
+  const props = _props as Required<RadioProps>;
   const checked = ref(initChecked(props));
   const onClick = () => {
     checked.value = !checked.value;
@@ -30,5 +32,5 @@ export default defineComponent((props, { emit, slots }) => {
   };
 }, {
   name: 'MRadio',
-  props
+  props,
 });

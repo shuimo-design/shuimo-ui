@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "private": true,
   "scripts": {
-    "doc:dev": "nuxt dev --port 8513",
+    "doc:dev": "jh-api && nuxt dev --port 8513",
     "build": "jh-api && nuxt build && npm run doc:fontmin",
     "doc:build": "nuxt build",
     "doc:build:start": "npm run build && node .output/server/index.mjs",
@@ -23,9 +23,6 @@
   "web-types": "../cli/build/config/output/web-types.json",
   "dependencies": {
     "@higuaifan/rollup-plugin-fontmin": "^0.0.5",
-    "@janghood/config": "0.0.1-3",
-    "markdown-it-shikiji": "^0.10.0",
-    "prismjs": "^1.29.0",
-    "shikiji": "^0.10.0"
+    "@janghood/config": "0.0.1-3"
   }
 }

@@ -11,7 +11,7 @@ import useContainerObserver from '../../../compositions/virtualList/useContainer
 import { ref, watch } from 'vue';
 import { Options } from '../../../compositions/common/defineCore.ts';
 
-type TODOType = any
+type TODOType = any;
 export default function useSelectFetch(options: Options<{
   props: SelectProps,
 }>) {
@@ -46,14 +46,14 @@ export default function useSelectFetch(options: Options<{
     threshold: 1,
     getTarget: () => {
       return lastOptionRef.value?.$el;
-    }
+    },
   });
 
 
   return {
     lastOptionRef,
     selectOptionRef,
-    fetchLoadingRef
+    fetchLoadingRef,
   };
 
 }

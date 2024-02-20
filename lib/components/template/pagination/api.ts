@@ -16,9 +16,9 @@ export const props: MCOPO<PaginationProps> = {
   pageSize: { type: Number, default: 10 },
   pageSizes: { type: Array, default() {return [10, 20, 30, 40, 50, 100];} },
   layout: {
-    default: 'prev, pager, next, jumper, total'
+    default: 'prev, pager, next, jumper, total',
   },
   foldedMaxPageBtn: { type: Number, default: 5 },
   maxPageBtn: { type: Number, default: 10 },
-  showEdgePageNum: { type: Boolean, default: true }
+  showEdgePageNum: { type: Boolean, default: true },
 };

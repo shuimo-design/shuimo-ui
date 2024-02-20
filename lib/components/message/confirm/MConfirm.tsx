@@ -16,7 +16,7 @@ import MBorder from '../../template/border/MBorder.tsx';
 import './confirm.css';
 
 const Confirm: IConfirm = async config => {
-  const { ConfirmImpl } = useConfirm((options) => {
+  const { ConfirmImpl } = useConfirm(options => {
     const { confirmDiv, _content, confirm, cancel, bodyDom } = options;
 
     const confirmVNode = h({
@@ -27,14 +27,14 @@ const Confirm: IConfirm = async config => {
 
         const {
           getModel,
-          handleModelClickPropagation
+          handleModelClickPropagation,
         } = useModel({ ...props, teleport: { to: confirmDiv }, visible: true }, { emit });
 
         const confirmBtn = h(MButton, { text: '确定', type: 'primary', onClick: confirm });
         const cancelBtn = h(MButton, { text: '取消', onClick: cancel });
 
         const withBorder = (slot: VNode, appendClass?: string) => h(MBorder, {
-          class: appendClass
+          class: appendClass,
         }, () => slot);
 
         return () => {
@@ -53,7 +53,7 @@ const Confirm: IConfirm = async config => {
 
           return getConfirm();
         };
-      }
+      },
     });
 
     createApp(confirmVNode, { content: _content }).mount(confirmDiv);

@@ -32,4 +32,4 @@ export declare type TableProps = {
    * @default false
    */
   paramClass?: boolean
-}
+};

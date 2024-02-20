@@ -27,13 +27,13 @@ export default function useDarkModeStorage(storageKey = SHUIMO_DARK_MODE_KEY) {
     return false;
   };
 
-  watch(darkModeRef, (value) => {
+  watch(darkModeRef, value => {
     localStorage.setItem(storageKey, value.toString());
   });
 
 
   return {
     darkModeRef,
-    initDarkMode
+    initDarkMode,
   };
 }

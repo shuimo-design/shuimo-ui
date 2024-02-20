@@ -13,14 +13,14 @@ import MBorder from '../../template/border/MBorder.tsx';
 import './drawer.css';
 import { DrawerProps } from './index';
 
-export default defineComponent((_props:DrawerProps, { emit, slots }) => {
+export default defineComponent((_props: DrawerProps, { emit, slots }) => {
   const props = _props as Required<DrawerProps>;
 
   const {
     visible,
     getModel,
     getModelActive,
-    handleModelClickPropagation
+    handleModelClickPropagation,
   } = useModel(props, { emit });
 
   return () => {
@@ -31,7 +31,7 @@ export default defineComponent((_props:DrawerProps, { emit, slots }) => {
 
     const getDrawer = () => {
       return getModel(<div class="m-drawer" onClick={handleModelClickPropagation}>
-        {/*{props.closeBtn ? getClose() : null}*/}
+        {/* {props.closeBtn ? getClose() : null} */}
         {h(MBorder, {}, () => slots.default?.())}
       </div>);
     };
@@ -43,5 +43,5 @@ export default defineComponent((_props:DrawerProps, { emit, slots }) => {
   };
 }, {
   name: 'MDrawer',
-  props
+  props,
 });

@@ -15,5 +15,5 @@ export const props: MCOPO<SliderProps> = {
   max: { type: Number, default: 100 },
   step: { type: Number, default: 1 },
   disabled: { type: Boolean, default: false },
-  showInfo: { type: Boolean, default: false }
+  showInfo: { type: Boolean, default: false },
 };

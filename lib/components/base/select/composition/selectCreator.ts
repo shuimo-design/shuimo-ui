@@ -8,7 +8,7 @@
  */
 import { MultipleSelect, SelectCreatorOptions, SingleSelect } from './class/BaseSelect';
 
-export default function selectCreator<OptionValue, JSXNode>(options: SelectCreatorOptions<OptionValue, JSXNode>) {
+export default function selectCreator<OptionValue>(options: SelectCreatorOptions<OptionValue>) {
   if (options.props.multiple) {
     return new MultipleSelect(options);
   }

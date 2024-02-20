@@ -9,7 +9,7 @@
  * v1.0.1 升级为vitest版本测试用例 阿怪
  */
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { MButton, MForm, MFormItem, MInput } from '../../../../lib';
 
 const mountForm = (config: any) => {
@@ -18,9 +18,9 @@ const mountForm = (config: any) => {
       [MForm.name]: MForm,
       [MFormItem.name]: MFormItem,
       [MInput.name]: MInput,
-      [MButton.name]: MButton
+      [MButton.name]: MButton,
     },
-    ...config
+    ...config,
   });
 };
 
@@ -33,7 +33,7 @@ describe('form', () => {
             <m-input value="hello, form"/>
           </m-form-item>
         </m-form>
-      `
+      `,
     });
     expect(wrapper.html()).toContain('m-form');
   });
@@ -46,20 +46,20 @@ describe('form', () => {
             <m-input value="hello, form"/>
           </m-form-item>
         </m-form>
-      `
+      `,
     });
     expect(wrapper.html()).toContain('m-form');
   });
 
-  test('simple form-item',()=>{
+  test('simple form-item', () => {
     const wrapper = mountForm({
       template: `
-        <m-form inline><m-form-item label="input输入：" prop="hello"/></m-form>`
+        <m-form inline><m-form-item label="input输入：" prop="hello"/></m-form>`,
     });
     expect(wrapper.html()).toContain('input输入');
-  })
+  });
 
-  test('form-item label slot',() => {
+  test('form-item label slot', () => {
     const wrapper = mountForm({
       template: `
         <m-form inline>
@@ -70,7 +70,7 @@ describe('form', () => {
             <m-input value="hello, form"/>
           </m-form-item>
         </m-form>
-      `
+      `,
     });
     expect(wrapper.html()).toContain('hi');
   });
@@ -85,7 +85,7 @@ describe('form', () => {
           <m-form-item label="input输入：" prop="hello">
             <m-button/>
           </m-form-item>
-        </m-form>`
+        </m-form>`,
       });
       // jsdom not support form onsubmit
       wrapper.trigger('submit');

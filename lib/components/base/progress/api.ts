@@ -1,4 +1,3 @@
-
 /**
  * @description progress api
  * @author 阿怪
@@ -18,5 +17,5 @@ export const props: MCOPO<ProgressProps> = {
   max: { type: Number, default: 100 },
   showInfo: { type: Boolean, default: false },
   infoWidth: { type: Number, default: 44 },
-  leafHeight: { type: Number, default: 28 }
+  leafHeight: { type: Number, default: 28 },
 };

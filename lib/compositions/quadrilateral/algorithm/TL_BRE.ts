@@ -44,12 +44,10 @@ export default function TL_BRE(options: DegModeOptions): QPoints {
     const Xc = (Bb - Bc) / (Kc - Kb);
     const Yc = Kb * Xc + Bb;
     Pc = { x: Xc, y: Yc };
-  }else{
+  } else {
     const Yc = h - w * tan(-C);
     Pc = { x: w, y: Yc };
   }
-
-
 
 
   return [Pa, Pb, Pc, Pd];

@@ -26,7 +26,7 @@ export default function useDegMode(w: number, h: number, degList: number[]) {
 
   const options: DegModeOptions = {
     w, h, degList,
-    degDecimal
+    degDecimal,
   };
 
   let points: QPoints | undefined;
@@ -71,6 +71,6 @@ export default function useDegMode(w: number, h: number, degList: number[]) {
 
   return {
     ...p,
-    path: getPolygon(w, h, p)
+    path: getPolygon(w, h, p),
   };
 }

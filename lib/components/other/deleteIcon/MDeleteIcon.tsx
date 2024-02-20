@@ -18,5 +18,5 @@ export default defineComponent((_, { emit }) => {
   };
 }, {
   name: 'MDeleteIcon',
-  emits: ['click']
+  emits: ['click'],
 });

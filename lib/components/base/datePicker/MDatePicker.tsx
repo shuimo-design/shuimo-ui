@@ -13,7 +13,8 @@ import {
   BASE_MONTH_NAME,
   BASE_WEEK_NAME,
   CalendarItem,
-  DisplayCalendarType, toDayjs,
+  DisplayCalendarType,
+  toDayjs,
   useDatePicker,
 } from './useDatePicker';
 import MDivider from '../../other/divider/MDivider';
@@ -39,8 +40,7 @@ const MCalendarColumn = defineComponent((props: { columns: DisplayCalendarType[]
         ]} key={index} onClick={() => clickItem(item)}>
           {item.day}
         </div>;
-      })
-      }
+      })}
     </div>;
   };
 }, {
@@ -90,7 +90,7 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
     clickMonthItem(month);
   };
 
-  watch(() => props.modelValue, (value) => {
+  watch(() => props.modelValue, value => {
     currentRef.value = toDayjs(value);
     updateDateRef(value);
   });
@@ -126,13 +126,11 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
         return year === dateRef.value?.year;
       };
 
-      return <div>
-        {yearsRef.value.map((year, index) => {
-          return <div class={['m-date-picker-calendar-column-year', { 'm-date-picker-current': isCurrent(year) }]}
-                      key={index}
-                      onClick={() => clickYearDiv(year)}>{year}</div>;
-        })
-        }
+      return <div>{yearsRef.value.map((year, index) => {
+        return <div class={['m-date-picker-calendar-column-year', { 'm-date-picker-current': isCurrent(year) }]}
+                    key={index}
+                    onClick={() => clickYearDiv(year)}>{year}</div>;
+      })}
       </div>;
     };
 

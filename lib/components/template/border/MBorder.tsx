@@ -13,8 +13,8 @@ import { baseLineClass, lineType } from './lineType.ts';
 import { WCSetup } from '../../types/template';
 import './border.css';
 
-export const MBorderSetup:WCSetup =  slot =>{
-  return (_, { slots })=>{
+export const MBorderSetup: WCSetup = slot => {
+  return (_, { slots }) => {
     return () => {
       const renderSlot = slot ?? slots.default?.();
       const lineTemplate = Object.keys(lineType).map(type => {
@@ -28,10 +28,10 @@ export const MBorderSetup:WCSetup =  slot =>{
         {lineTemplate}
       </div>;
     };
-  }
-}
+  };
+};
 
 
-export default defineComponent(MBorderSetup(),{
+export default defineComponent(MBorderSetup(), {
   name: 'MBorder',
 });

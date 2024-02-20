@@ -15,7 +15,7 @@
     background-size: 20px;
     vertical-align: middle;
 
-    &:checked{
+    &:checked {
       background-image: url('./assets/radio-checked.webp');
       background-repeat: no-repeat;
       background-position: center;

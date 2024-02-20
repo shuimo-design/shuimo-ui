@@ -18,8 +18,8 @@ describe('dialog', () => {
   test('render', () => {
     const wrapper = mount(MDialog, {
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-dialog-wrapper">
@@ -35,11 +35,11 @@ describe('dialog', () => {
     test('default show dialog', () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       expect(body.outerHTML).toContain('"m-dialog"');
       wrapper.unmount();
@@ -49,11 +49,11 @@ describe('dialog', () => {
       const wrapper = mount(MDialog, {
         props: {
           mask: { show: false },
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.findAll('m-model-mask-bg').length).toBe(0);
@@ -64,11 +64,11 @@ describe('dialog', () => {
       const wrapper = mount(MDialog, {
         props: {
           visible: true,
-          closeBtn: false
+          closeBtn: false,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).not.toContain('m-dialog-close-btn');
@@ -79,11 +79,11 @@ describe('dialog', () => {
       const wrapper = mount(MDialog, {
         props: {
           visible: true,
-          closeBtn: true
+          closeBtn: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('m-model-close-btn');
@@ -93,11 +93,11 @@ describe('dialog', () => {
     test('change visible', async () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: false
+          visible: false,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).not.toContain('"m-dialog"');
@@ -112,11 +112,11 @@ describe('dialog', () => {
     test('click mask will close dialog', async () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('hello');
@@ -128,11 +128,11 @@ describe('dialog', () => {
     test('click close button will close dialog', async () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('hello');
@@ -144,11 +144,11 @@ describe('dialog', () => {
     test('click m-dialog won\'t close dialog', async () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).toContain('hello');
@@ -165,8 +165,8 @@ describe('dialog', () => {
       const wrapper = mount(MDialog, {
         slots: {
           default: () => h('div', 'hello'),
-          active: () => h('div', 'active')
-        }
+          active: () => h('div', 'active'),
+        },
       });
       const bodyWrapper = new DOMWrapper(body);
       expect(bodyWrapper.html()).not.toContain('hello');
@@ -183,11 +183,11 @@ describe('dialog', () => {
     test('default to body', () => {
       const wrapper = mount(MDialog, {
         props: {
-          visible: true
+          visible: true,
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       expect(body.outerHTML).toContain('"m-dialog"');
       wrapper.unmount();
@@ -201,12 +201,12 @@ describe('dialog', () => {
         props: {
           visible: true,
           teleport: {
-            to: '.container'
-          }
+            to: '.container',
+          },
         },
         slots: {
-          default: () => h('div', 'hello')
-        }
+          default: () => h('div', 'hello'),
+        },
       });
       expect(container.outerHTML).toContain('"m-dialog"');
       wrapper.unmount();

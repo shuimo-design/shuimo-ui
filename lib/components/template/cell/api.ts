@@ -18,5 +18,5 @@ export const props: MCOPO<CellProps> = {
   b: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
   c: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
   d: { type: [Object, Number, String] as MPropType<OptionPoint>, default: undefined },
-  style: { type: Object as MPropType<Record<string, string | number>>, default: undefined }
+  style: { type: Object as MPropType<Record<string, string | number>>, default: undefined },
 };

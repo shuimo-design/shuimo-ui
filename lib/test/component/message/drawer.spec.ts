@@ -17,8 +17,8 @@ describe('drawer', () => {
   test('default render', () => {
     const wrapper = mount(MDrawer, {
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     expect(body.outerHTML).not.toContain('m-drawer');
     wrapper.unmount();
@@ -27,11 +27,11 @@ describe('drawer', () => {
   test('show drawer', () => {
     const wrapper = mount(MDrawer, {
       props: {
-        visible: true
+        visible: true,
       },
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     expect(body.outerHTML).toContain('m-drawer');
     wrapper.unmount();
@@ -40,11 +40,11 @@ describe('drawer', () => {
   test('click mask will close drawer', async () => {
     const wrapper = mount(MDrawer, {
       props: {
-        visible: true
+        visible: true,
       },
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     const bodyWrapper = new DOMWrapper(body);
     await bodyWrapper.find('.m-model-mask').trigger('click');
@@ -56,27 +56,27 @@ describe('drawer', () => {
     const wrapper = mount(MDrawer, {
       props: {
         mask: { show: false },
-        visible: true
+        visible: true,
       },
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.findAll('m-model-mask-bg').length).toBe(0);
     wrapper.unmount();
   });
 
-  test('with active',async () => {
+  test('with active', async () => {
     const wrapper = mount(MDrawer, {
       props: {
         mask: { show: false },
-        visible: true
+        visible: true,
       },
       slots: {
         active: () => h('div', 'active'),
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     expect(wrapper.find('.m-model-active').html()).toMatchInlineSnapshot(`
       "<div class="m-model-active">
@@ -89,11 +89,11 @@ describe('drawer', () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,
-        closeBtn: false
+        closeBtn: false,
       },
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.html()).not.toContain('m-dialog-close-btn');
@@ -104,11 +104,11 @@ describe('drawer', () => {
     const wrapper = mount(MDrawer, {
       props: {
         visible: true,
-        closeBtn: true
+        closeBtn: true,
       },
       slots: {
-        default: () => h('div', 'hello')
-      }
+        default: () => h('div', 'hello'),
+      },
     });
     const bodyWrapper = new DOMWrapper(body);
     expect(bodyWrapper.html()).toContain('m-dialog-close-btn');

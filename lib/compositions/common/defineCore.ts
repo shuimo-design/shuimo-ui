@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * @description A tool for normalizing grammatical structures
  * @author 阿怪
@@ -7,7 +8,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { Ref } from "vue";
+import { Ref } from 'vue';
 
 type OptionsEmpty = undefined;
 

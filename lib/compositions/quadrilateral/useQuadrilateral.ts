@@ -23,7 +23,7 @@ export default function useQuadrilateral(options: {
     A: options.options.a,
     B: options.options.b,
     C: options.options.c,
-    D: options.options.d
+    D: options.options.d,
   });
 
   const isXYEmpty = [A, B, C, D].every(e => e.x === undefined || e.y === undefined);

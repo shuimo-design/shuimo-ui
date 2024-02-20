@@ -18,8 +18,8 @@ export function useConfirm(
       _content: string,
       confirm: () => void,
       cancel: () => void,
-    }
-  ) => void
+    },
+  ) => void,
 ) {
 
   const ConfirmImpl: IConfirm = async config => {
@@ -53,7 +53,7 @@ export function useConfirm(
   };
 
   return {
-    ConfirmImpl
+    ConfirmImpl,
   };
 
 }

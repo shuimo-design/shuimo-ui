@@ -11,7 +11,7 @@ type Point = {
   x?: number | string,
   y?: number | string,
   deg?: number
-}
+};
 
 type OPoint = Pick<Point, 'x' | 'y' | 'deg'>;
 
@@ -23,8 +23,8 @@ type CPoint = OptionPoint | undefined;
 type COptions = {
   points?: string | number,
   a?: CPoint, b?: CPoint, c?: CPoint, d?: CPoint,
-}
+};
 type QOptions = {
   points?: string | number,
   A?: CPoint, B?: CPoint, C?: CPoint, D?: CPoint,
-}
+};

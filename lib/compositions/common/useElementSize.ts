@@ -8,8 +8,8 @@
  *
  * Learn from vueuse useElementSize
  */
-import { Ref, ref } from "vue";
-import { useResizeObserver } from "./useResizeObserver";
+import { Ref, ref } from 'vue';
+import { useResizeObserver } from './useResizeObserver';
 
 
 export function useElementSize(
@@ -28,10 +28,10 @@ export function useElementSize(
       w.value = Number.parseFloat(styles.width);
       h.value = Number.parseFloat(styles.height);
     }
-  })
+  });
 
 
   return {
-    w, h
-  }
+    w, h,
+  };
 }

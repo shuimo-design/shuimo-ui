@@ -23,5 +23,5 @@ export default defineComponent((props: TagProps, { slots }) => {
   };
 }, {
   name: 'MTag',
-  props
+  props,
 });

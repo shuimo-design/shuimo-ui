@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 
-import { useDialog } from "shuimo-ui";
+import { useDialog } from 'shuimo-ui';
 
 const { visible, closeDialog } = useDialog();
 

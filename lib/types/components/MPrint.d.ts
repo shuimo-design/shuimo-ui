@@ -10,7 +10,7 @@
 declare enum PrinterEnum {
   suggest = 'suggest',
   info = 'info',
-  error = 'error'
+  error = 'error',
 }
 
 /**

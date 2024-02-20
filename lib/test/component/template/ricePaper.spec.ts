@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MRicePaper from '../../../components/template/ricePaper/MRicePaper.tsx';
 
@@ -15,8 +15,8 @@ describe('rice paper', () => {
   test('render', () => {
     const wrapper = mount(MRicePaper, {
       slots: {
-        default: '<div>test</div>'
-      }
+        default: '<div>test</div>',
+      },
     });
 
     expect(wrapper.html()).toMatchInlineSnapshot(`

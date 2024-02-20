@@ -12,5 +12,5 @@ import { AvatarProps } from './index';
 export const props: MCOPO<AvatarProps> = {
   variant: { type: String as MPropType<'circle' | 'square'>, default: 'circle' },
   size: { type: String as MPropType<'large' | 'default' | 'small'>, default: 'default' },
-  img: { type: String, default: '' }
+  img: { type: String, default: '' },
 };

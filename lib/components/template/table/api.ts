@@ -13,5 +13,5 @@ import { TableProps } from './index';
 export const props: MCOPO<TableProps> = {
   data: { type: Array, default: () => [] },
   height: { type: String, default: null },
-  paramClass: { type: Boolean, default: false }
+  paramClass: { type: Boolean, default: false },
 };

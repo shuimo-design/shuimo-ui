@@ -15,7 +15,7 @@ import { isEmpty } from '../../../tools';
 import { SwitchProps } from './index';
 import './switch.css';
 
-export default defineComponent((props, { emit, slots }) => {
+export default defineComponent((props: SwitchProps, { emit, slots }) => {
   const activeValue = ref(props.activeValue);
   const inactiveValue = ref(props.inactiveValue);
 
@@ -60,7 +60,7 @@ export default defineComponent((props, { emit, slots }) => {
       'm-switch',
       isActive.value ? 'm-switch-active' : 'm-switch-inactive',
       { 'm-switch-loading': props.loading },
-      { 'm-switch-disabled': props.disabled }
+      { 'm-switch-disabled': props.disabled },
     ]}>
       {getInfo('activeInfo')}
       <div class="m-switch-main">
@@ -75,5 +75,5 @@ export default defineComponent((props, { emit, slots }) => {
 }, {
   name: 'MSwitch',
   emits: ['update:modelValue', 'change'],
-  props
+  props,
 });

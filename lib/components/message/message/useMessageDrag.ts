@@ -54,7 +54,7 @@ export default function useMessageDrag(domRef: Ref<HTMLElement | null>, event: {
 
     let movePositionHandler;
 
-    //left support drag to left
+    // left support drag to left
     if (['top-left', 'bottom-left'].includes(direction)) {
       movePositionHandler = (event: InteractEvent, position: DragPosition) => {
         const positionX = position.x + event.dx;
@@ -93,14 +93,14 @@ export default function useMessageDrag(domRef: Ref<HTMLElement | null>, event: {
 
     return {
       option,
-      movePositionHandler
+      movePositionHandler,
     };
   };
 
   return {
     messageDragInit,
     directionStrategy,
-    onDragLeave
+    onDragLeave,
   };
 
 }

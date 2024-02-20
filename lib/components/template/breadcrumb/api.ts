@@ -12,9 +12,9 @@ import type { BreadcrumbItemProps } from './breadcrumbItem';
 
 export const props: MCOPO<BreadcrumbProps> = {
   separator: { type: String, default: '' },
-  options: { type: Array, default: () => [] }
-}
+  options: { type: Array, default: () => [] },
+};
 
 export const breadcrumbItemProps: MCOPO<BreadcrumbItemProps> = {
-  content: { type: String, default: '' }
-}
+  content: { type: String, default: '' },
+};

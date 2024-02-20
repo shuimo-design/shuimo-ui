@@ -21,11 +21,11 @@ export declare type BreadcrumbProps = {
    * @type string
    * @default ''
    */
-  separator?:string,
+  separator?: string,
   /**
    * @description 面包屑项
    * @type BreadcrumbItemProps[]
    * @default []
    */
   options?: Array<BreadcrumbItemProps>,
-}
+};

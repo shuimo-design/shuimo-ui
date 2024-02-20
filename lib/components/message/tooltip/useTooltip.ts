@@ -15,13 +15,13 @@ export function useTooltip() {
 
 
   const { popoverOptions } = usePopover({
-    placement: 'bottom'
+    placement: 'bottom',
   }, {
-    offset: 5
+    offset: 5,
   });
 
   return {
-    popoverOptions
+    popoverOptions,
   };
 
 }

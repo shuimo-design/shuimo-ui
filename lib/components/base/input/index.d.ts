@@ -51,10 +51,10 @@ export declare type InputProps = {
    * @default false
    */
   autofocus?: boolean
-}
+};
 
 export declare type InputEvents = {
   onInput?: (e: HTMLElementEvent<HTMLInputElement>) => void
   onFocus?: (e: FocusEvent) => void
   onBlur?: (e: FocusEvent) => void
-}
+};

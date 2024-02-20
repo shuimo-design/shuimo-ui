@@ -30,7 +30,7 @@ describe('popover', () => {
   }) => {
     return mount(MPopover, {
       props,
-      slots
+      slots,
     });
   };
 
@@ -38,7 +38,7 @@ describe('popover', () => {
   test('render', () => {
     const wrapper = getWrapper({}, {
       default: () => 'hello',
-      content: () => 'world'
+      content: () => 'world',
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-popover" data-popper-placement="bottom">
@@ -56,7 +56,7 @@ describe('popover', () => {
       vi.useFakeTimers();
       const wrapper = getWrapper({}, {
         default: () => 'hello',
-        content: () => 'world'
+        content: () => 'world',
       });
       const instance = wrapper.vm as any; //  fix any
       expect(wrapper.find('.m-popover-content').html()).not.toContain('world');
@@ -65,7 +65,7 @@ describe('popover', () => {
       instance.hide();
       await vi.runOnlyPendingTimersAsync();
       expect(wrapper.find('.m-popover-content').html()).not.toContain('world');
-    })
+    });
   });
 
 
@@ -74,7 +74,7 @@ describe('popover', () => {
       vi.useFakeTimers();
       const wrapper = getWrapper({}, {
         default: () => 'hello',
-        content: () => 'world'
+        content: () => 'world',
       });
       wrapper.find('.m-popover-default-wrapper').trigger('click');
       await vi.runOnlyPendingTimersAsync();
@@ -86,7 +86,7 @@ describe('popover', () => {
       vi.useFakeTimers();
       const wrapper = getWrapper({}, {
         default: () => 'hello',
-        content: () => 'world'
+        content: () => 'world',
       });
       await wrapper.find('.m-popover-default-wrapper').trigger('click');
       await vi.runAllTimersAsync();
@@ -101,7 +101,7 @@ describe('popover', () => {
       vi.useFakeTimers();
       const wrapper = getWrapper({ disableClickAway: true }, {
         default: () => 'hello',
-        content: () => 'world'
+        content: () => 'world',
       });
       await wrapper.find('.m-popover-default-wrapper').trigger('click');
       await vi.runAllTimersAsync();
@@ -112,9 +112,9 @@ describe('popover', () => {
       expect(wrapper.find('.m-popover-content').html()).toContain('world');
     });
 
-    test('test arrow',()=>{
+    test('test arrow', () => {
       // todo
-    })
+    });
   });
 
 });

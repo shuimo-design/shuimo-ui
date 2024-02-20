@@ -8,8 +8,8 @@
  *
  * todo 这里应该可以优化成直接使用 vite-plugin-md
  */
-import { defineNuxtModule, addVitePlugin } from '@nuxt/kit';
-import Vue from '@vitejs/plugin-vue'
+import { addVitePlugin, defineNuxtModule } from '@nuxt/kit';
+import Vue from '@vitejs/plugin-vue';
 import { VitePluginMarkdown } from '../dependence/markdownLib';
 
 

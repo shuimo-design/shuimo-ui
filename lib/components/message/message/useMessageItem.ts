@@ -26,7 +26,7 @@ export const messageIcon: Record<MessageType, any> = {
   success: successIcon,
   warning: warningIcon,
   info: infoIcon,
-  error: errorIcon
+  error: errorIcon,
 };
 
 export function useMessageItem(options: Options<{
@@ -38,7 +38,7 @@ export function useMessageItem(options: Options<{
   const { direction, duration } = options.props;
   const domRef = ref<HTMLElement | null>(null);
   const { messageDragInit, directionStrategy, onDragLeave } = useMessageDrag(domRef, {
-    needRemove: () => remove()
+    needRemove: () => remove(),
   });
   const { option, movePositionHandler } = directionStrategy(direction);
 
@@ -48,8 +48,8 @@ export function useMessageItem(options: Options<{
     event: {
       getOption: () => option,
       movePositionHandler,
-      onDragLeave
-    }
+      onDragLeave,
+    },
   });
 
   const onMountedEvent = () => {
@@ -93,7 +93,7 @@ export function useMessageItem(options: Options<{
     domRef,
     onMountedEvent,
     clearTimer, setTimer,
-    onMouseEnterHandler, onMouseLeaveHandler
+    onMouseEnterHandler, onMouseLeaveHandler,
   };
 
 }

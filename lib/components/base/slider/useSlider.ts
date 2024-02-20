@@ -55,8 +55,8 @@ export function useSlider(options: Options<{
     direction: 'top-right',
     event: {
       getOption: () => option,
-      movePositionHandler
-    }
+      movePositionHandler,
+    },
   });
 
   const init = () => {
@@ -84,7 +84,7 @@ export function useSlider(options: Options<{
 
   return {
     btnRef,
-    sliderRef
+    sliderRef,
   };
 
 }

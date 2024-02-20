@@ -9,7 +9,7 @@
  *
  * todo support mouse hover handle
  */
-import { ComponentPublicInstance, createApp, nextTick, Component } from 'vue';
+import { Component, ComponentPublicInstance, createApp, nextTick } from 'vue';
 import MMessageList from './MMessageList';
 import MMessageItem from './MMessageItem';
 import { useMessage } from './useMessage.ts';
@@ -31,7 +31,7 @@ const MMessage = initMessage({
       const dom = domList[domList.length - 1];
       resolve(dom);
     });
-  }
+  },
 });
 
 export default MMessage;

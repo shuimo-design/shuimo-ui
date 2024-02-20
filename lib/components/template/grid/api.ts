@@ -16,5 +16,5 @@ export const props: MCOPO<GridProps> = {
   colGap: { type: [Number, String], default: undefined },
   rowGap: { type: [Number, String], default: undefined },
   gapRotate: { type: Array, default: () => [] },
-  direction: { type: String as MPropType<'column' | 'row'>, default: 'row' }
+  direction: { type: String as MPropType<'column' | 'row'>, default: 'row' },
 };

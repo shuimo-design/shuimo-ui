@@ -11,5 +11,5 @@ import { props } from './api.ts';
 
 export default defineComponent({
   name: 'MTableColumn',
-  props
+  props,
 });

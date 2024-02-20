@@ -50,7 +50,7 @@ export function useMessageList(options: Options<{
     messageListRef,
     getKey,
     add, remove,
-    baseClass
+    baseClass,
   };
 
 

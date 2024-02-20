@@ -13,8 +13,10 @@ import { DEFAULT_CONFIG } from '../../base/tree/tree';
 
 export const props: MCOPO<MenuProps> = {
   ...treeProps,
-  config: { type: Object, default: () => ({
+  config: {
+    type: Object, default: () => ({
       ...DEFAULT_CONFIG,
-      expand: 'isActive'
-    }) },
+      expand: 'isActive',
+    }),
+  },
 };

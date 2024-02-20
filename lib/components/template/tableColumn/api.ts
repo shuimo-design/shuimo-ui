@@ -13,5 +13,5 @@ import { TableColumnProps } from './index';
 export const props: MCOPO<TableColumnProps> = {
   width: { type: String, default: '' },
   param: { type: String, default: '' },
-  label: { type: String, default: '' }
+  label: { type: String, default: '' },
 };

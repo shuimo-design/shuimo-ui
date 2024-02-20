@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue';
 
 const loopPer = ref(0);
 
@@ -17,5 +17,5 @@ onMounted(() => {
       loopPer.value = 0;
     }
   }, 16);
-})
+});
 </script>

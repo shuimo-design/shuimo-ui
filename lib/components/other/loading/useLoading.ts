@@ -44,6 +44,6 @@ export function useLoading() {
   };
 
   return {
-    getStyle
+    getStyle,
   };
 }

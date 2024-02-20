@@ -27,7 +27,7 @@ export function useDarkMode(props: DarkModeProps) {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
           isDark = toggleDarkMode({ modelValue: event.matches });
         });
-       isDark =  toggleDarkMode({ modelValue: getBrowserDarkMode() });
+        isDark = toggleDarkMode({ modelValue: getBrowserDarkMode() });
       }
     }
     isDarkRef.value = isDark;
@@ -52,7 +52,7 @@ export function useDarkMode(props: DarkModeProps) {
     isDarkRef,
     getBrowserDarkMode,
     onMountedHook,
-    toggleDarkMode
+    toggleDarkMode,
   };
 
 }

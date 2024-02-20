@@ -18,5 +18,5 @@ export const props: MCOPO<SwitchProps> = {
   inactiveInfo: { type: String, default: '' },
   activeValue: { type: undefined, default: undefined },
   inactiveValue: { type: undefined, default: undefined },
-  onControl: { type: Boolean, default: false }
+  onControl: { type: Boolean, default: false },
 };

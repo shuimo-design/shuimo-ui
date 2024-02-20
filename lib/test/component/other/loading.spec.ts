@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, test, expect, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { mount, VueWrapper } from '@vue/test-utils';
 import { LoadingProps } from '../../../components/other/loading';
 import MLoading from '../../../components/other/loading/MLoading.tsx';

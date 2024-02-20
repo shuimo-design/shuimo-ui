@@ -15,12 +15,12 @@
  *
  * todo 可选是否复制
  */
-import { computed, useSlots } from "vue";
-import { MMessage, MPrinter } from "shuimo-ui";
+import { computed, useSlots } from 'vue';
+import { MMessage, MPrinter } from 'shuimo-ui';
 
 const props = defineProps<{
-  color: string,
-  fontColor?: string
+  color: string;
+  fontColor?: string;
 }>();
 
 const slot = useSlots();
@@ -37,7 +37,7 @@ const copy = () => {
     MPrinter('颜色复制').error(e);
     MMessage.error('复制失败！');
   });
-}
+};
 
 </script>
 

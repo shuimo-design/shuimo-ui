@@ -16,7 +16,7 @@ import { Ref, ref } from 'vue';
 export type ISelectOptions<OptionValue, JSXNode> = {
   active: (data?: () => { tags: Array<SelectOptions<OptionValue>> }) => JSXNode,
   content: (data: () => { options: Array<SelectOptions<OptionValue>> }) => JSXNode,
-}
+};
 
 export type SelectOptions<OptionValue> = { value: OptionValue, isSelected: boolean, index: number };
 
@@ -28,7 +28,7 @@ export type SelectCreatorOptions<OptionValue> = {
     selectDisplayOptions: Ref<Array<SelectOptions<OptionValue>>>,
     selectTags: Ref<Array<SelectOptions<OptionValue>>>,
   },
-}
+};
 
 type InitRenderOptionRender<OptionValue, JSXNode> = {
   single: ISelectOptions<OptionValue, JSXNode>,
@@ -71,7 +71,7 @@ export abstract class BaseSelect<OptionValue> {
   }
 
   callFilter(option: OptionType) {
-    const { readonly: _readonly, filter } = this.options?.props!;
+    const { readonly: _readonly, filter } = this.options?.props ?? {};
 
     if (_readonly) {return true;}
     if (isEmpty(this.inputValueRef?.value)) {return true;}
@@ -92,7 +92,7 @@ export abstract class BaseSelect<OptionValue> {
         return {
           value: o,
           index,
-          isSelected: this.matchSelected(o) ?? false
+          isSelected: this.matchSelected(o) ?? false,
         };
       });
     this.updateSelectDisplayOptions();
@@ -127,7 +127,7 @@ export abstract class BaseSelect<OptionValue> {
     this.updateSelectDisplayOptions();
 
     return {
-      modelValue: this.getModelValue(option.value)
+      modelValue: this.getModelValue(option.value),
     };
   }
 
@@ -174,7 +174,7 @@ export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue> 
 
     return {
       getActive,
-      getContent
+      getContent,
     };
   }
 }
@@ -213,7 +213,7 @@ export class MultipleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue
   }
 
   baseFilter(option: OptionType) {
-    return this.inputValueRef!.value===this.tools?.getInputValue(option);
+    return this.inputValueRef!.value === this.tools?.getInputValue(option);
   }
 
   initRender(render: InitRenderOptionRender<OptionValue, JSXNode>) {
@@ -229,7 +229,7 @@ export class MultipleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue
 
     return {
       getActive,
-      getContent
+      getContent,
     };
   }
 }

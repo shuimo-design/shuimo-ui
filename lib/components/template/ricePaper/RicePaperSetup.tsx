@@ -56,7 +56,7 @@ export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
       }
     });
 
-    watch(() => props.mountain, (val) => {
+    watch(() => props.mountain, val => {
       if (val) {
         window.addEventListener('mousemove', moveMountain);
       } else {

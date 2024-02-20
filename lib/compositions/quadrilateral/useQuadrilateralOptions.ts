@@ -66,7 +66,6 @@ const pointsModeGetABCD = (points: string | number): Point[] => {
 };
 
 
-
 export default function useQuadrilateralOptions(options: QOptions | string | number | CPoint[] | undefined) {
   if (Array.isArray(options)) {
     return quadrilateralOptions({ A: options[0], B: options[1], C: options[2], D: options[3] });
@@ -92,7 +91,7 @@ const quadrilateralOptions = (options: QOptions) => {
   if (options.D) {D = getLine(options.D);}
 
   return {
-    A, B, C, D
+    A, B, C, D,
   };
 
 };

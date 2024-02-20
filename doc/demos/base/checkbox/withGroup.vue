@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const data = ref(['极客江湖', '水墨组件']);
 </script>

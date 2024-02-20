@@ -12,5 +12,5 @@ import { ConfirmProps } from './index';
 export const props: MCOPO<ConfirmProps> = {
   mask: { type: Object, default: { show: true, clickClose: true } },
   teleport: { type: Object, default: { to: 'body' } },
-  content: { type: String, default: '' }
+  content: { type: String, default: '' },
 };

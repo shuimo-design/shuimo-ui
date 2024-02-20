@@ -14,7 +14,7 @@ import { Ref, watch } from 'vue';
 export function useResizeObserver(
   target: Ref<HTMLElement | null>,
   callback: ResizeObserverCallback,
-  options: ResizeObserverOptions = {}
+  options: ResizeObserverOptions = {},
 ) {
 
   let observer: ResizeObserver | undefined;
@@ -37,7 +37,7 @@ export function useResizeObserver(
 
 
   return {
-    cleanup
+    cleanup,
   };
 
 }

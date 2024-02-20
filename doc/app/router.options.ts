@@ -9,13 +9,13 @@
 import type { RouterConfig } from '@nuxt/schema';
 
 export default <RouterConfig>{
-  routes: (routes) => {
+  routes: routes => {
 
     // quickStart
-    const main = routes.find(route=>route.path==='/main');
-    if(main&&main.children){
-      const quickStart = main.children.find(c=>c.path==='quickStart');
-      if(quickStart){
+    const main = routes.find(route => route.path === '/main');
+    if (main && main.children) {
+      const quickStart = main.children.find(c => c.path === 'quickStart');
+      if (quickStart) {
         quickStart.alias = '/quickStart';
       }
     }
@@ -36,5 +36,5 @@ export default <RouterConfig>{
       doc.alias = [`/${name}`];
     });
     return routes;
-  }
+  },
 };

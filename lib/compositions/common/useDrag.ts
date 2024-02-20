@@ -44,20 +44,20 @@ export default function useDrag(config: {
           },
           move: event => {
             const { x, y } = config.event?.movePositionHandler?.(event, position) ?? {
-              x: position.x + event.dx, y: position.y + event.dy
+              x: position.x + event.dx, y: position.y + event.dy,
             };
             position.x = x;
             position.y = y;
             event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
-          }
-        }
+          },
+        },
       });
   };
 
 
   return {
     domRef,
-    init
+    init,
   };
 
 }

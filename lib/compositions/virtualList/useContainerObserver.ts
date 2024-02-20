@@ -38,7 +38,7 @@ export default function useContainerObserver(options: {
     }
 
     if (target) {
-      const isArray = Array.isArray(target)||target instanceof HTMLCollection;
+      const isArray = Array.isArray(target) || target instanceof HTMLCollection;
       if (isArray) {
         for (let i = 0; i < target.length; i++) {
           ob[type](target[i]);
@@ -78,7 +78,7 @@ export default function useContainerObserver(options: {
     if (ob) {ob.disconnect();}
     ob = new IntersectionObserver(options.callback, {
       root: options.containerRef.value,
-      threshold: options.threshold ?? [0, 1]
+      threshold: options.threshold ?? [0, 1],
     });
     clearQueue();
   };
@@ -93,7 +93,7 @@ export default function useContainerObserver(options: {
 
 
   return {
-    reObserve
+    reObserve,
   };
 
 }

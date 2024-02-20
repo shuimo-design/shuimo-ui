@@ -13,15 +13,17 @@ import { computed, defineComponent } from 'vue';
 import { leaf, useProgress } from './useProgress.ts';
 import { props } from './api.ts';
 import './progress.css';
+import { ProgressProps } from './index';
 
-export default defineComponent((props, { slots }) => {
+export default defineComponent((_props: ProgressProps, { slots }) => {
+  const props = _props as Required<ProgressProps>;
   const { getProgressWrapperStyle, getProgressInfo } = useProgress({ props });
   const progressInfo = computed(() => getProgressInfo());
   const progressWrapperInfo = computed(() => {
     if (props.showInfo) {
       return getProgressWrapperStyle(progressInfo.value);
     }
-    return undefined
+    return undefined;
   });
 
 
@@ -44,5 +46,5 @@ export default defineComponent((props, { slots }) => {
   };
 }, {
   name: 'MProgress',
-  props
+  props,
 });

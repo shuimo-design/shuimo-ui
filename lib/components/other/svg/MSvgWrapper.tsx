@@ -18,5 +18,5 @@ export default defineComponent((props, { slots }) => {
     </div>
   );
 }, {
-  name: 'MSvgWrapper'
+  name: 'MSvgWrapper',
 });

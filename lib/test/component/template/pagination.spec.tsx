@@ -8,7 +8,7 @@
  * todo fix this.current
  */
 
-import { describe, test, expect, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MPagination from '../../../components/template/pagination/MPagination.tsx';
 
@@ -17,12 +17,12 @@ describe('分页组件', function () {
     const wrapper = mount(MPagination, {
       props: {
         modelValue: 1,
-        total: 100
-      }
+        total: 100,
+      },
     });
     expect(wrapper.find('.m-paper-current').text()).toEqual('1');
     await wrapper.setProps({
-      modelValue: 2
+      modelValue: 2,
     });
     expect(wrapper.find('.m-paper-current').text()).toEqual('2');
   });
@@ -32,12 +32,12 @@ describe('分页组件', function () {
     const wrapper = mount({
       data() {
         return {
-          current: 1
+          current: 1,
         };
       },
       render() {
-        return <MPagination total={100} v-model={this.current} />;
-      }
+        return <MPagination total={100} v-model={this.current}/>;
+      },
     });
 
     await wrapper.find('.m-page-prev').trigger('click');
@@ -49,12 +49,12 @@ describe('分页组件', function () {
     const wrapper = mount({
       data() {
         return {
-          current: 1
+          current: 1,
         };
       },
       render() {
-        return <MPagination total={11} v-model={this.current} />;
-      }
+        return <MPagination total={11} v-model={this.current}/>;
+      },
     });
 
     await wrapper.find('.m-page-next').trigger('click');

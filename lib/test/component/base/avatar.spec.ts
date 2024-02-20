@@ -8,9 +8,8 @@
  */
 
 import { mount } from '@vue/test-utils';
-import { describe, test, expect } from 'vitest';
-import { MAvatar } from '../../../index.ts';
-
+import { describe, expect, test } from 'vitest';
+import MAvatar from '../../../components/base/avatar/MAvatar.tsx';
 
 describe('avatar', () => {
 

@@ -25,19 +25,19 @@ export enum CASE {
   NO = 0, // 0000
   D, // 0001
   C, // 0010
-  DC,// 0011
-  B,// 0100
-  DB,// 0101
-  CB,// 0110
-  DCB,// 0111
-  A,// 1000
-  DA,// 1001
-  CA,// 1010
-  DCA,// 1011
-  BA,// 1100
-  DBA,// 1101
-  CBA,// 1110
-  ALL,// 1111
+  DC, // 0011
+  B, // 0100
+  DB, // 0101
+  CB, // 0110
+  DCB, // 0111
+  A, // 1000
+  DA, // 1001
+  CA, // 1010
+  DCA, // 1011
+  BA, // 1100
+  DBA, // 1101
+  CBA, // 1110
+  ALL, // 1111
 }
 
 /**
@@ -82,12 +82,12 @@ export type DegModeOptions = {
   h: number;
   degList: number[];
   degDecimal: CASE
-}
+};
 
 export type QPoint = {
   x: number;
   y: number;
-}
+};
 
 export type ResPoint = QPoint & {
   length: number;
@@ -98,13 +98,13 @@ export type ResPoint = QPoint & {
     bottom?: number
   }
   deg?: number;
-}
+};
 
 export type QPoints = QPoint[];
 
 export type QRes = QPoints & {
   path: string
-}
+};
 
 
 export const getPolygon = (w: number, h: number, points: { A: ResPoint, B: ResPoint, C: ResPoint, D: ResPoint, }) => {
@@ -153,7 +153,7 @@ export const getPoints = () => {
   const EP = { x: 0, y: 0 }; // empty point
   let Pa: QPoint = EP, Pb: QPoint = EP, Pc: QPoint = EP, Pd: QPoint = EP;
   return {
-    Pa, Pb, Pc, Pd
+    Pa, Pb, Pc, Pd,
   };
 };
 
@@ -165,6 +165,6 @@ export const toRes = (points: QPoint[], degList: number[]) => {
     A: { ...Pa, length: getLineLength(Pa, Pb), deg: A },
     B: { ...Pb, length: getLineLength(Pb, Pc), deg: B },
     C: { ...Pc, length: getLineLength(Pc, Pd), deg: C },
-    D: { ...Pd, length: getLineLength(Pd, Pa), deg: D }
+    D: { ...Pd, length: getLineLength(Pd, Pa), deg: D },
   };
 };

@@ -18,4 +18,4 @@ export declare type DividerProps = {
    * @default false
    */
   vertical?: boolean
-}
+};

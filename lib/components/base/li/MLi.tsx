@@ -25,5 +25,5 @@ export default defineComponent((props: LiProps, { slots }) => {
   };
 }, {
   name: 'MLi',
-  props
+  props,
 });

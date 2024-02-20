@@ -71,6 +71,7 @@ export class EsConfig {
   }
 
   cssBuildPlugin() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     return {
       name: 'shuimo:css-build-plugin-pre',

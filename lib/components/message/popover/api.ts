@@ -14,7 +14,7 @@ import { Placement } from '../../../compositions/popper/usePopper.ts';
 export const props: MCOPO<PopoverProps> = {
   placement: {
     type: String as MPropType<Placement>,
-    default: 'bottom'
+    default: 'bottom',
     // validator: (value: string) =>
     //   [
     //     'auto',
@@ -47,7 +47,7 @@ export const props: MCOPO<PopoverProps> = {
   // locked: { type: Boolean, default: false },
   content: { type: String, default: '' },
   popper: {
-    type: Object, default: () => ({})
+    type: Object, default: () => ({}),
   },
-  teleport: { type: [Object, Boolean], default: undefined }
+  teleport: { type: [Object, Boolean], default: undefined },
 };

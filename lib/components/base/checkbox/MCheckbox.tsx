@@ -55,5 +55,5 @@ export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
 }, {
   name: 'MCheckbox',
   props,
-  emits: ['change', 'update:modelValue']
+  emits: ['change', 'update:modelValue'],
 });
