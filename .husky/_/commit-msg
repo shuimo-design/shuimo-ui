@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+npx --no -- commitlint -g ./node_modules/@janghood/lint/config/commitlint.config.ts --edit $1
