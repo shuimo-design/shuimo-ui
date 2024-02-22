@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/shuimo-design/shuimo-ui/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/shuimo-design/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
-[English Document](https://github.com/shuimo-design/shuimo-ui/blob/main/assets/README/README.en.md)
+[English Document](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/README/README.en.md)
 
 ## 简介
 
