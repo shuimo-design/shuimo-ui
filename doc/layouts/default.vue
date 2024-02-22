@@ -24,6 +24,7 @@ import Menu from '@/components/base/Menu.vue';
   display: grid;
   height: calc(100vh - 102px);
   grid-template-columns: 315px auto;
+  grid-template-rows: 100%;
 }
 
 </style>
