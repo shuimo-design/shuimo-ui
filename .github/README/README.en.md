@@ -28,6 +28,8 @@ We have sorted out a set of Shuimo component library with traditional Chinese st
 I hope that this traditional Chinese-style component library can be used for some niche needs, and can satisfy some
 users who have an artistic pursuit of the site and hope to build it quickly.
 
+At the same time, we hope to contribute a little effort to help Chinese traditional culture become more widely known.
+
 It looks like this:
 <img src="https://github.com/shuimo-design/shuimo-ui/blob/main/.github/README/example.webp?raw=true">
 
@@ -47,6 +49,14 @@ pnpm install shuimo-ui
 ### document
 
 [click here](https://shuimo.design)
+
+## Merchandise
+
+We've discovered that the `Shuimo UI` design style can be applied to some interesting places, so we've produced some merchandise, which is being iterated and released gradually.
+
+Currently, we can share with you a set of Shuimo style wallpapers.
+
+Here is the project link: [shuimo-wallpaper](https://github.com/shuimo-design/wallpaper)
 
 ## Backers
 

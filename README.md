@@ -25,6 +25,8 @@
 
 希望这款中国传统风格的组件库，能用于一些小众的需求，能满足于一些对页面有美术追求，又希望能快速搭建的用户。
 
+同时，我们希望能尽一分小小的力量，让更多人了解中国传统文化。
+
 它的实践看起来是这样的：
 <img src="https://github.com/shuimo-design/shuimo-ui/blob/main/.github/README/example.webp?raw=true">
 
@@ -43,6 +45,14 @@ npm install shuimo-ui
 ### 文档
 
 [点击这里](https://shuimo.design)
+
+## 周边
+
+我们发现`水墨UI`的设计风格可以用于一些有趣的地方，因此我们产出了一些周边，正在逐步迭代与发布中。
+
+当前我们能与您分享的，是一套水墨风壁纸。
+
+这里是项目链接：[shuimo-wallpaper](https://github.com/shuimo-design/wallpaper)
 
 ## 支持者
 
