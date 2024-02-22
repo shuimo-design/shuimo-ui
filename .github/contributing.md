@@ -38,6 +38,14 @@ Of course, you can also keep your own `commit` style, then I will merge your `co
 - `Fork` the repository to your own account
 - `Clone` your repository to local
 - Use `pnpm i` to install dependencies
+  - If you are willing to follow the `commit` specification of `shuimo` and want to use `lint`, then you can update the `prepare` command in `package.json` and reinstall the `.husky` dependency:
+    ```json
+    {
+      "scripts": {
+        "prepare": "jhlint install -u -p"
+      }
+    }
+    ``` 
 - Then you can use `playground` for development
   ```shell
   pnpm run dev
@@ -93,6 +101,14 @@ Hi! 欢迎你对水墨UI做出贡献！在提交你的贡献之前，请花一�
 - 将仓库`fork`到自己的账户下
 - `clone`自己的仓库到本地
 - 使用`pnpm i`安装依赖
+  - 如果您愿意遵循`shuimo`的`commit`规范，并且希望使用`lint`，那么您可以更新`package.json`中的`prepare`命令，重新安装`.husky`依赖：
+    ```json
+    {
+      "scripts": {
+        "prepare": "jhlint install -u -p"
+      }
+    }
+    ```
 - 然后您可以使用`playground`来进行开发
   ```shell
   pnpm run dev
