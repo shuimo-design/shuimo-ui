@@ -4,7 +4,7 @@
 
 :root {
   --m-select-h: 38px;
-  --m-select-w: calc(var(--m-input-w) + 8px);
+  --m-select-w: calc(var(--m-input-w) + 14px);
   --m-select-dropdown-w: var(--m-input-w);
   /* todo fix input-w */
   --m-input-w: 244px;
