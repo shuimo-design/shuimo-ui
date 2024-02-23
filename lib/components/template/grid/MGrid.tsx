@@ -12,8 +12,10 @@ import { defineComponent } from 'vue';
 import { useGrid } from './useGrid.ts';
 import { props } from './api.ts';
 import './grid.css';
+import { GridProps } from './index';
 
-export default defineComponent((props, { slots }) => {
+export default defineComponent((_props: GridProps, { slots }) => {
+  const props = _props as Required<GridProps>;
   const { getStyle, getGridClass, gridRef, calcCells } = useGrid({ props });
   return () => {
     const cells = slots.default?.();
