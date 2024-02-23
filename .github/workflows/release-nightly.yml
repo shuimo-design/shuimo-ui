@@ -58,9 +58,7 @@ jobs:
       - name: change version
         run: |
           cd cli/build/config/output/
-          git config --global user.email "jimmyrss1102@gmail.com"
-          git config --global user.name "Cai"
-          npm version ${{ env.version }} --force
+          npm version ${{ env.version }}
       - name: Publish package
         run:
           cd cli/build/config/output/ && npm publish
