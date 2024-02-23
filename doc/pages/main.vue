@@ -1,5 +1,5 @@
 <template>
-  <div class="home menu-right m-scroll">
+  <div class="home menu-right m-scroll" ref="contentRef">
     <NuxtPage/>
   </div>
 </template>
@@ -13,7 +13,10 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
+import { useResetScroll } from '@/compositions/entry/useResetScroll';
 
+const contentRef = ref<HTMLDivElement | null>(null);
+useResetScroll(contentRef);
 </script>
 
 <style scoped>
