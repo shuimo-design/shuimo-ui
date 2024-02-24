@@ -27,7 +27,7 @@ export function useResizeObserver(
   };
 
   // vueuse used watch
-  watch(() => target.value, () => {
+  watch(target, () => {
     if (target.value) {
       cleanup();
       observer = new ResizeObserver(callback);

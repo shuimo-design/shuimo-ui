@@ -8,18 +8,25 @@
  *
  * todo unstable, need to fix it
  */
-import { defineComponent } from 'vue';
+import { defineComponent, SetupContext } from 'vue';
 import { props } from './api.ts';
 import { useVirtualList } from './useVirtualList.ts';
 import './virtualList.css';
+import { VirtualListProps } from './index';
 
-export default defineComponent((props, { emit, slots }) => {
+export default defineComponent(<T extends any>(
+  _props: VirtualListProps<T>,
+  _ctx: any, // todo https://github.com/vuejs/core/pull/7963#issuecomment-1762516240
+) => {
+  const props = _props as Required<VirtualListProps>;
+  const { emit, slots } = _ctx as SetupContext;
   const {
     containerRef,
     displayList,
     styleRef,
-  } = useVirtualList({
-    props, event: {
+  } = useVirtualList<T>({
+    props,
+    event: {
       reachBottom: () => emit('reachBottom'),
     },
   });
@@ -29,8 +36,7 @@ export default defineComponent((props, { emit, slots }) => {
       <div class="m-virtual-list-max-height">
         <div class="m-virtual-list-wrapper" style={styleRef.value}>
           {
-            // todo fix any
-            (displayList.value ?? []).map((l: any) => {
+            (displayList.value ?? []).map((l: { data: T, index: number }) => {
               return slots.default?.(l);
             })
           }

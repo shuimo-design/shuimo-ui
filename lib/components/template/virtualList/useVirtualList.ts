@@ -8,7 +8,7 @@
  */
 import { VirtualListProps } from './index';
 import { Options } from '../../../compositions/common/defineCore.ts';
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import useEntries from '../../../compositions/virtualList/useEntries.ts';
 import useContainerObserver from '../../../compositions/virtualList/useContainerObserver.ts';
 
@@ -33,8 +33,8 @@ export const initBoundary = (options: {
 };
 
 
-export function useVirtualList(options: Options<{
-  props: VirtualListProps,
+export function useVirtualList<T>(options: Options<{
+  props: VirtualListProps<T>,
   event: {
     reachBottom: () => void,
   }
@@ -73,9 +73,11 @@ export function useVirtualList(options: Options<{
     const initRes = initBoundary({ from: from, total, visibleCount, overScanCoefficient });
     const { renderFrom, renderEnd } = initRes;
     Object.assign(info, initRes);
-    // console.log(info);
     displayList.value = list.slice(renderFrom, renderEnd)
       .map((d, i) => ({ data: d, index: i + renderFrom }));
+    nextTick(() => {
+      reObserve(containerRef.value?.children?.[0].children?.[0].children ?? [] as unknown as HTMLCollection);
+    });
   };
   getList(from);
 
@@ -92,7 +94,7 @@ export function useVirtualList(options: Options<{
     reachBottom: options.event?.reachBottom ?? (() => {}),
   });
 
-  useContainerObserver({
+  const { reObserve } = useContainerObserver({
     containerRef,
     callback: cb,
     getTarget: () => {

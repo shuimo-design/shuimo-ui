@@ -37,14 +37,22 @@ export default function useContainerObserver(options: {
       return;
     }
 
+    const forItem = (t: HTMLCollection) => {
+      for (let i = 0; i < t.length; i++) {
+        try {
+          ob[type](t[i]);
+        } catch (e) {
+          console.log(e, t[i]);
+        }
+      }
+    };
+
+
     if (target) {
       const isArray = Array.isArray(target) || target instanceof HTMLCollection;
       if (isArray) {
-        for (let i = 0; i < target.length; i++) {
-          ob[type](target[i]);
-        }
+        forItem(target as HTMLCollection);
       } else {
-        // console.log(target);
         ob[type](target as Element);
       }
     }
@@ -53,7 +61,7 @@ export default function useContainerObserver(options: {
 
   const observeList: Element[] = [];
   const toObserve = (target: TargetType) => {
-    if (Array.isArray(target)) {
+    if (Array.isArray(target) || target instanceof HTMLCollection) {
       for (let i = 0; i < target.length; i++) {
         observeList.push(target[i]);
       }

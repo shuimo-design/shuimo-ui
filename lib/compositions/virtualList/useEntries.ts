@@ -70,6 +70,10 @@ export default function useEntries(options: {
   };
 
 
+  /**
+   * entriesHandler
+   * @param entries means which entries is changed visible
+   */
   const entriesHandler = (entries: IntersectionObserverEntry[]) => {
 
     const maxIndex = options.getTotal() - 1;
@@ -141,15 +145,10 @@ export default function useEntries(options: {
               options.styleRef.value = { transform: `translateY(0px)` };
             }
           }
-
         }
-
       });
-
       return;
     }
-
-
   };
 
   /* eslint-disable  @typescript-eslint/no-unused-vars */

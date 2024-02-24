@@ -27,7 +27,7 @@ const { darkModeRef, initDarkMode } = useDarkModeStorage();
     <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
   </div>
   <div class="playground">
-    <Base/>
+    <Template/>
   </div>
 </template>
 

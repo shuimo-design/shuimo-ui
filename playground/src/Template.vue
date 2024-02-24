@@ -101,19 +101,31 @@
       </m-table>
     </div>
 
-
-    <div class="animation">
-      <m-button @click="toggleVisible">toggleVisible</m-button>
-      <transition name="m-layout">
-        <div class="filter-div" v-if="riceVisibleRef">
-          <m-rice-paper :style="{
-          '--m-rice-paper-mountains-opacity':0.2
-        }">
-            <div class="inside-div"/>
-          </m-rice-paper>
-        </div>
-      </transition>
-    </div>
+    <span>{{ baseList.length }}</span>
+    <m-virtual-list class="max-height" :list="baseList" v-if="false">
+      <template #default="data">
+        <div class="virtual-list-item">{{ data }}</div>
+      </template>
+    </m-virtual-list>
+    <m-divider/>
+    <span>{{ optionsMore.length }}</span>
+    <m-virtual-list class="max-height" :list="optionsMore">
+      <template #default="data">
+        <div class="virtual-list-item">{{ data }}</div>
+      </template>
+    </m-virtual-list>
+<!--    <div class="animation">-->
+<!--      <m-button @click="toggleVisible">toggleVisible</m-button>-->
+<!--      <transition name="m-layout">-->
+<!--        <div class="filter-div" v-if="riceVisibleRef">-->
+<!--          <m-rice-paper :style="{-->
+<!--          '&#45;&#45;m-rice-paper-mountains-opacity':0.2-->
+<!--        }">-->
+<!--            <div class="inside-div"/>-->
+<!--          </m-rice-paper>-->
+<!--        </div>-->
+<!--      </transition>-->
+<!--    </div>-->
 
 
     <!--    <Layout/>-->
