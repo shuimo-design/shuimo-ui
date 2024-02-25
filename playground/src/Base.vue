@@ -130,26 +130,38 @@
     </div>
 
 
-    <div class="tag">
-      <m-tag>你好你好你好你好你好</m-tag>
+<!--    <div class="tag">-->
+<!--      <m-tag>你好你好你好你好你好</m-tag>-->
 
-      <m-tag type="primary">primary</m-tag>
-      <m-tag type="error">error</m-tag>
-      <m-tag type="confirm">confirm</m-tag>
-      <m-tag type="warning">warning</m-tag>
-      <m-tag style="--m-tag-bg:#42d392">vue2 color</m-tag>
-      <m-tag style="--m-tag-bg:#646cff">vite color</m-tag>
-      <m-tag class="large" style="--m-tag-bg:#646cff">large</m-tag>
-    </div>
-    <div class="select">
-      <div>{{ value }}</div>
-      <div>{{ emitValue }}</div>
-      <div>{{ value2 }}</div>
-      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>
-      <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>
-      <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
-      <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>
-    </div>
+<!--      <m-tag type="primary">primary</m-tag>-->
+<!--      <m-tag type="error">error</m-tag>-->
+<!--      <m-tag type="confirm">confirm</m-tag>-->
+<!--      <m-tag type="warning">warning</m-tag>-->
+<!--      <m-tag style="&#45;&#45;m-tag-bg:#42d392">vue2 color</m-tag>-->
+<!--      <m-tag style="&#45;&#45;m-tag-bg:#646cff">vite color</m-tag>-->
+<!--      <m-tag class="large" style="&#45;&#45;m-tag-bg:#646cff">large</m-tag>-->
+<!--    </div>-->
+<!--    <div class="select">-->
+<!--      <div>{{ value }}</div>-->
+<!--      <div>{{ emitValue }}</div>-->
+<!--      <div>{{ value2 }}</div>-->
+<!--      <m-select v-model="value" :options="['子', '丑', '寅', '卯']" :readonly="false" :filter="customFilter2"/>-->
+<!--      <m-select v-model="emitValue" :options="emitOptions" input-param="inputParam" value-param="value"/>-->
+<!--      <m-select v-model="value2" :options="options2" multiple :readonly="false"/>-->
+<!--      <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>-->
+<!--    </div>-->
+  <div class="progress">
+
+    <m-progress :value="20"/>
+    <m-progress :value="44" show-info/>
+    <m-progress :value="44" show-info>44</m-progress>
+
+    <m-progress :width="300" :height="40" :value="300" :max="1000"/>
+
+    <m-progress :value="50" :leafHeight="50" :show-info="true"/>
+
+
+  </div>
   </div>
 </template>
 

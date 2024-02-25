@@ -29,4 +29,12 @@ describe('progress', () => {
     });
     expect(wrapper.html()).toContain('default info');
   });
+
+  test('change size', () => {
+    const wrapper = mount(MProgress, {
+      props: { width: 123, height: 456 },
+    });
+    expect(wrapper.html()).toContain('--m-progress-width: 123px');
+    expect(wrapper.html()).toContain('--m-progress-height: 456px');
+  });
 });

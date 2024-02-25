@@ -51,8 +51,8 @@ export function useProgress(options: Options<{
 
     return {
       style: {
-        '--m-progress-real-width': `${width}px`,
-        '--m-progress-real-height': `${height}px`,
+        '--m-progress-width': `${width}px`,
+        '--m-progress-height': `${height}px`,
       },
       width,
     };
