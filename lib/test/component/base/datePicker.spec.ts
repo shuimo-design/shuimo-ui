@@ -110,6 +110,29 @@ describe('with event', () => {
       await spans[0].trigger('click');
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['2022-04-24']);
     });
+
+  });
+
+  describe('placeholder', () => {
+
+    test('render', async () => {
+      const wrapper = mount(MDatePicker);
+      expect(wrapper.find('.m-date-picker-span').text()).toBe('请选择日期...');
+      expect(wrapper.html()).toContain('m-date-picker-placeholder');
+    });
+
+    test('update value remove placeholder', async () => {
+
+      const wrapper = mount(MDatePicker);
+      expect(wrapper.find('.m-date-picker-span').text()).toBe('请选择日期...');
+      expect(wrapper.html()).toContain('m-date-picker-placeholder');
+
+      await wrapper.setProps({ modelValue: '2022-04-24' });
+      expect(wrapper.find('.m-date-picker-span').text()).toBe('2022-04-24');
+      expect(wrapper.html()).not.toContain('m-date-picker-placeholder');
+
+    });
+
   });
 
   // not support month type right now;
