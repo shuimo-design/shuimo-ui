@@ -64,6 +64,7 @@ export function useDatePicker(options: Options<{
       displayValue.value = options.props.placeholder;
       needPlaceholder = true;
     } else {
+      needPlaceholder = false;
       const dayJsValue = dayjs(value);
       const validateResult = dayJsValue.isValid();
       if (validateResult) {
