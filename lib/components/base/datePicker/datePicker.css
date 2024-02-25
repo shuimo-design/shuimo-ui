@@ -7,7 +7,7 @@
   box-sizing: content-box;
   border: 3px double transparent;
   width: var(--m-input-w);
-  height: 32px;
+  height: 31px;
   line-height: 31px;
 }
 
@@ -21,6 +21,7 @@
 
 .m-date-picker-span {
   font-size: 13px;
+  line-height: 31px;
   margin: 0 10px;
 }
 
@@ -43,6 +44,7 @@
 }
 
 .m-date-picker-calendar-column-year, .m-date-picker-calendar-column-month {
+  font-size: 16px;
   width: calc(var(--m-date-picker-width) / 4);
   display: inline-block;
   text-align: center;
@@ -113,4 +115,7 @@
   background-size: 23px 23px;
 }
 
-
+.m-date-picker .m-border-main {
+  overflow: hidden;
+  display: inline-flex;
+}

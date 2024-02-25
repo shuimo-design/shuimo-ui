@@ -156,9 +156,7 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
     </div>;
 
     return withPopover({
-      default: () => withBorder(<div>
-        <span class={spanClass.value}>{displayValue.value}</span>
-      </div>, 'm-date-picker-active'),
+      default: () => withBorder(<span class={spanClass.value}>{displayValue.value}</span>, 'm-date-picker-active'),
       content: () => withBorder(<div>
         {calenderHead()}
         {calendarTypeRef.value === 'date' ? <MCalendarColumn columns={BASE_WEEK_NAME}/> : undefined}
