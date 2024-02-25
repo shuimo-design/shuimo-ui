@@ -52,17 +52,16 @@ export function useInputNumber(options: Options<{
   const setCurrentValue = (newVal: InputNumber, e?: HTMLElementEvent<HTMLInputElement>) => {
     const oldVal = currentValue.value;
     const { min, max, precision } = props;
-    if (+newVal >= +max) {
+    if (oldVal === newVal) {
+      return;
+    } else if (+newVal >= +max) {
       newVal = max;
-      if (e) {e.target.value = String(newVal);}
     } else if (+newVal <= +min) {
       newVal = min;
-    } else if (oldVal === newVal) {
-      return;
     } else if (precision !== 0 && String(newVal).includes('.') && (`${newVal}`.length - (`${newVal}`.indexOf('.') + 1) >= precision)) {
       newVal = Number(`${newVal}`.substring(0, `${newVal}`.indexOf('.') + (precision + 1)));
-      if (e) {e.target.value = String(newVal);}
     }
+    if (e) {e.target.value = String(newVal);}
     currentValue.value = newVal;
     event.updateInput(oldVal);
   };
