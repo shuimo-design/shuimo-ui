@@ -9,7 +9,7 @@
 <p align="center">A vary coarse Chinese ink style UI</p>
 <p align="center">一款很粗暴的水墨UI</p>
 
-![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)
+[![npm](https://img.shields.io/npm/v/shuimo-ui?color=%23c50315&style=flat-square)](https://www.npmjs.com/package/shuimo-ui)
 [![codecov](https://codecov.io/gh/shuimo-design/shuimo-ui/graph/badge.svg?token=JYTSFCTMZD)](https://codecov.io/gh/shuimo-design/shuimo-ui)
 [![OSCS Status](https://www.oscs1024.com/platform/badge/janghood/shuimo-ui.svg?size=small)](https://www.oscs1024.com/project/janghood/shuimo-ui?ref=badge_small)
 
