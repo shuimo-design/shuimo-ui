@@ -25,11 +25,11 @@
     "url": "https://github.com/shuimo-design/shuimo-ui.git"
   },
   "peerDependencies": {
-    "shuimo-ui": "workspace:*"
+    "shuimo-ui": "workspace:^*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.5.5",
     "@nuxt/kit": "^3.10.3",
-    "shuimo-ui": "workspace:*"
+    "shuimo-ui": "workspace:^*"
   }
 }
