@@ -15,10 +15,8 @@
     "doc:fontmin": "cd ./script/fontmin && npm run replace"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.1",
-    "nuxt": "^3.9.3",
-    "shuimo-ui": "workspace:*"
+    "shuimo-ui": "workspace:*",
+    "@shuimo-design/shuimo-ui-nuxt": "workspace:*"
   },
   "web-types": "../cli/build/config/output/web-types.json",
   "dependencies": {

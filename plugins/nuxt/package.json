@@ -1,0 +1,35 @@
+{
+  "name": "@shuimo-design/shuimo-ui-nuxt",
+  "version": "0.0.1-beta.1",
+  "description": "shuimo-ui nuxt module",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shuimo-design/shuimo-ui.git"
+  },
+  "peerDependencies": {
+    "shuimo-ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/kit": "^3.10.3",
+    "shuimo-ui": "workspace:*"
+  }
+}

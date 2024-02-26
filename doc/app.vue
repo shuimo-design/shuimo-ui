@@ -1,8 +1,10 @@
 <template>
   <div class="shuimo-ui m-cursor">
     <Title>水墨UI</Title>
-    <MLoadingPreview v-model="isLoading" v-if="isLoading"/>
-    <m-rice-paper v-else class="layout">
+    <client-only>
+      <MLoadingPreview v-model="isLoading" v-if="isLoading" :preInit="preInit"/>
+    </client-only>
+    <m-rice-paper v-if="!isLoading" class="layout">
       <BaseHeaderBase :show-index-button="showIndexButton"/>
       <NuxtLayout>
         <NuxtPage/>
@@ -19,6 +21,12 @@ const showIndexButton = computed(() => {
 });
 
 const isLoading = ref(true);
+
+const preInit = async () => {
+  await import('assets/style/markdown.css');
+  await import('assets/style/shikiji.css');
+  return true;
+};
 
 useHead({
   meta: [
