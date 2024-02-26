@@ -1,0 +1,929 @@
+{
+  "m-avatar/variant": {
+    "type": "string",
+    "options": [
+      "'circle'",
+      "'square'"
+    ],
+    "default": "circle",
+    "description": "avatar variant\n头像的形状"
+  },
+  "m-avatar/size": {
+    "type": "string",
+    "options": [
+      "'large'",
+      "'default'",
+      "'small'"
+    ],
+    "default": "default",
+    "description": "avatar size\n头像的大小"
+  },
+  "m-avatar/img": {
+    "type": "string",
+    "default": "default",
+    "description": "img url\n头像图片地址"
+  },
+  "m-button/text": {
+    "type": "string",
+    "default": "",
+    "description": "button inline text, will replace by slot\n按钮文本 会被slot覆盖"
+  },
+  "m-button/link": {
+    "type": "boolean",
+    "default": "false",
+    "description": "link or not 是否是链接"
+  },
+  "m-button/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "disable or not 是否禁用"
+  },
+  "m-button/type": {
+    "type": "string",
+    "options": [
+      "'default'",
+      "'primary'",
+      "'error'",
+      "'confirm'",
+      "'warning'"
+    ],
+    "default": "default",
+    "description": "button type 按钮类型"
+  },
+  "m-checkbox/label": {
+    "type": "string",
+    "default": "",
+    "description": "checkbox label text, will replace slot\n文本 会覆盖slot"
+  },
+  "m-checkbox/checked": {
+    "type": "boolean|undefined|null",
+    "default": "undefined",
+    "description": "checkbox checked\n是否选中"
+  },
+  "m-checkbox/value": {
+    "type": "any",
+    "default": "undefined",
+    "description": "checkbox value"
+  },
+  "m-checkbox/modelValue": {
+    "type": "any",
+    "default": "",
+    "description": "value\n绑定值"
+  },
+  "m-checkbox/indeterminate": {
+    "type": "boolean",
+    "default": "undefined",
+    "description": "checkbox indeterminate\n是否为不确定状态  todo 暂未支持"
+  },
+  "m-checkbox/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "checkbox disabled\n是否禁用 todo 暂未支持"
+  },
+  "m-date-picker/modelValue": {
+    "type": "string|Date",
+    "default": "",
+    "description": "date value\n日期值"
+  },
+  "m-date-picker/placeholder": {
+    "type": "string",
+    "default": "请选择日期",
+    "description": "date placeholder\n日期选择框提示文字"
+  },
+  "m-date-picker/format": {
+    "type": "string",
+    "default": "YYYY-MM-DD",
+    "description": "date format\n日期格式"
+  },
+  "m-date-picker/type": {
+    "type": "string",
+    "options": [
+      "'date'",
+      "'month'"
+    ],
+    "default": "date",
+    "description": "datePicker format type date/month\n日期选择框类型 date/month"
+  },
+  "m-input/type": {
+    "type": "string",
+    "default": "input",
+    "description": "input type. 输入框类型"
+  },
+  "m-input/placeholder": {
+    "type": "string",
+    "default": "",
+    "description": "input placeholder. 提示语"
+  },
+  "m-input/modelValue": {
+    "type": "string|number",
+    "default": "",
+    "description": "input value. 输入框绑定值"
+  },
+  "m-input/readonly": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input readonly. 是否只读"
+  },
+  "m-input/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input disabled. 是否禁用"
+  },
+  "m-input/autofocus": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input autofocus. 是否自动聚焦"
+  },
+  "m-input-number/modelValue": {
+    "type": "number|string",
+    "default": "",
+    "description": "input-number modelValue"
+  },
+  "m-input-number/max": {
+    "type": "number",
+    "default": "Infinity",
+    "description": "input-number max"
+  },
+  "m-input-number/min": {
+    "type": "number",
+    "default": "-Infinity",
+    "description": "input-number min"
+  },
+  "m-input-number/precision": {
+    "type": "number",
+    "default": "0",
+    "description": "input-number precision"
+  },
+  "m-input-number/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input-number min"
+  },
+  "m-input-number/readonly": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input readonly. 是否只读"
+  },
+  "m-input-number/placeholder": {
+    "type": "string",
+    "default": "",
+    "description": "input-number placeholder"
+  },
+  "m-li/active": {
+    "type": "boolean",
+    "description": "is active style or not"
+  },
+  "m-li/icon": {
+    "type": "boolean",
+    "description": "show icon or not"
+  },
+  "m-list/data": {
+    "type": "any[]",
+    "default": "[]",
+    "description": "List data\n列表数据"
+  },
+  "m-list/autoActive": {
+    "type": "boolean",
+    "default": "false",
+    "description": "all item use active style\n所有项使用激活样式"
+  },
+  "m-progress/width": {
+    "type": "number",
+    "default": "399",
+    "description": "progress bar width\n进度条的宽度"
+  },
+  "m-progress/height": {
+    "type": "number",
+    "default": "26.547",
+    "description": "progress bar height\n进度条的高度"
+  },
+  "m-progress/value": {
+    "type": "number",
+    "default": "0",
+    "description": "progress value\n进度条的值"
+  },
+  "m-progress/max": {
+    "type": "number",
+    "default": "100",
+    "description": "progress value max\n进度条最大值"
+  },
+  "m-progress/showInfo": {
+    "type": "boolean",
+    "default": "false",
+    "description": "display value\n是否显示进度值"
+  },
+  "m-progress/infoWidth": {
+    "type": "number",
+    "default": "44",
+    "description": "info width\n进度值的宽度"
+  },
+  "m-progress/leafHeight": {
+    "type": "number",
+    "default": "28",
+    "description": "leaf height\n叶子的高度"
+  },
+  "m-radio/label": {
+    "type": "string|number",
+    "default": "",
+    "description": "radio label\n单选框的标签值"
+  },
+  "m-radio/name": {
+    "type": "string",
+    "default": "undefined",
+    "description": "radio name\n单选框的name值"
+  },
+  "m-radio/checked": {
+    "type": "boolean|undefined|null",
+    "default": "undefined",
+    "description": "radio checked\n是否选中"
+  },
+  "m-radio/value": {
+    "type": "any",
+    "default": "undefined",
+    "description": "radio value\n单选框的值"
+  },
+  "m-radio/modelValue": {
+    "type": "any",
+    "default": "",
+    "description": "value\n绑定值"
+  },
+  "m-select/modelValue": {
+    "type": "string",
+    "options": [
+      "any",
+      "any[]"
+    ],
+    "default": "",
+    "description": "select value\n选择框的值"
+  },
+  "m-select/options": {
+    "type": "Array<any>",
+    "default": "[]",
+    "description": "select options\n选择框的数组"
+  },
+  "m-select/inputParam": {
+    "type": "string",
+    "default": "undefined",
+    "description": "support for which key value to display in 'input'\n选择后使用option中的哪个key的值去更新modelValue"
+  },
+  "m-select/optionParam": {
+    "type": "string",
+    "default": "undefined",
+    "description": "select dropdown display info key\n选择下拉框中显示内容的key"
+  },
+  "m-select/valueParam": {
+    "type": "string",
+    "default": "undefined",
+    "description": "modelValue's key\n参数的key"
+  },
+  "m-select/readonly": {
+    "type": "boolean",
+    "default": "true",
+    "description": "used to disable input event\n用于禁止输入事件"
+  },
+  "m-select/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "used to disable select\n是否禁用"
+  },
+  "m-select/placeholder": {
+    "type": "string",
+    "default": "'请选择...'",
+    "description": "input placeholder. 提示语"
+  },
+  "m-select/toMatch": {
+    "type": "(option:any,value:any)=>boolean",
+    "default": "undefined",
+    "description": "modelValue match function\n用于比较参数和modelValue是否相等的方法，常用于modelValue为对象的场景\noption: 列表数据\nvalue: modelValue"
+  },
+  "m-select/multiple": {
+    "type": "boolean",
+    "default": "false",
+    "description": "multiple choice\n是否为多选"
+  },
+  "m-select/checkbox": {
+    "type": "boolean",
+    "default": "true",
+    "description": "in multiple, whether to show checkbox\n多选模式下是否启用checkbox"
+  },
+  "m-select/filter": {
+    "type": "(options:any,inputValue:string)=>boolean",
+    "default": "undefined",
+    "description": "defined input box filter query method\n自定义输入框filter查询方法"
+  },
+  "m-select/optionsH": {
+    "type": "number|string",
+    "default": "undefined",
+    "description": "The height of the options dom\n下拉框的高度"
+  },
+  "m-select/needFetch": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Whether to fetch\n是否fetch"
+  },
+  "m-select/fetch": {
+    "type": "()=>Promise<void>",
+    "default": "undefined",
+    "description": "beta version autoComplete fetch func, should return an end flag\nbeta版本的自动补全，需要返回一个是否停止标志"
+  },
+  "m-slider/modelValue": {
+    "type": "number",
+    "default": "0",
+    "description": "slider value\n滑动条绑定值"
+  },
+  "m-slider/min": {
+    "type": "number",
+    "default": "0",
+    "description": "slider min\n滑动条最小值"
+  },
+  "m-slider/max": {
+    "type": "number",
+    "default": "100",
+    "description": "slider max\n滑动条最大值"
+  },
+  "m-slider/step": {
+    "type": "number",
+    "default": "1",
+    "description": "slider step\n滑动条步长"
+  },
+  "m-slider/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "slider disabled\n是否禁用"
+  },
+  "m-slider/showInfo": {
+    "type": "boolean",
+    "default": "false",
+    "description": "slider show-info\n是否显示信息"
+  },
+  "m-switch/modelValue": {
+    "type": "any",
+    "description": "switch value. 开关绑定值"
+  },
+  "m-switch/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "switch disabled\n是否禁用"
+  },
+  "m-switch/loading": {
+    "type": "boolean",
+    "default": "false",
+    "description": "switch disabled\n是否加载中"
+  },
+  "m-switch/activeInfo": {
+    "type": "string",
+    "description": "打开文本"
+  },
+  "m-switch/inactiveInfo": {
+    "type": "string",
+    "description": "关闭文本"
+  },
+  "m-switch/activeValue": {
+    "type": "any",
+    "description": "打开参数"
+  },
+  "m-switch/inactiveValue": {
+    "type": "any",
+    "description": "关闭参数"
+  },
+  "m-switch/onControl": {
+    "type": "boolean",
+    "default": "false",
+    "description": "是否控制"
+  },
+  "m-tag/type": {
+    "type": "string",
+    "options": [
+      "'default'",
+      "'primary'",
+      "'error'",
+      "'confirm'",
+      "'warning'"
+    ],
+    "default": "default",
+    "description": "button type 按钮类型"
+  },
+  "m-tree/data": {
+    "type": "string",
+    "options": [
+      "TreeData",
+      "TreeData[]"
+    ],
+    "default": "[]",
+    "description": "tree data\n树数据"
+  },
+  "m-tree/config": {
+    "type": "TreeConfig",
+    "default": "{key:'key', label:'label', value:'value', children: 'children'}",
+    "description": "tree config\n树配置"
+  },
+  "m-tree/checkbox": {
+    "type": "boolean",
+    "default": "[]",
+    "description": "checkbox 是否使用checkbox\n树数据"
+  },
+  "m-tree/defaultExpandAll": {
+    "type": "boolean",
+    "default": "false",
+    "description": "default expand all nodes\n是否默认打开所有节点"
+  },
+  "m-tree/checkedKeys": {
+    "type": "Array<string|number>",
+    "default": "[]",
+    "description": "checked keys\n选中key列表"
+  },
+  "m-tree/checkStrictly": {
+    "type": "boolean",
+    "default": "true",
+    "description": "the selected status of the parent and child nodes is no longer associated,\nand can be selected or canceled separately\n父子节点选中状态不再关联，可各自选中或取消"
+  },
+  "m-tree-node/data": {
+    "type": "TreeNodeData[]",
+    "default": "[]",
+    "description": "tree data\n树数据"
+  },
+  "m-tree-node/config": {
+    "type": "TreeConfig",
+    "default": "{key:'key', label:'label', value:'value', children: 'children'}",
+    "description": "tree config\n树配置"
+  },
+  "m-tree-node/checkbox": {
+    "type": "boolean",
+    "default": "[]",
+    "description": "checkbox 是否使用checkbox\n树数据"
+  },
+  "m-tree-node/getNodesByKeys": {
+    "type": "(keys:TreeNodeData['key'][])=>TreeNodeData[]",
+    "description": "get nodes by keys function\n通过key获取节点方法"
+  },
+  "m-tree-node/handleExpand": {
+    "type": "(node:TreeNodeData,e:MouseEvent)=>void",
+    "description": "handle expand function\n处理展开节点的方法"
+  },
+  "m-tree-node/handleCheck": {
+    "type": "(node:TreeNodeData,check:boolean)=>void",
+    "description": "handle check function\n处理选择节点的方法"
+  },
+  "m-tree-node/handleItemClick": {
+    "type": "(node:TreeNodeData,e:MouseEvent)=>void",
+    "description": "handle item click function\n处理item被点击的方法"
+  },
+  "m-confirm/mask": {
+    "type": "ModelMask",
+    "default": "show:true, clickClose:true",
+    "description": "confirm mask option\n确认框背景配置"
+  },
+  "m-confirm/teleport": {
+    "type": "MTeleportProps",
+    "default": "",
+    "description": "confirm teleport\n确认框传送"
+  },
+  "m-confirm/content": {
+    "type": "string",
+    "default": "",
+    "description": "confirm content\n确认框内容"
+  },
+  "m-dialog/mask": {
+    "type": "ModelMask",
+    "default": "show:true, clickClose:true",
+    "description": "dialog mask option\n弹窗背景配置"
+  },
+  "m-dialog/visible": {
+    "type": "boolean",
+    "default": "false",
+    "description": "dialog visible value\n弹窗是否显示参数"
+  },
+  "m-dialog/closeBtn": {
+    "type": "boolean",
+    "default": "true",
+    "description": "close button visible value\n是否显示关闭按钮"
+  },
+  "m-dialog/teleport": {
+    "type": "MTeleportProps",
+    "default": "",
+    "description": "dialog teleport\n弹窗传送"
+  },
+  "m-drawer/mask": {
+    "type": "ModelMask",
+    "default": "show:true, clickClose:true",
+    "description": "drawer mask option\n抽屉背景配置"
+  },
+  "m-drawer/width": {
+    "type": "string",
+    "default": "false",
+    "description": "drawer width\ndrawer的宽度"
+  },
+  "m-drawer/visible": {
+    "type": "boolean",
+    "default": "false",
+    "description": "drawer visible value\n抽屉是否显示参数"
+  },
+  "m-drawer/drawerClass": {
+    "type": "string[]",
+    "default": "[]",
+    "description": "drawer class\n抽屉扩展类型"
+  },
+  "m-drawer/closeBtn": {
+    "type": "boolean",
+    "default": "true",
+    "description": "close button visible value\n是否显示关闭按钮"
+  },
+  "m-drawer/teleport": {
+    "type": "MTeleportProps",
+    "default": "",
+    "description": "drawer teleport\n抽屉传送"
+  },
+  "m-message/type": {
+    "type": "string",
+    "options": [
+      "'success'",
+      "'warning'",
+      "'info'",
+      "'error'"
+    ],
+    "default": "'info'",
+    "description": "Type of message"
+  },
+  "m-message/duration": {
+    "type": "number",
+    "default": "3000",
+    "description": "The time of duration"
+  },
+  "m-message/content": {
+    "type": "string",
+    "default": "这是一条消息",
+    "description": "The message content"
+  },
+  "m-message/direction": {
+    "type": "string",
+    "options": [
+      "'top-right'",
+      "'top-left'",
+      "'bottom-right'",
+      "'bottom-left'",
+      "'top-center'"
+    ],
+    "default": "top-right",
+    "description": "The direction in which the component appears"
+  },
+  "m-message/dragAllow": {
+    "type": "boolean",
+    "default": "true",
+    "description": "Whether the component is allowed to be dragged"
+  },
+  "m-message/dragConfig": {
+    "type": "DragConfigType",
+    "default": "{triggerBoundary:2}",
+    "description": "Whether the component is allowed to be dragged"
+  },
+  "m-popover/placement": {
+    "type": "Placement",
+    "default": "bottom",
+    "description": "popover display placement"
+  },
+  "m-popover/mountRender": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Whether to render the popover content when the component is mounted"
+  },
+  "m-popover/disableClickAway": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Disables automatically closing the popover when the user clicks away from it"
+  },
+  "m-popover/content": {
+    "type": "any",
+    "default": "",
+    "description": "If the content is just a simple string, it can be passed in as a prop"
+  },
+  "m-popover/hover": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Trigger the popper on hover"
+  },
+  "m-popover/show": {
+    "type": "boolean",
+    "default": "false",
+    "description": "display content value\n是否显示参数"
+  },
+  "m-popover/popper": {
+    "type": "PopperConfig",
+    "default": "{}",
+    "description": "floating-ui options, look: https://floating-ui.com/"
+  },
+  "m-popover/teleport": {
+    "type": "MTeleportProps|undefined|boolean",
+    "default": "undefined",
+    "description": "popover teleport\n弹出框传送"
+  },
+  "m-tooltip/placement": {
+    "type": "Placement",
+    "default": "bottom",
+    "description": "popover display placement"
+  },
+  "m-tooltip/mountRender": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Whether to render the popover content when the component is mounted"
+  },
+  "m-tooltip/disableClickAway": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Disables automatically closing the popover when the user clicks away from it"
+  },
+  "m-tooltip/content": {
+    "type": "any",
+    "default": "",
+    "description": "If the content is just a simple string, it can be passed in as a prop"
+  },
+  "m-tooltip/hover": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Trigger the popper on hover"
+  },
+  "m-tooltip/popper": {
+    "type": "PopperConfig",
+    "default": "{}",
+    "description": "floating-ui options, look: https://floating-ui.com/"
+  },
+  "m-tooltip/teleport": {
+    "type": "MTeleportProps|undefined|boolean",
+    "default": "undefined",
+    "description": "popover teleport\n弹出框传送"
+  },
+  "m-dark-mode/modelValue": {
+    "type": "boolean",
+    "description": "switch value. 开关绑定值"
+  },
+  "m-dark-mode/autoMode": {
+    "type": "boolean",
+    "description": "auto init mode. 自动初始化模式"
+  },
+  "m-dark-mode/initHandler": {
+    "type": "()=>boolean",
+    "description": "init handler. 初始化事件 return boolean need auto init or not"
+  },
+  "m-divider/vertical": {
+    "type": "boolean",
+    "default": "false",
+    "description": "divider is vertical or not"
+  },
+  "m-loading/speed": {
+    "type": "number",
+    "default": "1500",
+    "description": "transform speed"
+  },
+  "m-loading/size": {
+    "type": "number",
+    "default": "1",
+    "description": "logo size"
+  },
+  "m-loading/mask": {
+    "type": "boolean",
+    "default": "false",
+    "description": "with mask or not"
+  },
+  "m-loading/sideLength": {
+    "type": "number|string",
+    "default": "50",
+    "description": "length of loading item's side (px)"
+  },
+  "m-breadcrumb/separator": {
+    "type": "string",
+    "default": "",
+    "description": "面包屑分隔符"
+  },
+  "m-breadcrumb/options": {
+    "type": "Array<BreadcrumbItemProps>",
+    "default": "[]",
+    "description": "面包屑项"
+  },
+  "m-breadcrumb-item/content": {
+    "type": "string",
+    "default": "",
+    "description": "面包屑项内容"
+  },
+  "m-cell/h": {
+    "type": "number",
+    "default": "0",
+    "description": "cell height\n单元格高度\nwe should use height to calculate the border of cell..."
+  },
+  "m-cell/w": {
+    "type": "number",
+    "default": "0",
+    "description": "cell width\n单元格宽度\nwe should use width to calculate the border of cell..."
+  },
+  "m-cell/points": {
+    "type": "number|string|undefined",
+    "default": "undefined",
+    "description": "the point configuration of the cell, which can be an angle or a coordinate\n单元格的点配置，可以是角度也可以是坐标"
+  },
+  "m-cell/a": {
+    "type": "CPoint|number|string|undefined",
+    "default": "undefined",
+    "description": "A point configuration of the cell\n单元格的A点配置"
+  },
+  "m-cell/b": {
+    "type": "CPoint|number|string|undefined",
+    "default": "undefined",
+    "description": "B point configuration of the cell\n单元格的B点配置"
+  },
+  "m-cell/c": {
+    "type": "CPoint|number|string|undefined",
+    "default": "undefined",
+    "description": "C point configuration of the cell\n单元格的C点配置"
+  },
+  "m-cell/d": {
+    "type": "CPoint|number|string|undefined",
+    "default": "undefined",
+    "description": "D point configuration of the cell\n单元格的D点配置"
+  },
+  "m-cell/style": {
+    "type": "Record<string,string|number>|undefined",
+    "default": "{}",
+    "description": "maybe you want to inject some styles into the cell\n也许你想向单元格注入一些样式"
+  },
+  "m-form/inline": {
+    "type": "boolean",
+    "default": "false",
+    "description": "form是否行内显示"
+  },
+  "m-form/submit": {
+    "type": "boolean",
+    "default": "false",
+    "description": "form 是否默认发送"
+  },
+  "m-form-item/label": {
+    "type": "string",
+    "description": "form item label\n表单项的标题"
+  },
+  "m-form-item/prop": {
+    "type": "string",
+    "description": "form item label prop\n表单内置label的原生prop属性"
+  },
+  "m-grid/h": {
+    "type": "number",
+    "default": "0",
+    "description": "gird height\n网格高度"
+  },
+  "m-grid/w": {
+    "type": "number",
+    "default": "0",
+    "description": "cell width\n网格宽度"
+  },
+  "m-grid/gap": {
+    "type": "number|string",
+    "default": "0",
+    "description": "cell gap\n网格的通用gap"
+  },
+  "m-grid/colGap": {
+    "type": "number|string",
+    "default": "0",
+    "description": "cell column gap\n网格的列gap"
+  },
+  "m-grid/rowGap": {
+    "type": "number|string",
+    "default": "0",
+    "description": "cell row gap\n网格的行gap"
+  },
+  "m-grid/gapRotate": {
+    "type": "number[]",
+    "default": "[]",
+    "description": "gap rotate list"
+  },
+  "m-grid/direction": {
+    "type": "string",
+    "options": [
+      "'column'",
+      "'row'"
+    ],
+    "default": "'row'",
+    "description": "grid direction\n网格方向"
+  },
+  "m-menu/data": {
+    "type": "string",
+    "options": [
+      "TreeData",
+      "TreeData[]"
+    ],
+    "default": "[]",
+    "description": "tree data\n树数据"
+  },
+  "m-menu/config": {
+    "type": "TreeConfig",
+    "default": "{key:'key', label:'label', value:'value', children: 'children'}",
+    "description": "tree config\n树配置"
+  },
+  "m-menu/checkbox": {
+    "type": "boolean",
+    "default": "[]",
+    "description": "checkbox 是否使用checkbox\n树数据"
+  },
+  "m-menu/defaultExpandAll": {
+    "type": "boolean",
+    "default": "false",
+    "description": "default expand all nodes\n是否默认打开所有节点"
+  },
+  "m-menu/checkedKeys": {
+    "type": "Array<string|number>",
+    "default": "[]",
+    "description": "checked keys\n选中key列表"
+  },
+  "m-menu/checkStrictly": {
+    "type": "boolean",
+    "default": "true",
+    "description": "the selected status of the parent and child nodes is no longer associated,\nand can be selected or canceled separately\n父子节点选中状态不再关联，可各自选中或取消"
+  },
+  "m-pagination/total": {
+    "type": "number",
+    "default": "0",
+    "description": "page total\n分页总数"
+  },
+  "m-pagination/modelValue": {
+    "type": "number",
+    "default": "undefined",
+    "description": "current page number\n当前页"
+  },
+  "m-pagination/defaultCurrent": {
+    "type": "number",
+    "default": "undefined",
+    "description": "default current page number\n默认当前页"
+  },
+  "m-pagination/pageSize": {
+    "type": "number",
+    "default": "10",
+    "description": "page size\n每页数量"
+  },
+  "m-pagination/pageSizes": {
+    "type": "number[]",
+    "default": "[10, 20, 30, 40, 50, 100]",
+    "description": "page size select list\n可选每页数量"
+  },
+  "m-pagination/layout": {
+    "type": "string",
+    "default": "'prev, pager, next, jumper, total'",
+    "description": "component layout\n组件显示"
+  },
+  "m-pagination/foldedMaxPageBtn": {
+    "type": "number|null",
+    "default": "5",
+    "description": "show pages when folded\n折叠时最多显示页码按钮数"
+  },
+  "m-pagination/maxPageBtn": {
+    "type": "number|null",
+    "default": "10",
+    "description": "the max display pages\n最大显示页数"
+  },
+  "m-pagination/showEdgePageNum": {
+    "type": "boolean",
+    "default": "true",
+    "description": "show edge page number\n是否显示边缘页码"
+  },
+  "m-rice-paper/type": {
+    "type": "string",
+    "options": [
+      "'cold'",
+      "'warm'",
+      "'default'"
+    ],
+    "default": "true",
+    "description": "色调"
+  },
+  "m-rice-paper/mountain": {
+    "type": "boolean",
+    "default": "true",
+    "description": "是否显示山脉背景"
+  },
+  "m-table-column/width": {
+    "type": "string",
+    "default": "",
+    "description": "table column width\n列宽"
+  },
+  "m-table-column/param": {
+    "type": "string",
+    "default": "",
+    "description": "table column param\n列对应的参数"
+  },
+  "m-table-column/label": {
+    "type": "string",
+    "default": "",
+    "description": "table column label\n列名"
+  },
+  "m-virtual-list/list": {
+    "type": "Array<T>",
+    "description": "list"
+  },
+  "m-table/data": {
+    "type": "Array<any>",
+    "description": "table data\n表格内容"
+  },
+  "m-table/height": {
+    "type": "string|null",
+    "description": "table height\n表格高度"
+  },
+  "m-table/paramClass": {
+    "type": "boolean",
+    "default": "false",
+    "description": "auto add param class\n自动添加key class"
+  }
+}

@@ -27,6 +27,10 @@
   },
   "homepage": "https://shuimo.design",
   "web-types": "web-types.json",
+  "vetur": {
+    "tags": "tags.json",
+    "attributes": "attributes.json"
+  },
   "devDependencies": {
     "@janghood/config": "0.0.1-3",
     "@janghood/lint": "0.0.5",
