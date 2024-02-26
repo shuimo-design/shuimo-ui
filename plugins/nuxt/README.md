@@ -1,6 +1,7 @@
 # Shuimo UI Nuxt module
 
 [![npm version][npm-version-src]][npm-version-href]
+[![nuxt npm version][npm-nuxt-version-src]][npm-nuxt-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
@@ -41,6 +42,9 @@ That's it! You can now use Shuimo UI in your Nuxt app ✨
 
 # Usage
 
+You can use `shuimo-ui` create a website like this:
+<img src="https://github.com/shuimo-design/shuimo-ui/blob/main/.github/README/example.webp?raw=true">
+
 ## Components: `MLoadingPreview`
 
 We provide a component called `MLoadingPreview`.
@@ -75,6 +79,10 @@ you can used it when you want to do some time-consuming operations like preload 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/shuimo-ui?style=flat&colorA=020420&label=shuimo-ui%40latest&color=861717
 [npm-version-href]: https://npmjs.com/package/shuimo-ui
+
+[npm-nuxt-version-src]: https://img.shields.io/npm/v/@shuimo-design/shuimo-ui-nuxt?style=flat&colorA=020420&label=shuimo-ui-nuxt%40latest&color=861717
+[npm-nuxt-version-href]: https://npmjs.com/package/@shuimo-design/shuimo-ui-nuxt
+
 
 [npm-downloads-src]: https://img.shields.io/npm/dm/shuimo-ui.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-downloads-href]: https://npmjs.com/package/shuimo-ui
