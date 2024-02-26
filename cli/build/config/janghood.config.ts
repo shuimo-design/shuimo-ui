@@ -30,6 +30,10 @@ export default defineJhConfig({
           'default-icon': './icons/logo.svg'
         },
         sourceSymbolTranslator
+      },
+      vscode: {
+        active: true,
+        packageUrl: '../../lib/package.json'
       }
     },
     annotate: {

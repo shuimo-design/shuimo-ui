@@ -14,6 +14,8 @@
     "types",
     "index.ts",
     "web-types.json",
+    "tags.json",
+    "attributes.json",
     "LICENSE",
     "README.md"
   ],
@@ -52,6 +54,10 @@
     "url": "git+https://github.com/shuimo-design/shuimo-ui.git"
   },
   "web-types": "web-types.json",
+  "vetur": {
+    "tags": "tags.json",
+    "attributes": "attributes.json"
+  },
   "bugs": {
     "url": "https://github.com/shuimo-design/shuimo-ui/issues"
   },
