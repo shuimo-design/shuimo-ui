@@ -32,6 +32,7 @@ import MTreeNode from '../../components/base/tree/MTreeNode';
 // [other]
 import MDivider from '../../components/other/divider/MDivider';
 import MLoading from '../../components/other/loading/MLoading';
+import { loadingDirective } from '../../components/other/loading/directive';
 import MDarkMode from '../../components/other/darkMode/MDarkMode';
 import MDeleteIcon from '../../components/other/deleteIcon/MDeleteIcon';
 import MPrinter from '../../components/other/printer/Printer';
@@ -112,6 +113,8 @@ export const components: Record<string, Component> = {
 export {
   useDialog,
   useDarkModeStorage,
+
+  loadingDirective,
 
   // [base]
   MAvatar,

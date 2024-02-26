@@ -40,6 +40,9 @@ describe('数字输入组件', () => {
 
     await wrapper.find('input').setValue(11);
 
+    // modify once more
+    await wrapper.find('input').setValue(12);
+
     expect(wrapper.element.querySelector('input')!.value).toBe('10');
   });
 
@@ -49,6 +52,9 @@ describe('数字输入组件', () => {
     });
 
     await wrapper.find('input').setValue(4);
+
+    // modify once more
+    await wrapper.find('input').setValue(3);
 
     expect(wrapper.element.querySelector('input')!.value).toBe('4');
   });

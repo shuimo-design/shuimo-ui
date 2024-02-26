@@ -2,7 +2,7 @@
   "name": "shuimo-ui",
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "description": "一款粗暴的水墨风UI组件",
-  "version": "0.3.0-alpha.12",
+  "version": "0.3.0-alpha.13",
   "type": "module",
   "license": "MIT",
   "files": [
@@ -46,8 +46,7 @@
     "@vue/test-utils": "^2.4.4",
     "dayjs": "^1.11.10",
     "happy-dom": "^13.3.8",
-    "interactjs": "^1.10.26",
-    "vitest": "^1.3.0"
+    "interactjs": "^1.10.26"
   },
   "repository": {
     "type": "git",
