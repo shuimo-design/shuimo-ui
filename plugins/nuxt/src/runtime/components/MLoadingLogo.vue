@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * @description
+ * @description shuimo loading logo component
  * @author 阿怪
  * @date 2024/1/29 10:07
  * @version v1.0.0
@@ -56,7 +56,7 @@ onUnmounted(() => {
   margin-top: 2vw;
 }
 
-.m-loading-main{
+.m-loading-main {
   grid-area: main;
   max-width: 100%;
   max-height: 100%;

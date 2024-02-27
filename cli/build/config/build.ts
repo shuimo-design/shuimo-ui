@@ -119,6 +119,8 @@ const run = async () => {
 
     const res = await Promise.all([
       rename('web-types.json'),
+      rename('tags.json'),
+      rename('attributes.json'),
       cp('icons', 'assets/'),
       cp('README.md'),
       cp('LICENSE'),

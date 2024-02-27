@@ -6,10 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineConfig, normalizePath, PluginOption } from 'vite';
+import { defineConfig, normalizePath } from 'vite';
 import fs from 'fs';
 import path from 'path';
-import { baseRoot, buildConfig, fileName, getPath, plugins as basePlugins, rollupOptions } from './common.config';
+import { baseRoot, buildConfig, fileName, getPath, plugins as basePlugins } from './common.config';
 
 const outputRoot = path.resolve(__dirname, '../../../lib/dist');
 
@@ -108,7 +108,7 @@ export class EsConfig {
             ...entries,
             'index': getPath('./index.ts'),
           },
-        }
+        },
       },
     });
   }

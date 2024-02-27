@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   modules: [
     './modules/markdown',
     './modules/fontmin',
+    '@shuimo-design/shuimo-ui-nuxt',
   ],
   css: ['./assets/style/index.css'],
   alias: {

@@ -3,7 +3,7 @@
   overflow: hidden;
   background-color: var(--m-rp-bg);
   transition: background-color 0.3s ease-in-out;
-  height: var(--m-rp-w);
+  height: var(--m-rp-h);
   width: var(--m-rp-w);
 }
 
