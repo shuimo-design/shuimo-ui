@@ -4,6 +4,10 @@
 
 ::: demo base/datePicker/default
 
+### 月份选择框
+
+::: demo base/datePicker/month
+
 ### 传递默认值
 
 ::: demo base/datePicker/defaultValue
