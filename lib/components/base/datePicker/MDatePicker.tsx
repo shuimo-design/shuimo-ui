@@ -94,7 +94,7 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
         year: dateRef.value.year,
         month: month,
         day: 1,
-        isCurrentMonth: false
+        isCurrentMonth: false,
       };
       const value = getValue(calendarItem);
       updateDateRef(value);
