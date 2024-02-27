@@ -894,6 +894,19 @@
     "default": "true",
     "description": "是否显示山脉背景"
   },
+  "m-table/data": {
+    "type": "Array<any>",
+    "description": "table data\n表格内容"
+  },
+  "m-table/height": {
+    "type": "string|null",
+    "description": "table height\n表格高度"
+  },
+  "m-table/paramClass": {
+    "type": "boolean",
+    "default": "false",
+    "description": "auto add param class\n自动添加key class"
+  },
   "m-table-column/width": {
     "type": "string",
     "default": "",
@@ -912,18 +925,5 @@
   "m-virtual-list/list": {
     "type": "Array<T>",
     "description": "list"
-  },
-  "m-table/data": {
-    "type": "Array<any>",
-    "description": "table data\n表格内容"
-  },
-  "m-table/height": {
-    "type": "string|null",
-    "description": "table height\n表格高度"
-  },
-  "m-table/paramClass": {
-    "type": "boolean",
-    "default": "false",
-    "description": "auto add param class\n自动添加key class"
   }
 }

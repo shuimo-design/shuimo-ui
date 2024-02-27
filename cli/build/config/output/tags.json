@@ -347,6 +347,14 @@
     ],
     "description": "Rice paper layout component with shuimo-ui style.\n水墨组件的宣纸布局组件\n[docs](https://shuimo.design/rice-paper)"
   },
+  "m-table": {
+    "attributes": [
+      "data",
+      "height",
+      "paramClass"
+    ],
+    "description": "Table component with shuimo-ui style.\n水墨组件的表格组件。\n[docs](https://shuimo.design/table)"
+  },
   "m-table-column": {
     "attributes": [
       "width",
@@ -360,13 +368,5 @@
       "list"
     ],
     "description": "virtualList component with shuimo-ui style.\n[docs](https://shuimo.design/virtualList,)"
-  },
-  "m-table": {
-    "attributes": [
-      "data",
-      "height",
-      "paramClass"
-    ],
-    "description": "Table component with shuimo-ui style.\n水墨组件的表格组件。\n[docs](https://shuimo.design/table)"
   }
 }
