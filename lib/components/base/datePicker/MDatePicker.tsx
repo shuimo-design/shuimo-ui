@@ -88,6 +88,19 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
 
   const clickMonthDiv = (month: number) => {
     clickMonthItem(month);
+    // when type="month", set value when click month item
+    if (props.type === 'month') {
+      const calendarItem: CalendarItem = {
+        year: dateRef.value.year,
+        month: month,
+        day: 1,
+        isCurrentMonth: false,
+      };
+      const value = getValue(calendarItem);
+      updateDateRef(value);
+      currentRef.value = toDayjs(value);
+      emit('update:modelValue', value);
+    }
   };
 
   watch(() => props.modelValue, value => {

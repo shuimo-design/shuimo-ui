@@ -9,7 +9,7 @@
 import { DatePickerProps } from './index';
 import dayjs from 'dayjs';
 import usePopover from '../../../compositions/common/usePopover.ts';
-import { Ref, ref } from 'vue';
+import { computed, Ref, ref } from 'vue';
 import { isEmpty } from '../../../tools';
 import type { Options } from '../../../compositions/common/defineCore.ts';
 
@@ -48,7 +48,12 @@ export function useDatePicker(options: Options<{
   props: DatePickerProps
 }>) {
   const { popoverOptions } = usePopover();
-  const dateRef = ref<DateRefType>();
+  const today = dayjs();
+  const dateRef = ref<DateRefType>({
+    year: today.year(),
+    month: today.month() + 1,
+    day: today.date(),
+  });
   const displayValue = ref('');
   const spanClass = ref<Array<string | undefined>>([]);
   const currentRef = ref(toDayjs(options.props.modelValue));
@@ -56,8 +61,20 @@ export function useDatePicker(options: Options<{
   const yearsRef = ref<Array<number>>([]);
   let needPlaceholder = false;
 
-  const format = options.props.format ?? 'YYYY-MM-DD';
-
+  const format = computed(() => {
+    if (options.props.format) {
+      return options.props.format;
+    } else {
+      switch (options.props.type) {
+        case 'date':
+          return 'YYYY-MM-DD';
+        case 'month':
+          return 'YYYY-MM';
+        default:
+          return 'YYYY-MM-DD';
+      }
+    }
+  });
 
   const updateDateRef = (value: string | Date) => {
     if (isEmpty(value)) {
@@ -68,7 +85,7 @@ export function useDatePicker(options: Options<{
       const dayJsValue = dayjs(value);
       const validateResult = dayJsValue.isValid();
       if (validateResult) {
-        displayValue.value = dayJsValue.format(format).toString();
+        displayValue.value = dayJsValue.format(format.value).toString();
         dateRef.value = {
           year: dayJsValue.year(),
           month: dayJsValue.month() + 1,
@@ -83,13 +100,8 @@ export function useDatePicker(options: Options<{
   // date
   updateDateRef(options.props.modelValue);
 
-  const getCalendar = (MDateRefValue: Ref<DateRefType | undefined>) => {
-    const dateRefValue = ref(MDateRefValue);
-    if (!dateRefValue.value) {
-      const today = dayjs();
-      dateRefValue.value = { year: today.year(), month: today.month() + 1, day: today.date() };
-    }
-    const dateRef = dateRefValue.value;
+  const getCalendar = (MDateRefValue: Ref<DateRefType>) => {
+    const dateRef = MDateRefValue.value;
     // thx to copilot :)
     const monthDayjs = dayjs().set('year', dateRef.year).set('month', dateRef.month - 1);
     const dateDayjs = monthDayjs.set('date', dateRef.day);
@@ -209,7 +221,7 @@ export function useDatePicker(options: Options<{
   };
 
   const getValue = (item: CalendarItem) => {
-    return dayjs().set('year', item.year).set('month', item.month - 1).set('date', Number(item.day)).format(format);
+    return dayjs().set('year', item.year).set('month', item.month - 1).set('date', Number(item.day)).format(format.value);
   };
 
   const clickCurrentYear = (year: number) => {
@@ -223,7 +235,10 @@ export function useDatePicker(options: Options<{
   const clickYearItem = (year: number) => {
     if (!dateRef.value) return;
     dateRef.value.year = year;
-    calendarTypeRef.value = 'date';
+    // when type="date", click year item will change to date type.
+    // when type="month", click year item will change to month type.
+    if (options.props.type === 'date') calendarTypeRef.value = 'date';
+    else if (options.props.type === 'month') calendarTypeRef.value = 'month';
   };
 
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -232,9 +247,10 @@ export function useDatePicker(options: Options<{
   };
 
   const clickMonthItem = (month: number) => {
-    if (!dateRef.value) return;
     dateRef.value.month = month;
-    calendarTypeRef.value = 'date';
+    // when type="date", click month item will change to date type.
+    // when type="month", not
+    if (options.props.type === 'date') calendarTypeRef.value = 'date';
   };
 
   return {

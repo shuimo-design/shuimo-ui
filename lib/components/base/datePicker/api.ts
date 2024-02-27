@@ -12,6 +12,6 @@ import { DatePickerProps } from './index';
 export const props: MCOPO<DatePickerProps> = {
   modelValue: { type: [String, Date], default: '' },
   placeholder: { type: String, default: '请选择日期...' },
-  format: { type: String, default: 'YYYY-MM-DD' },
+  format: { type: String, default: undefined },
   type: { type: String as MPropType<'date' | 'month'>, default: 'date' },
 };
