@@ -61,9 +61,9 @@ export function useDatePicker(options: Options<{
   const yearsRef = ref<Array<number>>([]);
   let needPlaceholder = false;
 
-  const format = computed( () => {
+  const format = computed(() => {
     if (options.props.format) {
-      return options.props.format
+      return options.props.format;
     } else {
       switch (options.props.type) {
         case 'date':
