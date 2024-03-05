@@ -9,6 +9,7 @@
 
 import { defineComponent } from 'vue';
 import MSvgSymbol from './MSvgSymbol';
+import './svgWrapper.css';
 
 export default defineComponent((props, { slots }) => {
   return () => (

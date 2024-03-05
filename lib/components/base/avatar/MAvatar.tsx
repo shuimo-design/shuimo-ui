@@ -9,12 +9,15 @@
 import { defineComponent } from 'vue';
 import { props } from './api.ts';
 import './avatar.css';
+import MAvatarSvg from './MAvatarSvg.tsx';
+import { AvatarProps } from './index';
 
-export default defineComponent(props => {
+export default defineComponent((_props: AvatarProps) => {
+  const props = _props as Required<AvatarProps>;
   return () => {
     return <div class={['m-avatar', `m-avatar-${props.variant}`, `m-avatar-${props.size}`]}>
       <img src={props.img} alt=""/>
-      <div class="m-avatar-mask"></div>
+      <MAvatarSvg variant={props.variant}/>
     </div>;
   };
 }, {

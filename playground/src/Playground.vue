@@ -26,9 +26,12 @@ const { darkModeRef, initDarkMode } = useDarkModeStorage();
   <div class="header">
     <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
   </div>
-  <div class="playground">
-    <Base/>
-  </div>
+
+  <m-svg-wrapper>
+    <div class="playground">
+      <Base/>
+    </div>
+  </m-svg-wrapper>
 </template>
 
 <style scoped>
