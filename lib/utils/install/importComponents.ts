@@ -167,3 +167,5 @@ export {
   MVirtualList,
 
 };
+
+export { MShuimoConfigKey } from '../../components/other/config/MShuimoConfig';

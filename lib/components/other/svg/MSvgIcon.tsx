@@ -36,7 +36,7 @@ export default defineComponent((props: {
 
   const shuimoConfig = inject<MUIOption>(MShuimoConfigKey, { svgInject: 'auto' });
   const isNuxt = shuimoConfig?.svgInject === 'nuxt';
-  const svgUrl = isNuxt ? `m-shuimo/icon.svg#${SVG_ID}` : `#${SVG_ID}`;
+  const svgUrl = isNuxt ? `m-shuimo/icon/icon.svg#${SVG_ID}` : `#${SVG_ID}`;
   if (shuimoConfig?.svgInject === 'auto') {
     installIconSvg();
   }

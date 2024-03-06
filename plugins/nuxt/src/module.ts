@@ -61,6 +61,7 @@ export default defineNuxtModule<ShuimoNuxtModuleOptions>({
     nuxt.options.css.push(resolve(`${SHUIMO_ROOT_PATH}/dist/es/assets/style/global.css`));
 
     addPlugin(resolve('./runtime/directive'));
+    addPlugin(resolve('./runtime/provide'));
 
     await addComponent({
       name: 'MLoadingPreview',
