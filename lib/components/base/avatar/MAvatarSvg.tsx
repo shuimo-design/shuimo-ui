@@ -24,7 +24,7 @@ export default defineComponent((props: Pick<AvatarProps, 'variant'>) => {
   const isNuxt = shuimoConfig?.svgInject === 'nuxt';
   const info = avatarSvgInfo[props.variant as keyof AvatarProps['variant']] as SvgInfoType;
 
-  const svgUrl = `${isNuxt ? 'm-shuimo/icon.svg' : ''}#${info.id}`;
+  const svgUrl = `${isNuxt ? 'm-shuimo/icon/icon.svg' : ''}#${info.id}`;
   return () => {
     return <svg class="m-avatar-mask" xmlns="http://www.w3.org/2000/svg" viewBox={info.viewBox}>
       <use href={svgUrl}/>
