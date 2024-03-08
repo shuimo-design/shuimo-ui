@@ -9,6 +9,7 @@
  * provide every symbol svg icon to the global
  *
  * todo support demand
+ * todo import from public icon.svg
  */
 
 import { defineComponent } from 'vue';
