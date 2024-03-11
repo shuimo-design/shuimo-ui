@@ -7,21 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { createApp, defineComponent, h, inject } from 'vue';
-import { MShuimoConfigKey } from '../../other/config/MShuimoConfig';
-import MSvgSymbol, { SVG_ID } from './MSvgSymbol';
-import { MUIOption } from '../../../types/shuimo-ui';
+import { defineComponent } from 'vue';
+import { LI_ICON_ID } from './MSvgSymbol';
+import useSvgInject from '../../../compositions/common/useSvgInject.ts';
 
-const installIconSvg = () => {
-  if (!document) {return;}
-  if (!document.getElementById(SVG_ID)) {
-    const svg = h(MSvgSymbol);
-    const div = document.createElement('div');
-    createApp({ render: () => svg }).mount(div);
-    // todo use body maybe have some problem...
-    document.body.appendChild(div);
-  }
-};
+
 export default defineComponent((props: {
   width?: number | string,
   height?: number | string,
@@ -34,10 +24,8 @@ export default defineComponent((props: {
   inner?: boolean,
 }) => {
 
-  const shuimoConfig = inject<MUIOption>(MShuimoConfigKey, { svgInject: 'auto' });
-  const isNuxt = shuimoConfig?.svgInject === 'nuxt';
-  const svgUrl = isNuxt ? `m-shuimo/icon/icon.svg#${SVG_ID}` : `#${SVG_ID}`;
-  if (shuimoConfig?.svgInject === 'auto') {
+  const { svgUrl, installIconSvg, isAuto } = useSvgInject(LI_ICON_ID);
+  if (isAuto.value) {
     installIconSvg();
   }
 
