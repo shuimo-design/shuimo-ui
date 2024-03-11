@@ -75,3 +75,5 @@ export declare const MTableColumn: typeof tableColumn;
 export declare const MRicePaper: typeof ricePaper;
 export declare const MMenu: typeof menu;
 export declare const MMenuItem: typeof menuItem;
+
+export declare const MShuimoConfigKey: symbol;
