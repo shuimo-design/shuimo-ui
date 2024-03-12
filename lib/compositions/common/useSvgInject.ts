@@ -13,7 +13,7 @@ import MSvgSymbol from '../../components/other/svg/MSvgSymbol.tsx';
 
 // svg_id maybe change?
 export default function useSvgInject(_svgId: ComputedRef<string> | string) {
-  let svgId = isRef(_svgId) ? _svgId : ref(_svgId);
+  const svgId = isRef(_svgId) ? _svgId : ref(_svgId);
 
   const shuimoConfig = inject<MUIOption>(MShuimoConfigKey, { svgInject: 'auto' });
   const isNuxt = computed(() => shuimoConfig?.svgInject === 'nuxt');
