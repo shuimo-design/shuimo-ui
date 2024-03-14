@@ -106,3 +106,24 @@
     opacity: 0.3;
   }
 }
+
+html[dark] {
+
+  .m-switch-main {
+    background: unset;
+    position: relative;
+  }
+
+  .m-switch-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(./assets/bg.webp) no-repeat var(--m-swicth-bg-position-x) var(--m-swicth-bg-position-y);
+    background-size: var(--m-switch-bg-w) var(--m-switch-bg-h);
+    filter: invert(1);
+  }
+
+}
