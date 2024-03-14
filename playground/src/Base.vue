@@ -150,18 +150,15 @@
     <!--      <m-select v-model="value2" :options="options2" multiple :readonly="false"/>-->
     <!--      <m-select multiple :readonly="false" :options="testOptions" v-model="testValue" :filter="customFilter"/>-->
     <!--    </div>-->
-    <div class="avatar">
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="large"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="large"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" size="small"/>
-      <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square" size="small"/>
-      <div class="avatar-size">
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4"/>
-        <m-avatar img="https://avatars.githubusercontent.com/u/9988024?v=4" variant="square"/>
-      </div>
-    </div>
+    <div>值为：{{ valueRef }}</div>
+    <m-select v-model="valueRef"
+              input-param="after"
+              option-param="before"
+              value-param="number"
+              :options="options"/>
+
+    <m-select v-model="baseValueRef" :options="['子', '丑', '寅', '卯']"/>
+
   </div>
 </template>
 
@@ -176,6 +173,17 @@
  */
 import { ref } from 'vue';
 import MTree from './MTree.vue';
+
+const valueRef = ref('1');
+const options = [
+  { before: 'b1', after: 'a1', number: '1' },
+  { before: 'b2', after: 'a2', number: '2' },
+  { before: 'b3', after: 'a3', number: '3' },
+  { before: 'b4', after: 'a4', number: '4' },
+];
+
+const baseValueRef = ref('1');
+
 
 
 const liActiveRef = ref(false);

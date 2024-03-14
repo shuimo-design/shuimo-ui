@@ -74,7 +74,6 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
   const selectOptions = ref([]);
   const selectDisplayOptions = ref([]);
   const selectTags = ref([]);
-  const inputValue = ref('');
 
 
   const tools = useSelectTools(props);
@@ -83,7 +82,8 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
     inputProps,
     getOptions,
     lastOptionRef, selectOptionRef, fetchLoadingRef,
-  } = useSelect({ props: props as Required<SelectProps>, value: { inputValue } });
+    inputValueRef,
+  } = useSelect({ props: props as Required<SelectProps> });
 
   const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-select');
 
@@ -105,22 +105,22 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
   const getRenderOptions = computed(() => getOptions());
   const updateInput = () => {
     select.onInput();
-    emit('input', inputValue.value);
+    emit('input', inputValueRef.value);
   };
 
   const onFocus = (value: FocusEvent) => {
     if (props.readonly) return;
-    emit('focus', value, inputValue.value);
+    emit('focus', value, inputValueRef.value);
   };
 
   const onBlur = (value: FocusEvent) => {
     if (props.readonly) return;
-    emit('blur', value, inputValue.value);
+    emit('blur', value, inputValueRef.value);
 
     const selected = getRenderOptions.value.find(o => o.isSelected);
-    if (selected && inputValue.value === tools.getInputValue(selected)) return;
+    if (selected && inputValueRef.value === tools.getInputValue(selected)) return;
 
-    if (isEmpty(inputValue.value)) {
+    if (isEmpty(inputValueRef.value)) {
       emit('update:modelValue', undefined);
     }
     // todo
@@ -128,7 +128,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
 
   const select = selectCreator({
     props: props as Required<SelectProps>,
-    value: { inputValue, selectOptions, selectDisplayOptions, selectTags },
+    value: { inputValue: inputValueRef, selectOptions, selectDisplayOptions, selectTags },
   });
 
   const deleteTag = (tag: SelectOptions<OptionType>) => {
@@ -205,7 +205,8 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
       single: {
         active: () => {
           // @ts-ignore todo fix class type error
-          return <MInput class="m-select-input" v-model={inputValue.value}
+          return <MInput class="m-select-input"
+                         v-model={inputValueRef.value}
                          onFocus={onFocus} onBlur={onBlur}
                          onInput={updateInput} {...inputProps}/>;
         },
@@ -231,7 +232,7 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
               : <input class="m-select-multiple-input" type="text"
                        onFocus={onFocus} onBlur={onBlur}
                        onInput={updateInput}
-                       v-model={inputValue.value}
+                       v-model={inputValueRef.value}
                        {...inputProps}/>}
           </div>, 'm-select-multiple');
         },

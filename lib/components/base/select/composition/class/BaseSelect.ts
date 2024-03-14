@@ -111,8 +111,11 @@ export abstract class BaseSelect<OptionValue> {
     this.inputValueRef!.value = findRes ? this.tools?.getInputValue(findRes) : '';
   }
 
-  setInputValue(value?: OptionType) {
-    this.inputValueRef!.value = this.tools?.getInputValue(value);
+  setInputValue(value?: string | number) {
+    // find option by value
+    const options = this.options?.props.options ?? [];
+    const findRes = options.find(o => this.tools?.getModelValue(o) === this.modelValue);
+    this.inputValueRef!.value = this.tools?.getInputValue(findRes);
   }
 
   getModelValue(value?: OptionType) {

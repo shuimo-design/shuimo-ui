@@ -18,14 +18,11 @@ export type OptionType = any;
 
 export function useSelect(options: Options<{
   props: SelectProps,
-  value: {
-    inputValue: string,
-  }
 }>) {
   const tools = useSelectTools(options.props);
   const { popoverOptions } = usePopover();
   const { props } = options;
-  const inputValueRef = ref(options.value.inputValue);
+  const inputValueRef = ref('');
 
   const fetchOptions = useSelectFetch({ props });
 
@@ -63,6 +60,7 @@ export function useSelect(options: Options<{
     popoverOptions,
     inputProps,
     getOptions,
+    inputValueRef,
   };
 
 }
