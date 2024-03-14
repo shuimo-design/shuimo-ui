@@ -29,3 +29,11 @@
     vertical-align: middle;
   }
 }
+
+html[dark] {
+
+  .m-radio-input {
+    filter: invert(1);
+  }
+
+}
