@@ -5,6 +5,7 @@
   transition: background-color 0.3s ease-in-out;
   height: var(--m-rp-h);
   width: var(--m-rp-w);
+  cursor: var(--m-cursor-auto);
 }
 
 .m-rice-paper-cold {
