@@ -7,20 +7,18 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import Playground from './Playground.vue';
+import Playground from "./Playground.vue";
 </script>
 
 <template>
   <m-rice-paper class="rice-paper">
-    <Playground/>
+    <Playground />
   </m-rice-paper>
 </template>
 
 <style scoped>
-
 .rice-paper {
   height: 100vh;
   width: 100vw;
 }
-
 </style>

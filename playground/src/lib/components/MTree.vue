@@ -5,11 +5,11 @@
  * @date 2023/6/24 23:27
  * @version v1.0.0
  */
-import { MTree } from 'shuimo-ui/index';
-import { ref } from 'vue';
-import type { TreeData } from 'shuimo-ui/components/base/tree';
+import { MTree } from "shuimo-ui/index";
+import { ref } from "vue";
+import type { TreeData } from "shuimo-ui/components/base/tree";
 
-const checkedKeys = ref<Array<string | number>>(['12', '22', '3']);
+const checkedKeys = ref<Array<string | number>>(["12", "22", "3"]);
 
 function generateMockData(level: number, pLevel?: string, pKey?: string): TreeData[] {
   const data: TreeData[] = [];
@@ -22,7 +22,7 @@ function generateMockData(level: number, pLevel?: string, pKey?: string): TreeDa
       label,
       value: `Value ${i}`,
       children: [],
-      disabled: i % 2 === 0
+      disabled: i % 2 === 0,
     };
 
     if (i < level) {
@@ -45,14 +45,19 @@ const d = generateMockData(5);
 <template>
   <div>
     {{ checkedKeys }}
-    <br/>
+    <br />
     <div class="tree">
-      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d"
-              :default-expand-all="true"></m-tree>
+      <m-tree
+        checkbox
+        :check-strictly="false"
+        v-model:checkedKeys="checkedKeys"
+        :data="d"
+        :default-expand-all="true"
+      ></m-tree>
     </div>
-    <br/>
+    <br />
     <div>
-      <m-tree checkbox :data="treeData"/>
+      <m-tree checkbox :data="treeData" />
     </div>
   </div>
 </template>
@@ -62,7 +67,7 @@ const d = generateMockData(5);
   justify-content: flex-start;
 }
 
-.tree{
+.tree {
   height: 50vh;
   overflow-y: auto;
 }
