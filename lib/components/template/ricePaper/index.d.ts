@@ -25,4 +25,10 @@ export declare type RicePaperProps = {
    * @default true
    */
   mountain?: boolean
+  /**
+   * @description 布局
+   * @type 'auto' | 'full-screen'
+   * @default 'auto'
+   */
+  layout?: 'auto' | 'full-screen'
 };

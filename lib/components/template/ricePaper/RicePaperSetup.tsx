@@ -84,7 +84,11 @@ export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
       </div> : null;
 
       return (
-        <div class={['m-rice-paper', `m-rice-paper-${props.type ?? 'default'}`]}>
+        <div class={[
+          'm-rice-paper',
+          props.layout === 'full-screen' ? 'm-rice-paper-full-screen m-scroll' : '',
+          `m-rice-paper-${props.type ?? 'default'}`,
+        ]}>
           {mountain}
           <div class="m-rice-paper-hover"/>
           <div class="m-rice-paper-layout">
