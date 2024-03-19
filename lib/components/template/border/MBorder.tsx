@@ -12,14 +12,23 @@ import { defineComponent } from 'vue';
 import { baseLineClass, lineType } from './lineType.ts';
 import { WCSetup } from '../../types/template';
 import './border.css';
+import { props } from './api.ts';
+
+
+const toBoolean = (value: any) => {
+  if (value === 'false') return false;
+  return Boolean(value);
+};
 
 export const MBorderSetup: WCSetup = slot => {
-  return (_, { slots }) => {
+  return (props, { slots }) => {
     return () => {
       const renderSlot = slot ?? slots.default?.();
-      const lineTemplate = Object.keys(lineType).map(type => {
-        return <div class={[baseLineClass, `m-border-${type}-line`]}></div>;
-      });
+      const lineTemplate = Object.keys(lineType)
+        .filter(type => toBoolean(props[type]))
+        .map(type => {
+          return <div class={[baseLineClass, `m-border-${type}-line`]}/>;
+        });
 
       return <div class="m-border">
         <div class="m-border-main">
@@ -34,4 +43,5 @@ export const MBorderSetup: WCSetup = slot => {
 
 export default defineComponent(MBorderSetup(), {
   name: 'MBorder',
+  props,
 });

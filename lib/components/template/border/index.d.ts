@@ -12,4 +12,29 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export declare type BorderProps = {};
+export declare type BorderProps = {
+  /**
+   * @description top line display or not
+   * @default true
+   * @type boolean | string
+   */
+  top?: boolean | string;
+  /**
+   * @description right line display or not
+   * @default true
+   * @type boolean | string
+   */
+  right?: boolean | string;
+  /**
+   * @description bottom line display or not
+   * @default true
+   * @type boolean | string
+   */
+  bottom?: boolean | string;
+  /**
+   * @description left line display or not
+   * @default true
+   * @type boolean | string
+   */
+  left?: boolean | string;
+};

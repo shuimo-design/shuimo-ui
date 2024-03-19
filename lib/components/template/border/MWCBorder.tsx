@@ -10,9 +10,11 @@
 import { defineCustomElement } from 'vue';
 import { MBorderSetup } from './MBorder';
 import style from './border.css?inline';
+import { props } from './api.ts';
 
 export default defineCustomElement({
   name: 'MWCBorder',
+  props,
   setup: MBorderSetup(<slot></slot> as unknown as HTMLSlotElement),
   styles: [style],
 });
