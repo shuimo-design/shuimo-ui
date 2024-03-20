@@ -6,14 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from '../../types/props';
+import { MCOPO, MPropType } from '../../types/props';
 import { DrawerProps } from './index';
 
 export const props: MCOPO<DrawerProps> = {
   mask: { type: Object, default: { show: true, clickClose: true } },
-  width: { type: String, default: '524px' },
   visible: { type: Boolean, default: false },
   drawerClass: { type: Array, default: [] },
-  closeBtn: { type: Boolean, default: true },
+  direction: { type: String as MPropType<'top' | 'right' | 'bottom' | 'left'>, default: 'right' },
   teleport: { type: Object, default: { to: 'body' } },
 };

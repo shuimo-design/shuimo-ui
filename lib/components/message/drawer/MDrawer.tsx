@@ -21,7 +21,10 @@ export default defineComponent((_props: DrawerProps, { emit, slots }) => {
     getModel,
     getModelActive,
     handleModelClickPropagation,
-  } = useModel(props, { emit });
+  } = useModel({
+    ...props,
+    maskClass: ['m-drawer-mask', `m-drawer-mask-${props.direction}`],
+  }, { emit });
 
   return () => {
 
@@ -30,7 +33,9 @@ export default defineComponent((_props: DrawerProps, { emit, slots }) => {
     };
 
     const getDrawer = () => {
-      return getModel(<div class="m-drawer" onClick={handleModelClickPropagation}>
+      // 根据direction判断是横向还是纵向
+      return getModel(<div class={['m-drawer', `m-drawer-${props.direction}`, ...props.drawerClass]}
+                           onClick={handleModelClickPropagation}>
         {/* {props.closeBtn ? getClose() : null} */}
         {h(MBorder, {}, () => slots.default?.())}
       </div>);

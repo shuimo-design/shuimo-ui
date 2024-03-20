@@ -15,8 +15,9 @@ import { MTeleportProps } from '../types/common/common';
 type EmitType = any; // todo fix this
 export default function useModel(props: {
   visible: boolean,
+  teleport: MTeleportProps,
   mask?: ModelMask | undefined,
-  teleport: MTeleportProps
+  maskClass?: string[],
 }, ctx: { emit: EmitType }) {
   const visible = ref(props.visible);
   const { emit } = ctx;

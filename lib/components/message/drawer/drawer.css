@@ -1,15 +1,15 @@
-.m-drawer {
+:root {
   --m-drawer-m-column: 30px;
   --m-drawer-m-row: 20px;
   --m-drawer-p-column: 5px;
   --m-drawer-p-row: 4px;
-  float: right;
+}
+
+.m-drawer {
   margin: var(--m-drawer-m-column) var(--m-drawer-m-row);
-  background-color: white;
-  height: calc(100% - var(--m-drawer-m-column) * 2);
+  display: inline-flex;
 
   & > .m-border {
-    height: 100%;
 
     & > .m-border-main {
       padding: var(--m-drawer-p-column) var(--m-drawer-p-row);
@@ -19,4 +19,48 @@
 
 .m-drawer-main {
   height: calc(100vh - 60px);
+}
+
+.m-drawer-right, .m-drawer-left {
+  height: calc(100% - var(--m-drawer-m-column) * 2);
+}
+
+.m-drawer-top, .m-drawer-bottom {
+  width: calc(100% - var(--m-drawer-m-column) * 2);
+}
+
+.m-drawer-mask {
+  display: flex;
+}
+
+.m-drawer-mask-top,.m-drawer-mask-bottom {
+  & > .m-drawer > .m-border {
+    width: 100%;
+  }
+}
+
+.m-drawer-mask-left,.m-drawer-mask-right {
+  & > .m-drawer > .m-border {
+    height: 100%;
+  }
+}
+
+.m-drawer-mask-top {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.m-drawer-mask-right {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.m-drawer-mask-bottom {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.m-drawer-mask-left {
+  flex-direction: row;
+  justify-content: flex-start;
 }

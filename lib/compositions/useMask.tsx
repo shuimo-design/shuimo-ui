@@ -10,7 +10,7 @@ import { VNode } from 'vue';
 import { ModelMask } from '../types/common/model';
 
 export default function useMask(
-  props: { mask?: ModelMask },
+  props: { mask?: ModelMask, maskClass?: string[] },
   handleClick: () => void,
 ) {
 
@@ -20,7 +20,7 @@ export default function useMask(
     }
   };
   const wrapperWithMask = (dom: VNode) => {
-    return <div class={['m-model-mask', { 'm-model-mask-bg': props.mask?.show }]}
+    return <div class={['m-model-mask', { 'm-model-mask-bg': props.mask?.show }, ...(props.maskClass ?? [])]}
                 onClick={() => maskClick()}>
       {dom}
     </div>;

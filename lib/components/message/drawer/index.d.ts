@@ -23,13 +23,6 @@ export declare type DrawerProps = {
    */
   mask?: ModelMask,
   /**
-   * @description drawer width
-   *              drawer的宽度
-   * @type string
-   * @default false
-   */
-  width?: string,
-  /**
    * @description drawer visible value
    *              抽屉是否显示参数
    * @type boolean
@@ -44,12 +37,12 @@ export declare type DrawerProps = {
    */
   drawerClass?: string[],
   /**
-   * @description close button visible value
-   *              是否显示关闭按钮
-   * @type boolean
-   * @default true
+   * @description drawer direction
+   *              抽屉出现方向
+   * @type 'top' | 'right' | 'bottom' | 'left'
+   * @default right
    */
-  closeBtn?: boolean,
+  direction?: 'top' | 'right' | 'bottom' | 'left',
   /**
    * @description drawer teleport
    *              抽屉传送
