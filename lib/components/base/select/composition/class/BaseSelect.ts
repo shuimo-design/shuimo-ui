@@ -172,6 +172,7 @@ export class SingleSelect<OptionValue, JSXNode> extends BaseSelect<OptionValue> 
     };
 
     const getContent = () => {
+      this.updateSelectDisplayOptions(); // necessary?
       return render.single.content(() => ({ options: this.selectDisplayOptions!.value ?? [] }));
     };
 
