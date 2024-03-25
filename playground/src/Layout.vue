@@ -7,8 +7,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from 'vue';
-
 </script>
 
 <template>

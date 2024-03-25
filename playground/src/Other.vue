@@ -47,7 +47,7 @@ const onChangeMode = (val: string) => {
 
 <style scoped>
 
-.divider{
+.divider {
   width: 20rem;
 }
 

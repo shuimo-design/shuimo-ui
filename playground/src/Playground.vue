@@ -11,13 +11,13 @@ import Base from './Base.vue';
 import Other from './Other.vue';
 import Template from './Template.vue';
 import Message from './Message.vue';
+import Layout from './Layout.vue';
 import { useDarkModeStorage } from 'shuimo-ui/index.ts';
 import { onMounted } from 'vue';
-import Layout from './Layout.vue';
 
-onMounted(()=>{
-  localStorage.clear()
-})
+onMounted(() => {
+  localStorage.clear();
+});
 
 const { darkModeRef, initDarkMode } = useDarkModeStorage();
 </script>

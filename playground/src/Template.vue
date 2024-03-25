@@ -114,18 +114,18 @@
         <div class="virtual-list-item">{{ data }}</div>
       </template>
     </m-virtual-list>
-<!--    <div class="animation">-->
-<!--      <m-button @click="toggleVisible">toggleVisible</m-button>-->
-<!--      <transition name="m-layout">-->
-<!--        <div class="filter-div" v-if="riceVisibleRef">-->
-<!--          <m-rice-paper :style="{-->
-<!--          '&#45;&#45;m-rice-paper-mountains-opacity':0.2-->
-<!--        }">-->
-<!--            <div class="inside-div"/>-->
-<!--          </m-rice-paper>-->
-<!--        </div>-->
-<!--      </transition>-->
-<!--    </div>-->
+    <!--    <div class="animation">-->
+    <!--      <m-button @click="toggleVisible">toggleVisible</m-button>-->
+    <!--      <transition name="m-layout">-->
+    <!--        <div class="filter-div" v-if="riceVisibleRef">-->
+    <!--          <m-rice-paper :style="{-->
+    <!--          '&#45;&#45;m-rice-paper-mountains-opacity':0.2-->
+    <!--        }">-->
+    <!--            <div class="inside-div"/>-->
+    <!--          </m-rice-paper>-->
+    <!--        </div>-->
+    <!--      </transition>-->
+    <!--    </div>-->
 
 
     <!--    <Layout/>-->
@@ -155,8 +155,8 @@ const tableDataRef = ref([
   {
     name: '不长',
     address: '这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长这段内容很长很长',
-    age: 18
-  }
+    age: 18,
+  },
 ]);
 
 const current = ref(1);
@@ -185,8 +185,8 @@ const menu = [{
   title: '首页', route: 'main', isActive: true, children: [
     { title: '快速开始', route: 'quickStart', isActive: false },
     { title: '颜色', route: 'color', isActive: false },
-    { title: '从wash-painting升级', route: 'w2m', isActive: false }
-  ]
+    { title: '从wash-painting升级', route: 'w2m', isActive: false },
+  ],
 },
 
   {
@@ -199,16 +199,16 @@ const menu = [{
       { title: '日期选择框', route: 'datePicker', isActive: false },
       { title: '列表', route: 'list', isActive: false },
       { title: '开关', route: 'switch', isActive: false },
-      { title: '标签', route: 'tag', isActive: false }
-    ]
+      { title: '标签', route: 'tag', isActive: false },
+    ],
   },
   {
     title: '模版组件', route: 'form', isActive: false, children: [
       { title: '表单', route: 'form', isActive: false },
       { title: '列表', route: 'table', isActive: false },
       { title: '分页', route: 'pagination', isActive: false },
-      { title: '宣纸布局', route: 'rice-paper', isActive: false }
-    ]
+      { title: '宣纸布局', route: 'rice-paper', isActive: false },
+    ],
   },
   {
     title: '消息组件', route: 'dialog', isActive: false, children: [
@@ -217,8 +217,8 @@ const menu = [{
       { title: '提示', route: 'message', isActive: false },
       { title: '气泡卡片', route: 'popover', isActive: false },
       { title: '悬浮提示', route: 'tooltip', isActive: false },
-      { title: '确认框', route: 'confirm', isActive: false }
-    ]
+      { title: '确认框', route: 'confirm', isActive: false },
+    ],
   },
   {
     title: '其他组件', route: 'upload', isActive: false, children: [
@@ -228,8 +228,8 @@ const menu = [{
       { title: '进度条', route: 'progress', isActive: false },
       { title: '边框', route: 'border', isActive: false },
       { title: '滚动条', route: 'scroll', isActive: false },
-      { title: '加载', route: 'loading', isActive: false }
-    ]
+      { title: '加载', route: 'loading', isActive: false },
+    ],
   }];
 
 </script>

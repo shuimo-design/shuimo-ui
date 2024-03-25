@@ -35,15 +35,15 @@
         </m-tooltip>
       </div>
 
-    <m-button @click="activeConfirm">测试</m-button>
-    <m-drawer>
-      <template #active>
-        <m-button>点击这里</m-button>
-      </template>
-      <div>
-        <h1>这里是drawer</h1>
-      </div>
-    </m-drawer>
+      <m-button @click="activeConfirm">测试</m-button>
+      <m-drawer>
+        <template #active>
+          <m-button>点击这里</m-button>
+        </template>
+        <div>
+          <h1>这里是drawer</h1>
+        </div>
+      </m-drawer>
 
       <m-button @click="callMessage">显示</m-button>
       <m-button @click="callMessage2">显示2</m-button>
@@ -57,7 +57,6 @@
         </template>
       </m-tooltip>
     </div>
-
 
 
   </div>
@@ -97,7 +96,7 @@ const callMessage2 = () => {
   // MMessage.info('info的message');
   MMessage({
     content: 'normal',
-    direction: 'top-center'
+    direction: 'top-center',
   });
 };
 

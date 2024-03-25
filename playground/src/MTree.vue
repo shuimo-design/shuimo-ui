@@ -22,7 +22,7 @@ function generateMockData(level: number, pLevel?: string, pKey?: string): TreeDa
       label,
       value: `Value ${i}`,
       children: [],
-      disabled: i % 2 === 0
+      disabled: i % 2 === 0,
     };
 
     if (i < level) {
@@ -62,7 +62,7 @@ const d = generateMockData(5);
   justify-content: flex-start;
 }
 
-.tree{
+.tree {
   height: 50vh;
   overflow-y: auto;
 }
