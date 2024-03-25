@@ -21,10 +21,9 @@ export default defineComponent((_props: DrawerProps, { emit, slots }) => {
     getModel,
     getModelActive,
     handleModelClickPropagation,
-  } = useModel({
-    ...props,
+  } = useModel(props, { emit }, {
     maskClass: ['m-drawer-mask', `m-drawer-mask-${props.direction}`],
-  }, { emit });
+  });
 
   return () => {
 

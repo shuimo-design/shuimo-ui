@@ -13,12 +13,15 @@ import { ModelMask } from '../types/common/model';
 import { MTeleportProps } from '../types/common/common';
 
 type EmitType = any; // todo fix this
-export default function useModel(props: {
-  visible: boolean,
-  teleport: MTeleportProps,
-  mask?: ModelMask | undefined,
-  maskClass?: string[],
-}, ctx: { emit: EmitType }) {
+export default function useModel(
+  props: {
+    visible: boolean,
+    teleport: MTeleportProps,
+    mask?: ModelMask | undefined,
+  },
+  ctx: { emit: EmitType },
+  options?: { maskClass?: string[], },
+) {
   const visible = ref(props.visible);
   const { emit } = ctx;
 
@@ -35,7 +38,10 @@ export default function useModel(props: {
     emit('update:visible', visible.value);
     e.stopPropagation();
   };
-  const { wrapperWithMask } = useMask(props, handleClick);
+  const { wrapperWithMask } = useMask({
+    ...props,
+    maskClass: options?.maskClass ?? [],
+  }, handleClick);
 
   const getClose = () => {
     return <div onClick={(e: MouseEvent) => closeModel(e)} class="m-model-close-btn m-cursor-pointer"/>;
