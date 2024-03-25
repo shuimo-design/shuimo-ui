@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { ref, VNode, watch } from 'vue';
+import { toRef, VNode, watch } from 'vue';
 import useTeleport from './common/useTeleport.ts';
 import useMask from './useMask.tsx';
 import { ModelMask } from '../types/common/model';
@@ -22,7 +22,7 @@ export default function useModel(
   ctx: { emit: EmitType },
   options?: { maskClass?: string[], },
 ) {
-  const visible = ref(props.visible);
+  const visible = toRef(props.visible);
   const { emit } = ctx;
 
   watch(() => props.visible, val => {
