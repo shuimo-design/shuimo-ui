@@ -48,4 +48,5 @@ export default defineComponent((_props: DrawerProps, { emit, slots }) => {
 }, {
   name: 'MDrawer',
   props,
+  emits: ['update:visible'],
 });
