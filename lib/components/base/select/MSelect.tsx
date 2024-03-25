@@ -70,7 +70,7 @@ const MSelectTag = defineComponent({
 });
 
 
-export default defineComponent((props: SelectProps, { emit, slots }) => {
+export default defineComponent((props: SelectProps, { emit, slots, expose }) => {
   const selectOptions = ref([]);
   const selectDisplayOptions = ref([]);
   const selectTags = ref([]);
@@ -84,6 +84,12 @@ export default defineComponent((props: SelectProps, { emit, slots }) => {
     lastOptionRef, selectOptionRef, fetchLoadingRef,
     inputValueRef,
   } = useSelect({ props: props as Required<SelectProps> });
+
+  const getInputValue = () => {
+    return inputValueRef.value;
+  };
+
+  expose({ getInputValue });
 
   const { popoverRef, withPopover } = usePopover(popoverOptions, 'm-select');
 
