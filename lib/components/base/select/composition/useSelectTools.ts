@@ -19,7 +19,12 @@ export default function useSelectTools<T>(props: SelectProps) {
     if (!props[key]) {
       return option;
     }
-    return option[props[key] as keyof T] as unknown;
+    try {
+      return option[props[key] as keyof T] as unknown;
+    } catch (e) {
+      // console.log(e,option,props[key]); // todo why option is undefined
+      return option;
+    }
   };
 
   const getInputValue = (option: T) => getInfoWithKey(option, 'inputParam') as string;

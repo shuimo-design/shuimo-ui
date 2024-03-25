@@ -40,6 +40,7 @@ export default function useContainerObserver(options: {
     const forItem = (t: HTMLCollection) => {
       for (let i = 0; i < t.length; i++) {
         try {
+          if (!t[i]) continue;
           ob[type](t[i]);
         } catch (e) {
           console.log(e, t[i]);
