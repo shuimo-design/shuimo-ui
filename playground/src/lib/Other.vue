@@ -1,16 +1,16 @@
 <template>
   <div class="other flex">
     <ComponentsWrap name="Loading">
-      <m-loading :speed="0" />
-      <m-loading mask />
-      <m-loading mask :side-length="300" />
+      <m-loading :speed="0"/>
+      <m-loading mask/>
+      <m-loading mask :side-length="300"/>
     </ComponentsWrap>
     <ComponentsWrap name="Divider">
       <div class="divider">
-        <m-divider />
-        <m-divider />
+        <m-divider/>
+        <m-divider/>
         <div style="height: 200px">
-          <m-divider vertical />
+          <m-divider vertical/>
         </div>
       </div>
     </ComponentsWrap>
@@ -38,16 +38,16 @@ import ComponentsWrap from '../components/ComponentsWrap.vue';
 
 const darkModeRef = ref(false);
 const initHandler = () => {
-  const darkMode = localStorage.getItem("shuimo-blog-dark-mode");
-  darkModeRef.value = darkMode === "true";
+  const darkMode = localStorage.getItem('shuimo-blog-dark-mode');
+  darkModeRef.value = darkMode === 'true';
 
   console.log(darkModeRef.value);
   return false;
 };
 
 const onChangeMode = (val: string) => {
-  console.log("change mode", val);
-  localStorage.setItem("shuimo-blog-dark-mode", val);
+  console.log('change mode', val);
+  localStorage.setItem('shuimo-blog-dark-mode', val);
 };
 </script>
 

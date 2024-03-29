@@ -7,7 +7,8 @@
     "dev": "vite"
   },
   "devDependencies": {
-    "shuimo-ui": "workspace:*"
+    "shuimo-ui": "workspace:*",
+    "vite-plugin-vue-devtools": "^7.0.25"
   },
   "web-types": "../cli/build/config/output/web-types.json"
 }

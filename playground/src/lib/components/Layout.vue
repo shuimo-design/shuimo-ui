@@ -16,21 +16,21 @@
       <m-grid :gap="20" direction="column" class="screen">
         <m-grid :gap="5" :h="245">
           <m-cell :w="245">
-            <img src="./assets/left.png" alt="">
+            <img src="../../assets/left.png" alt="">
           </m-cell>
           <m-cell>
-            <img src="./assets/right.png" alt="">
+            <img src="../../assets/right.png" alt="">
           </m-cell>
         </m-grid>
         <m-grid :gap="5" :h="162" :gapRotate="[4, 20]">
           <m-cell :w="162">
-            <img src="./assets/1.png" alt="">
+            <img src="../../assets/1.png" alt="">
           </m-cell>
           <m-cell>
-            <img src="./assets/3.png" alt="">
+            <img src="../../assets/3.png" alt="">
           </m-cell>
           <m-cell>
-            <img src="./assets/2.png" alt="">
+            <img src="../../assets/2.png" alt="">
           </m-cell>
         </m-grid>
       </m-grid>

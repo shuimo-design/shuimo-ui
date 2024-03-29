@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.name === componenNameInject">
+  <div v-if="props.name === componentNameInject">
     <slot></slot>
   </div>
 </template>
@@ -9,5 +9,5 @@ import { inject } from 'vue';
 const props = defineProps({
   name: String,
 });
-let componenNameInject = inject<string>("selected-component");
+let componentNameInject = inject<string>('selected-component');
 </script>
