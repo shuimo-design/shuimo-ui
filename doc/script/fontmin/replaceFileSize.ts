@@ -13,13 +13,14 @@ import * as fs from 'fs';
 
 const s = fs.statSync('../../.output/public/fonts/wljh.ttf');
 
-fs.readFile('../../.output/server/chunks/nitro/node-server.mjs', (err, data) => {
+const file = '../../.output/server/chunks/runtime.mjs';
+fs.readFile(file, (err, data) => {
   let str = data.toString();
   const info = str.match(/\/fonts\/wljh.ttf[^}]*/);
   if (info) {
     const newInfo = info[0].replace('"size": 20725112', `"size": ${s.size}`);
     str = str.replaceAll(/\/fonts\/wljh.ttf[^}]*/g, newInfo);
-    fs.writeFile('../../.output/server/chunks/nitro/node-server.mjs', str, err => {
+    fs.writeFile(file, str, err => {
       if (err) {
         console.error(err);
       }
