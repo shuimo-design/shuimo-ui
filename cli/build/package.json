@@ -12,8 +12,6 @@
   },
   "dependencies": {
     "@janghood/api-extractor": "0.0.1-alpha.14",
-
-    "rimraf": "^5.0.5",
-    "tsx": "^4.7.0"
+    "rimraf": "^5.0.5"
   }
 }
