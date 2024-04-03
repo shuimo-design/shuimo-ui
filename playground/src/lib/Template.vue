@@ -81,6 +81,11 @@
       <!--  <MTree/>-->
       <m-loading :mask="false" :size="2" :speed="500"></m-loading>
       <m-menu :data="menu" :config="{ label: 'title' }"/>
+      <m-menu :data="menu" :config="{ label: 'title' }">
+        <template #default="{data}">
+          <span>ddd{{ data }}</span>
+        </template>
+      </m-menu>
       <!--    <m-tree :data="menu" :config="{label:'title',route:'route1'}"/>-->
       <m-tree :data="menu" :config="{ label: 'title' }"/>
     </ComponentsWrap>

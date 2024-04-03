@@ -15,7 +15,7 @@ import { TreeNodeProps } from '../../base/tree/treeNode';
 
 type TreeChildren = any; // todo fix this type,maybe use generics
 type MenuItemProps = TreeNodeProps & { root?: boolean };
-export default defineComponent((_props: MenuItemProps) => {
+export default defineComponent((_props: MenuItemProps, { slots }) => {
   const props = _props as Required<MenuItemProps>;
   const MMenuItem = resolveComponent('MMenuItem');
 
@@ -37,14 +37,19 @@ export default defineComponent((_props: MenuItemProps) => {
         const children = d[c] ?? [];
         const cKeys = children.map((it: TreeChildren) => it[k]);
         const childNodes = props.getNodesByKeys(cKeys);
-        // @ts-ignore todo fix this type
         return <MLi class={['m-menu-item', { 'm-menu-main-root-item': props.root }]} active={d.isActive}
                     icon={props.root}
+          // @ts-ignore todo fix this type
                     onClick={(e: MouseEvent) => clickEvent(e, d)}>
-          <span class="m-cursor-pointer">{d[l]}</span>
+          <span class="m-cursor-pointer">
+            {slots.default ? slots.default({ data: d[l] }) : d[l]}</span>
           {(childNodes.length > 0 && d.expand) ? <div class="m-menu-item-child"
                                                       ref={el => itemRef.value = el as HTMLElement}>
-            {h(MMenuItem, { ...props, root: false, data: childNodes })}
+            {h(MMenuItem, {
+              ...props,
+              root: false,
+              data: childNodes,
+            }, slots.default ? { default: slots.default } : undefined)}
           </div> : null}
 
         </MLi>;
