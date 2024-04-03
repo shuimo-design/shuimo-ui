@@ -1,272 +1,25 @@
 {
   "m-avatar": {
     "attributes": [
-      "variant",
+      "img",
       "size",
-      "img"
+      "variant"
     ],
     "description": "avatar component with shuimo-ui style.\n[docs](https://shuimo.design/avatar,)"
   },
-  "m-button": {
-    "attributes": [
-      "text",
-      "link",
-      "disabled",
-      "type"
-    ],
-    "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。\n[docs](https://shuimo.design/button)"
-  },
-  "m-checkbox": {
-    "attributes": [
-      "label",
-      "checked",
-      "value",
-      "modelValue",
-      "indeterminate",
-      "disabled"
-    ],
-    "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。\n[docs](https://shuimo.design/checkbox)"
-  },
-  "m-date-picker": {
-    "attributes": [
-      "modelValue",
-      "placeholder",
-      "format",
-      "type"
-    ],
-    "description": "DatePicker component with shuimo-ui style.\n水墨组件的日期选择组件。\n[docs](https://shuimo.design/date-picker)"
-  },
-  "m-input": {
-    "attributes": [
-      "type",
-      "placeholder",
-      "modelValue",
-      "readonly",
-      "disabled",
-      "autofocus"
-    ],
-    "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。\n[docs](https://shuimo.design/input)"
-  },
-  "m-input-number": {
-    "attributes": [
-      "modelValue",
-      "max",
-      "min",
-      "precision",
-      "disabled",
-      "readonly",
-      "placeholder"
-    ],
-    "description": "InputNumber component with shuimo-ui style.\n水墨组件的数字输入框组件。\n[docs](https://shuimo.design/input#number)"
-  },
-  "m-li": {
-    "attributes": [
-      "active",
-      "icon"
-    ],
-    "description": "li component with shuimo-ui style.\n[docs](https://shuimo.design/li,)"
-  },
-  "m-list": {
-    "attributes": [
-      "data",
-      "autoActive"
-    ],
-    "description": "List component with shuimo-ui style.\n水墨组件的列表组件。\n[docs](https://shuimo.design/list)"
-  },
-  "m-progress": {
-    "attributes": [
-      "width",
-      "height",
-      "value",
-      "max",
-      "showInfo",
-      "infoWidth",
-      "leafHeight"
-    ],
-    "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。\n[docs](https://shuimo.design/progress)"
-  },
-  "m-radio": {
-    "attributes": [
-      "label",
-      "name",
-      "checked",
-      "value",
-      "modelValue"
-    ],
-    "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。\n[docs](https://shuimo.design/radio)"
-  },
-  "m-select": {
-    "attributes": [
-      "modelValue",
-      "options",
-      "inputParam",
-      "optionParam",
-      "valueParam",
-      "readonly",
-      "disabled",
-      "placeholder",
-      "toMatch",
-      "multiple",
-      "checkbox",
-      "filter",
-      "optionsH",
-      "needFetch",
-      "fetch"
-    ],
-    "description": "Select component with shuimo-ui style.\n水墨组件的选择组件。\n[docs](https://shuimo.design/select)"
-  },
-  "m-slider": {
-    "attributes": [
-      "modelValue",
-      "min",
-      "max",
-      "step",
-      "disabled",
-      "showInfo"
-    ],
-    "description": "slider component with shuimo-ui style.\n[docs](https://shuimo.design/slider)"
-  },
-  "m-switch": {
-    "attributes": [
-      "modelValue",
-      "disabled",
-      "loading",
-      "activeInfo",
-      "inactiveInfo",
-      "activeValue",
-      "inactiveValue",
-      "onControl"
-    ],
-    "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text\n[docs](https://shuimo.design/switch)"
-  },
-  "m-tag": {
-    "attributes": [
-      "type"
-    ],
-    "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。\n[docs](https://shuimo.design/tag)"
-  },
-  "m-tree": {
-    "attributes": [
-      "data",
-      "config",
-      "checkbox",
-      "defaultExpandAll",
-      "checkedKeys",
-      "checkStrictly"
-    ],
-    "description": "Tree component with shuimo-ui style.\n水墨组件的树组件。\n[docs](https://shuimo.design/tree)"
-  },
-  "m-tree-node": {
-    "attributes": [
-      "data",
-      "config",
-      "checkbox",
-      "getNodesByKeys",
-      "handleExpand",
-      "handleCheck",
-      "handleItemClick"
-    ],
-    "description": "Tree node component with shuimo-ui style.\n水墨组件的树节点组件。\n[docs](https://shuimo.design/tree#node)"
-  },
-  "m-confirm": {
-    "attributes": [
-      "mask",
-      "teleport",
-      "content"
-    ],
-    "description": "confirm component with shuimo-ui style.\n[docs](https://shuimo.design/confirm,)"
-  },
-  "m-dialog": {
-    "attributes": [
-      "mask",
-      "visible",
-      "closeBtn",
-      "teleport"
-    ],
-    "description": "Dialog component with shuimo-ui style.\n水墨组件的弹窗交互组件。\n[docs](https://shuimo.design/dialog)"
-  },
-  "m-drawer": {
-    "attributes": [
-      "mask",
-      "width",
-      "visible",
-      "drawerClass",
-      "closeBtn",
-      "teleport"
-    ],
-    "description": "Drawer component with shuimo-ui style.\n水墨组件的抽屉组件。\n[docs](https://shuimo.design/drawer)"
-  },
-  "m-message": {
-    "attributes": [
-      "type",
-      "duration",
-      "content",
-      "direction",
-      "dragAllow",
-      "dragConfig"
-    ],
-    "description": "Message component with shuimo-ui style.\n水墨组件的消息组件。\n[docs](https://shuimo.design/message)"
-  },
-  "m-popover": {
-    "attributes": [
-      "placement",
-      "mountRender",
-      "disableClickAway",
-      "content",
-      "hover",
-      "show",
-      "popper",
-      "teleport"
-    ],
-    "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。\n[docs](https://shuimo.design/popover)"
-  },
-  "m-tooltip": {
-    "attributes": [
-      "placement",
-      "mountRender",
-      "disableClickAway",
-      "content",
-      "hover",
-      "popper",
-      "teleport"
-    ],
-    "description": "Tooltip component with shuimo-ui style.\n水墨组件的提示框组件。\n[docs](https://shuimo.design/tooltip)"
-  },
-  "m-dark-mode": {
-    "attributes": [
-      "modelValue",
-      "autoMode",
-      "initHandler"
-    ],
-    "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。\n[docs](https://shuimo.design/dark-mode)"
-  },
-  "m-delete-icon": {
-    "attributes": [],
-    "description": "delete icon component with shuimo-ui style.\n水墨组件的删除图标组件。\n[docs](https://shuimo.design/icon#delete)"
-  },
-  "m-divider": {
-    "attributes": [
-      "vertical"
-    ],
-    "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。\n[docs](https://shuimo.design/divider)"
-  },
-  "m-loading": {
-    "attributes": [
-      "speed",
-      "size",
-      "mask",
-      "sideLength"
-    ],
-    "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。\n[docs](https://shuimo.design/loading)"
-  },
   "m-border": {
-    "attributes": [],
+    "attributes": [
+      "bottom",
+      "left",
+      "right",
+      "top"
+    ],
     "description": "Border component with shuimo-ui style\n水墨组件的边框组件。\n[docs](https://shuimo.design/border)"
   },
   "m-breadcrumb": {
     "attributes": [
-      "separator",
-      "options"
+      "options",
+      "separator"
     ],
     "description": "Breadcrumb component with shuimo-ui style.\n水墨组件的面包屑组件。\n[docs](https://shuimo.design/breadcrumb)"
   },
@@ -276,18 +29,92 @@
     ],
     "description": "Breadcrumb component with shuimo-ui style.\n水墨组件的面包屑组件。\n[docs](https://shuimo.design/breadcrumb)"
   },
+  "m-button": {
+    "attributes": [
+      "disabled",
+      "link",
+      "text",
+      "type"
+    ],
+    "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。\n[docs](https://shuimo.design/button)"
+  },
   "m-cell": {
     "attributes": [
-      "h",
-      "w",
-      "points",
       "a",
       "b",
       "c",
       "d",
-      "style"
+      "h",
+      "points",
+      "style",
+      "w"
     ],
     "description": "cell component with shuimo-ui style.\n[docs](https://shuimo.design/cell,)"
+  },
+  "m-checkbox": {
+    "attributes": [
+      "checked",
+      "disabled",
+      "indeterminate",
+      "label",
+      "modelValue",
+      "value"
+    ],
+    "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。\n[docs](https://shuimo.design/checkbox)"
+  },
+  "m-confirm": {
+    "attributes": [
+      "content",
+      "mask",
+      "teleport"
+    ],
+    "description": "confirm component with shuimo-ui style.\n[docs](https://shuimo.design/confirm,)"
+  },
+  "m-dark-mode": {
+    "attributes": [
+      "autoMode",
+      "initHandler",
+      "modelValue"
+    ],
+    "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。\n[docs](https://shuimo.design/dark-mode)"
+  },
+  "m-date-picker": {
+    "attributes": [
+      "format",
+      "modelValue",
+      "placeholder",
+      "type"
+    ],
+    "description": "DatePicker component with shuimo-ui style.\n水墨组件的日期选择组件。\n[docs](https://shuimo.design/date-picker)"
+  },
+  "m-delete-icon": {
+    "attributes": [],
+    "description": "delete icon component with shuimo-ui style.\n水墨组件的删除图标组件。\n[docs](https://shuimo.design/icon#delete)"
+  },
+  "m-dialog": {
+    "attributes": [
+      "closeBtn",
+      "mask",
+      "teleport",
+      "visible"
+    ],
+    "description": "Dialog component with shuimo-ui style.\n水墨组件的弹窗交互组件。\n[docs](https://shuimo.design/dialog)"
+  },
+  "m-divider": {
+    "attributes": [
+      "vertical"
+    ],
+    "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。\n[docs](https://shuimo.design/divider)"
+  },
+  "m-drawer": {
+    "attributes": [
+      "direction",
+      "drawerClass",
+      "mask",
+      "teleport",
+      "visible"
+    ],
+    "description": "Drawer component with shuimo-ui style.\n水墨组件的抽屉组件。\n[docs](https://shuimo.design/drawer)"
   },
   "m-form": {
     "attributes": [
@@ -305,47 +132,184 @@
   },
   "m-grid": {
     "attributes": [
-      "h",
-      "w",
-      "gap",
       "colGap",
-      "rowGap",
+      "direction",
+      "gap",
       "gapRotate",
-      "direction"
+      "h",
+      "rowGap",
+      "w"
     ],
     "description": "grid component with shuimo-ui style.\n[docs](https://shuimo.design/grid,)"
   },
+  "m-input": {
+    "attributes": [
+      "autofocus",
+      "disabled",
+      "modelValue",
+      "placeholder",
+      "readonly",
+      "type"
+    ],
+    "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。\n[docs](https://shuimo.design/input)"
+  },
+  "m-input-number": {
+    "attributes": [
+      "disabled",
+      "max",
+      "min",
+      "modelValue",
+      "placeholder",
+      "precision",
+      "readonly"
+    ],
+    "description": "InputNumber component with shuimo-ui style.\n水墨组件的数字输入框组件。\n[docs](https://shuimo.design/input#number)"
+  },
+  "m-li": {
+    "attributes": [
+      "active",
+      "icon"
+    ],
+    "description": "li component with shuimo-ui style.\n[docs](https://shuimo.design/li,)"
+  },
+  "m-list": {
+    "attributes": [
+      "autoActive",
+      "data"
+    ],
+    "description": "List component with shuimo-ui style.\n水墨组件的列表组件。\n[docs](https://shuimo.design/list)"
+  },
+  "m-loading": {
+    "attributes": [
+      "mask",
+      "sideLength",
+      "size",
+      "speed"
+    ],
+    "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。\n[docs](https://shuimo.design/loading)"
+  },
   "m-menu": {
     "attributes": [
-      "data",
-      "config",
       "checkbox",
-      "defaultExpandAll",
       "checkedKeys",
-      "checkStrictly"
+      "checkStrictly",
+      "config",
+      "data",
+      "defaultExpandAll"
     ],
     "description": "menu component with shuimo-ui style.\n[docs](https://shuimo.design/menu,)"
   },
+  "m-message": {
+    "attributes": [
+      "content",
+      "direction",
+      "dragAllow",
+      "dragConfig",
+      "duration",
+      "type"
+    ],
+    "description": "Message component with shuimo-ui style.\n水墨组件的消息组件。\n[docs](https://shuimo.design/message)"
+  },
   "m-pagination": {
     "attributes": [
-      "total",
-      "modelValue",
       "defaultCurrent",
+      "foldedMaxPageBtn",
+      "layout",
+      "maxPageBtn",
+      "modelValue",
       "pageSize",
       "pageSizes",
-      "layout",
-      "foldedMaxPageBtn",
-      "maxPageBtn",
-      "showEdgePageNum"
+      "showEdgePageNum",
+      "total"
     ],
     "description": "pagination component with shuimo-ui style.\n水墨组件的分页组件。\n[docs](https://shuimo.design/pagination)"
   },
+  "m-popover": {
+    "attributes": [
+      "content",
+      "disableClickAway",
+      "hover",
+      "mountRender",
+      "placement",
+      "popper",
+      "show",
+      "teleport"
+    ],
+    "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。\n[docs](https://shuimo.design/popover)"
+  },
+  "m-progress": {
+    "attributes": [
+      "height",
+      "infoWidth",
+      "leafHeight",
+      "max",
+      "showInfo",
+      "value",
+      "width"
+    ],
+    "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。\n[docs](https://shuimo.design/progress)"
+  },
+  "m-radio": {
+    "attributes": [
+      "checked",
+      "label",
+      "modelValue",
+      "name",
+      "value"
+    ],
+    "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。\n[docs](https://shuimo.design/radio)"
+  },
   "m-rice-paper": {
     "attributes": [
-      "type",
-      "mountain"
+      "layout",
+      "mountain",
+      "type"
     ],
     "description": "Rice paper layout component with shuimo-ui style.\n水墨组件的宣纸布局组件\n[docs](https://shuimo.design/rice-paper)"
+  },
+  "m-select": {
+    "attributes": [
+      "checkbox",
+      "disabled",
+      "fetch",
+      "filter",
+      "inputParam",
+      "modelValue",
+      "multiple",
+      "needFetch",
+      "optionParam",
+      "options",
+      "optionsH",
+      "placeholder",
+      "readonly",
+      "toMatch",
+      "valueParam"
+    ],
+    "description": "Select component with shuimo-ui style.\n水墨组件的选择组件。\n[docs](https://shuimo.design/select)"
+  },
+  "m-slider": {
+    "attributes": [
+      "disabled",
+      "max",
+      "min",
+      "modelValue",
+      "showInfo",
+      "step"
+    ],
+    "description": "slider component with shuimo-ui style.\n[docs](https://shuimo.design/slider)"
+  },
+  "m-switch": {
+    "attributes": [
+      "activeInfo",
+      "activeValue",
+      "disabled",
+      "inactiveInfo",
+      "inactiveValue",
+      "loading",
+      "modelValue",
+      "onControl"
+    ],
+    "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text\n[docs](https://shuimo.design/switch)"
   },
   "m-table": {
     "attributes": [
@@ -357,11 +321,52 @@
   },
   "m-table-column": {
     "attributes": [
-      "width",
+      "label",
       "param",
-      "label"
+      "width"
     ],
     "description": "Table column component with shuimo-ui style.\n水墨组件的表格列组件。\n[docs](https://shuimo.design/table#column)"
+  },
+  "m-tag": {
+    "attributes": [
+      "type"
+    ],
+    "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。\n[docs](https://shuimo.design/tag)"
+  },
+  "m-tooltip": {
+    "attributes": [
+      "content",
+      "disableClickAway",
+      "hover",
+      "mountRender",
+      "placement",
+      "popper",
+      "teleport"
+    ],
+    "description": "Tooltip component with shuimo-ui style.\n水墨组件的提示框组件。\n[docs](https://shuimo.design/tooltip)"
+  },
+  "m-tree": {
+    "attributes": [
+      "checkbox",
+      "checkedKeys",
+      "checkStrictly",
+      "config",
+      "data",
+      "defaultExpandAll"
+    ],
+    "description": "Tree component with shuimo-ui style.\n水墨组件的树组件。\n[docs](https://shuimo.design/tree)"
+  },
+  "m-tree-node": {
+    "attributes": [
+      "checkbox",
+      "config",
+      "data",
+      "getNodesByKeys",
+      "handleCheck",
+      "handleExpand",
+      "handleItemClick"
+    ],
+    "description": "Tree node component with shuimo-ui style.\n水墨组件的树节点组件。\n[docs](https://shuimo.design/tree#node)"
   },
   "m-virtual-list": {
     "attributes": [
