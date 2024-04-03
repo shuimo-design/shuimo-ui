@@ -34,38 +34,8 @@ import { MInput } from 'shuimo-ui';
 
 ### Nuxt
 
-我们会尽快发布`@shuimo-design/nuxt`，目前可以通过以下方式引入
+{{ $t(\'现在你可以直接使用命令：\') }}
 
-``` typescript
-// modules/shuimo/index.ts
-import { addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
-export default defineNuxtModule({
-  setup(options, nuxtApp) {
-
-    const { resolve } = createResolver(import.meta.url);
-    nuxtApp.hook('nitro:config', async nitroConfig => {
-      nitroConfig.publicAssets ||= [];
-      nitroConfig.publicAssets.push({
-        dir: resolve('../../node_modules/shuimo-ui/public'),
-        baseURL: 'm-shuimo',
-        maxAge: 60 * 60 * 24 * 30
-      });
-    });
-    addPlugin(resolve('./plugin.ts'));
-
-    nuxtApp.options.css.push(resolve('../../node_modules/shuimo-ui/dist/style.css'));
-  }
-});
-
-// modules/shuimo/plugin.ts
-
-import { createMUI } from 'shuimo-ui';
-
-export default defineNuxtPlugin(nuxtApp => {
-  nuxtApp.vueApp.use(createMUI({
-    disableWebComponent: ['MBorder', 'MRicePaper'],
-    svgInject: 'nuxt'
-  }));
-});
-
+```shell
+pnpm dlx module add @shuimo-design/shuimo-ui-nuxt
 ```

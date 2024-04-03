@@ -21,6 +21,7 @@ export const home = {
     quickStart: {
       '安装': 'Installation',
       '按需引用': 'On-demand reference',
+      '现在你可以直接使用命令：': 'Now you can use the command directly:',
     },
   },
   zh: {
@@ -36,6 +37,7 @@ export const home = {
     quickStart: {
       '安装': '安装',
       '按需引用': '按需引用',
+      '现在你可以直接使用命令：': '现在你可以直接使用命令：',
     },
   },
 };
