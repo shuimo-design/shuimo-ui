@@ -1,14 +1,14 @@
-# 开关
+# {{$t(\'开关\')}}
 
-### 普通开关
+### {{$t(\'普通开关\')}}
 
 ::: demo base/switch/default
 
-### active和inactive参数
+### {{$t(\'active和inactive参数\')}}
 
 ::: demo base/switch/active
 
-### slot参数
+### slot
 
 ::: demo base/switch/slot
 
@@ -20,7 +20,7 @@
 
 ::: demo base/switch/disabled
 
-### change事件
+### {{$t(\'change事件\')}}
 
 ::: demo base/switch/change
 

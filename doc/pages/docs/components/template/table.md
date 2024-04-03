@@ -1,20 +1,20 @@
-# 列表
+# {{$t(\'表格\')}}
 
-### 普通列表
+### {{$t(\'普通表格\')}}
 
-> 目前只有在mac的chrome上有最佳表现
+> {{$t(\'目前只有在mac的chrome上有最佳表现\')}}
 
 ::: demo template/table/default
 
-### 伴随插槽
+### {{$t(\'伴随插槽\')}}
 
 ::: demo template/table/withSlot
 
-### 无内容
+### {{$t(\'无内容\')}}
 
 ::: demo template/table/empty
 
-### 空内容插槽
+### {{$t(\'空内容插槽\')}}
 
 ::: demo template/table/emptyWithSlot
 

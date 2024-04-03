@@ -1,6 +1,6 @@
-# 快速开始
+# {{$t(\'快速开始\')}}
 
-## 安装
+## {{$t(\'安装\')}}
 
 ``` shell
 npm install shuimo-ui
@@ -20,7 +20,7 @@ import 'shuimo-ui/dist/style.css';
 app.use(createMUI());
 ```
 
-#### 按需引用
+#### {{$t(\'按需引用\')}}
 
 ``` vue
 <template>

@@ -1,14 +1,14 @@
-# 加载
+# {{$t(\'加载\')}}
 
-### 普通加载组件
+### {{$t(\'普通加载组件\')}}
 
 ::: demo other/loading/default
 
-### 可调速加载组件
+### {{$t(\'可调速加载组件\')}}
 
 ::: demo other/loading/speed
 
-## 指令
+## {{$t(\'指令\')}}
 
 ::: demo other/loading/directive
 

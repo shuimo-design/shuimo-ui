@@ -14,7 +14,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 
-defineProps<{ url: string; target?: string }>();
+defineProps<{ url?: string; target?: string }>();
 
 </script>
 
@@ -34,9 +34,14 @@ defineProps<{ url: string; target?: string }>();
   color: var(--color);
   letter-spacing: -4px;
   text-shadow: var(--text-shadow);
+  text-align: center;
 
   &:hover {
     color: var(--hover-color);
+  }
+
+  &.language {
+    letter-spacing: 2px;
   }
 }
 </style>

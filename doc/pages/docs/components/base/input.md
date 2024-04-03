@@ -1,22 +1,22 @@
-# 输入框
+# {{$t(\'输入框\')}}
 
-### 普通输入框
+### {{$t(\'普通输入框\')}}
 
 ::: demo base/input/default
 
-### 文本输入框
+### {{$t(\'文本输入框\')}}
 
 ::: demo base/input/textarea
 
-### 输入框占位符
+### {{$t(\'输入框占位符\')}}
 
 ::: demo base/input/placeholder
 
-### 禁用
+### {{$t(\'禁用\')}}
 
 ::: demo base/input/disabled
 
-### 参数
+### {{$t(\'参数\')}}
 
 ::: demo base/input/value
 

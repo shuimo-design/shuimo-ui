@@ -17,7 +17,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const showIndexButton = computed(() => {
-  return route.path !== '/';
+  return route.path !== '/' && route.path !== '/zh' && route.path !== '/en';
 });
 
 const isLoading = ref(true);
@@ -35,4 +35,5 @@ useHead({
     { name: 'keywords', content: '水墨,ui,design,UI,UI design,丹青,wash painting,danqing' },
   ],
 });
+
 </script>

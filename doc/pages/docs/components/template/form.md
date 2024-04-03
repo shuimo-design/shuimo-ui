@@ -1,14 +1,14 @@
-# 表单
+# {{$t(\'表单\')}}
 
-### 普通表单
+### {{$t(\'普通表单\')}}
 
 ::: demo template/form/default
 
-### 行内表单
+### {{$t(\'行内表单\')}}
 
 ::: demo template/form/inline
 
-### 开启submit
+### {{$t(\'开启submit\')}}
 
 ::: demo template/form/activeSubmit
 

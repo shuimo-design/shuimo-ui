@@ -1,13 +1,14 @@
 <template>
   <header class="header">
     <div class="header-title">
-      <span>水墨UI</span>
+      <span>{{ $t('水墨UI') }}</span>
     </div>
     <m-dark-mode v-model="darkModeRef" :init-handler="initDarkMode"/>
-    <HeaderButton v-if="showIndexButton" :url="'/'">回到首页</HeaderButton>
-    <HeaderButton v-if="!showIndexButton" :url="'/main'">进入组件</HeaderButton>
+    <HeaderButton class="language" @click="toggleLanguage">{{ $t('language') }}</HeaderButton>
+    <HeaderButton v-if="showIndexButton" :url="localePath('/')">{{ $t('回到首页') }}</HeaderButton>
+    <HeaderButton v-if="!showIndexButton" :url="localePath('/main')">{{ $t('进入组件') }}</HeaderButton>
     <HeaderButton :url="'https://github.com/janghood/shuimo-ui'" target="_blank">
-      代码仓库
+      {{ $t('代码仓库') }}
     </HeaderButton>
     <div class="header-line"/>
   </header>
@@ -30,6 +31,13 @@ defineProps({
 });
 
 const { darkModeRef, initDarkMode } = useDarkModeStorage();
+
+const { locale, setLocale } = useI18n();
+const localePath = useLocalePath();
+
+const toggleLanguage = () => {
+  setLocale(locale.value === 'zh' ? 'en' : 'zh');
+};
 </script>
 
 <style scoped>

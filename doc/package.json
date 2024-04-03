@@ -15,11 +15,12 @@
     "doc:fontmin": "cd ./script/fontmin && npm run replace"
   },
   "devDependencies": {
-    "shuimo-ui": "workspace:*",
-    "@shuimo-design/shuimo-ui-nuxt": "workspace:*"
+    "@shuimo-design/shuimo-ui-nuxt": "workspace:*",
+    "shuimo-ui": "workspace:*"
   },
   "web-types": "../cli/build/config/output/web-types.json",
   "dependencies": {
-    "@higuaifan/rollup-plugin-fontmin": "^0.0.5"
+    "@higuaifan/rollup-plugin-fontmin": "^0.0.5",
+    "@nuxtjs/i18n": "^8.3.0"
   }
 }

@@ -1,5 +1,9 @@
 <template>
-  <m-menu class="menu" :data="menuList" @node-click="clickMenu"/>
+  <m-menu class="menu" :data="menuList" @node-click="clickMenu">
+    <template #default="{data}">
+      <span>{{$t(data)}}</span>
+    </template>
+  </m-menu>
 </template>
 
 <script lang="ts" setup>
@@ -26,7 +30,7 @@ const clearAllMenuList = (list: any) => {
 };
 
 const router = useRouter();
-
+const { locale } = useI18n();
 type Menu = any; // todo fix this
 const clickMenu = (info: Menu, event: { target: HTMLElement }) => {
   if (info.children && info.children.length > 0) {
@@ -34,6 +38,7 @@ const clickMenu = (info: Menu, event: { target: HTMLElement }) => {
       return;
     }
   }
+  const lang = locale.value === 'zh' ? '' : `/${locale.value}`;
   menuList.value.forEach((item: Menu) => {
     item.isActive = false;
     if (item.children && item.children.length > 0) {
@@ -54,7 +59,8 @@ const clickMenu = (info: Menu, event: { target: HTMLElement }) => {
     }
   });
 
-  router.push(`/${info.route}`);
+
+  router.push(`${lang}/${info.route}`);
 
 };
 

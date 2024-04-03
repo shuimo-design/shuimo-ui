@@ -14,7 +14,7 @@ export const menu: MenuTypeArr = [
     label: '首页', route: 'main', isActive: false, children: [
       { label: '快速开始', route: 'quickStart', isActive: false },
       { label: '颜色', route: 'color', isActive: false },
-      { label: '从wash-painting升级', route: 'w2m', isActive: false },
+      // { label: '从wash-painting升级', route: 'w2m', isActive: false },
     ],
   },
 
@@ -30,12 +30,13 @@ export const menu: MenuTypeArr = [
       { label: '开关', route: 'switch', isActive: false },
       { label: '标签', route: 'tag', isActive: false },
       { label: '滑动条', route: 'slider', isActive: false },
+      { label: '进度条', route: 'progress', isActive: false },
     ],
   },
   {
     label: '模版组件', route: 'form', isActive: false, children: [
       { label: '表单', route: 'form', isActive: false },
-      { label: '列表', route: 'table', isActive: false },
+      { label: '表格', route: 'table', isActive: false },
       { label: '分页', route: 'pagination', isActive: false },
       { label: '宣纸布局', route: 'rice-paper', isActive: false },
       { label: '边框', route: 'border', isActive: false },
@@ -56,7 +57,6 @@ export const menu: MenuTypeArr = [
     label: '其他组件', route: 'printer', isActive: false, children: [
       { label: '控制台打印', route: 'printer', isActive: false },
       { label: '分割线', route: 'divider', isActive: false },
-      { label: '进度条', route: 'progress', isActive: false },
       // { label: '滚动条', route: 'scroll', isActive: false },
       { label: '加载', route: 'loading', isActive: false },
     ],

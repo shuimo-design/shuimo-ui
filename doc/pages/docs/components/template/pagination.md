@@ -1,6 +1,6 @@
-# 分页
+# {{$t(\'分页\')}}
 
-### 普通分页
+### {{$t(\'普通分页\')}}
 
 ::: demo template/pagination/default
 

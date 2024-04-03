@@ -1,5 +1,3 @@
-# 滚动条
-
-### 用法
+# {{$t(\'滚动条\')}}
 
 ::: demo other/scroll/default

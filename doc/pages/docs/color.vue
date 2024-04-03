@@ -1,22 +1,22 @@
 <template>
   <div>
-    <h1>颜色</h1>
+    <h1>{{$t('颜色')}}</h1>
     <br/>
-    <BaseTitle>文字</BaseTitle>
+    <BaseTitle>{{$t('文字')}}</BaseTitle>
     <ColorPresenter color="text">瓦罐灰</ColorPresenter>
     <ColorPresenter color="text-disabled">嫩灰</ColorPresenter>
     <ColorPresenter color="text-dark">钢蓝</ColorPresenter>
-    <BaseTitle>分割线</BaseTitle>
+    <BaseTitle>{{$t('分割线')}}</BaseTitle>
     <ColorPresenter color="divider">0.2钢蓝</ColorPresenter>
-    <BaseTitle>边框</BaseTitle>
+    <BaseTitle>{{$t('边框')}}</BaseTitle>
     <ColorPresenter color="border">鱼尾灰</ColorPresenter>
-    <BaseTitle>按钮</BaseTitle>
+    <BaseTitle>{{$t('按钮')}}</BaseTitle>
     <ColorPresenter color="text">瓦罐灰</ColorPresenter>
-    <BaseTitle>提醒</BaseTitle>
+    <BaseTitle>{{$t('警告')}}</BaseTitle>
     <ColorPresenter color="warn">谷黄</ColorPresenter>
-    <BaseTitle>正确</BaseTitle>
+    <BaseTitle>{{$t('正确')}}</BaseTitle>
     <ColorPresenter color="success">美蝶绿</ColorPresenter>
-    <BaseTitle>警告</BaseTitle>
+    <BaseTitle>{{$t('错误')}}</BaseTitle>
     <ColorPresenter color="error">赭石</ColorPresenter>
 
 

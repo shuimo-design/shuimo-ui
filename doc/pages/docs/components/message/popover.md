@@ -1,10 +1,10 @@
-# 气泡卡片
+# {{$t(\'气泡卡片\')}}
 
-### 普通气泡卡片
+### {{$t(\'普通气泡卡片\')}}
 
 ::: demo message/popover/default
 
-### 点击控制
+### {{$t(\'点击控制\')}}
 
 ::: demo message/popover/click
 

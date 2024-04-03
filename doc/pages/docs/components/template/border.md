@@ -1,10 +1,10 @@
-# 边框
+# {{$t(\'边框\')}}
 
-### 普通边框
+### {{$t(\'普通边框\')}}
 
 ::: demo template/border/default
 
-### 部分显示
+### {{$t(\'部分显示\')}}
 
 ::: demo template/border/optional
 

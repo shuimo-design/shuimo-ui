@@ -1,14 +1,14 @@
-# 日期选择框
+# {{$t(\'日期选择框\')}}
 
-### 普通日期选择框
+### {{$t(\'普通日期选择框\')}}
 
 ::: demo base/datePicker/default
 
-### 月份选择框
+### {{$t(\'月份选择框\')}}
 
 ::: demo base/datePicker/month
 
-### 传递默认值
+### {{$t(\'传递默认值\')}}
 
 ::: demo base/datePicker/defaultValue
 

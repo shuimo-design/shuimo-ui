@@ -1,10 +1,10 @@
-# 面包屑
+# {{$t(\'面包屑\')}}
 
-### 普通面包屑
+### {{$t(\'普通面包屑\')}}
 
 ::: demo template/breadcrumb/default
 
-### 面包屑子项
+### {{$t(\'面包屑子项\')}}
 
 ::: demo template/breadcrumb/withItem
 
