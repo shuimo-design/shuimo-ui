@@ -18,7 +18,7 @@ export default function useSvgInject(_svgId: ComputedRef<string> | string) {
   const shuimoConfig = inject<MUIOption>(MShuimoConfigKey, { svgInject: 'auto' });
   const isNuxt = computed(() => shuimoConfig?.svgInject === 'nuxt');
   const isAuto = computed(() => shuimoConfig?.svgInject === 'auto');
-  const svgUrl = isNuxt.value ? `m-shuimo/icon/icon.svg#${svgId.value}` : `#${svgId.value}`;
+  const svgUrl = isNuxt.value ? `/m-shuimo/icon/icon.svg#${svgId.value}` : `#${svgId.value}`;
 
   const installIconSvg = () => {
     if (!document) {return;}
