@@ -14,7 +14,7 @@ export default defineJhConfig({
     include: ['lib/**/*', 'doc/**/*'],
     exclude: [
       '*.webp', '*.png', '*.css', '*.md','*.ico','*.ttf','*.svg','*.json',
-      '**/dist/**/*','**/coverage/**/*','**/markdownLib/**/*'],
+      '**/dist/**/*','**/coverage/**/*','**/i18n/**/*','**/markdownLib/**/*'],
   },
   lint: {
     eslint: true,

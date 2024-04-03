@@ -42,7 +42,7 @@ export default <RouterConfig>{
         language = `/${path[1]}`;
       }
 
-      if(colorComponent){
+      if (colorComponent) {
         colorComponent.alias = `${language}/color`;
       }
 
