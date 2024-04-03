@@ -28,5 +28,5 @@ export const install = (options: MUIOption | undefined = {}) => {
 
 
 export {
-  MShuimoConfigKey
-}
+  MShuimoConfigKey,
+};
