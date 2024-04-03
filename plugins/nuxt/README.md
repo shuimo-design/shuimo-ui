@@ -18,14 +18,7 @@
 1. Add `@shuimo-design/shuimo-ui-nuxt` dependency to your project
 
 ```bash
-# Using pnpm
-pnpm add -D @shuimo-design/shuimo-ui-nuxt
-
-# Using yarn
-yarn add --dev @shuimo-design/shuimo-ui-nuxt
-
-# Using npm
-npm install --save-dev @shuimo-design/shuimo-ui-nuxt
+npx nuxi@latest module add shuimo-design
 ```
 
 2. Add `shuimo-ui` to the `modules` section of `nuxt.config.ts`
