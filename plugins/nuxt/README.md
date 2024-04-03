@@ -18,17 +18,7 @@
 1. Add `@shuimo-design/shuimo-ui-nuxt` dependency to your project
 
 ```bash
-npx nuxi@latest module add shuimo-design
-```
-
-2. Add `shuimo-ui` to the `modules` section of `nuxt.config.ts`
-
-```js
-export default defineNuxtConfig({
-  modules: [
-    '@shuimo-design/shuimo-ui-nuxt'
-  ]
-})
+npx nuxi@latest module add @shuimo-design/shuimo-ui-nuxt
 ```
 
 That's it! You can now use Shuimo UI in your Nuxt app ✨
