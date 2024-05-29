@@ -64,13 +64,15 @@ export default defineComponent((_props: DatePickerProps, { emit }) => {
     clickCurrentYear, clickYearItem, clickCurrentMonth, clickMonthItem,
     dateRef, spanClass, displayValue, calendarTypeRef, currentRef, yearsRef,
   } = useDatePicker({ props });
-  const { withPopover } = usePopover(popoverOptions, 'm-date-picker');
+  const { withPopover, popoverRef } = usePopover(popoverOptions, 'm-date-picker');
   const { withBorder } = useBorder();
 
   const clickDay = (item: CalendarItem) => {
     const value = getValue(item);
     updateDateRef(value);
     currentRef.value = toDayjs(value);
+    // @ts-ignore todo fix expose
+    popoverRef.value?.hide();
     emit('update:modelValue', value);
   };
 
