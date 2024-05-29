@@ -17,7 +17,7 @@
     "lint": "jhlint",
     "prepare": "jhlint install"
   },
-  "packageManager": "pnpm@7.17.1",
+  "packageManager": "^pnpm@7.17.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/janghood/shuimo-ui.git"
