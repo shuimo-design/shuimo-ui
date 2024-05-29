@@ -13,4 +13,5 @@ export const props: MCOPO<DarkModeProps> = {
   modelValue: { type: Boolean, default: undefined },
   autoMode: { type: Boolean, default: true },
   initHandler: { type: Function as MPropType<() => boolean>, default: undefined },
+  isRotate: { type: Boolean, default: true },
 };

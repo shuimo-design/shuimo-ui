@@ -2,11 +2,12 @@
  * @description dark mode component
  * @author 阿怪
  * @date 2023/4/25 20:06
- * @version v1.0.0
+ * @version v1.0.1
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  *
  * todo fix feDropShadow warning
+ * v1.0.1 阿怪 support isRotate animation props
  */
 import { defineComponent, h, onMounted, watch } from 'vue';
 import { props } from './api';
@@ -50,7 +51,7 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
   });
 
   return () => {
-    const svg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" class="m-dark-mode-svg"
+    const svg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" class={['m-dark-mode-svg', { 'm-dark-mode-rotate': props.isRotate }]}
                      stroke-width="1">
       <title>Dark Mode</title>
       <filter id="outset-shadow" x="-50%" y="-50%" width="200%" height="200%">

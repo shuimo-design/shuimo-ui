@@ -20,6 +20,12 @@
         :init-handler="initHandler"
         @change="onChangeMode"
       />
+      <m-dark-mode
+        v-model="darkModeRef"
+        :is-rotate="false"
+        :init-handler="initHandler"
+        @change="onChangeMode"
+      />
     </ComponentsWrap>
   </div>
 </template>

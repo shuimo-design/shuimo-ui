@@ -76,3 +76,16 @@
     animation: var(--dark-mode-d-fins-animation);
   }
 }
+
+@keyframes m-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.m-dark-mode-rotate{
+  animation: m-rotate 5s linear infinite;
+}

@@ -30,6 +30,11 @@ export declare type DarkModeProps = {
    * @type function
    */
   initHandler?: () => boolean;
+  /**
+   * @description is rotate. 是否旋转
+   * @type boolean
+   */
+  isRotate?: boolean;
 };
 
 export declare type DarkModeEvents = {
