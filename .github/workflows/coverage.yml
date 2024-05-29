@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set environment variable
+        run: echo "COREPACK_ENABLE_STRICT=0" >> $GITHUB_ENV
       - uses: actions/checkout@v4.1.1
       - uses: actions/setup-node@v4.0.2
         with:
