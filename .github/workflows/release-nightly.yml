@@ -29,6 +29,9 @@ jobs:
     if: ${{ needs.check.outputs.new_commits == 'true'}}
     runs-on: ubuntu-latest
     steps:
+      - name: Set environment variable
+        run: echo "COREPACK_ENABLE_STRICT=0" >> $GITHUB_ENV
+
       - name: Checkout code
         uses: actions/checkout@v4
 
