@@ -35,7 +35,7 @@ It looks like this:
 
 ## discussion
 
-[discord](https://discord.gg/xy3BenWvYj)，but maybe the last time login was ten thousand years ago 😂.
+[discord](https://discord.gg/h66HyZ43TX)，but maybe the last time login was ten thousand years ago 😂.
 
 You can find me by <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a>  _（join Wechat group or
 something..）_。

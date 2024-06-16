@@ -32,7 +32,7 @@
 
 ## 讨论
 
-[discord](https://discord.gg/xy3BenWvYj)，万年上一次😂。
+[discord](https://discord.gg/h66HyZ43TX)，万年上一次😂。
 
 有需要可以邮件 <a href="mailto:higuaifan@higuaifan.com">higuaifan@higuaifan.com</a> 联系我 _（以及加入微信小群）_。
 
