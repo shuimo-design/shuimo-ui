@@ -2,18 +2,34 @@
  * @description rice-paper component setup
  * @author 阿怪
  * @date 2024/2/6 02:21
- * @version v1.0.0
+ * @version v1.0.1
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ *
+ * v1.0.1 auto support dark mode
  */
 import { onBeforeUnmount, onMounted, watch } from 'vue';
 import { WCSetup } from '../../types/template';
 import { RicePaperProps } from './index';
 import useImgMove from './compositions/useImgMove.ts';
+import { useDarkMode } from '../../other/darkMode/useDarkMode.ts';
+import { useDarkModeStorage } from '../../../utils/install/importComponents.ts';
 
 export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
   return (props, { slots }) => {
-
+    if (props.autoDarkMode === true || (props.autoDarkMode as unknown as string) === 'true') {
+      const { darkModeRef, initDarkMode } = useDarkModeStorage();
+      const { onMountedHook } = useDarkMode({
+        autoMode: true,
+        modelValue: darkModeRef.value,
+      });
+      onMounted(() => {
+        const needInit = initDarkMode();
+        if (needInit) {
+          onMountedHook();
+        }
+      });
+    }
     const {
       baseRef: mLBaseRef,
       midRef: mLMidRef,

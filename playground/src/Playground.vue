@@ -75,12 +75,9 @@ const getSelectedCategory = (c: Category) => {
 
 provide('selected-component', selectedComponent);
 
-onMounted(() => {
-  localStorage.clear();
-});
-onMounted(() => {
-  localStorage.clear();
-});
+// onMounted(() => {
+//   localStorage.clear();
+// });
 
 const { darkModeRef, initDarkMode } = useDarkModeStorage();
 </script>

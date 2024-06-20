@@ -7,10 +7,25 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { describe, expect, test } from 'vitest';
+import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MRicePaper from '../../../components/template/ricePaper/MRicePaper.tsx';
 
+beforeAll(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: vi.fn().mockImplementation(query => ({
+      matches: true,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(), // Deprecated
+      removeListener: vi.fn(), // Deprecated
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
+  });
+});
 describe('rice paper', () => {
   test('render', () => {
     const wrapper = mount(MRicePaper, {
@@ -42,4 +57,38 @@ describe('rice paper', () => {
       </div>"
     `);
   });
+
+  describe('props', () => {
+    test('hide mountain', () => {
+      const wrapper = mount(MRicePaper, { props: { mountain: false } });
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div class="m-rice-paper m-rice-paper-default">
+        <!---->
+        <div class="m-rice-paper-hover"></div>
+        <div class="m-rice-paper-layout">
+          <!---->
+        </div>
+      </div>"
+    `);
+    });
+
+    test('layout full-screen', () => {
+      const wrapper = mount(MRicePaper, { props: { layout: 'full-screen' } });
+      expect(wrapper.html()).include('m-rice-paper-full-screen');
+    });
+  });
+
+  describe('auto dark mode', () => {
+    test('auto darkMode', () => {
+      mount(MRicePaper);
+      expect(document.documentElement.hasAttribute('dark')).toBe(true);
+    });
+
+    test('auto darkMode off', () => {
+      mount(MRicePaper, { props: { autoDarkMode: false } });
+      expect(document.documentElement.getAttribute('dark')).toBe('');
+    });
+  });
+
+
 });

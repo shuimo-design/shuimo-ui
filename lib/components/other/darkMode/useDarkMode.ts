@@ -17,6 +17,7 @@ export function useDarkMode(props: DarkModeProps) {
   const getBrowserDarkMode = () => typeof window !== 'undefined' &&
     window?.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  // 因为rice-paper组件可能会是web-component的，所以provide和getCurrentInstance都会出问题
   const isDarkRef = ref(props.modelValue ?? getBrowserDarkMode());
 
   const onMountedHook = () => {

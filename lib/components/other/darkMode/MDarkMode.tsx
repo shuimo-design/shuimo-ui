@@ -51,7 +51,8 @@ export default defineComponent((props: DarkModeProps, { emit }) => {
   });
 
   return () => {
-    const svg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" class={['m-dark-mode-svg', { 'm-dark-mode-rotate': props.isRotate }]}
+    const svg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520"
+                     class={['m-dark-mode-svg', { 'm-dark-mode-rotate': props.isRotate }]}
                      stroke-width="1">
       <title>Dark Mode</title>
       <filter id="outset-shadow" x="-50%" y="-50%" width="200%" height="200%">

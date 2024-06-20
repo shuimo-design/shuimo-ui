@@ -18,17 +18,23 @@ export declare type RicePaperProps = {
    * @type 'cold' | 'warm' | 'default'
    * @default true
    */
-  type?: 'cold' | 'warm' | 'default',
+  type?: 'cold' | 'warm' | 'default';
   /**
    * @description 是否显示山脉背景
    * @type boolean
    * @default true
    */
-  mountain?: boolean
+  mountain?: boolean | string;
   /**
    * @description 布局
    * @type 'auto' | 'full-screen'
    * @default 'auto'
    */
-  layout?: 'auto' | 'full-screen'
+  layout?: 'auto' | 'full-screen';
+  /**
+   * @description 是否自动切换日夜模式
+   * @type boolean
+   * @default true
+   */
+  autoDarkMode?: boolean | string;
 };
