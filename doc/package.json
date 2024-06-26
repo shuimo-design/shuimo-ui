@@ -21,6 +21,7 @@
   "web-types": "../cli/build/config/output/web-types.json",
   "dependencies": {
     "@higuaifan/rollup-plugin-fontmin": "^0.0.5",
-    "@nuxtjs/i18n": "^8.3.0"
+    "@nuxtjs/i18n": "^8.3.0",
+    "nuxt-gtag": "^2.0.6"
   }
 }

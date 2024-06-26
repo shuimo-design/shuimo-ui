@@ -1,5 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
   extensions: ['.md'],
@@ -8,6 +6,7 @@ export default defineNuxtConfig({
     './modules/fontmin',
     '@shuimo-design/shuimo-ui-nuxt',
     '@nuxtjs/i18n',
+    'nuxt-gtag',
   ],
   css: ['./assets/style/index.css'],
   i18n: {
@@ -27,5 +26,8 @@ export default defineNuxtConfig({
       'm-shuimo': false,
     },
     vueI18n: './i18n/i18n.config.ts',
+  },
+  gtag: {
+    id: 'G-W1HW9D136H',
   },
 });
