@@ -1,3 +1,7 @@
+:root{
+  --m-border-bg: rgba(255, 255, 255, 0.4);
+}
+
 .m-border {
   display: inline-grid;
   grid-template-columns: 6px auto 6px;
@@ -55,6 +59,6 @@
   box-sizing: border-box;
   grid-area: topleft / topleft / bottomright / bottomright;
   overflow: auto;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--m-border-bg);
   backdrop-filter: blur(6px);
 }
