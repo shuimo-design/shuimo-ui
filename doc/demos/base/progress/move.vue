@@ -1,5 +1,5 @@
 <template>
-  <m-progress :height="18" :value="loopPer" :max="1000" :show-info="true">
+  <m-progress :value="loopPer" :max="1000" :show-info="true">
     <span>{{ Math.ceil(loopPer / 10) }}%</span>
   </m-progress>
 </template>

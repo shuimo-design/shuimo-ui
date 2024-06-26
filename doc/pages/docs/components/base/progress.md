@@ -4,15 +4,7 @@
 
 ::: demo base/progress/default
 
-### {{$t(\'滚动效果\')}}
-
-::: demo base/progress/move
-
-### {{$t(\'修改尺寸\')}}
-
-::: demo base/progress/size
-
-### {{$t(\'隐藏叶子\')}}
+### {{$t(\'隐藏信息\')}}
 
 ::: demo base/progress/hide
 
