@@ -2,7 +2,7 @@
  * @description process api type
  * @author 阿怪
  * @date 2022/4/17 01:12
- * @version v1.0.0
+ * @version v2.0.0
  *
  * @name m-progress
  * @docDescription progress component with shuimo-ui style.
@@ -13,20 +13,6 @@
  */
 
 export declare type ProgressProps = {
-  /**
-   * @description progress bar width
-   *              进度条的宽度
-   * @type number
-   * @default 399
-   */
-  width?: number,
-  /**
-   * @description progress bar height
-   *              进度条的高度
-   * @type number
-   * @default 26.547
-   */
-  height?: number,
   /**
    * @description progress value
    *              进度条的值
@@ -48,18 +34,4 @@ export declare type ProgressProps = {
    * @default false
    */
   showInfo?: boolean,
-  /**
-   * @description info width
-   *              进度值的宽度
-   * @type number
-   * @default 44
-   */
-  infoWidth?: number,
-  /**
-   * @description leaf height
-   *              叶子的高度
-   * @type number
-   * @default 28
-   */
-  leafHeight?: number
 };

@@ -2,46 +2,39 @@
  * @description 进度条组件
  * @author 阿怪
  * @date 2022/1/21 6:13 下午
- * @version v1.0.3
+ * @version v2.0.0
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
- * v1.0.1 修复width与预期不一致的问题，优化渲染逻辑
- * v1.0.2 修复绝对定位造成竹叶及数字渲染位置错误的问题
- * v1.0.3 百分比模块改为slot模式（为支持nuxt ssr ）
+ * v2.0.0 重构进度条组件，原本竹子的进度条组件将会迁移到pro上去
  */
 import { computed, defineComponent } from 'vue';
-import { leaf, useProgress } from './useProgress.ts';
 import { props } from './api.ts';
 import './progress.css';
 import { ProgressProps } from './index';
+import MBorder from '../../template/border/MBorder.tsx';
+
+const clearZero = (num: number) => {
+  const str = num.toString();
+  const index = str.indexOf('.');
+  if (index === -1) {return num;}
+  return str.slice(0, index + 3);
+};
 
 export default defineComponent((_props: ProgressProps, { slots }) => {
   const props = _props as Required<ProgressProps>;
-  const { getProgressWrapperStyle, getProgressInfo } = useProgress({ props });
-  const progressInfo = computed(() => getProgressInfo());
-  const progressWrapperInfo = computed(() => {
-    if (props.showInfo) {
-      return getProgressWrapperStyle(progressInfo.value);
-    }
-    return undefined;
-  });
-
+  const per = computed(() => clearZero((props.value * 100 / props.max)));
 
   return () => {
-
-    const progress = <progress class="m-progress"
-                               value={props.value} max={props.max} style={progressInfo.value.style}/>;
-    if (!props.showInfo) {
-      return progress;
-    }
-
-
-    return <div class="m-progress-border" style={progressWrapperInfo.value?.baseStyle}>
-      <div class="m-progress-per" style={progressWrapperInfo.value?.textStyle}>
-        <img class="m-progress-leaf" src={leaf} alt=""/>
+    const info = slots.default?.() ?
+      <div class="m-progress-info">
         {slots.default?.()}
-      </div>
-      {progress}
+      </div> : props.showInfo ? <span class="m-progress-per">{`${per.value}%`}</span> : null;
+
+    return <div class="m-progress">
+      <MBorder class="m-progress-border">
+        <progress class="m-progress-progress" value={props.value} max={props.max}/>
+      </MBorder>
+      {info}
     </div>;
   };
 }, {

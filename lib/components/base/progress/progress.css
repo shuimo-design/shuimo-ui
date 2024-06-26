@@ -1,56 +1,61 @@
 :root {
-  --m-progress-width: 300px;
-  --m-progress-height: unset;
+  --m-progress-val-color: #171717;
+  --m-progress-h: 11px;
+  --m-progress-w: 180px;
+  --m-progress-per-color: white;
+  --m-progress-per-text-shadow-color: black;
 }
 
-.m-progress, .m-progress-border {
-  --m-progress-real-width: calc(var(--m-progress-width, 556px));
-  --m-progress-real-height: var(--m-progress-height, 37px);
-  --m-progress-bg-width: var(--m-progress-width, 556px);
-  --m-progress-bg-size: calc(var(--m-progress-bg-width) / 2) var(--m-progress-height);
-  --m-progress-leaf-height: var(--m-progress-leaf-height, 28px);
-  --m-progress-per-width: var(--m-progress-per-width, 80px);
-  --m-progress-per-height: max(var(--m-progress-per-height, 20px), var(--m-progress-leaf-height));
-  --m-progress-per-font-size: var(--m-progress-per-font-size, 16px);
-}
-
-
-.m-progress-border {
-  display: inline-block;
-  width: var(--m-progress-real-width);
-}
-
-.m-progress-per {
-  position: relative;
-  display: inline-block;
-  width: var(--m-progress-per-width);
-  height: var(--m-progress-per-height);
-  line-height: var(--m-progress-per-height);
-  top: calc(var(--m-progress-per-height) * 0.4);
-  font-size: var(--m-progress-per-font-size);
-  font-weight: bold;
-
-  & img, & span {
-    float: right;
-  }
-}
-
-.m-progress-leaf {
-  height: var(--m-progress-leaf-height);
+html[dark] {
+  --m-progress-val-color: #d3d3d3;
+  --m-progress-per-color: black;
+  --m-progress-per-text-shadow-color: white;
 }
 
 .m-progress {
-  width: var(--m-progress-real-width);
-  height: var(--m-progress-real-height);
+  height: var(--m-progress-h);
+  width: var(--m-progress-w);
+  display: inline-grid;
+  grid-template-areas: "progress";
+}
+
+.m-progress-border {
+  --m-border-bg: unset;
+  backdrop-filter: unset;
+  height: var(--m-progress-h);
+  width: var(--m-progress-w);
+  grid-area: progress;
+}
+
+.m-progress-info, .m-progress-per {
+  position: relative;
+  grid-area: progress;
+}
+
+.m-progress-per {
+  color: var(--m-progress-per-color);
+  text-align: center;
+  line-height: 11px;
+  text-shadow: -1px -1px 0 var(--m-progress-per-text-shadow-color),
+  1px -1px 0 var(--m-progress-per-text-shadow-color),
+  -1px 1px 0 var(--m-progress-per-text-shadow-color),
+  1px 1px 0 var(--m-progress-per-text-shadow-color);
+  font-size: 14px;
+}
+
+.m-progress-progress {
+  height: 7px;
+  width: 174px;
+  position: relative;
+  top: -11px;
+  margin: 0 3px;
   -webkit-appearance: none;
 
   &::-webkit-progress-bar {
-    background: url('./assets/bamboo_bg.webp') repeat-x;
-    background-size: var(--m-progress-bg-size);
+    background: unset;
   }
 
   &::-webkit-progress-value {
-    background: url('./assets/bamboo.webp') repeat-x;
-    background-size: var(--m-progress-bg-size);
+    background-color: var(--m-progress-val-color);
   }
 }
