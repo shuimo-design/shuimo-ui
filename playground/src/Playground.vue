@@ -60,24 +60,35 @@ const categories: Category[] = [
       'Table',
       'VirtualList',
       'Layout',
+      'Grid'
     ],
   },
 ];
-const selectedCategory = ref<string | null>(categories[0].name);
-const selectedComponent = ref<string | null>(categories[0]['components'][0]);
-const componentOptionsRef = ref<Category['components']>(categories[0]['components']);
+const defaultCategory = localStorage.getItem('Shuimo-playground-category') ?? categories[0].name;
+const componentIndex = categories.findIndex((item) => item.name === defaultCategory)??0;
+const defaultComponents = categories[componentIndex];
+const defaultComponentName = localStorage.getItem('Shuimo-playground-component') ?? defaultComponents['components'][0];
+const defaultComponentIndex = defaultComponents['components'].findIndex((item) => item === defaultComponentName)??0;
+
+
+
+const selectedCategory = ref<string | null>(defaultCategory);
+const selectedComponent = ref<string | null>(defaultComponents['components'][defaultComponentIndex]);
+const componentOptionsRef = ref<Category['components']>(defaultComponents['components']);
 
 const getSelectedCategory = (c: Category) => {
   const name = c.name;
   componentOptionsRef.value = categories.find((item) => item.name === name)?.components ?? [];
   selectedComponent.value = componentOptionsRef.value[0];
+  localStorage.setItem('Shuimo-playground-category', String(selectedCategory.value));
+};
+
+const changeComponent = (c: string) => {
+  localStorage.setItem('Shuimo-playground-component', c);
 };
 
 provide('selected-component', selectedComponent);
 
-// onMounted(() => {
-//   localStorage.clear();
-// });
 
 const { darkModeRef, initDarkMode } = useDarkModeStorage();
 </script>
@@ -96,6 +107,7 @@ const { darkModeRef, initDarkMode } = useDarkModeStorage();
       </div>
       <div>
         <m-select
+          @select="changeComponent"
           v-model="selectedComponent"
           :optionsH="300"
           :options="componentOptionsRef"/>

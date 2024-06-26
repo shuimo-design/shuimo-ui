@@ -203,9 +203,13 @@
     </ComponentsWrap>
     <ComponentsWrap name="Progress">
       <div class="progress">
-        <m-progress :value="20"/>
+        <m-progress :value="20" :max="200"/>
         <m-progress :value="44" show-info/>
-        <m-progress :value="44" show-info>44</m-progress>
+        <m-progress :value="progressValueRef" show-info/>
+
+<!--        <m-progress :value="progressValueRef" show-info>-->
+<!--          {{progressValueRef}}-->
+<!--        </m-progress>-->
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Tree">
@@ -417,5 +421,9 @@ const slider2Ref = ref(0);
 
 .avatar-size {
   --m-avatar-default: 200px;
+}
+
+.m-progress {
+  margin: 4px 0
 }
 </style>

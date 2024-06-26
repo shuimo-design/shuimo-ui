@@ -20,29 +20,32 @@
         <m-pagination :total="225" v-model="current"></m-pagination>
       </div>
     </ComponentsWrap>
+    <ComponentsWrap name="Grid">
+      <m-grid :gap="20" direction="column" class="screen">
+        <m-grid :gap="5" :h="245">
+          <m-cell :w="245">
+            <img src="../assets/left.png" alt=""/>
+          </m-cell>
+          <m-cell>
+            <img src="../assets/right.png" alt=""/>
+          </m-cell>
+        </m-grid>
+        <m-grid :gap="5" :h="162" :gapRotate="[10, 20]">
+          <m-cell :w="162">
+            <img src="../assets/1.png" alt=""/>
+          </m-cell>
+          <m-cell>
+            <img src="../assets/3.png" alt=""/>
+          </m-cell>
+          <m-cell>
+            <img src="../assets/2.png" alt=""/>
+          </m-cell>
+        </m-grid>
+      </m-grid>
+    </ComponentsWrap>
     <ComponentsWrap name="Border">
       <m-border>
-        <m-grid :gap="20" direction="column" class="screen">
-          <m-grid :gap="5" :h="245">
-            <m-cell :w="245">
-              <img src="../assets/left.png" alt=""/>
-            </m-cell>
-            <m-cell>
-              <img src="../assets/right.png" alt=""/>
-            </m-cell>
-          </m-grid>
-          <m-grid :gap="5" :h="162" :gapRotate="[10, 20]">
-            <m-cell :w="162">
-              <img src="../assets/1.png" alt=""/>
-            </m-cell>
-            <m-cell>
-              <img src="../assets/3.png" alt=""/>
-            </m-cell>
-            <m-cell>
-              <img src="../assets/2.png" alt=""/>
-            </m-cell>
-          </m-grid>
-        </m-grid>
+        <div class="black"></div>
       </m-border>
     </ComponentsWrap>
     <ComponentsWrap name="Breadcrumb">
@@ -430,5 +433,11 @@ img {
 .animation {
   height: 500px;
   width: 500px;
+}
+
+.black {
+  background: #0e0e0e;
+  width: 100px;
+  height: 10px;
 }
 </style>
