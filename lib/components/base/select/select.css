@@ -25,6 +25,7 @@
   width: var(--m-select-dropdown-w);
 
   .m-option {
+    cursor: var(--m-cursor-pointer);
     margin: 4px 4px;
     padding: 2px 4px;
     border-radius: 5px;
