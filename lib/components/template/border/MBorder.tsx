@@ -2,10 +2,11 @@
  * @description 边框组件
  * @author 阿怪
  * @date 2021/8/23 8:45 下午
- * @version v2.0.0
+ * @version v2.0.1
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  * v2.0.0 阿怪 upgrade to core version
+ * v2.0.1 阿怪 support instead of main div
  */
 
 import { defineComponent } from 'vue';
@@ -30,10 +31,12 @@ export const MBorderSetup: WCSetup = slot => {
           return <div class={[baseLineClass, `m-border-${type}-line`]}/>;
         });
 
+      const main = props.insteadMain ?
+        renderSlot :
+        <div class="m-border-main">{renderSlot}</div>;
+
       return <div class="m-border">
-        <div class="m-border-main">
-          {renderSlot}
-        </div>
+        {main}
         {lineTemplate}
       </div>;
     };

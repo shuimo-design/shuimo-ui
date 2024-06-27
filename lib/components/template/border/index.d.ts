@@ -37,4 +37,10 @@ export declare type BorderProps = {
    * @type boolean | string
    */
   left?: boolean | string;
+  /**
+   * @description instead main div with slot
+   * @default false
+   * @type boolean | string
+   */
+  insteadMain?: boolean | string;
 };

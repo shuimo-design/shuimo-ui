@@ -14,4 +14,5 @@ export const props: MCOPO<BorderProps> = {
   right: { type: [Boolean, String], default: true },
   bottom: { type: [Boolean, String], default: true },
   left: { type: [Boolean, String], default: true },
+  insteadMain: { type: [Boolean, String], default: false },
 };
