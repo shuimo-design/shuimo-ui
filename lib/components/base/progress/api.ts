@@ -13,5 +13,5 @@ import { ProgressProps } from './index';
 export const props: MCOPO<ProgressProps> = {
   value: { type: Number, default: 0 },
   max: { type: Number, default: 100 },
-  showInfo: { type: Boolean, default: false },
+  showInfo: { type: Boolean, default: true },
 };

@@ -1,7 +1,6 @@
 :root {
   --m-progress-val-color: #171717;
-  --m-progress-h: 11px;
-  --m-progress-w: 180px;
+  --m-progress-main-h: 7px;
   --m-progress-per-color: white;
   --m-progress-per-text-shadow-color: black;
 }
@@ -13,13 +12,15 @@ html[dark] {
 }
 
 .m-progress {
+  --m-progress-h: calc(var(--m-progress-main-h) + 10px);
+  --m-progress-w: calc(var(--m-progress-h) * 11);
   height: var(--m-progress-h);
   width: var(--m-progress-w);
   display: inline-grid;
   grid-template-areas: "progress";
 }
 
-.m-progress-border {
+.m-border.m-progress-border {
   --m-border-bg: unset;
   backdrop-filter: unset;
   height: var(--m-progress-h);
@@ -27,28 +28,11 @@ html[dark] {
   grid-area: progress;
 }
 
-.m-progress-info, .m-progress-per {
-  position: relative;
-  grid-area: progress;
-}
 
-.m-progress-per {
-  color: var(--m-progress-per-color);
-  text-align: center;
-  line-height: 11px;
-  text-shadow: -1px -1px 0 var(--m-progress-per-text-shadow-color),
-  1px -1px 0 var(--m-progress-per-text-shadow-color),
-  -1px 1px 0 var(--m-progress-per-text-shadow-color),
-  1px 1px 0 var(--m-progress-per-text-shadow-color);
-  font-size: 14px;
-}
-
-.m-progress-progress {
-  height: 7px;
-  width: 174px;
-  position: relative;
-  top: -10px;
-  margin: 0 3px;
+.m-progress-main {
+  grid-area: main;
+  height: var(--m-progress-main-h);
+  width: 100%;
   -webkit-appearance: none;
 
   &::-webkit-progress-bar {
@@ -58,4 +42,21 @@ html[dark] {
   &::-webkit-progress-value {
     background-color: var(--m-progress-val-color);
   }
+}
+
+.m-progress-info, .m-progress-per {
+  grid-area: progress;
+}
+
+.m-progress-per {
+  color: var(--m-progress-per-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: var(--m-progress-h);
+  text-shadow: -1px -1px 0 var(--m-progress-per-text-shadow-color),
+  1px -1px 0 var(--m-progress-per-text-shadow-color),
+  -1px 1px 0 var(--m-progress-per-text-shadow-color),
+  1px 1px 0 var(--m-progress-per-text-shadow-color);
+  font-size: 14px;
 }
