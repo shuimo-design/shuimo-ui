@@ -1,3 +1,10 @@
+:root {
+  --svg-black: unset;
+  --svg-white: url("#outset-shadow-white");
+  --dark-mode-h: 30px;
+  --dark-mode-w: 30px;
+}
+
 @keyframes hidden_to_fish {
   from {
     d: var(--dark-mode-path-hidden)
@@ -36,10 +43,6 @@
 
 .m-dark-mode {
   display: inline-block;
-  --svg-black: unset;
-  --svg-white: url("#outset-shadow-white");
-  --dark-mode-h: 30px;
-  --dark-mode-w: 30px;
 
   & svg {
     height: var(--dark-mode-h);
