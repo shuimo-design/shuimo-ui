@@ -37,5 +37,5 @@ import { MInput } from 'shuimo-ui';
 {{ $t(\'现在你可以直接使用命令：\') }}
 
 ```shell
-pnpm dlx module add @shuimo-design/shuimo-ui-nuxt
+pnpm dlx nuxi module add @shuimo-design/shuimo-ui-nuxt
 ```
