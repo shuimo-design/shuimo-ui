@@ -4,4 +4,6 @@ packages:
   - 'playground/**'
   - 'cli/**'
   - 'plugins/**'
+  - 'core/**'
+  - 'headless/**'
   - '!cli/build/config/**'
