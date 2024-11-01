@@ -71,6 +71,17 @@
         <m-radio v-model="radioVal" :label="radioLabel" name="hi" :value="radioLabel"/>
         <m-radio label="2" name="hi" value="2"/>
         <m-radio label="3" name="hi" value="2"/>
+
+
+        <br/>
+        <span>group radio: {{ radioGroupValue }}</span>
+        <m-radio-group v-model="radioGroupValue" name="group">
+          <m-radio label="hi" value="hi"/>
+          <m-radio label="hello" value="hello"/>
+          <m-radio label="bye" value="bye"/>
+        </m-radio-group>
+
+
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Checkbox">
@@ -228,7 +239,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from 'vue';
-import MTree from './components/MTree.vue';
+// import MTree from './components/MTree.vue';
 import ComponentsWrap from '../components/ComponentsWrap.vue';
 
 const valueRef = ref('1');
@@ -265,6 +276,8 @@ const checkboxObjectValue = ref();
 
 const radioVal = ref('');
 const radioLabel = ref('radio label');
+
+const radioGroupValue = ref('bye');
 
 const switchValue = ref(false);
 

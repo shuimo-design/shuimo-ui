@@ -8,8 +8,9 @@
  */
 
 import { describe, expect, test } from 'vitest';
-import { MRadio } from '../../../index.ts';
+import { MRadio, MRadioGroup } from '../../../index.ts';
 import { mount } from '@vue/test-utils';
+import { h, ref } from 'vue';
 
 describe('radio', () => {
 
@@ -71,4 +72,38 @@ describe('radio', () => {
   //   });
   //   expect(wrapper.find('label').html()).toContain('selected');
   // });
+});
+
+
+describe('radio group', () => {
+
+  test('base radio group', () => {
+    const wrapper = mount(MRadioGroup, {
+      slots: {
+        default: () => h(MRadio),
+      },
+    });
+
+    expect(wrapper.html()).toContain('m-radio');
+    expect(wrapper.html()).toContain('m-radio-group');
+  });
+
+  test('radio group with name', () => {
+    const value = ref();
+    const wrapper = mount(MRadioGroup, {
+      props: {
+        modelValue: value,
+        name: 'testName',
+      },
+      slots: {
+        default: () => [h(MRadio, { value: 'value1' }), h(MRadio, { value: 'value2' })],
+      },
+      emits: ['update:modelValue'],
+    });
+
+    // click first radio
+    wrapper.findAll('input')[0].trigger('click');
+    expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['value1']);
+  });
+
 });

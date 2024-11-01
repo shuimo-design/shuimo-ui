@@ -22,6 +22,7 @@ import MLi from '../../components/base/li/MLi';
 import MList from '../../components/base/list/MList';
 import MProgress from '../../components/base/progress/MProgress';
 import MRadio from '../../components/base/radio/MRadio';
+import MRadioGroup from '../../components/base/radio/MRadioGroup.tsx';
 import MSelect from '../../components/base/select/MSelect';
 import MSlider from '../../components/base/slider/MSlider';
 import MSwitch from '../../components/base/switch/MSwitch';
@@ -74,6 +75,7 @@ export const components: Record<string, Component> = {
   MList,
   MProgress,
   MRadio,
+  MRadioGroup,
   MSelect,
   MSlider,
   MSwitch,
@@ -128,6 +130,7 @@ export {
   MList,
   MProgress,
   MRadio,
+  MRadioGroup,
   MSelect,
   MSlider,
   MSwitch,

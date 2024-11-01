@@ -51,3 +51,20 @@ export declare type RadioProps = {
 export declare type RadioEvents = {
   onClick?: (e: MouseEvent, value?: string | number) => void
 };
+
+export declare type RadioGroupProps = {
+  /**
+   * @description radio group value
+   *              绑定值
+   * @type any
+   * @default ''
+   */
+  modelValue?: any,
+  /**
+   * @description radio group name
+   *              单选框的name值
+   * @type string | undefined
+   * @default undefined
+   */
+  name?: string,
+};

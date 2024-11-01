@@ -5,7 +5,7 @@
  * @description radio单选框
  */
 
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { createRadioId, getNewModelValue, initChecked } from './useRadio.ts';
 import { props } from './api.ts';
 import './radio.css';
@@ -20,6 +20,10 @@ export default defineComponent((_props: RadioProps, { emit, slots }) => {
   };
   const id = createRadioId();
 
+  watch(() => [props.modelValue, props.checked, props.value], () => {
+    checked.value = initChecked(props);
+  });
+
   return () => {
     const slotsDefault = slots.default ? slots.default() : props.label;
 
@@ -33,4 +37,5 @@ export default defineComponent((_props: RadioProps, { emit, slots }) => {
 }, {
   name: 'MRadio',
   props,
+  emits: ['change', 'update:modelValue'],
 });
