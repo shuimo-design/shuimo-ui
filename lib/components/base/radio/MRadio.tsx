@@ -29,6 +29,7 @@ export default defineComponent((_props: RadioProps, { emit, slots }) => {
 
     return <label class="m-radio" for={id}>
       <input type="radio" class="m-radio-input" id={id}
+             disabled={props.disabled}
              name={props.name} checked={checked.value} value={props.value}
              onClick={onClick}/>
       {slotsDefault}

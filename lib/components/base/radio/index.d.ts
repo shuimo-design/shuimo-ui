@@ -28,6 +28,12 @@ export declare type RadioProps = {
    */
   name?: string,
   /**
+   * @description radio disabled
+   *              是否禁用
+   * @default false
+   */
+  disabled?:boolean,
+  /**
    * @description radio checked
    *              是否选中
    * @default undefined

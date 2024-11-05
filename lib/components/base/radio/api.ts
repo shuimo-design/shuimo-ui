@@ -13,6 +13,7 @@ import { RadioGroupProps, RadioProps } from './index';
 export const props: MCOPO<RadioProps> = {
   label: { type: [String, Number], default: '' },
   name: { type: String, default: undefined },
+  disabled: { type: Boolean, default: undefined },
   checked: { type: Boolean, default: undefined },
   value: { type: [String, Number], default: '' },
   modelValue: { type: null, default: '' },

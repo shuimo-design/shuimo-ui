@@ -76,7 +76,7 @@
         <br/>
         <span>group radio: {{ radioGroupValue }}</span>
         <m-radio-group v-model="radioGroupValue" name="group">
-          <m-radio label="hi" value="hi"/>
+          <m-radio label="hi" value="hi" disabled=""/>
           <m-radio label="hello" value="hello"/>
           <m-radio label="bye" value="bye"/>
         </m-radio-group>
