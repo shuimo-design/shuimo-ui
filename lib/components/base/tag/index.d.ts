@@ -21,4 +21,11 @@ export declare type TagProps = {
    * @enum default|primary|error|confirm|warning
    */
   type?: 'default' | 'primary' | 'error' | 'confirm' | 'warning'
+  /**
+   * @description button size 按钮大小
+   * @type string
+   * @default default
+   * @enum small|default|large
+   */
+  size?: 'small' | 'default' | 'large'
 };

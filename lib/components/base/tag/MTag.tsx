@@ -13,7 +13,7 @@ import './tag.css';
 
 export default defineComponent((props: TagProps, { slots }) => {
   return () => {
-    return <div class={['m-tag', `m-tag-${props.type}`]}>
+    return <div class={['m-tag', `m-tag-${props.type}`, `m-tag-${props.size}`]}>
       <div class="m-tag-left"/>
       <div class="m-tag-main">
         {slots.default?.() ?? ''}

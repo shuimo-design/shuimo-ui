@@ -48,6 +48,8 @@
         <m-tag>你好你好你好你好你好</m-tag>
 
         <m-tag type="primary">primary</m-tag>
+        <m-tag type="primary" size="small">small</m-tag>
+        <m-tag type="primary" size="large">large</m-tag>
         <m-tag type="error">error</m-tag>
         <m-tag type="confirm">confirm</m-tag>
         <m-tag type="warning">warning</m-tag>

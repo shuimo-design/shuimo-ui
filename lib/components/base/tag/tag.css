@@ -1,5 +1,10 @@
 :root {
-  --m-tag-h: 45px;
+
+  --m-tag-large: 64px;
+  --m-tag-default: 45px;
+  --m-tag-small: 32px;
+
+  --m-tag-h: var(--m-tag-default);
   --m-tag-w-min: 80px;
   --m-tag-border-w: calc(var(--m-tag-h) / 4.5);
 }
@@ -10,6 +15,14 @@
   min-width: var(--m-tag-w-min);
   height: 100%;
   --m-tag-bg: var(--m-color-text-dark);
+
+  &.m-tag-large {
+    --m-tag-h: var(--m-tag-large);
+  }
+
+  &.m-tag-small {
+    --m-tag-h: var(--m-tag-small);
+  }
 }
 
 .m-tag-left, .m-tag-right {
