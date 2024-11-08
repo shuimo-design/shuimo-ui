@@ -2,10 +2,13 @@
   display: inline-grid;
   grid-template-areas: 'checkbox slot';
 
-  &.m-disabled {
+  --m-checkbox-pointer: var(--m-cursor-pointer);
 
-    .m-checkbox-checkbox {
-      cursor: var(--m-cursor-disabled);
+  &.m-disabled {
+    --m-checkbox-pointer: var(--m-cursor-disabled);
+
+    .m-checkbox-checkbox, .m-checkbox-checkbox-inner {
+      opacity: 0.6;
     }
   }
 
@@ -15,7 +18,7 @@
 }
 
 .m-checkbox-checkbox {
-  cursor: var(--m-cursor-pointer);
+  cursor: var(--m-checkbox-pointer);
   grid-area: checkbox;
   display: inline-block;
   height: 24px;
@@ -30,6 +33,7 @@
 }
 
 .m-checkbox-checkbox-inner {
+  cursor: var(--m-checkbox-pointer);
   grid-area: checkbox;
   margin: 7px 0 0 6px;
   width: 12px;

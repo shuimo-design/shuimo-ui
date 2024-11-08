@@ -92,6 +92,7 @@
         <br/>
         <m-checkbox/>
         <m-checkbox disabled></m-checkbox>
+        <m-checkbox disabled v-model="checkboxVal">disabled</m-checkbox>
         <m-checkbox v-model="checkboxVal"></m-checkbox>
         <m-checkbox>slot</m-checkbox>
         <m-checkbox label="label"></m-checkbox>
