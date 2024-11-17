@@ -33,38 +33,34 @@ const PrinterConsole: Record<PrinterEnum, keyof Pick<Console, 'log' | 'error'>> 
 
 const Printer: IPrinter = (defaultUser = '水墨UI') => {
   const DEFAULT_USER = defaultUser;
-  const getType = (o: any) => {
-    const s = Object.prototype.toString.call(o);
-    const matchStr = s.match(/\[object (.*?)\]/);
-    if (matchStr === null) {
-      return 'string';
+
+  const printer: PrinterType = {
+    [PrinterEnum.suggest](...args: unknown[]) {
+      console[PrinterConsole[PrinterEnum.suggest]](
+        `%c ${DEFAULT_USER} `,
+        `background:${typeColor[PrinterEnum.suggest]}; border-radius:5px; padding:5px 7px;color:white;`,
+        ...args,
+      );
+    },
+
+    [PrinterEnum.info](...args: unknown[]) {
+      console.log(args)
+      console[PrinterConsole[PrinterEnum.info]](
+        `%c ${DEFAULT_USER} `,
+        `background:${typeColor[PrinterEnum.info]}; border-radius:5px; padding:5px 7px;color:white;`,
+        ...args,
+      );
+
+    },
+
+    [PrinterEnum.error](...args: unknown[]) {
+      console[PrinterConsole[PrinterEnum.error]](
+        `%c ${DEFAULT_USER} `,
+        `background:${typeColor[PrinterEnum.error]}; border-radius:5px; padding:5px 7px;color:white;`,
+        ...args,
+      );
     }
-    return matchStr[1].toLowerCase();
   };
-
-  const print: printInterface = options => {
-    console[PrinterConsole[options.type]](
-      options.format,
-      `background:${typeColor[options.type]}; border-radius:5px; padding:5px 7px;color:white;`,
-      '',
-      options.content,
-    );
-  };
-
-  const printer: PrinterType = Object.create(null);
-
-  for (const t of Object.values(PrinterEnum)) {
-    printer[t] = (content: any, user: string = DEFAULT_USER) => {
-      switch (getType(content)) {
-        case 'string':
-          return print({ format: `%c ${user} %c %s`, content, type: t });
-        case 'object':
-          return print({ format: `%c ${user} %c %o`, content, type: t });
-        default:
-          return print({ format: `%c ${user} %c %s`, content: '', type: t });
-      }
-    };
-  }
 
   return printer;
 };

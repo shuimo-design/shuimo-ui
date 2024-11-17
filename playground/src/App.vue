@@ -8,6 +8,15 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import Playground from './Playground.vue';
+
+import { MPrinter } from "shuimo-ui/index";
+
+const mPrinter = MPrinter();
+
+mPrinter.info({
+    message: 'error',
+    description: 'error description'
+});
 </script>
 
 <template>
