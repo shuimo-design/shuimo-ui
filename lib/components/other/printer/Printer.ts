@@ -10,7 +10,7 @@
  * V1.0.1 添加console底层打印分类
  * V1.0.2 优化ts支持，修改type颜色
  */
-import { IPrinter, PrinterType, printInterface } from '../../../types/components/MPrint';
+import { IPrinter, PrinterType } from '../../../types/components/MPrint';
 
 
 enum PrinterEnum {
@@ -44,13 +44,11 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
     },
 
     [PrinterEnum.info](...args: unknown[]) {
-      console.log(args)
       console[PrinterConsole[PrinterEnum.info]](
         `%c ${DEFAULT_USER} `,
         `background:${typeColor[PrinterEnum.info]}; border-radius:5px; padding:5px 7px;color:white;`,
         ...args,
       );
-
     },
 
     [PrinterEnum.error](...args: unknown[]) {
@@ -59,7 +57,7 @@ const Printer: IPrinter = (defaultUser = '水墨UI') => {
         `background:${typeColor[PrinterEnum.error]}; border-radius:5px; padding:5px 7px;color:white;`,
         ...args,
       );
-    }
+    },
   };
 
   return printer;
