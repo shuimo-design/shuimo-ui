@@ -20,18 +20,30 @@ export function useDarkMode(props: DarkModeProps) {
   // 因为rice-paper组件可能会是web-component的，所以provide和getCurrentInstance都会出问题
   const isDarkRef = ref(props.modelValue ?? getBrowserDarkMode());
 
+  let isDark = isDarkRef.value;
+
+
+  const toggleDarkModeFun = (event: MediaQueryListEvent) => {
+    isDark = toggleDarkMode({ modelValue: event.matches });
+    return isDark;
+  };
+
   const onMountedHook = () => {
-    // todo add event remove
-    let isDark = isDarkRef.value;
     if (props.autoMode) {
       if (typeof window !== 'undefined') {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-          isDark = toggleDarkMode({ modelValue: event.matches });
-        });
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', toggleDarkModeFun);
         isDark = toggleDarkMode({ modelValue: getBrowserDarkMode() });
       }
     }
     isDarkRef.value = isDark;
+  };
+
+  const unmountedHook = () => {
+    if (props.autoMode) {
+      if (typeof window !== 'undefined') {
+        window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', toggleDarkModeFun);
+      }
+    }
   };
 
   const toggleDarkMode = (props: DarkModeProps) => {
@@ -54,6 +66,7 @@ export function useDarkMode(props: DarkModeProps) {
     getBrowserDarkMode,
     onMountedHook,
     toggleDarkMode,
+    unmountedHook,
   };
 
 }
