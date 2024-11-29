@@ -15,17 +15,18 @@ import MAvatar from '../../components/base/avatar/MAvatar.tsx';
 // [message]
 // [template]
 import MRicePaper from '../../components/template/ricePaper/MRicePaper.tsx';
+import MPopover from '../../components/message/popover/MPopover';
 
 
 export const components: Record<string, Component> = {
   MAvatar,
 
-  MRicePaper
-}
+  MRicePaper,
+};
 
 
 export {
   MAvatar,
 
-  MRicePaper
-}
+  MRicePaper,
+};
