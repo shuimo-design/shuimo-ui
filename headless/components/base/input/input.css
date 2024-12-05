@@ -1,0 +1,7 @@
+@import "@shuimo-design/ui-core/components/base/input/input.css";
+
+
+.m-input {
+  border: 1px solid var(--m-color-border);
+  border-radius: 4px;
+}

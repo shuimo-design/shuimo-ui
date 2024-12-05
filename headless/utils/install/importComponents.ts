@@ -16,6 +16,7 @@ import MAvatar from '../../components/base/avatar/MAvatar.tsx';
 // [template]
 import MRicePaper from '../../components/template/ricePaper/MRicePaper.tsx';
 import MPopover from '../../components/message/popover/MPopover';
+import MInput from '../../components/base/input/MInput';
 
 
 export const components: Record<string, Component> = {
