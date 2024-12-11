@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.ts",
   "types": "index.d.ts",
-  "scripts": {
-
+  "scripts": {},
+  "dependencies": {
+    "@floating-ui/dom": "^1.5.4",
+    "dayjs": "^1.11.10",
+    "interactjs": "^1.10.26"
   }
 }
