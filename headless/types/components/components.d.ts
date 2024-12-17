@@ -7,7 +7,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import avatar from '../../components/base/avatar/MAvatar.tsx';
-import button from '../../components/base/button/MButton';
+import button from '../../components/base/button/MButton.tsx';
 import checkbox from '../../components/base/checkbox/MCheckbox';
 import checkboxGroup from '../../components/base/checkbox/MCheckboxGroup';
 import datepicker from '../../components/base/datePicker/MDatePicker';
