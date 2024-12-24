@@ -76,10 +76,10 @@
     <ComponentsWrap name="Checkbox">
       <div class="checkbox">
         <span>{{ checkboxVal }}</span>
+        <m-checkbox v-model="checkboxVal"></m-checkbox>
         <br/>
         <m-checkbox/>
         <m-checkbox disabled></m-checkbox>
-        <m-checkbox v-model="checkboxVal"></m-checkbox>
         <m-checkbox>slot</m-checkbox>
         <m-checkbox label="label"></m-checkbox>
         <m-checkbox label="label">replace by label</m-checkbox>
@@ -93,10 +93,16 @@
         <br/>
         <span>{{ checkboxObjectValue }}</span>
         <br/>
-        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject"
-        >obj value
-        </m-checkbox
-        >
+        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject">obj value</m-checkbox>
+        <div class="checkbox-group">
+          <span>{{ checkboxGroup }}</span>
+          <m-checkbox-group v-model="checkboxGroup">
+            <m-checkbox label="1" :value="1"/>
+            <m-checkbox label="2" :value="2"/>
+            <m-checkbox label="3" :value="3"/>
+            <m-checkbox label="4" :value="4"/>
+          </m-checkbox-group>
+        </div>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Input">
@@ -188,17 +194,6 @@
         <span>{{ date }}</span>
         <m-date-picker v-model="date"/>
         <m-date-picker v-model="date" type="month"/>
-      </div>
-    </ComponentsWrap>
-    <ComponentsWrap name="Checkbox">
-      <div class="checkbox-group">
-        <span>{{ checkboxGroup }}</span>
-        <m-checkbox-group v-model="checkboxGroup">
-          <m-checkbox label="1" :value="1"/>
-          <m-checkbox label="2" :value="2"/>
-          <m-checkbox label="3" :value="3"/>
-          <m-checkbox label="4" :value="4"/>
-        </m-checkbox-group>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Progress">
