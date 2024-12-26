@@ -2,7 +2,7 @@
 
 .m-input {
   --m-input-w: 244px;
-  --m-color-disabled: #DBDADD;
+  --m-color-disabled: #a9a9a9;
   box-sizing: content-box;
   border: 3px double transparent;
   width: var(--m-input-w);
