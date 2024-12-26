@@ -8,7 +8,7 @@
  *
  * v1.0.1 auto support dark mode
  */
-import { onBeforeUnmount, onMounted, watch } from 'vue';
+import { onBeforeUnmount, onMounted, onUnmounted, watch } from 'vue';
 import { WCSetup } from '../../types/template';
 import { RicePaperProps } from './index';
 import useImgMove from './compositions/useImgMove.ts';
@@ -19,14 +19,20 @@ export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
   return (props, { slots }) => {
     if (props.autoDarkMode === true || (props.autoDarkMode as unknown as string) === 'true') {
       const { darkModeRef, initDarkMode } = useDarkModeStorage();
-      const { onMountedHook } = useDarkMode({
+      const { onMountedHook, unmountedHook } = useDarkMode({
         autoMode: true,
         modelValue: darkModeRef.value,
       });
+      let needInit = true;
       onMounted(() => {
-        const needInit = initDarkMode();
+        needInit = initDarkMode();
         if (needInit) {
           onMountedHook();
+        }
+      });
+      onUnmounted(() => {
+        if (needInit) {
+          unmountedHook();
         }
       });
     }
