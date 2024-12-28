@@ -43,6 +43,7 @@
   height: 100%;
   border: none !important;
   outline: none !important;
+  color: var(--m-input-color);
 }
 
 .m-textarea-inner {

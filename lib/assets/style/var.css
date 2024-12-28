@@ -63,5 +63,6 @@ html[dark] {
   --dark-mode-path-fins: var(--dark-mode-path-fins-d);
   --dark-mode-d-fins-animation: fins_show 1s;
 
+  --m-input-color: #fff
 }
 
