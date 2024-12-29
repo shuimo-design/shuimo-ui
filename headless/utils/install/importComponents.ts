@@ -11,12 +11,15 @@ import { Component } from 'vue';
 
 // [base]
 import MAvatar from '../../components/base/avatar/MAvatar.tsx';
+import MInput from '../../components/base/input/MInput';
+import MButton from '../../components/base/button/MButton.tsx';
+import MSelect from '../../components/base/select/MSelect.tsx';
+import MCheckbox from '../../components/base/checkbox/MCheckbox.tsx';
 // [other]
 // [message]
 // [template]
 import MRicePaper from '../../components/template/ricePaper/MRicePaper.tsx';
 import MPopover from '../../components/message/popover/MPopover';
-import MInput from '../../components/base/input/MInput';
 
 
 export const components: Record<string, Component> = {

@@ -12,5 +12,6 @@ export * from './components/base/avatar';
 export * from './components/base/input';
 export * from './components/base/button';
 export * from './components/base/select';
+export * from './components/base/checkbox';
 
 export * from './components/message/popover';
