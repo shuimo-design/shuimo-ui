@@ -2,7 +2,7 @@
 
 .m-input {
   --m-input-w: 244px;
-  --m-color-disabled: #DBDADD;
+  --m-color-disabled: #a9a9a9;
   box-sizing: content-box;
   border: 3px double transparent;
   width: var(--m-input-w);
@@ -43,6 +43,7 @@
   height: 100%;
   border: none !important;
   outline: none !important;
+  color: var(--m-input-color);
 }
 
 .m-textarea-inner {

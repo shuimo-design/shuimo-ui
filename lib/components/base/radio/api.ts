@@ -22,4 +22,4 @@ export const props: MCOPO<RadioProps> = {
 export const radioGroupProps: MCOPO<RadioGroupProps> = {
   modelValue: { type: null, default: '' },
   name: { type: String, default: undefined },
-}
+};

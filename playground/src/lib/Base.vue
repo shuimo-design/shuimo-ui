@@ -167,6 +167,14 @@
 <!--        />-->
         <m-select
           v-model="emitValue"
+          disabled
+          :options="c"
+          option-param="name"
+          input-param="name"
+          value-param="name"
+        />
+        <m-select
+          v-model="emitValue"
           :options="c"
           option-param="name"
           input-param="name"
