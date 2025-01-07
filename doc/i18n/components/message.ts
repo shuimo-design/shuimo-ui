@@ -20,6 +20,7 @@ export const message = {
     '点击控制': 'Click Control',
     '普通悬浮提示': 'Basic Tooltip',
     '普通确认框': 'Basic Confirm',
+    '控制关闭': 'Closing Control',
   },
   zh: {
     '普通弹窗': '普通弹窗',
@@ -33,6 +34,6 @@ export const message = {
     '点击控制': '点击控制',
     '普通悬浮提示': '普通悬浮提示',
     '普通确认框': '普通确认框',
-
+    '控制关闭': '控制关闭',
   },
 };

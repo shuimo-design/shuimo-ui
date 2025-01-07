@@ -12,6 +12,10 @@
 
 ::: demo message/dialog/height
 
+### {{$t(\'控制关闭\')}}
+
+::: demo message/dialog/closingControl
+
 ## API
 
 ::: api message/dialog
