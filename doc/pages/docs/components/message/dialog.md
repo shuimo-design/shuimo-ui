@@ -12,6 +12,10 @@
 
 ::: demo message/dialog/height
 
+### {{$t(\'控制关闭\')}}
+
+::: demo message/dialog/closingControl
+
 ### {{$t(\'双向绑定\')}}
 
 ::: demo message/dialog/modelValue

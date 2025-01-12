@@ -14,5 +14,3 @@
   --m-dialog-h: 600px;
 }
 </style>
-<script setup lang="ts">
-</script>
