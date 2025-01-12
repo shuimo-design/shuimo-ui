@@ -12,6 +12,10 @@
 
 ::: demo message/dialog/height
 
+### {{$t(\'双向绑定\')}}
+
+::: demo message/dialog/modelValue
+
 ## API
 
 ::: api message/dialog
