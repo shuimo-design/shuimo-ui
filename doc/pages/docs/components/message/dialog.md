@@ -16,6 +16,10 @@
 
 ::: demo message/dialog/closingControl
 
+### {{$t(\'双向绑定\')}}
+
+::: demo message/dialog/modelValue
+
 ## API
 
 ::: api message/dialog

@@ -17,6 +17,13 @@
           <h1>这里是dialog</h1>
         </div>
       </m-dialog>
+
+      <m-button @click="showDialog">点击这里打开</m-button>
+      <m-dialog v-model:visible="visible">
+        <div>
+          <h1>这里是dialog</h1>
+        </div>
+      </m-dialog>
     </ComponentsWrap>
     <ComponentsWrap name="Drawer">
       <m-drawer>
@@ -72,6 +79,9 @@
  */
 import { MConfirm, MMessage } from 'shuimo-ui/index';
 import ComponentsWrap from '../components/ComponentsWrap.vue';
+import { useDialog } from "shuimo-ui/index";
+
+const { visible, showDialog, closeDialog } = useDialog();
 
 const activeConfirm = async () => {
   const res = await MConfirm({ content: '测试' });
