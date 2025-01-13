@@ -16,13 +16,15 @@ const { useInput, props } = InputCore;
 
 export default defineComponent((props: InputProps, { emit }) => {
   const {
-    baseProps,
+    renderInit,
     inputType, onInput, onFocus, onBlur,
     inputClass,
     rowInfo,
   } = useInput(props, { emit });
 
   return () => {
+    const { baseProps } = renderInit();
+
     return h(inputType, { class: 'm-input' }, {
       ...baseProps,
       onInput, onFocus, onBlur,

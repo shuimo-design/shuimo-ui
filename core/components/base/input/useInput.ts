@@ -23,13 +23,18 @@ export default function useInput<
   const inputClass = isInput ? 'm-input-inner' : 'm-textarea-inner';
   const rowInfo = isInput ? {} : { rows: 10 };
 
-  const baseProps = {
-    autofocus: props.autofocus,
-    value: props.modelValue,
-    placeholder: props.placeholder,
-    disabled: props.disabled,
-    type: props.type,
-    readOnly: props.readonly,
+  const renderInit = ()=>{
+    const baseProps = {
+      autofocus: props.autofocus,
+      value: props.modelValue,
+      placeholder: props.placeholder,
+      disabled: props.disabled,
+      type: props.type,
+      readOnly: props.readonly,
+    }
+    return {
+      baseProps
+    }
   }
 
   const onInput = (e: HTMLElementEvent<HTMLInputElement>)=>{
@@ -46,7 +51,7 @@ export default function useInput<
   }
 
   return {
-    baseProps,
+    renderInit,
     inputType,
     inputClass,
     rowInfo,

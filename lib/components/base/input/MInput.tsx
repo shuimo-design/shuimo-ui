@@ -28,13 +28,16 @@ export default defineComponent((props: InputProps, { emit }) => {
   }));
 
   const {
-    baseProps,
+    renderInit,
     inputType, onInput, onFocus, onBlur,
     inputClass,
     rowInfo,
   } = useInput(props, { emit });
 
   return () => {
+
+    const { baseProps } = renderInit();
+
     return h(MBorder, borderClass.value, () => h(inputType, {
       ...baseProps,
       onInput, onFocus, onBlur,
@@ -47,3 +50,4 @@ export default defineComponent((props: InputProps, { emit }) => {
   emits: ['update:modelValue', 'focus', 'blur', 'input'],
   props,
 });
+
