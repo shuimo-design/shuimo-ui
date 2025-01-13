@@ -13,7 +13,7 @@ import * as fs from 'fs';
 
 const s = fs.statSync('../../.output/public/fonts/wljh.ttf');
 
-const file = '../../.output/server/chunks/runtime.mjs';
+const file = '../../.output/server/chunks/nitro/nitro.mjs';
 fs.readFile(file, (err, data) => {
   let str = data.toString();
   const info = str.match(/\/fonts\/wljh.ttf[^}]*/);
