@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from 'shuimo-ui/index';
+import { useDialog } from 'shuimo-ui';
 
 const { visible, showDialog } = useDialog();
 </script>
