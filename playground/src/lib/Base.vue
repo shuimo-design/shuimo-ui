@@ -62,6 +62,7 @@
         <m-switch v-model="switchValue"/>
         <m-switch v-model="switchValue" loading/>
         <m-switch v-model="switchValue" disabled/>
+        <m-switch active-info="激活" inactive-info="关闭"/>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Radio">
