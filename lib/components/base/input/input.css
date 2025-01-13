@@ -1,22 +1,17 @@
+@import "@shuimo-design/ui-core/components/base/input/input.css";
+
 @import "../../template/border/border.css";
 
 .m-input {
-  --m-input-w: 244px;
-  --m-color-disabled: #a9a9a9;
-  box-sizing: content-box;
   border: 3px double transparent;
-  width: var(--m-input-w);
-  height: 31px;
-  line-height: 31px;
+
 
   .m-border-main {
     display: flex;
   }
 
   &.m-input-disabled {
-    .m-input-inner, .m-textarea-inner {
-      background-color: var(--m-color-disabled) !important;
-    }
+
 
     .m-border-line {
       opacity: 0.6;

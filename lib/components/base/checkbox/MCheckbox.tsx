@@ -12,15 +12,19 @@
  */
 import { defineComponent, ref, watch } from 'vue';
 import { notEmpty } from '../../../tools';
-import { props } from './api.ts';
+import { props } from '@shuimo-design/ui-core/components/base/checkbox/api.ts';
 import { getNewModelValue, initChecked } from './useCheckbox.ts';
-import { CheckboxProps } from './index';
+import { CheckboxProps } from '@shuimo-design/ui-core/components/base/checkbox/props';
 import './checkbox.css';
+import useCheckbox from '@shuimo-design/ui-core/components/base/checkbox/useCheckbox.ts';
 
 export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
   const props = _props as Required<CheckboxProps>; // props in setup is Required
 
-  const checked = ref(initChecked(props));
+  const {
+    checkboxClass,
+    checked
+  } = useCheckbox(props, { emit, slots });
 
   watch(() => [props.modelValue, props.checked, props.value], () => {
     checked.value = initChecked(props);
@@ -42,7 +46,7 @@ export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
       {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
     </label>;
 
-    return <div class={['m-checkbox', { 'm-disabled': props.disabled }]} onClick={onClick}>
+    return <div class={checkboxClass} onClick={onClick}>
       <input type="checkbox" checked={checked.value}/>
       <div class="m-checkbox-checkbox"/>
       {
