@@ -57,6 +57,7 @@ export abstract class BaseSelect<OptionValue> {
     this.init();
   }
 
+  // todo 这里在单选的时候，也会返回为数组，很奇怪，同时如果modelValue更新，不会重新匹配数据，需要检查一下问题
   get modelValue() {
     const modelValue = this.options?.props.modelValue;
     if (isEmpty(modelValue)) {

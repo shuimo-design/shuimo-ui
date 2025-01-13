@@ -9,7 +9,7 @@
  */
 
 import { defineComponent, ref, watchEffect } from 'vue';
-import { checkboxGroupProps } from './api.ts';
+import { checkboxGroupProps } from '@shuimo-design/ui-core/components/base/checkbox/api.ts';
 
 type ChildType = any;
 export default defineComponent((props, { emit, slots }) => {
