@@ -10,7 +10,7 @@
  * v2.0.0 阿怪 upgrade to core version
  * v2.0.1 阿怪 support dark-mode
  */
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent, watch } from 'vue';
 import { notEmpty } from '../../../tools';
 import { props } from '@shuimo-design/ui-core/components/base/checkbox/api.ts';
 import { getNewModelValue, initChecked } from './useCheckbox.ts';
@@ -23,7 +23,7 @@ export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
 
   const {
     checkboxClass,
-    checked
+    checked,
   } = useCheckbox(props, { emit, slots });
 
   watch(() => [props.modelValue, props.checked, props.value], () => {
