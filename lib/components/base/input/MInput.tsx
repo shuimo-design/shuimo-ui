@@ -15,38 +15,31 @@
  * v2.0.2 阿怪 fix type sinking error
  */
 import { computed, defineComponent, h } from 'vue';
-import { props } from './api.ts';
-import { HTMLElementEvent } from '../../types/template';
 import MBorder from '../../template/border/MBorder.tsx';
 import './input.css';
-import { InputProps } from './index';
+import { InputProps } from '@shuimo-design/ui-core/components/base/input/props';
+import { InputCore } from '@shuimo-design/ui-core/components/base/input';
+
+const { useInput, props } = InputCore;
 
 export default defineComponent((props: InputProps, { emit }) => {
   const borderClass = computed(() => ({
     class: ['m-input', { 'm-textarea': props.type === 'textarea' }, { 'm-input-disabled': props.disabled }],
   }));
-  return () => {
-    const isInput = props.type !== 'textarea';
 
-    return h(MBorder, borderClass.value, () => h(!isInput ? 'textarea' : 'input', {
-      autofocus: props.autofocus,
-      value: props.modelValue,
-      placeholder: props.placeholder,
-      disabled: props.disabled,
-      type: props.type,
-      readOnly: props.readonly,
-      onInput: (e: HTMLElementEvent<HTMLInputElement>) => {
-        emit('update:modelValue', e.target.value);
-        emit('input', e.target.value);
-      },
-      onFocus: (e: FocusEvent) => {
-        emit('focus', e);
-      },
-      onBlur: (e: FocusEvent) => {
-        emit('blur', e);
-      },
-      class: isInput ? 'm-input-inner' : 'm-textarea-inner',
-      ...(isInput ? {} : { rows: 10 }),
+  const {
+    baseProps,
+    inputType, onInput, onFocus, onBlur,
+    inputClass,
+    rowInfo,
+  } = useInput(props, { emit });
+
+  return () => {
+    return h(MBorder, borderClass.value, () => h(inputType, {
+      ...baseProps,
+      onInput, onFocus, onBlur,
+      class: inputClass,
+      ...rowInfo,
     }));
   };
 }, {
