@@ -31,7 +31,7 @@
     "attributes": "attributes.json"
   },
   "devDependencies": {
-    "@janghood/config": "0.0.1-5",
+    "@janghood/config": "0.0.1-6",
     "@janghood/lint": "0.0.5",
     "@nuxt/devtools": "latest",
     "@types/node": "^20.12.2",

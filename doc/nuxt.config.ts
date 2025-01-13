@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   extensions: ['.md'],
+
   modules: [
     './modules/markdown',
     './modules/fontmin',
@@ -8,7 +9,9 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-gtag',
   ],
+
   css: ['./assets/style/index.css'],
+
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'zh',
@@ -27,7 +30,10 @@ export default defineNuxtConfig({
     },
     vueI18n: './i18n/i18n.config.ts',
   },
+
   gtag: {
     id: 'G-W1HW9D136H',
   },
+
+  compatibilityDate: '2025-01-13',
 });

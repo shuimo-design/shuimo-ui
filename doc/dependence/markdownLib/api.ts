@@ -18,7 +18,14 @@ export default function api() {
       searchValue,
       (apiStr: string, relativeApiPath: string) => {
         const path = relativeApiPath.endsWith('.md') ? relativeApiPath : `${relativeApiPath}/index.md`;
-        const fileInfo = fs.readFileSync(`${__dirname}/../../apis/${path}`, 'utf-8');
+
+        // todo 后面上面那个全部换成props,现在是个中间处理方案
+        let filePath = `${__dirname}/../../apis/${path}`;
+        if (!fs.existsSync(filePath)){
+          filePath = `${__dirname}/../../apis/${relativeApiPath.endsWith('.md') ? relativeApiPath : `${relativeApiPath}/props.md`}`
+        }
+
+        const fileInfo = fs.readFileSync(filePath, 'utf-8');
         return fileInfo || '';
       });
   }

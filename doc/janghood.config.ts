@@ -13,12 +13,17 @@ import { defineJhConfig } from '@janghood/config';
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ['../lib/components/**/**/*.d.ts'],
-    exclude: ['../lib/components/types/*.d.ts'],
+    include: ['../lib/components/**/**/*.d.ts', '../core/components/**/**/*.d.ts'],
+    exclude: ['../lib/components/types/*.d.ts', '../core/components/types/*.d.ts'],
     document: {
       markdown: {
         output: 'apis',
-        replace: '../lib/components',
+        replace: dict => {
+          if (dict.startsWith('../core')) {
+            return dict.replace('../core/components', '');
+          }
+          return dict.replace('../lib/components', '');
+        },
         active: true,
       },
     },
