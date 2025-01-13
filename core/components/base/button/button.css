@@ -1,0 +1,34 @@
+:root {
+/*  --m-button-width: 180px;
+  --m-button-height: 80px;
+  --m-button-line-height: 24px;*/
+}
+
+.m-button {
+  padding: 0 15px;
+  outline: unset;
+  height: var(--m-button-height, 32px);
+  /*line-height: var(--m-button-line-height, 32px);*/
+  min-width: var(--m-button-width, 32px);
+  border: 5px double transparent;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+  cursor: var(--m-cursor-pointer);
+
+  &:disabled, &:disabled:hover {
+    color: var(--m-color-text-disabled);
+    cursor: var(--m-cursor-disabled);
+
+    & > slot {
+      pointer-events: none;
+    }
+  }
+}
+
+a.m-button {
+  text-decoration: unset;
+  height: 22px;
+  padding: unset;
+}
+

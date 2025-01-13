@@ -1,0 +1,30 @@
+:root {
+  --m-swtich-size: 24px;
+}
+
+.m-switch {
+  display: inline-flex;
+}
+
+.m-switch-main {
+  height: var(--m-swtich-size);
+  width: calc(var(--m-swtich-size) / .618);
+  background: var(--m-color-background);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.m-switch-inactive{
+  .m-switch-core{
+    float:right;
+  }
+}
+
+.m-switch-core {
+  margin-top: 2px;
+  height: calc(var(--m-swtich-size) - 4px);
+  width: calc(var(--m-swtich-size) - 4px);
+  background: var(--m-color-border);
+  border-radius: 999px;
+  transition: all .3s;
+}

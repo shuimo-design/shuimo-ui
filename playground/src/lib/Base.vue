@@ -64,6 +64,7 @@
         <m-switch v-model="switchValue"/>
         <m-switch v-model="switchValue" loading/>
         <m-switch v-model="switchValue" disabled/>
+        <m-switch active-info="激活" inactive-info="关闭"/>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Radio">
@@ -73,17 +74,6 @@
         <m-radio v-model="radioVal" :label="radioLabel" name="hi" :value="radioLabel"/>
         <m-radio label="2" name="hi" value="2"/>
         <m-radio label="3" name="hi" value="2"/>
-
-
-        <br/>
-        <span>group radio: {{ radioGroupValue }}</span>
-        <m-radio-group v-model="radioGroupValue" name="group">
-          <m-radio label="hi" value="hi" disabled=""/>
-          <m-radio label="hello" value="hello"/>
-          <m-radio label="bye" value="bye"/>
-        </m-radio-group>
-
-
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Checkbox">
@@ -92,7 +82,6 @@
         <br/>
         <m-checkbox/>
         <m-checkbox disabled></m-checkbox>
-        <m-checkbox disabled v-model="checkboxVal">disabled</m-checkbox>
         <m-checkbox v-model="checkboxVal"></m-checkbox>
         <m-checkbox>slot</m-checkbox>
         <m-checkbox label="label"></m-checkbox>
@@ -210,17 +199,6 @@
         <span>{{ date }}</span>
         <m-date-picker v-model="date"/>
         <m-date-picker v-model="date" type="month"/>
-      </div>
-    </ComponentsWrap>
-    <ComponentsWrap name="Checkbox">
-      <div class="checkbox-group">
-        <span>{{ checkboxGroup }}</span>
-        <m-checkbox-group v-model="checkboxGroup">
-          <m-checkbox label="1" :value="1"/>
-          <m-checkbox label="2" :value="2"/>
-          <m-checkbox label="3" :value="3"/>
-          <m-checkbox label="4" :value="4"/>
-        </m-checkbox-group>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Progress">

@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MCOPO } from '../../types/props';
-import { SwitchProps } from './index';
+import { SwitchProps } from './props';
 
 
 export const props: MCOPO<SwitchProps> = {

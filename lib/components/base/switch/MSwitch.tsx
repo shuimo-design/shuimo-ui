@@ -9,10 +9,10 @@
  * modelValue不为布尔值的时候暂时不冒泡，里面的逻辑不太清晰，后续可以扩展一下
  */
 import { computed, defineComponent, ref } from 'vue';
-import { props } from './api.ts';
-import { getIsActive, switchIsBoolean } from './useSwitch.ts';
+import { props } from '@shuimo-design/ui-core/components/base/switch/api.ts';
+import { getIsActive, switchIsBoolean } from '@shuimo-design/ui-core/components/base/switch/useSwitch.tsx';
 import { isEmpty } from '../../../tools';
-import { SwitchProps } from './index';
+import { SwitchProps } from '@shuimo-design/ui-core/components/base/switch/props';
 import './switch.css';
 
 export default defineComponent((props: SwitchProps, { emit, slots }) => {

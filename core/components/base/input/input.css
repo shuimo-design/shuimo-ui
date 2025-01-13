@@ -1,0 +1,19 @@
+:root{
+  --m-input-w: 244px;
+  --m-color-disabled: #DBDADD;
+}
+
+.m-input{
+  box-sizing: content-box;
+  width: var(--m-input-w);
+  height: 31px;
+  line-height: 31px;
+
+  &.m-input-disabled {
+
+    .m-input-inner, .m-textarea-inner {
+      background-color: var(--m-color-disabled) !important;
+    }
+
+  }
+}

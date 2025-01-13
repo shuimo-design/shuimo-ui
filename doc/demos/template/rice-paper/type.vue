@@ -3,7 +3,7 @@
     <m-rice-paper class="filter-div" type="warm">
       <div class="inside-div">warm</div>
     </m-rice-paper>
-    <m-rice-paper class="filter-div" type="cold" m>
+    <m-rice-paper class="filter-div" type="cold">
       <div class="inside-div">cold</div>
     </m-rice-paper>
   </div>

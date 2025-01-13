@@ -1,0 +1,23 @@
+@import "./var/Wuxing.css";
+
+:root{
+  --m-color-text: #2B333E;
+  --m-color-text-disabled: #74787A;
+  --m-color-text-dark: #0F1423;
+  --m-color-divider: #0F142333;
+  --m-color-success: #4A9992;
+  --m-color-error: #861717;
+  --m-color-background: #0F142320;
+  --m-color-green2: #1A3B32;
+  --m-color-pink: #CC163A;
+  --m-color-warn: #E8B004;
+
+  --m-color-main: #861717;
+  --m-color-border: #5E616D;
+  --m-color-orange: #FCA104;
+  --m-color-blue: #1661AB;
+  --m-color-green: #223E36;
+
+
+  --m-color-disabled: #DBDADD;
+}

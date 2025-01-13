@@ -8,7 +8,8 @@
  */
 import { createApp } from 'vue';
 import App from './src/App.vue';
-import { createMUI } from 'shuimo-ui/index';
+// import { createMUI } from 'shuimo-ui/index';
+import { createMUI } from '@shuimo-design/shuimo-ui-headless/index';
 import './src/assets/index.css';
 
 createApp(App)
