@@ -17,18 +17,15 @@ createApp(App)
     disableWebComponent: ['MRicePaper','MBorder']
   }))
   // .use(createMUI())
-  .mount('#app');
+  .mount('#shuimo');
 
-//
-// import { createApp } from 'vue';
-// import App from './src/App.vue';
-// import { createMUI } from '@shuimo-design/shuimo-ui-headless/index';
-// import '@shuimo-design/shuimo-ui-headless/index.css';
-// import './src/assets/index.css';
-//
-// createApp(App)
-//   // .use(createMUI({
-//   //   disableWebComponent: ['MRcePaper','MBorder']
-//   // }))
-//   .use(createMUI())
-//   .mount('#app');
+
+import { createMUI as createHeadlessMUI } from '@shuimo-design/shuimo-ui-headless/index';
+import '@shuimo-design/shuimo-ui-headless/index.css';
+
+createApp(App)
+  // .use(createMUI({
+  //   disableWebComponent: ['MRcePaper','MBorder']
+  // }))
+  .use(createHeadlessMUI())
+  .mount('#headless');

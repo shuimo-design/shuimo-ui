@@ -7,7 +7,18 @@ html[dark] {
   color: white;
 }
 
-#app {
-  width: 100vw;
+.flex{
+  display: flex;
+}
+
+#shuimo {
+  display: inline-block;
+  width: 50vw;
+  height: 100vh;
+}
+
+#headless {
+  display: inline-block;
+  width: 50vw;
   height: 100vh;
 }
