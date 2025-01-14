@@ -7,16 +7,19 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent } from 'vue';
-import { props } from './api.ts';
-import './avatar.css';
+import { type AvatarProps } from '@shuimo-design/ui-core/types/index';
+import { AvatarCore } from '@shuimo-design/ui-core';
 import MAvatarSvg from './MAvatarSvg.tsx';
-import { AvatarProps } from './index';
+import './avatar.css';
+
+const { props, useAvatar } = AvatarCore;
 
 export default defineComponent((_props: AvatarProps) => {
-  const props = _props as Required<AvatarProps>;
+  const { renderInit, props } = useAvatar(_props);
   return () => {
-    return <div class={['m-avatar', `m-avatar-${props.variant}`, `m-avatar-${props.size}`]}>
-      <img src={props.img} alt=""/>
+    const { avatarClass, img } = renderInit();
+    return <div class={avatarClass}>
+      {img}
       <MAvatarSvg variant={props.variant}/>
     </div>;
   };

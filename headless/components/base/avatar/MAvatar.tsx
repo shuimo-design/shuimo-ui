@@ -11,13 +11,14 @@ import { type AvatarProps } from '@shuimo-design/ui-core/types/index';
 import { AvatarCore } from '@shuimo-design/ui-core';
 import './avatar.css';
 
-const props = AvatarCore.props;
+const { props, useAvatar } = AvatarCore;
 
 export default defineComponent((_props: AvatarProps) => {
-  const props = _props as Required<AvatarProps>;
+  const { renderInit } = useAvatar(_props);
   return () => {
-    return <div class={['m-avatar', `m-avatar-${props.variant}`, `m-avatar-${props.size}`]}>
-      <img src={props.img} alt=""/>
+    const { avatarClass, img } = renderInit();
+    return <div class={avatarClass}>
+      {img}
     </div>;
   };
 }, {

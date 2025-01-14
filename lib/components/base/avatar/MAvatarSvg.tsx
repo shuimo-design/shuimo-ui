@@ -7,16 +7,18 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { computed, defineComponent } from 'vue';
-import { AVATAR_CIRCLE_ID, AVATAR_SQUARE_ID } from '../../other/svg/MSvgSymbol.tsx';
-import { AvatarProps } from './index';
-import { props } from './api.ts';
+import { AvatarCore } from '@shuimo-design/ui-core';
+import { type AvatarProps } from '@shuimo-design/ui-core/types/index';
 import useSvgInject from '../../../compositions/common/useSvgInject.ts';
+import { AVATAR_CIRCLE_ID, AVATAR_SQUARE_ID } from '../../other/svg/MSvgSymbol.tsx';
 
 type SvgInfoType = { viewBox: string; id: string };
 const avatarSvgInfo: Record<keyof AvatarProps['variant'], SvgInfoType> = {
   circle: { viewBox: '0 0 837.14 743.36', id: AVATAR_CIRCLE_ID },
   square: { viewBox: '0 0 832.79 828.92', id: AVATAR_SQUARE_ID },
 };
+
+const { props } = AvatarCore;
 
 export default defineComponent((props: Pick<AvatarProps, 'variant'>) => {
   const {

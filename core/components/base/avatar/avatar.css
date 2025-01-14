@@ -23,12 +23,6 @@
   width: var(--m-avatar-w);
   height: var(--m-avatar-size);
 
-  & .m-avatar-mask {
-    grid-area: avatar;
-    width: var(--m-avatar-w);
-    height: var(--m-avatar-size);
-  }
-
   --m-image-m-t: 0;
   --m-image-m-l: 0;
 
