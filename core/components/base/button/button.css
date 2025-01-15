@@ -1,19 +1,18 @@
 :root {
-/*  --m-button-width: 180px;
-  --m-button-height: 80px;
-  --m-button-line-height: 24px;*/
+  --m-button-size: var(--m-size-default);
+  --m-button-height: calc(var(--m-button-size) * 3.2);
+  --m-button-width: calc(var(--m-button-size) * 3.2);
+  --m-button-color: white;
 }
 
 .m-button {
-  padding: 0 15px;
   outline: unset;
   height: var(--m-button-height, 32px);
-  /*line-height: var(--m-button-line-height, 32px);*/
   min-width: var(--m-button-width, 32px);
   border: 5px double transparent;
   border-radius: 2px;
-  color: white;
   text-align: center;
+  color: var(--m-button-color);
   cursor: var(--m-cursor-pointer);
 
   &:disabled, &:disabled:hover {
@@ -24,11 +23,54 @@
       pointer-events: none;
     }
   }
+
+  &.m-button-default {
+    background-color: var(--m-color-songlan);
+    &:hover{
+      background-color: var(--m-color-qingluan);
+    }
+  }
+
+  &.m-button-error {
+    background-color: var(--m-color-error);
+    &:hover{
+      background-color: var(--m-color-daran);
+    }
+  }
+
+  &.m-button-confirm {
+    background-color: var(--m-color-success);
+    &:hover{
+      background-color: var(--m-color-zhengqing);
+    }
+  }
+
+  &.m-button-primary {
+    background-color: var(--m-color-blue);
+    &:hover{
+      background-color: #4994C4;
+    }
+  }
+
+  &.m-button-warning {
+    background-color: var(--m-color-jin-yang);
+    &:hover{
+      background-color: var(--m-color-zhizi);
+    }
+  }
+
+  &.m-button-disabled {
+    background-color: var(--m-color-jin-yin);
+    &:hover{
+      background-color: var(--m-color-jin-yin);
+    }
+  }
+
 }
 
 a.m-button {
   text-decoration: unset;
-  height: 22px;
-  padding: unset;
+  padding: 1px 6px;
+  height: var(--m-button-height, 32px);
 }
 

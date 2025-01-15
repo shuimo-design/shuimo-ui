@@ -13,7 +13,7 @@ import { Component } from 'vue';
 import MAvatar from '../../components/base/avatar/MAvatar.tsx';
 import MInput from '../../components/base/input/MInput';
 import MButton from '../../components/base/button/MButton.tsx';
-import MSelect from '../../components/base/select/MSelect.tsx';
+// import MSelect from '../../components/base/select/MSelect.tsx';
 import MCheckbox from '../../components/base/checkbox/MCheckbox.tsx';
 import MSwitch from '../../components/base/switch/MSwitch.tsx';
 // [other]
@@ -25,6 +25,8 @@ import MPopover from '../../components/message/popover/MPopover';
 
 export const components: Record<string, Component> = {
   MAvatar,
+  MButton,
+
 
   MRicePaper,
 };
@@ -32,6 +34,7 @@ export const components: Record<string, Component> = {
 
 export {
   MAvatar,
+  MButton,
 
   MRicePaper,
 };

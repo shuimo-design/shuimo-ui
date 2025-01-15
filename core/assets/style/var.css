@@ -1,6 +1,6 @@
 @import "./var/Wuxing.css";
 
-:root{
+:root {
   --m-color-text: #2B333E;
   --m-color-text-disabled: #74787A;
   --m-color-text-dark: #0F1423;
@@ -18,6 +18,18 @@
   --m-color-blue: #1661AB;
   --m-color-green: #223E36;
 
-
   --m-color-disabled: #DBDADD;
+}
+
+/* size */
+:root {
+  --m-size-small: 5px;
+  --m-size-default: 10px;
+  --m-size-large: 15px;
+}
+
+:root {
+  --m-cursor-auto: auto;
+  --m-cursor-pointer: pointer;
+  --m-cursor-disabled: not-allowed;
 }

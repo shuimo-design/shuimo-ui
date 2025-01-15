@@ -12,7 +12,6 @@ import { loadingDirective } from '../../components/other/loading/directive';
 import { MShuimoConfigKey } from '../../components/other/config/MShuimoConfig.tsx';
 import { installComponent } from './installComponent.ts';
 
-
 export const install = (options: MUIOption | undefined = {}) => {
   return (app: App) => {
     app = installComponent(app, options);

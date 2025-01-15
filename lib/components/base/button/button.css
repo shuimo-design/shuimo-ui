@@ -1,104 +1,12 @@
+@import "@shuimo-design/ui-core/components/base/button/button.css";
+
+:root {
+  --m-button-line-height: calc(var(--m-button-size) * 2);
+}
+
 .m-button {
-  /**
-    @import "../../style/cursor.pcss";
-  **/
-
   padding: 0 15px;
-  height: var(--m-button-height, 32px);
-  outline: unset;
-  line-height: 24px;
-  min-width: var(--m-button-width, 32px);
   border: 5px double transparent;
-  border-radius: 2px;
   border-image: url(./assets/border/base.webp) 8;
-  color: white;
-  text-align: center;
-  cursor: var(--m-cursor-pointer);
-
-  &:disabled, &:disabled:hover {
-    background: url(./assets/bg/disabled.webp);
-    background-size: 20.8px 9.8px;
-    color: var(--m-color-text-disabled);
-    cursor: var(--m-cursor-disabled);
-
-    & > slot {
-      pointer-events: none;
-    }
-  }
-
-}
-
-
-a.m-button {
-  text-decoration: unset;
-  height: 22px;
-  padding: unset;
-}
-
-/**
-  todo find a way to support for each
-
-$types: default, primary, error, confirm, warning;
-
-@each $type in $types {
-  .m-button-#{$type} {
-    background: url('./assets/bg/#{$type}.webp');
-    background-size: 20.8px 9.8px;
-
-    &:hover {
-      background: url('./assets/bg/hover/#{$type}.webp');
-      background-size: 20.8px 9.8px;
-    }
-  }
-}
-
- **/
-.m-button-default {
-  background: url(./assets/bg/default.webp);
-  background-size: 20.8px 9.8px;
-
-  &:hover {
-    background: url(./assets/bg/hover/default.webp);
-    background-size: 20.8px 9.8px;
-  }
-}
-
-.m-button-primary {
-  background: url(./assets/bg/primary.webp);
-  background-size: 20.8px 9.8px;
-
-  &:hover {
-    background: url(./assets/bg/hover/primary.webp);
-    background-size: 20.8px 9.8px;
-  }
-}
-
-.m-button-error {
-  background: url(./assets/bg/error.webp);
-  background-size: 20.8px 9.8px;
-
-  &:hover {
-    background: url(./assets/bg/hover/error.webp);
-    background-size: 20.8px 9.8px;
-  }
-}
-
-.m-button-confirm {
-  background: url(./assets/bg/confirm.webp);
-  background-size: 20.8px 9.8px;
-
-  &:hover {
-    background: url(./assets/bg/hover/confirm.webp);
-    background-size: 20.8px 9.8px;
-  }
-}
-
-.m-button-warning {
-  background: url(./assets/bg/warning.webp);
-  background-size: 20.8px 9.8px;
-
-  &:hover {
-    background: url(./assets/bg/hover/warning.webp);
-    background-size: 20.8px 9.8px;
-  }
+  background-image: url(./assets/button-mask.svg);
 }
