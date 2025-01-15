@@ -9,8 +9,8 @@
 
 import { createApp } from 'vue';
 import App from './src/App.vue';
-import { createMUI } from 'shuimo-ui/index';
 import './src/assets/index.css';
+import { createMUI } from 'shuimo-ui/index';
 
 createApp(App)
   .use(createMUI({
@@ -18,14 +18,3 @@ createApp(App)
   }))
   // .use(createMUI())
   .mount('#shuimo');
-
-
-import { createMUI as createHeadlessMUI } from '@shuimo-design/shuimo-ui-headless/index';
-import '@shuimo-design/shuimo-ui-headless/index.css';
-
-createApp(App)
-  // .use(createMUI({
-  //   disableWebComponent: ['MRcePaper','MBorder']
-  // }))
-  .use(createHeadlessMUI())
-  .mount('#headless');

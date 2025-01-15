@@ -8,12 +8,13 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { useDarkModeStorage } from 'shuimo-ui/index.ts';
+// 暂借一下 这里直接用lib中的useDarkModeStorage地址
+import useDarkModeStorage from 'shuimo-ui/compositions/useDarkModeStorage.ts';
 import { onMounted, provide, ref } from 'vue';
 import Base from './lib/Base.vue';
-import Message from './lib/Message.vue';
-import Other from './lib/Other.vue';
-import Template from './lib/Template.vue';
+// import Message from './lib/Message.vue';
+// import Other from './lib/Other.vue';
+// import Template from './lib/Template.vue';
 // import MTree from './lib/components/MTree.vue';
 
 

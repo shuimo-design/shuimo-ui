@@ -96,10 +96,8 @@
         <br/>
         <span>{{ checkboxObjectValue }}</span>
         <br/>
-        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject"
-        >obj value
-        </m-checkbox
-        >
+        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject">obj value
+        </m-checkbox>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Input">
@@ -123,7 +121,7 @@
         <m-button type="warning">warning</m-button>
         <m-button link>link</m-button>
         <m-button @click="buttonClick" class="button-event" disabled>disabled</m-button>
-        <m-button text="text！"></m-button>
+        <m-button text="text!"></m-button>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Select">

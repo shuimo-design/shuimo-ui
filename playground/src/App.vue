@@ -9,14 +9,6 @@
  */
 import Playground from './Playground.vue';
 
-import { MPrinter } from "shuimo-ui/index";
-
-const mPrinter = MPrinter();
-
-mPrinter.info({
-    message: 'error',
-    description: 'error description'
-});
 </script>
 
 <template>
