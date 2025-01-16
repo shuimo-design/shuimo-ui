@@ -9,55 +9,37 @@
  * v1.0.1 修复checkbox的slot支持
  * v2.0.0 阿怪 upgrade to core version
  * v2.0.1 阿怪 support dark-mode
+ * v3.0.0 阿怪 use ui-core hook
  */
-import { defineComponent, watch } from 'vue';
-import { notEmpty } from '../../../tools';
-import { props } from '@shuimo-design/ui-core/components/base/checkbox/api.ts';
-import { getNewModelValue, initChecked } from './useCheckbox.ts';
+import { defineComponent } from 'vue';
+import { CheckboxCore } from '@shuimo-design/ui-core';
 import { CheckboxProps } from '@shuimo-design/ui-core/components/base/checkbox/props';
 import './checkbox.css';
-import useCheckbox from '@shuimo-design/ui-core/components/base/checkbox/useCheckbox.ts';
 
-export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
-  const props = _props as Required<CheckboxProps>; // props in setup is Required
+const { useCheckbox, checkboxOptions } = CheckboxCore;
 
+export default defineComponent((_props: CheckboxProps, ctx) => {
   const {
-    checkboxClass,
     checked,
-  } = useCheckbox(props, { emit, slots });
-
-  watch(() => [props.modelValue, props.checked, props.value], () => {
-    checked.value = initChecked(props);
-  });
-
-  const onClick = (e: MouseEvent) => {
-    e.stopPropagation();
-    if (props.disabled) {
-      return;
-    }
-    checked.value = !checked.value;
-    const newVal = getNewModelValue(props, checked.value);
-    emit('change', newVal);
-    emit('update:modelValue', newVal);
-  };
+    onClick,
+    renderInit,
+  } = useCheckbox(_props as Required<CheckboxProps>, ctx);
 
   return () => {
-    const label = <label class="m-checkbox-slot">
-      {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
-    </label>;
+    const {
+      label,
+      input,
+      checkboxClass,
+    } = renderInit();
 
     return <div class={checkboxClass} onClick={onClick}>
-      <input type="checkbox" checked={checked.value}/>
+      {input}
       <div class="m-checkbox-checkbox"/>
       {
-        props.indeterminate ? <div class="m-checkbox-checkbox-indeterminate"/> :
+        _props.indeterminate ? <div class="m-checkbox-checkbox-indeterminate"/> :
           checked.value ? <div class="m-checkbox-checkbox-inner "/> : null
       }
       {label}
     </div>;
   };
-}, {
-  name: 'MCheckbox',
-  props,
-  emits: ['change', 'update:modelValue'],
-});
+}, checkboxOptions);

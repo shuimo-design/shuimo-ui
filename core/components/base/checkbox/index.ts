@@ -7,10 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { props } from './api.ts';
-import useCheckbox from './useCheckbox';
+import useCheckbox, { checkboxOptions } from './useCheckbox.tsx';
 
 
 export const CheckboxCore = {
   props,
-  useCheckbox
+  useCheckbox,
+  checkboxOptions
 }

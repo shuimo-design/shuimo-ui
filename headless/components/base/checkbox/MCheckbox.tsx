@@ -8,35 +8,27 @@
  */
 import { defineComponent } from 'vue';
 import { CheckboxCore } from '@shuimo-design/ui-core';
-import useCheckbox from '@shuimo-design/ui-core/components/base/checkbox/useCheckbox.ts';
 import { CheckboxProps } from '@shuimo-design/ui-core/components/base/checkbox/props';
-import { notEmpty } from '@shuimo-design/ui-core/tools';
 
+const { useCheckbox, props, checkboxOptions } = CheckboxCore;
 
-export default defineComponent((_props: CheckboxProps, { emit, slots }) => {
-  const props = _props as Required<CheckboxProps>; // props in setup is Required
+export default defineComponent((_props: CheckboxProps, ctx) => {
   const {
-    checkboxClass,
     checked,
-    onClick
-  } = useCheckbox(props, { emit, slots });
-
-
+    onClick,
+    renderInit,
+  } = useCheckbox(_props as Required<CheckboxProps>, ctx);
 
   return () => {
-    const label = <label class="m-checkbox-slot">
-      {notEmpty(props.label) ? <span>{props.label}</span> : slots.default?.()}
-    </label>;
+    const {
+      label,
+      input,
+      checkboxClass,
+    } = renderInit();
 
     return <div class={checkboxClass} onClick={onClick}>
-      <input type="checkbox" checked={checked.value} disabled={props.disabled}/>
+      {input}
       {label}
     </div>;
   };
-
-
-}, {
-  name: 'MCheckbox',
-  props: CheckboxCore.props,
-  emits: ['change', 'update:modelValue'],
-});
+}, checkboxOptions);

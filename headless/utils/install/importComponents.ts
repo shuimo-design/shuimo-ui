@@ -26,7 +26,7 @@ import MPopover from '../../components/message/popover/MPopover';
 export const components: Record<string, Component> = {
   MAvatar,
   MButton,
-
+  MCheckbox,
 
   MRicePaper,
 };

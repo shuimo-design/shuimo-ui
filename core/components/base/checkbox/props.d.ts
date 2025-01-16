@@ -10,6 +10,8 @@
  * @docUrl https://shuimo.design/checkbox
  *
  * Hello, humor
+ *
+ * todo support readonly
  */
 import { HTMLElementEvent } from '../../../../lib/components/types/template';
 
@@ -41,13 +43,13 @@ export declare type CheckboxProps = {
   modelValue?: any,
   /**
    * @description checkbox indeterminate
-   *              是否为不确定状态  todo 暂未支持
+   *              是否为不确定状态
    * @default undefined
    */
   indeterminate?: boolean,
   /**
    * @description checkbox disabled
-   *              是否禁用 todo 暂未支持
+   *              是否禁用
    * @type boolean
    * @default false
    */

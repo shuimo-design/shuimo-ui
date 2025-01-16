@@ -78,10 +78,10 @@
     </ComponentsWrap>
     <ComponentsWrap name="Checkbox">
       <div class="checkbox">
-        <span>{{ checkboxVal }}</span>
         <br/>
         <m-checkbox/>
         <m-checkbox disabled></m-checkbox>
+        <span>{{ checkboxVal }}</span>
         <m-checkbox v-model="checkboxVal"></m-checkbox>
         <m-checkbox>slot</m-checkbox>
         <m-checkbox label="label"></m-checkbox>
@@ -96,8 +96,24 @@
         <br/>
         <span>{{ checkboxObjectValue }}</span>
         <br/>
-        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject">obj value
-        </m-checkbox>
+        <m-checkbox v-model="checkboxObjectValue" :value="checkboxObject">obj value</m-checkbox>
+
+        <div>
+          disabled: {{checkboxVal}}
+          <m-checkbox v-model="checkboxVal" disabled/>
+          <br/>
+          indeterminate: {{checkboxVal}}
+          <m-checkbox v-model="checkboxVal" :indeterminate="indeterminate"/>
+          <br/>
+          <m-checkbox v-model="indeterminate">控制indeterminate的值:{{indeterminate}}</m-checkbox>
+        </div>
+
+<!--        <div>已选中：{{ checkboxGroupData.join('，') }}</div>-->
+<!--        <m-checkbox-group v-model="checkboxGroupData">-->
+<!--          <m-checkbox label="极客江湖" value="极客江湖"/>-->
+<!--          <m-checkbox label="水墨组件" value="水墨组件"/>-->
+<!--        </m-checkbox-group>-->
+
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Input">
@@ -257,6 +273,7 @@ const buttonClick = () => {
 const inputValue = ref('input value');
 
 const checkboxVal = ref(true);
+const indeterminate = ref(false);
 const checkboxValNumber = ref(1);
 const checkboxObject = ref({ label: 'label', value: 'value' });
 const checkboxObjectValue = ref();
@@ -378,7 +395,7 @@ const customFilter2 = (options: any, inputValue: any) => {
 
 const date = ref(new Date());
 
-const checkboxGroup = ref([1, 3]);
+const checkboxGroupData = ref(['极客江湖', '水墨组件']);
 
 const inputNumberRef = ref(1);
 
