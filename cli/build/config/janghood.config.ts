@@ -19,8 +19,8 @@ const sourceSymbolTranslator = (dirList: string[]) => {
 
 export default defineJhConfig({
   apiExtractor: {
-    include: ['../../lib/components/**/*.d.ts'],
-    exclude: ['../../lib/components/types/*.d.ts'],
+    include: ['../../lib/components/**/**/*.d.ts', '../../core/components/**/**/*.d.ts'],
+    exclude: ['../../lib/components/types/*.d.ts', '../../core/components/types/*.d.ts'],
     document: {
       webTypes: {
         packageUrl: '../../lib/package.json',
