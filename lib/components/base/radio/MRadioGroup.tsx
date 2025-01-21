@@ -8,7 +8,8 @@
  */
 
 import { defineComponent, h } from 'vue';
-import { RadioGroupProps, RadioProps } from './index';
+import { RadioProps } from './index';
+import { RadioGroupProps } from './radio-group';
 import { radioGroupProps } from './api.ts';
 import MRadio from './MRadio.tsx';
 

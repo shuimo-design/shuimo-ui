@@ -8,7 +8,8 @@
  */
 
 import { MCOPO } from '../../types/props';
-import { RadioGroupProps, RadioProps } from './index';
+import { RadioProps } from './index';
+import { RadioGroupProps } from './radio-group';
 
 export const props: MCOPO<RadioProps> = {
   label: { type: [String, Number], default: '' },
