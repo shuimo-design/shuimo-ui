@@ -16,3 +16,5 @@ export * from './components/base/checkbox';
 export * from './components/base/switch';
 
 export * from './components/message/popover';
+
+export * from './components/template/border';

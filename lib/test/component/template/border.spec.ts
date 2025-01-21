@@ -19,7 +19,7 @@ describe('border', () => {
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div class="m-border">
-        <div class="m-border-main">
+        <div class="m-border-main m-border-with-mask">
           <div>test</div>
         </div>
         <div class="m-border-line m-border-top-line"></div>

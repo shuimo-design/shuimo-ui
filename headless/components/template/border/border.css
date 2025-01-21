@@ -1,0 +1,33 @@
+@import "@shuimo-design/ui-core/components/template/border/border.css";
+
+:root {
+  --m-border-line-color: var(--m-color-border);
+  --m-border-line-width: 1px;
+  --m-border-line-style: solid;
+}
+
+.m-border {
+  display: inline-block;
+
+  &.m-border-top-line {
+    border-top: var(--m-border-line-color) var(--m-border-line-style) var(--m-border-line-width);
+  }
+
+  &.m-border-right-line {
+    border-right: var(--m-border-line-color) var(--m-border-line-style) var(--m-border-line-width);
+  }
+
+  &.m-border-bottom-line {
+    border-bottom: var(--m-border-line-color) var(--m-border-line-style) var(--m-border-line-width);
+  }
+
+  &.m-border-left-line {
+    border-left: var(--m-border-line-color) var(--m-border-line-style) var(--m-border-line-width);
+  }
+
+  &.m-border-with-mask {
+    background: var(--m-border-bg);
+    backdrop-filter: blur(6px);
+  }
+
+}

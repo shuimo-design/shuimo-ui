@@ -14,7 +14,7 @@ import { onMounted, provide, ref } from 'vue';
 import Base from './lib/Base.vue';
 // import Message from './lib/Message.vue';
 // import Other from './lib/Other.vue';
-// import Template from './lib/Template.vue';
+import Template from './lib/Template.vue';
 // import MTree from './lib/components/MTree.vue';
 
 

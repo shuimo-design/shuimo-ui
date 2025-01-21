@@ -10,30 +10,28 @@
  */
 
 import { defineComponent } from 'vue';
-import { baseLineClass, lineType } from './lineType.ts';
 import { WCSetup } from '../../types/template';
 import './border.css';
-import { props } from './api.ts';
+import { BorderCore } from '@shuimo-design/ui-core';
 
 
-const toBoolean = (value: any) => {
-  if (value === 'false') return false;
-  return Boolean(value);
-};
+const { borderOptions, baseLineClass, useBorder } = BorderCore;
+
 
 export const MBorderSetup: WCSetup = slot => {
-  return (props, { slots }) => {
+  return (props, ctx) => {
+    const { renderInit } = useBorder(props, ctx);
     return () => {
-      const renderSlot = slot ?? slots.default?.();
-      const lineTemplate = Object.keys(lineType)
-        .filter(type => toBoolean(props[type]))
-        .map(type => {
-          return <div class={[baseLineClass, `m-border-${type}-line`]}/>;
-        });
+      const { renderTypes } = renderInit();
+      const renderSlot = slot ?? ctx.slots.default?.();
+      const lineTemplate = renderTypes.map(type => {
+        return <div class={[baseLineClass, `m-border-${type}-line`]}/>;
+      });
+
 
       const main = props.insteadMain ?
         renderSlot :
-        <div class="m-border-main">{renderSlot}</div>;
+        <div class={['m-border-main', { 'm-border-with-mask': props.mask }]}>{renderSlot}</div>;
 
       return <div class="m-border">
         {main}
@@ -44,7 +42,4 @@ export const MBorderSetup: WCSetup = slot => {
 };
 
 
-export default defineComponent(MBorderSetup(), {
-  name: 'MBorder',
-  props,
-});
+export default defineComponent(MBorderSetup(), borderOptions);

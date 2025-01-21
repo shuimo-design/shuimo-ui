@@ -44,9 +44,33 @@
       </m-grid>
     </ComponentsWrap>
     <ComponentsWrap name="Border">
-      <m-border>
-        <div class="black"></div>
-      </m-border>
+      <div class="border">
+
+        <m-border>
+          <div class="red"></div>
+        </m-border>
+        <m-border :top="false" :right="false">
+          <div class="transparent"></div>
+        </m-border>
+        <m-border :bottom="false" :left="false">
+          <div class="transparent"></div>
+        </m-border>
+        <m-border>
+          <div class="red"></div>
+        </m-border>
+        <m-border>
+          <div class="red"></div>
+        </m-border>
+        <m-border>
+          <div class="transparent"></div>
+        </m-border>
+        <m-border :mask="false">
+          <div class="transparent"></div>
+        </m-border>
+        <m-border instead-main>
+          <div class="red green"></div>
+        </m-border>
+      </div>
     </ComponentsWrap>
     <ComponentsWrap name="Breadcrumb">
       <div class="breadcrumb">
@@ -418,7 +442,7 @@ img {
   /* demo中为了更好看一点 */
   width: 400px;
   height: 400px;
-  //background: white;
+  /**background: white**/;
 }
 
 .inside-div {
@@ -435,9 +459,22 @@ img {
   width: 500px;
 }
 
-.black {
-  background: #0e0e0e;
+.red {
+  background: var(--m-color-main);
   width: 100px;
-  height: 10px;
+  height: 100px;
+}
+
+.transparent{
+  width: 100px;
+  height: 100px;
+}
+
+.border{
+
+  .m-border{
+    margin-right: 5px;
+  }
+
 }
 </style>

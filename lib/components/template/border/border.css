@@ -1,6 +1,4 @@
-:root{
-  --m-border-bg: rgba(255, 255, 255, 0.4);
-}
+@import "@shuimo-design/ui-core/components/template/border/border.css";
 
 .m-border {
   display: inline-grid;
@@ -59,6 +57,9 @@
   box-sizing: border-box;
   grid-area: topleft / topleft / bottomright / bottomright;
   overflow: auto;
-  background: var(--m-border-bg);
-  backdrop-filter: blur(6px);
+
+  &.m-border-with-mask {
+    background: var(--m-border-bg);
+    backdrop-filter: blur(6px);
+  }
 }

@@ -20,6 +20,7 @@ import MSwitch from '../../components/base/switch/MSwitch.tsx';
 // [message]
 // [template]
 import MRicePaper from '../../components/template/ricePaper/MRicePaper.tsx';
+import MBorder from '../../components/template/border/MBorder.tsx';
 import MPopover from '../../components/message/popover/MPopover';
 
 
@@ -29,6 +30,7 @@ export const components: Record<string, Component> = {
   MCheckbox,
 
   MRicePaper,
+  MBorder,
 };
 
 
@@ -37,4 +39,5 @@ export {
   MButton,
 
   MRicePaper,
+  MBorder,
 };
