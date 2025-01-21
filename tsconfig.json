@@ -9,6 +9,10 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
+    "noEmit": true,
+    "types":[
+      "vitest/importMeta"
+    ],
     "allowImportingTsExtensions": true,
   }
 }

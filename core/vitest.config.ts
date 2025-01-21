@@ -14,6 +14,7 @@ import Jsx from '@vitejs/plugin-vue-jsx';
 export default defineConfig({
   plugins: [Vue(), Jsx()],
   test: {
+    includeSource: ['components/**', 'compositions/**'],
     environment: 'happy-dom',
     clearMocks: true,
     coverage: {
