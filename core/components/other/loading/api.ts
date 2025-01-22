@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from '../../types/props';
-import { LoadingProps } from './index';
+import { MCOPO } from '../../../../lib/components/types/props';
+import { LoadingProps } from './props';
 
 export const defaultSpeed = 2000;
 export const props: MCOPO<LoadingProps> = {

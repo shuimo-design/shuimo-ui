@@ -12,10 +12,13 @@
 import { App } from 'vue';
 import { MUIOption } from '../../types/shuimo-ui';
 import { installComponent } from './installComponent.ts';
+import { loadingDirective } from '../../components/other/loading/directive.ts';
 
 export const install = (options: MUIOption | undefined = {}) => {
   return (app: App) => {
     app = installComponent(app, options);
+
+    app.directive('loading', loadingDirective);
 
     return app;
   };

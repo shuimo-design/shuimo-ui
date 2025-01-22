@@ -1,0 +1,12 @@
+@import "@shuimo-design/ui-core/components/other/loading/loading.css";
+
+.m-loading-main {
+  grid-area: main;
+  width: 2rem;
+  height: 2rem;
+  aspect-ratio: 1/1;
+  border: 3px solid #ffffff00;
+  border-top: 3px solid var(--m-color-main);
+  border-radius: 50%;
+  animation: m-rotate 1s linear infinite;
+}

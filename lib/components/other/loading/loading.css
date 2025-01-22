@@ -1,30 +1,4 @@
-:root {
-  --m-loading-speed: 2s;
-  --m-loading-size-w: 64px;
-  --m-loading-size-h: 50px;
-  --m-loading-wrapper-w: var(--m-loading-size-w);
-  --m-loading-wrapper-h: calc(var(--m-loading-size-w) / 64 * var(--m-loading-size-h));
-  --m-loading-opacity: 0.7;
-}
-
-.m-loading {
-  width: var(--m-loading-wrapper-w);
-  height: var(--m-loading-wrapper-h);
-  justify-content: center;
-  align-items: center;
-  opacity: var(--m-loading-opacity);
-}
-
-.m-loading-wrapper {
-  display: grid;
-  max-width: 100%;
-  max-height: 100%;
-  grid-template-areas: "main";
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  justify-content: center;
-  align-items: center;
-}
+@import "@shuimo-design/ui-core/components/other/loading/loading.css";
 
 .m-loading-main {
   grid-area: main;
@@ -36,7 +10,7 @@
   background-image: url(../../../public/icon/logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  animation-name: heart-beat;
+  animation-name: m-heart-beat;
   animation-direction: alternate;
   animation-timing-function: linear;
   animation-delay: 0s;
@@ -44,26 +18,7 @@
   animation-duration: var(--m-loading-speed);
 }
 
-
-.m-loading-directive {
-  height: 100% !important;
-  width: 100% !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.m-loading-mask {
-  background: var(--m-color-background);
-  backdrop-filter: blur(20px);
-  display: flex;
-}
-
-.m-loading-parent-relative {
-  position: relative;
-}
-
-@keyframes heart-beat {
+@keyframes m-heart-beat {
   0% {
     transform: scale(1);
   }

@@ -9,7 +9,7 @@
 
 import { describe, expect, test, vi } from 'vitest';
 import { mount, VueWrapper } from '@vue/test-utils';
-import { LoadingProps } from '../../../components/other/loading';
+import { LoadingProps } from '@shuimo-design/ui-core/components/other/loading/props';
 import MLoading from '../../../components/other/loading/MLoading.tsx';
 
 describe('loading', function () {

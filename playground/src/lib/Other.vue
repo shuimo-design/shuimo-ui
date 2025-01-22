@@ -4,6 +4,18 @@
       <m-loading :speed="0"/>
       <m-loading mask/>
       <m-loading mask :side-length="300"/>
+      <m-loading>
+        一点信息
+      </m-loading>
+      <m-loading>
+        <template #indicator>
+          <img class="indicator" src="../assets/taiji-day.png" alt="">
+        </template>
+      </m-loading>
+      <m-switch v-model="loadingRef"/>
+      <div class="loading-div" v-loading="loadingRef">
+
+      </div>
     </ComponentsWrap>
     <ComponentsWrap name="Divider">
       <div class="divider">
@@ -55,10 +67,29 @@ const onChangeMode = (val: string) => {
   console.log('change mode', val);
   localStorage.setItem('shuimo-blog-dark-mode', val);
 };
+
+const loadingRef = ref(true);
 </script>
 
 <style scoped>
 .divider {
   width: 20rem;
+}
+
+.indicator{
+  max-width: 100%;
+  max-height: 100%;
+
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-duration: var(--m-loading-speed);
+}
+
+.loading-div{
+  width: 200px;
+  height: 200px;
+  background: #CE8892;
 }
 </style>

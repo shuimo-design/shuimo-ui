@@ -1,0 +1,55 @@
+:root {
+  --m-loading-speed: 2s;
+  --m-loading-size-w: 64px;
+  --m-loading-size-h: 50px;
+  --m-loading-wrapper-w: var(--m-loading-size-w);
+  --m-loading-wrapper-h: calc(var(--m-loading-size-w) / 64 * var(--m-loading-size-h));
+  --m-loading-opacity: 0.7;
+}
+
+.m-loading {
+  width: var(--m-loading-wrapper-w);
+  height: var(--m-loading-wrapper-h);
+  justify-content: center;
+  align-items: center;
+  opacity: var(--m-loading-opacity);
+}
+
+.m-loading-wrapper {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  grid-template-areas: "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-loading-directive {
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.m-loading-mask {
+  background: var(--m-color-background);
+  backdrop-filter: blur(20px);
+  display: flex;
+}
+
+.m-loading-parent-relative {
+  position: relative;
+}
+
+
+@keyframes m-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

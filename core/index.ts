@@ -15,6 +15,14 @@ export * from './components/base/button';
 export * from './components/base/checkbox';
 export * from './components/base/switch';
 
+export * from './components/other/loading';
+
 export * from './components/message/popover';
 
 export * from './components/template/border';
+
+
+// common components
+import MLoading from './components/other/loading/MLoading';
+
+export { MLoading };
