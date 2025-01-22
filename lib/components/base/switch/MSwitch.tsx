@@ -63,8 +63,8 @@ export default defineComponent((props: SwitchProps, { emit, slots }) => {
       { 'm-switch-disabled': props.disabled },
     ]}>
       {getInfo('activeInfo')}
-      <div class="m-switch-main">
-        <div class="m-switch-core" onClick={changeSwitch}>
+      <div class="m-switch-main" onClick={changeSwitch}>
+        <div class="m-switch-core">
           <div class="m-switch-core-border"></div>
         </div>
       </div>

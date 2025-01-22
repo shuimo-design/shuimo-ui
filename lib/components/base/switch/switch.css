@@ -43,6 +43,7 @@
 
   .m-switch-main {
     display: inline-flex;
+    cursor: var(--m-cursor-pointer);
 
     width: var(--m-switch-w);
     height: var(--m-switch-h);
