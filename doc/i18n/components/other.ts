@@ -18,6 +18,9 @@ export const other = {
     '指令': 'Directive',
     '滚动条': 'Scrollbar',
     '指示器插槽': 'Indicator Slot',
+    '切换loading状态': 'Switch loading state',
+    '需要注意这块内容是会mount的。': 'Note that this content will be mounted.',
+    '且父dom的position属性会强制设置为relative': 'And the parent dom\'s position attribute is forced to be set to relative.',
   },
   zh: {
     '普通打印': '普通打印',
@@ -29,5 +32,8 @@ export const other = {
     '指令': '指令',
     '滚动条': '滚动条',
     '指示器插槽': '指示器插槽',
+    '切换loading状态': '切换loading状态',
+    '需要注意这块内容是会mount的。': '需要注意这块内容是会mount的。',
+    '且父dom的position属性会强制设置为relative': '且父dom的position属性会强制设置为relative',
   },
 };
