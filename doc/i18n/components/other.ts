@@ -17,6 +17,7 @@ export const other = {
     '可调速加载组件': 'Adjustable speed loading components',
     '指令': 'Directive',
     '滚动条': 'Scrollbar',
+    '指示器插槽': 'Indicator Slot',
   },
   zh: {
     '普通打印': '普通打印',
@@ -27,5 +28,6 @@ export const other = {
     '可调速加载组件': '可调速加载组件',
     '指令': '指令',
     '滚动条': '滚动条',
+    '指示器插槽': '指示器插槽',
   },
 };

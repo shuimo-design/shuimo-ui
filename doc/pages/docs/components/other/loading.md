@@ -12,6 +12,10 @@
 
 ::: demo other/loading/directive
 
+## {{$t(\'指示器插槽\')}}
+
+::: demo other/loading/indicator
+
 ## API
 
 ::: api other/loading
