@@ -106,4 +106,17 @@ describe('loading', function () {
       wrapper.unmount();
     });
   });
+
+  describe('indicator slot', () => {
+    test('render', () => {
+      const wrapper = mount(MLoading, {
+        slots: {
+          indicator: '<div class="m-loading-indicator"></div>',
+        },
+      });
+      expect(wrapper.find('.m-loading-indicator')).not.toBeNull();
+      expect(wrapper.html()).not.toContain('m-loading-main');
+      wrapper.unmount();
+    });
+  });
 });
