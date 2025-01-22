@@ -80,7 +80,7 @@ const loadingRef = ref(true);
   max-width: 100%;
   max-height: 100%;
 
-  animation-name: rotate;
+  animation-name: m-rotate;
   animation-timing-function: linear;
   animation-delay: 0s;
   animation-iteration-count: infinite;
