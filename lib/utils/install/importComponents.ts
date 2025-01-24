@@ -38,6 +38,7 @@ import MDarkMode from '../../components/other/darkMode/MDarkMode';
 import MDeleteIcon from '../../components/other/deleteIcon/MDeleteIcon';
 import MPrinter from '../../components/other/printer/Printer';
 import MSvgWrapper from '../../components/other/svg/MSvgWrapper';
+import MScroll from '../../components/other/scroll/MScroll.tsx';
 
 // [message]
 import MConfirm from '../../components/message/confirm/MConfirm';
@@ -145,6 +146,7 @@ export {
   MDeleteIcon,
   MPrinter,
   MSvgWrapper,
+  MScroll,
 
   // [message]
   MConfirm,
