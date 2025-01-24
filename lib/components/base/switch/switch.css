@@ -8,6 +8,7 @@
 }
 
 .m-switch {
+  display: inline-block;
   --m-switch-scale: 1;
 
   /** 组件尺寸 **/
