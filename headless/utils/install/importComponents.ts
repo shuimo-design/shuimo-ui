@@ -17,6 +17,7 @@ import MButton from '../../components/base/button/MButton.tsx';
 import MCheckbox from '../../components/base/checkbox/MCheckbox.tsx';
 import MSwitch from '../../components/base/switch/MSwitch.tsx';
 // [other]
+import MDivider from '../../components/other/divider/MDivider.tsx';
 import MLoading from '../../components/other/loading/MLoading.tsx';
 // [message]
 // [template]
@@ -32,6 +33,7 @@ export const components: Record<string, Component> = {
   MSwitch,
 
   MLoading,
+  MDivider,
 
   MRicePaper,
   MBorder,
@@ -45,6 +47,7 @@ export {
   MSwitch,
 
   MLoading,
+  MDivider,
 
   MRicePaper,
   MBorder,

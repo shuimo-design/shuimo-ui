@@ -1,11 +1,10 @@
 /**
- * @description 分割线
+ * @description headless divider
  * @author 阿怪
- * @date 2021/2/23 3:57 下午
- * @version v1.1.0
+ * @date 2025/2/16 23:06
+ * @version v1.0.0
  *
- * 公司的业务千篇一律，复杂的代码好几百行。
- * v1.1.0  优化分割线素材，并新增分割线类型，暂时去除strong类型
+ * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent } from 'vue';
 import { DividerProps } from '@shuimo-design/ui-core/components/other/divider/props';
@@ -17,10 +16,9 @@ const { props } = DividerCore;
 export default defineComponent((props: DividerProps) => {
   return () => <div class={{
     'm-divider': true,
-    'm-divider-vertical': props.vertical,
-    // 'm-divider-strong': this.type === 'strong',
+    'm-divider-vertical': props.vertical
   }}/>;
 }, {
   name: 'MDivider',
-  props,
-});
+  props
+}); 

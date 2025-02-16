@@ -1,11 +1,9 @@
+@import "@shuimo-design/ui-core/components/other/divider/divider.css";
+
 .m-divider {
-  width: 100%;
   height: 5px;
-  background: var(--m-line-crossrange) repeat-x;
 
   &.m-divider-vertical {
-    height: 100%;
-    background: var(--m-line-vertical) repeat-y;
     width: 6px;
   }
 }

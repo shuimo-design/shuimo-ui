@@ -16,6 +16,7 @@ export * from './components/base/checkbox';
 export * from './components/base/switch';
 
 export * from './components/other/loading';
+export * from './components/other/divider';
 
 export * from './components/message/popover';
 

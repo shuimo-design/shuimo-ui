@@ -1,0 +1,10 @@
+.m-divider {
+    width: 100%;
+    background: var(--m-line-crossrange) repeat-x;
+  
+    &.m-divider-vertical {
+      height: 100%;
+      background: var(--m-line-vertical) repeat-y;
+    }
+  }
+  

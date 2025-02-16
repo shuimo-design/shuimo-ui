@@ -1,0 +1,14 @@
+@import "@shuimo-design/ui-core/components/other/divider/divider.css";
+
+:root{
+  --m-line-crossrange: var(--m-color-main);
+  --m-line-vertical: var(--m-color-main);
+}
+
+.m-divider {
+  height: 1px;
+
+  &.m-divider-vertical {
+    width: 1px;
+  }
+}
