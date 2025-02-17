@@ -17,6 +17,7 @@ import { defineComponent } from 'vue';
 export const LI_ICON_ID = 'm-shuimo-svg-icon';
 export const AVATAR_CIRCLE_ID = 'm-shuimo-avatar-circle';
 export const AVATAR_SQUARE_ID = 'm-shuimo-avatar-square';
+export const ARROW_ICON_ID = 'm-shuimo-arrow-icon';
 export default defineComponent(() => {
   return () => <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id={LI_ICON_ID}>
@@ -641,6 +642,11 @@ export default defineComponent(() => {
           d="m665.18,504.66c-.79,1.18-1.57,2.35-2.36,3.53-.32-.43-.96-1.17-.9-1.24.94-1,1.94-1.96,3.04-2.78.23-.17.91.27,1.38.43-.39.02-.77.04-1.16.06Z"/>
         <path
           d="m310.2,609.96c.75.58,1.3,1.02,1.85,1.45-.64.45-1.29,1.26-1.93,1.25-.63,0-1.26-.83-1.89-1.3.58-.41,1.16-.82,1.96-1.4Z"/>
+      </g>
+    </symbol>
+    <symbol id={ARROW_ICON_ID}>
+      <g class="m-svg-arrow">
+        <path d="M12,11c1.24,1.24,6.08-4.86,7.5-6,.2-.16.78.17,1,0,1.44-1.11,2.27-3.33,4.5-3,.47.43-2.47,2.83-3,3.5-.17.21.16.81,0,1-2.08,2.55-3.78,2.79-5,5-.62,1.12-2.57,1.53-2,3.5-1.74.2-3.01.07-4-1.5-2.16-3.42-4.31-4.94-7-8-.58-.66-2.96-2.54-2-3.5,1.27-1.27,6.31,5.16,7.5,6,.83.58,3.11.42,2.5,3Z"/>
       </g>
     </symbol>
   </svg>;

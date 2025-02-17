@@ -29,6 +29,7 @@ import MSwitch from '../../components/base/switch/MSwitch';
 import MTag from '../../components/base/tag/MTag';
 import MTree from '../../components/base/tree/MTree';
 import MTreeNode from '../../components/base/tree/MTreeNode';
+import MCollapse from '../../components/base/collapse/MCollapse';
 
 // [other]
 import MDivider from '../../components/other/divider/MDivider';
@@ -83,6 +84,7 @@ export const components: Record<string, Component> = {
   MTag,
   MTree,
   MTreeNode,
+  MCollapse,
 
   // [other]
   MDivider,
@@ -138,7 +140,7 @@ export {
   MTag,
   MTree,
   MTreeNode,
-
+  MCollapse,
   // [other]
   MDivider,
   MLoading,

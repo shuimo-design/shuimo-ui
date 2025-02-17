@@ -215,6 +215,30 @@
         <m-date-picker v-model="date" type="month"/>
       </div>
     </ComponentsWrap>
+    <ComponentsWrap name="Collapse">
+      <div class="collapse">
+        <span>折叠状态：{{ collapseValue }}</span>
+
+        <m-collapse v-model="collapseValue" @change="handleCollapseChange">
+          基础折叠
+          <template #content>
+            <div>这是折叠的内容</div>
+          </template>
+        </m-collapse>
+        <m-collapse v-model="collapseValue" :line="false" render-context @change="handleCollapseChange">
+          基础折叠无横线，始终渲染折叠内容
+          <template #content>
+            <div>这是折叠的内容</div>
+          </template>
+        </m-collapse>
+        <m-collapse v-model="collapseValue2" disabled>
+          禁用的折叠
+          <template #content>
+            <div>这是禁用状态的折叠内容</div>
+          </template>
+        </m-collapse>
+      </div>
+    </ComponentsWrap>
     <ComponentsWrap name="Progress">
       <div class="progress">
         <m-progress :value="20" :max="200"/>
@@ -409,6 +433,12 @@ setInterval(() => {
 
 const sliderRef = ref(4);
 const slider2Ref = ref(0);
+
+const collapseValue = ref(false);
+const collapseValue2 = ref(false);
+const handleCollapseChange = (value: boolean) => {
+  console.log('折叠状态改变:', value);
+};
 </script>
 
 <style scoped>
@@ -442,5 +472,10 @@ const slider2Ref = ref(0);
 
 .m-progress {
   margin: 4px 0
+}
+
+.collapse{
+  width: 400px;
+  border: 1px solid black;
 }
 </style>

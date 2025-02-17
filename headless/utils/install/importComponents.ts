@@ -17,6 +17,7 @@ import MLi from '../../components/base/li/MLi.tsx';
 // import MSelect from '../../components/base/select/MSelect.tsx';
 import MCheckbox from '../../components/base/checkbox/MCheckbox.tsx';
 import MSwitch from '../../components/base/switch/MSwitch.tsx';
+import MCollapse from '../../components/base/collapse/MCollapse.tsx';
 // [other]
 import MDivider from '../../components/other/divider/MDivider.tsx';
 import MLoading from '../../components/other/loading/MLoading.tsx';
@@ -33,6 +34,7 @@ export const components: Record<string, Component> = {
   MCheckbox,
   MSwitch,
   MLi,
+  MCollapse,
 
   MLoading,
   MDivider,
@@ -48,6 +50,7 @@ export {
   MCheckbox,
   MSwitch,
   MLi,
+  MCollapse,
 
   MLoading,
   MDivider,

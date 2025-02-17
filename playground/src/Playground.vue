@@ -30,6 +30,7 @@ const categories: Category[] = [
       'Avatar',
       'Button',
       'Checkbox',
+      'Collapse',
       'DatePicker',
       'Input',
       'Li',

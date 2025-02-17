@@ -23,7 +23,7 @@ export default defineComponent((props: LiProps, ctx) => {
 
     return <li class={liClass}>
       {props.icon ? <div class="m-marker">
-        <MSvgIcon wrapper={props.active} class="m-marker" />
+        <MSvgIcon wrapper={props.active} class="m-marker"/>
       </div> : null}
       <div class="m-li-inner">
         {ctx.slots.default?.()}

@@ -31,6 +31,7 @@ export const menu: MenuTypeArr = [
       { label: '标签', route: 'tag', isActive: false },
       { label: '滑动条', route: 'slider', isActive: false },
       { label: '进度条', route: 'progress', isActive: false },
+      { label: '折叠', route: 'collapse', isActive: false },
     ],
   },
   {

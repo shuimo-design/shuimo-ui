@@ -1,0 +1,20 @@
+/**
+ * @description collapse style
+ * @author 阿怪
+ * @date 2025/02/17 20:52
+ * @version v1.0.0
+ *
+ * 江湖的业务千篇一律，复杂的代码好几百行。
+ */
+
+@import "@shuimo-design/ui-core/components/base/collapse/collapse.css";
+
+.m-collapse-arrow{
+  transform: rotate(90deg);
+}
+
+.m-collapse-arrow-expanded {
+  .m-collapse-arrow{
+    transform: rotate(0deg);
+  }
+}

@@ -43,6 +43,11 @@ export const base = {
     '滚动效果': 'Scroll effect',
     '修改尺寸': 'Change Size',
     '隐藏叶子': 'Hide Leaf',
+    '折叠': 'Collapse',
+    '基础用法': 'Basic Usage',
+    '禁用状态': 'Disabled State',
+    '隐藏分割线': 'Hide Line',
+    '是否渲染': 'Render Slot',
   },
   zh: {
     '普通按钮': '普通按钮',
@@ -79,5 +84,10 @@ export const base = {
     '滚动效果': '滚动效果',
     '修改尺寸': '修改尺寸',
     '隐藏叶子': '隐藏叶子',
+    '折叠': '折叠',
+    '基础用法': '基础用法',
+    '禁用状态': '禁用状态',
+    '隐藏分割线': '隐藏分割线',
+    '是否渲染': '是否渲染',
   },
 };

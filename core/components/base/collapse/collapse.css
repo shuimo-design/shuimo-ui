@@ -1,0 +1,43 @@
+.m-collapse {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.m-collapse-disabled {
+  cursor: var(--m-cursor-disabled);
+  --m-cursor-auto: var(--m-cursor-disabled);
+
+  .m-collapse-header{
+    cursor: var(--m-cursor-disabled); 
+    --m-cursor-auto: var(--m-cursor-disabled);
+    opacity: 0.3;
+  }
+
+}
+
+.m-collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  cursor: var(--m-cursor-pointer);
+  --m-cursor-auto: var(--m-cursor-pointer);
+
+  .m-divider {
+    margin-left: 0.5rem;
+    flex:1;
+  }
+
+  .m-collapse-arrow{
+    margin:0 0.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+
+}
+
+
+.m-collapse-content-hidden {
+  display: none;
+}
