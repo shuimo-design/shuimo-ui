@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO, MPropType } from '../../../../lib/components/types/props';
+import { MCOPO, MPropType } from '../../types/props';
 import { CheckboxGroupProps, CheckboxProps } from './props';
 
 export const props: MCOPO<CheckboxProps> = {
