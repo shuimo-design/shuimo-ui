@@ -1,0 +1,11 @@
+.m-li-inner {
+  display: inline-block;
+}
+
+.m-li-active {
+  --m-marker-active-inner-color: var(--m-color-main);
+
+  &::marker {
+    color: var(--m-marker-active-inner-color);
+  }
+}

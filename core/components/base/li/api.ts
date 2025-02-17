@@ -6,8 +6,8 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MCOPO } from '../../types/props';
-import { LiProps } from './index';
+import { MCOPO } from '../../../../lib/components/types/props';
+import { LiProps } from './props';
 
 export const props: MCOPO<LiProps> = {
   active: { type: Boolean, default: false },

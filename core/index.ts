@@ -14,6 +14,7 @@ export * from './components/base/button';
 // export * from './components/base/select';
 export * from './components/base/checkbox';
 export * from './components/base/switch';
+export * from './components/base/li';
 
 export * from './components/other/loading';
 export * from './components/other/divider';
