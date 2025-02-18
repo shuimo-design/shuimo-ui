@@ -1,7 +1,7 @@
 @import '@shuimo-design/ui-core/components/base/collapse/collapse.css';
 
 .m-collapse-arrow-expanded {
-    .m-collapse-arrow{
-      transform: rotate(-90deg);
-    }
+  &>.m-collapse-header>.m-collapse-arrow {
+    transform: rotate(-90deg);
   }
+}

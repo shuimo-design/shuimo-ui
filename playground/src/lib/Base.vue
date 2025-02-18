@@ -237,6 +237,20 @@
             <div>这是禁用状态的折叠内容</div>
           </template>
         </m-collapse>
+
+
+        <m-collapse>
+          嵌套折叠1
+          <template #content>
+            <m-collapse>
+              嵌套折叠2
+              <template #content>
+                <div>这是嵌套折叠的内容</div>
+              </template>
+            </m-collapse>
+          </template>
+        </m-collapse>
+
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Progress">
