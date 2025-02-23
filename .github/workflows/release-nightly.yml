@@ -52,15 +52,15 @@ jobs:
 
       - name: Change package name
         run: |
-          cd cli/build/config/output/
+          cd cli/build/lib/output/
           jq '.name="shuimo-ui-nightly"' package.json > temp.json && mv temp.json package.json
 
       - name: change version
         run: |
-          cd cli/build/config/output/
+          cd cli/build/lib/output/
           npm version ${{ env.version }}
       - name: Publish package
         run:
-          cd cli/build/config/output/ && npm publish
+          cd cli/build/lib/output/ && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

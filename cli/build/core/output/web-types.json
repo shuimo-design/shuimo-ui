@@ -1,0 +1,417 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@shuimo-design/ui-core",
+  "version": "0.0.!",
+  "js-types-syntax": "typescript",
+  "description-markup": "markdown",
+  "contributions": {
+    "html": {
+      "vue-components": [
+        {
+          "name": "m-avatar",
+          "source": {
+            "symbol": "MAvatar"
+          },
+          "description": "avatar component with shuimo-ui style.",
+          "doc-url": "https://shuimo.design/avatar,",
+          "props": [
+            {
+              "name": "variant",
+              "description": "avatar variant\n头像的形状",
+              "type": "'circle'|'square'",
+              "default": "circle"
+            },
+            {
+              "name": "size",
+              "description": "avatar size\n头像的大小",
+              "type": "'large'|'default'|'small'",
+              "default": "default"
+            },
+            {
+              "name": "img",
+              "description": "img url\n头像图片地址",
+              "type": "string",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-border",
+          "source": {
+            "symbol": "MBorder"
+          },
+          "description": "Border component with shuimo-ui style\n水墨组件的边框组件。",
+          "doc-url": "https://shuimo.design/border",
+          "props": [
+            {
+              "name": "border",
+              "description": "global setting border or not and support object setting,\npriority lower than direct setting",
+              "type": [
+                "boolean",
+                "{top?:boolean,right?:boolean,bottom?:boolean,left?:boolean"
+              ],
+              "default": "true"
+            }
+          ]
+        },
+        {
+          "name": "m-button",
+          "source": {
+            "symbol": "MButton"
+          },
+          "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。",
+          "doc-url": "https://shuimo.design/button",
+          "props": [
+            {
+              "name": "text",
+              "description": "button inline text, will replace by slot\n按钮文本 会被slot覆盖",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "link",
+              "description": "link or not 是否是链接",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "disable or not 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "type",
+              "description": "button type 按钮类型",
+              "type": "'default'|'primary'|'error'|'confirm'|'warning'",
+              "default": "default"
+            }
+          ]
+        },
+        {
+          "name": "m-checkbox",
+          "source": {
+            "symbol": "MCheckbox"
+          },
+          "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。",
+          "doc-url": "https://shuimo.design/checkbox",
+          "props": [
+            {
+              "name": "label",
+              "description": "checkbox label text, will replace slot\n文本 会覆盖slot",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "checked",
+              "description": "checkbox checked\n是否选中",
+              "type": [
+                "boolean",
+                "undefined",
+                "null"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "value",
+              "description": "checkbox value",
+              "type": "any",
+              "default": "undefined"
+            },
+            {
+              "name": "modelValue",
+              "description": "value\n绑定值",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "indeterminate",
+              "description": "checkbox indeterminate\n是否为不确定状态",
+              "type": "boolean",
+              "default": "undefined"
+            },
+            {
+              "name": "disabled",
+              "description": "checkbox disabled\n是否禁用",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-collapse",
+          "source": {
+            "symbol": "MCollapse"
+          },
+          "description": "Collapse component with shuimo-ui style.\n水墨组件的折叠组件。",
+          "doc-url": "https://shuimo.design/collapse",
+          "props": [
+            {
+              "name": "modelValue",
+              "description": "collapse modelValue. 折叠展开状态",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "collapse disabled. 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "renderContext",
+              "description": "collapse renderContext. 是否渲染上下文",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "line",
+              "description": "collapse line. 是否显示分割线",
+              "type": "boolean",
+              "default": "true"
+            }
+          ]
+        },
+        {
+          "name": "m-divider",
+          "source": {
+            "symbol": "MDivider"
+          },
+          "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。",
+          "doc-url": "https://shuimo.design/divider",
+          "props": [
+            {
+              "name": "vertical",
+              "description": "divider is vertical or not",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-input",
+          "source": {
+            "symbol": "MInput"
+          },
+          "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。",
+          "doc-url": "https://shuimo.design/input",
+          "props": [
+            {
+              "name": "type",
+              "description": "input type. 输入框类型",
+              "type": "string",
+              "default": "input"
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "modelValue",
+              "description": "input value. 输入框绑定值",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": ""
+            },
+            {
+              "name": "readonly",
+              "description": "input readonly. 是否只读",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "input disabled. 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "autofocus",
+              "description": "input autofocus. 是否自动聚焦",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-li",
+          "source": {
+            "symbol": "MLi"
+          },
+          "description": "li component with shuimo-ui style.",
+          "doc-url": "https://shuimo.design/li,",
+          "props": [
+            {
+              "name": "active",
+              "description": "is active style or not",
+              "type": "boolean"
+            },
+            {
+              "name": "icon",
+              "description": "show icon or not",
+              "type": "boolean"
+            }
+          ]
+        },
+        {
+          "name": "m-loading",
+          "source": {
+            "symbol": "MLoading"
+          },
+          "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。",
+          "doc-url": "https://shuimo.design/loading",
+          "props": [
+            {
+              "name": "speed",
+              "description": "transform speed",
+              "type": "number",
+              "default": "1500"
+            },
+            {
+              "name": "size",
+              "description": "logo size",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "mask",
+              "description": "with mask or not",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "sideLength",
+              "description": "length of loading item's side (px)",
+              "type": [
+                "number",
+                "string"
+              ],
+              "default": "50"
+            }
+          ]
+        },
+        {
+          "name": "m-popover",
+          "source": {
+            "symbol": "MPopover"
+          },
+          "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。",
+          "doc-url": "https://shuimo.design/popover",
+          "props": [
+            {
+              "name": "placement",
+              "description": "popover display placement",
+              "type": "Placement",
+              "default": "bottom"
+            },
+            {
+              "name": "mountRender",
+              "description": "Whether to render the popover content when the component is mounted",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disableClickAway",
+              "description": "Disables automatically closing the popover when the user clicks away from it",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "content",
+              "description": "If the content is just a simple string, it can be passed in as a prop",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "hover",
+              "description": "Trigger the popper on hover",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "show",
+              "description": "display content value\n是否显示参数",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "popper",
+              "description": "floating-ui options, look: https://floating-ui.com/",
+              "type": "PopperConfig",
+              "default": "{}"
+            },
+            {
+              "name": "teleport",
+              "description": "popover teleport\n弹出框传送",
+              "type": [
+                "MTeleportProps",
+                "undefined",
+                "boolean"
+              ],
+              "default": "undefined"
+            }
+          ]
+        },
+        {
+          "name": "m-switch",
+          "source": {
+            "symbol": "MSwitch"
+          },
+          "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text",
+          "doc-url": "https://shuimo.design/switch",
+          "props": [
+            {
+              "name": "modelValue",
+              "description": "switch value. 开关绑定值",
+              "type": "any"
+            },
+            {
+              "name": "disabled",
+              "description": "switch disabled\n是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "loading",
+              "description": "switch disabled\n是否加载中",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "activeInfo",
+              "description": "打开文本",
+              "type": "string"
+            },
+            {
+              "name": "inactiveInfo",
+              "description": "关闭文本",
+              "type": "string"
+            },
+            {
+              "name": "activeValue",
+              "description": "打开参数",
+              "type": "any"
+            },
+            {
+              "name": "inactiveValue",
+              "description": "关闭参数",
+              "type": "any"
+            },
+            {
+              "name": "onControl",
+              "description": "是否控制",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "framework": "vue",
+  "default-icon": "./icons/logo.svg"
+}

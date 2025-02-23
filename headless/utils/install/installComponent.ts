@@ -21,7 +21,7 @@ export const installComponent = (
 
   installComponentsKey = Object.keys(C.components) as MCKeys;
   installComponentsKey.forEach(key => {
-    console.log(key);
+    // console.log(key);
     app.component(key, C.components[key]);
   });
 

@@ -1,0 +1,104 @@
+{
+  "m-avatar": {
+    "attributes": [
+      "img",
+      "size",
+      "variant"
+    ],
+    "description": "avatar component with shuimo-ui style.\n[docs](https://shuimo.design/avatar,)"
+  },
+  "m-border": {
+    "attributes": [
+      "border"
+    ],
+    "description": "Border component with shuimo-ui style\n水墨组件的边框组件。\n[docs](https://shuimo.design/border)"
+  },
+  "m-button": {
+    "attributes": [
+      "disabled",
+      "link",
+      "text",
+      "type"
+    ],
+    "description": "Button component with shuimo-ui style.\n水墨组件的按钮组件。\n[docs](https://shuimo.design/button)"
+  },
+  "m-checkbox": {
+    "attributes": [
+      "checked",
+      "disabled",
+      "indeterminate",
+      "label",
+      "modelValue",
+      "value"
+    ],
+    "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。\n[docs](https://shuimo.design/checkbox)"
+  },
+  "m-collapse": {
+    "attributes": [
+      "disabled",
+      "line",
+      "modelValue",
+      "renderContext"
+    ],
+    "description": "Collapse component with shuimo-ui style.\n水墨组件的折叠组件。\n[docs](https://shuimo.design/collapse)"
+  },
+  "m-divider": {
+    "attributes": [
+      "vertical"
+    ],
+    "description": "divider component with shuimo-ui style.\n水墨组件的分割线组件。\n[docs](https://shuimo.design/divider)"
+  },
+  "m-input": {
+    "attributes": [
+      "autofocus",
+      "disabled",
+      "modelValue",
+      "placeholder",
+      "readonly",
+      "type"
+    ],
+    "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。\n[docs](https://shuimo.design/input)"
+  },
+  "m-li": {
+    "attributes": [
+      "active",
+      "icon"
+    ],
+    "description": "li component with shuimo-ui style.\n[docs](https://shuimo.design/li,)"
+  },
+  "m-loading": {
+    "attributes": [
+      "mask",
+      "sideLength",
+      "size",
+      "speed"
+    ],
+    "description": "loading component with shuimo-ui style.\n水墨组件的加载组件。\n[docs](https://shuimo.design/loading)"
+  },
+  "m-popover": {
+    "attributes": [
+      "content",
+      "disableClickAway",
+      "hover",
+      "mountRender",
+      "placement",
+      "popper",
+      "show",
+      "teleport"
+    ],
+    "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。\n[docs](https://shuimo.design/popover)"
+  },
+  "m-switch": {
+    "attributes": [
+      "activeInfo",
+      "activeValue",
+      "disabled",
+      "inactiveInfo",
+      "inactiveValue",
+      "loading",
+      "modelValue",
+      "onControl"
+    ],
+    "description": "Switch component with shuimo-ui style.\n水墨组件的开关组件。\nslot优先级高于text\n[docs](https://shuimo.design/switch)"
+  }
+}

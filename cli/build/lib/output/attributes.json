@@ -23,25 +23,10 @@
     "default": "circle",
     "description": "avatar variant\n头像的形状"
   },
-  "m-border/bottom": {
-    "type": "boolean|string",
+  "m-border/border": {
+    "type": "boolean|{top?:boolean,right?:boolean,bottom?:boolean,left?:boolean",
     "default": "true",
-    "description": "bottom line display or not"
-  },
-  "m-border/left": {
-    "type": "boolean|string",
-    "default": "true",
-    "description": "left line display or not"
-  },
-  "m-border/right": {
-    "type": "boolean|string",
-    "default": "true",
-    "description": "right line display or not"
-  },
-  "m-border/top": {
-    "type": "boolean|string",
-    "default": "true",
-    "description": "top line display or not"
+    "description": "global setting border or not and support object setting,\npriority lower than direct setting"
   },
   "m-breadcrumb-item/content": {
     "type": "string",
@@ -133,12 +118,12 @@
   "m-checkbox/disabled": {
     "type": "boolean",
     "default": "false",
-    "description": "checkbox disabled\n是否禁用 todo 暂未支持"
+    "description": "checkbox disabled\n是否禁用"
   },
   "m-checkbox/indeterminate": {
     "type": "boolean",
     "default": "undefined",
-    "description": "checkbox indeterminate\n是否为不确定状态  todo 暂未支持"
+    "description": "checkbox indeterminate\n是否为不确定状态"
   },
   "m-checkbox/label": {
     "type": "string",
@@ -154,6 +139,26 @@
     "type": "any",
     "default": "undefined",
     "description": "checkbox value"
+  },
+  "m-collapse/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse disabled. 是否禁用"
+  },
+  "m-collapse/line": {
+    "type": "boolean",
+    "default": "true",
+    "description": "collapse line. 是否显示分割线"
+  },
+  "m-collapse/modelValue": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse modelValue. 折叠展开状态"
+  },
+  "m-collapse/renderContext": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse renderContext. 是否渲染上下文"
   },
   "m-confirm/content": {
     "type": "string",
@@ -177,6 +182,10 @@
   "m-dark-mode/initHandler": {
     "type": "()=>boolean",
     "description": "init handler. 初始化事件 return boolean need auto init or not"
+  },
+  "m-dark-mode/isRotate": {
+    "type": "boolean",
+    "description": "is rotate. 是否旋转"
   },
   "m-dark-mode/modelValue": {
     "type": "boolean",
@@ -584,21 +593,6 @@
     "default": "undefined",
     "description": "popover teleport\n弹出框传送"
   },
-  "m-progress/height": {
-    "type": "number",
-    "default": "26.547",
-    "description": "progress bar height\n进度条的高度"
-  },
-  "m-progress/infoWidth": {
-    "type": "number",
-    "default": "44",
-    "description": "info width\n进度值的宽度"
-  },
-  "m-progress/leafHeight": {
-    "type": "number",
-    "default": "28",
-    "description": "leaf height\n叶子的高度"
-  },
   "m-progress/max": {
     "type": "number",
     "default": "100",
@@ -614,15 +608,25 @@
     "default": "0",
     "description": "progress value\n进度条的值"
   },
-  "m-progress/width": {
-    "type": "number",
-    "default": "399",
-    "description": "progress bar width\n进度条的宽度"
+  "m-radio-group/modelValue": {
+    "type": "any",
+    "default": "",
+    "description": "radio group value\n绑定值"
+  },
+  "m-radio-group/name": {
+    "type": "string",
+    "default": "undefined",
+    "description": "radio group name\n单选框的name值"
   },
   "m-radio/checked": {
     "type": "boolean|undefined|null",
     "default": "undefined",
     "description": "radio checked\n是否选中"
+  },
+  "m-radio/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "radio disabled\n是否禁用"
   },
   "m-radio/label": {
     "type": "string|number",
@@ -644,6 +648,11 @@
     "default": "undefined",
     "description": "radio value\n单选框的值"
   },
+  "m-rice-paper/autoDarkMode": {
+    "type": "boolean|string",
+    "default": "true",
+    "description": "是否自动切换日夜模式"
+  },
   "m-rice-paper/layout": {
     "type": "string",
     "options": [
@@ -654,7 +663,7 @@
     "description": "布局"
   },
   "m-rice-paper/mountain": {
-    "type": "boolean",
+    "type": "boolean|string",
     "default": "true",
     "description": "是否显示山脉背景"
   },
@@ -839,6 +848,16 @@
     "type": "boolean",
     "default": "false",
     "description": "auto add param class\n自动添加key class"
+  },
+  "m-tag/size": {
+    "type": "string",
+    "options": [
+      "'small'",
+      "'default'",
+      "'large'"
+    ],
+    "default": "default",
+    "description": "button size 按钮大小"
   },
   "m-tag/type": {
     "type": "string",

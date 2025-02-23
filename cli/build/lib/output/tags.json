@@ -9,10 +9,7 @@
   },
   "m-border": {
     "attributes": [
-      "bottom",
-      "left",
-      "right",
-      "top"
+      "border"
     ],
     "description": "Border component with shuimo-ui style\n水墨组件的边框组件。\n[docs](https://shuimo.design/border)"
   },
@@ -62,6 +59,15 @@
     ],
     "description": "Checkbox component with shuimo-ui style.\n水墨组件的复选框组件。\n[docs](https://shuimo.design/checkbox)"
   },
+  "m-collapse": {
+    "attributes": [
+      "disabled",
+      "line",
+      "modelValue",
+      "renderContext"
+    ],
+    "description": "Collapse component with shuimo-ui style.\n水墨组件的折叠组件。\n[docs](https://shuimo.design/collapse)"
+  },
   "m-confirm": {
     "attributes": [
       "content",
@@ -74,6 +80,7 @@
     "attributes": [
       "autoMode",
       "initHandler",
+      "isRotate",
       "modelValue"
     ],
     "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。\n[docs](https://shuimo.design/dark-mode)"
@@ -239,19 +246,16 @@
   },
   "m-progress": {
     "attributes": [
-      "height",
-      "infoWidth",
-      "leafHeight",
       "max",
       "showInfo",
-      "value",
-      "width"
+      "value"
     ],
     "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。\n[docs](https://shuimo.design/progress)"
   },
   "m-radio": {
     "attributes": [
       "checked",
+      "disabled",
       "label",
       "modelValue",
       "name",
@@ -259,8 +263,16 @@
     ],
     "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。\n[docs](https://shuimo.design/radio)"
   },
+  "m-radio-group": {
+    "attributes": [
+      "modelValue",
+      "name"
+    ],
+    "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。\n[docs](https://shuimo.design/radio)"
+  },
   "m-rice-paper": {
     "attributes": [
+      "autoDarkMode",
       "layout",
       "mountain",
       "type"
@@ -329,6 +341,7 @@
   },
   "m-tag": {
     "attributes": [
+      "size",
       "type"
     ],
     "description": "Tag component with shuimo-ui style.\n水墨组件的标签组件。\n[docs](https://shuimo.design/tag)"

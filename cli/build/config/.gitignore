@@ -1,4 +1,0 @@
-output/*
-!output/web-types.json
-!output/tags.json
-!output/attributes.json

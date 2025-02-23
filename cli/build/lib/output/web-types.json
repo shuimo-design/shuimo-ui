@@ -44,38 +44,11 @@
           "doc-url": "https://shuimo.design/border",
           "props": [
             {
-              "name": "top",
-              "description": "top line display or not",
+              "name": "border",
+              "description": "global setting border or not and support object setting,\npriority lower than direct setting",
               "type": [
                 "boolean",
-                "string"
-              ],
-              "default": "true"
-            },
-            {
-              "name": "right",
-              "description": "right line display or not",
-              "type": [
-                "boolean",
-                "string"
-              ],
-              "default": "true"
-            },
-            {
-              "name": "bottom",
-              "description": "bottom line display or not",
-              "type": [
-                "boolean",
-                "string"
-              ],
-              "default": "true"
-            },
-            {
-              "name": "left",
-              "description": "left line display or not",
-              "type": [
-                "boolean",
-                "string"
+                "{top?:boolean,right?:boolean,bottom?:boolean,left?:boolean"
               ],
               "default": "true"
             }
@@ -277,15 +250,49 @@
             },
             {
               "name": "indeterminate",
-              "description": "checkbox indeterminate\n是否为不确定状态  todo 暂未支持",
+              "description": "checkbox indeterminate\n是否为不确定状态",
               "type": "boolean",
               "default": "undefined"
             },
             {
               "name": "disabled",
-              "description": "checkbox disabled\n是否禁用 todo 暂未支持",
+              "description": "checkbox disabled\n是否禁用",
               "type": "boolean",
               "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-collapse",
+          "source": {
+            "symbol": "MCollapse"
+          },
+          "description": "Collapse component with shuimo-ui style.\n水墨组件的折叠组件。",
+          "doc-url": "https://shuimo.design/collapse",
+          "props": [
+            {
+              "name": "modelValue",
+              "description": "collapse modelValue. 折叠展开状态",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "collapse disabled. 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "renderContext",
+              "description": "collapse renderContext. 是否渲染上下文",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "line",
+              "description": "collapse line. 是否显示分割线",
+              "type": "boolean",
+              "default": "true"
             }
           ]
         },
@@ -339,6 +346,11 @@
               "name": "initHandler",
               "description": "init handler. 初始化事件 return boolean need auto init or not",
               "type": "()=>boolean"
+            },
+            {
+              "name": "isRotate",
+              "description": "is rotate. 是否旋转",
+              "type": "boolean"
             }
           ]
         },
@@ -578,6 +590,55 @@
               "description": "grid direction\n网格方向",
               "type": "'column'|'row'",
               "default": "'row'"
+            }
+          ]
+        },
+        {
+          "name": "m-input",
+          "source": {
+            "symbol": "MInput"
+          },
+          "description": "Input component with shuimo-ui style.\n水墨组件的输入组件。",
+          "doc-url": "https://shuimo.design/input",
+          "props": [
+            {
+              "name": "type",
+              "description": "input type. 输入框类型",
+              "type": "string",
+              "default": "input"
+            },
+            {
+              "name": "placeholder",
+              "description": "input placeholder. 提示语",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "modelValue",
+              "description": "input value. 输入框绑定值",
+              "type": [
+                "string",
+                "number"
+              ],
+              "default": ""
+            },
+            {
+              "name": "readonly",
+              "description": "input readonly. 是否只读",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "input disabled. 是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "autofocus",
+              "description": "input autofocus. 是否自动聚焦",
+              "type": "boolean",
+              "default": "false"
             }
           ]
         },
@@ -995,6 +1056,68 @@
           ]
         },
         {
+          "name": "m-popover",
+          "source": {
+            "symbol": "MPopover"
+          },
+          "description": "Popover component with shuimo-ui style.\n水墨组件的弹出框组件。",
+          "doc-url": "https://shuimo.design/popover",
+          "props": [
+            {
+              "name": "placement",
+              "description": "popover display placement",
+              "type": "Placement",
+              "default": "bottom"
+            },
+            {
+              "name": "mountRender",
+              "description": "Whether to render the popover content when the component is mounted",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disableClickAway",
+              "description": "Disables automatically closing the popover when the user clicks away from it",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "content",
+              "description": "If the content is just a simple string, it can be passed in as a prop",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "hover",
+              "description": "Trigger the popper on hover",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "show",
+              "description": "display content value\n是否显示参数",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "popper",
+              "description": "floating-ui options, look: https://floating-ui.com/",
+              "type": "PopperConfig",
+              "default": "{}"
+            },
+            {
+              "name": "teleport",
+              "description": "popover teleport\n弹出框传送",
+              "type": [
+                "MTeleportProps",
+                "undefined",
+                "boolean"
+              ],
+              "default": "undefined"
+            }
+          ]
+        },
+        {
           "name": "m-progress",
           "source": {
             "symbol": "MProgress"
@@ -1002,18 +1125,6 @@
           "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。",
           "doc-url": "https://shuimo.design/progress",
           "props": [
-            {
-              "name": "width",
-              "description": "progress bar width\n进度条的宽度",
-              "type": "number",
-              "default": "399"
-            },
-            {
-              "name": "height",
-              "description": "progress bar height\n进度条的高度",
-              "type": "number",
-              "default": "26.547"
-            },
             {
               "name": "value",
               "description": "progress value\n进度条的值",
@@ -1031,18 +1142,6 @@
               "description": "display value\n是否显示进度值",
               "type": "boolean",
               "default": "false"
-            },
-            {
-              "name": "infoWidth",
-              "description": "info width\n进度值的宽度",
-              "type": "number",
-              "default": "44"
-            },
-            {
-              "name": "leafHeight",
-              "description": "leaf height\n叶子的高度",
-              "type": "number",
-              "default": "28"
             }
           ]
         },
@@ -1070,6 +1169,12 @@
               "default": "undefined"
             },
             {
+              "name": "disabled",
+              "description": "radio disabled\n是否禁用",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "checked",
               "description": "radio checked\n是否选中",
               "type": [
@@ -1094,6 +1199,28 @@
           ]
         },
         {
+          "name": "m-radio-group",
+          "source": {
+            "symbol": "MRadio"
+          },
+          "description": "Radio component with shuimo-ui style.\n水墨组件的单选组件。",
+          "doc-url": "https://shuimo.design/radio",
+          "props": [
+            {
+              "name": "modelValue",
+              "description": "radio group value\n绑定值",
+              "type": "any",
+              "default": ""
+            },
+            {
+              "name": "name",
+              "description": "radio group name\n单选框的name值",
+              "type": "string",
+              "default": "undefined"
+            }
+          ]
+        },
+        {
           "name": "m-rice-paper",
           "source": {
             "symbol": "MRicePaper"
@@ -1110,7 +1237,10 @@
             {
               "name": "mountain",
               "description": "是否显示山脉背景",
-              "type": "boolean",
+              "type": [
+                "boolean",
+                "string"
+              ],
               "default": "true"
             },
             {
@@ -1118,6 +1248,15 @@
               "description": "布局",
               "type": "'auto'|'full-screen'",
               "default": "'auto'"
+            },
+            {
+              "name": "autoDarkMode",
+              "description": "是否自动切换日夜模式",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "default": "true"
             }
           ]
         },
@@ -1395,6 +1534,12 @@
               "name": "type",
               "description": "button type 按钮类型",
               "type": "'default'|'primary'|'error'|'confirm'|'warning'",
+              "default": "default"
+            },
+            {
+              "name": "size",
+              "description": "button size 按钮大小",
+              "type": "'small'|'default'|'large'",
               "default": "default"
             }
           ]

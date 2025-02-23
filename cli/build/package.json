@@ -3,7 +3,8 @@
   "author": "阿怪 <higuaifan@higuaifan.com>",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsx ./config/build.ts"
+    "build": "tsx lib/build.ts",
+    "build:core": "tsx core/build.ts"
   },
   "devDependencies": {
     "vite-plugin-dts": "^3.7.1",

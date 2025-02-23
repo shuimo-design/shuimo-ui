@@ -1,19 +1,18 @@
 /**
- * @description vue build script
+ * @description common build
  * @author 阿怪
- * @date 2023/6/9 11:42
+ * @date 2025/2/23 22:51
  * @version v1.0.0
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import fs, { RmOptions } from 'fs';
 import { exec } from 'child_process';
-import * as fs from 'fs';
-import { RmOptions } from 'fs';
+import { getEsConfig } from './es.config';
 import { build } from 'vite';
-import { EsConfig } from './es.config';
-import { globalStyleConfig, moveGlobalToEs } from './globalStyle.config';
-import { commonConfig } from './common.config';
-// import { rimrafSync } from 'rimraf';
+import { getCommonConfig } from './common.config';
+import { getGlobalStyleConfig, moveGlobalToEs } from './globalStyle.config';
+import path from 'path';
 
 
 const promisify = (fn: Function) => {
@@ -34,7 +33,7 @@ const pCp = promisify(fs.cp);
 const pRename = promisify(fs.rename);
 const pRm = promisify(fs.rm);
 
-const execSync = (cmd: string) => {
+export const execSync = (cmd: string) => {
   return new Promise((resolve, reject) => {
     exec(cmd, (res, stdout) => {
       if (res) {
@@ -46,7 +45,6 @@ const execSync = (cmd: string) => {
     });
   });
 };
-
 const rm = (path: string, options?: RmOptions) => {
   return pRm(path, options ?? { recursive: true, force: true });
 };
@@ -54,50 +52,64 @@ const cpLibBase = (lib: string) => {
   return async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
     // before cp, rm
     const fromName = `../../${lib}/${path}${name}`;
-    const toName = `./config/output/${name}`;
+    const toName = `./${lib}/output/${name}`;
     const options = type === 'document' ? { recursive: true, force: true } : undefined;
     await rm(toName, options);
     return pCp(fromName, toName, options);
   };
 };
 
-const init = () => {
+export const init = (
+  pkg = 'lib',
+  pkgName = 'shuimo-ui',
+) => {
   const cp = async (name: string, path: string = '', type: 'file' | 'document' = 'document') => {
-    return pCp(`../../${path}${name}`, `./config/output/${name}`, type === 'document' ? { recursive: true } : undefined);
+    return pCp(`../../${path}${name}`, `./${pkg}/output/${name}`, type === 'document' ? { recursive: true } : undefined);
   };
 
   const rmLib = (path: string, options?: RmOptions) => {
-    return rm(`../../lib/${path}`, options ?? { recursive: true, force: true });
+    return rm(`../../${pkg}/${path}`, options ?? { recursive: true, force: true });
   };
 
-  const cpLib = cpLibBase('lib');
+  const cpLib = cpLibBase(pkg);
 
   const rename = (name: string) => {
-    return pRename(`./${name}`, `./config/output/${name}`);
+    console.log(path.resolve(`./${name}`));
+    return pRename(`./${name}`, `./${pkg}/output/${name}`);
   };
 
 
   const renameTypes = async () => {
     await Promise.all([
-      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.mts`),
-      pCp(`./config/output/types/shuimo-ui.d.ts`, `./config/output/types/shuimo-ui.d.cts`),
+      pCp(`./${pkg}/output/types/${pkgName}.d.ts`, `./${pkg}/output/types/${pkgName}.d.mts`),
+      pCp(`./${pkg}/output/types/${pkgName}.d.ts`, `./${pkg}/output/types/${pkgName}.d.cts`),
     ]);
-    return rm(`./config/output/types/shuimo-ui.d.ts`);
+    return rm(`./${pkg}/output/types/${pkgName}.d.ts`);
   };
 
   return { cp, cpLib, rename, rmLib, renameTypes };
 
 };
 
-const run = async () => {
 
-  const { cp, rename, cpLib, rmLib, renameTypes } = init();
+export const run = async (
+  pkg = 'lib',
+  pkgName = 'shuimo-ui',
+  fileTask?: (
+    rename: (name: string) => Promise<boolean>,
+    cp: (name: string, path: string, type: 'file' | 'document') => Promise<boolean>,
+    cpLib: (lib: string) => Promise<boolean>
+  ) => Promise<boolean>[]
+) => {
+
+  const { cp, rename, cpLib, rmLib, renameTypes } = init(pkg, pkgName);
 
   const removeRes = await rmLib('dist');
+  const EsConfig = getEsConfig(pkg, pkgName);
   const esConfig = new EsConfig();
-  const commonBuildRes = await build(commonConfig);
+  const commonBuildRes = await build(getCommonConfig(pkg, pkgName).commonConfig);
   const esmBuildRes = await build(esConfig.config);
-  const esmGlobalCssBuildRes = await build(globalStyleConfig);
+  const esmGlobalCssBuildRes = await build(getGlobalStyleConfig(pkg));
 
   // 遍历esConfig.savedCssObj
   for (const key in esConfig.savedCssObj) {
@@ -110,12 +122,12 @@ const run = async () => {
     }
   }
 
-  const apiRes = await execSync('jh-api -c ./config/janghood.config.ts');
+  const apiRes = await execSync(`jh-api -c ./${pkg}/janghood.config.ts`);
 
 
   if (commonBuildRes && esmBuildRes && apiRes && esmGlobalCssBuildRes) {
 
-    moveGlobalToEs();
+    moveGlobalToEs(pkg);
 
     const res = await Promise.all([
       rename('web-types.json'),
@@ -133,6 +145,7 @@ const run = async () => {
       cpLib('index.ts'),
       cpLib('assets/style'),
       cpLib('package.json', '', 'file'),
+      ...fileTask?.(rename,cp,cpLib)
     ]);
 
     await renameTypes();
@@ -141,7 +154,7 @@ const run = async () => {
     //   console.log('build success');
     //   // todo auto publish
     //
-    //   rimrafSync('./config/output', {
+    //   rimrafSync(`./${lib}/output`, {
     //     filter: (path) => {
     //       return !path.includes('web-types.json');
     //     }
@@ -150,5 +163,3 @@ const run = async () => {
   }
 
 };
-
-run();

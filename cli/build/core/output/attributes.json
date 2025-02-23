@@ -1,0 +1,246 @@
+{
+  "m-avatar/img": {
+    "type": "string",
+    "default": "default",
+    "description": "img url\n头像图片地址"
+  },
+  "m-avatar/size": {
+    "type": "string",
+    "options": [
+      "'large'",
+      "'default'",
+      "'small'"
+    ],
+    "default": "default",
+    "description": "avatar size\n头像的大小"
+  },
+  "m-avatar/variant": {
+    "type": "string",
+    "options": [
+      "'circle'",
+      "'square'"
+    ],
+    "default": "circle",
+    "description": "avatar variant\n头像的形状"
+  },
+  "m-border/border": {
+    "type": "boolean|{top?:boolean,right?:boolean,bottom?:boolean,left?:boolean",
+    "default": "true",
+    "description": "global setting border or not and support object setting,\npriority lower than direct setting"
+  },
+  "m-button/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "disable or not 是否禁用"
+  },
+  "m-button/link": {
+    "type": "boolean",
+    "default": "false",
+    "description": "link or not 是否是链接"
+  },
+  "m-button/text": {
+    "type": "string",
+    "default": "",
+    "description": "button inline text, will replace by slot\n按钮文本 会被slot覆盖"
+  },
+  "m-button/type": {
+    "type": "string",
+    "options": [
+      "'default'",
+      "'primary'",
+      "'error'",
+      "'confirm'",
+      "'warning'"
+    ],
+    "default": "default",
+    "description": "button type 按钮类型"
+  },
+  "m-checkbox/checked": {
+    "type": "boolean|undefined|null",
+    "default": "undefined",
+    "description": "checkbox checked\n是否选中"
+  },
+  "m-checkbox/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "checkbox disabled\n是否禁用"
+  },
+  "m-checkbox/indeterminate": {
+    "type": "boolean",
+    "default": "undefined",
+    "description": "checkbox indeterminate\n是否为不确定状态"
+  },
+  "m-checkbox/label": {
+    "type": "string",
+    "default": "",
+    "description": "checkbox label text, will replace slot\n文本 会覆盖slot"
+  },
+  "m-checkbox/modelValue": {
+    "type": "any",
+    "default": "",
+    "description": "value\n绑定值"
+  },
+  "m-checkbox/value": {
+    "type": "any",
+    "default": "undefined",
+    "description": "checkbox value"
+  },
+  "m-collapse/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse disabled. 是否禁用"
+  },
+  "m-collapse/line": {
+    "type": "boolean",
+    "default": "true",
+    "description": "collapse line. 是否显示分割线"
+  },
+  "m-collapse/modelValue": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse modelValue. 折叠展开状态"
+  },
+  "m-collapse/renderContext": {
+    "type": "boolean",
+    "default": "false",
+    "description": "collapse renderContext. 是否渲染上下文"
+  },
+  "m-divider/vertical": {
+    "type": "boolean",
+    "default": "false",
+    "description": "divider is vertical or not"
+  },
+  "m-input/autofocus": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input autofocus. 是否自动聚焦"
+  },
+  "m-input/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input disabled. 是否禁用"
+  },
+  "m-input/modelValue": {
+    "type": "string|number",
+    "default": "",
+    "description": "input value. 输入框绑定值"
+  },
+  "m-input/placeholder": {
+    "type": "string",
+    "default": "",
+    "description": "input placeholder. 提示语"
+  },
+  "m-input/readonly": {
+    "type": "boolean",
+    "default": "false",
+    "description": "input readonly. 是否只读"
+  },
+  "m-input/type": {
+    "type": "string",
+    "default": "input",
+    "description": "input type. 输入框类型"
+  },
+  "m-li/active": {
+    "type": "boolean",
+    "description": "is active style or not"
+  },
+  "m-li/icon": {
+    "type": "boolean",
+    "description": "show icon or not"
+  },
+  "m-loading/mask": {
+    "type": "boolean",
+    "default": "false",
+    "description": "with mask or not"
+  },
+  "m-loading/sideLength": {
+    "type": "number|string",
+    "default": "50",
+    "description": "length of loading item's side (px)"
+  },
+  "m-loading/size": {
+    "type": "number",
+    "default": "1",
+    "description": "logo size"
+  },
+  "m-loading/speed": {
+    "type": "number",
+    "default": "1500",
+    "description": "transform speed"
+  },
+  "m-popover/content": {
+    "type": "any",
+    "default": "",
+    "description": "If the content is just a simple string, it can be passed in as a prop"
+  },
+  "m-popover/disableClickAway": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Disables automatically closing the popover when the user clicks away from it"
+  },
+  "m-popover/hover": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Trigger the popper on hover"
+  },
+  "m-popover/mountRender": {
+    "type": "boolean",
+    "default": "false",
+    "description": "Whether to render the popover content when the component is mounted"
+  },
+  "m-popover/placement": {
+    "type": "Placement",
+    "default": "bottom",
+    "description": "popover display placement"
+  },
+  "m-popover/popper": {
+    "type": "PopperConfig",
+    "default": "{}",
+    "description": "floating-ui options, look: https://floating-ui.com/"
+  },
+  "m-popover/show": {
+    "type": "boolean",
+    "default": "false",
+    "description": "display content value\n是否显示参数"
+  },
+  "m-popover/teleport": {
+    "type": "MTeleportProps|undefined|boolean",
+    "default": "undefined",
+    "description": "popover teleport\n弹出框传送"
+  },
+  "m-switch/activeInfo": {
+    "type": "string",
+    "description": "打开文本"
+  },
+  "m-switch/activeValue": {
+    "type": "any",
+    "description": "打开参数"
+  },
+  "m-switch/disabled": {
+    "type": "boolean",
+    "default": "false",
+    "description": "switch disabled\n是否禁用"
+  },
+  "m-switch/inactiveInfo": {
+    "type": "string",
+    "description": "关闭文本"
+  },
+  "m-switch/inactiveValue": {
+    "type": "any",
+    "description": "关闭参数"
+  },
+  "m-switch/loading": {
+    "type": "boolean",
+    "default": "false",
+    "description": "switch disabled\n是否加载中"
+  },
+  "m-switch/modelValue": {
+    "type": "any",
+    "description": "switch value. 开关绑定值"
+  },
+  "m-switch/onControl": {
+    "type": "boolean",
+    "default": "false",
+    "description": "是否控制"
+  }
+}
