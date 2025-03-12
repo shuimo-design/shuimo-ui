@@ -138,6 +138,7 @@
         <m-button link>link</m-button>
         <m-button @click="buttonClick" class="button-event" disabled>disabled</m-button>
         <m-button text="text!"></m-button>
+        <m-button style="--m-button-bg-color:green;--m-button-bg-hover-color:#0a620a;">custom color</m-button>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Select">

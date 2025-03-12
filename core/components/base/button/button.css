@@ -3,6 +3,8 @@
   --m-button-height: calc(var(--m-button-size) * 3.2);
   --m-button-width: calc(var(--m-button-size) * 3.2);
   --m-button-color: white;
+  --m-button-bg-color: var(--m-color-songlan);
+  --m-button-bg-hover-color: var(--m-color-qingluan);
 }
 
 .m-button {
@@ -15,55 +17,54 @@
   color: var(--m-button-color);
   cursor: var(--m-cursor-pointer);
 
+
+  background-color: var(--m-button-bg-color);
+  &:hover {
+    background-color: var(--m-button-bg-hover-color);
+  }
+
   &:disabled, &:disabled:hover {
     color: var(--m-color-text-disabled);
     cursor: var(--m-cursor-disabled);
+    --m-button-bg-color: var(--m-color-jin-yin);
+    --m-button-bg-hover-color: var(--m-color-jin-yin);
 
     & > slot {
       pointer-events: none;
     }
   }
 
-  &.m-button-default {
-    background-color: var(--m-color-songlan);
-    &:hover{
-      background-color: var(--m-color-qingluan);
-    }
-  }
+
+  /*&.m-button-default {*/
+  /*  background-color: var(--m-color-songlan);*/
+  /*  &:hover{*/
+  /*    background-color: var(--m-color-qingluan);*/
+  /*  }*/
+  /*}*/
 
   &.m-button-error {
-    background-color: var(--m-color-error);
-    &:hover{
-      background-color: var(--m-color-daran);
-    }
+    --m-button-bg-color: var(--m-color-error);
+    --m-button-bg-hover-color: var(--m-color-daran);
   }
 
   &.m-button-confirm {
-    background-color: var(--m-color-success);
-    &:hover{
-      background-color: var(--m-color-zhengqing);
-    }
+    --m-button-bg-color: var(--m-color-success);
+    --m-button-bg-hover-color: var(--m-color-zhengqing);
   }
 
   &.m-button-primary {
-    background-color: var(--m-color-blue);
-    &:hover{
-      background-color: #4994C4;
-    }
+    --m-button-bg-color: var(--m-color-blue);
+    --m-button-bg-hover-color: #4994C4;
   }
 
   &.m-button-warning {
-    background-color: var(--m-color-jin-yang);
-    &:hover{
-      background-color: var(--m-color-zhizi);
-    }
+    --m-button-bg-color: var(--m-color-jin-yang);
+    --m-button-bg-hover-color: var(--m-color-zhizi);
   }
 
   &.m-button-disabled {
-    background-color: var(--m-color-jin-yin);
-    &:hover{
-      background-color: var(--m-color-jin-yin);
-    }
+    --m-button-bg-color: var(--m-color-jin-yin);
+    --m-button-bg-hover-color: var(--m-color-jin-yin);
   }
 
 }
