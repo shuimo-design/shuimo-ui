@@ -145,7 +145,7 @@ export const run = async (
       cpLib('index.ts'),
       cpLib('assets/style'),
       cpLib('package.json', '', 'file'),
-      ...fileTask?.(rename,cp,cpLib)
+      ...(fileTask ? fileTask(rename, cp, cpLib) : [])
     ]);
 
     await renameTypes();
