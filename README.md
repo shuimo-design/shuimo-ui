@@ -56,10 +56,18 @@ npm install shuimo-ui
 
 ## 支持者
 
+
 <img width="180" src="https://raw.githubusercontent.com/shuimo-design/shuimo-ui/main/.github/README/jetbrains.svg" alt="jetbrains logo">
 
 十分感谢 [`Jetbrains`](https://www.jetbrains.com/) 提供给我们的开源开发许可证。
 
 ## 贡献
+
+感谢所有为 Shuimo-ui 贡献力量的朋友们
+
+<a href="https://openomy.app/github/shuimo-design/shuimo-ui" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=shuimo-design/shuimo-ui&chart=list" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>
+
 
 [贡献指南](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)
