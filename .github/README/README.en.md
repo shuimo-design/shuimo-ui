@@ -67,3 +67,9 @@ Thanks to [`Jetbrains`](https://www.jetbrains.com/) for providing us with open s
 ## Contribution
 
 [Contributing Guide](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)
+
+Thanks to all the friends who have contributed to Shuimo-ui
+
+<a href="https://openomy.app/github/shuimo-design/shuimo-ui" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=shuimo-design/shuimo-ui&chart=list" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>

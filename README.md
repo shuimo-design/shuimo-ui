@@ -63,11 +63,11 @@ npm install shuimo-ui
 
 ## 贡献
 
+[贡献指南](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)
+
 感谢所有为 Shuimo-ui 贡献力量的朋友们
 
 <a href="https://openomy.app/github/shuimo-design/shuimo-ui" target="_blank" style="display: block; width: 100%;" align="center">
   <img src="https://openomy.app/svg?repo=shuimo-design/shuimo-ui&chart=list" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
  </a>
 
-
-[贡献指南](https://github.com/shuimo-design/shuimo-ui/blob/main/.github/contributing.md)
