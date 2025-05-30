@@ -8,6 +8,10 @@
 
 ::: demo base/slider/boundary
 
+### {{$t(\'onChange\')}}
+
+::: demo base/slider/change
+
 ## API
 
 ::: api base/slider

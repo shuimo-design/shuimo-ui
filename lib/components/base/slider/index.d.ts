@@ -53,5 +53,5 @@ export declare type SliderProps = {
    * @type boolean
    * @default false
    */
-  showInfo?: boolean
+  showInfo?: boolean;
 };

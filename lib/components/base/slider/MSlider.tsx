@@ -36,6 +36,9 @@ export default defineComponent((props: SliderProps, { emit }) => {
       change: value => {
         emit('update:modelValue', value);
       },
+      onChange: value => {
+        emit('change', value);
+      },
     },
   });
 
@@ -61,5 +64,5 @@ export default defineComponent((props: SliderProps, { emit }) => {
 }, {
   name: 'MSlider',
   props,
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'change'],
 });

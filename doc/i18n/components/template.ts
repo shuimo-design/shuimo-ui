@@ -32,6 +32,7 @@ export const template = {
     '山脉透明度': 'Mountains Opacity',
     '自定义透明度': 'Custom Opacity',
     '多宣纸同屏渲染时高频刷新页面会卡顿，例如上方滚动条滚动，请酌情使用': 'When multiple rice papers are rendered on the same screen, frequent page refreshes will cause lag, such as the scroll bar at the top. Please use it with caution.',
+    'onChange': 'onChange',
   },
   zh: {
     '普通表单': '普通表单',
@@ -57,5 +58,6 @@ export const template = {
     '山脉透明度': '山脉透明度',
     '自定义透明度': '自定义透明度',
     '多宣纸同屏渲染时高频刷新页面会卡顿，例如上方滚动条滚动，请酌情使用': '多宣纸同屏渲染时高频刷新页面会卡顿，例如上方滚动条滚动，请酌情使用',
+    'onChange': 'onChange',
   },
 };

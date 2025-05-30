@@ -206,6 +206,9 @@
       <div class="slider">
         <span>{{ sliderRef }}</span>
         <m-slider v-model="sliderRef" :min="-50" :max="50"/>
+
+        <span>小数{{ sliderRef2 }}</span>
+        <m-slider v-model="sliderRef2" :min="0" :max="1" :step="0.1"/>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="DatePicker">
@@ -448,6 +451,7 @@ setInterval(() => {
 
 const sliderRef = ref(4);
 const slider2Ref = ref(0);
+const sliderRef2 = ref(0.1);
 
 const collapseValue = ref(false);
 const collapseValue2 = ref(false);

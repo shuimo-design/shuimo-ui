@@ -6,17 +6,19 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { SliderProps } from './index';
 import { useElementSize } from '../../../compositions/common/useElementSize.ts';
 import { Options } from '../../../compositions/common/defineCore.ts';
 import useDrag, { DragOption, DragPosition, InteractEvent } from '../../../compositions/common/useDrag.ts';
+import { getDecimalPlaces, getStepValueFast } from '@shuimo-design/ui-core/compositions/utils/precision.ts';
 
 export function useSlider(options: Options<{
   props: SliderProps,
   value: { perRef: number },
   event: {
-    change: (value: number) => void
+    change: (value: number) => void,
+    onChange: (value: number) => void
   }
 }>) {
   const sliderRef = ref<HTMLElement | null>(null);
@@ -29,7 +31,11 @@ export function useSlider(options: Options<{
   // todo fix
   const btnW = 20;
 
-  const sub = options.props.max - options.props.min;
+  // 预先计算一些值，避免在高频调用中重复计算
+  const sub = computed(() => options.props.max - options.props.min);
+  const stepDecimals = computed(() => getDecimalPlaces(options.props.step));
+  const stepMultiplier = computed(() => Math.pow(10, stepDecimals.value));
+
   const movePositionHandler = (event: InteractEvent, position: DragPosition) => {
     const totalW = sliderSize.w.value - btnW;
 
@@ -44,30 +50,51 @@ export function useSlider(options: Options<{
     return { x: positionX > 0 ? positionX : 0, y: 0 };
   };
 
-
-  const getValue = () => {
-    const addStep = Math.round(perRef.value * sub / options.props.step) * options.props.step;
-    return options.props.min + addStep;
+  // 拖动结束处理函数
+  const onDragEnd = () => {
+    // 拖动结束时触发onChange回调
+    options.event.onChange(getValue());
   };
 
+  const getValue = () => {
+    // 使用高性能版本的计算
+    const currentValue = options.props.min + perRef.value * sub.value;
+    
+    // 使用预先计算好的stepDecimals，避免重复计算
+    const result = getStepValueFast(
+      currentValue,
+      options.props.min,
+      options.props.step,
+      stepDecimals.value
+    );
+    
+    // 确保结果在范围内
+    if (result < options.props.min) return options.props.min;
+    if (result > options.props.max) return options.props.max;
+    
+    return result;
+  };
 
   const { init: initDrag, domRef: btnRef } = useDrag({
     direction: 'top-right',
     event: {
       getOption: () => option,
       movePositionHandler,
+      onDragLeave: onDragEnd, // 拖动结束时触发onChange
     },
   });
 
   const init = () => {
     if (btnRef.value) {
       const { max, min, modelValue } = options.props;
+      // 简化计算，不需要过度精确（这里主要影响UI位置）
       const per = (modelValue - min) / (max - min);
       if (window && sliderRef.value) {
         const w = Number.parseFloat(window.getComputedStyle(sliderRef.value).width);
 
         const totalW = w - btnW;
         perRef.value = per;
+        // 简化位置计算
         const x = per * totalW;
         btnRef.value.style.transform = `translate(${x}px, 0)`;
 
@@ -77,7 +104,6 @@ export function useSlider(options: Options<{
     }
   };
 
-
   onMounted(() => {
     init();
   });
@@ -86,5 +112,4 @@ export function useSlider(options: Options<{
     btnRef,
     sliderRef,
   };
-
 }
