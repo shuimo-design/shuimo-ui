@@ -9,7 +9,7 @@
 import { SwitchProps } from './props';
 import { EmitsOptions, SlotsType } from '@vue/runtime-core';
 import { computed, ref } from 'vue';
-import { isEmpty } from '../../../../lib/tools';
+import { isEmpty } from '../../../tools';
 
 export const switchIsBoolean = (value: SwitchProps['modelValue']) => {
   return typeof value === 'boolean';
