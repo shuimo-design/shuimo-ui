@@ -54,11 +54,20 @@ export function useInputNumber(options: Options<{
     const { min, max, precision } = props;
     if (oldVal === newVal) {
       return;
-    } else if (+newVal >= +max) {
-      newVal = max;
-    } else if (+newVal <= +min) {
-      newVal = min;
-    } else if (precision !== 0 && String(newVal).includes('.') && (`${newVal}`.length - (`${newVal}`.indexOf('.') + 1) >= precision)) {
+    }
+    
+    // 如果是以小数点结尾的未完成输入，暂时跳过 min/max 验证
+    const isIncompleteDecimal = typeof newVal === 'string' && newVal.endsWith('.');
+    
+    if (!isIncompleteDecimal) {
+      if (+newVal >= +max) {
+        newVal = max;
+      } else if (+newVal <= +min) {
+        newVal = min;
+      }
+    }
+    
+    if (precision !== 0 && String(newVal).includes('.') && (`${newVal}`.length - (`${newVal}`.indexOf('.') + 1) > precision)) {
       newVal = Number(`${newVal}`.substring(0, `${newVal}`.indexOf('.') + (precision + 1)));
     }
     if (e) {e.target.value = String(newVal);}

@@ -86,4 +86,18 @@ describe('数字输入组件', () => {
     expect(wrapper.element.querySelector('input')!.value).toBe('0.1');
   });
 
+  test('有min/max限制时可以输入小数点', async () => {
+    const wrapper = mount(MInputNumber, {
+      props: { modelValue: 0, min: 0, max: 1, precision: 2 },
+    });
+    
+    // 应该能够输入 0.
+    await wrapper.find('input').setValue('0.');
+    expect(wrapper.element.querySelector('input')!.value).toBe('0.');
+    
+    // 应该能够输入 0.5
+    await wrapper.find('input').setValue('0.5');
+    expect(wrapper.element.querySelector('input')!.value).toBe('0.5');
+  });
+
 });
