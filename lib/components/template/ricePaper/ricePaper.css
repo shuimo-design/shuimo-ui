@@ -7,12 +7,12 @@
   --m-rp-dark: var(--m-rp-warm);
   --m-rp-light-opacity: 0.8;
   --m-rp-dark-opacity: 0.5;
-  --m-rp-mountains-opacity: 1;
+  --m-rp-mountains-opacity: 0.3;
   --m-rp-w: 100%;
   --m-rp-h: 100%;
   --m-rp-bg: rgba(10, 87, 64, 0.2);
   --m-rp-hover-bg-i: var(--m-rp-light);
-  --m-rp-hover-opacity: var(--m-rp-dark-opacity);
+  --m-rp-hover-opacity: var(--m-rp-light-opacity);
 
   --m-rp-mlb: url(./assets/img/green/l-base.webp);
   --m-rp-lm: url(./assets/img/green/l-mid.webp);
@@ -40,5 +40,4 @@ html[dark] {
   --m-rp-rm: url(./assets/img/dark/r-mid.webp);
   --m-rp-rf: url(./assets/img/dark/r-front.webp);
   --m-rp-rf2: url(./assets/img/dark/r-front-2.webp);
-
 }

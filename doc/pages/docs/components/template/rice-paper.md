@@ -14,6 +14,11 @@
 
 ::: demo template/rice-paper/transition
 
+### {{$t(\'透明度\')}}
+
+::: demo template/rice-paper/opacity
+
+
 ## API
 
 ::: api template/ricePaper
