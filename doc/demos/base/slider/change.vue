@@ -9,8 +9,8 @@ const onChange = (value: number) => {
 
 <template>
   <div>
-    <div>current value: {{val}}</div>
-    <div>change value: {{changeVal}}</div>
+    <div>current value: {{ val }}</div>
+    <div>change value: {{ changeVal }}</div>
   </div>
   <m-slider v-model="val" :min="0" :max="100" @change="onChange"/>
-</template> 
+</template>

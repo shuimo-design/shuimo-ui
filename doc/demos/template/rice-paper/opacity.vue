@@ -1,13 +1,7 @@
 <template>
   <div>
-    <div>{{ $t('山脉透明度') }}: {{ mountainsOpacity }} </div>
-    <m-slider 
-      v-model="mountainsOpacity" 
-      :min="0" 
-      :max="1" 
-      :step="0.01"
-      @change="handleOpacityChange"
-    />
+    <div>{{ $t('山脉透明度') }}: {{ mountainsOpacity }}</div>
+    <m-slider v-model="mountainsOpacity" :min="0" :max="1" :step="0.01" @change="handleOpacityChange"/>
   </div>
   <div>{{ $t('多宣纸同屏渲染时高频刷新页面会卡顿，例如上方滚动条滚动，请酌情使用') }}</div>
 
@@ -19,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const mountainsOpacity = ref(0.5);
 const appliedOpacity = ref(0.5);
@@ -62,4 +56,4 @@ const opacityStyle = computed(() => {
   padding: 20px;
   margin-top: 10px;
 }
-</style> 
+</style>

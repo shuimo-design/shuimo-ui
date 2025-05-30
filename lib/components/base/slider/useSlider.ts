@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { onMounted, ref, computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { SliderProps } from './index';
 import { useElementSize } from '../../../compositions/common/useElementSize.ts';
 import { Options } from '../../../compositions/common/defineCore.ts';
@@ -34,7 +34,6 @@ export function useSlider(options: Options<{
   // 预先计算一些值，避免在高频调用中重复计算
   const sub = computed(() => options.props.max - options.props.min);
   const stepDecimals = computed(() => getDecimalPlaces(options.props.step));
-  const stepMultiplier = computed(() => Math.pow(10, stepDecimals.value));
 
   const movePositionHandler = (event: InteractEvent, position: DragPosition) => {
     const totalW = sliderSize.w.value - btnW;
@@ -59,19 +58,19 @@ export function useSlider(options: Options<{
   const getValue = () => {
     // 使用高性能版本的计算
     const currentValue = options.props.min + perRef.value * sub.value;
-    
+
     // 使用预先计算好的stepDecimals，避免重复计算
     const result = getStepValueFast(
       currentValue,
       options.props.min,
       options.props.step,
-      stepDecimals.value
+      stepDecimals.value,
     );
-    
+
     // 确保结果在范围内
     if (result < options.props.min) return options.props.min;
     if (result > options.props.max) return options.props.max;
-    
+
     return result;
   };
 
