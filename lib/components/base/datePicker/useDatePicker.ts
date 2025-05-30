@@ -133,7 +133,9 @@ export function useDatePicker(options: Options<{
     }));
     // 往后填充到周六
     const nextDaysYear = dateRef.month === 12 ? dateRef.year + 1 : dateRef.year;
-    const nextDays = Array.from({ length: 6 - dayjs(`${dateRef.year}-${dateRef.month}-${dayjs(`${dateRef.year}-${dateRef.month}`).daysInMonth()}`).day() }, (_, i) => ({
+    // 填充到周六需要的天数
+    const needDays = 6 - dayjs(`${dateRef.year}-${dateRef.month}-${dayjs(`${dateRef.year}-${dateRef.month}`).daysInMonth()}`).day();
+    const nextDays = Array.from({ length: needDays }, (_, i) => ({
       day: i + 1,
       isCurrentMonth: false,
       month: dateRef.month + 1,
@@ -151,13 +153,21 @@ export function useDatePicker(options: Options<{
           month: lastMonth,
           year: prevDaysYear,
         })));
+
+        // 2月份只有28天可能出现第一天是周日补足后没有满42天 参考2026年2月
+        if (dateRef.month === 2) {
+          nextDays.push(...Array.from({ length: (42 - prevDays.length - nextDays.length) }, (_, i) => ({
+            day: i + needDays + 1,
+            isCurrentMonth: false,
+            month: dateRef.month + 1,
+            year: nextDaysYear,
+          })));
+        }
       } else {
 
-        const nextMonth = dateDayjs.add(1, 'month');
-        const nextMonthFirstDayWeek = nextMonth.set('day', 1).day();
-        const baseDay = nextMonthFirstDayWeek === 0 ? 0 : (6 - nextMonthFirstDayWeek);
+        // 基准应该从填充到周六后开始算
         nextDays.push(...Array.from({ length: 7 }, (_, i) => ({
-          day: i + baseDay + 1,
+          day: i + needDays + 1,
           isCurrentMonth: false,
           month: dateRef.month + 1,
           year: nextDaysYear,
