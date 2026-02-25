@@ -1,0 +1,27 @@
+/**
+ * @description headless slider 最小布局 css
+ * @author 阿怪
+ * @date 2026/2/25 00:00
+ * @version v1.0.0
+ */
+
+.m-slider-wrapper {
+  position: relative;
+}
+
+.m-slider-runway {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.m-slider-button {
+  position: relative;
+  cursor: pointer;
+}
+
+.m-slider-info {
+  display: flex;
+  justify-content: space-between;
+}

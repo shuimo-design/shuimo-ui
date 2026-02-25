@@ -1,0 +1,11 @@
+/* headless radio 基础样式重置 */
+.m-radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.m-radio-input {
+  margin: 0;
+}

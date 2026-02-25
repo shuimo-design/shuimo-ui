@@ -1,0 +1,5 @@
+/* headless tag 基础样式重置 */
+.m-tag {
+  display: inline-flex;
+  align-items: center;
+}

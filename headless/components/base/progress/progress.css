@@ -1,0 +1,11 @@
+/* headless progress 基础样式重置 */
+.m-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.m-progress-main {
+  flex: 1;
+}

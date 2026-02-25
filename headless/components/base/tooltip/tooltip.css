@@ -1,0 +1,17 @@
+/**
+ * @description headless tooltip 最小布局 css
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-tooltip {
+  display: inline-block;
+}
+
+.m-tooltip-content {
+  position: fixed;
+  z-index: 9999;
+  width: max-content;
+  pointer-events: none;
+}

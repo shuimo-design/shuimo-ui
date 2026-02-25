@@ -23,10 +23,10 @@ export default defineComponent((props: InputProps, { emit }) => {
   } = useInput(props, { emit });
 
   return () => {
-    return h(inputType, { class: 'm-input' }, {
+    return h(inputType, {
+      class: ['m-input', inputClass],
       ...baseProps,
       onInput, onFocus, onBlur,
-      class: inputClass,
       ...rowInfo,
     });
   };

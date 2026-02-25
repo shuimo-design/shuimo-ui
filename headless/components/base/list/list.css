@@ -1,0 +1,5 @@
+/* headless list 基础样式重置 */
+.m-list {
+  padding: 0;
+  margin: 0;
+}

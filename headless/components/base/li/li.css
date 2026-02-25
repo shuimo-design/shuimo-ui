@@ -1,0 +1,11 @@
+/* headless li 基础样式重置 */
+.m-li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 4px;
+}
+
+.m-li-inner {
+  flex: 1;
+}
