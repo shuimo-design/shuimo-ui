@@ -1,0 +1,18 @@
+/**
+ * @description MForm 基础布局样式
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 行内模式：横向排列各表单项 */
+.m-form-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}

@@ -65,7 +65,7 @@ export default defineComponent((_props: MenuProps, { emit, slots }) => {
       <div class="m-menu">
         <div class="m-menu-main">
           <MMenuItem
-            data={nodesRef.value}
+            data={[...nodesRef.value]}
             config={config}
             checkbox={p.checkbox}
             root={true}

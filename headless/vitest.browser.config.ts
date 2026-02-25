@@ -19,6 +19,7 @@ export default defineConfig({
     browser: {
       enabled: true,
       provider: playwright(),
+      headless: true,
       instances: [{ browser: 'chromium' }],
     },
     include: ['components/**/__tests__/*.browser.{ts,tsx}'],

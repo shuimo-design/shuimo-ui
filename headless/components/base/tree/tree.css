@@ -1,0 +1,74 @@
+/**
+ * @description headless tree 基础布局样式（无视觉装饰，仅结构）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-tree {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-tree-node {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-tree-node-content {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+/* 展开/收起箭头图标，使用 CSS border 三角形实现 */
+.m-tree-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.m-tree-icon::before {
+  content: '';
+  display: block;
+  border: 4px solid transparent;
+  border-left: 6px solid currentColor;
+  transition: transform 0.2s ease;
+}
+
+/* 展开状态：箭头旋转 90 度指向下方 */
+.m-tree-icon__expand::before {
+  transform: rotate(90deg);
+}
+
+/* 无子节点的占位，保持对齐 */
+.m-tree-icon-placeholder {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.m-tree-label {
+  margin-left: 4px;
+  user-select: none;
+}
+
+.m-tree-default-label {
+  cursor: pointer;
+}
+
+/* checkbox 与 label 之间的间距 */
+.m-tree-checkbox {
+  margin-right: 4px;
+}
+
+/* 子节点区域缩进 */
+.m-tree-node-child {
+  margin-left: 20px;
+}

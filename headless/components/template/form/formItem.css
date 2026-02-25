@@ -1,0 +1,24 @@
+/**
+ * @description MFormItem 基础布局样式
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-form-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* label 区域：不收缩，右侧留有间距，与输入框垂直居中对齐 */
+.m-form-item-label {
+  flex-shrink: 0;
+  padding-right: 8px;
+  line-height: 32px;
+}
+
+/* content 区域：自动填满剩余宽度 */
+.m-form-item-content {
+  flex: 1;
+}

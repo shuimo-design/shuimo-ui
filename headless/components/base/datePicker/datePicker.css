@@ -1,0 +1,153 @@
+/**
+ * @description datePicker headless 基础布局样式
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+/* 容器 */
+.m-date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+/* trigger 区域 */
+.m-date-picker-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 8px;
+  user-select: none;
+}
+
+/* placeholder 状态半透明 */
+.m-date-picker-placeholder {
+  opacity: 0.5;
+}
+
+/* 下拉面板 */
+.m-date-picker-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  margin-top: 4px;
+  min-width: 280px;
+}
+
+/* 头部导航栏 */
+.m-date-picker-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+  gap: 4px;
+}
+
+.m-date-picker-head-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* 箭头按钮 */
+.m-date-picker-arrow {
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* 头部可点击年份/月份文字 */
+.m-date-picker-head-year,
+.m-date-picker-head-month {
+  cursor: pointer;
+}
+
+/* 星期头 */
+.m-date-picker-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.m-date-picker-week-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+}
+
+/* 日期行 */
+.m-date-picker-calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* 日期单元格 */
+.m-date-picker-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+/* 非当月日期 */
+.m-date-picker-cell-not-current {
+  opacity: 0.4;
+}
+
+/* 当前选中日期 */
+.m-date-picker-cell-current {
+  font-weight: 600;
+}
+
+/* 月份网格（3列） */
+.m-date-picker-months {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.m-date-picker-month-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.m-date-picker-month-cell-current {
+  font-weight: 600;
+}
+
+/* 年份网格（3列） */
+.m-date-picker-years {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.m-date-picker-year-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.m-date-picker-year-cell-current {
+  font-weight: 600;
+}
+
+/* 分割线 */
+.m-date-picker-divider {
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.15;
+  margin: 4px 0;
+}

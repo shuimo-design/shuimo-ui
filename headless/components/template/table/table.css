@@ -1,0 +1,34 @@
+/**
+ * @description table headless 基础样式（仅结构/重置，无视觉装饰）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-table {
+  width: 100%;
+  overflow: auto;
+}
+
+.m-table-inner {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.m-thead {}
+
+.m-th {
+  text-align: left;
+  padding: 8px;
+}
+
+.m-td {
+  padding: 8px;
+}
+
+.m-tr {}
+
+.m-table-empty th {
+  text-align: center;
+  padding: 24px;
+}

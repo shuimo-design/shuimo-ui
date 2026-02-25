@@ -22,6 +22,7 @@ export * from './components/base/li';
 export * from './components/base/inputNumber';
 export * from './components/base/slider';
 export * from './components/message/message';
+export * from './components/template/form';
 
 export * from './components/base/popover';
 export * from './components/base/divider';
@@ -37,3 +38,7 @@ export * from './components/template/breadcrumb';
 export * from './components/template/grid';
 export * from './components/template/pagination';
 export * from './components/template/menu';
+export * from './components/base/datePicker';
+export * from './components/base/tree';
+export * from './components/template/table';
+export * from './components/template/tableColumn';

@@ -26,6 +26,8 @@ import MSlider from '../../components/base/slider/MSlider.tsx';
 import MLoading from '../../components/base/loading/MLoading.tsx';
 import MDivider from '../../components/base/divider/MDivider.tsx';
 import MTooltip from '../../components/base/tooltip/MTooltip.tsx';
+import MTree from '../../components/base/tree/MTree.tsx';
+import MTreeNode from '../../components/base/tree/MTreeNode.tsx';
 // [other]
 import MDarkMode from '../../components/other/darkMode/MDarkMode.tsx';
 // [message]
@@ -35,6 +37,8 @@ import MConfirm from '../../components/message/confirm/MConfirm.tsx';
 import MMessage from '../../components/message/message/MMessage.tsx';
 import MMessageList from '../../components/message/message/MMessageList.tsx';
 // [template]
+import MForm from '../../components/template/form/MForm.tsx';
+import MFormItem from '../../components/template/form/MFormItem.tsx';
 import MRicePaper from '../../components/template/ricePaper/MRicePaper.tsx';
 import MVirtualList from '../../components/template/virtualList/MVirtualList.tsx';
 import MBorder from '../../components/template/border/MBorder.tsx';
@@ -43,10 +47,15 @@ import MGrid from '../../components/template/grid/MGrid.tsx';
 import MPagination from '../../components/template/pagination/MPagination.tsx';
 import MMenu from '../../components/template/menu/MMenu.tsx';
 import MMenuItem from '../../components/template/menu/MMenuItem.tsx';
+import MTable from '../../components/template/table/MTable.tsx';
+import MTableColumn from '../../components/template/tableColumn/MTableColumn.tsx';
 import MPopover from '../../components/base/popover/MPopover.tsx';
+import MDatePicker from '../../components/base/datePicker/MDatePicker.tsx';
 
 
 export const components: Record<string, Component> = {
+  MForm,
+  MFormItem,
   MAvatar,
   MButton,
   MSelect,
@@ -80,12 +89,19 @@ export const components: Record<string, Component> = {
   MPagination,
   MMenu,
   MMenuItem,
+  MTable,
+  MTableColumn,
 
   MDarkMode,
+  MDatePicker,
+  MTree,
+  MTreeNode,
 };
 
 
 export {
+  MForm,
+  MFormItem,
   MAvatar,
   MSelect,
   MInput,
@@ -118,6 +134,11 @@ export {
   MPagination,
   MMenu,
   MMenuItem,
+  MTable,
+  MTableColumn,
 
   MDarkMode,
+  MDatePicker,
+  MTree,
+  MTreeNode,
 };
