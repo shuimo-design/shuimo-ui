@@ -74,6 +74,7 @@
     "attributes": [
       "autoMode",
       "initHandler",
+      "isRotate",
       "modelValue"
     ],
     "description": "dark mode component with shuimo-ui style.\nFor switching between day and night mode.\n水墨组件的太极组件。\n用于切换日夜间模式。\n[docs](https://shuimo.design/dark-mode)"
@@ -261,6 +262,7 @@
   },
   "m-rice-paper": {
     "attributes": [
+      "autoDarkMode",
       "layout",
       "mountain",
       "type"

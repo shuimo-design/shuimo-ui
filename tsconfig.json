@@ -9,6 +9,6 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true
   }
 }

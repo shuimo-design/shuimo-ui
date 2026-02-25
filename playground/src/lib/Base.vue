@@ -132,55 +132,70 @@
     </ComponentsWrap>
     <ComponentsWrap name="Select">
       <div class="select">
-        <div>{{ value }}</div>
-        <div>{{ emitValue }}</div>
-        <div>{{ value2 }}</div>
-        <div>值为：{{ valueRef }}</div>
-<!--        <m-select-->
-<!--          v-model="valueRef"-->
-<!--          input-param="after"-->
-<!--          option-param="before"-->
-<!--          value-param="number"-->
-<!--          :options="options"-->
-<!--        />-->
+        <!-- 1. 基础单选（字符串数组） -->
+        <div class="select-section">
+          <h4>基础单选</h4>
+          <div>值：{{ value }}</div>
+          <m-select v-model="value" :options="['子', '丑', '寅', '卯']"/>
+        </div>
 
-<!--        <m-select v-model="baseValueRef" :options="['子', '丑', '寅', '卯']"/>-->
-<!--        <m-select-->
-<!--          v-model="value"-->
-<!--          :options="['子', '丑', '寅', '卯']"-->
-<!--          :readonly="false"-->
-<!--          :filter="customFilter2"-->
-<!--        />-->
-<!--        <m-select-->
-<!--          v-model="emitValue"-->
-<!--          :options="emitOptions"-->
-<!--          option-param="inputParam"-->
-<!--          input-param="inputParam"-->
-<!--          value-param="value"-->
-<!--        />-->
-        <m-select
-          v-model="emitValue"
-          :options="c"
-          option-param="name"
-          input-param="name"
-          value-param="name"
-        />
-<!--        <m-select v-model="value2" :options="options2" multiple :readonly="false"/>-->
-<!--        <m-select-->
-<!--          multiple-->
-<!--          :readonly="false"-->
-<!--          :options="testOptions"-->
-<!--          v-model="testValue"-->
-<!--          :filter="customFilter"-->
-<!--        />-->
-<!--        <div>值为：{{ valueRef }}</div>-->
-<!--        <m-select-->
-<!--          v-model="valueRef"-->
-<!--          input-param="after"-->
-<!--          option-param="before"-->
-<!--          value-param="number"-->
-<!--          :options="options"-->
-<!--        />-->
+        <!-- 2. 对象选项 + param 映射 -->
+        <div class="select-section">
+          <h4>对象选项 (valueParam/optionParam/inputParam)</h4>
+          <div>值：{{ valueRef }}</div>
+          <m-select
+            v-model="valueRef"
+            input-param="after"
+            option-param="before"
+            value-param="number"
+            :options="options"
+          />
+        </div>
+
+        <!-- 3. 可输入过滤 -->
+        <div class="select-section">
+          <h4>可输入过滤 (readonly=false)</h4>
+          <div>值：{{ emitValue }}</div>
+          <m-select
+            v-model="emitValue"
+            :options="emitOptions"
+            option-param="inputParam"
+            input-param="inputParam"
+            value-param="value"
+            :readonly="false"
+          />
+        </div>
+
+        <!-- 4. 多选 -->
+        <div class="select-section">
+          <h4>多选</h4>
+          <div>值：{{ value2 }}</div>
+          <m-select v-model="value2" :options="options2" multiple :readonly="false"/>
+        </div>
+
+        <!-- 5. 多选 + 自定义 filter -->
+        <div class="select-section">
+          <h4>多选 + 自定义 filter</h4>
+          <div>值：{{ testValue }}</div>
+          <m-select
+            multiple
+            :readonly="false"
+            :options="testOptions"
+            v-model="testValue"
+            :filter="customFilter"
+          />
+        </div>
+
+        <!-- 6. fetch 加载更多 -->
+        <div class="select-section">
+          <h4>fetch 加载更多</h4>
+          <m-select
+            v-model="fetchValue"
+            :options="optionsMoreRef"
+            :need-fetch="needFetch"
+            :fetch="fetchSelect"
+          />
+        </div>
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Slider">
@@ -201,15 +216,40 @@
       <div class="progress">
         <m-progress :value="20" :max="200"/>
         <m-progress :value="44" show-info/>
+        <m-progress :value="100" show-info/>
+        <m-progress :value="0" show-info/>
+        <m-progress class="change-size" :value="99" show-info/>
         <m-progress :value="progressValueRef" show-info/>
 
-<!--        <m-progress :value="progressValueRef" show-info>-->
-<!--          {{progressValueRef}}-->
-<!--        </m-progress>-->
+        <!--        <m-progress :value="progressValueRef" show-info>-->
+        <!--          {{progressValueRef}}-->
+        <!--        </m-progress>-->
       </div>
     </ComponentsWrap>
     <ComponentsWrap name="Tree">
-      <MTree/>
+      <!--      <MTree/>-->
+    </ComponentsWrap>
+    <ComponentsWrap name="VirtualList">
+      <div class="virtual-list-demo">
+        <div>
+          <h4>等高 (1000项 × 40px)</h4>
+          <m-virtual-list class="vl-container" :list="vlFixedList" :estimated-height="40">
+            <template #default="{ data, index }">
+              <div class="vl-item">{{ index }}: {{ data }}</div>
+            </template>
+          </m-virtual-list>
+        </div>
+        <div>
+          <h4>不等高 (500项, 30~150px)</h4>
+          <m-virtual-list class="vl-container" :list="vlRandomList" :estimated-height="60">
+            <template #default="{ data, index }">
+              <div class="vl-item" :style="{ height: data.height + 'px' }">
+                {{ index }}: {{ data.text }} ({{ data.height }}px)
+              </div>
+            </template>
+          </m-virtual-list>
+        </div>
+      </div>
     </ComponentsWrap>
   </div>
 </template>
@@ -372,6 +412,8 @@ const customFilter2 = (options: any, inputValue: any) => {
   return options === inputValue;
 };
 
+const fetchValue = ref('');
+
 const date = ref(new Date());
 
 const checkboxGroup = ref([1, 3]);
@@ -388,6 +430,13 @@ setInterval(() => {
 
 const sliderRef = ref(4);
 const slider2Ref = ref(0);
+
+// VirtualList 演示数据
+const vlFixedList = Array.from({ length: 1000 }, (_, i) => `item-${i}`);
+const vlRandomList = Array.from({ length: 500 }, (_, i) => ({
+  text: `item-${i}`,
+  height: 30 + Math.floor(Math.random() * 120),
+}));
 </script>
 
 <style scoped>
@@ -421,5 +470,46 @@ const slider2Ref = ref(0);
 
 .m-progress {
   margin: 4px 0
+}
+
+.change-size {
+  --m-progress-main-h: 20px;
+  --m-progress-h: 30px
+}
+
+.select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.select-section {
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.select-section h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.virtual-list-demo {
+  display: flex;
+  gap: 20px;
+}
+
+.vl-container {
+  height: 400px;
+  width: 350px;
+  border: 1px solid #ccc;
+}
+
+.vl-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 24px;
 }
 </style>

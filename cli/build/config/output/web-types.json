@@ -339,6 +339,11 @@
               "name": "initHandler",
               "description": "init handler. 初始化事件 return boolean need auto init or not",
               "type": "()=>boolean"
+            },
+            {
+              "name": "isRotate",
+              "description": "is rotate. 是否旋转",
+              "type": "boolean"
             }
           ]
         },
@@ -1003,6 +1008,34 @@
           "doc-url": "https://shuimo.design/progress",
           "props": [
             {
+              "name": "value",
+              "description": "progress value\n进度条的值",
+              "type": "number",
+              "default": "0"
+            },
+            {
+              "name": "max",
+              "description": "progress value max\n进度条最大值",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "showInfo",
+              "description": "display value\n是否显示进度值",
+              "type": "boolean",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "name": "m-progress",
+          "source": {
+            "symbol": "MProgressBamboo"
+          },
+          "description": "progress component with shuimo-ui style.\n水墨组件的进度条组件。",
+          "doc-url": "https://shuimo.design/progress",
+          "props": [
+            {
               "name": "width",
               "description": "progress bar width\n进度条的宽度",
               "type": "number",
@@ -1110,7 +1143,10 @@
             {
               "name": "mountain",
               "description": "是否显示山脉背景",
-              "type": "boolean",
+              "type": [
+                "boolean",
+                "string"
+              ],
               "default": "true"
             },
             {
@@ -1118,6 +1154,15 @@
               "description": "布局",
               "type": "'auto'|'full-screen'",
               "default": "'auto'"
+            },
+            {
+              "name": "autoDarkMode",
+              "description": "是否自动切换日夜模式",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "default": "true"
             }
           ]
         },

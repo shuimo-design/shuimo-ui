@@ -8,7 +8,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-import { useDarkModeStorage } from 'shuimo-ui/index.ts';
+// import { useDarkModeStorage } from 'shuimo-ui/index.ts';
+import { useDarkModeStorage } from '@shuimo-design/shuimo-ui-headless/index.ts';
 import { onMounted, provide, ref } from 'vue';
 import Base from './lib/Base.vue';
 // import Message from './lib/Message.vue';
@@ -40,6 +41,7 @@ const categories: Category[] = [
       'Switch',
       'Tag',
       'Tree',
+      'VirtualList',
     ],
   },
   {
@@ -66,10 +68,10 @@ const categories: Category[] = [
     ],
   },
 ];
-const defaultCategory = localStorage.getItem('Shuimo-playground-category') ?? categories[0].name;
+const defaultCategory = 'Base';
 const componentIndex = categories.findIndex((item) => item.name === defaultCategory)??0;
 const defaultComponents = categories[componentIndex];
-const defaultComponentName = localStorage.getItem('Shuimo-playground-component') ?? defaultComponents['components'][0];
+const defaultComponentName = 'Select';
 const defaultComponentIndex = defaultComponents['components'].findIndex((item) => item === defaultComponentName)??0;
 
 
@@ -120,9 +122,12 @@ const { darkModeRef, initDarkMode } = useDarkModeStorage();
   <m-svg-wrapper>
     <div class="main">
       <Base/>
-      <Message/>
-      <Other/>
-      <Template/>
+
+<!--      <MTree></MTree>-->
+
+<!--      <Message/>-->
+<!--      <Other/>-->
+<!--      <Template/>-->
     </div>
   </m-svg-wrapper>
 </template>

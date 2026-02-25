@@ -81,7 +81,7 @@
       </m-virtual-list>
     </ComponentsWrap>
     <ComponentsWrap name="Menu">
-      <!--  <MTree/>-->
+        <MTree/>
       <m-loading :mask="false" :size="2" :speed="500"></m-loading>
       <m-menu :data="menu" :config="{ label: 'title' }"/>
       <m-menu :data="menu" :config="{ label: 'title' }">

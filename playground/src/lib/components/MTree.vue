@@ -9,7 +9,7 @@ import { MTree } from 'shuimo-ui/index';
 import { ref } from 'vue';
 import type { TreeData } from 'shuimo-ui/components/base/tree';
 
-const checkedKeys = ref<Array<string | number>>(['12', '22', '3']);
+const checkedKeys = ref<Array<string | number>>(['12', '22', '3', '1', '2', '3', '11']);
 
 function generateMockData(level: number, pLevel?: string, pKey?: string): TreeData[] {
   const data: TreeData[] = [];
@@ -22,7 +22,9 @@ function generateMockData(level: number, pLevel?: string, pKey?: string): TreeDa
       label,
       value: `Value ${i}`,
       children: [],
-      disabled: i % 2 === 0,
+      // disabled: i % 2 === 0,
+      disabled: false,
+      // checked: true,
     };
 
     if (i < level) {
@@ -40,19 +42,23 @@ const mockData = generateMockData(maxLevel);
 // console.log('mock data=> ', mockData);
 const treeData = ref(mockData);
 const d = generateMockData(5);
+
+
+const checkedKeys2 = ref<Array<string | number>>(['1']);
 </script>
 
 <template>
   <div>
-    {{ checkedKeys }}
+    <!--    {{ checkedKeys }}-->
+    {{ checkedKeys2 }}
     <br/>
-    <div class="tree">
-      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d"
-              :default-expand-all="true"></m-tree>
-    </div>
+    <!--    <div class="tree">-->
+    <!--&lt;!&ndash;      <m-tree checkbox :check-strictly="false" v-model:checkedKeys="checkedKeys" :data="d"&ndash;&gt;-->
+    <!--&lt;!&ndash;              :default-expand-all="true"></m-tree>&ndash;&gt;-->
+    <!--    </div>-->
     <br/>
     <div>
-      <m-tree checkbox :data="treeData"/>
+      <m-tree checkbox :data="treeData" v-model:checkedKeys="checkedKeys2"/>
     </div>
   </div>
 </template>

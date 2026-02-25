@@ -34,15 +34,17 @@
     "@janghood/config": "0.0.1-5",
     "@janghood/lint": "0.0.5",
     "@nuxt/devtools": "latest",
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.12.13",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "nuxt": "^3.11.1",
-    "rimraf": "^5.0.5",
-    "tsx": "^4.7.0",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.7",
-    "vitest": "^1.4.0",
-    "vue": "^3.4.21"
+    "@vitest/browser-playwright": "^4.0.18",
+    "nuxt": "^3.11.2",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12",
+    "vitest": "^4.0.18",
+    "vitest-browser-vue": "^2.0.2",
+    "vue": "^3.4.27"
   }
 }

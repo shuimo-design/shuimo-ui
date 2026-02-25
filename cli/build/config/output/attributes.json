@@ -178,6 +178,10 @@
     "type": "()=>boolean",
     "description": "init handler. 初始化事件 return boolean need auto init or not"
   },
+  "m-dark-mode/isRotate": {
+    "type": "boolean",
+    "description": "is rotate. 是否旋转"
+  },
   "m-dark-mode/modelValue": {
     "type": "boolean",
     "description": "switch value. 开关绑定值"
@@ -644,6 +648,11 @@
     "default": "undefined",
     "description": "radio value\n单选框的值"
   },
+  "m-rice-paper/autoDarkMode": {
+    "type": "boolean|string",
+    "default": "true",
+    "description": "是否自动切换日夜模式"
+  },
   "m-rice-paper/layout": {
     "type": "string",
     "options": [
@@ -654,7 +663,7 @@
     "description": "布局"
   },
   "m-rice-paper/mountain": {
-    "type": "boolean",
+    "type": "boolean|string",
     "default": "true",
     "description": "是否显示山脉背景"
   },

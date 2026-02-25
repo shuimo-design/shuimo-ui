@@ -4,7 +4,7 @@
       <LazyEntryComponentDialog/>
     </main>
     <footer>
-      <a class="m-cursor-pointer" href="https://beian.miit.gov.cn" target="_blank">浙ICP备15017406号-2</a>
+      <a class="m-cursor-pointer" href="https://beian.miit.gov.cn" target="_blank">浙ICP备15017406号-4</a>
     </footer>
   </div>
 </template>
