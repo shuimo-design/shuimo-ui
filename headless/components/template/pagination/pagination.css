@@ -1,0 +1,62 @@
+/**
+ * @description MPagination 基础布局样式（无视觉装饰）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-pagination {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  gap: 4px;
+}
+
+/* 普通页码按钮 */
+.m-pager {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* 当前页高亮 */
+.m-pager-current {
+  font-weight: 600;
+}
+
+/* 折叠省略号 */
+.m-pager-folded {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+/* 上一页 / 下一页按钮 */
+.m-page-prev,
+.m-page-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* 禁用状态：已到达边界 */
+.m-page-prev-disabled,
+.m-page-next-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* 总条数文本 */
+.m-page-total {
+  white-space: nowrap;
+}

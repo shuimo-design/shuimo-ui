@@ -1,0 +1,67 @@
+/**
+ * @description menu 基础结构样式（无视觉主题）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-menu {
+  display: flex;
+}
+
+.m-menu-main {
+  display: inline-block;
+}
+
+.m-menu-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.m-menu-item-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.m-menu-item-root {
+  font-size: 1.1em;
+}
+
+/* 节点内容行：checkbox + label + 箭头 水平排列 */
+.m-menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.m-menu-item-label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.m-menu-item-checkbox {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* 展开/收起箭头 */
+.m-menu-item-arrow {
+  flex-shrink: 0;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid currentColor;
+  transition: transform 0.2s;
+  transform: rotate(-90deg);
+}
+
+.m-menu-item-arrow-expand {
+  transform: rotate(0deg);
+}
+
+/* 子节点缩进 */
+.m-menu-item-children {
+  margin-left: 16px;
+}

@@ -1,0 +1,13 @@
+/**
+ * @description headless dark mode 基础样式
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-dark-mode {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

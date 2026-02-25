@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-
+    "test": "vitest --config vitest.browser.config.ts",
+    "test:run": "vitest --config vitest.browser.config.ts --run"
   },
   "dependencies": {
     "@shuimo-design/ui-core": "workspace:*"

@@ -12,7 +12,6 @@ export * from './utils/install';
 export * from './utils/install/importComponents.ts';
 export * from './utils/install/vuePlugin.ts';
 
-
-export const useDarkModeStorage = ()=>{
-  return {}
-}
+export { default as useDarkModeStorage } from './compositions/darkMode/useDarkModeStorage';
+export { useConfirm } from './compositions/confirm/useConfirm';
+export { useMessage } from './compositions/message/useMessage';

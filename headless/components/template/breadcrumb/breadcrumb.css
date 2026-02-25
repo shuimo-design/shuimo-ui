@@ -1,0 +1,27 @@
+/**
+ * @description breadcrumb headless 样式（最小化，主题由上层注入）
+ * @author 阿怪
+ * @date 2026/2/25
+ */
+
+.m-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.m-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.m-breadcrumb-item-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.m-breadcrumb-separator {
+  margin: 0 0.4em;
+  user-select: none;
+}

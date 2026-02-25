@@ -1,0 +1,11 @@
+/**
+ * @description headless border 样式（最小化，装饰由消费方实现）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-border {
+  position: relative;
+  box-sizing: border-box;
+}

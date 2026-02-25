@@ -1,0 +1,22 @@
+/**
+ * @description grid 基础布局样式（无视觉样式）
+ * @author 阿怪
+ * @date 2026/2/25
+ * @version v1.0.0
+ */
+
+.m-grid {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--m-grid-gap, 0);
+  column-gap: var(--m-grid-col-gap, var(--m-grid-gap, 0));
+  row-gap: var(--m-grid-row-gap, var(--m-grid-gap, 0));
+}
+
+.m-grid-row {
+  flex-direction: row;
+}
+
+.m-grid-column {
+  flex-direction: column;
+}

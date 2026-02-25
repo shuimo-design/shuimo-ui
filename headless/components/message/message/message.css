@@ -1,0 +1,66 @@
+/**
+ * @description headless message 最小化样式
+ * @author 阿怪
+ * @date 2026/2/25
+ */
+
+/* 消息列表容器：固定定位，高 z-index */
+.m-message-list {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+/* 各方位定位 */
+.m-message-list-top-right {
+  top: 16px;
+  right: 16px;
+}
+
+.m-message-list-top-left {
+  top: 16px;
+  left: 16px;
+}
+
+.m-message-list-bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
+
+.m-message-list-bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+
+.m-message-list-top-center {
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 单条消息 */
+.m-message {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.m-message-close {
+  cursor: pointer;
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.m-message-close:hover {
+  opacity: 1;
+}
