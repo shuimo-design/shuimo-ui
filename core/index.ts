@@ -25,6 +25,7 @@ export * from './components/message/message';
 export * from './components/template/form';
 
 export * from './components/base/popover';
+export * from './components/base/tooltip';
 export * from './components/base/divider';
 export * from './components/base/loading';
 
