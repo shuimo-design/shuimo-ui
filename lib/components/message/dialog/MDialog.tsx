@@ -24,6 +24,7 @@ export default defineComponent((_props: DialogProps, { emit, slots, attrs }) => 
     handleModelClickPropagation,
     getClose,
   } = useModel(props, { emit });
+
   return () => {
 
     const getActive = () => {

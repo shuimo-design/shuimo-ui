@@ -65,6 +65,10 @@ export default class Tree {
     this.#init();
   }
 
+  get test(){
+    return Array(...this.#cacheMap.values())[0].checked;
+  }
+
   get config() {
     return this.#config;
   }
@@ -217,6 +221,7 @@ export default class Tree {
   }
 
   setCheckedByKeys(keys: TreeNodeData['key'][]) {
+    console.log(keys);
     const nodes = this.getNodesByKeys(keys);
     nodes.forEach(node => {
       if (node) {

@@ -25,8 +25,8 @@ export declare type TreeProps = {
    */
   config?: TreeConfig;
   /**
-   * @description checkbox 是否使用checkbox
-   *              树数据
+   * @description checkbox
+   *              是否使用checkbox
    * @type TreeData
    * @default []
    */
