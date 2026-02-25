@@ -8,7 +8,7 @@
  */
 import { h, Teleport, VNodeTypes } from 'vue';
 import { describe, expect, test } from 'vitest';
-import useTeleport, { initTeleportOptions } from '../../compositions/common/useTeleport.ts';
+import useTeleport, { initTeleportOptions } from '@shuimo-design/ui-core/compositions/common/useTeleport.ts';
 
 
 describe('useTeleport', () => {

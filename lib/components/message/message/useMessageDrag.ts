@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { MessageDirectionType } from './index';
-import { DragOption, DragPosition, InteractEvent } from '../../../compositions/common/useDrag.ts';
+import { DragOption, DragPosition, InteractEvent } from '@shuimo-design/ui-core/compositions/common/useDrag.ts';
 import { Ref } from 'vue';
 
 

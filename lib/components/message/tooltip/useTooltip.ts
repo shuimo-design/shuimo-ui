@@ -8,7 +8,7 @@
  */
 // import { TooltipProps } from './index';
 // import { Options } from '../../../compositions/common/defineCore.ts';
-import usePopover from '../../../compositions/common/usePopover.ts';
+import usePopover from '@shuimo-design/ui-core/compositions/common/usePopover.ts';
 
 // export function useTooltip(options: Options<{ props: TooltipProps }>) {
 export function useTooltip() {

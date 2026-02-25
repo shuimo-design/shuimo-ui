@@ -7,9 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { SelectProps } from './index';
-import useContainerObserver from '../../../compositions/virtualList/useContainerObserver.ts';
+import useContainerObserver from '@shuimo-design/ui-core/compositions/virtualList/useContainerObserver.ts';
 import { ref, watch } from 'vue';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 
 type TODOType = any;
 export default function useSelectFetch(options: Options<{

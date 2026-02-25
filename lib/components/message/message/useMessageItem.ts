@@ -17,10 +17,10 @@ import infoIcon from './assets/info.webp';
 import { MessageProps, MessageType } from './index';
 import { fadeIn, fadeOut } from './animate';
 import useMessageDrag from './useMessageDrag';
-import { Options } from '../../../compositions/common/defineCore.ts';
-import useDrag from '../../../compositions/common/useDrag.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
+import useDrag from '@shuimo-design/ui-core/compositions/common/useDrag.ts';
 import { ref } from 'vue';
-import useDebounceFn from '../../../compositions/common/useDebounceFn.ts';
+import useDebounceFn from '@shuimo-design/ui-core/compositions/common/useDebounceFn.ts';
 
 export const messageIcon: Record<MessageType, any> = {
   success: successIcon,

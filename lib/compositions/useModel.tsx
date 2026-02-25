@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { toRef, VNode, watch } from 'vue';
-import useTeleport from './common/useTeleport.ts';
+import useTeleport from '@shuimo-design/ui-core/compositions/common/useTeleport.ts';
 import useMask from './useMask.tsx';
 import { ModelMask } from '../types/common/model';
 import { MTeleportProps } from '../types/common/common';

@@ -1,6 +1,6 @@
 import { TreeData, TreeNodeData, TreeProps } from './index';
 import Tree from './tree';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 import { deepClone } from '../../../tools';
 import { shallowRef } from 'vue';
 

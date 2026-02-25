@@ -8,7 +8,7 @@
  */
 import { InputNumberProps } from './index';
 import { HTMLElementEvent } from '../../types/template';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 import { ref } from 'vue';
 
 export type InputNumber = string | number;

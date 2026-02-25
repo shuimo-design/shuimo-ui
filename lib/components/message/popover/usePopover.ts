@@ -6,9 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { Placement, PopperConfig, PositionStyle, usePopper } from '../../../compositions/popper/usePopper.ts';
-import useClickAway from '../../../compositions/popper/useClickAway';
-import { Options } from '../../../compositions/common/defineCore';
+import { Placement, PopperConfig, PositionStyle, usePopper } from '@shuimo-design/ui-core/compositions/popper/usePopper.ts';
+import useClickAway from '@shuimo-design/ui-core/compositions/popper/useClickAway';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore';
 // import MPrinter from '../../other/printer/Printer';
 import { PopoverProps } from './index';
 import { onBeforeMount, onMounted, ref, type Ref, shallowRef } from 'vue';

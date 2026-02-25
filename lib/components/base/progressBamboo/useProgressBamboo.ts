@@ -10,7 +10,7 @@ import { ProgressProps } from './index';
 // @ts-ignore  todo fix this
 import leafPng from './assets/leaf.webp';
 import { isEmpty, notEmpty } from '../../../tools';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 
 export const BASE_SIZE = {
   BG: { W: 556, H: 37 },

@@ -8,9 +8,9 @@
  */
 import { onMounted, ref } from 'vue';
 import { SliderProps } from './index';
-import { useElementSize } from '../../../compositions/common/useElementSize.ts';
-import { Options } from '../../../compositions/common/defineCore.ts';
-import useDrag, { DragOption, DragPosition, InteractEvent } from '../../../compositions/common/useDrag.ts';
+import { useElementSize } from '@shuimo-design/ui-core/compositions/common/useElementSize.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
+import useDrag, { DragOption, DragPosition, InteractEvent } from '@shuimo-design/ui-core/compositions/common/useDrag.ts';
 
 export function useSlider(options: Options<{
   props: SliderProps,

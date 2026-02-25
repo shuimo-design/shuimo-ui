@@ -7,5 +7,5 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export { initChecked, getNewModelValue } from '../../../compositions/input/useBooleanInput';
+export { initChecked, getNewModelValue } from '@shuimo-design/ui-core/compositions/input/useBooleanInput';
 

@@ -7,10 +7,10 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { VirtualListProps } from './index';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 import { nextTick, ref } from 'vue';
-import useEntries from '../../../compositions/virtualList/useEntries.ts';
-import useContainerObserver from '../../../compositions/virtualList/useContainerObserver.ts';
+import useEntries from '@shuimo-design/ui-core/compositions/virtualList/useEntries.ts';
+import useContainerObserver from '@shuimo-design/ui-core/compositions/virtualList/useContainerObserver.ts';
 
 export const initBoundary = (options: {
   from: number, // visible start number

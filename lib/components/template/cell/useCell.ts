@@ -7,9 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { CellProps } from './index';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 import { ref } from 'vue';
-import { useElementSize } from '../../../compositions/common/useElementSize.ts';
+import { useElementSize } from '@shuimo-design/ui-core/compositions/common/useElementSize.ts';
 import useQuadrilateral from '../../../compositions/quadrilateral/useQuadrilateral.ts';
 
 // export type PC = Partial<CSSStyleDeclaration>;

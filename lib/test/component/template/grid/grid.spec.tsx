@@ -12,7 +12,7 @@ import MGrid from '../../../../components/template/grid/MGrid';
 import MCell from '../../../../components/template/cell/MCell.tsx';
 
 describe('grid', () => {
-  vi.mock('../../../../compositions/common/useElementSize.ts', async () => {
+  vi.mock('@shuimo-design/ui-core/compositions/common/useElementSize.ts', async () => {
     return {
       useElementSize: () => {
         return { w: { value: 100 }, h: { value: 100 } };

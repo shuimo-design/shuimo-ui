@@ -8,7 +8,7 @@
  */
 import { MenuProps } from './index';
 import { useTree } from '../../base/tree/useTree';
-import { Options } from '../../../compositions/common/defineCore.ts';
+import { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 
 export function useMenu(options: Options<{
   props: MenuProps,

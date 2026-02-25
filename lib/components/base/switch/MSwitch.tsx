@@ -9,8 +9,7 @@
  * modelValue不为布尔值的时候暂时不冒泡，里面的逻辑不太清晰，后续可以扩展一下
  */
 import { computed, defineComponent, ref } from 'vue';
-import { props } from '@shuimo-design/ui-core/components/base/switch/api.ts';
-import { getIsActive, switchIsBoolean } from '@shuimo-design/ui-core/components/base/switch/useSwitch.tsx';
+import { SwitchCore } from '@shuimo-design/ui-core/components/base/switch';
 import { isEmpty } from '../../../tools';
 import { SwitchProps } from '@shuimo-design/ui-core/components/base/switch/props';
 import './switch.css';
@@ -19,7 +18,7 @@ export default defineComponent((props: SwitchProps, { emit, slots }) => {
   const activeValue = ref(props.activeValue);
   const inactiveValue = ref(props.inactiveValue);
 
-  const isBoolean = computed(() => switchIsBoolean(props.modelValue));
+  const isBoolean = computed(() => SwitchCore.switchIsBoolean(props.modelValue));
 
   // 如果modelValue是布尔值
   if (isBoolean.value) {
@@ -30,7 +29,7 @@ export default defineComponent((props: SwitchProps, { emit, slots }) => {
     }
   }
 
-  const isActive = computed(() => getIsActive(props.modelValue, activeValue.value));
+  const isActive = computed(() => SwitchCore.getIsActive(props.modelValue, activeValue.value));
 
   const changeSwitch = () => {
     if (props.disabled || props.loading) {
@@ -75,5 +74,5 @@ export default defineComponent((props: SwitchProps, { emit, slots }) => {
 }, {
   name: 'MSwitch',
   emits: ['update:modelValue', 'change'],
-  props,
+  props: SwitchCore.props,
 });

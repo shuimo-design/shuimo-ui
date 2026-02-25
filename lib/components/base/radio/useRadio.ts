@@ -8,5 +8,5 @@
  * todo fix nuxt Hydration error
  */
 
-export { initChecked, getNewModelValue } from '../../../compositions/input/useBooleanInput';
+export { initChecked, getNewModelValue } from '@shuimo-design/ui-core/compositions/input/useBooleanInput';
 export const createRadioId = () => `m-radio-${Math.random().toString(36).substr(2)}`;

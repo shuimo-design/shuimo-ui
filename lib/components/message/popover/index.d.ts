@@ -11,7 +11,7 @@
  *
  * Hello, humor
  */
-import { Placement, PopperConfig } from '../../../compositions/popper/usePopper.ts';
+import { Placement, PopperConfig } from '@shuimo-design/ui-core/compositions/popper/usePopper.ts';
 import { MTeleportProps } from '../../../types/common/common';
 
 

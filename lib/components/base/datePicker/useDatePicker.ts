@@ -8,10 +8,10 @@
  */
 import { DatePickerProps } from './index';
 import dayjs from 'dayjs';
-import usePopover from '../../../compositions/common/usePopover.ts';
+import usePopover from '@shuimo-design/ui-core/compositions/common/usePopover.ts';
 import { computed, Ref, ref } from 'vue';
 import { isEmpty } from '../../../tools';
-import type { Options } from '../../../compositions/common/defineCore.ts';
+import type { Options } from '@shuimo-design/ui-core/compositions/common/defineCore.ts';
 
 // 基础星期名
 export const BASE_WEEK_NAME: DisplayCalendarType[] = [

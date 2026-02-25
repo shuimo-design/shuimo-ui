@@ -8,7 +8,7 @@
  */
 import { PopoverProps } from './index';
 import { MCOPO, MPropType } from '../../types/props';
-import { Placement } from '../../../compositions/popper/usePopper.ts';
+import { Placement } from '@shuimo-design/ui-core/compositions/popper/usePopper.ts';
 
 
 export const props: MCOPO<PopoverProps> = {

@@ -13,7 +13,7 @@ import { WCSetup } from '../../types/template';
 import { RicePaperProps } from './index';
 import useImgMove from './compositions/useImgMove.ts';
 import { useDarkMode } from '../../other/darkMode/useDarkMode.ts';
-import { useDarkModeStorage } from '../../../utils/install/importComponents.ts';
+import useDarkModeStorage from '../../../compositions/useDarkModeStorage.ts';
 
 export const MRicePaperSetup: WCSetup<RicePaperProps> = slot => {
   return (props, { slots }) => {

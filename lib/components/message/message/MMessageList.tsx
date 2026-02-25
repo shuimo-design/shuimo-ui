@@ -9,7 +9,7 @@
 import { Component, defineComponent, ref } from 'vue';
 import MMessageItem from './MMessageItem';
 import { listProps } from './api.ts';
-import useTeleport from '../../../compositions/common/useTeleport.ts';
+import useTeleport from '@shuimo-design/ui-core/compositions/common/useTeleport.ts';
 import { useMessageList } from './useMessageList.ts';
 
 
