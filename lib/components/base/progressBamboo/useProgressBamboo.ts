@@ -42,7 +42,7 @@ const getTextLeft = (width: number, infoWidth: number, leafWidth: number, per: n
 export const leaf = leafPng;
 
 
-export function useProgress(options: Options<{
+export function useProgressBamboo(options: Options<{
   props: ProgressProps,
 }>) {
   const { props } = options;

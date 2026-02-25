@@ -9,3 +9,5 @@
 
 
 export * from '../components/base/avatar/props.d.ts';
+export * from '../components/base/select/props.d.ts';
+export * from '../components/base/loading/props.d.ts';

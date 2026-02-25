@@ -1,0 +1,57 @@
+:root {
+  --m-progress-bamboo-width: 556px;
+  --m-progress-bamboo-height: unset;
+}
+
+.m-progress-bamboo, .m-progress-bamboo-border {
+  --m-progress-bamboo-real-width: calc(var(--m-progress-bamboo-width, 556px));
+  --m-progress-bamboo-real-height: var(--m-progress-bamboo-height, 37px);
+  --m-progress-bamboo-bg-width: var(--m-progress-bamboo-width, 556px);
+  --m-progress-bamboo-bg-size: calc(var(--m-progress-bamboo-bg-width) / 2) var(--m-progress-bamboo-height);
+  --m-progress-bamboo-leaf-height: var(--m-progress-bamboo-leaf-height, 28px);
+  --m-progress-bamboo-per-width: var(--m-progress-bamboo-per-width, 80px);
+  --m-progress-bamboo-per-height: max(var(--m-progress-bamboo-per-height, 20px), var(--m-progress-bamboo-leaf-height));
+  --m-progress-bamboo-per-font-size: var(--m-progress-bamboo-per-font-size, 16px);
+}
+
+
+.m-progress-bamboo-border {
+  display: inline-block;
+  width: var(--m-progress-bamboo-real-width);
+}
+
+.m-progress-bamboo-per {
+  position: relative;
+  display: inline-block;
+  width: var(--m-progress-bamboo-per-width);
+  height: var(--m-progress-bamboo-per-height);
+  line-height: var(--m-progress-bamboo-per-height);
+  top: calc(var(--m-progress-bamboo-per-height) * 0.4);
+  font-size: var(--m-progress-bamboo-per-font-size);
+  font-weight: bold;
+
+  & img, & span {
+    float: right;
+  }
+}
+
+.m-progress-bamboo-leaf {
+  height: var(--m-progress-bamboo-leaf-height);
+}
+
+.m-progress-bamboo {
+  width: var(--m-progress-bamboo-real-width);
+  height: var(--m-progress-bamboo-real-height);
+  aspect-ratio: 556 / 37;
+  -webkit-appearance: none;
+
+  &::-webkit-progress-bar {
+    background: url('./assets/bamboo_bg.webp') repeat-x;
+    background-size: var(--m-progress-bamboo-bg-size);
+  }
+
+  &::-webkit-progress-value {
+    background: url('./assets/bamboo.webp') repeat-x;
+    background-size: var(--m-progress-bamboo-bg-size);
+  }
+}

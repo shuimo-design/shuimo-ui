@@ -7,17 +7,17 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import interactjs from 'interactjs';
-import { MessageDirectionType } from '../../components/message/message';
 import { Ref, ref } from 'vue';
 
-
+// 方向类型，内联定义避免引用 lib 的 MessageDirectionType
+export type DragDirectionType = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | string;
 export type InteractEvent = any;
 export type DragPosition = { x: number, y: number };
 export type DragOption = { startAxis: 'x' | 'y', lockAxis: 'x' | 'y' };
 
 
 export default function useDrag(config: {
-  direction: MessageDirectionType,
+  direction: DragDirectionType,
   value?: {
     domRef?: Ref<HTMLElement | null>
   },
