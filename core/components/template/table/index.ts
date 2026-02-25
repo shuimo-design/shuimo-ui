@@ -1,5 +1,5 @@
 /**
- * @description table core 导출
+ * @description table core 导出
  * @author 阿怪
  * @date 2026/2/25
  * @version v1.0.0

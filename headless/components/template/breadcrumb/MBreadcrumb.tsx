@@ -13,7 +13,8 @@
  *     ...
  */
 import { defineComponent } from 'vue';
-import { props } from '@shuimo-design/ui-core/components/template/breadcrumb';
+import { BreadcrumbCore } from '@shuimo-design/ui-core';
+const { props } = BreadcrumbCore;
 import { BreadcrumbProps, BreadcrumbItemOption } from '@shuimo-design/ui-core/components/template/breadcrumb/props';
 import './breadcrumb.css';
 

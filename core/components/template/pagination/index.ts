@@ -7,9 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { props } from './api';
+import { usePagination } from './usePagination';
 
 export const PaginationCore = {
   props,
+  usePagination,
 };
 
 export type { PaginationProps } from './props';

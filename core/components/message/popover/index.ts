@@ -7,9 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { props } from './api.ts';
-import MPopover from './MPopover.tsx';
+import { usePopover } from './usePopover.ts';
 
-export const PopoverCore = {
+export const MessagePopoverCore = {
   props,
-  MPopover
+  usePopover,
 };
+
+export type { PopoverProps as MessagePopoverProps } from './props';

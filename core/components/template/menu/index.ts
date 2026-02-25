@@ -7,11 +7,13 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { props, DEFAULT_MENU_CONFIG } from './api';
+import { useMenu } from './useMenu';
 
 export const MenuCore = {
   props,
+  useMenu,
 };
 
 export { DEFAULT_MENU_CONFIG };
-export type { MenuProps, MenuData, MenuNodeData, MenuConfig } from './props';
 export { useMenu } from './useMenu';
+export type { MenuProps, MenuData, MenuNodeData, MenuConfig } from './props';

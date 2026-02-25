@@ -11,7 +11,7 @@
  *
  * Hello, humor
  */
-import { HTMLElementEvent } from '../../../../lib/components/types/template';
+import { HTMLElementEvent } from '../../../types/common/common';
 
 export declare type CheckboxProps = {
   /**

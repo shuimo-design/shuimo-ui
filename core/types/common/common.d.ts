@@ -8,6 +8,11 @@
  */
 
 
+/** 带类型化 target 的 DOM 事件 */
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};
+
 export declare type MTeleportProps = {
   /**
    * @description teleport to

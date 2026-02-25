@@ -6,6 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-export { props } from './api';
-export { useVirtualList } from './useVirtualList';
+import { props } from './api';
+import { useVirtualList } from './useVirtualList';
+
+export const VirtualListCore = {
+  props,
+  useVirtualList,
+};
+
 export type { VirtualListProps } from './props';
+export { useVirtualList } from './useVirtualList';

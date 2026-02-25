@@ -15,7 +15,8 @@
  *         [bottom-sentinel]
  */
 import { defineComponent } from 'vue';
-import { props, useVirtualList } from '@shuimo-design/ui-core/components/template/virtualList';
+import { VirtualListCore } from '@shuimo-design/ui-core';
+const { props, useVirtualList } = VirtualListCore;
 import { VirtualListProps } from '@shuimo-design/ui-core/components/template/virtualList/props';
 import './virtualList.css';
 

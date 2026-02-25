@@ -7,7 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent } from 'vue';
-import { props } from '@shuimo-design/ui-core/components/template/border';
+import { BorderCore } from '@shuimo-design/ui-core';
+const { props } = BorderCore;
 import './border.css';
 
 export default defineComponent((_, { slots }) => {

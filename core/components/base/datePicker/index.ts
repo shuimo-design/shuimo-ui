@@ -7,9 +7,11 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { props } from './api';
+import { useDatePicker } from './useDatePicker';
 
 export const DatePickerCore = {
   props,
+  useDatePicker,
 };
 
 export type { DatePickerProps, CalendarType, DateRefType, CalendarItem } from './props';

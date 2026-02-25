@@ -43,3 +43,6 @@ export * from './components/base/datePicker';
 export * from './components/base/tree';
 export * from './components/template/table';
 export * from './components/template/tableColumn';
+export * from './components/template/border';
+export * from './components/template/virtualList';
+export * from './components/message/popover';
