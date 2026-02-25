@@ -11,7 +11,7 @@ import { Component } from 'vue';
 
 // [base]
 import MAvatar from '../../components/base/avatar/MAvatar.tsx';
-import MInput from '../../components/base/input/MInput';
+import MInput from '../../components/base/input/MInput.tsx';
 import MButton from '../../components/base/button/MButton.tsx';
 import MSelect from '../../components/base/select/MSelect.tsx';
 import MCheckbox from '../../components/base/checkbox/MCheckbox.tsx';
