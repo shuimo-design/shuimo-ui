@@ -23,6 +23,8 @@
   "scripts": {
     "test": "vitest",
     "test:update": "vitest -u",
+    "test:browser": "vitest --config vitest.browser.config.ts",
+    "test:browser:run": "vitest --config vitest.browser.config.ts --run",
     "coverage": "vitest --coverage"
   },
   "types": "./types/shuimo-ui.d.mts",
