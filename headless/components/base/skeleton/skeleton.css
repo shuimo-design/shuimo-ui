@@ -1,0 +1,61 @@
+/**
+ * @description headless skeleton css
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+@keyframes m-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.m-skeleton {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.m-skeleton-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--m-color-background, #e0e0e0);
+}
+
+.m-skeleton-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.m-skeleton-title {
+  display: block;
+  height: 20px;
+  width: 40%;
+  border-radius: 2px;
+  background: var(--m-color-background, #e0e0e0);
+  margin-bottom: 12px;
+}
+
+.m-skeleton-row {
+  display: block;
+  height: 16px;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--m-color-background, #e0e0e0);
+  margin-bottom: 12px;
+}
+
+.m-skeleton-row:last-child {
+  margin-bottom: 0;
+}
+
+/* 脉冲动画：作用于骨架内的所有占位块 */
+.m-skeleton-animated .m-skeleton-avatar,
+.m-skeleton-animated .m-skeleton-title,
+.m-skeleton-animated .m-skeleton-row {
+  animation: m-skeleton-pulse 1.5s ease-in-out infinite;
+}

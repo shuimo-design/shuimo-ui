@@ -1,0 +1,46 @@
+/**
+ * @description headless tabs 布局 CSS（无视觉样式）
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ *
+ * 江湖的业务千篇一律，复杂的代码好几百行。
+ */
+
+/* 外层容器：纵向布局 */
+.m-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 导航栏：横向排列 */
+.m-tabs-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/* 单个导航项：可点击 */
+.m-tabs-nav-item {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* 禁用态：禁止点击 */
+.m-tabs-nav-item-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 内容区域 */
+.m-tabs-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 面板：默认隐藏，激活时显示 */
+.m-tab-pane {
+  width: 100%;
+  height: 100%;
+}

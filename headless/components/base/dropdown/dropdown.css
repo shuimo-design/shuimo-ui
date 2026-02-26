@@ -1,0 +1,49 @@
+/**
+ * @description headless dropdown 最小化结构样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.m-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.m-dropdown-disabled .m-dropdown-trigger {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.m-dropdown-menu {
+  min-width: 120px;
+  padding: 4px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.m-dropdown-item {
+  display: block;
+  padding: 6px 12px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.m-dropdown-item-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.m-dropdown-item-divided {
+  border-top: 1px solid currentColor;
+  margin-top: 4px;
+  padding-top: 8px;
+}

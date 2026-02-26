@@ -1,0 +1,70 @@
+/**
+ * @description headless descriptions css
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-descriptions {
+  width: 100%;
+}
+
+/* === 标题 === */
+.m-descriptions-header {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* === 内容网格 === */
+.m-descriptions-body {
+  display: grid;
+  gap: 0;
+}
+
+/* === 水平模式：label+value 并排在一个格子内 === */
+.m-descriptions-horizontal .m-descriptions-pair {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+/* === 垂直模式：cell 独立网格格子 === */
+.m-descriptions-vertical .m-descriptions-cell {
+  display: block;
+  padding: 8px 12px;
+}
+
+/* === 标签 === */
+.m-descriptions-label {
+  color: inherit;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+/* === 值 === */
+.m-descriptions-content {
+  color: inherit;
+}
+
+/* === 边框模式 === */
+.m-descriptions-border .m-descriptions-pair,
+.m-descriptions-border .m-descriptions-cell {
+  border: 1px solid var(--m-color-border, #e0e0e0);
+}
+
+/* === 尺寸变体 === */
+.m-descriptions-small .m-descriptions-pair,
+.m-descriptions-small .m-descriptions-cell {
+  padding: 4px 8px;
+}
+
+.m-descriptions-medium .m-descriptions-pair,
+.m-descriptions-medium .m-descriptions-cell {
+  padding: 8px 12px;
+}
+
+.m-descriptions-large .m-descriptions-pair,
+.m-descriptions-large .m-descriptions-cell {
+  padding: 12px 16px;
+}

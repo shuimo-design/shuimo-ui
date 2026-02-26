@@ -1,0 +1,113 @@
+/**
+ * @description headless Notification 最小化样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ *
+ * 江湖的业务千篇一律，复杂的代码好几百行。
+ */
+
+/* ===== 通知列表容器 ===== */
+.m-notification-list {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+/* 各方位定位 */
+.m-notification-list-top-right {
+  top: 16px;
+  right: 16px;
+  align-items: flex-end;
+}
+
+.m-notification-list-top-left {
+  top: 16px;
+  left: 16px;
+  align-items: flex-start;
+}
+
+.m-notification-list-bottom-right {
+  bottom: 16px;
+  right: 16px;
+  align-items: flex-end;
+  flex-direction: column-reverse;
+}
+
+.m-notification-list-bottom-left {
+  bottom: 16px;
+  left: 16px;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+}
+
+/* ===== 单条通知 ===== */
+.m-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  min-width: 280px;
+  max-width: 420px;
+  border-radius: 4px;
+  pointer-events: all;
+  box-sizing: border-box;
+  /* 拖拽弹回时的过渡动画（仅在非拖拽状态生效） */
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  cursor: grab;
+}
+
+/* 拖拽中禁用过渡，避免跟手延迟 */
+.m-notification:active {
+  cursor: grabbing;
+  transition: none;
+}
+
+/* 超过阈值时标记为待移除：半透明反馈 */
+.m-notification.m-notification-removing {
+  opacity: 0.5;
+}
+
+/* ===== 图标区域 ===== */
+.m-notification-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+/* ===== 内容区域 ===== */
+.m-notification-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-notification-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.m-notification-message {
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ===== 关闭按钮 ===== */
+.m-notification-close {
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  opacity: 0.5;
+  margin-top: 2px;
+}
+
+.m-notification-close:hover {
+  opacity: 1;
+}

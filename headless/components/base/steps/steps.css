@@ -1,0 +1,120 @@
+/**
+ * @description headless Steps 最小化样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ *
+ * 江湖的业务千篇一律，复杂的代码好几百行。
+ */
+
+/* ===== 步骤条容器 ===== */
+.m-steps {
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* 水平方向 */
+.m-steps-horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* 垂直方向 */
+.m-steps-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* ===== 单个步骤 ===== */
+.m-step {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* 水平布局：步骤纵向排列内部元素，连接线横向延伸 */
+.m-steps-horizontal .m-step {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 垂直布局：步骤横向排列内部元素，连接线纵向延伸 */
+.m-steps-vertical .m-step {
+  flex-direction: row;
+  align-items: flex-start;
+  flex: none;
+  padding-bottom: 24px;
+}
+
+/* ===== 图标区域 ===== */
+.m-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 1;
+  border: 1px solid currentColor;
+  box-sizing: border-box;
+}
+
+/* 水平：图标和内容上下排列时，内容区域需要在图标下方 */
+.m-steps-horizontal .m-step-icon {
+  margin-bottom: 8px;
+}
+
+/* 垂直：图标在左，内容在右 */
+.m-steps-vertical .m-step-icon {
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+/* ===== 内容区域 ===== */
+.m-step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-step-title {
+  font-size: 14px;
+  line-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.m-step-description {
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ===== 连接尾线 ===== */
+.m-step-tail {
+  flex-shrink: 0;
+}
+
+/* 水平：连接线为细横线，位于图标与下一步图标之间 */
+.m-steps-horizontal .m-step-tail {
+  height: 1px;
+  flex: 1;
+  margin-top: 14px; /* 垂直居中于图标 */
+  margin-left: 8px;
+  background-color: currentColor;
+  opacity: 0.25;
+}
+
+/* 垂直：连接线为细竖线 */
+.m-steps-vertical .m-step-tail {
+  position: absolute;
+  left: 14px;     /* 图标宽度一半 */
+  top: 30px;      /* 图标高度 + 少许间距 */
+  bottom: 0;
+  width: 1px;
+  background-color: currentColor;
+  opacity: 0.25;
+}

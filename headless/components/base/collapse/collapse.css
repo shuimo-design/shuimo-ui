@@ -1,0 +1,44 @@
+/**
+ * @description headless collapse 最小化结构样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-collapse {
+  width: 100%;
+}
+
+.m-collapse-item {
+  width: 100%;
+}
+
+.m-collapse-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.m-collapse-item-disabled .m-collapse-header {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* 内容区：默认隐藏，展开时显示 */
+.m-collapse-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.m-collapse-content-active {
+  /* 使用大值让内容自然撑开，实际高度由内容决定 */
+  max-height: 9999px;
+  transition: max-height 0.5s ease;
+}
+
+.m-collapse-content-inner {
+  overflow: hidden;
+}

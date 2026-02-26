@@ -1,0 +1,19 @@
+/**
+ * @description headless card 基础样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-card {
+  display: block;
+  overflow: hidden;
+}
+
+.m-card-header {
+  padding: 12px 16px;
+}
+
+.m-card-body {
+  padding: 16px;
+}

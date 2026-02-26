@@ -1,0 +1,35 @@
+/**
+ * @description headless alert 基础样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.m-alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-alert-title {
+  font-weight: 500;
+}
+
+.m-alert-description {
+  margin-top: 4px;
+}
+
+.m-alert-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}

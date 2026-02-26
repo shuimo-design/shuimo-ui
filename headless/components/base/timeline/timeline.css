@@ -1,0 +1,84 @@
+/**
+ * @description headless timeline css
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-timeline {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === 单项布局 === */
+.m-timeline-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* === 轨道区（连接线 + 节点） === */
+.m-timeline-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* === 节点圆点 === */
+.m-timeline-node {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.m-timeline-node-large {
+  width: 14px;
+  height: 14px;
+}
+
+.m-timeline-node-hollow {
+  background: transparent;
+  border: 2px solid currentColor;
+}
+
+/* === 连接线（末项不显示） === */
+.m-timeline-tail {
+  flex: 1;
+  width: 1px;
+  background: var(--m-color-background, #e0e0e0);
+  margin-top: 4px;
+}
+
+.m-timeline-item:last-child .m-timeline-tail {
+  display: none;
+}
+
+/* === 右侧内容区 === */
+.m-timeline-right {
+  margin-left: 28px;
+  padding-bottom: 16px;
+}
+
+.m-timeline-content {
+  line-height: 1.5;
+}
+
+.m-timeline-timestamp {
+  font-size: 12px;
+  margin-top: 4px;
+  color: inherit;
+  opacity: 0.6;
+}

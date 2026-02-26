@@ -1,0 +1,43 @@
+/**
+ * @description headless badge 基础样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-badge {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/* 徽标数字 */
+.m-badge-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 999px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-size: 10px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* 小圆点 */
+.m-badge-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+}

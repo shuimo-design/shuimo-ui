@@ -15,3 +15,4 @@ export * from './utils/install/vuePlugin.ts';
 export { default as useDarkModeStorage } from './compositions/darkMode/useDarkModeStorage';
 export { useConfirm } from './compositions/confirm/useConfirm';
 export { useMessage } from './compositions/message/useMessage';
+export { useNotification } from './compositions/notification/useNotification';

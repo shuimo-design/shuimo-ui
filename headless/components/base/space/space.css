@@ -1,0 +1,15 @@
+/**
+ * @description headless space 基础样式
+ * @author 阿怪
+ * @date 2026/2/26
+ * @version v1.0.0
+ */
+
+.m-space {
+  display: flex;
+}
+
+.m-space-item {
+  display: flex;
+  align-items: inherit;
+}
