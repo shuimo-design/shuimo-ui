@@ -28,6 +28,11 @@ import MDivider from '../../components/base/divider/MDivider.tsx';
 import MTooltip from '../../components/base/tooltip/MTooltip.tsx';
 import MTree from '../../components/base/tree/MTree.tsx';
 import MTreeNode from '../../components/base/tree/MTreeNode.tsx';
+import MCard from '../../components/base/card/MCard.tsx';
+import MAlert from '../../components/base/alert/MAlert.tsx';
+import MBadge from '../../components/base/badge/MBadge.tsx';
+import MEmpty from '../../components/base/empty/MEmpty.tsx';
+import MSpace from '../../components/base/space/MSpace.tsx';
 // [other]
 import MDarkMode from '../../components/other/darkMode/MDarkMode.tsx';
 // [message]
@@ -51,6 +56,21 @@ import MTable from '../../components/template/table/MTable.tsx';
 import MTableColumn from '../../components/template/tableColumn/MTableColumn.tsx';
 import MPopover from '../../components/base/popover/MPopover.tsx';
 import MDatePicker from '../../components/base/datePicker/MDatePicker.tsx';
+import MTabs from '../../components/base/tabs/MTabs.tsx';
+import MTabPane from '../../components/base/tabs/MTabPane.tsx';
+import MDropdown from '../../components/base/dropdown/MDropdown.tsx';
+import MDropdownItem from '../../components/base/dropdown/MDropdownItem.tsx';
+import MCollapse from '../../components/base/collapse/MCollapse.tsx';
+import MCollapseItem from '../../components/base/collapse/MCollapseItem.tsx';
+import MSteps from '../../components/base/steps/MSteps.tsx';
+import MStep from '../../components/base/steps/MStep.tsx';
+import MNotification from '../../components/message/notification/MNotification.tsx';
+import MNotificationList from '../../components/message/notification/MNotificationList.tsx';
+import MSkeleton from '../../components/base/skeleton/MSkeleton.tsx';
+import MTimeline from '../../components/base/timeline/MTimeline.tsx';
+import MTimelineItem from '../../components/base/timeline/MTimelineItem.tsx';
+import MDescriptions from '../../components/template/descriptions/MDescriptions.tsx';
+import MDescriptionsItem from '../../components/template/descriptions/MDescriptionsItem.tsx';
 
 
 export const components: Record<string, Component> = {
@@ -96,6 +116,29 @@ export const components: Record<string, Component> = {
   MDatePicker,
   MTree,
   MTreeNode,
+  MTabs,
+  MTabPane,
+  MDropdown,
+  MDropdownItem,
+  MCollapse,
+  MCollapseItem,
+
+  MCard,
+  MAlert,
+  MBadge,
+  MEmpty,
+  MSpace,
+
+  MSteps,
+  MStep,
+  MNotification,
+  MNotificationList,
+
+  MSkeleton,
+  MTimeline,
+  MTimelineItem,
+  MDescriptions,
+  MDescriptionsItem,
 };
 
 
@@ -141,4 +184,27 @@ export {
   MDatePicker,
   MTree,
   MTreeNode,
+  MTabs,
+  MTabPane,
+  MDropdown,
+  MDropdownItem,
+  MCollapse,
+  MCollapseItem,
+
+  MCard,
+  MAlert,
+  MBadge,
+  MEmpty,
+  MSpace,
+
+  MSteps,
+  MStep,
+  MNotification,
+  MNotificationList,
+
+  MSkeleton,
+  MTimeline,
+  MTimelineItem,
+  MDescriptions,
+  MDescriptionsItem,
 };
