@@ -2,7 +2,7 @@
  * @description dark mode api type
  * @author 阿怪
  * @date 2026/2/25
- * @version v1.0.0
+ * @version v1.1.0
  *
  * @name m-dark-mode
  * @docDescription Headless dark mode component.
@@ -13,13 +13,13 @@
 
 export declare type DarkModeProps = {
   /**
-   * @description 开关绑定值
+   * @description 开关绑定值（true = 暗色）
    * @type boolean
    * @default false
    */
   modelValue?: boolean;
   /**
-   * @description 自动初始化模式，根据系统媒体查询自动设置
+   * @description 自动初始化模式，跟随系统媒体查询
    * @type boolean
    * @default false
    */
@@ -30,9 +30,8 @@ export declare type DarkModeProps = {
    */
   initHandler?: () => boolean;
   /**
-   * @description 是否旋转
-   * @type boolean
-   * @default false
+   * @description localStorage 持久化 key，传入则启用持久化
+   * @type string
    */
-  isRotate?: boolean;
+  storageKey?: string;
 };
