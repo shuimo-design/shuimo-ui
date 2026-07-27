@@ -7,3 +7,10 @@ packages:
   - 'core/**'
   - 'headless/**'
   - '!cli/build/config/**'
+# pnpm 11 要求对每个带 build 脚本的依赖明确表态，否则 ERR_PNPM_IGNORED_BUILDS
+# 会同时阻断 install 和 run。这三个都不跑 build 脚本：lib 的构建与全量测试
+# 均在此前提下通过，将来哪个真需要原生产物再单独置 true。
+allowBuilds:
+  esbuild: false
+  ttf2woff2: false
+  unrs-resolver: false
