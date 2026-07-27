@@ -1,13 +1,14 @@
 :root{
   --m-input-w: 244px;
+  --m-input-h: 31px;
   --m-color-disabled: #a9a9a9;
 }
 
 .m-input{
   box-sizing: content-box;
   width: var(--m-input-w);
-  height: 31px;
-  line-height: 31px;
+  height: var(--m-input-h);
+  line-height: var(--m-input-h);
 
   &.m-input-disabled {
 
