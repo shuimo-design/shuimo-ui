@@ -7,8 +7,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, VNode } from 'vue';
-import usePopover from '../../../../lib/compositions/usePopover';
-import useBorder from '../../../../lib/compositions/useBorder';
+import usePopover from '../../../compositions/usePopover';
+import useBorder from '../../../compositions/useBorder';
 import { props } from './api.ts';
 import { useTooltip } from './useTooltip.ts';
 import './tooltip.css';

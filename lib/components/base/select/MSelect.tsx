@@ -23,8 +23,8 @@
  * todo : fix ts error
  */
 import { computed, defineComponent, h, ref, VNode, watch } from 'vue';
-import useBorder from '../../../../lib/compositions/useBorder';
-import usePopover from '../../../../lib/compositions/usePopover';
+import useBorder from '../../../compositions/useBorder';
+import usePopover from '../../../compositions/usePopover';
 import MTag from '../tag/MTag.tsx';
 import MDeleteIcon from '../../other/deleteIcon/MDeleteIcon.tsx';
 import { props } from './api.ts';

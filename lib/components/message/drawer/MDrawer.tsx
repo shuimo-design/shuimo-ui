@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { defineComponent, h } from 'vue';
-import useModel from '../../../../lib/compositions/useModel';
+import useModel from '../../../compositions/useModel';
 import { props } from './api.ts';
 import MBorder from '../../template/border/MBorder.tsx';
 import './drawer.css';

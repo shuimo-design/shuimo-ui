@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { createApp, h, VNode } from 'vue';
-import useModel from '../../../../lib/compositions/useModel';
+import useModel from '../../../compositions/useModel';
 import { ConfirmProps, IConfirm } from './index';
 import { useConfirm } from './useConfirm.ts';
 import { props } from './api.ts';
