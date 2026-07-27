@@ -140,6 +140,9 @@ export const run = async (
       cpLib('public'),
       cpLib('components'),
       cpLib('compositions'),
+      // 发布出去的 components/**/*.ts(x) 里有 8 处 import '../../../tools'，
+      // 不带上这个目录，使用方一开 TS 就是一片 TS2307
+      cpLib('tools'),
       cpLib('types'),
       cpLib('dist'),
       cpLib('index.ts'),
