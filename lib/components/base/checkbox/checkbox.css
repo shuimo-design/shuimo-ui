@@ -32,9 +32,14 @@
   display: inline-block;
 }
 
+/* place-self 显式钉在格子起点：这两个标记是靠 margin 相对格子左上角定位的，
+   不写的话对齐方式跟着容器的 align-items / justify-items 走，
+   使用方为了让标签文字跟方框居中而在 .m-checkbox 上加一句 align-items: center，
+   就会把 margin 的基准挪掉、标记跟着偏。 */
 .m-checkbox-checkbox-inner {
   cursor: var(--m-checkbox-pointer);
   grid-area: checkbox;
+  place-self: start;
   margin: 7px 0 0 6px;
   width: 12px;
   height: 10px;
@@ -44,6 +49,7 @@
 
 .m-checkbox-checkbox-indeterminate {
   grid-area: checkbox;
+  place-self: start;
   margin: 10px 0 0 6px;
   width: 12px;
   height: 10px;
